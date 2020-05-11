@@ -39,8 +39,8 @@ class CardProductQuantityComponent extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	child: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	quantityContainer: { backgroundColor: '#5D3EBD', padding: RFValue(4, 600) },
-	quantityButton: { color: '#5D3EBD', fontSize: RFValue(17, 600) },
+	quantityContainer: { backgroundColor: '#D000DB', padding: RFValue(4, 600) },
+	quantityButton: { color: '#D000DB', fontSize: RFValue(17, 600) },
 	quantityText: { color: 'white', fontSize: RFValue(17, 600) },
 	decreaseButton: { padding: RFValue(4, 600), borderTopLeftRadius: RFValue(10, 600), borderBottomLeftRadius: RFValue(10, 600) },
 	increaseButton: { padding: RFValue(4, 600), borderTopRightRadius: RFValue(10, 600), borderBottomRightRadius: RFValue(10, 600) },

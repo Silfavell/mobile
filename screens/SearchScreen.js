@@ -15,7 +15,7 @@ class SearchScreen extends React.PureComponent {
 	state = {
 		fetch: false,
 		products: [],
-		text: '',
+		text: ''
 	}
 
 	search = (text) => {
@@ -62,7 +62,7 @@ class SearchScreen extends React.PureComponent {
 			<ScrollView contentContainerStyle={styles.container} behavior="height">
 				<View style={styles.searchHeader}>
 					<View style={styles.iconContainer}>
-						<Ionicons name="md-search" size={32} color="#5D3EBD" />
+						<Ionicons name="md-search" size={32} color="#D000DB" />
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput

@@ -17,15 +17,15 @@ const LoadingComponent = () => (
 
 const styles = StyleSheet.create({
 	container: {
-		alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', display: 'flex', flex: 1,
+		alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', display: 'flex', flex: 1
 	},
 	center: { alignItems: 'center', justifyContent: 'center', flexDirection: 'column' },
 	text: {
 		fontSize: RFValue(23, 600),
 		paddingVertical: RFValue(30, 600),
 		fontWeight: 'bold',
-		color: '#5D3EBD',
-	},
+		color: '#D000DB'
+	}
 })
 
 export default LoadingComponent

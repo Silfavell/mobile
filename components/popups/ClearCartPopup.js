@@ -65,7 +65,7 @@ class ClearCartPopup extends React.PureComponent {
 const styles = StyleSheet.create({
 	footer: { height: RFValue(42, 600) },
 	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#5D3EBD' },
+	buttonYes: { backgroundColor: '#D000DB' },
 	buttonText: { color: 'white' },
 	title: { marginVertical: RFValue(6, 600) },
 	titleText: { textAlign: 'center', fontSize: RFValue(16, 600) },

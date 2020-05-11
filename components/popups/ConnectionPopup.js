@@ -45,7 +45,7 @@ class ConnectionPopup extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	footer: { height: RFValue(42, 600) },
-	buttonOk: { backgroundColor: '#5D3EBD' },
+	buttonOk: { backgroundColor: '#D000DB' },
 	buttonText: { color: 'white' },
 	content: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
 	contentImage: { height: RFValue(72, 600) },

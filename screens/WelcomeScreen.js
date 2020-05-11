@@ -6,13 +6,15 @@ import {
 
 import ButtonComponent from '../components/ButtonComponent'
 
+import icon from '../assets/icon.png'
+
 const WelcomeScreen = ({ navigation }) => (
 	<View style={styles.container}>
 		<View style={styles.empty} />
 		<View style={styles.child} />
 
 		<View style={[styles.child, styles.imageContainer]}>
-			<Image style={styles.image} resizeMode="contain" source={{ uri: 'https://www.getir.com/img/bimutluluk.png' }} />
+			<Image style={styles.image} resizeMode="contain" source={icon} />
 		</View>
 
 		<View style={styles.empty} />
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
 		flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row',
 	},
 	loginText: {
-		color: '#5D3EBD',
+		color: '#D000DB',
 		fontSize: RFValue(18, 600),
 		marginHorizontal: RFValue(10, 600),
 	},

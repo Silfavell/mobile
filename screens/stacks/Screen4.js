@@ -27,7 +27,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Diğer',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -138,7 +138,7 @@ class Screen4 extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#5D3EBD' },
+	headerStyle: { backgroundColor: '#D000DB' },
 })
 
 export default Screen4

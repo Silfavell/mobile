@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 	checkBoxContainer: { alignItems: 'flex-start', justifyContent: 'flex-start' },
 	checkBox: { backgroundColor: 'transparent' },
 	termsText: { color: 'black', fontSize: RFValue(16, 600), fontWeight: 'bold' },
-	termsLinkText: { color: '#5D3EBD', fontSize: RFValue(16, 600), fontWeight: 'bold' },
+	termsLinkText: { color: '#D000DB', fontSize: RFValue(16, 600), fontWeight: 'bold' },
 	termsTextContainer: { alignItems: 'center', justifyContent: 'center', flexDirection: 'row' },
 	termsInfoContainer: {
 		alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: RFValue(8, 600),

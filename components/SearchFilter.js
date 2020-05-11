@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderWidth: 0.4,
-		borderColor: '#5D3EBD',
+		borderColor: '#D000DB',
 		borderRadius: 8,
 	},
-	itemText: { color: '#5D3EBD', fontSize: RFValue(13, 600) },
+	itemText: { color: '#D000DB', fontSize: RFValue(13, 600) },
 })
 
 export default SearchFilter

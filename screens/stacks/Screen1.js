@@ -10,7 +10,7 @@ import FullProductScreen from '../FullProductScreen'
 
 import { setRootNavigation } from '../../actions/global-actions'
 
-import logo from '../../assets/logo.png'
+import logo from '../../assets/icon.png'
 
 const Stack = createStackNavigator()
 
@@ -29,7 +29,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					headerStyle: styles.headerStyle,
 					headerTitle: () => (
 						<View style={styles.headerTitle}>
-							<Image source={logo} resizeMode="contain" style={styles.headerImage} />
+							<Image source={logo} resizeMode="center" style={styles.headerImage} />
 						</View>
 					)
 				}}
@@ -63,11 +63,21 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 }
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#5D3EBD' },
+	headerStyle: { backgroundColor: '#D000DB' },
 	headerTitle: {
-		height: '100%', padding: RFValue(8, 600), backgroundColor: '#5D3EBD', display: 'flex'
+		height: '100%',
+		padding: RFValue(8, 600),
+		backgroundColor: 'white',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'column',
+		borderBottomWidth: 3,
+		borderBottomColor: '#D000DB'
 	},
-	headerImage: { flex: 1 }
+	headerImage: {
+		height: '200%'
+	}
 })
 
 const mapDispatchToProps = {

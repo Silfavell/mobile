@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-	ScrollView, View, TouchableOpacity, Text, AsyncStorage, StyleSheet,
+	ScrollView, View, TouchableOpacity, Text, AsyncStorage, StyleSheet
 } from 'react-native'
 import axios from 'axios'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -128,7 +128,7 @@ class LoginScreen extends React.Component {
 								size={32}
 								name="md-lock"
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#5D3EBD'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#D000DB'
 								}
 							/>
 						</InputIcon>
@@ -188,7 +188,7 @@ const mapStateToProps = ({
 	},
 	globalReducer: {
 		messagePopupRef
-	},
+	}
 }) => ({
 	cart,
 	token,

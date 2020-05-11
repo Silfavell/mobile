@@ -10,7 +10,7 @@ const CartIcon = ({ name, focused, cart }) => (
 			name={name}
 			size={28}
 			style={{ marginBottom: -3 }}
-			color={focused ? '#5D3EBD' : '#CCC'}
+			color={focused ? '#D000DB' : '#CCC'}
 		/>
 		{
 			Object.values(cart).length > 0 && (

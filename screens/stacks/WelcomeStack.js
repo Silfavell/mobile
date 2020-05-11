@@ -1,6 +1,6 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { View, Image, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 
 
@@ -10,8 +10,6 @@ import RegisterScreen from '../RegisterScreen'
 import ForgotPasswordScreen from '../ForgotPasswordScreen'
 import ResetPasswordScreen from '../ResetPasswordScreen'
 import ActivationScreen from '../ActivationScreen'
-
-import logo from '../../assets/logo.png'
 
 const Stack = createStackNavigator()
 
@@ -23,11 +21,7 @@ const WelcomeStack = () => (
 			options={{
 				headerTitleAlign: 'center',
 				headerStyle: styles.headerStyle,
-				headerTitle: () => (
-					<View style={styles.headerTitle}>
-						<Image source={logo} resizeMode="contain" style={styles.headerImage} />
-					</View>
-				),
+				headerShown: false
 			}}
 		/>
 
@@ -89,11 +83,21 @@ const WelcomeStack = () => (
 )
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#5D3EBD' },
+	headerStyle: { backgroundColor: '#D000DB' },
 	headerTitle: {
-		height: '100%', padding: RFValue(8, 600), backgroundColor: '#5D3EBD', display: 'flex'
+		height: '100%',
+		padding: RFValue(8, 600),
+		backgroundColor: 'white',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'column',
+		borderBottomWidth: 3,
+		borderBottomColor: '#D000DB'
 	},
-	headerImage: { flex: 1 }
+	headerImage: {
+		height: '200%'
+	}
 })
 
 export default WelcomeStack
