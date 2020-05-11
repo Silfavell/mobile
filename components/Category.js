@@ -12,7 +12,7 @@ const Category = ({
 	// eslint-disable-next-line no-shadow
 	data: { imagePath, name }, index, navigation, setSelectedCategory,
 }) => {
-	const imageUrl = `${SERVER_URL}/assets/categories/${imagePath}.jpg`
+	const imageUrl = `${SERVER_URL}/assets/categories-2/${imagePath}.jpg`
 
 	const onCategoryClick = () => {
 		setSelectedCategory(index)

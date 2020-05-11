@@ -15,7 +15,7 @@ class CardProduct extends React.PureComponent {
 			},
 		} = this.props
 
-		const url = `${SERVER_URL}/assets/products/${category}/${image}.png`
+		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
 
 		return (
 			<View style={styles.container}>

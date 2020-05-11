@@ -25,7 +25,7 @@ class Product extends React.PureComponent {
 			name, price, category, image
 		} = this.props.data
 
-		const url = `${SERVER_URL}/assets/products/${category}/${image}.png`
+		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
 
 		return (
 			<View style={styles.container}>

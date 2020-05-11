@@ -23,7 +23,7 @@ class ProductsScreen extends React.PureComponent {
 				renderTabBar={() => <ScrollableTabBar />}
 			>
 				{
-					categories.map((category) => <RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category._id]} />)
+					categories.map((category) => <RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category.imagePath]} />)
 				}
 			</ScrollableTabView>
 		)
