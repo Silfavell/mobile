@@ -10,7 +10,7 @@ const LanguageItem = ({ title, selected }) => (
 		</View>
 		<View style={styles.rightIconContainer}>
 			{
-				selected ? <Ionicons color="#4522A0" name="md-checkmark" size={32} /> : <View style={styles.empty} />
+				selected ? <Ionicons color="#D000DB" name="md-checkmark" size={32} /> : <View style={styles.empty} />
 			}
 		</View>
 	</View>
