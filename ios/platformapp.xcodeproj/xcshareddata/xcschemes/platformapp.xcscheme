@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "platformapp.app"
-               BlueprintName = "platformapp"
-               ReferencedContainer = "container:platformapp.xcodeproj">
+               BuildableName = "bloom.app"
+               BlueprintName = "bloom"
+               ReferencedContainer = "container:bloom.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "platformappTests.xctest"
-               BlueprintName = "platformappTests"
-               ReferencedContainer = "container:platformapp.xcodeproj">
+               BuildableName = "bloomTests.xctest"
+               BlueprintName = "bloomTests"
+               ReferencedContainer = "container:bloom.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "platformapp.app"
-            BlueprintName = "platformapp"
-            ReferencedContainer = "container:platformapp.xcodeproj">
+            BuildableName = "bloom.app"
+            BlueprintName = "bloom"
+            ReferencedContainer = "container:bloom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "platformapp.app"
-            BlueprintName = "platformapp"
-            ReferencedContainer = "container:platformapp.xcodeproj">
+            BuildableName = "bloom.app"
+            BlueprintName = "bloom"
+            ReferencedContainer = "container:bloom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

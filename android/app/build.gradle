@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.platformapp"
+        applicationId "com.bloom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

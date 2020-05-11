@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "platformapp-tvOS.app"
-               BlueprintName = "platformapp-tvOS"
-               ReferencedContainer = "container:platformapp.xcodeproj">
+               BuildableName = "bloom-tvOS.app"
+               BlueprintName = "bloom-tvOS"
+               ReferencedContainer = "container:bloom.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "platformapp-tvOSTests.xctest"
-               BlueprintName = "platformapp-tvOSTests"
-               ReferencedContainer = "container:platformapp.xcodeproj">
+               BuildableName = "bloom-tvOSTests.xctest"
+               BlueprintName = "bloom-tvOSTests"
+               ReferencedContainer = "container:bloom.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "platformapp-tvOS.app"
-            BlueprintName = "platformapp-tvOS"
-            ReferencedContainer = "container:platformapp.xcodeproj">
+            BuildableName = "bloom-tvOS.app"
+            BlueprintName = "bloom-tvOS"
+            ReferencedContainer = "container:bloom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "platformapp-tvOS.app"
-            BlueprintName = "platformapp-tvOS"
-            ReferencedContainer = "container:platformapp.xcodeproj">
+            BuildableName = "bloom-tvOS.app"
+            BlueprintName = "bloom-tvOS"
+            ReferencedContainer = "container:bloom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,8 +1,8 @@
 {
-  "name": "platformapp",
-  "displayName": "Platform App",
-  "scheme": "platformapp",
-  "slug": "platform_app",
+  "name": "bloom",
+  "displayName": "bloom",
+  "scheme": "bloom",
+  "slug": "bloom",
   "privacy": "public",
   "sdkVersion": "36.0.0",
   "platforms": [
@@ -25,11 +25,11 @@
     "**/*"
   ],
   "ios": {
-    "bundleIdentifier": "com.muhammetipek.platformapp",
+    "bundleIdentifier": "com.bloom.bloom",
     "buildNumber": "1.0.0"
   },
   "android": {
-    "package": "com.muhammetipek.platformapp",
+    "package": "com.bloom.bloom",
     "versionCode": 1,
     "config": {
       "googleMaps": {
