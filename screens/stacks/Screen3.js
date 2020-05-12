@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { createStackNavigator, CardStyleInterpolators, HeaderBackButton } from '@react-navigation/stack'
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 
 
 import CartScreen from '../CartScreen'
@@ -72,7 +72,6 @@ const Screen3 = ({ navigation }) => (
 			name="paymentOptionsScreen"
 			component={PaymentOptionsScreen}
 			options={{
-				headerLeft: () => <HeaderBackButton tintColor="white" onPress={navigation.goBack} />,
 				title: 'Ödeme Yöntemlerim',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
@@ -95,7 +94,6 @@ const Screen3 = ({ navigation }) => (
 			name="addresses"
 			component={AddressesScreen}
 			options={{
-				headerLeft: () => <HeaderBackButton tintColor="white" onPress={navigation.goBack} />,
 				title: 'Adreslerim',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',

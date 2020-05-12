@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { createStackNavigator, HeaderBackButton, CardStyleInterpolators } from '@react-navigation/stack'
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 
 
 import ProfileScreen from '../ProfileScreen'
@@ -46,7 +46,6 @@ class Screen4 extends React.PureComponent {
 					name="addresses"
 					component={AddressesScreen}
 					options={{
-						headerLeft: () => <HeaderBackButton tintColor="white" onPress={this.props.navigation.goBack} />,
 						title: 'Adreslerim',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
@@ -91,7 +90,6 @@ class Screen4 extends React.PureComponent {
 					name="paymentOptionsScreen"
 					component={PaymentOptionsScreen}
 					options={{
-						headerLeft: () => <HeaderBackButton tintColor="white" onPress={this.props.navigation.goBack} />,
 						title: 'Ödeme Yöntemlerim',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
