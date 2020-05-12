@@ -88,7 +88,7 @@ class SearchAddressScreen extends React.PureComponent {
 					}}
 					>
 						<Ionicons size={32} name="md-locate" color="#5E3FBE" />
-						<Text style={{ flex: 1, paddingHorizontal: RFValue(16, 600), fontSize: 17 }}>Şuanki konumu kullan</Text>
+						<Text style={{ flex: 1, paddingHorizontal: RFValue(16, 600), fontSize: 17 }}>Bulunduğum konumu kullan</Text>
 					</View>
 				</TouchableOpacity>
 

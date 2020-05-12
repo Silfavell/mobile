@@ -12,7 +12,7 @@ const getLocationAsync = () => (
 			resolve(position)
 		}, (error) => {
 			reject(error)
-		}, { enableHighAccuracy: true })
+		}, { enableHighAccuracy: false })
 	})
 )
 
