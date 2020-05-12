@@ -19,7 +19,8 @@ class FullProductScreen extends React.PureComponent {
 			name, price, category, image,
 		} = this.props.route.params
 
-		const url = `${SERVER_URL}/assets/original-products/${category}/${image}.png`
+		// const url = `${SERVER_URL}/assets/original-products/${category}/${image}.png` // TODO
+		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
 
 		return (
 			<View style={styles.container}>
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
 	imageContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 	image: { width: '80%', aspectRatio: 1 },
 	details: { flex: 1, flexDirection: 'column' },
-	price: { fontSize: RFValue(26, 600), fontWeight: '700', color: '#5837C2' },
+	price: { fontSize: RFValue(26, 600), fontWeight: '700', color: '#DB0099' },
 	productName: { fontSize: RFValue(22, 600), textAlign: 'center' },
 	buttonContainer: {
 		position: 'absolute', bottom: 0, width: '100%', backgroundColor: 'white'

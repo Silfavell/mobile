@@ -134,7 +134,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name="md-lock"
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#D000DB'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#DB0099'
 								}
 							/>
 						</InputIcon>
@@ -156,7 +156,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name="md-person"
 								color={
-									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? 'red' : '#D000DB'
+									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? 'red' : '#DB0099'
 								}
 							/>
 						</InputIcon>
@@ -179,7 +179,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name="md-mail-open"
 								color={
-									this.state.invalidEmail && this.state.isEmailInitialized ? 'red' : '#D000DB'
+									this.state.invalidEmail && this.state.isEmailInitialized ? 'red' : '#DB0099'
 								}
 							/>
 						</InputIcon>
@@ -201,10 +201,10 @@ class RegisterScreen extends React.PureComponent {
 						//      <View style={{ alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: RFValue(8, 600) }}>
 						//          <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
 						//              <Text style={{ color: 'black', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>I give permissions for the use of my personal data for special offers and for receiving electronic communication, within the scope of The Law on Protection of Personal Data clarification document.</Text>
-						//              <Text style={{ color: '#D000DB', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>the Terms and</Text>
+						//              <Text style={{ color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>the Terms and</Text>
 						//          </View>
 						//          <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-						//              <Text style={{ color: '#D000DB', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>Conditions.</Text>
+						//              <Text style={{ color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>Conditions.</Text>
 						//          </View>
 						//      </View>
 						//  </View>
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
 	checkBoxContainer: { alignItems: 'flex-start', justifyContent: 'flex-start' },
 	checkBox: { backgroundColor: 'transparent' },
 	termsText: { color: 'black', fontSize: RFValue(16, 600), fontWeight: 'bold' },
-	termsLinkText: { color: '#D000DB', fontSize: RFValue(16, 600), fontWeight: 'bold' },
+	termsLinkText: { color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold' },
 	termsTextContainer: { alignItems: 'center', justifyContent: 'center', flexDirection: 'row' },
 	termsInfoContainer: {
 		alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: RFValue(8, 600)

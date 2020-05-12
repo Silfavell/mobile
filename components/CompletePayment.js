@@ -11,6 +11,7 @@ import { setNeedToLoginPopupState } from '../actions/global-actions'
 class CompletePaymentComponent extends React.PureComponent {
 	onCompletePaymentClick = () => {
 		const {
+			// eslint-disable-next-line no-shadow
 			completable, token, navigation, makeOrder, selectedCard, selectedAddress, messagePopupRef, setNeedToLoginPopupState,
 		} = this.props
 
@@ -56,19 +57,21 @@ class CompletePaymentComponent extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	centeredContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+	centeredContainer: {
+		flex: 1, alignItems: 'center', justifyContent: 'center'
+	},
 	completePaymentContainer: {
 		position: 'absolute',
 		bottom: 0,
 		width: '100%',
 		height: RFValue(65, 600),
-		backgroundColor: '#4CAB51',
+		backgroundColor: '#E04299',
 		flexDirection: 'row',
 	},
 	completePaymentButton: {
 		flex: 1,
 		padding: RFValue(20, 600),
-		backgroundColor: '#3D8B40',
+		backgroundColor: '#DB0099',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

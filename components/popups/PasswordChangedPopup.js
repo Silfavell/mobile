@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 	text: {
 		fontSize: RFValue(16, 600), fontWeight: 'bold', marginTop: RFValue(12, 600), marginBottom: -6,
 	},
-	button: { backgroundColor: '#D000DB' },
+	button: { backgroundColor: '#DB0099' },
 	buttonText: { color: 'white' },
 })
 

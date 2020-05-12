@@ -128,7 +128,7 @@ class LoginScreen extends React.Component {
 								size={32}
 								name="md-lock"
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#D000DB'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#DB0099'
 								}
 							/>
 						</InputIcon>

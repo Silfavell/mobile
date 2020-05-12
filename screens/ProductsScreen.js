@@ -15,7 +15,7 @@ class ProductsScreen extends React.PureComponent {
 		return (
 			<ScrollableTabView
 				initialPage={selectedCategory}
-				tabBarBackgroundColor="#7849F7"
+				tabBarBackgroundColor="#E04299"
 				tabBarTextStyle={styles.tabBarTextStyle}
 				tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 				scrollWithoutAnimation

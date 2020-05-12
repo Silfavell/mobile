@@ -55,7 +55,7 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
 const styles = StyleSheet.create({
 	footer: { height: RFValue(42, 600) },
 	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#D000DB' },
+	buttonYes: { backgroundColor: '#DB0099' },
 	buttonText: { color: 'white' },
 	content: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
 	contentImage: { height: RFValue(92, 600) },

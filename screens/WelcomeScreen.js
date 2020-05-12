@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 		flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row',
 	},
 	loginText: {
-		color: '#D000DB',
+		color: '#DB0099',
 		fontSize: RFValue(18, 600),
 		marginHorizontal: RFValue(10, 600),
 	},

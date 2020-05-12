@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
 	emptyCartText: { fontSize: RFValue(18, 600), textAlign: 'center', color: '#454545' },
 	listProductsButtonContainer: { display: 'flex' },
 	listProducts: {
-		backgroundColor: '#D000DB',
+		backgroundColor: '#DB0099',
 		borderRadius: 32,
 		alignItems: 'center',
 		justifyContent: 'center',

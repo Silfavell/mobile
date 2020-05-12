@@ -16,7 +16,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 	navigation.setOptions({ headerTitle: getHeaderTitle(route), headerShown: false })
 
 	return (
-		<BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME} tabBarOptions={{ activeTintColor: '#D000DB' }} lazy={false}>
+		<BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME} tabBarOptions={{ activeTintColor: '#DB0099' }} lazy={false}>
 
 			<BottomTab.Screen
 				name="Home"

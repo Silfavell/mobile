@@ -55,7 +55,7 @@ class DeleteCardPopup extends React.PureComponent {
 const styles = StyleSheet.create({
 	footer: { height: RFValue(42, 600) },
 	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#D000DB' },
+	buttonYes: { backgroundColor: '#DB0099' },
 	buttonText: { color: 'white' },
 	title: { marginVertical: RFValue(8, 600) },
 	titleText: { textAlign: 'center' },

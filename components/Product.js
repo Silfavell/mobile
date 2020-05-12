@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 		elevation: 4
 	},
 	addProductIcon: {
-		color: '#5837C2',
+		color: '#DB0099',
 		fontSize: RFValue(23, 600)
 	},
 	productImageContainer: {
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 	productPrice: {
 		fontSize: RFPercentage(2.9),
 		fontWeight: '700',
-		color: '#5837C2',
+		color: '#DB0099',
 		textAlign: 'left',
 		justifyContent: 'center'
 	}

@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
 		fontSize: RFPercentage(2.6), fontWeight: '700', color: '#454545', textAlign: 'justify', justifyContent: 'center'
 	},
 	productPrice: {
-		fontSize: RFPercentage(3.1), fontWeight: '700', color: '#5439B3', textAlign: 'center', justifyContent: 'center'
+		fontSize: RFPercentage(3.1), fontWeight: '700', color: '#DB0099', textAlign: 'center', justifyContent: 'center'
 	},
 	imageContainer: {
 		padding: RFValue(4, 600),

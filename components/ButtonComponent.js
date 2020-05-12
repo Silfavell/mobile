@@ -38,16 +38,16 @@ const styles = StyleSheet.create({
 	container: { height: RFValue(60, 600), margin: RFValue(3, 600) },
 	needFlex: { flex: 1 },
 	button: {
-		backgroundColor: '#D000DB',
+		backgroundColor: '#DB0099',
 		borderWidth: 1,
-		borderColor: '#D000DB',
+		borderColor: '#DB0099',
 		flex: 1,
 		margin: RFValue(4, 600),
 		borderRadius: 6,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	opposite: { backgroundColor: 'white', color: '#D000DB' },
+	opposite: { backgroundColor: 'white', color: '#DB0099' },
 	text: { color: 'white', fontSize: RFValue(18, 600) },
 	disabled: { opacity: 0.65 }
 })

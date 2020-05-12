@@ -13,7 +13,7 @@ const SettingItem = ({ children: icon, title, version }) => (
 		</View>
 		<View style={styles.rightIconContainer}>
 			{
-				version ? <View style={styles.empty} /> : <MaterialIcons color="#D000DB" name="chevron-right" size={32} />
+				version ? <View style={styles.empty} /> : <MaterialIcons color="#DB0099" name="chevron-right" size={32} />
 			}
 		</View>
 	</View>

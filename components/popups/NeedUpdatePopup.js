@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 	content: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
 	text: { fontSize: RFValue(17, 600), fontWeight: 'bold', marginBottom: -6 },
 	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#D000DB' },
+	buttonYes: { backgroundColor: '#DB0099' },
 	buttonText: { color: 'white' },
 })
 

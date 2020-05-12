@@ -63,7 +63,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 }
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#D000DB' },
+	headerStyle: { backgroundColor: '#DB0099' },
 	headerTitle: {
 		height: '100%',
 		padding: RFValue(8, 600),
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		flexDirection: 'column',
 		borderBottomWidth: 3,
-		borderBottomColor: '#D000DB'
+		borderBottomColor: '#DB0099'
 	},
 	headerImage: {
 		height: '200%'

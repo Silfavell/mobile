@@ -34,8 +34,8 @@ class AddressList extends React.PureComponent {
 				this.setPopupState({ scaleAnimationModal: true, addressId: address._id })
 			}}
 		>
-			<Ionicons color="#D000DB" name="md-locate" size={32} />
-			<Ionicons color="#D000DB" name="md-trash" size={32} />
+			<Ionicons color="#DB0099" name="md-locate" size={32} />
+			<Ionicons color="#DB0099" name="md-trash" size={32} />
 		</InteractiveSettingItem>
 	)
 

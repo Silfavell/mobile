@@ -53,7 +53,7 @@ class NeedToLoginPopup extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	footer: { height: RFValue(42, 600) },
-	buttonOk: { backgroundColor: '#D000DB' },
+	buttonOk: { backgroundColor: '#DB0099' },
 	buttonText: { color: 'white' },
 	title: { marginVertical: RFValue(8, 600) },
 	titleText: { textAlign: 'center', fontSize: 16 },

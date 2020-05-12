@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const HeaderAddressInput = ({ address }) => (
 	<View style={styles.container}>
-		<Ionicons name="md-pin" size={32} color="#D000DB" />
+		<Ionicons name="md-pin" size={32} color="#DB0099" />
 		<TextInput style={styles.input} value={address} />
 	</View>
 )

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 		fontSize: RFValue(32, 600),
 		paddingVertical: RFValue(30, 600),
 		fontWeight: 'bold',
-		color: '#D000DB'
+		color: '#DB0099'
 	}
 })
 
