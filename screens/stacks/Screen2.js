@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 
 import SearchScreen from '../SearchScreen'
+import FullProductScreen from '../FullProductScreen'
 
 const Stack = createStackNavigator()
 
@@ -17,6 +18,18 @@ const Screen2 = () => (
 				headerStyle: styles.headerStyle
 			}}
 			component={SearchScreen}
+		/>
+
+		<Stack.Screen
+			name="fullProductScreen"
+			options={{
+				title: 'Ürün detayı',
+				headerTitleAlign: 'center',
+				headerTintColor: 'white',
+				headerStyle: styles.headerStyle
+			}}
+
+			component={FullProductScreen}
 		/>
 	</Stack.Navigator>
 )
