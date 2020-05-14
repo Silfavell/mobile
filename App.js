@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppState, AsyncStorage } from 'react-native'
+import { AppState, AsyncStorage, StatusBar } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -54,6 +54,7 @@ export default function App() {
 
 	return (
 		<Provider store={store}>
+			<StatusBar backgroundColor="#DB0099" barStyle="light-content" />
 			<GlobalScreen />
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Loading">
