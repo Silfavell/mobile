@@ -27,7 +27,11 @@ const styles = StyleSheet.create({
 		shadowRadius: 24,
 		elevation: 3
 	},
-	title: { color: '#A8A8A8', fontSize: RFValue(17, 600), fontWeight: 'bold' }
+	title: {
+		color: '#A8A8A8',
+		fontSize: RFValue(17, 600),
+		fontWeight: 'bold'
+	}
 })
 
 export default HeadingDivider

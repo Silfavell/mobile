@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
 		padding: RFPercentage(0.8),
 		margin: RFPercentage(0.8),
 		zIndex: -1,
-		backgroundColor: 'transparent',
-	},
+		backgroundColor: 'transparent'
+	}
 })
 
 export default EmptyCategory

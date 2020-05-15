@@ -1,7 +1,10 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, TouchableOpacity, Text, StyleSheet,
+	View,
+	TouchableOpacity,
+	Text,
+	StyleSheet
 } from 'react-native'
 
 const InteractiveSettingItem = ({
@@ -30,12 +33,25 @@ const styles = StyleSheet.create({
 		borderBottomColor: '#D2D2D2',
 		marginHorizontal: RFValue(6, 600),
 	},
-	iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
-	titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },
-	title: {
-		marginHorizontal: RFValue(4, 600), fontSize: RFValue(16, 600),
+	iconContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		flex: 1
 	},
-	rightIconContainer: { alignItems: 'flex-end', justifyContent: 'center', flex: 1 },
+	titleContainer: {
+		alignItems: 'flex-start',
+		flex: 6,
+		justifyContent: 'center'
+	},
+	title: {
+		marginHorizontal: RFValue(4, 600),
+		fontSize: RFValue(16, 600),
+	},
+	rightIconContainer: {
+		alignItems: 'flex-end',
+		justifyContent: 'center',
+		flex: 1
+	}
 })
 
 export default InteractiveSettingItem

@@ -7,16 +7,20 @@ import CompletePayment from '../components/CompletePayment'
 import AddressSelectComponent from '../components/CompletePaymentComponents/AddressSelectComponent'
 import PaymentTypeSelectComponent from '../components/CompletePaymentComponents/PaymentTypeSelectComponent'
 import ShadowContainer from '../components/ShadowContainer'
-//  import OrderTimeComponent from '../components/CompletePaymentComponents/OrderTimeComponent'
-//  import OrderNoteComponent from '../components/CompletePaymentComponents/OrderNoteComponent'
 
 import { setNeedToLoginPopupState } from '../actions/global-actions'
 
 class CompletePaymentScreen extends React.PureComponent {
 	render() {
 		const {
+			navigation,
+			cards,
+			addresses,
+			selectedCard,
+			selectedAddress,
+			token,
 			// eslint-disable-next-line no-shadow
-			navigation, cards, addresses, selectedCard, selectedAddress, token, setNeedToLoginPopupState,
+			setNeedToLoginPopupState
 		} = this.props
 
 		return (
@@ -42,12 +46,6 @@ class CompletePaymentScreen extends React.PureComponent {
 						subTitle={(cards.find((card) => card.cardToken === selectedCard))?.cardNumber ?? 'Kart Seçiniz'}
 					/>
 
-					{
-						//  <HeadingDivider title={'Gönderim Zamanı'} />
-						//  <OrderTimeComponent />
-						//  <HeadingDivider title={'Sipariş Notu'} />
-						//  <OrderNoteComponent />
-					}
 				</ShadowContainer>
 
 				<CompletePayment
@@ -68,7 +66,7 @@ const mapStateToProps = ({
 	},
 	reducer4: {
 		token
-	},
+	}
 }) => ({
 	cards,
 	addresses,

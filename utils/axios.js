@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from 'axios'
 
 import { SET_CONNECTION_POPUP_STATE } from '../actions/global-actions'
@@ -9,8 +10,8 @@ export default (store) => {
 			store.dispatch({
 				type: SET_CONNECTION_POPUP_STATE,
 				payload: {
-					connectionPopupState: true,
-				},
+					connectionPopupState: true
+				}
 			})
 			// throw new Error('Network Error')
 		} else {

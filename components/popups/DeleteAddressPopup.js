@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { StyleSheet } from 'react-native'
-import Modal, { ModalTitle, ModalButton, ModalFooter } from 'react-native-modals'
+import Modal, {
+	ModalTitle,
+	ModalButton,
+	ModalFooter
+} from 'react-native-modals'
 
 class DeleteAddressPopup extends React.PureComponent {
 	close = () => {
@@ -53,12 +57,24 @@ class DeleteAddressPopup extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	footer: { height: RFValue(42, 600) },
-	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#DB0099' },
-	buttonText: { color: 'white' },
-	title: { marginVertical: RFValue(8, 600) },
-	titleText: { textAlign: 'center' },
+	footer: {
+		height: RFValue(42, 600)
+	},
+	buttonNo: {
+		backgroundColor: '#697488'
+	},
+	buttonYes: {
+		backgroundColor: '#DB0099'
+	},
+	buttonText: {
+		color: 'white'
+	},
+	title: {
+		marginVertical: RFValue(8, 600)
+	},
+	titleText: {
+		textAlign: 'center'
+	}
 })
 
 export default DeleteAddressPopup

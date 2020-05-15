@@ -6,7 +6,6 @@ import Category from '../components/Category'
 import EmptyCategory from '../components/EmptyCategory'
 import Slider from '../components/Slider'
 
-
 const formatData = (data, numColumns) => {
 	const numberOfFullRows = Math.floor(data.length / numColumns)
 
@@ -19,7 +18,6 @@ const formatData = (data, numColumns) => {
 
 	return data
 }
-
 
 class HomeScreen extends React.PureComponent {
 	keyExtractor = (item) => item._id
@@ -42,10 +40,10 @@ class HomeScreen extends React.PureComponent {
 
 const mapStateToProps = ({
 	reducer4: {
-		categories,
-	},
+		categories
+	}
 }) => ({
-	categories,
+	categories
 })
 
 export default connect(mapStateToProps)(HomeScreen)

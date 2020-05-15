@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, FlatList, TouchableOpacity, Text, StyleSheet,
+	View,
+	FlatList,
+	TouchableOpacity,
+	Text,
+	StyleSheet
 } from 'react-native'
 
 class SearchFilter extends React.PureComponent {
@@ -21,7 +25,7 @@ class SearchFilter extends React.PureComponent {
 	)
 
 	// eslint-disable-next-line no-unused-vars
-	keyExtractor = (_, index) => `most_searched${Math.random()}`
+	keyExtractor = (_, index) => `most_searched${index}`
 
 	render() {
 		return (
@@ -42,7 +46,7 @@ class SearchFilter extends React.PureComponent {
 const styles = StyleSheet.create({
 	list: {
 		height: 48,
-		backgroundColor: 'white',
+		backgroundColor: 'white'
 	},
 	mostSearchedItem: {
 		paddingHorizontal: RFValue(12, 600),
@@ -53,9 +57,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		borderWidth: 0.4,
 		borderColor: '#DB0099',
-		borderRadius: 8,
+		borderRadius: 8
 	},
-	itemText: { color: '#DB0099', fontSize: RFValue(13, 600) },
+	itemText: {
+		color: '#DB0099',
+		fontSize: RFValue(13, 600)
+	}
 })
 
 export default SearchFilter

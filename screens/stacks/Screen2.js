@@ -1,6 +1,11 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
+import {
+	StyleSheet
+} from 'react-native'
+import {
+	createStackNavigator,
+	CardStyleInterpolators
+} from '@react-navigation/stack'
 
 import SearchScreen from '../SearchScreen'
 import FullProductScreen from '../FullProductScreen'

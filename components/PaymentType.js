@@ -1,7 +1,10 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, TouchableOpacity, Text, StyleSheet
+	View,
+	TouchableOpacity,
+	Text,
+	StyleSheet
 } from 'react-native'
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -9,8 +12,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { setPaymentType } from '../actions/actions2'
 
 const PaymentType = ({
+	Id,
+	title,
+	detail,
+	icon,
+	navigation,
 	// eslint-disable-next-line no-shadow
-	Id, title, detail, icon, setPaymentType, navigation
+	setPaymentType
 }) => {
 	const onPaymentTypeClick = () => {
 		setPaymentType(Id)
@@ -65,7 +73,7 @@ const styles = StyleSheet.create({
 	paymentDetail: {
 		fontSize: RFValue(14, 600),
 		marginVertical: RFValue(4, 600)
-	},
+	}
 })
 
 const mapDispatchToProps = {

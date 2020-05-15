@@ -1,7 +1,9 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, Image, StyleSheet
+	View,
+	Image,
+	StyleSheet
 } from 'react-native'
 
 import ConfirmAccuratePinPopup from '../../components/popups/ConfirmAccuratePinPopup'
@@ -14,7 +16,7 @@ import markerIcon from '../../assets/map-marker.png'
 
 class PinAddressScreen extends React.PureComponent {
 	state = {
-		scaleAnimationModal: false,
+		scaleAnimationModal: false
 	}
 
 	setPopupState = (scaleAnimationModal, navigate, region) => {
@@ -54,10 +56,10 @@ class PinAddressScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1, left: 0, right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'center',
+		flex: 1, left: 0, right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'center'
 	},
 	markerContainer: {
-		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: RFValue(2, 600),
+		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: RFValue(2, 600)
 	},
 	marker: { width: 48, height: 48 },
 	buttonContainer: {
@@ -72,8 +74,8 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		paddingHorizontal: RFValue(24, 600),
-		paddingVertical: RFValue(24, 600),
-	},
+		paddingVertical: RFValue(24, 600)
+	}
 })
 
 export default PinAddressScreen

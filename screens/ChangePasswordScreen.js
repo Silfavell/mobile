@@ -21,7 +21,7 @@ class ChangePasswordScreen extends React.PureComponent {
 		invalidPassword: false,
 
 		isOldPasswordInitialized: false,
-		isPasswordInitialized: false,
+		isPasswordInitialized: false
 	}
 
 	setPopupState = (state) => {
@@ -52,15 +52,21 @@ class ChangePasswordScreen extends React.PureComponent {
 	}
 
 	onOldPasswordChange = (oldPassword) => {
-		joi.string().alphanum().min(4).validate(oldPassword, (err) => {
-			this.setState({ oldPassword, isOldPasswordInitialized: true, invalidOldPassword: !!err })
-		})
+		joi.string()
+			.alphanum()
+			.min(4)
+			.validate(oldPassword, (err) => {
+				this.setState({ oldPassword, isOldPasswordInitialized: true, invalidOldPassword: !!err })
+			})
 	}
 
 	onPasswordChange = (password) => {
-		joi.string().alphanum().min(4).validate(password, (err) => {
-			this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
-		})
+		joi.string()
+			.alphanum()
+			.min(4)
+			.validate(password, (err) => {
+				this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
+			})
 	}
 
 	render() {
@@ -109,10 +115,10 @@ class ChangePasswordScreen extends React.PureComponent {
 
 const mapStateToProps = ({
 	globalReducer: {
-		messagePopupRef,
-	},
+		messagePopupRef
+	}
 }) => ({
-	messagePopupRef,
+	messagePopupRef
 })
 
 export default connect(mapStateToProps)(ChangePasswordScreen)

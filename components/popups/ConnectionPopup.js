@@ -2,7 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { Image, Text, StyleSheet } from 'react-native'
-import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import Modal, {
+	ModalButton,
+	ModalFooter,
+	ModalContent
+} from 'react-native-modals'
 
 import { setConnectionPopupState } from '../../actions/global-actions'
 
@@ -44,26 +48,42 @@ class ConnectionPopup extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	footer: { height: RFValue(42, 600) },
-	buttonOk: { backgroundColor: '#DB0099' },
-	buttonText: { color: 'white' },
-	content: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-	contentImage: { height: RFValue(72, 600) },
-	contentText: {
-		fontSize: RFValue(16, 600), fontWeight: 'bold', marginTop: RFValue(12, 600), marginBottom: -6, textAlign: 'center',
+	footer: {
+		height: RFValue(42, 600)
 	},
+	buttonOk: {
+		backgroundColor: '#DB0099'
+	},
+	buttonText: {
+		color: 'white'
+	},
+	content: {
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	contentImage: {
+		height: RFValue(72, 600)
+	},
+	contentText: {
+		fontSize: RFValue(16, 600),
+		fontWeight: 'bold',
+		marginTop: RFValue(12, 600),
+		marginBottom: -6,
+		textAlign: 'center'
+	}
 })
 
 const mapStateToProps = ({
 	globalReducer: {
-		connectionPopupState,
-	},
+		connectionPopupState
+	}
 }) => ({
-	connectionPopupState,
+	connectionPopupState
 })
 
 const mapDispatchToProps = {
-	setConnectionPopupState,
+	setConnectionPopupState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectionPopup)

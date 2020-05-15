@@ -1,7 +1,15 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { Image, Text, StyleSheet } from 'react-native'
-import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import {
+	Image,
+	Text,
+	StyleSheet
+} from 'react-native'
+import Modal, {
+	ModalButton,
+	ModalFooter,
+	ModalContent
+} from 'react-native-modals'
 
 import verifyImage from '../../assets/verify-image.jpeg'
 
@@ -41,14 +49,29 @@ class PasswordChangedPopup extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	footer: { height: RFValue(42, 600) },
-	content: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-	image: { height: RFValue(72, 600) },
-	text: {
-		fontSize: RFValue(16, 600), fontWeight: 'bold', marginTop: RFValue(12, 600), marginBottom: -6,
+	footer: {
+		height: RFValue(42, 600)
 	},
-	button: { backgroundColor: '#DB0099' },
-	buttonText: { color: 'white' },
+	content: {
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	image: {
+		height: RFValue(72, 600)
+	},
+	text: {
+		fontSize: RFValue(16, 600),
+		fontWeight: 'bold',
+		marginTop: RFValue(12, 600),
+		marginBottom: -6
+	},
+	button: {
+		backgroundColor: '#DB0099'
+	},
+	buttonText: {
+		color: 'white'
+	}
 })
 
 export default PasswordChangedPopup

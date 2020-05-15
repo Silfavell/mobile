@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, TouchableOpacity, Text, StyleSheet, Image,
+	View,
+	TouchableOpacity,
+	Text,
+	StyleSheet,
+	Image
 } from 'react-native'
 
 import ButtonComponent from '../components/ButtonComponent'
@@ -47,23 +51,48 @@ const WelcomeScreen = ({ navigation }) => (
 )
 
 const styles = StyleSheet.create({
-	container: { flex: 1, flexDirection: 'column' },
-	empty: { flex: 0.9 },
-	imageContainer: {
-		flex: 4.2, alignItems: 'center', justifyContent: 'center', flexDirection: 'row',
+	container: {
+		flex: 1,
+		flexDirection: 'column'
 	},
-	image: { flex: 1, borderWidth: 1, height: '100%' },
-	child: { flex: 1, margin: RFValue(5, 600) },
-	continueWithRegistration: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	buttonText: { color: '#6E7586', fontSize: RFValue(20, 600) },
+	empty: {
+		flex: 0.9
+	},
+	imageContainer: {
+		flex: 4.2,
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row'
+	},
+	image: {
+		flex: 1,
+		borderWidth: 1,
+		height: '100%'
+	},
+	child: {
+		flex: 1,
+		margin: RFValue(5, 600)
+	},
+	continueWithRegistration: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	buttonText: {
+		color: '#6E7586',
+		fontSize: RFValue(20, 600)
+	},
 	goToLoginPageContainer: {
-		flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row',
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row'
 	},
 	loginText: {
 		color: '#DB0099',
 		fontSize: RFValue(18, 600),
-		marginHorizontal: RFValue(10, 600),
-	},
+		marginHorizontal: RFValue(10, 600)
+	}
 })
 
 export default WelcomeScreen

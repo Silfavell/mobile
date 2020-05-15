@@ -1,6 +1,13 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import {
+	Text,
+	StyleSheet
+} from 'react-native'
+import Modal, {
+	ModalButton,
+	ModalFooter,
+	ModalContent
+} from 'react-native-modals'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 //  import { expo } from '../../app.json'
@@ -58,12 +65,28 @@ class NeedUpdatePopup extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	footer: { height: RFValue(42, 600) },
-	content: { backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
-	text: { fontSize: RFValue(17, 600), fontWeight: 'bold', marginBottom: -6 },
-	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#DB0099' },
-	buttonText: { color: 'white' },
+	footer: {
+		height: RFValue(42, 600)
+	},
+	content: {
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	text: {
+		fontSize: RFValue(17, 600),
+		fontWeight: 'bold',
+		marginBottom: -6
+	},
+	buttonNo: {
+		backgroundColor: '#697488'
+	},
+	buttonYes: {
+		backgroundColor: '#DB0099'
+	},
+	buttonText: {
+		color: 'white'
+	}
 })
 
 export default NeedUpdatePopup

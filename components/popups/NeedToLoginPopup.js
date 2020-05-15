@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { StyleSheet } from 'react-native'
-import Modal, { ModalTitle, ModalButton, ModalFooter } from 'react-native-modals'
+import Modal, {
+	ModalTitle,
+	ModalButton,
+	ModalFooter
+} from 'react-native-modals'
 import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
@@ -52,25 +56,36 @@ class NeedToLoginPopup extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	footer: { height: RFValue(42, 600) },
-	buttonOk: { backgroundColor: '#DB0099' },
-	buttonText: { color: 'white' },
-	title: { marginVertical: RFValue(8, 600) },
-	titleText: { textAlign: 'center', fontSize: 16 },
+	footer: {
+		height: RFValue(42, 600)
+	},
+	buttonOk: {
+		backgroundColor: '#DB0099'
+	},
+	buttonText: {
+		color: 'white'
+	},
+	title: {
+		marginVertical: RFValue(8, 600)
+	},
+	titleText: {
+		textAlign: 'center',
+		fontSize: 16
+	}
 })
 
 const mapStateToProps = ({
 	globalReducer: {
 		needToLoginPopupState,
-		navigation,
-	},
+		navigation
+	}
 }) => ({
 	needToLoginPopupState,
-	navigation,
+	navigation
 })
 
 const mapDispatchToProps = {
-	setNeedToLoginPopupState,
+	setNeedToLoginPopupState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NeedToLoginPopup)

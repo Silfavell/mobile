@@ -1,10 +1,13 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
-
+import {
+	StyleSheet
+} from 'react-native'
+import {
+	createStackNavigator,
+	CardStyleInterpolators
+} from '@react-navigation/stack'
 
 import CartScreen from '../CartScreen'
-import ChoosePaymentScreen from '../ChoosePaymentScreen'
 import CompletePaymentScreen from '../CompletePaymentScreen'
 import OnlinePaymentScreen from '../OnlinePaymentScreen'
 import ThanksScreen from '../ThanksScreen'
@@ -47,17 +50,6 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="choosePayment"
-			component={ChoosePaymentScreen}
-			options={{
-				title: 'Ödeme Yöntemi',
-				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
-			}}
-		/>
-
-		<Stack.Screen
 			name="onlinePaymentScreen"
 			component={OnlinePaymentScreen}
 			options={{
@@ -75,7 +67,7 @@ const Screen3 = ({ navigation }) => (
 				title: 'Ödeme Yöntemlerim',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
-				headerStyle: styles.headerStyle,
+				headerStyle: styles.headerStyle
 			}}
 		/>
 
@@ -86,7 +78,7 @@ const Screen3 = ({ navigation }) => (
 				title: 'Kart ekle',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
-				headerStyle: styles.headerStyle,
+				headerStyle: styles.headerStyle
 			}}
 		/>
 
@@ -97,7 +89,7 @@ const Screen3 = ({ navigation }) => (
 				title: 'Adreslerim',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
-				headerStyle: styles.headerStyle,
+				headerStyle: styles.headerStyle
 			}}
 		/>
 
@@ -108,7 +100,7 @@ const Screen3 = ({ navigation }) => (
 				title: 'Adres ara',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
-				headerStyle: styles.headerStyle,
+				headerStyle: styles.headerStyle
 			}}
 		/>
 
@@ -119,7 +111,7 @@ const Screen3 = ({ navigation }) => (
 				title: 'Adres ekle',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
-				headerStyle: styles.headerStyle,
+				headerStyle: styles.headerStyle
 			}}
 		/>
 
@@ -130,7 +122,7 @@ const Screen3 = ({ navigation }) => (
 				title: 'Adres ekle',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
-				headerStyle: styles.headerStyle,
+				headerStyle: styles.headerStyle
 			}}
 		/>
 

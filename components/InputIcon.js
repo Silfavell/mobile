@@ -11,7 +11,11 @@ const InputIcon = ({ children: icon }) => (
 
 const styles = StyleSheet.create({
 	container: {
-		position: 'absolute', height: '100%', alignItems: 'center', justifyContent: 'center', width: 54
+		position: 'absolute',
+		height: '100%',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: 54
 	}
 })
 

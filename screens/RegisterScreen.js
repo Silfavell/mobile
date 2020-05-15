@@ -1,7 +1,10 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	ScrollView, View, StyleSheet, Text,
+	ScrollView,
+	View,
+	StyleSheet,
+	Text
 } from 'react-native'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -29,7 +32,7 @@ class RegisterScreen extends React.PureComponent {
 		isPhoneNumberInitialized: false,
 		isPasswordInitialized: false,
 		isNameSurnameInitialized: false,
-		isEmailInitialized: false,
+		isEmailInitialized: false
 	}
 
 	onRegisterClick = () => {
@@ -37,14 +40,14 @@ class RegisterScreen extends React.PureComponent {
 
 		axios.post(url, {
 			phoneNumber: this.state.phoneNumber,
-			activationCodeType: 0, // REGISTER
+			activationCodeType: 0 // REGISTER
 		}).then(({ status }) => {
 			if (status === 202) {
 				this.props.navigation.navigate('activationScreen', {
 					phoneNumber: this.state.phoneNumber,
 					password: this.state.password,
 					nameSurname: this.state.nameSurname,
-					email: this.state.email,
+					email: this.state.email
 				})
 			}
 		})
@@ -60,7 +63,10 @@ class RegisterScreen extends React.PureComponent {
     */
 
 	onPhoneChange = (phoneNumber) => {
-		joi.string().trim().strict().min(10)
+		joi.string()
+			.trim()
+			.strict()
+			.min(10)
 			.max(10)
 			.validate(phoneNumber, (err) => {
 				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
@@ -68,19 +74,26 @@ class RegisterScreen extends React.PureComponent {
 	}
 
 	onPasswordChange = (password) => {
-		joi.string().min(4).validate(password, (err) => {
-			this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
-		})
+		joi.string()
+			.min(4)
+			.validate(password, (err) => {
+				this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
+			})
 	}
 
 	onNameSurnameChange = (nameSurname) => {
-		joi.string().trim().validate(nameSurname, (err) => {
-			this.setState({ nameSurname, isNameSurnameInitialized: true, invalidNameSurname: !!err })
-		})
+		joi.string()
+			.trim()
+			.validate(nameSurname, (err) => {
+				this.setState({ nameSurname, isNameSurnameInitialized: true, invalidNameSurname: !!err })
+			})
 	}
 
 	onEmailChange = (email) => {
-		joi.string().trim().strict().email()
+		joi.string()
+			.trim()
+			.strict()
+			.email()
 			.validate(email, (err) => {
 				this.setState({ email, isEmailInitialized: true, invalidEmail: !!err })
 			})
@@ -107,7 +120,7 @@ class RegisterScreen extends React.PureComponent {
 							keyboardType: 'phone-pad',
 							textContentType: 'telephoneNumber',
 							placeholder: 'Telefon numarası',
-							maxLength: 10,
+							maxLength: 10
 						}}
 						invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
 						value={this.state.phoneNumber}
@@ -122,7 +135,7 @@ class RegisterScreen extends React.PureComponent {
 						options={{
 							secureTextEntry: true,
 							textContentType: 'password',
-							placeholder: 'Şifre (en az 4 karakter)',
+							placeholder: 'Şifre (en az 4 karakter)'
 						}}
 						invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
 						value={this.state.password}
@@ -144,7 +157,7 @@ class RegisterScreen extends React.PureComponent {
 					<InputComponent
 						options={{
 							textContentType: 'name',
-							placeholder: 'Ad soyad',
+							placeholder: 'Ad soyad'
 						}}
 						invalid={this.state.invalidNameSurname && this.state.isNameSurnameInitialized}
 						value={this.state.nameSurname}
@@ -167,7 +180,7 @@ class RegisterScreen extends React.PureComponent {
 						options={{
 							keyboardType: 'email-address',
 							textContentType: 'emailAddress',
-							placeholder: 'E-mail',
+							placeholder: 'E-mail'
 						}}
 						invalid={this.state.invalidEmail && this.state.isEmailInitialized}
 						value={this.state.email}
@@ -228,7 +241,11 @@ class RegisterScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	container: { flex: 1, justifyContent: 'space-between', marginBottom: 12 },
+	container: {
+		flex: 1,
+		justifyContent: 'space-between',
+		marginBottom: 12
+	},
 	facebookButton: {
 		backgroundColor: '#3B589E',
 		flex: 1,
@@ -237,20 +254,51 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	facebookText: { color: 'white', fontSize: RFValue(18, 600) },
+	facebookText: {
+		color: 'white',
+		fontSize: RFValue(18, 600)
+	},
 	termsContainer: {
-		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'
+		flex: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'flex-start'
 	},
-	checkBoxContainer: { alignItems: 'flex-start', justifyContent: 'flex-start' },
-	checkBox: { backgroundColor: 'transparent' },
-	termsText: { color: 'black', fontSize: RFValue(16, 600), fontWeight: 'bold' },
-	termsLinkText: { color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold' },
-	termsTextContainer: { alignItems: 'center', justifyContent: 'center', flexDirection: 'row' },
+	checkBoxContainer: {
+		alignItems: 'flex-start',
+		justifyContent: 'flex-start'
+	},
+	checkBox: {
+		backgroundColor: 'transparent'
+	},
+	termsText: {
+		color: 'black',
+		fontSize: RFValue(16, 600),
+		fontWeight: 'bold'
+	},
+	termsLinkText: {
+		color: '#DB0099',
+		fontSize: RFValue(16, 600),
+		fontWeight: 'bold'
+	},
+	termsTextContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row'
+	},
 	termsInfoContainer: {
-		alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: RFValue(8, 600)
+		alignItems: 'flex-start',
+		justifyContent: 'flex-start',
+		flexDirection: 'column',
+		marginLeft: RFValue(8, 600)
 	},
-	buttonDivider: { height: RFValue(22, 600), backgroundColor: '#EDEEF0' },
-	invalid: { borderColor: 'red' }
+	buttonDivider: {
+		height: RFValue(22, 600),
+		backgroundColor: '#EDEEF0'
+	},
+	invalid: {
+		borderColor: 'red'
+	}
 })
 
 export default RegisterScreen

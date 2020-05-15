@@ -19,7 +19,7 @@ class ActivationScreen extends React.PureComponent {
 	state = {
 		activationCode: '',
 		invalidActivationCode: false,
-		isActivationCodeInitialized: false,
+		isActivationCodeInitialized: false
 	}
 
 	onRegisterClick = () => {
@@ -29,7 +29,10 @@ class ActivationScreen extends React.PureComponent {
 	}
 
 	onActivationCodeChange = (activationCode) => {
-		joi.string().trim().strict().min(4)
+		joi.string()
+			.trim()
+			.strict()
+			.min(4)
 			.max(4)
 			.validate(activationCode, (err, val) => {
 				this.setState({ activationCode: val, isActivationCodeInitialized: true, invalidActivationCode: !!err })
@@ -56,7 +59,7 @@ class ActivationScreen extends React.PureComponent {
 					options={{
 						keyboardType: 'number-pad',
 						placeholder: 'Aktivasyon kodu',
-						maxLength: 4,
+						maxLength: 4
 					}}
 				/>
 
@@ -78,9 +81,16 @@ class ActivationScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	resendContainer: {
-		flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 12
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: 12
 	},
-	resendCodeText: { fontSize: RFValue(19, 600), paddingHorizontal: RFValue(12, 600), color: '#6E7586' }
+	resendCodeText: {
+		fontSize: RFValue(19, 600),
+		paddingHorizontal: RFValue(12, 600),
+		color: '#6E7586'
+	}
 })
 
 const mapDistachToProps = {

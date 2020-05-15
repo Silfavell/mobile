@@ -1,6 +1,10 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { View, Text, StyleSheet } from 'react-native'
+import {
+	View,
+	Text,
+	StyleSheet
+} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const LanguageItem = ({ title, selected }) => (
@@ -24,13 +28,30 @@ const styles = StyleSheet.create({
 		borderBottomColor: '#D2D2D2',
 		marginHorizontal: RFValue(6, 600)
 	},
-	iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
-	titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },
-	title: {
-		marginHorizontal: RFValue(8, 600), fontSize: RFValue(16, 600), color: '#505050', fontWeight: 'bold'
+	iconContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		flex: 1
 	},
-	rightIconContainer: { alignItems: 'flex-end', justifyContent: 'center', flex: 1 },
-	empty: { height: 32 }
+	titleContainer: {
+		alignItems: 'flex-start',
+		flex: 6,
+		justifyContent: 'center'
+	},
+	title: {
+		marginHorizontal: RFValue(8, 600),
+		fontSize: RFValue(16, 600),
+		color: '#505050',
+		fontWeight: 'bold'
+	},
+	rightIconContainer: {
+		alignItems: 'flex-end',
+		justifyContent: 'center',
+		flex: 1
+	},
+	empty: {
+		height: 32
+	}
 })
 
 export default LanguageItem

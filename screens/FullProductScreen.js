@@ -1,7 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-	ScrollView, View, Image, Text, StyleSheet
+	ScrollView,
+	View,
+	Image,
+	Text,
+	StyleSheet
 } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
@@ -16,7 +20,10 @@ class FullProductScreen extends React.PureComponent {
 
 	render() {
 		const {
-			name, price, category, image,
+			name,
+			price,
+			category,
+			image
 		} = this.props.route.params
 
 		// const url = `${SERVER_URL}/assets/original-products/${category}/${image}.png` // TODO
@@ -56,24 +63,54 @@ class FullProductScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	container: {
-		justifyContent: 'space-between', flex: 1, backgroundColor: 'white', paddingVertical: 12
+		justifyContent: 'space-between',
+		flex: 1,
+		backgroundColor: 'white',
+		paddingVertical: 12
 	},
-	scrollContainer: { justifyContent: 'space-between' },
-	imageContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	image: { width: '80%', aspectRatio: 1 },
-	details: { flex: 1, flexDirection: 'column' },
-	price: { fontSize: RFValue(26, 600), fontWeight: '700', color: '#DB0099' },
-	productName: { fontSize: RFValue(22, 600), textAlign: 'center' },
+	scrollContainer: {
+		justifyContent: 'space-between'
+	},
+	imageContainer: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	image: {
+		width: '80%',
+		aspectRatio: 1
+	},
+	details: {
+		flex: 1,
+		flexDirection: 'column'
+	},
+	price: {
+		fontSize: RFValue(26, 600),
+		fontWeight: '700',
+		color: '#DB0099'
+	},
+	productName: {
+		fontSize: RFValue(22, 600),
+		textAlign: 'center'
+	},
 	buttonContainer: {
-		position: 'absolute', bottom: 0, width: '100%', backgroundColor: 'white'
+		position: 'absolute',
+		bottom: 0,
+		width: '100%',
+		backgroundColor: 'white'
 	},
 	textContainer: {
-		flex: 1, alignItems: 'center', justifyContent: 'center', display: 'flex', textAlign: 'center', margin: 4
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		display: 'flex',
+		textAlign: 'center',
+		margin: 4
 	}
 })
 
 const mapDispatchToProps = {
-	increaseProductQuantity,
+	increaseProductQuantity
 }
 
 export default connect(null, mapDispatchToProps)(FullProductScreen)

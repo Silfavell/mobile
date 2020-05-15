@@ -1,6 +1,9 @@
 import React from 'react'
 import {
-	View, Image, Text, StyleSheet,
+	View,
+	Image,
+	Text,
+	StyleSheet
 } from 'react-native'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { SERVER_URL } from '../utils/global'
@@ -62,21 +65,47 @@ const styles = StyleSheet.create({
 		borderBottomColor: '#EFEFEF',
 		backgroundColor: 'white'
 	},
-	child: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	flex2: { flex: 1.6 },
-	flex3: { flex: 3 },
-	column: { flexDirection: 'column', display: 'flex' },
+	child: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	flex2: {
+		flex: 1.6
+	},
+	flex3: {
+		flex: 3
+	},
+	column: {
+		flexDirection: 'column',
+		display: 'flex'
+	},
 	rowChild: {
-		flex: 2, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', display: 'flex',
+		flex: 2,
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row',
+		display: 'flex'
 	},
 	textContainer: {
-		width: '100%', paddingHorizontal: RFValue(8, 600), justifyContent: 'flex-start', alignItems: 'flex-start',
+		width: '100%',
+		paddingHorizontal: RFValue(8, 600),
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start'
 	},
 	productName: {
-		fontSize: RFPercentage(2.6), fontWeight: '700', color: '#454545', textAlign: 'justify', justifyContent: 'center'
+		fontSize: RFPercentage(2.6),
+		fontWeight: '700',
+		color: '#454545',
+		textAlign: 'justify',
+		justifyContent: 'center'
 	},
 	productPrice: {
-		fontSize: RFPercentage(3.1), fontWeight: '700', color: '#DB0099', textAlign: 'center', justifyContent: 'center'
+		fontSize: RFPercentage(3.1),
+		fontWeight: '700',
+		color: '#DB0099',
+		textAlign: 'center',
+		justifyContent: 'center'
 	},
 	imageContainer: {
 		padding: RFValue(4, 600),
@@ -85,7 +114,10 @@ const styles = StyleSheet.create({
 		borderRadius: 12,
 		backgroundColor: 'white'
 	},
-	productImage: { width: RFPercentage(14), height: RFPercentage(14) }
+	productImage: {
+		width: RFPercentage(14),
+		height: RFPercentage(14)
+	}
 })
 
 export default CardProduct

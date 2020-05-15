@@ -5,6 +5,7 @@ import MapView from 'react-native-maps'
 
 import { setRegion } from '../../actions/map-actions'
 
+// eslint-disable-next-line no-shadow
 const Map = ({ region, setRegion }) => (
 	<MapView
 		style={StyleSheet.absoluteFillObject}
@@ -14,7 +15,7 @@ const Map = ({ region, setRegion }) => (
 		initialRegion={{
 			...region,
 			latitudeDelta: 0.007,
-			longitudeDelta: 0.007,
+			longitudeDelta: 0.007
 		}}
 		customMapStyle={[
 			{
@@ -22,34 +23,34 @@ const Map = ({ region, setRegion }) => (
 				elementType: 'labels.text',
 				stylers: [
 					{
-						visibility: 'off',
-					},
-				],
+						visibility: 'off'
+					}
+				]
 			},
 			{
 				featureType: 'poi.business',
 				stylers: [
 					{
-						visibility: 'off',
-					},
-				],
+						visibility: 'off'
+					}
+				]
 			},
 			{
 				featureType: 'road',
 				elementType: 'labels.icon',
 				stylers: [
 					{
-						visibility: 'off',
-					},
-				],
+						visibility: 'off'
+					}
+				]
 			},
 			{
 				featureType: 'transit',
 				stylers: [
 					{
-						visibility: 'off',
-					},
-				],
+						visibility: 'off'
+					}
+				]
 			},
 		]}
 		onRegionChangeComplete={setRegion}
@@ -57,7 +58,7 @@ const Map = ({ region, setRegion }) => (
 )
 
 const mapDispatchToProps = {
-	setRegion,
+	setRegion
 }
 
 export default connect(null, mapDispatchToProps)(Map)

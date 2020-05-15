@@ -3,7 +3,10 @@ import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { deleteAddress, setSelectedAddress } from '../actions/actions2'
+import {
+	deleteAddress,
+	setSelectedAddress
+} from '../actions/actions2'
 
 import InteractiveSettingItem from './InteractiveSettingItem'
 import DeleteAddressPopup from './popups/DeleteAddressPopup'
@@ -11,7 +14,7 @@ import DeleteAddressPopup from './popups/DeleteAddressPopup'
 class AddressList extends React.PureComponent {
 	state = {
 		addressId: '',
-		scaleAnimationModal: false,
+		scaleAnimationModal: false
 	}
 
 	setPopupState = (state, deleteStatus) => {
@@ -57,15 +60,15 @@ class AddressList extends React.PureComponent {
 
 const mapStateToProps = ({
 	reducer2: {
-		addresses,
-	},
+		addresses
+	}
 }) => ({
-	addresses,
+	addresses
 })
 
 const mapDispatchToProps = {
 	setSelectedAddress,
-	deleteAddress,
+	deleteAddress
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddressList)

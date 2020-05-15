@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Modal, {
 	ModalTitle,
 	ModalButton,
-	ModalFooter,
+	ModalFooter
 } from 'react-native-modals'
 
 import { logout } from '../../actions/actions4'
@@ -61,16 +61,29 @@ class LogoutPopup extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	footer: { height: RFValue(42, 600) },
-	buttonNo: { backgroundColor: '#697488' },
-	buttonYes: { backgroundColor: '#DB0099' },
-	buttonText: { color: 'white' },
-	title: { marginVertical: RFValue(6, 600) },
-	titleText: { textAlign: 'center', fontSize: RFValue(16, 600) },
+	footer: {
+		height: RFValue(42, 600)
+	},
+	buttonNo: {
+		backgroundColor: '#697488'
+	},
+	buttonYes: {
+		backgroundColor: '#DB0099'
+	},
+	buttonText: {
+		color: 'white'
+	},
+	title: {
+		marginVertical: RFValue(6, 600)
+	},
+	titleText: {
+		textAlign: 'center',
+		fontSize: RFValue(16, 600)
+	}
 })
 
 const mapDispatchToProps = {
-	logout,
+	logout
 }
 
 export default connect(null, mapDispatchToProps)(LogoutPopup)

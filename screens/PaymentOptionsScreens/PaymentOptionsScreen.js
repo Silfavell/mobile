@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { FlatList, StyleSheet } from 'react-native'
+import {
+	FlatList,
+	StyleSheet
+} from 'react-native'
 
 import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
 import CardComponent from '../../components/CardComponent'

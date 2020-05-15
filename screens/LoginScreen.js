@@ -1,7 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-	ScrollView, View, TouchableOpacity, Text, AsyncStorage, StyleSheet
+	ScrollView,
+	View,
+	TouchableOpacity,
+	Text,
+	AsyncStorage,
+	StyleSheet
 } from 'react-native'
 import axios from 'axios'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -24,7 +29,7 @@ class LoginScreen extends React.Component {
 		invalidPassword: false,
 
 		isPhoneNumberInitialized: false,
-		isPasswordInitialized: false,
+		isPasswordInitialized: false
 	}
 
 	shouldComponentUpdate = (nextProps, nextState) => ( // Update only state change, not props
@@ -62,7 +67,10 @@ class LoginScreen extends React.Component {
 	}
 
 	onPhoneChange = (phoneNumber) => {
-		joi.string().trim().strict().min(10)
+		joi.string()
+			.trim()
+			.strict()
+			.min(10)
 			.max(10)
 			.validate(phoneNumber, (err) => {
 				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
@@ -70,9 +78,12 @@ class LoginScreen extends React.Component {
 	}
 
 	onPasswordChange = (password) => {
-		joi.string().alphanum().min(4).validate(password, (err) => {
-			this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
-		})
+		joi.string()
+			.alphanum()
+			.min(4)
+			.validate(password, (err) => {
+				this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
+			})
 	}
 
 	render() {
@@ -80,29 +91,12 @@ class LoginScreen extends React.Component {
 			<ScrollView contentContainerStyle={styles.container}>
 
 				<View>
-
-					{
-						//  <View style={styles.child}>
-						//      <TouchableOpacity style={styles.facebookButton} onPress={() => {
-						//          console.log('Connect with Facebook')
-						//      }}>
-						//          <Text style={styles.facebookText}>Connect with Facebook</Text>
-						//      </TouchableOpacity>
-						//  </View>
-					}
-					{
-						// <TextInput
-						//     value={this.state.countryCode}
-						//     placeholder={'Country/Region Code'}
-						//     style={styles.input} />
-					}
-
 					<InputComponent
 						options={{
 							keyboardType: 'phone-pad',
 							textContentType: 'telephoneNumber',
 							placeholder: 'Telefon numarası',
-							maxLength: 10,
+							maxLength: 10
 						}}
 						invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
 						value={this.state.phoneNumber}
@@ -162,21 +156,61 @@ class LoginScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	container: { flex: 1, justifyContent: 'space-between', marginBottom: 12 },
-	child: { height: RFValue(60, 600), margin: RFValue(3, 600) },
+	container: {
+		flex: 1,
+		justifyContent: 'space-between',
+		marginBottom: 12
+	},
+	child: {
+		height: RFValue(60, 600),
+		margin: RFValue(3, 600)
+	},
 	facebookButton: {
-		backgroundColor: '#3B589E', flex: 1, margin: RFValue(4, 600), borderRadius: 10, alignItems: 'center', justifyContent: 'center'
+		backgroundColor: '#3B589E',
+		flex: 1,
+		margin: RFValue(4, 600),
+		borderRadius: 10,
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
-	forgotPasswordButton: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	inputContainer: { flexDirection: 'row' },
+	forgotPasswordButton: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	inputContainer: {
+		flexDirection: 'row'
+	},
 	input: {
-		flex: 1, margin: RFValue(4, 600), zIndex: -1, borderRadius: 6, paddingHorizontal: RFValue(12, 600), fontSize: RFValue(18, 600), borderWidth: 0.8, borderColor: '#ABABAB'
+		flex: 1,
+		margin: RFValue(4, 600),
+		zIndex: -1,
+		borderRadius: 6,
+		paddingHorizontal: RFValue(12, 600),
+		fontSize: RFValue(18, 600),
+		borderWidth: 0.8,
+		borderColor: '#ABABAB'
 	},
-	facebookText: { color: 'white', fontSize: RFValue(18, 600) },
-	forgotPasswordText: { color: '#6E7586', fontSize: RFValue(18, 600), fontWeight: 'bold' },
-	empty: { height: RFValue(28, 600) },
-	buttonDivider: { height: RFValue(22, 600), backgroundColor: '#EDEEF0' },
-	view: { justifyContent: 'flex-end', margin: 0 }
+	facebookText: {
+		color: 'white',
+		fontSize: RFValue(18, 600)
+	},
+	forgotPasswordText: {
+		color: '#6E7586',
+		fontSize: RFValue(18, 600),
+		fontWeight: 'bold'
+	},
+	empty: {
+		height: RFValue(28, 600)
+	},
+	buttonDivider: {
+		height: RFValue(22, 600),
+		backgroundColor: '#EDEEF0'
+	},
+	view: {
+		justifyContent: 'flex-end',
+		margin: 0
+	}
 })
 
 const mapStateToProps = ({

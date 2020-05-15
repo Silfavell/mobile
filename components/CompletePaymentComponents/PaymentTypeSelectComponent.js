@@ -1,13 +1,19 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, TouchableOpacity, Text, StyleSheet,
+	View,
+	TouchableOpacity,
+	Text,
+	StyleSheet
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const PaymentTypeSelectComponent = ({
-	navigation, title, token, setNeedToLoginPopupState
+	navigation,
+	title,
+	token,
+	setNeedToLoginPopupState
 }) => (
 	<TouchableOpacity
 		style={styles.container}
@@ -35,33 +41,33 @@ const PaymentTypeSelectComponent = ({
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'row',
+		flexDirection: 'row'
 	},
 	iconContainer: {
 		alignItems: 'center',
 		justifyContent: 'center',
 		marginHorizontal: RFValue(8, 600),
 		padding: RFValue(4, 600),
-		flex: 1,
+		flex: 1
 	},
 	paymentInfoContainer: {
 		flexDirection: 'column',
 		marginHorizontal: RFValue(8, 600),
 		padding: RFValue(4, 600),
 		height: RFValue(72, 600),
-		flex: 5,
+		flex: 5
 	},
 	paymentInfoTextContainer: {
 		flex: 1,
-		justifyContent: 'center',
+		justifyContent: 'center'
 	},
 	paymentTitle: {
 		fontSize: RFValue(17, 600),
-		marginVertical: RFValue(4, 600),
+		marginVertical: RFValue(4, 600)
 	},
 	paymentDetail: {
 		fontSize: RFValue(17, 600),
-		marginVertical: RFValue(4, 600),
+		marginVertical: RFValue(4, 600)
 	},
 })
 

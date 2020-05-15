@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Text, StyleSheet } from 'react-native'
+import {
+	View,
+	Text,
+	StyleSheet
+} from 'react-native'
 import FlashMessage from 'react-native-flash-message'
 import { RFValue } from 'react-native-responsive-fontsize'
 
@@ -35,7 +39,10 @@ class GlobalMessagePopup extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	absoluteContainer: {
-		...StyleSheet.absoluteFillObject, zIndex: 1000, elevation: 0.01, top: 100
+		...StyleSheet.absoluteFillObject,
+		zIndex: 1000,
+		elevation: 0.01,
+		top: 100
 	},
 	container: {
 		flex: 1,
@@ -48,11 +55,21 @@ const styles = StyleSheet.create({
 		borderColor: '#ABABAB',
 		borderWidth: 0.4
 	},
-	iconContainer: { alignItems: 'center', justifyContent: 'center', marginHorizontal: RFValue(12, 600) },
-	titleContainer: {
-		flex: 1, alignItems: 'flex-start', justifyContent: 'center', marginHorizontal: RFValue(12, 600), backgroundColor: 'white'
+	iconContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginHorizontal: RFValue(12, 600)
 	},
-	title: { fontSize: RFValue(18, 600) }
+	titleContainer: {
+		flex: 1,
+		alignItems: 'flex-start',
+		justifyContent: 'center',
+		marginHorizontal: RFValue(12, 600),
+		backgroundColor: 'white'
+	},
+	title: {
+		fontSize: RFValue(18, 600)
+	}
 })
 
 const mapDispatchToProps = {

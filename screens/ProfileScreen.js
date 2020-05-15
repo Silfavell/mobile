@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView, TouchableOpacity } from 'react-native'
+import {
+	ScrollView,
+	TouchableOpacity
+} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
@@ -128,11 +131,11 @@ class ProfileScreen extends React.PureComponent {
 const mapStateToProps = ({
 	reducer4: {
 		token,
-		user,
-	},
+		user
+	}
 }) => ({
 	token,
-	user,
+	user
 })
 
 export default connect(mapStateToProps)(ProfileScreen)

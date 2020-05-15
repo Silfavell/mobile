@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, TouchableOpacity, Text, StyleSheet, Dimensions,
+	View,
+	TouchableOpacity,
+	Text,
+	StyleSheet,
+	Dimensions
 } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -14,7 +18,7 @@ class OnlinePaymentScreen extends React.PureComponent {
 	state = {
 		cardNumber: '4444 4444 4444 4444',
 		expirationDate: '09/23',
-		CVC2: '333',
+		CVC2: '333'
 	}
 
 	makeOrder = () => {
@@ -137,18 +141,44 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: RFValue(4, 600) },
 		shadowOpacity: 0.32,
 		shadowRadius: RFValue(6, 600),
-		elevation: 9,
+		elevation: 9
 	},
-	labelInput: { color: '#57A25A', fontSize: RFValue(14, 600) },
-	inputContainerChild: { flex: 1 },
+	labelInput: {
+		color: '#57A25A',
+		fontSize: RFValue(14, 600)
+	},
+	inputContainerChild: {
+		flex: 1
+	},
 	input: {
-		borderWidth: 0, borderBottomWidth: 1.5, borderColor: '#333', color: 'black',
+		borderWidth: 0,
+		borderBottomWidth: 1.5,
+		borderColor: '#333',
+		color: 'black'
 	},
-	totalPriceText: { color: 'black', fontWeight: 'bold', fontSize: 19 },
-	totalPrice: { color: 'black', fontWeight: 'bold', fontSize: RFValue(22, 600) },
-	cardInformationContainer: { flex: 0.34, marginVertical: RFValue(24, 600) },
-	inputContainer: { flex: 1, marginHorizontal: RFValue(12, 600) },
-	rowInputContainer: { flex: 1, flexDirection: 'row', marginHorizontal: RFValue(12, 600) },
+	totalPriceText: {
+		color: 'black',
+		fontWeight: 'bold',
+		fontSize: 19
+	},
+	totalPrice: {
+		color: 'black',
+		fontWeight: 'bold',
+		fontSize: RFValue(22, 600)
+	},
+	cardInformationContainer: {
+		flex: 0.34,
+		marginVertical: RFValue(24, 600)
+	},
+	inputContainer: {
+		flex: 1,
+		marginHorizontal: RFValue(12, 600)
+	},
+	rowInputContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		marginHorizontal: RFValue(12, 600)
+	},
 	child: { flex: 1 },
 	completePaymentContainer: {
 		alignItems: 'center',
@@ -157,31 +187,53 @@ const styles = StyleSheet.create({
 		backgroundColor: '#D3D3D3',
 		margin: RFValue(8, 600),
 		borderRadius: 36
-		// flex: 0.1,
 	},
-	completePaymentText: { fontSize: RFValue(20, 600), fontWeight: 'bold', color: '#8D8D8D' },
-	cvcInfoContainer: { flex: 0.1, flexDirection: 'row' },
-	infoIconContainer: { margin: RFValue(8, 600) },
-	cvcInfoTextContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	cvcInfoText: { fontSize: RFValue(13, 600), color: '#A5A5A5' },
+	completePaymentText: {
+		fontSize: RFValue(20, 600),
+		fontWeight: 'bold',
+		color: '#8D8D8D'
+	},
+	cvcInfoContainer: {
+		flex: 0.1,
+		flexDirection: 'row'
+	},
+	infoIconContainer: {
+		margin: RFValue(8, 600)
+	},
+	cvcInfoTextContainer: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	cvcInfoText: {
+		fontSize: RFValue(13, 600),
+		color: '#A5A5A5'
+	},
 	informationContainer: {
-		alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row', flex: 0.1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		display: 'flex',
+		flexDirection: 'row',
+		flex: 0.1
 	},
 	informationTextContainer: {
-		flex: 7, flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-	},
+		flex: 7,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center'
+	}
 })
 
 const mapStateToProps = ({
 	reducer1: {
-		cart,
-	},
+		cart
+	}
 }) => ({
-	cart,
+	cart
 })
 
 const mapDispatchToProps = {
-	makeOrder,
+	makeOrder
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OnlinePaymentScreen)

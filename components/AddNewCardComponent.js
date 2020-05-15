@@ -51,17 +51,41 @@ class AddNewCardComponent extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1, flexDirection: 'row', padding: 8, marginHorizontal: 6
+		flex: 1,
+		flexDirection: 'row',
+		padding: 8,
+		marginHorizontal: 6
 	},
-	child: { alignItems: 'center', justifyContent: 'center', marginHorizontal: 8 },
-	cardName: { fontSize: RFValue(16, 600) },
-	cardNumber: { fontSize: RFValue(15, 600), color: '#6C7486' },
-	highlightedText: { fontSize: RFValue(16, 600), color: '#DB0099' },
+	child: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginHorizontal: 8
+	},
+	cardName: {
+		fontSize: RFValue(16, 600)
+	},
+	cardNumber: {
+		fontSize: RFValue(15, 600),
+		color: '#6C7486'
+	},
+	highlightedText: {
+		fontSize: RFValue(16, 600),
+		color: '#DB0099'
+	},
 	iconContainer: {
-		height: 24, width: 36, alignItems: 'center', justifyContent: 'center'
+		height: 24,
+		width: 36,
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
-	emptyIcon: { height: 32 },
-	textContainer: { flex: 1, alignItems: 'flex-start', marginHorizontal: 6 }
+	emptyIcon: {
+		height: 32
+	},
+	textContainer: {
+		flex: 1,
+		alignItems: 'flex-start',
+		marginHorizontal: 6
+	}
 })
 
 export default AddNewCardComponent

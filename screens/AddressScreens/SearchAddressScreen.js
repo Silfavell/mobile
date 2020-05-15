@@ -1,7 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-	View, FlatList, TouchableOpacity, Text, TextInput,
+	View,
+	FlatList,
+	TouchableOpacity,
+	Text,
+	TextInput,
+	StyleSheet
 } from 'react-native'
 import axios from 'axios'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -13,7 +18,7 @@ import ShadowContainer from '../../components/ShadowContainer'
 class SearchAddressScreen extends React.PureComponent {
 	state = {
 		searchVal: '',
-		locations: [],
+		locations: []
 	}
 
 	onSearchResult = ({ data }) => {
@@ -31,8 +36,8 @@ class SearchAddressScreen extends React.PureComponent {
 		this.props.navigation.navigate('pinAddressScreen', {
 			region: {
 				latitude: data.result.geometry.location.lat,
-				longitude: data.result.geometry.location.lng,
-			},
+				longitude: data.result.geometry.location.lng
+			}
 		})
 	}
 
@@ -45,7 +50,7 @@ class SearchAddressScreen extends React.PureComponent {
 			// this.props.messagePopupRef.showMessage({ message: 'Konumunuzu için izine ihtiyaç var.' })
 		} else {
 			this.props.navigation.navigate('pinAddressScreen', {
-				region,
+				region
 			})
 		}
 	}
@@ -56,39 +61,24 @@ class SearchAddressScreen extends React.PureComponent {
 
 	renderListHeaderComponent = () => (
 		<ShadowContainer>
-			<View style={{ height: 110, display: 'flex', backgroundColor: 'white' }}>
-
-				<View style={{
-					flex: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', marginHorizontal: 6
-				}}
-				>
-					<View style={{
-						flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginHorizontal: 10
-					}}
-					>
+			<View style={styles.header}>
+				<View style={styles.searchAddressContainerContainer}>
+					<View style={styles.searchAddressContainer}>
 						<Ionicons size={32} name="md-search" color="#5E3FBE" />
 						<TextInput
 							value={this.state.searchVal}
 							onChangeText={this.search}
 							placeholder="Adres ara"
-							style={{ flex: 1, paddingHorizontal: RFValue(16, 600), fontSize: 17 }}
+							style={styles.searchAddress}
 						/>
 					</View>
 				</View>
-				<View style={{ height: 1, backgroundColor: '#DFDFDF', marginHorizontal: 12 }} />
+				<View style={styles.divider} />
 
-				<TouchableOpacity
-					onPress={this.useCurrentLocation}
-					style={{
-						flex: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', marginHorizontal: 6
-					}}
-				>
-					<View style={{
-						flex: 1, flexDirection: 'row', marginHorizontal: 10, alignItems: 'center'
-					}}
-					>
+				<TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
+					<View style={styles.useCurrentLocationContainer}>
 						<Ionicons size={32} name="md-locate" color="#5E3FBE" />
-						<Text style={{ flex: 1, paddingHorizontal: RFValue(16, 600), fontSize: 17 }}>Bulunduğum konumu kullan</Text>
+						<Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
 					</View>
 				</TouchableOpacity>
 
@@ -97,35 +87,16 @@ class SearchAddressScreen extends React.PureComponent {
 	)
 
 	renderSearchedItem = ({ item }) => (
-		<TouchableOpacity
-			onPress={() => this.onAddressClick(item)}
-			style={{
-				height: 70, paddingVertical: RFValue(16, 600), display: 'flex', flexDirection: 'row', alignItems: 'center', margin: RFValue(6, 600)
-			}}
-		>
+		<TouchableOpacity onPress={() => this.onAddressClick(item)} style={styles.item}>
 
-			<View style={{
-				flex: 1, flexDirection: 'row', marginHorizontal: RFValue(10, 600), alignItems: 'center'
-			}}
-			>
-
+			<View style={styles.itemChild}>
 				<Ionicons size={32} name="md-pin" color="#6B788B" />
 
-				<Text
-					numberOfLines={3}
-					style={{
-						flex: 1, paddingHorizontal: RFValue(16, 600), fontSize: RFValue(15, 600), color: '#6B788B', fontWeight: '500'
-					}}
-				>
+				<Text numberOfLines={3} style={styles.description}>
 					{item.description}
 				</Text>
 
-				<Text
-					numberOfLines={3}
-					style={{
-						paddingHorizontal: RFValue(4, 600), fontSize: RFValue(13, 600), color: '#6B788B', fontWeight: '500'
-					}}
-				>
+				<Text numberOfLines={3} style={styles.meterText}>
 					{
 						item.distance_meters
 						// eslint-disable-next-line radix
@@ -138,17 +109,11 @@ class SearchAddressScreen extends React.PureComponent {
 		</TouchableOpacity>
 	)
 
-	//  shouldComponentUpdate(_, nextState) {
-	//      //  if (this.state.locations[0]?.id !== nextState.locations[0]?.id)
-	//      //      return true
-	//      //  return false
-	//  }
-
 	render() {
 		return (
-			<View style={{ backgroundColor: '#E5E5E5', flex: 1 }}>
+			<View style={styles.container}>
 				<FlatList
-					style={{ flex: 1, backgroundColor: 'white' }}
+					style={styles.list}
 					data={this.state.locations}
 					renderItem={this.renderSearchedItem}
 					ListHeaderComponent={this.renderListHeaderComponent}
@@ -158,10 +123,95 @@ class SearchAddressScreen extends React.PureComponent {
 	}
 }
 
+const styles = StyleSheet.create({
+	container: {
+		backgroundColor: '#E5E5E5',
+		flex: 1
+	},
+	list: {
+		flex: 1,
+		backgroundColor: 'white'
+	},
+	header: {
+		height: 110,
+		display: 'flex',
+		backgroundColor: 'white'
+	},
+	divider: {
+		height: 1,
+		backgroundColor: '#DFDFDF',
+		marginHorizontal: 12
+	},
+	searchAddressContainerContainer: {
+		flex: 1,
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginHorizontal: 6
+	},
+	searchAddressContainer: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row',
+		marginHorizontal: 10
+	},
+	searchAddress: {
+		flex: 1,
+		paddingHorizontal: RFValue(16, 600),
+		fontSize: 17
+	},
+	useCurrentLocationButton: {
+		flex: 1,
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginHorizontal: 6
+	},
+	useCurrentLocationContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		marginHorizontal: 10,
+		alignItems: 'center'
+	},
+	useCurrentLocation: {
+		flex: 1,
+		paddingHorizontal: RFValue(16, 600),
+		fontSize: 17
+	},
+	item: {
+		height: 70,
+		paddingVertical: RFValue(16, 600),
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		margin: RFValue(6, 600)
+	},
+	itemChild: {
+		flex: 1,
+		flexDirection: 'row',
+		marginHorizontal: RFValue(10, 600),
+		alignItems: 'center'
+	},
+	description: {
+		flex: 1,
+		paddingHorizontal: RFValue(16, 600),
+		fontSize: RFValue(15, 600),
+		color: '#6B788B',
+		fontWeight: '500'
+	},
+	meterText: {
+		paddingHorizontal: RFValue(4, 600),
+		fontSize: RFValue(13, 600),
+		color: '#6B788B',
+		fontWeight: '500'
+	}
+})
+
 const mapStateToProps = ({
 	globalReducer: {
 		messagePopupRef
-	},
+	}
 }) => ({
 	messagePopupRef
 })

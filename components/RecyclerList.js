@@ -3,30 +3,35 @@ import { Dimensions } from 'react-native'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 
 import Product from './Product'
-import EmptyProduct from './EmptyProduct'
 import SearchFilter from './SearchFilter'
+
+const { width } = Dimensions.get('window')
 
 class List extends React.PureComponent {
 	constructor(args) {
 		super(args)
 
-		const { width } = Dimensions.get('window')
+		const dataProvider = new DataProvider(this.rowHasChanges)
 
-		const dataProvider = new DataProvider((r1, r2) => r1 !== r2)
-
-		this.layoutProvider = new LayoutProvider(() => 0, (type, dim) => {
-			// eslint-disable-next-line no-param-reassign
-			dim.width = width / 3.05
-			// eslint-disable-next-line no-param-reassign
-			dim.height = 236
-		})
+		this.layoutProvider = new LayoutProvider(this.getLayoutTypeForIndex, this.setLayoutForType)
 
 		this.state = {
-			dataProvider: dataProvider.cloneWithRows(this.props.list),
+			dataProvider: dataProvider.cloneWithRows(this.props.list)
 		}
 	}
 
-	rowRenderer = (type, item) => (item.empty ? <EmptyProduct /> : <Product key={item._id} data={item} navigation={this.props.navigation} />)
+	rowHasChanges = (r1, r2) => r1 !== r2
+
+	getLayoutTypeForIndex = () => 0
+
+	setLayoutForType = (type, dim) => {
+		// eslint-disable-next-line no-param-reassign
+		dim.width = width / 3.05
+		// eslint-disable-next-line no-param-reassign
+		dim.height = 236
+	}
+
+	rowRenderer = (type, item) => <Product key={item._id} data={item} navigation={this.props.navigation} />
 
 	setRef = (ref) => {
 		this.setState({ ref })

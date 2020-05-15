@@ -19,11 +19,11 @@ class ProductsScreen extends React.PureComponent {
 				tabBarTextStyle={styles.tabBarTextStyle}
 				tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 				scrollWithoutAnimation
-				prerenderingSiblingsNumber={categories.length}
+				prerenderingSiblingsNumber={Infinity}
 				renderTabBar={() => <ScrollableTabBar />}
 			>
 				{
-					categories.map((category) => <RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category.imagePath]} />)
+					categories.map((category) => <RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category._id]} />)
 				}
 			</ScrollableTabView>
 		)
@@ -32,21 +32,21 @@ class ProductsScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	tabBarTextStyle: { color: 'white', fontSize: RFValue(15, 600) },
-	tabBarUnderlineStyle: { backgroundColor: '#FED110' },
+	tabBarUnderlineStyle: { backgroundColor: '#FED110' }
 })
 
 const mapStateToProps = ({
 	reducer3: {
-		selectedCategory,
+		selectedCategory
 	},
 	reducer4: {
 		categories,
-		products,
+		products
 	},
 }) => ({
 	selectedCategory,
 	categories,
-	products,
+	products
 })
 
 export default connect(mapStateToProps)(ProductsScreen)

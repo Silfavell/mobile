@@ -5,7 +5,6 @@ import { TextInput, StyleSheet } from 'react-native'
 
 import { setAddress } from '../../actions/map-actions'
 
-
 // eslint-disable-next-line no-shadow
 const CompleteAddressInput = ({ address, setAddress }) => (
 	<TextInput
@@ -26,22 +25,22 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		borderColor: '#C3C3C3',
 		paddingHorizontal: RFValue(13, 600),
-		fontSize: RFValue(17, 600),
+		fontSize: RFValue(17, 600)
 	},
 })
 
 const mapStateToProps = ({
 	mapReducer: {
 		region,
-		address,
-	},
+		address
+	}
 }) => ({
 	region,
-	address,
+	address
 })
 
 const mapDispatchToProps = {
-	setAddress,
+	setAddress
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompleteAddressInput)

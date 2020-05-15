@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { RFValue } from 'react-native-responsive-fontsize'
 import axios from 'axios'
 import {
-	TouchableOpacity, Text, StyleSheet
+	TouchableOpacity,
+	Text,
+	StyleSheet
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
@@ -29,7 +31,7 @@ class ResetPasswordScreen extends React.PureComponent {
 
 		isPhoneNumberInitialized: true,
 		isActivationCodeInitialized: false,
-		isPasswordInitialized: false,
+		isPasswordInitialized: false
 	}
 
 	setPopupState = (state) => {
@@ -70,12 +72,15 @@ class ResetPasswordScreen extends React.PureComponent {
 
 		axios.post(url, {
 			phoneNumber: this.state.phoneNumber,
-			activationCodeType: 1, // RESET
+			activationCodeType: 1 // RESET
 		})
 	}
 
 	onPhoneChange = (phoneNumber) => {
-		joi.string().trim().strict().min(10)
+		joi.string()
+			.trim()
+			.strict()
+			.min(10)
 			.max(13)
 			.validate(phoneNumber, (err) => {
 				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
@@ -83,7 +88,10 @@ class ResetPasswordScreen extends React.PureComponent {
 	}
 
 	onActivationCodeChange = (activationCode) => {
-		joi.string().trim().strict().min(4)
+		joi.string()
+			.trim()
+			.strict()
+			.min(4)
 			.max(4)
 			.validate(activationCode, (err, val) => {
 				this.setState({ activationCode: val, isActivationCodeInitialized: true, invalidActivationCode: !!err })
@@ -91,9 +99,12 @@ class ResetPasswordScreen extends React.PureComponent {
 	}
 
 	onPasswordChange = (password) => {
-		joi.string().alphanum().min(4).validate(password, (err) => {
-			this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
-		})
+		joi.string()
+			.alphanum()
+			.min(4)
+			.validate(password, (err) => {
+				this.setState({ password, isPasswordInitialized: true, invalidPassword: !!err })
+			})
 	}
 
 	render() {
@@ -114,7 +125,7 @@ class ResetPasswordScreen extends React.PureComponent {
 						keyboardType: 'phone-pad',
 						textContentType: 'telephoneNumber',
 						placeholder: 'Telefon numarası',
-						maxLength: 10,
+						maxLength: 10
 					}}
 					invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
 					value={this.state.phoneNumber}
@@ -125,7 +136,7 @@ class ResetPasswordScreen extends React.PureComponent {
 					options={{
 						keyboardType: 'number-pad',
 						placeholder: 'Aktivasyon kodu',
-						maxLength: 4,
+						maxLength: 4
 					}}
 					invalid={this.state.invalidActivationCode && this.state.isActivationCodeInitialized}
 					value={this.state.activationCode}
@@ -136,7 +147,7 @@ class ResetPasswordScreen extends React.PureComponent {
 					options={{
 						secureTextEntry: true,
 						textContentType: 'password',
-						placeholder: 'Yeni şifre (en az 4 karakter)',
+						placeholder: 'Yeni şifre (en az 4 karakter)'
 					}}
 					invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
 					value={this.state.password}
@@ -165,9 +176,16 @@ class ResetPasswordScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	resendContainer: {
-		flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 12
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: 12
 	},
-	resendCodeText: { fontSize: RFValue(19, 600), paddingHorizontal: RFValue(12, 600), color: '#6E7586' }
+	resendCodeText: {
+		fontSize: RFValue(19, 600),
+		paddingHorizontal: RFValue(12, 600),
+		color: '#6E7586'
+	}
 })
 
 const mapStateToProps = ({

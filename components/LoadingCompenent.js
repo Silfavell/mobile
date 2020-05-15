@@ -1,7 +1,10 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, Image, Text, StyleSheet,
+	View,
+	Image,
+	Text,
+	StyleSheet
 } from 'react-native'
 
 import loadingGif from '../assets/icon-black.png'
@@ -17,10 +20,17 @@ const LoadingComponent = () => (
 
 const styles = StyleSheet.create({
 	container: {
-		alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', display: 'flex', flex: 1
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: 'white',
+		display: 'flex',
+		flex: 1
 	},
 	center: {
-		display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'column'
 	},
 	text: {
 		fontSize: RFValue(32, 600),

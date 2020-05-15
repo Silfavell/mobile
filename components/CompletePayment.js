@@ -1,7 +1,10 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import {
-	View, TouchableOpacity, Text, StyleSheet,
+	View,
+	TouchableOpacity,
+	Text,
+	StyleSheet
 } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -11,8 +14,16 @@ import { setNeedToLoginPopupState } from '../actions/global-actions'
 class CompletePaymentComponent extends React.PureComponent {
 	onCompletePaymentClick = () => {
 		const {
+			completable,
+			token,
+			navigation,
 			// eslint-disable-next-line no-shadow
-			completable, token, navigation, makeOrder, selectedCard, selectedAddress, messagePopupRef, setNeedToLoginPopupState,
+			makeOrder,
+			selectedCard,
+			selectedAddress,
+			messagePopupRef,
+			// eslint-disable-next-line no-shadow
+			setNeedToLoginPopupState
 		} = this.props
 
 		if (token) {
@@ -58,7 +69,9 @@ class CompletePaymentComponent extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	centeredContainer: {
-		flex: 1, alignItems: 'center', justifyContent: 'center'
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
 	completePaymentContainer: {
 		position: 'absolute',
@@ -66,52 +79,59 @@ const styles = StyleSheet.create({
 		width: '100%',
 		height: RFValue(65, 600),
 		backgroundColor: '#E04299',
-		flexDirection: 'row',
+		flexDirection: 'row'
 	},
 	completePaymentButton: {
 		flex: 1,
 		padding: RFValue(20, 600),
 		backgroundColor: '#DB0099',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'center'
 	},
-	completePaymentText: { color: 'white', fontSize: RFValue(17, 600), fontWeight: 'bold' },
-	totalPriceContainer: { flex: 2, justifyContent: 'center' },
+	completePaymentText: {
+		color: 'white',
+		fontSize: RFValue(17, 600),
+		fontWeight: 'bold'
+	},
+	totalPriceContainer: {
+		flex: 2,
+		justifyContent: 'center'
+	},
 	totalPriceText: {
 		color: 'white',
 		fontSize: RFValue(17, 600),
 		padding: RFValue(12, 600),
-		fontWeight: 'bold',
-	},
+		fontWeight: 'bold'
+	}
 })
 
 const mapStateToProps = ({
 	reducer1: {
-		cart,
+		cart
 	},
 	reducer2: {
 		paymentType,
 		selectedCard,
-		selectedAddress,
+		selectedAddress
 	},
 	reducer4: {
-		token,
+		token
 	},
 	globalReducer: {
-		messagePopupRef,
-	},
+		messagePopupRef
+	}
 }) => ({
 	cart,
 	paymentType,
 	selectedCard,
 	selectedAddress,
 	token,
-	messagePopupRef,
+	messagePopupRef
 })
 
 const mapDispatchToProps = {
 	makeOrder,
-	setNeedToLoginPopupState,
+	setNeedToLoginPopupState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompletePaymentComponent)

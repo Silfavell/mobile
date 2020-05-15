@@ -1,7 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import {
-	ScrollView, View, TouchableOpacity, ActivityIndicator, TextInput, StyleSheet,
+	ScrollView,
+	View,
+	TouchableOpacity,
+	ActivityIndicator,
+	TextInput,
+	StyleSheet
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -103,19 +108,44 @@ class SearchScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	container: { flex: 1 },
+	container: {
+		flex: 1
+	},
 	searchHeader: {
-		height: 50, margin: 2, flexDirection: 'row', backgroundColor: 'white'
+		height: 50,
+		margin: 2,
+		flexDirection: 'row',
+		backgroundColor: 'white'
 	},
 	mostSearchContainer: {
-		flex: 0.7, padding: 2, margin: 2, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'
+		flex: 0.7,
+		padding: 2,
+		margin: 2,
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: 'white'
 	},
-	iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
+	iconContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		flex: 1
+	},
 	inputContainer: {
-		alignItems: 'center', justifyContent: 'center', flex: 6, display: 'flex', flexDirection: 'row'
+		alignItems: 'center',
+		justifyContent: 'center',
+		flex: 6,
+		display: 'flex',
+		flexDirection: 'row'
 	},
-	searchInput: { textAlign: 'left', flex: 1, fontSize: 20 },
-	emptyFooter: { flex: 7, margin: 2 },
+	searchInput: {
+		textAlign: 'left',
+		flex: 1,
+		fontSize: 20
+	},
+	emptyFooter: {
+		flex: 7,
+		margin: 2
+	}
 })
 
 export default SearchScreen

@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue, RFPercentage } from 'react-native-responsive-fontsize'
 import {
-	TouchableOpacity, View, Text, Image, StyleSheet,
+	TouchableOpacity,
+	View,
+	Text,
+	Image,
+	StyleSheet
 } from 'react-native'
 
 import { connect } from 'react-redux'
@@ -22,7 +26,10 @@ class Product extends React.PureComponent {
 
 	render() {
 		const {
-			name, price, category, image
+			name,
+			price,
+			category,
+			image
 		} = this.props.data
 
 		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
@@ -44,12 +51,6 @@ class Product extends React.PureComponent {
 				<Text style={[styles.child, styles.productPrice, { alignItems: 'flex-start' }]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
 				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
-
-				{
-					//	<View style={[styles.child, { alignItems: 'flex-start' }]}>
-					//		<Text numberOfLines={3} style={styles.kindText}>{kind_name}</Text>
-					//	</View>
-				}
 
 			</View>
 		)
@@ -111,14 +112,6 @@ const styles = StyleSheet.create({
 		textAlign: 'left',
 		justifyContent: 'center'
 	},
-	kindText: {
-		fontSize: RFPercentage(2.3),
-		fontWeight: '700',
-		color: '#B1B1B1',
-		textAlign: 'left',
-		justifyContent: 'center',
-		letterSpacing: 0.2
-	},
 	productPrice: {
 		fontSize: RFPercentage(2.9),
 		fontWeight: '700',
@@ -129,7 +122,7 @@ const styles = StyleSheet.create({
 })
 
 const mapDispatchToProps = {
-	increaseProductQuantity,
+	increaseProductQuantity
 }
 
 export default connect(null, mapDispatchToProps)(Product)

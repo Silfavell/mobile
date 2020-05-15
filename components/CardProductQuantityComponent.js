@@ -2,7 +2,10 @@ import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { connect } from 'react-redux'
 import {
-	TouchableOpacity, Text, View, StyleSheet,
+	TouchableOpacity,
+	Text,
+	View,
+	StyleSheet
 } from 'react-native'
 
 import { decreaseProductQuantity, increaseProductQuantity } from '../actions/actions1'
@@ -38,25 +41,46 @@ class CardProductQuantityComponent extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	child: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	quantityContainer: { backgroundColor: '#DB0099', padding: RFValue(4, 600) },
-	quantityButton: { color: '#DB0099', fontSize: RFValue(17, 600) },
-	quantityText: { color: 'white', fontSize: RFValue(17, 600) },
-	decreaseButton: { padding: RFValue(4, 600), borderTopLeftRadius: RFValue(10, 600), borderBottomLeftRadius: RFValue(10, 600) },
-	increaseButton: { padding: RFValue(4, 600), borderTopRightRadius: RFValue(10, 600), borderBottomRightRadius: RFValue(10, 600) },
+	child: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	quantityContainer: {
+		backgroundColor: '#DB0099',
+		padding: RFValue(4, 600)
+	},
+	quantityButton: {
+		color: '#DB0099',
+		fontSize: RFValue(17, 600)
+	},
+	quantityText: {
+		color: 'white',
+		fontSize: RFValue(17, 600)
+	},
+	decreaseButton: {
+		padding: RFValue(4, 600),
+		borderTopLeftRadius: RFValue(10, 600),
+		borderBottomLeftRadius: RFValue(10, 600)
+	},
+	increaseButton: {
+		padding: RFValue(4, 600),
+		borderTopRightRadius: RFValue(10, 600),
+		borderBottomRightRadius: RFValue(10, 600)
+	}
 })
 
 const mapStateToProps = ({
 	reducer1: {
-		cart,
-	},
+		cart
+	}
 }) => ({
-	cart,
+	cart
 })
 
 const mapDispatchToProps = {
 	decreaseProductQuantity,
-	increaseProductQuantity,
+	increaseProductQuantity
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardProductQuantityComponent)

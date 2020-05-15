@@ -1,7 +1,14 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { StyleSheet } from 'react-native'
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
+import {
+	RFValue
+} from 'react-native-responsive-fontsize'
+import {
+	StyleSheet
+} from 'react-native'
+import {
+	createStackNavigator,
+	CardStyleInterpolators
+} from '@react-navigation/stack'
 
 
 import WelcomeScreen from '../WelcomeScreen'

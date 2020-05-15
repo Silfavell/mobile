@@ -1,7 +1,14 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { View, Image, StyleSheet } from 'react-native'
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
+import {
+	View,
+	Image,
+	StyleSheet
+} from 'react-native'
+import {
+	createStackNavigator,
+	CardStyleInterpolators
+} from '@react-navigation/stack'
 import { connect } from 'react-redux'
 
 import HomeScreen from '../HomeScreen'
@@ -63,7 +70,9 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 }
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#DB0099' },
+	headerStyle: {
+		backgroundColor: '#DB0099'
+	},
 	headerTitle: {
 		height: '100%',
 		padding: RFValue(8, 600),

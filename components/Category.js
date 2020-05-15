@@ -1,7 +1,11 @@
 import React from 'react'
 import { RFValue, RFPercentage } from 'react-native-responsive-fontsize'
 import {
-	TouchableOpacity, View, Text, Image, StyleSheet,
+	TouchableOpacity,
+	View,
+	Text,
+	Image,
+	StyleSheet
 } from 'react-native'
 import { connect } from 'react-redux'
 import { SERVER_URL } from '../utils/global'
@@ -9,8 +13,14 @@ import { SERVER_URL } from '../utils/global'
 import { setSelectedCategory } from '../actions/actions3'
 
 const Category = ({
+	data: {
+		imagePath,
+		name
+	},
+	index,
+	navigation,
 	// eslint-disable-next-line no-shadow
-	data: { imagePath, name }, index, navigation, setSelectedCategory,
+	setSelectedCategory
 }) => {
 	const imageUrl = `${SERVER_URL}/assets/categories-2/${imagePath}.jpg`
 

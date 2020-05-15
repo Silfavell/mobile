@@ -38,7 +38,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Şifremi değiştir',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -49,7 +49,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Adreslerim',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -60,7 +60,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Adres ara',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -71,7 +71,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Adres ekle',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -82,7 +82,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Adres ekle',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -93,7 +93,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Ödeme Yöntemlerim',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -104,7 +104,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Kart ekle',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -115,7 +115,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Dili değiştir',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -126,7 +126,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Profilim',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
-						headerStyle: styles.headerStyle,
+						headerStyle: styles.headerStyle
 					}}
 				/>
 
@@ -136,7 +136,9 @@ class Screen4 extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#DB0099' },
+	headerStyle: {
+		backgroundColor: '#DB0099'
+	}
 })
 
 export default Screen4

@@ -1,7 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-	ScrollView, View, Image, Text, StyleSheet
+	ScrollView,
+	View,
+	Image,
+	Text,
+	StyleSheet
 } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import joi from 'react-native-joi'
@@ -37,38 +41,58 @@ class AddNewCardScreen extends React.PureComponent {
 
 	onContinueClick = () => {
 		const {
-			cardAlias, cardHolderName, cardNumber, expireYear, expireMonth,
+			cardAlias,
+			cardHolderName,
+			cardNumber,
+			expireYear,
+			expireMonth
 		} = this.state
+
 		this.props.saveCard(({
-			cardAlias, cardHolderName, cardNumber, expireYear: `20${expireYear}`, expireMonth,
+			cardAlias,
+			cardHolderName,
+			cardNumber,
+			expireYear: `20${expireYear}`,
+			expireMonth
 		}), () => {
 			this.props.navigation.goBack()
 		})
 	}
 
 	onAliasChange = (cardAlias) => {
-		joi.string().min(1).validate(cardAlias, (err) => {
-			this.setState({ cardAlias, isCardAliasInitialized: true, invalidCardAlias: !!err })
-		})
+		joi.string()
+			.min(1)
+			.validate(cardAlias, (err) => {
+				this.setState({ cardAlias, isCardAliasInitialized: true, invalidCardAlias: !!err })
+			})
 	}
 
 	onCardNumberChange = (cardNumber) => {
-		joi.string().min(16).max(16).creditCard()
+		joi.string()
+			.min(16)
+			.max(16)
+			.creditCard()
 			.validate(cardNumber, (err) => {
 				this.setState({ cardNumber, isCardNumberInitialized: true, invalidCardNumber: !!err })
 			})
 	}
 
 	onExpireMonthChange = (expireMonth) => {
-		joi.string().min(2).max(2).validate(expireMonth, (err) => {
-			this.setState({ expireMonth, isExpireMonthInitialized: true, invalidExpireMonth: !!err })
-		})
+		joi.string()
+			.min(2)
+			.max(2)
+			.validate(expireMonth, (err) => {
+				this.setState({ expireMonth, isExpireMonthInitialized: true, invalidExpireMonth: !!err })
+			})
 	}
 
 	onExpireYearChange = (expireYear) => {
-		joi.string().min(2).max(2).validate(expireYear, (err) => {
-			this.setState({ expireYear, isExpireYearInitialized: true, invalidExpireYear: !!err })
-		})
+		joi.string()
+			.min(2)
+			.max(2)
+			.validate(expireYear, (err) => {
+				this.setState({ expireYear, isExpireYearInitialized: true, invalidExpireYear: !!err })
+			})
 	}
 
 	render() {
@@ -180,28 +204,64 @@ class AddNewCardScreen extends React.PureComponent {
 	}
 }
 const styles = StyleSheet.create({
-	container: { flexGrow: 1, justifyContent: 'space-between' },
-	header: { flexDirection: 'row' },
-	imageContainer: { margin: RFValue(10, 600), marginLeft: RFValue(12, 600) },
-	caseImage: { width: RFValue(95, 600), height: RFValue(105, 600), borderRadius: 8 },
-	securityText: { color: '#5E3FBE', fontSize: RFValue(19, 600), fontWeight: 'bold' },
+	container: {
+		flexGrow: 1,
+		justifyContent: 'space-between'
+	},
+	header: {
+		flexDirection: 'row'
+	},
+	imageContainer: {
+		margin: RFValue(10, 600),
+		marginLeft: RFValue(12, 600)
+	},
+	caseImage: {
+		width: RFValue(95, 600),
+		height: RFValue(105, 600),
+		borderRadius: 8
+	},
+	securityText: {
+		color: '#5E3FBE',
+		fontSize: RFValue(19, 600),
+		fontWeight: 'bold'
+	},
 	infoContainer: {
-		flex: 1, flexDirection: 'column', margin: RFValue(10, 600), marginRight: RFValue(12, 600),
+		flex: 1,
+		flexDirection: 'column',
+		margin: RFValue(10, 600),
+		marginRight: RFValue(12, 600)
 	},
-	securityInformation: { color: '#757889', fontSize: RFValue(15, 600), fontWeight: 'bold' },
-	row: { flexDirection: 'row' },
-	inputContainer: { flex: 1 },
+	securityInformation: {
+		color: '#757889',
+		fontSize: RFValue(15, 600),
+		fontWeight: 'bold'
+	},
+	row: {
+		flexDirection: 'row'
+	},
+	inputContainer: {
+		flex: 1
+	},
 	continueButton: {
-		flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(94,63,190)', borderRadius: 10
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: 'rgb(94,63,190)',
+		borderRadius: 10
 	},
-	continueText: { fontSize: RFValue(20, 600), color: 'white' },
-	empty: { height: RFValue(22, 600) }
+	continueText: {
+		fontSize: RFValue(20, 600),
+		color: 'white'
+	},
+	empty: {
+		height: RFValue(22, 600)
+	}
 })
 
 const mapStateToProps = ({
 	reducer4: {
 		user
-	},
+	}
 }) => ({
 	user
 })

@@ -14,7 +14,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 	state = {
 		phoneNumber: '',
 		isPhoneNumberInitialized: false,
-		invalidPhoneNumber: false,
+		invalidPhoneNumber: false
 	}
 
 	onSendCodeClick = () => {
@@ -22,7 +22,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 
 		axios.post(url, {
 			phoneNumber: this.state.phoneNumber,
-			activationCodeType: 1, // RESET
+			activationCodeType: 1 // RESET
 		}).then(({ status }) => {
 			if (status === 202) {
 				this.props.navigation.navigate('resetPassword', { phoneNumber: this.state.phoneNumber })
@@ -45,7 +45,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 					options={{
 						keyboardType: 'phone-pad',
 						placeholder: 'Telefon numarası',
-						maxLength: 10,
+						maxLength: 10
 					}}
 					invalid={
 						this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized

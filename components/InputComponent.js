@@ -1,9 +1,20 @@
 import React from 'react'
-import { View, TextInput, StyleSheet } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import {
+	View,
+	TextInput,
+	StyleSheet
+} from 'react-native'
+import {
+	RFValue
+} from 'react-native-responsive-fontsize'
 
 const InputComponent = ({
-	value, onChange, options, children: icon, invalid, disabled
+	value,
+	onChange,
+	options,
+	children: icon,
+	invalid,
+	disabled
 }) => (
 	<View style={styles.container}>
 		{
@@ -28,7 +39,11 @@ const InputComponent = ({
 )
 
 const styles = StyleSheet.create({
-	container: { height: RFValue(60, 600), margin: RFValue(3, 600), flexDirection: 'row' },
+	container: {
+		height: RFValue(60, 600),
+		margin: RFValue(3, 600),
+		flexDirection: 'row'
+	},
 	input: {
 		flex: 1,
 		margin: RFValue(4, 600),
@@ -39,9 +54,16 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: '#CCC8E0'
 	},
-	withIcon: { paddingLeft: RFValue(48, 600) },
-	invalid: { borderColor: 'red', borderWidth: 1.2 },
-	disabled: { color: '#909090' }
+	withIcon: {
+		paddingLeft: RFValue(48, 600)
+	},
+	invalid: {
+		borderColor: 'red',
+		borderWidth: 1.2
+	},
+	disabled: {
+		color: '#909090'
+	}
 })
 
 export default InputComponent
