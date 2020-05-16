@@ -2,7 +2,12 @@ import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view'
+import {
+	Container,
+	Tab,
+	Tabs,
+	ScrollableTab
+} from 'native-base'
 
 import RecyclerList from '../components/RecyclerList'
 
@@ -13,26 +18,31 @@ class ProductsScreen extends React.PureComponent {
 		} = this.props
 
 		return (
-			<ScrollableTabView
-				initialPage={selectedCategory}
-				tabBarBackgroundColor="#E04299"
-				tabBarTextStyle={styles.tabBarTextStyle}
-				tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
-				scrollWithoutAnimation
-				prerenderingSiblingsNumber={Infinity}
-				renderTabBar={() => <ScrollableTabBar />}
-			>
-				{
-					categories.map((category) => <RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category._id]} />)
-				}
-			</ScrollableTabView>
+			<Container>
+				<Tabs
+					initialPage={selectedCategory}
+					tabBarTextStyle={styles.tabBarTextStyle}
+					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
+					prerenderingSiblingsNumber={Infinity}
+					renderTabBar={() => <ScrollableTab />}
+				>
+					{
+						categories.map((category) => (
+							<Tab key={category._id} heading={category.name} activeTabStyle={styles.tabStyle} tabStyle={styles.tabStyle}>
+								<RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category._id]} />
+							</Tab>
+						))
+					}
+				</Tabs>
+			</Container>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
 	tabBarTextStyle: { color: 'white', fontSize: RFValue(15, 600) },
-	tabBarUnderlineStyle: { backgroundColor: '#FED110' }
+	tabBarUnderlineStyle: { backgroundColor: '#FED110' },
+	tabStyle: { backgroundColor: '#E04299' }
 })
 
 const mapStateToProps = ({
@@ -42,7 +52,7 @@ const mapStateToProps = ({
 	reducer4: {
 		categories,
 		products
-	},
+	}
 }) => ({
 	selectedCategory,
 	categories,
