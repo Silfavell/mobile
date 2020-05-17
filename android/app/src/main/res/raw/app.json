@@ -1,8 +1,8 @@
 {
-  "name": "bloom",
-  "displayName": "bloom",
-  "scheme": "bloom",
-  "slug": "bloom",
+  "name": "silfavell",
+  "displayName": "silfavell",
+  "scheme": "silfavell",
+  "slug": "silfavell",
   "privacy": "public",
   "sdkVersion": "36.0.0",
   "platforms": [
@@ -25,11 +25,11 @@
     "**/*"
   ],
   "ios": {
-    "bundleIdentifier": "com.bloom.bloom",
+    "bundleIdentifier": "com.silfavell.ios",
     "buildNumber": "1.0.0"
   },
   "android": {
-    "package": "com.bloom.bloom",
+    "package": "com.silfavell.android",
     "versionCode": 1,
     "config": {
       "googleMaps": {

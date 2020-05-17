@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "bloom-tvOS.app"
-               BlueprintName = "bloom-tvOS"
-               ReferencedContainer = "container:bloom.xcodeproj">
+               BuildableName = "silfavell-tvOS.app"
+               BlueprintName = "silfavell-tvOS"
+               ReferencedContainer = "container:silfavell.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "bloom-tvOSTests.xctest"
-               BlueprintName = "bloom-tvOSTests"
-               ReferencedContainer = "container:bloom.xcodeproj">
+               BuildableName = "silfavell-tvOSTests.xctest"
+               BlueprintName = "silfavell-tvOSTests"
+               ReferencedContainer = "container:silfavell.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "bloom-tvOS.app"
-            BlueprintName = "bloom-tvOS"
-            ReferencedContainer = "container:bloom.xcodeproj">
+            BuildableName = "silfavell-tvOS.app"
+            BlueprintName = "silfavell-tvOS"
+            ReferencedContainer = "container:silfavell.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "bloom-tvOS.app"
-            BlueprintName = "bloom-tvOS"
-            ReferencedContainer = "container:bloom.xcodeproj">
+            BuildableName = "silfavell-tvOS.app"
+            BlueprintName = "silfavell-tvOS"
+            ReferencedContainer = "container:silfavell.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
