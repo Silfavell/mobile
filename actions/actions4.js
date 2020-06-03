@@ -14,7 +14,7 @@ const getCategories = () => {
 }
 
 const getProducts = () => {
-	const url = `${SERVER_URL}/products`
+	const url = `${SERVER_URL}/products-with-categories`
 
 	return axios.get(url).then(({ data }) => data)
 }
@@ -22,7 +22,7 @@ const getProducts = () => {
 const getCart = (token) => {
 	const url = `${SERVER_URL}/user/cart`
 
-	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data.cart)
+	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data?.cart ?? {})
 }
 
 const getPaymentCards = (token) => {

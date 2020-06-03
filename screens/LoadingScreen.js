@@ -47,13 +47,11 @@ class LoadingScreen extends React.PureComponent {
 const mapStateToProps = ({
 	reducer4: {
 		token,
-		categories,
-		products
+		categories
 	}
 }) => ({
 	token,
-	categories,
-	products
+	categories
 })
 
 const mapDispatchToProps = {

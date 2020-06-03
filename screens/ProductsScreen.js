@@ -14,7 +14,9 @@ import RecyclerList from '../components/RecyclerList'
 class ProductsScreen extends React.PureComponent {
 	render() {
 		const {
-			categories, products, selectedCategory, navigation
+			products,
+			selectedCategory,
+			navigation
 		} = this.props
 
 		return (
@@ -27,9 +29,9 @@ class ProductsScreen extends React.PureComponent {
 					renderTabBar={() => <ScrollableTab />}
 				>
 					{
-						categories.map((category) => (
+						products.map((category) => (
 							<Tab key={category._id} heading={category.name} activeTabStyle={styles.tabStyle} tabStyle={styles.tabStyle}>
-								<RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={products[category._id]} />
+								<RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={category.products} />
 							</Tab>
 						))
 					}
@@ -50,12 +52,10 @@ const mapStateToProps = ({
 		selectedCategory
 	},
 	reducer4: {
-		categories,
 		products
 	}
 }) => ({
 	selectedCategory,
-	categories,
 	products
 })
 
