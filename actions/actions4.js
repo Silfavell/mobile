@@ -22,7 +22,7 @@ const getProducts = () => {
 const getCart = (token) => {
 	const url = `${SERVER_URL}/user/cart`
 
-	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data)
+	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data.cart)
 }
 
 const getPaymentCards = (token) => {
