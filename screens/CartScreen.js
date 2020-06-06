@@ -34,9 +34,11 @@ class CartScreen extends React.PureComponent {
 							data={products}
 							keyExtractor={this.keyExtractor}
 							renderItem={renderCardProductItem}
+							ListFooterComponent={
+								<View style={styles.footer} />
+							}
 						/>
 					</ShadowContainer>
-					<View style={styles.footer} />
 					<CompletePayment navigation={this.props.navigation} />
 				</View>
 			)

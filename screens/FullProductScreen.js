@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
 	ScrollView,
 	View,
@@ -14,6 +15,14 @@ import { increaseProductQuantity } from '../actions/actions1'
 import ButtonComponent from '../components/ButtonComponent'
 
 class FullProductScreen extends React.PureComponent {
+	constructor(props) {
+		super(props)
+
+		this.props.navigation.setOptions({
+			headerRight: () => <Ionicons size={26} color="white" style={{ marginRight: 16 }} name="md-heart" />
+		})
+	}
+
 	onAddToCartClick = () => {
 		this.props.increaseProductQuantity(this.props.route.params._id)
 	}
@@ -82,7 +91,8 @@ const styles = StyleSheet.create({
 	},
 	details: {
 		flex: 1,
-		flexDirection: 'column'
+		flexDirection: 'column',
+		paddingBottom: 70
 	},
 	price: {
 		fontSize: RFValue(26, 600),

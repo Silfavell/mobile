@@ -24,6 +24,14 @@ class ProfileScreen extends React.PureComponent {
 		this.props.navigation.navigate('paymentOptionsScreen')
 	}
 
+	moveToFavoriteProducts = () => {
+		this.props.navigation.navigate('favoriteProductsScreen')
+	}
+
+	moveToPreviousOrders = () => {
+		this.props.navigation.navigate('favoriteProductsScreen')
+	}
+
 	moveToChangePasssword = () => {
 		this.props.navigation.navigate('changePasswordScreen')
 	}
@@ -68,11 +76,20 @@ class ProfileScreen extends React.PureComponent {
 										</SettingItem>
 									</TouchableOpacity>
 
+									<TouchableOpacity onPress={this.moveToFavoriteProducts}>
+										<SettingItem title="Favorite Products">
+											<Ionicons color="#DB0099" name="md-heart" size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+
+									<TouchableOpacity onPress={this.moveToPreviousOrders}>
+										<SettingItem title="Previous Orders">
+											<Ionicons color="#DB0099" name="md-basket" size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+
 									{
-										//  <SettingItem title={'Favorite Products'}>
-										//      <Ionicons color={'#DB0099'} name={'md-heart'} size={32} />
-										//  </SettingItem>
-										//
+
 										//  <SettingItem title={'Previous Orders'}>
 										//      <Ionicons color={'#DB0099'} name={'md-basket'} size={32} />
 										//  </SettingItem>

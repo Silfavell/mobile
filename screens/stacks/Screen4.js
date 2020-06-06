@@ -13,6 +13,8 @@ import PaymentOptionsScreen from '../PaymentOptionsScreens/PaymentOptionsScreen'
 import AddNewCardScreen from '../PaymentOptionsScreens/AddNewCardScreen'
 import ChangeLanguageScreen from '../ChangeLanguageScreen'
 import EditProfileScreen from '../EditProfileScreen'
+import FavoriteProductsScreen from '../FavoriteProductsScreen'
+import FullProductScreen from '../FullProductScreen'
 
 const Stack = createStackNavigator()
 
@@ -98,6 +100,17 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
+					name="favoriteProductsScreen"
+					component={FavoriteProductsScreen}
+					options={{
+						title: 'Favorilerim',
+						headerTitleAlign: 'center',
+						headerTintColor: 'white',
+						headerStyle: styles.headerStyle
+					}}
+				/>
+
+				<Stack.Screen
 					name="addNewCardScreen"
 					component={AddNewCardScreen}
 					options={{
@@ -128,6 +141,18 @@ class Screen4 extends React.PureComponent {
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
 					}}
+				/>
+
+				<Stack.Screen
+					name="fullProductScreen"
+					options={{
+						title: 'Ürün detayı',
+						headerTitleAlign: 'center',
+						headerTintColor: 'white',
+						headerStyle: styles.headerStyle
+					}}
+
+					component={FullProductScreen}
 				/>
 
 			</Stack.Navigator>
