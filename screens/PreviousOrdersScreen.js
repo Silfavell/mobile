@@ -1,9 +1,8 @@
 import React from 'react'
-import { View, FlatList, Text } from 'react-native'
+import { View, FlatList } from 'react-native'
 import axios from 'axios'
 
 import { SERVER_URL } from '../utils/global'
-import CartProduct from '../components/CartProduct'
 import OrderComponent from '../components/OrderComponent'
 
 class PreviousOrdersScreen extends React.PureComponent {
