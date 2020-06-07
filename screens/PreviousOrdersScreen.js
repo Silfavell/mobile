@@ -21,7 +21,7 @@ class PreviousOrdersScreen extends React.PureComponent {
 		})
 	}
 
-	keyExtractor = (item) => item// item._id
+	keyExtractor = (item) => item._id
 
 	render() {
 		return (
