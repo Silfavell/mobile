@@ -10,11 +10,11 @@ import {
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import CardProduct from '../components/CardProduct'
+import CartProduct from '../components/CartProduct'
 import CompletePayment from '../components/CompletePayment'
 import ShadowContainer from '../components/ShadowContainer'
 
-const renderCardProductItem = ({ item }) => <CardProduct data={item} />
+const renderCartProductItem = ({ item }) => <CartProduct data={item} />
 
 class CartScreen extends React.PureComponent {
 	keyExtractor = (item) => `cart${item._id}`
@@ -31,9 +31,10 @@ class CartScreen extends React.PureComponent {
 				<View style={styles.container}>
 					<ShadowContainer>
 						<FlatList
+							style={{ backgroundColor: 'white' }}
 							data={products}
 							keyExtractor={this.keyExtractor}
-							renderItem={renderCardProductItem}
+							renderItem={renderCartProductItem}
 							ListFooterComponent={
 								<View style={styles.footer} />
 							}

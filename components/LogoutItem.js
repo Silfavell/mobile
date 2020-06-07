@@ -25,7 +25,7 @@ class LogoutItem extends React.PureComponent {
 				<LogoutPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
 
 				<TouchableOpacity onPress={this.onClick}>
-					<SettingItem title="Logout">
+					<SettingItem title="Çıkış Yap">
 						<MaterialIcons color="#DB0099" name="exit-to-app" size={32} />
 					</SettingItem>
 				</TouchableOpacity>

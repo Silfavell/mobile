@@ -8,14 +8,20 @@ import {
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { SERVER_URL } from '../utils/global'
 
-import CardProductQuantityComponent from './CardProductQuantityComponent'
+import CartProductQuantityComponent from './CartProductQuantityComponent'
 
-class CardProduct extends React.PureComponent {
+class CartProduct extends React.PureComponent {
 	render() {
 		const {
 			data: {
-				_id, name, price, category, image,
+				_id,
+				name,
+				price,
+				category,
+				image,
+				quantity
 			},
+			previousOrder
 		} = this.props
 
 		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
@@ -45,7 +51,7 @@ class CardProduct extends React.PureComponent {
 				<View style={[styles.child, styles.flex2, styles.column]}>
 					<View style={styles.child} />
 					<View style={styles.rowChild}>
-						<CardProductQuantityComponent _id={_id} />
+						<CartProductQuantityComponent _id={_id} previousOrder={previousOrder} quantity={quantity} />
 					</View>
 					<View style={styles.child} />
 				</View>
@@ -62,8 +68,7 @@ const styles = StyleSheet.create({
 		padding: RFValue(8, 600),
 		paddingVertical: RFValue(12, 600),
 		borderBottomWidth: 1,
-		borderBottomColor: '#EFEFEF',
-		backgroundColor: 'white'
+		borderBottomColor: '#EFEFEF'
 	},
 	child: {
 		flex: 1,
@@ -120,4 +125,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default CardProduct
+export default CartProduct

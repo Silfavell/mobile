@@ -10,7 +10,7 @@ import {
 
 import { decreaseProductQuantity, increaseProductQuantity } from '../actions/actions1'
 
-class CardProductQuantityComponent extends React.PureComponent {
+class CartProductQuantityComponent extends React.PureComponent {
 	onDecreaseClick = () => {
 		this.props.decreaseProductQuantity(this.props._id)
 	}
@@ -20,7 +20,24 @@ class CardProductQuantityComponent extends React.PureComponent {
 	}
 
 	render() {
-		const { _id, cart } = this.props
+		const {
+			_id,
+			cart,
+			quantity,
+			previousOrder
+		} = this.props
+
+		if (previousOrder) {
+			return (
+				<>
+					<View style={styles.child} />
+					<View style={[styles.child, styles.quantityContainer]}>
+						<Text style={styles.quantityText}>{quantity}</Text>
+					</View>
+					<View style={styles.child} />
+				</>
+			)
+		}
 
 		return (
 			<>
@@ -83,4 +100,4 @@ const mapDispatchToProps = {
 	increaseProductQuantity
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardProductQuantityComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(CartProductQuantityComponent)

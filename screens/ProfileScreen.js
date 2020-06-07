@@ -29,7 +29,7 @@ class ProfileScreen extends React.PureComponent {
 	}
 
 	moveToPreviousOrders = () => {
-		this.props.navigation.navigate('favoriteProductsScreen')
+		this.props.navigation.navigate('previousOrdersScreen')
 	}
 
 	moveToChangePasssword = () => {
@@ -65,25 +65,25 @@ class ProfileScreen extends React.PureComponent {
 									}
 
 									<TouchableOpacity onPress={this.moveToAddress}>
-										<SettingItem title="Addresses">
+										<SettingItem title="Adreslerim">
 											<MaterialIcons color="#DB0099" name="place" size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
 									<TouchableOpacity onPress={this.moveToPaymentOptions}>
-										<SettingItem title="Payment Options">
+										<SettingItem title="Ödeme Seçeneklerim">
 											<Ionicons color="#DB0099" name="ios-card" size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
 									<TouchableOpacity onPress={this.moveToFavoriteProducts}>
-										<SettingItem title="Favorite Products">
+										<SettingItem title="Favorilerim">
 											<Ionicons color="#DB0099" name="md-heart" size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
 									<TouchableOpacity onPress={this.moveToPreviousOrders}>
-										<SettingItem title="Previous Orders">
+										<SettingItem title="Siparişlerim">
 											<Ionicons color="#DB0099" name="md-basket" size={32} />
 										</SettingItem>
 									</TouchableOpacity>
@@ -104,7 +104,7 @@ class ProfileScreen extends React.PureComponent {
 									}
 
 									<TouchableOpacity onPress={this.moveToChangePasssword}>
-										<SettingItem title="Change Password">
+										<SettingItem title="Şifremi Değiştir">
 											<Ionicons color="#DB0099" name="md-lock" size={32} />
 										</SettingItem>
 									</TouchableOpacity>
@@ -124,7 +124,7 @@ class ProfileScreen extends React.PureComponent {
 							)
 							: (
 								<TouchableOpacity onPress={this.moveToLogin}>
-									<SettingItem title="Giriş yap">
+									<SettingItem title="Giriş Yap">
 										<Ionicons color="#DB0099" name="md-person" size={32} />
 									</SettingItem>
 								</TouchableOpacity>
