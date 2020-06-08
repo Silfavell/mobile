@@ -7,6 +7,8 @@ class OrderComponent extends React.PureComponent {
 	render() {
 		const { item } = this.props
 
+		const totalPrice = item.products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.price) * currentValue.quantity, 0).toFixed(2)
+
 		return (
 			<View style={{
 				flex: 1,
@@ -17,7 +19,8 @@ class OrderComponent extends React.PureComponent {
 				borderRadius: 8,
 				display: 'flex',
 				borderWidth: 1,
-				borderColor: '#CDCDCD'
+				borderColor: '#CDCDCD',
+				backgroundColor: 'white'
 			}}
 			>
 				<View style={{
@@ -53,7 +56,7 @@ class OrderComponent extends React.PureComponent {
 					}}
 					>
 						<Text>Ödenen Tutar:</Text>
-						<Text>{`₺${item.products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.price) * currentValue.quantity, 0).toFixed(2)}`}</Text>
+						<Text>{`₺${totalPrice}`}</Text>
 					</View>
 				</View>
 
