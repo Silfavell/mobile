@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
 	ScrollView,
+	TouchableOpacity,
 	View,
 	Image,
 	Text,
@@ -15,12 +16,22 @@ import { increaseProductQuantity } from '../actions/actions1'
 import ButtonComponent from '../components/ButtonComponent'
 
 class FullProductScreen extends React.PureComponent {
+	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
 		super(props)
 
-		this.props.navigation.setOptions({
-			headerRight: () => <Ionicons size={26} color="white" style={{ marginRight: 16 }} name="md-heart" />
-		})
+		/*
+			this.props.navigation.setOptions({
+				headerRight: () => (
+					<TouchableOpacity onPress={() => {
+						console.log(this.props.route.params._id)
+					}}
+					>
+						<Ionicons size={26} color="white" style={{ marginRight: 16 }} name="md-heart" />
+					</TouchableOpacity>
+				)
+			})
+		*/
 	}
 
 	onAddToCartClick = () => {

@@ -76,11 +76,13 @@ class ProfileScreen extends React.PureComponent {
 										</SettingItem>
 									</TouchableOpacity>
 
-									<TouchableOpacity onPress={this.moveToFavoriteProducts}>
-										<SettingItem title="Favorilerim">
-											<Ionicons color="#DB0099" name="md-heart" size={32} />
-										</SettingItem>
-									</TouchableOpacity>
+									{
+										//	<TouchableOpacity onPress={this.moveToFavoriteProducts}>
+										//		<SettingItem title="Favorilerim">
+										//			<Ionicons color="#DB0099" name="md-heart" size={32} />
+										//		</SettingItem>
+										//	</TouchableOpacity>
+									}
 
 									<TouchableOpacity onPress={this.moveToPreviousOrders}>
 										<SettingItem title="Siparişlerim">

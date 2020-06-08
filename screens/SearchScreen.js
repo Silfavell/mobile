@@ -52,7 +52,7 @@ class SearchScreen extends React.PureComponent {
 
 	renderSearchResult = () => (
 		<View style={{ flex: 1 }}>
-			<RecyclerList list={this.state.products} fromSearch />
+			<RecyclerList list={this.state.products} navigation={this.props.navigation} fromSearch />
 		</View>
 	)
 
