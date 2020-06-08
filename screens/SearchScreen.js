@@ -97,10 +97,16 @@ class SearchScreen extends React.PureComponent {
 				</View>
 
 				{
+					/*
 					// eslint-disable-next-line no-nested-ternary
 					this.state.fetch ? this.fetching() : (
 						!this.state.products.length > 0 ? this.renderDivider() : this.renderSearchResult()
 					)
+					*/
+				}
+				{
+					// eslint-disable-next-line no-nested-ternary
+					this.state.fetch ? this.fetching() : (this.state.products.length > 0 && this.renderSearchResult())
 				}
 			</ScrollView>
 		)
