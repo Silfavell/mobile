@@ -1,6 +1,8 @@
+/* eslint-disable react/sort-comp */
 import React from 'react'
 import { connect } from 'react-redux'
-import { FlatList } from 'react-native'
+import { FlatList, BackHandler } from 'react-native'
+import RNExitApp from 'react-native-exit-app'
 
 import Category from '../components/Category'
 import EmptyCategory from '../components/EmptyCategory'
@@ -23,6 +25,23 @@ class HomeScreen extends React.PureComponent {
 	keyExtractor = (item) => item._id
 
 	renderItem = ({ item, index }) => (item.empty ? <EmptyCategory /> : <Category navigation={this.props.navigation} index={index} data={item} />)
+
+	handleBackButtonClick = () => {
+		if (this.props.navigation.isFocused()) {
+			RNExitApp.exitApp()
+		}
+
+		return true
+	}
+
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick)
+	}
+
+	// eslint-disable-next-line camelcase
+	UNSAFE_componentWillMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick)
+	}
 
 	render() {
 		return (
