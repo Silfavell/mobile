@@ -13,6 +13,8 @@ import { SERVER_URL } from '../utils/global'
 
 import { increaseProductQuantity } from '../actions/actions1'
 
+import productEx from '../assets/product.jpg'
+
 class Product extends React.PureComponent {
 	onAddProductClick = () => {
 		// eslint-disable-next-line no-shadow
@@ -45,7 +47,12 @@ class Product extends React.PureComponent {
 				</TouchableOpacity>
 
 				<TouchableOpacity style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
-					<Image source={{ uri: url }} resizeMode="contain" style={styles.productImage} />
+					<Image
+						// source={{ uri: url }}
+						source={productEx}
+						resizeMode="contain"
+						style={styles.productImage}
+					/>
 				</TouchableOpacity>
 
 				<Text style={[styles.child, styles.productPrice, { alignItems: 'flex-start' }]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
@@ -95,15 +102,15 @@ const styles = StyleSheet.create({
 		fontSize: RFValue(23, 600)
 	},
 	productImageContainer: {
-		borderWidth: 0.2,
-		borderColor: '#BCBCBC',
-		borderRadius: 16,
 		backgroundColor: 'white'
 	},
 	productImage: {
-		width: RFPercentage(12),
-		height: RFPercentage(14),
-		margin: RFValue(6, 600)
+		borderWidth: 1,
+		borderColor: '#EFEFEF',
+		width: '100%',
+		height: null,
+		aspectRatio: 0.6,
+		paddingBottom: RFValue(6, 600)
 	},
 	productName: {
 		fontSize: RFPercentage(2.6),
