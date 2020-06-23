@@ -31,7 +31,7 @@ class HomeScreen extends React.PureComponent {
 			RNExitApp.exitApp()
 		}
 
-		return true
+		return false
 	}
 
 	componentWillUnmount() {
