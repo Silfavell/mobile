@@ -120,10 +120,11 @@ class LoginScreen extends React.Component {
 						<InputIcon>
 							<Ionicons
 								size={32}
-								name="md-lock"
+								name='ios-key'
 								color={
 									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#DB0099'
 								}
+								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>
 						</InputIcon>
 
@@ -134,7 +135,7 @@ class LoginScreen extends React.Component {
 							this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized
 							|| this.state.invalidPassword || !this.state.isPasswordInitialized
 						}
-						text="Giriş yap"
+						text='Giriş yap'
 						onClick={this.onLoginClick}
 					/>
 
@@ -148,7 +149,7 @@ class LoginScreen extends React.Component {
 				<View>
 					<View style={styles.buttonDivider} />
 
-					<ButtonComponent text="Kayıt ol" onClick={this.goToRegister} opposite />
+					<ButtonComponent text='Kayıt ol' onClick={this.goToRegister} opposite />
 				</View>
 			</ScrollView>
 		)
