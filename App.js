@@ -49,6 +49,7 @@ const handleAppStateChange = (nextAppState) => {
 }
 
 export default function App() {
+	console.disableYellowBox = true;
 	networkListener()
 	AppState.addEventListener('change', handleAppStateChange)
 
