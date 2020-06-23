@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
 		padding: RFValue(4, 600),
 		paddingVertical: RFValue(12, 600),
 		borderBottomWidth: 1,
-		borderBottomColor: '#EFEFEF'
+		borderBottomColor: '#EFEFEF',
+		backgroundColor: 'white'
 	},
 	child: {
 		flex: 1,

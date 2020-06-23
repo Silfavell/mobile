@@ -14,32 +14,41 @@ import CartProduct from '../components/CartProduct'
 import CompletePayment from '../components/CompletePayment'
 import ShadowContainer from '../components/ShadowContainer'
 
-const renderCartProductItem = ({ item }) => <CartProduct data={item} />
 
 class CartScreen extends React.PureComponent {
+	products = Object.values(this.props.cart)
+
 	keyExtractor = (item) => `cart${item._id}`
 
 	onListProductsClick = () => {
 		this.props.navigation.navigate('products')
 	}
 
-	render() {
-		const products = Object.values(this.props.cart)
+	renderCartProductItem = ({ item, index }) => {
+		if (index === this.products.length - 1) {
+			return (
+				<ShadowContainer>
+					<CartProduct data={item} />
+				</ShadowContainer>
+			)
+		}
 
-		if (products.length > 0) {
+		return <CartProduct data={item} />
+	}
+
+	render() {
+		if (this.products.length > 0) {
 			return (
 				<View style={styles.container}>
-					<ShadowContainer>
-						<FlatList
-							style={{ backgroundColor: 'white' }}
-							data={products}
-							keyExtractor={this.keyExtractor}
-							renderItem={renderCartProductItem}
-							ListFooterComponent={
-								<View style={styles.footer} />
-							}
-						/>
-					</ShadowContainer>
+					<FlatList
+						style={{ backgroundColor: '#DFDFDF' }}
+						data={this.products}
+						keyExtractor={this.keyExtractor}
+						renderItem={this.renderCartProductItem}
+						ListFooterComponent={
+							<View style={styles.footer} />
+						}
+					/>
 					<CompletePayment navigation={this.props.navigation} />
 				</View>
 			)
