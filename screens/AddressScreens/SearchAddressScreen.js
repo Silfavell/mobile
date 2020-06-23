@@ -64,7 +64,7 @@ class SearchAddressScreen extends React.PureComponent {
 			<View style={styles.header}>
 				<View style={styles.searchAddressContainerContainer}>
 					<View style={styles.searchAddressContainer}>
-						<Ionicons size={32} name="md-search" color="#5E3FBE" />
+						<Ionicons size={32} name="md-search" color="#E04299" />
 						<TextInput
 							value={this.state.searchVal}
 							onChangeText={this.search}
@@ -77,7 +77,7 @@ class SearchAddressScreen extends React.PureComponent {
 
 				<TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
 					<View style={styles.useCurrentLocationContainer}>
-						<Ionicons size={32} name="md-locate" color="#5E3FBE" />
+						<Ionicons size={32} name="md-locate" color="#E04299" />
 						<Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
 					</View>
 				</TouchableOpacity>
