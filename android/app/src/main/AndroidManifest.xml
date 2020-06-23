@@ -2,7 +2,9 @@
   package="com.silfavell.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -10,6 +12,11 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyDqO6aeMglQlL9ONRqWB93_6SCUOf5XAg8"/>
+
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -21,7 +28,9 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      
     </application>
 
 </manifest>
