@@ -36,7 +36,10 @@ class CartScreen extends React.PureComponent {
 		return <CartProduct data={item} />
 	}
 
+
 	render() {
+		this.products = Object.values(this.props.cart)
+
 		if (this.products.length > 0) {
 			return (
 				<View style={styles.container}>
