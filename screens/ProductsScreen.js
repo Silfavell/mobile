@@ -12,6 +12,9 @@ import {
 import RecyclerList from '../components/RecyclerList'
 
 class ProductsScreen extends React.PureComponent {
+
+	getTabBar = () => <ScrollableTab />
+
 	render() {
 		const {
 			products,
@@ -26,7 +29,8 @@ class ProductsScreen extends React.PureComponent {
 					tabBarTextStyle={styles.tabBarTextStyle}
 					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 					prerenderingSiblingsNumber={Infinity}
-					renderTabBar={() => <ScrollableTab />}
+					tabBarBackgroundColor={styles.tabStyle.backgroundColor}
+					renderTabBar={this.getTabBar}
 				>
 					{
 						products.map((category) => (
