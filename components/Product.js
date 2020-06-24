@@ -30,11 +30,11 @@ class Product extends React.PureComponent {
 		const {
 			name,
 			price,
-			category,
+			categoryId,
 			image
 		} = this.props.data
 
-		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
+		const url = `${SERVER_URL}/assets/products-2/${categoryId}/${image}.webp`
 
 		return (
 			<View style={styles.container}>
@@ -50,7 +50,7 @@ class Product extends React.PureComponent {
 					<Image
 						// source={{ uri: url }}
 						source={productEx}
-						resizeMode="contain"
+						resizeMode='contain'
 						style={styles.productImage}
 					/>
 				</TouchableOpacity>

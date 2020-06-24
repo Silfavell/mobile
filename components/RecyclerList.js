@@ -28,7 +28,7 @@ class List extends React.PureComponent {
 		// eslint-disable-next-line no-param-reassign
 		dim.width = width / 2.05
 		// eslint-disable-next-line no-param-reassign
-		dim.height = 372
+		dim.height = 400
 	}
 
 	rowRenderer = (type, item) => <Product key={item._id} data={item} navigation={this.props.navigation} />
@@ -41,7 +41,7 @@ class List extends React.PureComponent {
 		return (
 			<>
 				{
-					false && !this.props.fromSearch && <SearchFilter listRef={this.state.ref} />
+					// !this.props.fromSearch && <SearchFilter listRef={this.state.ref} />
 				}
 				<RecyclerListView
 					style={{ backgroundColor: 'white' }}

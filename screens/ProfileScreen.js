@@ -50,7 +50,7 @@ class ProfileScreen extends React.PureComponent {
 								<>
 									<TouchableOpacity onPress={this.moveToEditProfileScreen}>
 										<SettingItem title={this.props.user.nameSurname}>
-											<Ionicons color="#DB0099" name="md-person" size={32} />
+											<Ionicons color='#DB0099' name='md-person' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
@@ -65,28 +65,28 @@ class ProfileScreen extends React.PureComponent {
 									}
 
 									<TouchableOpacity onPress={this.moveToAddress}>
-										<SettingItem title="Adreslerim">
-											<MaterialIcons color="#DB0099" name="place" size={32} />
+										<SettingItem title='Adreslerim'>
+											<MaterialIcons color='#DB0099' name='place' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
 									<TouchableOpacity onPress={this.moveToPaymentOptions}>
-										<SettingItem title="Ödeme Seçeneklerim">
-											<Ionicons color="#DB0099" name="ios-card" size={32} />
+										<SettingItem title='Ödeme Seçeneklerim'>
+											<Ionicons color='#DB0099' name='ios-card' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
 									{
 										//	<TouchableOpacity onPress={this.moveToFavoriteProducts}>
-										//		<SettingItem title="Favorilerim">
-										//			<Ionicons color="#DB0099" name="md-heart" size={32} />
+										//		<SettingItem title='Favorilerim'>
+										//			<Ionicons color='#DB0099' name='md-heart' size={32} />
 										//		</SettingItem>
 										//	</TouchableOpacity>
 									}
 
 									<TouchableOpacity onPress={this.moveToPreviousOrders}>
-										<SettingItem title="Siparişlerim">
-											<Ionicons color="#DB0099" name="md-basket" size={32} />
+										<SettingItem title='Siparişlerim'>
+											<Ionicons color='#DB0099' name='md-basket' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
@@ -106,8 +106,8 @@ class ProfileScreen extends React.PureComponent {
 									}
 
 									<TouchableOpacity onPress={this.moveToChangePasssword}>
-										<SettingItem title="Şifremi Değiştir">
-											<Ionicons color="#DB0099" name="md-lock" size={32} />
+										<SettingItem title='Şifremi Değiştir'>
+											<Ionicons color='#DB0099' name='ios-key' size={32} style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }} />
 										</SettingItem>
 									</TouchableOpacity>
 
@@ -126,8 +126,8 @@ class ProfileScreen extends React.PureComponent {
 							)
 							: (
 								<TouchableOpacity onPress={this.moveToLogin}>
-									<SettingItem title="Giriş Yap">
-										<Ionicons color="#DB0099" name="md-person" size={32} />
+									<SettingItem title='Giriş Yap'>
+										<Ionicons color='#DB0099' name='md-person' size={32} />
 									</SettingItem>
 								</TouchableOpacity>
 							)
@@ -139,7 +139,7 @@ class ProfileScreen extends React.PureComponent {
 						//  </TouchableOpacity>
 					}
 
-					<SettingItem title="1.0.0" version />
+					<SettingItem title='1.0.0' version />
 
 				</ScrollView>
 			</ShadowContainer>

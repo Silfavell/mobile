@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
 		borderRadius: 8
 	},
 	securityText: {
-		color: '#5E3FBE',
+		color: '#E04299',
 		fontSize: RFValue(19, 600),
 		fontWeight: 'bold'
 	},

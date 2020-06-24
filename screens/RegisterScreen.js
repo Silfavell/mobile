@@ -145,10 +145,11 @@ class RegisterScreen extends React.PureComponent {
 						<InputIcon>
 							<Ionicons
 								size={32}
-								name="md-lock"
+								name='ios-key'
 								color={
 									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#DB0099'
 								}
+								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>
 						</InputIcon>
 
@@ -167,7 +168,7 @@ class RegisterScreen extends React.PureComponent {
 						<InputIcon>
 							<Ionicons
 								size={32}
-								name="md-person"
+								name='md-person'
 								color={
 									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? 'red' : '#DB0099'
 								}
@@ -190,7 +191,7 @@ class RegisterScreen extends React.PureComponent {
 						<InputIcon>
 							<Ionicons
 								size={32}
-								name="md-mail-open"
+								name='md-mail-open'
 								color={
 									this.state.invalidEmail && this.state.isEmailInitialized ? 'red' : '#DB0099'
 								}
@@ -225,7 +226,7 @@ class RegisterScreen extends React.PureComponent {
 					<View style={styles.buttonDivider} />
 
 					<ButtonComponent
-						text="Kayıt ol"
+						text='Kayıt ol'
 						onClick={this.onRegisterClick}
 						disabled={
 							this.state.invalidEmail || !this.state.isEmailInitialized

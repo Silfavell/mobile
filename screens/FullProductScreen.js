@@ -15,6 +15,8 @@ import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
 import ButtonComponent from '../components/ButtonComponent'
 
+import productEx from '../assets/product.jpg'
+
 class FullProductScreen extends React.PureComponent {
 	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
@@ -42,12 +44,12 @@ class FullProductScreen extends React.PureComponent {
 		const {
 			name,
 			price,
-			category,
+			categoryId,
 			image
 		} = this.props.route.params
 
-		// const url = `${SERVER_URL}/assets/original-products/${category}/${image}.png` // TODO
-		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
+		// const url = `${SERVER_URL}/assets/original-products/${categoryId}/${image}.png` // TODO
+		const url = `${SERVER_URL}/assets/products-2/${categoryId}/${image}.webp`
 
 		return (
 			<View style={styles.container}>
@@ -57,7 +59,8 @@ class FullProductScreen extends React.PureComponent {
 						<Image
 							style={styles.image}
 							resizeMode="contain"
-							source={{ uri: url }}
+							// source={{ uri: url }}
+							source={productEx}
 						/>
 					</View>
 					<View style={styles.details}>
@@ -97,13 +100,14 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	image: {
-		width: '80%',
-		aspectRatio: 1
+		height: 300,
+		marginBottom: 30
 	},
 	details: {
 		flex: 1,
 		flexDirection: 'column',
-		paddingBottom: 70
+		paddingBottom: 70,
+		marginHorizontal: 20
 	},
 	price: {
 		fontSize: RFValue(26, 600),

@@ -7,6 +7,7 @@ import RNExitApp from 'react-native-exit-app'
 import Category from '../components/Category'
 import EmptyCategory from '../components/EmptyCategory'
 import Slider from '../components/Slider'
+import ShadowContainer from '../components/ShadowContainer'
 
 const formatData = (data, numColumns) => {
 	const numberOfFullRows = Math.floor(data.length / numColumns)
@@ -31,7 +32,7 @@ class HomeScreen extends React.PureComponent {
 			RNExitApp.exitApp()
 		}
 
-		return true
+		return false
 	}
 
 	componentWillUnmount() {
@@ -51,7 +52,11 @@ class HomeScreen extends React.PureComponent {
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
 				numColumns={3}
-				ListHeaderComponent={<Slider />}
+				ListHeaderComponent={
+					<ShadowContainer>
+						<Slider />
+					</ShadowContainer>
+				}
 			/>
 		)
 	}
