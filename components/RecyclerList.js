@@ -26,9 +26,9 @@ class List extends React.PureComponent {
 
 	setLayoutForType = (type, dim) => {
 		// eslint-disable-next-line no-param-reassign
-		dim.width = width / 3.05
+		dim.width = width / 2.05
 		// eslint-disable-next-line no-param-reassign
-		dim.height = 236
+		dim.height = 372
 	}
 
 	rowRenderer = (type, item) => <Product key={item._id} data={item} navigation={this.props.navigation} />

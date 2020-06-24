@@ -7,6 +7,7 @@ import Modal, {
 	ModalFooter,
 	ModalContent
 } from 'react-native-modals'
+import RNExitApp from 'react-native-exit-app'
 
 import { setConnectionPopupState } from '../../actions/global-actions'
 
@@ -15,6 +16,7 @@ import connectionImage from '../../assets/connection.png'
 class ConnectionPopup extends React.PureComponent {
 	close = () => {
 		this.props.setConnectionPopupState(false)
+		RNExitApp.exitApp()
 		return true
 	}
 

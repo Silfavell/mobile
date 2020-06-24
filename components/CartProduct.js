@@ -10,6 +10,8 @@ import { SERVER_URL } from '../utils/global'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
+import productEx from '../assets/product.jpg'
+
 class CartProduct extends React.PureComponent {
 	render() {
 		const {
@@ -32,30 +34,27 @@ class CartProduct extends React.PureComponent {
 				<View style={[styles.child, styles.flex2, styles.imageContainer]}>
 					<Image
 						style={styles.productImage}
-						resizeMode="contain"
-						source={{ uri: url }}
+						resizeMode="cover"
+						// source={{ uri: url }}
+						source={productEx}
 					/>
 				</View>
 
 				<View style={[styles.child, styles.flex3, styles.column]}>
 					<View style={styles.child} />
 					<View style={styles.textContainer}>
-						<Text style={styles.productName} numberOfLines={2}>{name}</Text>
+						<Text style={styles.productName} numberOfLines={3}>{name}</Text>
 					</View>
+					<View style={styles.child} />
 					<View style={styles.textContainer}>
-						<Text style={styles.productPrice} numberOfLines={2}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+						<Text style={styles.productPrice} numberOfLines={3}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 					</View>
-					<View style={styles.child} />
-				</View>
-
-				<View style={[styles.child, styles.flex2, styles.column]}>
-					<View style={styles.child} />
 					<View style={styles.rowChild}>
+						<View style={styles.child} />
 						<CartProductQuantityComponent _id={_id} previousOrder={previousOrder} quantity={quantity} />
+						<View style={styles.child} />
 					</View>
-					<View style={styles.child} />
 				</View>
-
 			</View>
 		)
 	}
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
 	container: {
 		display: 'flex',
 		flexDirection: 'row',
-		padding: RFValue(8, 600),
+		padding: RFValue(4, 600),
 		paddingVertical: RFValue(12, 600),
 		borderBottomWidth: 1,
 		borderBottomColor: '#EFEFEF'
@@ -95,14 +94,14 @@ const styles = StyleSheet.create({
 	textContainer: {
 		width: '100%',
 		paddingHorizontal: RFValue(8, 600),
-		justifyContent: 'flex-start',
-		alignItems: 'flex-start'
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	productName: {
 		fontSize: RFPercentage(2.6),
 		fontWeight: '700',
 		color: '#454545',
-		textAlign: 'justify',
+		textAlign: 'center',
 		justifyContent: 'center'
 	},
 	productPrice: {
@@ -114,14 +113,14 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		padding: RFValue(4, 600),
-		borderWidth: 0.2,
-		borderColor: '#BCBCBC',
-		borderRadius: 12,
 		backgroundColor: 'white'
 	},
 	productImage: {
-		width: RFPercentage(14),
-		height: RFPercentage(14)
+		width: '100%',
+		height: null,
+		aspectRatio: 0.6,
+		borderWidth: 1,
+		borderColor: '#EFEFEF',
 	}
 })
 

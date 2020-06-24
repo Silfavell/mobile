@@ -97,8 +97,6 @@ export const login = (body, popupRef, cb) => (dispatch) => {
 				cb()
 			})
 		}
-	}).catch(() => {
-		popupRef.showMessage({ message: 'Hatalı telefon yada şifre' })
 	})
 }
 
