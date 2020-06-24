@@ -15,7 +15,7 @@ const Stack = createStackNavigator()
 const Screen2 = () => (
 	<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 		<Stack.Screen
-			name="search"
+			name='search'
 			options={{
 				title: 'Ara',
 				headerTitleAlign: 'center',
@@ -26,14 +26,13 @@ const Screen2 = () => (
 		/>
 
 		<Stack.Screen
-			name="fullProductScreen"
+			name='fullProductScreen'
 			options={{
 				title: 'Ürün detayı',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
 			}}
-
 			component={FullProductScreen}
 		/>
 	</Stack.Navigator>

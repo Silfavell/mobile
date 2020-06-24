@@ -1,6 +1,6 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import {
 	Container,
@@ -8,12 +8,29 @@ import {
 	Tabs,
 	ScrollableTab
 } from 'native-base'
+// import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
 
 class ProductsScreen extends React.PureComponent {
 
 	getTabBar = () => <ScrollableTab />
+
+	/*
+	onFilterClick = () => {
+		this.props.navigation.navigate('filterProductsScreen', { currentPage: this.tabsRef.state.currentPage })
+	}
+
+	UNSAFE_componentWillMount() {
+		this.props.navigation.setOptions({
+			headerRight: () => (
+				<TouchableOpacity onPress={this.onFilterClick}>
+					<MaterialIcons color={'white'} name='sort' size={28} style={{ transform: [{ rotateY: '180deg' }], marginRight: 12 }} />
+				</TouchableOpacity>
+			)
+		})
+	}
+	*/
 
 	render() {
 		const {
@@ -35,7 +52,11 @@ class ProductsScreen extends React.PureComponent {
 					{
 						products.map((category) => (
 							<Tab key={category._id} heading={category.name} activeTabStyle={styles.tabStyle} tabStyle={styles.tabStyle}>
-								<RecyclerList key={category._id} navigation={navigation} tabLabel={category.name} list={category.products} />
+								<RecyclerList
+									key={category._id}
+									navigation={navigation}
+									tabLabel={category.name}
+									list={category.products} />
 							</Tab>
 						))
 					}

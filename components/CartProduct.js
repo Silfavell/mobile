@@ -34,7 +34,7 @@ class CartProduct extends React.PureComponent {
 				<View style={[styles.child, styles.flex2, styles.imageContainer]}>
 					<Image
 						style={styles.productImage}
-						resizeMode="cover"
+						resizeMode='contain'
 						// source={{ uri: url }}
 						source={productEx}
 					/>

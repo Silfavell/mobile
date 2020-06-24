@@ -49,19 +49,19 @@ const handleAppStateChange = (nextAppState) => {
 }
 
 export default function App() {
-	console.disableYellowBox = true;
+	console.disableYellowBox = true
 	networkListener()
 	AppState.addEventListener('change', handleAppStateChange)
 
 	return (
 		<Provider store={store}>
-			<StatusBar backgroundColor="#DB0099" barStyle="light-content" />
+			<StatusBar backgroundColor='#DB0099' barStyle='light-content' />
 			<GlobalScreen />
 			<NavigationContainer>
-				<Stack.Navigator initialRouteName="Loading">
-					<Stack.Screen name="Welcome" component={WelcomeStack} options={{ headerShown: false }} />
-					<Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
-					<Stack.Screen name="Root" component={BottomTabNavigator} />
+				<Stack.Navigator initialRouteName='Loading'>
+					<Stack.Screen name='Welcome' component={WelcomeStack} options={{ headerShown: false }} />
+					<Stack.Screen name='Loading' component={LoadingScreen} options={{ headerShown: false }} />
+					<Stack.Screen name='Root' component={BottomTabNavigator} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</Provider>

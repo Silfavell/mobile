@@ -27,23 +27,22 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 
 	return (
 		<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
-
 			<Stack.Screen
-				name="home"
+				name='home'
 				component={HomeScreen}
 				options={{
 					headerTitleAlign: 'center',
 					headerStyle: styles.headerStyle,
 					headerTitle: () => (
 						<View style={styles.headerTitle}>
-							<Image source={logo} resizeMode="center" style={styles.headerImage} />
+							<Image source={logo} resizeMode='center' style={styles.headerImage} />
 						</View>
 					)
 				}}
 			/>
 
 			<Stack.Screen
-				name="products"
+				name='products'
 				options={{
 					title: 'Ürünler',
 					headerTitleAlign: 'center',
@@ -54,7 +53,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 			/>
 
 			<Stack.Screen
-				name="fullProductScreen"
+				name='fullProductScreen'
 				options={{
 					title: 'Ürün detayı',
 					headerTitleAlign: 'center',
@@ -64,7 +63,6 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 
 				component={FullProductScreen}
 			/>
-
 		</Stack.Navigator>
 	)
 }
