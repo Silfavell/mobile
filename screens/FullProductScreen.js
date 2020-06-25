@@ -22,18 +22,16 @@ class FullProductScreen extends React.PureComponent {
 	constructor(props) {
 		super(props)
 
-		/*
-			this.props.navigation.setOptions({
-				headerRight: () => (
-					<TouchableOpacity onPress={() => {
-						console.log(this.props.route.params._id)
-					}}
-					>
-						<Ionicons size={26} color='white' style={{ marginRight: 16 }} name='md-heart' />
-					</TouchableOpacity>
-				)
-			})
-		*/
+		this.props.navigation.setOptions({
+			headerRight: () => (
+				<TouchableOpacity onPress={() => {
+					console.log(this.props.route.params._id)
+				}}
+				>
+					<Ionicons size={26} color='black' style={{ marginRight: 20 }} name='md-heart-empty' />
+				</TouchableOpacity>
+			)
+		})
 	}
 
 	onAddToCartClick = () => {
