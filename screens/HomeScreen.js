@@ -1,7 +1,7 @@
 /* eslint-disable react/sort-comp */
 import React from 'react'
 import { connect } from 'react-redux'
-import { FlatList, BackHandler } from 'react-native'
+import { FlatList, View, BackHandler } from 'react-native'
 import RNExitApp from 'react-native-exit-app'
 
 import Category from '../components/Category'
@@ -25,7 +25,7 @@ const formatData = (data, numColumns) => {
 class HomeScreen extends React.PureComponent {
 	keyExtractor = (item) => item._id
 
-	renderItem = ({ item, index }) => (item.empty ? <EmptyCategory /> : <Category navigation={this.props.navigation} index={index} data={item} />)
+	renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />
 
 	handleBackButtonClick = () => {
 		if (this.props.navigation.isFocused()) {
@@ -47,15 +47,16 @@ class HomeScreen extends React.PureComponent {
 	render() {
 		return (
 			<FlatList
-				data={formatData(Object.values(this.props.categories), 3)}
-				columnWrapperStyle={{ justifyContent: 'space-between' }}
+				data={this.props.categories}
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
-				numColumns={3}
 				ListHeaderComponent={
 					<ShadowContainer>
 						<Slider />
 					</ShadowContainer>
+				}
+				ListFooterComponent={
+					<View style={{ height: 40 }} />
 				}
 			/>
 		)
