@@ -45,7 +45,7 @@ const Category = ({
 
 const styles = StyleSheet.create({
 	container: {
-		height: 200,
+		height: 160,
 		marginVertical: 20,
 		marginHorizontal: 10,
 		borderColor: '#CDCDCD'
