@@ -8,8 +8,9 @@ import {
 	StyleSheet
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
 import { connect } from 'react-redux'
+import axios from 'axios'
+
 import { SERVER_URL } from '../utils/global'
 
 import { increaseProductQuantity } from '../actions/actions1'
@@ -23,29 +24,54 @@ class Product extends React.PureComponent {
 		increaseProductQuantity(_id)
 	}
 
+	addToFavoriteProducts = () => {
+		console.log(this.props.data._id)
+		axios.post(`${'http://192.168.1.101:3000'}/user/favorite-product`, { _id: this.props.data._id }).then(({ status }) => {
+			if (status === 200) {
+				alert('Ürün favorilere eklendi')
+			}
+		}).catch((err) => {
+			console.log(err)
+		})
+	}
+
+	removeFromFavoriteProdutcs = () => {
+		axios.delete(`${'http://192.168.1.101:3000'}/user/favorite-product/${this.props.data._id}`).then(({ status }) => {
+			if (status === 200) {
+				alert('Ürün favorilerden çıkarıldı')
+			}
+		}).catch((err) => {
+			console.log(err)
+		})
+	}
+
 	onProductClick = () => {
 		this.props.navigation.navigate('fullProductScreen', this.props.data)
 	}
 
 	render() {
 		const {
-			name,
-			price,
-			categoryId,
-			image
-		} = this.props.data
+			data: {
+				name,
+				price,
+				categoryId,
+				image
+			},
+			favoriteProduct
+		} = this.props
 
 		const url = `${SERVER_URL}/assets/products-2/${categoryId}/${image}.webp`
 
 		return (
-			<View style={styles.container}
-			//	onLayout={(event) => {
-			//		var { x, y, width, height } = event.nativeEvent.layout;
-			//		console.log(height)
-			//	}}
-			>
+			<View style={styles.container}>
 
-				<Ionicons style={styles.favoriteIcon} size={28} name={'md-heart-empty'} color={'rgba(0,0,0,.8)'} />
+				<Ionicons
+					style={styles.favoriteIcon}
+					size={28}
+					name={favoriteProduct ? 'md-heart' : 'md-heart-empty'}
+					color={'rgba(0,0,0,.8)'}
+					onPress={favoriteProduct ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
+				/>
 
 				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
 					<Image
@@ -61,7 +87,8 @@ class Product extends React.PureComponent {
 				<Text style={[styles.child, styles.productPrice, { alignItems: 'flex-start' }]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
 				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
-			</View >
+
+			</View>
 		)
 	}
 }

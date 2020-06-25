@@ -36,7 +36,8 @@ class ProductsScreen extends React.PureComponent {
 		const {
 			products,
 			selectedCategory,
-			navigation
+			navigation,
+			user
 		} = this.props
 
 		return (
@@ -57,11 +58,15 @@ class ProductsScreen extends React.PureComponent {
 										<Text style={styles.tabBarTextStyle}>{category.name}</Text>
 									</TabHeading>
 								}>
+
 								<RecyclerList
 									key={category._id}
 									navigation={navigation}
 									tabLabel={category.name}
-									list={category.products} />
+									list={category.products}
+									favoriteProductsList={user.favoriteProducts}
+								/>
+
 							</Tab>
 						))
 					}
@@ -82,11 +87,13 @@ const mapStateToProps = ({
 		selectedCategory
 	},
 	reducer4: {
-		products
+		products,
+		user
 	}
 }) => ({
 	selectedCategory,
-	products
+	products,
+	user
 })
 
 export default connect(mapStateToProps)(ProductsScreen)

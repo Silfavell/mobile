@@ -27,7 +27,11 @@ class FavoriteProductsScreen extends React.PureComponent {
 			<View style={{ flex: 1 }}>
 				{
 					this.state.products.length > 0 && (
-						<RecyclerList list={this.state.products} navigation={this.props.navigation} />
+						<RecyclerList
+							list={this.state.products}
+							navigation={this.props.navigation}
+							favoriteProducts
+						/>
 					)
 				}
 			</View>

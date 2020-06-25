@@ -31,12 +31,15 @@ class List extends React.PureComponent {
 		dim.height = height / 1.7
 	}
 
-	rowRenderer = (type, item) => <Product key={item._id} data={item} navigation={this.props.navigation} />
-
-	onLayout = (event) => {
-		var { x, y, width, height } = event.nativeEvent.layout;
-		console.log(height)
-	}
+	rowRenderer = (type, item) => (
+		<Product
+			key={item._id}
+			data={item}
+			navigation={this.props.navigation}
+			favoriteProduct={
+				this.props.favoriteProducts || this.props.favoriteProductsList?.includes(item._id)
+			} />
+	)
 
 	render() {
 		return (
