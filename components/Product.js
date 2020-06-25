@@ -7,6 +7,7 @@ import {
 	Image,
 	StyleSheet
 } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { connect } from 'react-redux'
 import { SERVER_URL } from '../utils/global'
@@ -44,19 +45,23 @@ class Product extends React.PureComponent {
 			//	}}
 			>
 
-				<TouchableOpacity style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
+				<Ionicons style={styles.favoriteIcon} size={28} name={'md-heart-empty'} color={'black'} />
+
+				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
 					<Image
 						// source={{ uri: url }}
 						source={productEx}
 						resizeMode='contain'
 						style={styles.productImage}
 					/>
+
+					<Ionicons style={styles.basketIcon} size={28} name={'md-cart'} color={'black'} onPress={this.onAddProductClick} />
 				</TouchableOpacity>
 
 				<Text style={[styles.child, styles.productPrice, { alignItems: 'flex-start' }]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
 				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
-			</View>
+			</View >
 		)
 	}
 }
@@ -67,20 +72,34 @@ const styles = StyleSheet.create({
 		padding: RFPercentage(1),
 		marginVertical: RFPercentage(2),
 		zIndex: -1,
-		backgroundColor: 'transparent'
+		backgroundColor: 'transparent',
+		borderWidth: 1,
+		borderColor: '#EFEFEF',
+		marginHorizontal: 6,
+		height: '98%'
+	},
+	favoriteIcon: {
+		position: 'absolute',
+		top: 10,
+		right: 15,
+		zIndex: 1
+	},
+	basketIcon: {
+		position: 'absolute',
+		bottom: 10,
+		right: 2,
+		zIndex: 1
 	},
 	child: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: 6,
-		marginVertical: RFPercentage(0.3)
+		marginHorizontal: 6,
+		marginVertical: 1
 	},
 	productImageContainer: {
 		backgroundColor: 'white'
 	},
 	productImage: {
-		borderWidth: 1,
-		borderColor: '#EFEFEF',
 		width: '100%',
 		height: null,
 		aspectRatio: 0.6,

@@ -5,7 +5,7 @@ import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview
 import Product from './Product'
 import SearchFilter from './SearchFilter'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 class List extends React.PureComponent {
 	constructor(args) {
@@ -26,9 +26,9 @@ class List extends React.PureComponent {
 
 	setLayoutForType = (type, dim) => {
 		// eslint-disable-next-line no-param-reassign
-		dim.width = width / 2.05
+		dim.width = (width / 2) - ((width / 2) % 1)
 		// eslint-disable-next-line no-param-reassign
-		dim.height = 400
+		dim.height = height / 1.7
 	}
 
 	rowRenderer = (type, item) => <Product key={item._id} data={item} navigation={this.props.navigation} />
