@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
 	price: {
 		fontSize: RFValue(26, 600),
 		fontWeight: '700',
-		color: '#DB0099'
+		color: 'rgba(0,0,0,.8)'
 	},
 	productName: {
 		fontSize: RFValue(22, 600),

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#697488'
 	},
 	buttonYes: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	buttonText: {
 		color: 'white'

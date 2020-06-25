@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 		height: RFValue(42, 600)
 	},
 	buttonOk: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	buttonText: {
 		color: 'white'

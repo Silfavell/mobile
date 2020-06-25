@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	loginText: {
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(18, 600),
 		marginHorizontal: RFValue(10, 600)
 	}

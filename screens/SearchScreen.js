@@ -74,7 +74,7 @@ class SearchScreen extends React.PureComponent {
 			<ScrollView contentContainerStyle={styles.container} behavior="height">
 				<View style={styles.searchHeader}>
 					<View style={styles.iconContainer}>
-						<Ionicons name="md-search" size={32} color="#DB0099" />
+						<Ionicons name="md-search" size={32} color="rgba(0,0,0,.8)" />
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput

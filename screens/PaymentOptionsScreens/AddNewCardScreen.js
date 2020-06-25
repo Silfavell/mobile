@@ -190,7 +190,7 @@ class AddNewCardScreen extends React.PureComponent {
 					// <TermsComponent />
 				}
 				<ButtonComponent
-					text="Tamamla"
+					text='Tamamla'
 					onClick={this.onContinueClick}
 					disabled={
 						this.state.invalidCardAlias || !this.state.isCardAliasInitialized
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
 		borderRadius: 8
 	},
 	securityText: {
-		color: '#E04299',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(19, 600),
 		fontWeight: 'bold'
 	},

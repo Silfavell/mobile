@@ -16,26 +16,26 @@ class AddressesScreen extends React.PureComponent {
 			<HeadingDivider title="Adres ekle" />
 
 			<ClickableSettingItem title="Yeni adres" onClick={this.moveToSearchAddress}>
-				<Ionicons color="#DB0099" name="md-locate" size={32} />
-				<Ionicons color="#DB0099" name="md-add" size={32} />
+				<Ionicons color="rgba(0,0,0,.8)" name="md-locate" size={32} />
+				<Ionicons color="rgba(0,0,0,.8)" name="md-add" size={32} />
 			</ClickableSettingItem>
 
 			{
 				//  <ClickableSettingItem title={'Add home address'} onClick={() => {
 				//      navigation.navigate('searchAddressScreen')
 				//  }}>
-				//      <Ionicons color={'#DB0099'} name={'md-home'} size={32} />
-				//      <Ionicons color={'#DB0099'} name={'md-add'} size={32} />
+				//      <Ionicons color={'rgba(0,0,0,.8)'} name={'md-home'} size={32} />
+				//      <Ionicons color={'rgba(0,0,0,.8)'} name={'md-add'} size={32} />
 				//  </ClickableSettingItem>
 				//
 				//  <ClickableSettingItem title={'Add work address'} onClick={() => { console.log('Add work address') }}>
-				//      <Ionicons color={'#DB0099'} name={'md-business'} size={32} />
-				//      <Ionicons color={'#DB0099'} name={'md-add'} size={32} />
+				//      <Ionicons color={'rgba(0,0,0,.8)'} name={'md-business'} size={32} />
+				//      <Ionicons color={'rgba(0,0,0,.8)'} name={'md-add'} size={32} />
 				//  </ClickableSettingItem>
 				//
 				//  <ClickableSettingItem title={'Add other address'} onClick={() => { console.log('Add other address') }}>
-				//      <Ionicons color={'#DB0099'} name={'md-locate'} size={32} />
-				//      <Ionicons color={'#DB0099'} name={'md-add'} size={32} />
+				//      <Ionicons color={'rgba(0,0,0,.8)'} name={'md-locate'} size={32} />
+				//      <Ionicons color={'rgba(0,0,0,.8)'} name={'md-add'} size={32} />
 				//  </ClickableSettingItem>
 			}
 		</>

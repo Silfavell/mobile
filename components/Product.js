@@ -45,7 +45,7 @@ class Product extends React.PureComponent {
 			//	}}
 			>
 
-				<Ionicons style={styles.favoriteIcon} size={28} name={'md-heart-empty'} color={'black'} />
+				<Ionicons style={styles.favoriteIcon} size={28} name={'md-heart-empty'} color={'rgba(0,0,0,.8)'} />
 
 				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
 					<Image
@@ -55,7 +55,7 @@ class Product extends React.PureComponent {
 						style={styles.productImage}
 					/>
 
-					<Ionicons style={styles.basketIcon} size={28} name={'md-cart'} color={'black'} onPress={this.onAddProductClick} />
+					<Ionicons style={styles.basketIcon} size={28} name={'md-cart'} color={'rgba(0,0,0,.8)'} onPress={this.onAddProductClick} />
 				</TouchableOpacity>
 
 				<Text style={[styles.child, styles.productPrice, { alignItems: 'flex-start' }]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
@@ -108,14 +108,14 @@ const styles = StyleSheet.create({
 	productName: {
 		fontSize: RFPercentage(2.6),
 		fontWeight: '600',
-		color: 'black',
+		color: 'rgba(0,0,0,.8)',
 		textAlign: 'left',
 		justifyContent: 'center'
 	},
 	productPrice: {
 		fontSize: RFPercentage(2.9),
 		fontWeight: '700',
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		textAlign: 'left',
 		justifyContent: 'center'
 	}

@@ -17,7 +17,7 @@ import FullProductScreen from '../FullProductScreen'
 
 import { setRootNavigation } from '../../actions/global-actions'
 
-import logo from '../../assets/icon.png'
+import logo from '../../assets/icon-black.png'
 
 const Stack = createStackNavigator()
 
@@ -58,7 +58,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					title: 'Ürün detayı',
 					headerTitle: null,
 					headerTitleAlign: 'center',
-					headerTintColor: 'black',
+					headerTintColor: 'rgba(0,0,0,.8)',
 					headerStyle: styles.headerStyle,
 					headerTransparent: true
 				}}
@@ -70,7 +70,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 
 const styles = StyleSheet.create({
 	headerStyle: {
-		backgroundColor: 'black'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	headerTitle: {
 		height: '100%',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		flexDirection: 'column',
 		borderBottomWidth: 3,
-		borderBottomColor: '#DB0099'
+		borderBottomColor: 'rgba(0,0,0,.8)'
 	},
 	headerImage: {
 		height: '200%'

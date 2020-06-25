@@ -72,7 +72,7 @@ class ProductsScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	tabBarTextStyle: { fontSize: RFValue(15, 600), fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold', color: 'black' },
+	tabBarTextStyle: { fontSize: RFValue(15, 600), fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold', color: 'rgba(0,0,0,.8)' },
 	tabBarUnderlineStyle: { backgroundColor: '#FED110', height: 3 },
 	tabStyle: { backgroundColor: 'white' }
 })

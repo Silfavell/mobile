@@ -39,7 +39,7 @@ const Screen2 = () => (
 )
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#DB0099' }
+	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
 })
 
 export default Screen2

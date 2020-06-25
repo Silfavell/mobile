@@ -90,18 +90,7 @@ const WelcomeStack = () => (
 )
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: 'red' },
-	headerTitle: {
-		height: '100%',
-		padding: RFValue(8, 600),
-		backgroundColor: 'white',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		flexDirection: 'column',
-		borderBottomWidth: 3,
-		borderBottomColor: '#DB0099'
-	},
+	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' },
 	headerImage: {
 		height: '200%'
 	}

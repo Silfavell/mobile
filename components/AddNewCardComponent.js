@@ -16,7 +16,7 @@ class AddNewCardComponent extends React.PureComponent {
 				<TouchableOpacity style={styles.container} onPress={this.onClick}>
 					<View style={styles.child}>
 						<View style={styles.iconContainer}>
-							<Ionicons name="md-add" size={32} color="#DB0099" />
+							<Ionicons name="md-add" size={32} color="rgba(0,0,0,.8)" />
 						</View>
 					</View>
 					<View style={[styles.child, styles.textContainer]}>
@@ -32,7 +32,7 @@ class AddNewCardComponent extends React.PureComponent {
 				{
 					//  <TouchableOpacity style={styles.container}>
 					//      <View style={styles.child}>
-					//          <Ionicons name={'md-add'} size={32} color={'#DB0099'} />
+					//          <Ionicons name={'md-add'} size={32} color={'rgba(0,0,0,.8)'} />
 					//      </View>
 					//      <View style={[styles.child, { flex: 1, alignItems: 'flex-start', marginHorizontal: 6 }]}>
 					//          <View style={styles.child}>
@@ -40,7 +40,7 @@ class AddNewCardComponent extends React.PureComponent {
 					//          </View>
 					//      </View>
 					//      <TouchableOpacity style={styles.child}>
-					//          <Ionicons name={'md-trash'} size={32} color={'black'} />
+					//          <Ionicons name={'md-trash'} size={32} color={'rgba(0,0,0,.8)'} />
 					//      </TouchableOpacity>
 					//  </TouchableOpacity>
 				}
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 	},
 	highlightedText: {
 		fontSize: RFValue(16, 600),
-		color: '#DB0099'
+		color: 'rgba(0,0,0,.8)'
 	},
 	iconContainer: {
 		height: 24,

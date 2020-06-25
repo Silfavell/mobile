@@ -154,15 +154,15 @@ const styles = StyleSheet.create({
 		borderWidth: 0,
 		borderBottomWidth: 1.5,
 		borderColor: '#333',
-		color: 'black'
+		color: 'rgba(0,0,0,.8)'
 	},
 	totalPriceText: {
-		color: 'black',
+		color: 'rgba(0,0,0,.8)',
 		fontWeight: 'bold',
 		fontSize: 19
 	},
 	totalPrice: {
-		color: 'black',
+		color: 'rgba(0,0,0,.8)',
 		fontWeight: 'bold',
 		fontSize: RFValue(22, 600)
 	},

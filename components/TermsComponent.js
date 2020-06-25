@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
 		backgroundColor: 'transparent'
 	},
 	termsText: {
-		color: 'black', fontSize: RFValue(16, 600), fontWeight: 'bold'
+		color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold'
 	},
 	termsLinkText: {
-		color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold'
+		color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold'
 	},
 	termsTextContainer: {
 		alignItems: 'center', justifyContent: 'center', flexDirection: 'row'

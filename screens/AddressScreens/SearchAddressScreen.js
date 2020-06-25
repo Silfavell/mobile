@@ -64,11 +64,11 @@ class SearchAddressScreen extends React.PureComponent {
 			<View style={styles.header}>
 				<View style={styles.searchAddressContainerContainer}>
 					<View style={styles.searchAddressContainer}>
-						<Ionicons size={32} name="md-search" color="#E04299" />
+						<Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' />
 						<TextInput
 							value={this.state.searchVal}
 							onChangeText={this.search}
-							placeholder="Adres ara"
+							placeholder='Adres ara'
 							style={styles.searchAddress}
 						/>
 					</View>
@@ -77,7 +77,7 @@ class SearchAddressScreen extends React.PureComponent {
 
 				<TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
 					<View style={styles.useCurrentLocationContainer}>
-						<Ionicons size={32} name="md-locate" color="#E04299" />
+						<Ionicons size={32} name='md-locate' color='rgba(0,0,0,.8)' />
 						<Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
 					</View>
 				</TouchableOpacity>
@@ -90,7 +90,7 @@ class SearchAddressScreen extends React.PureComponent {
 		<TouchableOpacity onPress={() => this.onAddressClick(item)} style={styles.item}>
 
 			<View style={styles.itemChild}>
-				<Ionicons size={32} name="md-pin" color="#6B788B" />
+				<Ionicons size={32} name='md-pin' color='#6B788B' />
 
 				<Text numberOfLines={3} style={styles.description}>
 					{item.description}
