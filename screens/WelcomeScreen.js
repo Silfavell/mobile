@@ -10,7 +10,7 @@ import {
 
 import ButtonComponent from '../components/ButtonComponent'
 
-import icon from '../assets/icon.png'
+import icon from '../assets/icon-black.png'
 
 const WelcomeScreen = ({ navigation }) => (
 	<View style={styles.container}>
