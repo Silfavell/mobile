@@ -70,7 +70,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 
 const styles = StyleSheet.create({
 	headerStyle: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'black'
 	},
 	headerTitle: {
 		height: '100%',

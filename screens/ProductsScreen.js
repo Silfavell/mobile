@@ -1,14 +1,15 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { TouchableOpacity, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import {
 	Container,
 	Tab,
 	Tabs,
-	ScrollableTab
+	ScrollableTab,
+	TabHeading
 } from 'native-base'
-// import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
 import Product from '../components/Product'
@@ -17,7 +18,6 @@ class ProductsScreen extends React.PureComponent {
 
 	getTabBar = () => <ScrollableTab />
 
-	/*
 	onFilterClick = () => {
 		this.props.navigation.navigate('filterProductsScreen', { currentPage: this.tabsRef.state.currentPage })
 	}
@@ -31,7 +31,6 @@ class ProductsScreen extends React.PureComponent {
 			)
 		})
 	}
-	*/
 
 	render() {
 		const {
@@ -44,7 +43,6 @@ class ProductsScreen extends React.PureComponent {
 			<Container>
 				<Tabs
 					initialPage={selectedCategory}
-					tabBarTextStyle={styles.tabBarTextStyle}
 					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 					prerenderingSiblingsNumber={Infinity}
 					tabBarBackgroundColor={styles.tabStyle.backgroundColor}
@@ -52,7 +50,13 @@ class ProductsScreen extends React.PureComponent {
 				>
 					{
 						products.map((category) => (
-							<Tab key={category._id} heading={category.name} activeTabStyle={styles.tabStyle} tabStyle={styles.tabStyle}>
+							<Tab
+								key={category._id}
+								heading={
+									<TabHeading style={styles.tabStyle}>
+										<Text style={styles.tabBarTextStyle}>{category.name}</Text>
+									</TabHeading>
+								}>
 								<RecyclerList
 									key={category._id}
 									navigation={navigation}
@@ -68,9 +72,9 @@ class ProductsScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	tabBarTextStyle: { color: 'white', fontSize: RFValue(15, 600) },
-	tabBarUnderlineStyle: { backgroundColor: '#FED110' },
-	tabStyle: { backgroundColor: '#E04299' }
+	tabBarTextStyle: { fontSize: RFValue(15, 600), fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold', color: 'black' },
+	tabBarUnderlineStyle: { backgroundColor: '#FED110', height: 3 },
+	tabStyle: { backgroundColor: 'white' }
 })
 
 const mapStateToProps = ({
