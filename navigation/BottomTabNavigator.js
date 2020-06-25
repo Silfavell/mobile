@@ -19,38 +19,38 @@ export default function BottomTabNavigator({ navigation, route }) {
 		<BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME} tabBarOptions={{ activeTintColor: '#DB0099' }} lazy={false}>
 
 			<BottomTab.Screen
-				name="Home"
+				name='Home'
 				component={Home}
 				options={{
 					title: 'Sipariş',
-					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />
+					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-home' />
 				}}
 			/>
 
 			<BottomTab.Screen
-				name="Search"
+				name='Search'
 				component={Search}
 				options={{
 					title: 'Ara',
-					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-search" />
+					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-search' />
 				}}
 			/>
 
 			<BottomTab.Screen
-				name="Cart"
+				name='Cart'
 				component={Cart}
 				options={{
 					title: 'Sepetim',
-					tabBarIcon: ({ focused }) => <CartIcon focused={focused} name="md-cart" />
+					tabBarIcon: ({ focused }) => <CartIcon focused={focused} name='md-cart' />
 				}}
 			/>
 
 			<BottomTab.Screen
-				name="Profile"
+				name='Profile'
 				component={ProfileScreen}
 				options={{
 					title: 'Diğer',
-					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-menu" />
+					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-menu' />
 				}}
 			/>
 

@@ -11,6 +11,7 @@ import {
 // import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
+import Product from '../components/Product'
 
 class ProductsScreen extends React.PureComponent {
 

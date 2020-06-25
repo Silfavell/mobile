@@ -29,7 +29,7 @@ class FullProductScreen extends React.PureComponent {
 						console.log(this.props.route.params._id)
 					}}
 					>
-						<Ionicons size={26} color="white" style={{ marginRight: 16 }} name="md-heart" />
+						<Ionicons size={26} color='white' style={{ marginRight: 16 }} name='md-heart' />
 					</TouchableOpacity>
 				)
 			})
@@ -58,7 +58,7 @@ class FullProductScreen extends React.PureComponent {
 					<View style={styles.imageContainer}>
 						<Image
 							style={styles.image}
-							resizeMode="contain"
+							resizeMode='contain'
 							// source={{ uri: url }}
 							source={productEx}
 						/>
@@ -77,7 +77,7 @@ class FullProductScreen extends React.PureComponent {
 				</ScrollView>
 
 				<View style={styles.buttonContainer}>
-					<ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
+					<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
 				</View>
 			</View>
 		)
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		flex: 1,
 		backgroundColor: 'white',
-		paddingVertical: 12
+		paddingVertical: 24
 	},
 	scrollContainer: {
 		justifyContent: 'space-between'

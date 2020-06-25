@@ -23,7 +23,7 @@ const Stack = createStackNavigator()
 const WelcomeStack = () => (
 	<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 		<Stack.Screen
-			name="welcome"
+			name='welcome'
 			component={WelcomeScreen}
 			options={{
 				headerTitleAlign: 'center',
@@ -33,7 +33,7 @@ const WelcomeStack = () => (
 		/>
 
 		<Stack.Screen
-			name="login"
+			name='login'
 			component={LoginScreen}
 			options={{
 				title: 'Giriş yap',
@@ -44,7 +44,7 @@ const WelcomeStack = () => (
 		/>
 
 		<Stack.Screen
-			name="register"
+			name='register'
 			component={RegisterScreen}
 			options={{
 				title: 'Kayıt ol',
@@ -55,7 +55,7 @@ const WelcomeStack = () => (
 		/>
 
 		<Stack.Screen
-			name="forgotPassword"
+			name='forgotPassword'
 			component={ForgotPasswordScreen}
 			options={{
 				title: 'Şifremi unuttum',
@@ -66,7 +66,7 @@ const WelcomeStack = () => (
 		/>
 
 		<Stack.Screen
-			name="resetPassword"
+			name='resetPassword'
 			component={ResetPasswordScreen}
 			options={{
 				title: 'Şifremi unuttum',
@@ -77,7 +77,7 @@ const WelcomeStack = () => (
 		/>
 
 		<Stack.Screen
-			name="activationScreen"
+			name='activationScreen'
 			component={ActivationScreen}
 			options={{
 				title: 'Aktivasyon',
@@ -90,7 +90,7 @@ const WelcomeStack = () => (
 )
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#DB0099' },
+	headerStyle: { backgroundColor: 'red' },
 	headerTitle: {
 		height: '100%',
 		padding: RFValue(8, 600),

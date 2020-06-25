@@ -56,11 +56,12 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 				name='fullProductScreen'
 				options={{
 					title: 'Ürün detayı',
+					headerTitle: null,
 					headerTitleAlign: 'center',
-					headerTintColor: 'white',
-					headerStyle: styles.headerStyle
+					headerTintColor: 'black',
+					headerStyle: styles.headerStyle,
+					headerTransparent: true
 				}}
-
 				component={FullProductScreen}
 			/>
 		</Stack.Navigator>

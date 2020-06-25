@@ -33,8 +33,9 @@ class List extends React.PureComponent {
 
 	rowRenderer = (type, item) => <Product key={item._id} data={item} navigation={this.props.navigation} />
 
-	setRef = (ref) => {
-		this.setState({ ref })
+	onLayout = (event) => {
+		var { x, y, width, height } = event.nativeEvent.layout;
+		console.log(height)
 	}
 
 	render() {
@@ -43,9 +44,9 @@ class List extends React.PureComponent {
 				{
 					// !this.props.fromSearch && <SearchFilter listRef={this.state.ref} />
 				}
+
 				<RecyclerListView
 					style={{ backgroundColor: 'white' }}
-					ref={this.setRef}
 					layoutProvider={this.layoutProvider}
 					dataProvider={this.state.dataProvider}
 					rowRenderer={this.rowRenderer}

@@ -37,14 +37,12 @@ class Product extends React.PureComponent {
 		const url = `${SERVER_URL}/assets/products-2/${categoryId}/${image}.webp`
 
 		return (
-			<View style={styles.container}>
-
-				<TouchableOpacity
-					onPress={this.onAddProductClick}
-					style={styles.addProductButton}
-				>
-					<Text style={styles.addProductIcon}>+</Text>
-				</TouchableOpacity>
+			<View style={styles.container}
+			//	onLayout={(event) => {
+			//		var { x, y, width, height } = event.nativeEvent.layout;
+			//		console.log(height)
+			//	}}
+			>
 
 				<TouchableOpacity style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
 					<Image
@@ -58,7 +56,6 @@ class Product extends React.PureComponent {
 				<Text style={[styles.child, styles.productPrice, { alignItems: 'flex-start' }]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
 				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
-
 			</View>
 		)
 	}
@@ -77,29 +74,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		margin: 6,
 		marginVertical: RFPercentage(0.3)
-	},
-	addProductButton: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		position: 'absolute',
-		top: 1,
-		right: 1,
-		zIndex: 1,
-		borderRadius: 8,
-		borderWidth: 0.2,
-		width: RFValue(34, 600),
-		height: RFValue(34, 600),
-		borderColor: '#CDCDCD',
-		backgroundColor: 'white',
-		shadowColor: '#000',
-		shadowOffset: { width: 1, height: 1 },
-		shadowOpacity: 0.2,
-		shadowRadius: 12,
-		elevation: 4
-	},
-	addProductIcon: {
-		color: '#DB0099',
-		fontSize: RFValue(23, 600)
 	},
 	productImageContainer: {
 		backgroundColor: 'white'

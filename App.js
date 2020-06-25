@@ -55,7 +55,7 @@ export default function App() {
 
 	return (
 		<Provider store={store}>
-			<StatusBar backgroundColor='#DB0099' barStyle='light-content' />
+			<StatusBar backgroundColor='black' barStyle='light-content' />
 			<GlobalScreen />
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName='Loading'>
