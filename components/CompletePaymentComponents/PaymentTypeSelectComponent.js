@@ -26,7 +26,7 @@ const PaymentTypeSelectComponent = ({
 		}}
 	>
 		<View style={styles.iconContainer}>
-			<Ionicons size={32} name="ios-wallet" />
+			<Ionicons size={32} name='ios-wallet' />
 		</View>
 		<View style={styles.paymentInfoContainer}>
 			<View style={styles.paymentInfoTextContainer}>
@@ -34,7 +34,7 @@ const PaymentTypeSelectComponent = ({
 			</View>
 		</View>
 		<View style={styles.iconContainer}>
-			<MaterialIcons color="#ACACAC" size={32} name="chevron-right" />
+			<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
 		</View>
 	</TouchableOpacity>
 )

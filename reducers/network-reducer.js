@@ -1,7 +1,7 @@
 import { SET_NETWORK_STATUS } from '../actions/network-actions'
 
 const INITIAL_STATE = {
-	networkStatus: false,
+	networkStatus: false
 }
 
 export default (state = INITIAL_STATE, action) => {

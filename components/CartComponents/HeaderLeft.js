@@ -12,7 +12,7 @@ class HeaderLeft extends React.PureComponent {
 		if (Object.values(this.props.cart).length > 0) {
 			return (
 				<TouchableOpacity style={{ marginLeft: 16 }} onPress={this.onBackClick}>
-					<Ionicons name="md-close" size={26} color="white" />
+					<Ionicons name='md-close' size={26} color='white' />
 				</TouchableOpacity>
 			)
 		}

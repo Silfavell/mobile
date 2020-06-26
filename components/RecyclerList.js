@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Dimensions } from 'react-native'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 
@@ -10,27 +11,33 @@ const { width, height } = Dimensions.get('window')
 class List extends React.PureComponent {
 	constructor(args) {
 		super(args)
+
+		this.dataProvider = new DataProvider(this.rowHasChanges)
+		this.layoutProvider = new LayoutProvider(this.getLayoutTypeForIndex, this.setLayoutForType)
+
 		this.setData(this.props.list)
 	}
 
 	setData = (list) => {
-		const dataProvider = new DataProvider(this.rowHasChanges)
-
-		this.layoutProvider = new LayoutProvider(this.getLayoutTypeForIndex, this.setLayoutForType)
-
 		this.state = {
-			dataProvider: dataProvider.cloneWithRows(list)
+			dataProvider: this.dataProvider.cloneWithRows(list)
 		}
 	}
 
 	UNSAFE_componentWillReceiveProps(nextProps) {
-		this.setData(nextProps.list)
+		if (nextProps.filteredProducts.length > 0 && this.props.selectedCategory === nextProps.filterCategory && this.props.currentPage === nextProps.filterPage) {
+			this.setData(nextProps.filteredProducts)
+		} else {
+			this.setData(nextProps.list)
+		}
 	}
 
+
 	shouldComponentUpdate(nextProps) {
-		if (nextProps.list.length > this.props.list.length) {
+		if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
 			return true
 		}
+
 		return false
 	}
 
@@ -60,7 +67,6 @@ class List extends React.PureComponent {
 				}
 
 				<RecyclerListView
-					style={{ backgroundColor: 'white' }}
 					layoutProvider={this.layoutProvider}
 					dataProvider={this.state.dataProvider}
 					rowRenderer={this.rowRenderer}
@@ -70,4 +76,16 @@ class List extends React.PureComponent {
 	}
 }
 
-export default List
+const mapStateToProps = ({
+	filterProductsReducer: {
+		filteredProducts,
+		filterCategory,
+		filterPage
+	}
+}) => ({
+	filteredProducts,
+	filterPage,
+	filterCategory
+})
+
+export default connect(mapStateToProps)(List)

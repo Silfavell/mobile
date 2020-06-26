@@ -12,7 +12,6 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
-import Product from '../components/Product'
 
 class ProductsScreen extends React.PureComponent {
 
@@ -32,7 +31,11 @@ class ProductsScreen extends React.PureComponent {
 	getTabBar = () => <ScrollableTab />
 
 	onFilterClick = () => {
-		this.props.navigation.navigate('filterProductsScreen', { currentPage: this.tabsRef.state.currentPage })
+		this.props.navigation.navigate('filterProductsScreen', {
+			selectedCategory: this.props.selectedCategory,
+			currentPage: this.tabsRef.state.currentPage,
+			category: this.props.products[this.props.selectedCategory]
+		})
 	}
 
 	onTabsRef = (ref) => {
@@ -50,14 +53,13 @@ class ProductsScreen extends React.PureComponent {
 			<Container>
 				<Tabs
 					ref={this.onTabsRef}
-					initialPage={selectedCategory}
 					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 					prerenderingSiblingsNumber={Infinity}
 					tabBarBackgroundColor={styles.tabStyle.backgroundColor}
 					renderTabBar={this.getTabBar}
 				>
 					{
-						products[selectedCategory].subCategories.map((category) => (
+						products[selectedCategory].subCategories.map((category, index) => (
 							<Tab
 								key={category._id}
 								heading={
@@ -67,6 +69,8 @@ class ProductsScreen extends React.PureComponent {
 								}>
 
 								<RecyclerList
+									selectedCategory={this.props.selectedCategory}
+									currentPage={index}
 									key={category._id}
 									navigation={navigation}
 									tabLabel={category.name}

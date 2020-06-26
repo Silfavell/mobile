@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 	categories: [],
 	products: [],
 	user: {},
-	token: null,
+	token: null
 }
 
 export default (state = INITIAL_STATE, action) => {

@@ -35,24 +35,24 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text="Hayır"
+							text='Hayır'
 							textStyle={styles.buttonText}
 							style={styles.buttonNo}
 							onPress={this.close}
-							key="button-1"
+							key='button-1'
 						/>
 						<ModalButton
-							text="Evet"
+							text='Evet'
 							textStyle={styles.buttonText}
 							style={styles.buttonYes}
 							onPress={this.onConfirm}
-							key="button-2"
+							key='button-2'
 						/>
 					</ModalFooter>
 				)}
 			>
 				<ModalContent style={styles.content}>
-					<Image style={styles.contentImage} resizeMode="contain" source={pinIcon} />
+					<Image style={styles.contentImage} resizeMode='contain' source={pinIcon} />
 					<Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misin ?</Text>
 				</ModalContent>
 			</Modal>

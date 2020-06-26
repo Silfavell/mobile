@@ -36,19 +36,19 @@ class NeedUpdatePopup extends React.PureComponent {
 					<ModalFooter style={styles.footer}>
 
 						<ModalButton
-							text="Close"
+							text='Close'
 							textStyle={styles.buttonText}
 							style={styles.buttonNo}
 							onPress={this.close}
-							key="button-1"
+							key='button-1'
 						/>
 
 						<ModalButton
-							text="Update"
+							text='Update'
 							textStyle={styles.buttonText}
 							style={styles.buttonYes}
 							onPress={this.onConfirm}
-							key="button-2"
+							key='button-2'
 						/>
 
 					</ModalFooter>

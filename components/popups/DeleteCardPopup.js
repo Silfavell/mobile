@@ -29,25 +29,25 @@ class DeleteCardPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title="Kartı silmek istediğine emin misin ?"
+						title='Kartı silmek istediğine emin misin ?'
 						hasTitleBar={false}
 					/>
 				)}
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text="Hayır"
+							text='Hayır'
 							textStyle={styles.buttonText}
 							style={styles.buttonNo}
 							onPress={this.close}
-							key="button-1"
+							key='button-1'
 						/>
 						<ModalButton
-							text="Evet"
+							text='Evet'
 							textStyle={styles.buttonText}
 							style={styles.buttonYes}
 							onPress={this.onConfirm}
-							key="button-2"
+							key='button-2'
 						/>
 					</ModalFooter>
 				)}

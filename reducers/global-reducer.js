@@ -3,14 +3,14 @@ import {
 	SET_CONNECTION_POPUP_STATE,
 	NEED_TO_LOGIN_POPUP_STATE,
 	SET_ROOT_NAVIGATION,
-	SET_MESSAGE_POPUP_REF,
+	SET_MESSAGE_POPUP_REF
 } from '../actions/global-actions'
 
 const INITIAL_STATE = {
 	connectionPopupState: false,
 	needToLoginPopupState: false,
 	clearCartPopupState: false,
-	messagePopupRef: null,
+	messagePopupRef: null
 }
 
 export default (state = INITIAL_STATE, action) => {

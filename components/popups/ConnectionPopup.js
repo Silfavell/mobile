@@ -31,17 +31,17 @@ class ConnectionPopup extends React.PureComponent {
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text="Ok"
+							text='Ok'
 							textStyle={styles.buttonText}
 							style={styles.buttonOk}
 							onPress={this.close}
-							key="button-1"
+							key='button-1'
 						/>
 					</ModalFooter>
 				)}
 			>
 				<ModalContent style={styles.content}>
-					<Image style={styles.contentImage} resizeMode="contain" source={connectionImage} />
+					<Image style={styles.contentImage} resizeMode='contain' source={connectionImage} />
 					<Text style={styles.contentText}>Lütfen internet bağlantını kontrol et</Text>
 				</ModalContent>
 			</Modal>
