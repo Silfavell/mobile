@@ -32,6 +32,10 @@ class ProductsScreen extends React.PureComponent {
 		})
 	}
 
+	onTabsRef = (ref) => {
+		this.tabsRef = ref
+	}
+
 	render() {
 		const {
 			products,
@@ -42,6 +46,7 @@ class ProductsScreen extends React.PureComponent {
 		return (
 			<Container>
 				<Tabs
+					ref={this.onTabsRef}
 					initialPage={selectedCategory}
 					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 					prerenderingSiblingsNumber={Infinity}

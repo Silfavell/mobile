@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 import HomeScreen from '../HomeScreen'
 import ProductScreen from '../ProductsScreen'
 import FullProductScreen from '../FullProductScreen'
+import FilterProductsScreen from '../FilterProductsScreen'
 
 import { setRootNavigation } from '../../actions/global-actions'
 
@@ -63,6 +64,17 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					headerTransparent: true
 				}}
 				component={FullProductScreen}
+			/>
+
+			<Stack.Screen
+				name='filterProductsScreen'
+				options={{
+					title: 'Filtrele',
+					headerTitleAlign: 'center',
+					headerTintColor: 'white',
+					headerStyle: styles.headerStyle
+				}}
+				component={FilterProductsScreen}
 			/>
 		</Stack.Navigator>
 	)
