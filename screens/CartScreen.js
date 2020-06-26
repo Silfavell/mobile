@@ -62,7 +62,7 @@ class CartScreen extends React.PureComponent {
 				<View style={styles.child} />
 				<View style={styles.child} />
 				<View style={styles.child}>
-					<Ionicons name="md-basket" size={96} color="#BDBDBD" />
+					<Ionicons name='md-basket' size={96} color='#BDBDBD' />
 				</View>
 				<View style={styles.child} />
 				<View style={styles.child}>

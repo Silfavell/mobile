@@ -29,9 +29,11 @@ const Screen2 = () => (
 			name='fullProductScreen'
 			options={{
 				title: 'Ürün detayı',
+				headerTitle: null,
 				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
+				headerTintColor: 'rgba(0,0,0,.8)',
+				headerStyle: styles.headerStyle,
+				headerTransparent: true
 			}}
 			component={FullProductScreen}
 		/>

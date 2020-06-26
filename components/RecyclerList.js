@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 
 import Product from './Product'
-import SearchFilter from './SearchFilter'
+// import SearchFilter from './SearchFilter'
 
 const { width, height } = Dimensions.get('window')
 
@@ -35,8 +35,7 @@ class List extends React.PureComponent {
 		<Product
 			key={item._id}
 			data={item}
-			navigation={this.props.navigation}
-			favoriteProduct={this.props.favoriteProducts} />
+			navigation={this.props.navigation} />
 	)
 
 	render() {

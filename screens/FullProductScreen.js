@@ -13,6 +13,8 @@ import { RFValue } from 'react-native-responsive-fontsize'
 
 import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
+
 import ButtonComponent from '../components/ButtonComponent'
 
 import productEx from '../assets/product.jpg'
@@ -21,21 +23,52 @@ class FullProductScreen extends React.PureComponent {
 	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
 		super(props)
+		this.setHeader()
+	}
 
+	setHeader = () => {
 		this.props.navigation.setOptions({
 			headerRight: () => (
 				<TouchableOpacity onPress={() => {
 					console.log(this.props.route.params._id)
 				}}
 				>
-					<Ionicons size={26} color='black' style={{ marginRight: 20 }} name='md-heart-empty' />
+					<Ionicons
+						size={26}
+						color={'rgba(0,0,0,.8)'}
+						onPress={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
+						style={{ marginRight: 20 }}
+						name={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? 'md-heart' : 'md-heart-empty'} />
+
 				</TouchableOpacity>
 			)
 		})
 	}
 
+	componentWillReceiveProps() {
+		this.setHeader()
+	}
+
 	onAddToCartClick = () => {
 		this.props.increaseProductQuantity(this.props.route.params._id)
+	}
+
+	addToFavoriteProducts = () => {
+		console.log('add')
+		if (this.props.token) {
+			this.props.addToFavoriteProducts(this.props.route.params._id)
+		} else {
+			this.props.navigation.navigate('Welcome', { screen: 'login' })
+		}
+	}
+
+	removeFromFavoriteProdutcs = () => {
+		console.log('remove')
+		if (this.props.token) {
+			this.props.removeFromFavoriteProdutcs(this.props.route.params._id)
+		} else {
+			this.props.navigation.navigate('Welcome', { screen: 'login' })
+		}
 	}
 
 	render() {
@@ -98,13 +131,13 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	image: {
-		height: 300,
-		marginBottom: 30
+		height: RFValue(260, 600),
+		marginVertical: RFValue(30, 600)
 	},
 	details: {
 		flex: 1,
 		flexDirection: 'column',
-		paddingBottom: 70,
+		paddingBottom: RFValue(70, 600),
 		marginHorizontal: 20
 	},
 	price: {
@@ -132,8 +165,20 @@ const styles = StyleSheet.create({
 	}
 })
 
+const mapStateToProps = ({
+	reducer4: {
+		token,
+		user
+	}
+}) => ({
+	token,
+	user
+})
+
 const mapDispatchToProps = {
-	increaseProductQuantity
+	increaseProductQuantity,
+	addToFavoriteProducts,
+	removeFromFavoriteProdutcs
 }
 
-export default connect(null, mapDispatchToProps)(FullProductScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(FullProductScreen)
