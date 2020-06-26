@@ -10,14 +10,28 @@ const { width, height } = Dimensions.get('window')
 class List extends React.PureComponent {
 	constructor(args) {
 		super(args)
+		this.setData(this.props.list)
+	}
 
+	setData = (list) => {
 		const dataProvider = new DataProvider(this.rowHasChanges)
 
 		this.layoutProvider = new LayoutProvider(this.getLayoutTypeForIndex, this.setLayoutForType)
 
 		this.state = {
-			dataProvider: dataProvider.cloneWithRows(this.props.list)
+			dataProvider: dataProvider.cloneWithRows(list)
 		}
+	}
+
+	UNSAFE_componentWillReceiveProps(nextProps) {
+		this.setData(nextProps.list)
+	}
+
+	shouldComponentUpdate(nextProps) {
+		if (nextProps.list.length > this.props.list.length) {
+			return true
+		}
+		return false
 	}
 
 	rowHasChanges = (r1, r2) => r1 !== r2
