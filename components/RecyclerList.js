@@ -36,9 +36,7 @@ class List extends React.PureComponent {
 			key={item._id}
 			data={item}
 			navigation={this.props.navigation}
-			favoriteProduct={
-				this.props.favoriteProducts || this.props.favoriteProductsList?.includes(item._id)
-			} />
+			favoriteProduct={this.props.favoriteProducts} />
 	)
 
 	render() {

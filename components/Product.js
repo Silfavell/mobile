@@ -14,44 +14,46 @@ import axios from 'axios'
 import { SERVER_URL } from '../utils/global'
 
 import { increaseProductQuantity } from '../actions/actions1'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
 
 import productEx from '../assets/product.jpg'
 
 class Product extends React.PureComponent {
 	onAddProductClick = () => {
-		// eslint-disable-next-line no-shadow
-		const { data: { _id }, increaseProductQuantity } = this.props
-		increaseProductQuantity(_id)
+		this.props.increaseProductQuantity(this.props.data._id)
 	}
 
 	addToFavoriteProducts = () => {
-		console.log(this.props.data._id)
-		axios.post(`${'http://192.168.1.101:3000'}/user/favorite-product`, { _id: this.props.data._id }).then(({ status }) => {
-			if (status === 200) {
-				alert('Ürün favorilere eklendi')
-			}
-		}).catch((err) => {
-			console.log(err)
-		})
+		if (this.props.token) {
+			this.props.addToFavoriteProducts(this.props.data._id)
+		} else {
+			this.props.navigation.navigate('Welcome', { screen: 'login' })
+		}
 	}
 
 	removeFromFavoriteProdutcs = () => {
-		axios.delete(`${'http://192.168.1.101:3000'}/user/favorite-product/${this.props.data._id}`).then(({ status }) => {
-			if (status === 200) {
-				alert('Ürün favorilerden çıkarıldı')
-			}
-		}).catch((err) => {
-			console.log(err)
-		})
+		if (this.props.token) {
+			this.props.removeFromFavoriteProdutcs(this.props.data._id)
+		} else {
+			this.props.navigation.navigate('Welcome', { screen: 'login' })
+		}
 	}
 
 	onProductClick = () => {
 		this.props.navigation.navigate('fullProductScreen', this.props.data)
 	}
 
+	shouldComponentUpdate(nextProps) {
+		return (
+			nextProps.user?.favoriteProducts.includes(this.props.data._id) && !this.props.user?.favoriteProducts.includes(this.props.data._id) ||
+			this.props.user?.favoriteProducts.includes(this.props.data._id) && !nextProps.user?.favoriteProducts.includes(this.props.data._id)
+		)
+	}
+
 	render() {
 		const {
 			data: {
+				_id,
 				name,
 				price,
 				categoryId,
@@ -68,9 +70,9 @@ class Product extends React.PureComponent {
 				<Ionicons
 					style={styles.favoriteIcon}
 					size={28}
-					name={favoriteProduct ? 'md-heart' : 'md-heart-empty'}
+					name={favoriteProduct || this.props.user?.favoriteProducts.includes(_id) ? 'md-heart' : 'md-heart-empty'}
 					color={'rgba(0,0,0,.8)'}
-					onPress={favoriteProduct ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
+					onPress={favoriteProduct || this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
 				/>
 
 				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
@@ -149,8 +151,20 @@ const styles = StyleSheet.create({
 	}
 })
 
+const mapStateToProps = ({
+	reducer4: {
+		token,
+		user
+	}
+}) => ({
+	token,
+	user
+})
+
 const mapDispatchToProps = {
-	increaseProductQuantity
+	increaseProductQuantity,
+	addToFavoriteProducts,
+	removeFromFavoriteProdutcs
 }
 
-export default connect(null, mapDispatchToProps)(Product)
+export default connect(mapStateToProps, mapDispatchToProps)(Product)
