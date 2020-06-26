@@ -84,7 +84,7 @@ class ProfileScreen extends React.PureComponent {
 
 									<TouchableOpacity onPress={this.moveToPreviousOrders}>
 										<SettingItem title='Siparişlerim'>
-											<Ionicons color='rgba(0,0,0,.8)' name='md-basket' size={32} />
+											<Ionicons color='rgba(0,0,0,.8)' name='ios-copy' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 

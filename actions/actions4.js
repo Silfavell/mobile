@@ -144,8 +144,6 @@ export const addToFavoriteProducts = (productId) => (dispatch) => {
 				}
 			})
 		}
-	}).catch((err) => {
-		console.log(err)
 	})
 }
 
@@ -159,7 +157,5 @@ export const removeFromFavoriteProdutcs = (productId) => (dispatch) => {
 				}
 			})
 		}
-	}).catch((err) => {
-		console.log(err)
 	})
 }
