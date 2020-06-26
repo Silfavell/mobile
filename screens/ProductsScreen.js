@@ -16,20 +16,23 @@ import Product from '../components/Product'
 
 class ProductsScreen extends React.PureComponent {
 
-	getTabBar = () => <ScrollableTab />
+	constructor(props) {
+		super(props)
 
-	onFilterClick = () => {
-		this.props.navigation.navigate('filterProductsScreen', { currentPage: this.tabsRef.state.currentPage })
-	}
-
-	UNSAFE_componentWillMount() {
 		this.props.navigation.setOptions({
+			title: this.props.products[this.props.selectedCategory].name,
 			headerRight: () => (
 				<TouchableOpacity onPress={this.onFilterClick}>
 					<MaterialIcons color={'white'} name='sort' size={28} style={{ transform: [{ rotateY: '180deg' }], marginRight: 12 }} />
 				</TouchableOpacity>
 			)
 		})
+	}
+
+	getTabBar = () => <ScrollableTab />
+
+	onFilterClick = () => {
+		this.props.navigation.navigate('filterProductsScreen', { currentPage: this.tabsRef.state.currentPage })
 	}
 
 	onTabsRef = (ref) => {
@@ -54,7 +57,7 @@ class ProductsScreen extends React.PureComponent {
 					renderTabBar={this.getTabBar}
 				>
 					{
-						products.map((category) => (
+						products[selectedCategory].subCategories.map((category) => (
 							<Tab
 								key={category._id}
 								heading={

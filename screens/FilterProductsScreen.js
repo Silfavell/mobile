@@ -15,7 +15,7 @@ class FilterProductsScreen extends React.Component {
     }
 
     onFilterClick = () => {
-        
+
     }
 
     onBrandSelect = ({ index }) => {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         width: '100%'
-    },
+    }
 })
 
 const mapStateToProps = ({
