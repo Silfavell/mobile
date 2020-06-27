@@ -36,11 +36,13 @@ class FavoriteProductsScreen extends React.Component {
 	render() {
 		if (this.state.products.length > 0) {
 			return (
-				<RecyclerList
-					list={this.state.products}
-					navigation={this.props.navigation}
-					favoriteProducts
-				/>
+				<View style={styles.listContainer}>
+					<RecyclerList
+						list={this.state.products}
+						navigation={this.props.navigation}
+						favoriteProducts
+					/>
+				</View>
 			)
 		}
 
@@ -54,6 +56,10 @@ class FavoriteProductsScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+	listContainer: {
+		flex: 1,
+		backgroundColor: 'white'
+	},
 	container: {
 		flex: 1,
 		alignItems: 'center',
