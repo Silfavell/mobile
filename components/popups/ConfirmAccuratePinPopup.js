@@ -53,7 +53,7 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
 			>
 				<ModalContent style={styles.content}>
 					<Image style={styles.contentImage} resizeMode='contain' source={pinIcon} />
-					<Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misin ?</Text>
+					<Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz ?</Text>
 				</ModalContent>
 			</Modal>
 		)

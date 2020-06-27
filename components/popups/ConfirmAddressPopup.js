@@ -31,7 +31,7 @@ class ConfirmAddressPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title='Bu adresin doğru olduğuna emin misin ?'
+						title='Bu adresin doğru olduğuna emin misiniz ?'
 						hasTitleBar={false}
 					/>
 				)}

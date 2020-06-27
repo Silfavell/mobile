@@ -13,7 +13,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
 
-class ProductsScreen extends React.PureComponent {
+class ProductsScreen extends React.Component {
 
 	constructor(props) {
 		super(props)
@@ -34,7 +34,6 @@ class ProductsScreen extends React.PureComponent {
 	onFilterClick = () => {
 		this.props.navigation.navigate('filterProductsScreen', {
 			selectedCategory: this.selectedCategory,
-			currentPage: this.tabsRef.state.currentPage,
 			category: this.props.products[this.selectedCategory]
 		})
 	}
@@ -43,13 +42,15 @@ class ProductsScreen extends React.PureComponent {
 		this.tabsRef = ref
 	}
 
-	render() {
-		const {
-			products,
-			selectedCategory,
-			navigation
-		} = this.props
+	getProducts = () => {
+		if (this.selectedCategory === this.props.filterCategory) {
+			return this.props.filteredProducts
+		}
 
+		return this.props.products[this.selectedCategory]
+	}
+
+	render() {
 		return (
 			<Container>
 				<Tabs
@@ -60,7 +61,7 @@ class ProductsScreen extends React.PureComponent {
 					renderTabBar={this.getTabBar}
 				>
 					{
-						products[this.selectedCategory].subCategories.map((category, index) => (
+						this.getProducts().subCategories.map((category, index) => (
 							<Tab
 								key={category._id}
 								heading={
@@ -70,10 +71,7 @@ class ProductsScreen extends React.PureComponent {
 								}>
 
 								<RecyclerList
-									selectedCategory={this.selectedCategory}
-									currentPage={index}
-									key={category._id}
-									navigation={navigation}
+									navigation={this.props.navigation}
 									tabLabel={category.name}
 									list={category.products}
 								/>
@@ -88,17 +86,32 @@ class ProductsScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	tabBarTextStyle: { fontSize: RFValue(15, 600), fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold', color: 'rgba(0,0,0,.8)' },
-	tabBarUnderlineStyle: { backgroundColor: '#FED110', height: 3 },
-	tabStyle: { backgroundColor: 'white' }
+	tabBarTextStyle: {
+		fontSize: RFValue(15, 600),
+		fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold',
+		color: 'rgba(0,0,0,.8)'
+	},
+	tabBarUnderlineStyle: {
+		backgroundColor: '#FED110',
+		height: 3
+	},
+	tabStyle: {
+		backgroundColor: 'white'
+	}
 })
 
 const mapStateToProps = ({
 	reducer4: {
 		products
+	},
+	filterProductsReducer: {
+		filteredProducts,
+		filterCategory
 	}
 }) => ({
-	products
+	products,
+	filteredProducts,
+	filterCategory
 })
 
 export default connect(mapStateToProps)(ProductsScreen)

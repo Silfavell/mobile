@@ -33,7 +33,7 @@ class LogoutPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title='Çıkış yapmak istediğine emin misin ?'
+						title='Çıkış yapmak istediğinize emin misiniz ?'
 						hasTitleBar={false}
 					/>
 				)}

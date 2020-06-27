@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
     filteredProducts: [],
     filterCategory: -1,
-    filterPage: -1
+    selectedBrand: -1,
+    selectedSort: -1
 }
 
 export default (state = INITIAL_STATE, action) => {

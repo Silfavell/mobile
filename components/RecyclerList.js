@@ -24,15 +24,6 @@ class List extends React.PureComponent {
 		}
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		if (nextProps.filteredProducts.length > 0 && this.props.selectedCategory === nextProps.filterCategory && this.props.currentPage === nextProps.filterPage) {
-			this.setData(nextProps.filteredProducts)
-		} else {
-			this.setData(nextProps.list)
-		}
-	}
-
-
 	shouldComponentUpdate(nextProps) {
 		if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
 			return true
@@ -79,12 +70,10 @@ class List extends React.PureComponent {
 const mapStateToProps = ({
 	filterProductsReducer: {
 		filteredProducts,
-		filterCategory,
-		filterPage
+		filterCategory
 	}
 }) => ({
 	filteredProducts,
-	filterPage,
 	filterCategory
 })
 

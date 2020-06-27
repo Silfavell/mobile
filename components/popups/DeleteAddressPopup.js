@@ -29,7 +29,7 @@ class DeleteAddressPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title='Adresi silmek istediğine emin misin ?'
+						title='Adresi silmek istediğinize emin misiniz ?'
 						hasTitleBar={false}
 					/>
 				)}

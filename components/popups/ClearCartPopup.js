@@ -34,7 +34,7 @@ class ClearCartPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title='Sepeti boşatmak istediğinden emin misin?'
+						title='Sepeti boşatmak istediğinizden emin misiniz?'
 						hasTitleBar={false}
 					/>
 				)}

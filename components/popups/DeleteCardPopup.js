@@ -29,7 +29,7 @@ class DeleteCardPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title='Kartı silmek istediğine emin misin ?'
+						title='Kartı silmek istediğinize emin misiniz ?'
 						hasTitleBar={false}
 					/>
 				)}
