@@ -50,6 +50,27 @@ class ProductsScreen extends React.Component {
 		return this.props.products[this.selectedCategory]
 	}
 
+	renderTab = (category) => (
+		<Tab
+			key={
+				category._id +
+				'selectedBrand:' + this.props.selectedBrand +
+				'selectedSort:' + this.props.selectedSort}
+			heading={
+				<TabHeading style={styles.tabStyle}>
+					<Text style={styles.tabBarTextStyle}>{category.name}</Text>
+				</TabHeading>
+			}>
+
+			<RecyclerList
+				navigation={this.props.navigation}
+				tabLabel={category.name}
+				list={category.products}
+			/>
+
+		</Tab >
+	)
+
 	render() {
 		return (
 			<Container>
@@ -61,23 +82,7 @@ class ProductsScreen extends React.Component {
 					renderTabBar={this.getTabBar}
 				>
 					{
-						this.getProducts().subCategories.map((category, index) => (
-							<Tab
-								key={category._id}
-								heading={
-									<TabHeading style={styles.tabStyle}>
-										<Text style={styles.tabBarTextStyle}>{category.name}</Text>
-									</TabHeading>
-								}>
-
-								<RecyclerList
-									navigation={this.props.navigation}
-									tabLabel={category.name}
-									list={category.products}
-								/>
-
-							</Tab>
-						))
+						this.getProducts().subCategories.map(this.renderTab)
 					}
 				</Tabs>
 			</Container>
@@ -106,12 +111,16 @@ const mapStateToProps = ({
 	},
 	filterProductsReducer: {
 		filteredProducts,
-		filterCategory
+		filterCategory,
+		selectedBrand,
+		selectedSort
 	}
 }) => ({
 	products,
 	filteredProducts,
-	filterCategory
+	filterCategory,
+	selectedBrand,
+	selectedSort
 })
 
 export default connect(mapStateToProps)(ProductsScreen)

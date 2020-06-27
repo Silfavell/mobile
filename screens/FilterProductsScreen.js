@@ -65,8 +65,11 @@ class FilterProductsScreen extends React.Component {
 
     clearFilter = () => {
         this.props.clearFilter(() => {
-            this.props.navigation.pop(2) // TODO tek pop() yeterli ama en son bu ekrana geçişte kalan tab güncellenmiyor.
-            this.props.navigation.navigate('products', { selectedCategory: this.props.route.params.selectedCategory })
+            this.setState({
+                selectedBrand: -1,
+                selectedSort: -1,
+                scaleAnimationModal: false
+            })
         })
     }
 
@@ -78,13 +81,14 @@ class FilterProductsScreen extends React.Component {
                 sortType: this.sorts[this.state.selectedSort]?.sortType
             },
             {
-                selectedCategory: this.props.route.params.selectedCategory,
+                filterCategory: this.props.route.params.selectedCategory,
                 selectedBrand: this.state.selectedBrand,
                 selectedSort: this.state.selectedSort
             },
             () => {
-                this.props.navigation.pop(2) // TODO tek pop() yeterli ama en son bu ekrana geçişte kalan tab güncellenmiyor.
-                this.props.navigation.navigate('products', { selectedCategory: this.props.route.params.selectedCategory })
+                this.props.navigation.goBack()
+                //  this.props.navigation.pop(2) // TODO tek pop() yeterli ama en son bu ekrana geçişte kalan tab güncellenmiyor.
+                //  this.props.navigation.navigate('products', { selectedCategory: this.props.route.params.selectedCategory })
             })
     }
 
