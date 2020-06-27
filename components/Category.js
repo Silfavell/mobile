@@ -1,5 +1,4 @@
 import React from 'react'
-import { RFValue, RFPercentage } from 'react-native-responsive-fontsize'
 import {
 	TouchableOpacity,
 	View,
@@ -9,9 +8,6 @@ import {
 	ImageBackground
 } from 'react-native'
 import { connect } from 'react-redux'
-import { SERVER_URL } from '../utils/global'
-
-import { setSelectedCategory } from '../actions/actions3'
 
 const Category = ({
 	data: {
@@ -19,16 +15,13 @@ const Category = ({
 		name
 	},
 	index,
-	navigation,
-	// eslint-disable-next-line no-shadow
-	setSelectedCategory
+	navigation
 }) => {
 	// const imageUrl = `${SERVER_URL}/assets/categories-2/${imagePath}.jpg` // TODO
 	const imageUrl = 'https://img-kotonw.mncdn.com/static/images/10568566603806/1366tshirt-kadin-desktop-110520.jpg'
 
 	const onCategoryClick = () => {
-		setSelectedCategory(index)
-		navigation.navigate('products')
+		navigation.navigate('products', { selectedCategory: index })
 	}
 
 	return (
@@ -65,8 +58,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-const mapDispatchToProps = {
-	setSelectedCategory
-}
-
-export default connect(null, mapDispatchToProps)(Category)
+export default Category

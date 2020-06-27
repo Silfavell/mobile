@@ -17,9 +17,10 @@ class ProductsScreen extends React.PureComponent {
 
 	constructor(props) {
 		super(props)
+		this.selectedCategory = this.props.route.params.selectedCategory
 
 		this.props.navigation.setOptions({
-			title: this.props.products[this.props.selectedCategory].name,
+			title: this.props.products[this.selectedCategory].name,
 			headerRight: () => (
 				<TouchableOpacity onPress={this.onFilterClick}>
 					<MaterialIcons color={'white'} name='sort' size={28} style={{ transform: [{ rotateY: '180deg' }], marginRight: 12 }} />
@@ -32,9 +33,9 @@ class ProductsScreen extends React.PureComponent {
 
 	onFilterClick = () => {
 		this.props.navigation.navigate('filterProductsScreen', {
-			selectedCategory: this.props.selectedCategory,
+			selectedCategory: this.selectedCategory,
 			currentPage: this.tabsRef.state.currentPage,
-			category: this.props.products[this.props.selectedCategory]
+			category: this.props.products[this.selectedCategory]
 		})
 	}
 
@@ -59,7 +60,7 @@ class ProductsScreen extends React.PureComponent {
 					renderTabBar={this.getTabBar}
 				>
 					{
-						products[selectedCategory].subCategories.map((category, index) => (
+						products[this.selectedCategory].subCategories.map((category, index) => (
 							<Tab
 								key={category._id}
 								heading={
@@ -69,7 +70,7 @@ class ProductsScreen extends React.PureComponent {
 								}>
 
 								<RecyclerList
-									selectedCategory={this.props.selectedCategory}
+									selectedCategory={this.selectedCategory}
 									currentPage={index}
 									key={category._id}
 									navigation={navigation}
@@ -93,14 +94,10 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = ({
-	reducer3: {
-		selectedCategory
-	},
 	reducer4: {
 		products
 	}
 }) => ({
-	selectedCategory,
 	products
 })
 
