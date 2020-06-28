@@ -81,7 +81,7 @@ class Product extends React.PureComponent {
 						style={styles.productImage}
 					/>
 
-					<Ionicons style={styles.basketIcon} size={28} name={'md-cart'} color={'rgba(0,0,0,.8)'} onPress={this.onAddProductClick} />
+					<Ionicons style={styles.basketIcon} size={28} name={'md-basket'} color={'rgba(0,0,0,.8)'} onPress={this.onAddProductClick} />
 				</TouchableOpacity>
 
 				<Text style={[styles.child, styles.productPrice]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>

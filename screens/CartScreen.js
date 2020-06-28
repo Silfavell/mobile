@@ -57,26 +57,9 @@ class CartScreen extends React.PureComponent {
 			)
 		}
 		return (
-			<View style={styles.emptyCartContainer}>
-				<View style={styles.child} />
-				<View style={styles.child} />
-				<View style={styles.child} />
-				<View style={styles.child}>
-					<Ionicons name='md-basket' size={96} color='#BDBDBD' />
-				</View>
-				<View style={styles.child} />
-				<View style={styles.child}>
-					<Text style={styles.emptyCartText}>Sepetinizde ürün bulunmamaktadır.</Text>
-				</View>
-				<View style={styles.child} />
-				<View style={[styles.child, styles.listProductsButtonContainer]}>
-					<TouchableOpacity onPress={this.onListProductsClick} style={styles.listProducts}>
-						<Text style={styles.listProductsText}>ÜRÜNLERİ LİSTELE</Text>
-					</TouchableOpacity>
-				</View>
-				<View style={styles.child} />
-				<View style={styles.child} />
-				<View style={styles.child} />
+			<View style={styles.emptyContainer}>
+				<Ionicons name='md-basket' size={96} color='#BDBDBD' />
+				<Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır.</Text>
 			</View>
 		)
 	}
@@ -87,21 +70,22 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'space-between'
 	},
-	emptyCartContainer: {
+	emptyContainer: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: '#EDEDED'
 	},
+	emptyText: {
+		marginTop: 32,
+		fontSize: RFValue(18, 600),
+		textAlign: 'center',
+		color: '#454545'
+	},
 	child: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
-	},
-	emptyCartText: {
-		fontSize: RFValue(18, 600),
-		textAlign: 'center',
-		color: '#454545'
 	},
 	listProductsButtonContainer: {
 		display: 'flex'

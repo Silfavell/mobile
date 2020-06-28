@@ -41,7 +41,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 				component={Cart}
 				options={{
 					title: 'Sepetim',
-					tabBarIcon: ({ focused }) => <CartIcon focused={focused} name='md-cart' />
+					tabBarIcon: ({ focused }) => <CartIcon focused={focused} name='md-basket' />
 				}}
 			/>
 
