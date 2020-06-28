@@ -4,7 +4,8 @@ import { StyleSheet } from 'react-native'
 import Modal, {
     ModalTitle,
     ModalButton,
-    ModalFooter
+    ModalFooter,
+    SlideAnimation
 } from 'react-native-modals'
 
 
@@ -22,6 +23,9 @@ class ClearFilterPopup extends React.PureComponent {
     render() {
         return (
             <Modal
+                modalAnimation={
+                    new SlideAnimation({ slideFrom: 'bottom' })
+                }
                 onTouchOutside={this.close}
                 width={0.9}
                 visible={this.props.scaleAnimationModal}

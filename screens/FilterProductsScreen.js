@@ -116,12 +116,14 @@ class FilterProductsScreen extends React.Component {
                 <ShadowContainer>
                     <ModalSelector
                         data={this.sorts}
+                        cancelText={'İptal'}
                         onChange={this.onSortSelect}>
                         <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
                     </ModalSelector>
 
                     <ModalSelector
                         data={this.brands}
+                        cancelText={'İptal'}
                         onChange={this.onBrandSelect}>
                         <SettingItem title={'Markalar'} value={this.brands[this.state.selectedBrand]?.label ?? 'Seçiniz'} />
                     </ModalSelector>
