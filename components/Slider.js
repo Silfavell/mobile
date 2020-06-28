@@ -11,7 +11,7 @@ class Slider extends React.PureComponent {
 			>
 				{
 					this.props.images.map((image) => (
-						<View key={image}>
+						<View key={image} style={this.props.imageContainerStyle}>
 							<Image source={{ uri: image }} resizeMode={'contain'} style={{ flex: 1, width: '100%' }} />
 						</View>
 					))

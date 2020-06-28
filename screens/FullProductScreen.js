@@ -85,6 +85,7 @@ class FullProductScreen extends React.PureComponent {
 					>
 						<View style={styles.imageContainer}>
 							<Slider
+								imageContainerStyle={{ paddingBottom: 20 }}
 								images={[
 									'https://www.gratis.com/ccstore/v1/images/?source=/file/v4629752816058149622/products/10167208_01.jpg&height=940&width=940',
 									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2764064473853119068/products/10167209_01.jpg&height=940&width=940',
@@ -145,8 +146,7 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		flex: 1,
-		height: RFValue(260, 600),
-		marginVertical: RFValue(30, 600)
+		height: RFValue(260, 600)
 	},
 	details: {
 		flex: 1,
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
 		fontSize: RFValue(14, 600)
 	},
 	price: {
-		fontSize: RFValue(22, 600),
+		fontSize: RFValue(20, 600),
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
 	},

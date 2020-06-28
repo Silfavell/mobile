@@ -54,7 +54,7 @@ class CarouselViewer extends React.Component {
               <View style={styles.dotContainer}>
                 {
                   this.props.children.map((item, i) => (
-                    <View key={'slide' + i.toString()} style={[styles.dot, { backgroundColor: this.state.current === i ? 'white' : 'grey' }]} />
+                    <View key={'slide' + i.toString()} style={[styles.dot, { backgroundColor: this.state.current === i ? 'white' : '#CDCDCD' }]} />
                   ))
                 }
               </View>
@@ -91,10 +91,12 @@ const styles = StyleSheet.create({
   },
   dot: {
     width: 20,
-    height: 3,
+    height: 4,
     backgroundColor: 'white',
     marginHorizontal: 3,
-    marginVertical: 6
+    marginVertical: 6,
+    borderWidth: 1,
+    borderColor: '#CDCDCD'
   }
 })
 
