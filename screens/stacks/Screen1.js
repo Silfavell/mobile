@@ -61,7 +61,8 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					headerTitleAlign: 'center',
 					headerTintColor: 'rgba(0,0,0,.8)',
 					headerStyle: styles.headerStyle,
-					headerTransparent: true
+					headerTransparent: true,
+					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 				}}
 				component={FullProductScreen}
 			/>
@@ -72,7 +73,8 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					title: 'Filtrele',
 					headerTitleAlign: 'center',
 					headerTintColor: 'white',
-					headerStyle: styles.headerStyle
+					headerStyle: styles.headerStyle,
+					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 				}}
 				component={FilterProductsScreen}
 			/>
