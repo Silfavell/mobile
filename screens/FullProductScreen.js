@@ -20,7 +20,6 @@ import ButtonComponent from '../components/ButtonComponent'
 import productEx from '../assets/product.jpg'
 
 class FullProductScreen extends React.PureComponent {
-	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
 		super(props)
 		this.setHeader()
@@ -29,15 +28,11 @@ class FullProductScreen extends React.PureComponent {
 	setHeader = () => {
 		this.props.navigation.setOptions({
 			headerRight: () => (
-				<TouchableOpacity onPress={() => {
-					console.log(this.props.route.params._id)
-				}}
-				>
+				<TouchableOpacity onPress={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}>
 					<Ionicons
 						size={26}
 						color={'rgba(0,0,0,.8)'}
-						onPress={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
-						style={{ marginRight: 20 }}
+						style={{ marginRight: 18 }}
 						name={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? 'md-heart' : 'md-heart-empty'} />
 
 				</TouchableOpacity>
@@ -45,7 +40,7 @@ class FullProductScreen extends React.PureComponent {
 		})
 	}
 
-	componentWillReceiveProps() {
+	UNSAFE_componentWillReceiveProps() {
 		this.setHeader()
 	}
 
@@ -54,7 +49,6 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	addToFavoriteProducts = () => {
-		console.log('add')
 		if (this.props.token) {
 			this.props.addToFavoriteProducts(this.props.route.params._id)
 		} else {
@@ -63,7 +57,6 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	removeFromFavoriteProdutcs = () => {
-		console.log('remove')
 		if (this.props.token) {
 			this.props.removeFromFavoriteProdutcs(this.props.route.params._id)
 		} else {

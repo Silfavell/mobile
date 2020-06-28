@@ -29,7 +29,7 @@ class FavoriteProductsScreen extends React.Component {
 		this.getFavoriteProducts()
 	}
 
-	componentWillReceiveProps() {
+	UNSAFE_componentWillReceiveProps() {
 		this.getFavoriteProducts()
 	}
 
