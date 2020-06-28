@@ -13,7 +13,7 @@ const banners = [
 	`${SERVER_URL}/assets/banners/1.jpg`,
 	`${SERVER_URL}/assets/banners/2.jpg`,
 	`${SERVER_URL}/assets/banners/3.jpg`,
-	`${SERVER_URL}/assets/banners/4.jpg`,
+	`${SERVER_URL}/assets/banners/4.jpg`
 ]
 
 class HomeScreen extends React.PureComponent {
@@ -45,7 +45,7 @@ class HomeScreen extends React.PureComponent {
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
 				ListHeaderComponent={
-					<View style={{ height: 200 }}>
+					<View style={{ height: 190 }}>
 						<ShadowContainer>
 							<Slider images={banners} loop paginator />
 						</ShadowContainer>

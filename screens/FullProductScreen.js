@@ -79,7 +79,7 @@ class FullProductScreen extends React.PureComponent {
 		return (
 			<View style={styles.container}>
 
-				<ScrollView contentContainerStyle={styles.scrollContainer}>
+				<ScrollView contentContainerStyle={styles.scrollContainer} onScroll={this.handleScroll}>
 					<ShadowContainer
 						style={{ backgroundColor: 'white' }}
 					>
@@ -90,22 +90,23 @@ class FullProductScreen extends React.PureComponent {
 									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2764064473853119068/products/10167209_01.jpg&height=940&width=940',
 									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2938411743493834306/products/10204718_01.jpg&height=940&width=940'
 								]}
+								paginator
 							/>
 						</View>
 					</ShadowContainer>
 					<View style={styles.details}>
-
-						<View style={styles.textContainer}>
-							<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
-						</View>
-
 						<View style={styles.textContainer}>
 							<Text style={styles.productName}>{name}</Text>
 						</View>
 
+						<View style={styles.priceContainer}>
+							<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+						</View>
 					</View>
 
-					<View style={styles.details}>
+					<View style={styles.details2}>
+						<Text style={styles.productDetailText}>Ürün Hakkında</Text>
+
 						<Text style={styles.productDetail}>{`
 • Keçi sütlü formülü ve yoğun proteinli yapısı ile dudaklarıınız MATTE LIPS ile daha nemli bir görünüme kavuşacaktır.
 
@@ -137,8 +138,7 @@ const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'space-between',
 		flex: 1,
-		backgroundColor: 'white',
-		paddingVertical: 24
+		backgroundColor: 'transparent'
 	},
 	scrollContainer: {
 		justifyContent: 'space-between'
@@ -150,21 +150,34 @@ const styles = StyleSheet.create({
 	},
 	details: {
 		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		paddingVertical: 20,
+		marginHorizontal: 20,
+		borderBottomWidth: 1,
+		borderBottomColor: '#CDCDCD'
+	},
+	details2: {
+		flex: 1,
 		flexDirection: 'column',
 		marginTop: 20,
 		marginHorizontal: 20
 	},
+	productDetailText: {
+		margin: 4,
+		fontSize: RFValue(20, 600)
+	},
 	productDetail: {
 		margin: 4,
-		fontSize: 16
+		fontSize: RFValue(14, 600)
 	},
 	price: {
-		fontSize: RFValue(26, 600),
+		fontSize: RFValue(22, 600),
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
 	},
 	productName: {
-		fontSize: RFValue(22, 600)
+		fontSize: RFValue(20, 600)
 	},
 	buttonContainer: {
 		position: 'absolute',
@@ -178,6 +191,10 @@ const styles = StyleSheet.create({
 		display: 'flex',
 		textAlign: 'center',
 		margin: 4
+	},
+	priceContainer: {
+		margin: 4,
+		paddingHorizontal: 4
 	},
 	emptyFooter: { height: 100 }
 })

@@ -162,8 +162,11 @@ class Screen4 extends React.PureComponent {
 						headerTitle: null,
 						headerTitleAlign: 'center',
 						headerTintColor: 'rgba(0,0,0,.8)',
-						headerStyle: styles.headerStyle,
-						headerTransparent: true,
+						headerStyle: {
+							elevation: 0, // remove shadow on Android
+							shadowOpacity: 0 // remove shadow on iOS
+						},
+						// headerTransparent: true,
 						cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 					}}
 					component={FullProductScreen}

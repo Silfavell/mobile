@@ -32,8 +32,11 @@ const Screen2 = () => (
 				headerTitle: null,
 				headerTitleAlign: 'center',
 				headerTintColor: 'rgba(0,0,0,.8)',
-				headerStyle: styles.headerStyle,
-				headerTransparent: true,
+				// headerTransparent: true,
+				headerStyle: {
+					elevation: 0, // remove shadow on Android
+					shadowOpacity: 0 // remove shadow on iOS
+				},
 				cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 			}}
 			component={FullProductScreen}

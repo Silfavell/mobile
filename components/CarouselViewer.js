@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   dotContainer: {
     zIndex: 1000,
     opacity: 0.8,
-    backgroundColor: 'black',
+    backgroundColor: 'transparent',
     flexDirection: 'row',
     paddingHorizontal: 10
   },
