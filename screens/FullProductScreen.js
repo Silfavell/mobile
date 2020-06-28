@@ -5,7 +5,6 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	View,
-	Image,
 	Text,
 	StyleSheet
 } from 'react-native'
@@ -16,8 +15,10 @@ import { increaseProductQuantity } from '../actions/actions1'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
 
 import ButtonComponent from '../components/ButtonComponent'
+import ShadowContainer from '../components/ShadowContainer'
 
 import productEx from '../assets/product.jpg'
+import Slider from '../components/Slider'
 
 class FullProductScreen extends React.PureComponent {
 	constructor(props) {
@@ -79,14 +80,19 @@ class FullProductScreen extends React.PureComponent {
 			<View style={styles.container}>
 
 				<ScrollView contentContainerStyle={styles.scrollContainer}>
-					<View style={styles.imageContainer}>
-						<Image
-							style={styles.image}
-							resizeMode='contain'
-							// source={{ uri: url }}
-							source={productEx}
-						/>
-					</View>
+					<ShadowContainer
+						style={{ backgroundColor: 'white' }}
+					>
+						<View style={styles.imageContainer}>
+							<Slider
+								images={[
+									'https://www.gratis.com/ccstore/v1/images/?source=/file/v4629752816058149622/products/10167208_01.jpg&height=940&width=940',
+									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2764064473853119068/products/10167209_01.jpg&height=940&width=940',
+									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2938411743493834306/products/10204718_01.jpg&height=940&width=940'
+								]}
+							/>
+						</View>
+					</ShadowContainer>
 					<View style={styles.details}>
 
 						<View style={styles.textContainer}>
@@ -98,6 +104,25 @@ class FullProductScreen extends React.PureComponent {
 						</View>
 
 					</View>
+
+					<View style={styles.details}>
+						<Text style={styles.productDetail}>{`
+• Keçi sütlü formülü ve yoğun proteinli yapısı ile dudaklarıınız MATTE LIPS ile daha nemli bir görünüme kavuşacaktır.
+
+• Dudaklarınızda uzun süreli ,doğal mat etki sağlar. Kremsi yapısı ile örtücülüğü mükemmeldir.
+
+• Keçi sütü ve E Vitamini dudaklarınız gün boyu nemlendirilecektir.
+
+• Paraben içermez.
+
+• Dermatolojik olarak test edilmiştir.
+
+• Gün boyu güzelliğinizle büyülerken cildiniz beslensin!
+`
+						}</Text>
+					</View>
+
+					<View style={styles.emptyFooter} />
 				</ScrollView>
 
 				<View style={styles.buttonContainer}>
@@ -120,18 +145,18 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	image: {
 		height: RFValue(260, 600),
 		marginVertical: RFValue(30, 600)
 	},
 	details: {
 		flex: 1,
 		flexDirection: 'column',
-		paddingBottom: RFValue(70, 600),
+		marginTop: 20,
 		marginHorizontal: 20
+	},
+	productDetail: {
+		margin: 4,
+		fontSize: 16
 	},
 	price: {
 		fontSize: RFValue(26, 600),
@@ -139,8 +164,7 @@ const styles = StyleSheet.create({
 		color: 'rgba(0,0,0,.8)'
 	},
 	productName: {
-		fontSize: RFValue(22, 600),
-		textAlign: 'center'
+		fontSize: RFValue(22, 600)
 	},
 	buttonContainer: {
 		position: 'absolute',
@@ -150,12 +174,12 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		flex: 1,
-		alignItems: 'center',
 		justifyContent: 'center',
 		display: 'flex',
 		textAlign: 'center',
 		margin: 4
-	}
+	},
+	emptyFooter: { height: 100 }
 })
 
 const mapStateToProps = ({

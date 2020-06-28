@@ -6,7 +6,7 @@ class ShadowContainer extends React.PureComponent {
 		return (
 			<View style={styles.x}>
 				<View style={styles.y}>
-					<View style={styles.z}>
+					<View style={[styles.z, this.props.style]}>
 						{this.props.children}
 					</View>
 				</View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 	z: {
 		flex: 1,
 		justifyContent: 'center',
-		backgroundColor: '#EDEDED', // NOT IMPORTANT JUST FOR SHADOW
+		backgroundColor: '#EDEDED',
 		shadowColor: '#000',
 		shadowOffset: { width: 1, height: 1 },
 		shadowOpacity: 0.2,

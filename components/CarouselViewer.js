@@ -8,19 +8,23 @@ class CarouselViewer extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => {
-      if (this.state.current === 3) {
-        this.viewPager.setPage(0)
-        this.setState({ current: 0 })
-      } else {
-        this.viewPager.setPage(this.state.current + 1)
-        this.setState({ current: this.state.current + 1 })
-      }
-    }, 5000)
+    if (this.props.loop) {
+      this.interval = setInterval(() => {
+        if (this.state.current === 3) {
+          this.viewPager.setPage(0)
+          this.setState({ current: 0 })
+        } else {
+          this.viewPager.setPage(this.state.current + 1)
+          this.setState({ current: this.state.current + 1 })
+        }
+      }, 5000)
+    }
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+    if (this.props.loop) {
+      clearInterval(this.interval)
+    }
   }
 
   onPageSelected = (event) => {
@@ -44,15 +48,19 @@ class CarouselViewer extends React.Component {
           {...this.props}
         />
 
-        <View style={styles.paginator}>
-          <View style={styles.dotContainer}>
-            {
-              this.props.children.map((item, i) => (
-                <View key={'slide' + i.toString()} style={[styles.dot, { backgroundColor: this.state.current === i ? 'white' : 'grey' }]} />
-              ))
-            }
-          </View>
-        </View>
+        {
+          this.props.paginator && (
+            <View style={styles.paginator}>
+              <View style={styles.dotContainer}>
+                {
+                  this.props.children.map((item, i) => (
+                    <View key={'slide' + i.toString()} style={[styles.dot, { backgroundColor: this.state.current === i ? 'white' : 'grey' }]} />
+                  ))
+                }
+              </View>
+            </View>
+          )
+        }
 
       </View>
     )
@@ -61,7 +69,7 @@ class CarouselViewer extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 200
+    height: '100%'
   },
   viewPager: {
     flex: 1
