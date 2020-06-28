@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Dimensions } from 'react-native'
+import { View, Dimensions } from 'react-native'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 
 import Product from './Product'
@@ -52,7 +52,7 @@ class List extends React.PureComponent {
 
 	render() {
 		return (
-			<>
+			<View style={{ flex: 1, marginBottom: 20 }}>
 				{
 					// !this.props.fromSearch && <SearchFilter listRef={this.state.ref} />
 				}
@@ -62,7 +62,7 @@ class List extends React.PureComponent {
 					dataProvider={this.state.dataProvider}
 					rowRenderer={this.rowRenderer}
 				/>
-			</>
+			</View>
 		)
 	}
 }

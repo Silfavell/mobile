@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 		borderColor: '#EFEFEF',
 		borderBottomColor: 'red',
 		marginHorizontal: 6,
-		height: '98%'
+		height: '95%'
 	},
 	favoriteIcon: {
 		position: 'absolute',
