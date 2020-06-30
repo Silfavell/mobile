@@ -39,7 +39,7 @@ class Product extends React.PureComponent {
 	}
 
 	onProductClick = () => {		
-		this.props.navigation.navigate('fullProductScreen', this.props.data)
+		this.props.navigation.navigate('fullProductScreen', this.props.data._id)
 	}
 
 	shouldComponentUpdate(nextProps) {

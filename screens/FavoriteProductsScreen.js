@@ -40,7 +40,6 @@ class FavoriteProductsScreen extends React.Component {
 					<RecyclerList
 						list={this.state.products}
 						navigation={this.props.navigation}
-						favoriteProducts
 					/>
 				</View>
 			)

@@ -43,7 +43,7 @@ export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
 }
 
 export const decreaseProductQuantity = (productId) => (dispatch) => {
-	const url = `${SERVER_URL}/product/${productId}`
+	const url = `${SERVER_URL}/deduct-product/${productId}`
 
 	axios.delete(url).then(({ data, status }) => {
 		if (status === 200) {
@@ -56,7 +56,7 @@ export const decreaseProductQuantity = (productId) => (dispatch) => {
 }
 
 export const increaseProductQuantity = (productId) => (dispatch) => {
-	const url = `${SERVER_URL}/product/${productId}`
+	const url = `${SERVER_URL}/add-product/${productId}`
 
 	axios.get(url).then(({ data, status }) => {
 		if (status === 200) {
