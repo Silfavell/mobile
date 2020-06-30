@@ -33,10 +33,18 @@ class FavoriteProductsScreen extends React.Component {
 		this.getFavoriteProducts()
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		if (nextState.products.length !== this.state.products.length) {
+			return true
+		}
+
+		return false
+	}
+
 	render() {
 		if (this.state.products.length > 0) {
 			return (
-				<View style={styles.listContainer}>
+				<View key={`favoriteProducts:${this.state.products.length}`} style={styles.listContainer}>
 					<RecyclerList
 						list={this.state.products}
 						navigation={this.props.navigation}
@@ -75,10 +83,12 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({
 	reducer4: {
-		user
+		user: {
+			favoriteProducts
+		}
 	}
 }) => ({
-	user
+	favoriteProducts
 })
 
 export default connect(mapStateToProps)(FavoriteProductsScreen)

@@ -150,11 +150,15 @@ export const addToFavoriteProducts = (productId) => (dispatch) => {
 export const removeFromFavoriteProdutcs = (productId) => (dispatch) => {
 	axios.delete(`${SERVER_URL}/user/favorite-product/${productId}`).then(({ status, data }) => {
 		if (status === 200) {
-			dispatch({
-				type: UPDATE_FAVORITE_PRODUCTS,
-				payload: {
-					favoriteProducts: data
-				}
+			AsyncStorage.getItem('user').then((user) => {
+				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {
+					dispatch({
+						type: UPDATE_FAVORITE_PRODUCTS,
+						payload: {
+							favoriteProducts: data
+						}
+					})
+				})
 			})
 		}
 	})
