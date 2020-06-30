@@ -22,58 +22,6 @@ import Slider from '../components/Slider'
 import Color from '../components/fullProdutScreen/Color'
 import Loading from '../components/LoadingCompenent'
 
-const products = {
-	'5efa0dce1d3eca419406fe83': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v1108397765534555246/products/10017149_03.jpg&height=940&width=940',
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v9187508158072275818/products/10017149_04.jpg&height=940&width=940'
-		]
-	},
-	'5efa0e2c1d3eca419406fe86': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v6430794194071933688/products/10212647_01.jpg&height=940&width=940',
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v6234359275309257663/products/10212647_02.jpg&height=940&width=940'
-		]
-	},
-	'03': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v5318922594815149712/products/10017159_03.jpg&height=940&width=940',
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v481097595653286898/products/10017159_04.jpg&height=940&width=940'
-		]
-	},
-	'04': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v8849853434890453809/products/10017158_03.jpg&height=940&width=940',
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v4078655357367629624/products/10017158_04.jpg&height=940&width=940'
-		]
-	},
-	'05': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v3278889462717527311/products/10025314_03.jpg&height=940&width=940'
-		]
-	},
-	'06': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v7046297661349707161/products/10212648_01.jpg&height=940&width=940',
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v8476938370993650629/products/10212648_02.jpg&height=940&width=940'
-		]
-	},
-	'5efb356f63f7253d9cc27c22': {
-		_id: Math.random(),
-		images: [
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v5560664590077861239/products/10212646_01.jpg&height=940&width=940',
-			'https://www.gratis.com/ccstore/v1/images/?source=/file/v864425318075729643/products/10212646_02.jpg&height=940&width=940'
-		]
-	}
-}
-
-
 class FullProductScreen extends React.PureComponent {
 
 	scrollRef = React.createRef()
@@ -165,13 +113,12 @@ class FullProductScreen extends React.PureComponent {
 
 	getImages = () => {
 		const {
-			categoryId,
 			image,
 			imageCount
-		} = this.state.product
+		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
 		return Array.from(new Array(imageCount)).map((el, index) => {
-			return `${SERVER_URL}/assets/products/${categoryId}/${image}-${index}.webp`
+			return `${SERVER_URL}/assets/products/${image}-${index}.webp`
 		})
 	}
 
@@ -196,7 +143,6 @@ class FullProductScreen extends React.PureComponent {
 				group
 			} = this.state.product
 
-
 			return (
 				<View style={styles.container}>
 
@@ -208,9 +154,8 @@ class FullProductScreen extends React.PureComponent {
 							<View style={styles.imageContainer}>
 								<Slider
 									imageContainerStyle={{ paddingBottom: 20 }}
-									_id={'Slider:' + this.state.product._id}
-									images={products['03']?.images}
-									// images={this.getImages()}
+									_id={'Slider:' + (this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}
+									images={this.getImages()}
 									paginator
 								/>
 							</View>
