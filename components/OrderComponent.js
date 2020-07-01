@@ -56,7 +56,7 @@ class OrderComponent extends React.PureComponent {
 					}}
 					>
 						<Text>Ödenen Tutar:</Text>
-						<Text>{`₺${totalPrice}`}</Text>
+						<Text>{`₺${totalPrice.replace('.', ',')}`}</Text>
 					</View>
 				</View>
 
