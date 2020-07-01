@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderWidth: 0.4,
-		borderColor: '#DB0099',
+		borderColor: 'rgba(0,0,0,.8)',
 		borderRadius: 8
 	},
 	itemText: {
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(13, 600)
 	}
 })

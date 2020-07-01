@@ -54,7 +54,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 					onChange={this.onPhoneNumberChange}
 				>
 					<InputIcon>
-						<Text style={{ color: 'black', fontSize: RFValue(18, 600) }}>90</Text>
+						<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(18, 600) }}>90</Text>
 					</InputIcon>
 				</InputComponent>
 

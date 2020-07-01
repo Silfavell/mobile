@@ -1,31 +1,25 @@
-/* eslint-disable react/sort-comp */
 import React from 'react'
 import { connect } from 'react-redux'
-import { FlatList, BackHandler } from 'react-native'
+import { FlatList, View, BackHandler } from 'react-native'
 import RNExitApp from 'react-native-exit-app'
 
 import Category from '../components/Category'
-import EmptyCategory from '../components/EmptyCategory'
 import Slider from '../components/Slider'
 import ShadowContainer from '../components/ShadowContainer'
 
-const formatData = (data, numColumns) => {
-	const numberOfFullRows = Math.floor(data.length / numColumns)
+import { SERVER_URL } from '../utils/global'
 
-	let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns)
-	while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
-		data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true })
-		// eslint-disable-next-line no-plusplus
-		numberOfElementsLastRow++
-	}
-
-	return data
-}
+const banners = [
+	`${SERVER_URL}/assets/banners/1.jpg`,
+	`${SERVER_URL}/assets/banners/2.jpg`,
+	`${SERVER_URL}/assets/banners/3.jpg`,
+	`${SERVER_URL}/assets/banners/4.jpg`
+]
 
 class HomeScreen extends React.PureComponent {
 	keyExtractor = (item) => item._id
 
-	renderItem = ({ item, index }) => (item.empty ? <EmptyCategory /> : <Category navigation={this.props.navigation} index={index} data={item} />)
+	renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />
 
 	handleBackButtonClick = () => {
 		if (this.props.navigation.isFocused()) {
@@ -47,15 +41,18 @@ class HomeScreen extends React.PureComponent {
 	render() {
 		return (
 			<FlatList
-				data={formatData(Object.values(this.props.categories), 3)}
-				columnWrapperStyle={{ justifyContent: 'space-between' }}
+				data={this.props.categories}
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
-				numColumns={3}
 				ListHeaderComponent={
-					<ShadowContainer>
-						<Slider />
-					</ShadowContainer>
+					<View style={{ height: 190 }}>
+						<ShadowContainer>
+							<Slider images={banners} loop paginator />
+						</ShadowContainer>
+					</View>
+				}
+				ListFooterComponent={
+					<View style={{ height: 40 }} />
 				}
 			/>
 		)

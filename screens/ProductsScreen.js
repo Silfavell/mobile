@@ -1,28 +1,26 @@
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { TouchableOpacity, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import {
 	Container,
 	Tab,
 	Tabs,
-	ScrollableTab
+	ScrollableTab,
+	TabHeading
 } from 'native-base'
-// import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
 
-class ProductsScreen extends React.PureComponent {
+class ProductsScreen extends React.Component {
 
-	getTabBar = () => <ScrollableTab />
+	constructor(props) {
+		super(props)
+		this.selectedCategory = this.props.route.params.selectedCategory
 
-	/*
-	onFilterClick = () => {
-		this.props.navigation.navigate('filterProductsScreen', { currentPage: this.tabsRef.state.currentPage })
-	}
-
-	UNSAFE_componentWillMount() {
 		this.props.navigation.setOptions({
+			title: this.props.products[this.selectedCategory].name,
 			headerRight: () => (
 				<TouchableOpacity onPress={this.onFilterClick}>
 					<MaterialIcons color={'white'} name='sort' size={28} style={{ transform: [{ rotateY: '180deg' }], marginRight: 12 }} />
@@ -30,35 +28,61 @@ class ProductsScreen extends React.PureComponent {
 			)
 		})
 	}
-	*/
+
+	getTabBar = () => <ScrollableTab />
+
+	onFilterClick = () => {
+		this.props.navigation.navigate('filterProductsScreen', {
+			selectedCategory: this.selectedCategory,
+			category: this.props.products[this.selectedCategory]
+		})
+	}
+
+	onTabsRef = (ref) => {
+		this.tabsRef = ref
+	}
+
+	getProducts = () => {
+		if (this.selectedCategory === this.props.filterCategory) {
+			return this.props.filteredProducts
+		}
+
+		return this.props.products[this.selectedCategory]
+	}
+
+	renderTab = (category) => (
+		<Tab
+			key={
+				category._id +
+				'selectedBrand:' + this.props.selectedBrand +
+				'selectedSort:' + this.props.selectedSort}
+			heading={
+				<TabHeading style={styles.tabStyle}>
+					<Text style={styles.tabBarTextStyle}>{category.name}</Text>
+				</TabHeading>
+			}>
+
+			<RecyclerList
+				navigation={this.props.navigation}
+				tabLabel={category.name}
+				list={category.products}
+			/>
+
+		</Tab >
+	)
 
 	render() {
-		const {
-			products,
-			selectedCategory,
-			navigation
-		} = this.props
-
 		return (
 			<Container>
 				<Tabs
-					initialPage={selectedCategory}
-					tabBarTextStyle={styles.tabBarTextStyle}
+					ref={this.onTabsRef}
 					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 					prerenderingSiblingsNumber={Infinity}
 					tabBarBackgroundColor={styles.tabStyle.backgroundColor}
 					renderTabBar={this.getTabBar}
 				>
 					{
-						products.map((category) => (
-							<Tab key={category._id} heading={category.name} activeTabStyle={styles.tabStyle} tabStyle={styles.tabStyle}>
-								<RecyclerList
-									key={category._id}
-									navigation={navigation}
-									tabLabel={category.name}
-									list={category.products} />
-							</Tab>
-						))
+						this.getProducts().subCategories.map(this.renderTab)
 					}
 				</Tabs>
 			</Container>
@@ -67,21 +91,36 @@ class ProductsScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	tabBarTextStyle: { color: 'white', fontSize: RFValue(15, 600) },
-	tabBarUnderlineStyle: { backgroundColor: '#FED110' },
-	tabStyle: { backgroundColor: '#E04299' }
+	tabBarTextStyle: {
+		fontSize: RFValue(15, 600),
+		fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold',
+		color: 'rgba(0,0,0,.8)'
+	},
+	tabBarUnderlineStyle: {
+		backgroundColor: '#FED110',
+		height: 3
+	},
+	tabStyle: {
+		backgroundColor: 'white'
+	}
 })
 
 const mapStateToProps = ({
-	reducer3: {
-		selectedCategory
-	},
 	reducer4: {
 		products
+	},
+	filterProductsReducer: {
+		filteredProducts,
+		filterCategory,
+		selectedBrand,
+		selectedSort
 	}
 }) => ({
-	selectedCategory,
-	products
+	products,
+	filteredProducts,
+	filterCategory,
+	selectedBrand,
+	selectedSort
 })
 
 export default connect(mapStateToProps)(ProductsScreen)

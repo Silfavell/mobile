@@ -78,13 +78,13 @@ const styles = StyleSheet.create({
 		bottom: 0,
 		width: '100%',
 		height: RFValue(65, 600),
-		backgroundColor: '#E04299',
+		backgroundColor: 'rgba(0,0,0,.7)',
 		flexDirection: 'row'
 	},
 	completePaymentButton: {
 		flex: 1,
 		padding: RFValue(20, 600),
-		backgroundColor: '#DB0099',
+		backgroundColor: 'rgba(0,0,0,.8)',
 		alignItems: 'center',
 		justifyContent: 'center'
 	},

@@ -13,8 +13,8 @@ class HeaderRight extends React.PureComponent {
 	render() {
 		if (Object.values(this.props.cart).length > 0) {
 			return (
-				<TouchableOpacity style={{ marginRight: 16 }} onPress={this.onClearClick}>
-					<Ionicons name="md-trash" size={26} color="white" />
+				<TouchableOpacity style={{ marginRight: 18 }} onPress={this.onClearClick}>
+					<Ionicons name='md-trash' size={26} color='white' />
 				</TouchableOpacity>
 			)
 		}

@@ -30,11 +30,11 @@ class PasswordChangedPopup extends React.PureComponent {
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text="OK"
+							text='OK'
 							textStyle={styles.buttonText}
 							style={styles.button}
 							onPress={this.close}
-							key="button-1"
+							key='button-1'
 						/>
 					</ModalFooter>
 				)}
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 		marginBottom: -6
 	},
 	button: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	buttonText: {
 		color: 'white'

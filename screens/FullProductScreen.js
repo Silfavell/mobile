@@ -5,7 +5,6 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	View,
-	Image,
 	Text,
 	StyleSheet
 } from 'react-native'
@@ -13,31 +12,57 @@ import { RFValue } from 'react-native-responsive-fontsize'
 
 import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
+
 import ButtonComponent from '../components/ButtonComponent'
+import ShadowContainer from '../components/ShadowContainer'
 
 import productEx from '../assets/product.jpg'
+import Slider from '../components/Slider'
 
 class FullProductScreen extends React.PureComponent {
-	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
 		super(props)
+		this.setHeader()
+	}
 
-		/*
-			this.props.navigation.setOptions({
-				headerRight: () => (
-					<TouchableOpacity onPress={() => {
-						console.log(this.props.route.params._id)
-					}}
-					>
-						<Ionicons size={26} color="white" style={{ marginRight: 16 }} name="md-heart" />
-					</TouchableOpacity>
-				)
-			})
-		*/
+	setHeader = () => {
+		this.props.navigation.setOptions({
+			headerRight: () => (
+				<TouchableOpacity onPress={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}>
+					<Ionicons
+						size={26}
+						color={'rgba(0,0,0,.8)'}
+						style={{ marginRight: 18 }}
+						name={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? 'md-heart' : 'md-heart-empty'} />
+
+				</TouchableOpacity>
+			)
+		})
+	}
+
+	UNSAFE_componentWillReceiveProps() {
+		this.setHeader()
 	}
 
 	onAddToCartClick = () => {
 		this.props.increaseProductQuantity(this.props.route.params._id)
+	}
+
+	addToFavoriteProducts = () => {
+		if (this.props.token) {
+			this.props.addToFavoriteProducts(this.props.route.params._id)
+		} else {
+			this.props.navigation.navigate('Welcome', { screen: 'login' })
+		}
+	}
+
+	removeFromFavoriteProdutcs = () => {
+		if (this.props.token) {
+			this.props.removeFromFavoriteProdutcs(this.props.route.params._id)
+		} else {
+			this.props.navigation.navigate('Welcome', { screen: 'login' })
+		}
 	}
 
 	render() {
@@ -54,30 +79,56 @@ class FullProductScreen extends React.PureComponent {
 		return (
 			<View style={styles.container}>
 
-				<ScrollView contentContainerStyle={styles.scrollContainer}>
-					<View style={styles.imageContainer}>
-						<Image
-							style={styles.image}
-							resizeMode="contain"
-							// source={{ uri: url }}
-							source={productEx}
-						/>
-					</View>
-					<View style={styles.details}>
-
-						<View style={styles.textContainer}>
-							<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+				<ScrollView contentContainerStyle={styles.scrollContainer} onScroll={this.handleScroll}>
+					<ShadowContainer
+						style={{ backgroundColor: 'white' }}
+					>
+						<View style={styles.imageContainer}>
+							<Slider
+								imageContainerStyle={{ paddingBottom: 20 }}
+								images={[
+									'https://www.gratis.com/ccstore/v1/images/?source=/file/v4629752816058149622/products/10167208_01.jpg&height=940&width=940',
+									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2764064473853119068/products/10167209_01.jpg&height=940&width=940',
+									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2938411743493834306/products/10204718_01.jpg&height=940&width=940'
+								]}
+								paginator
+							/>
 						</View>
-
+					</ShadowContainer>
+					<View style={styles.details}>
 						<View style={styles.textContainer}>
 							<Text style={styles.productName}>{name}</Text>
 						</View>
 
+						<View style={styles.priceContainer}>
+							<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+						</View>
 					</View>
+
+					<View style={styles.details2}>
+						<Text style={styles.productDetailText}>Ürün Hakkında</Text>
+
+						<Text style={styles.productDetail}>{`
+• Keçi sütlü formülü ve yoğun proteinli yapısı ile dudaklarıınız MATTE LIPS ile daha nemli bir görünüme kavuşacaktır.
+
+• Dudaklarınızda uzun süreli ,doğal mat etki sağlar. Kremsi yapısı ile örtücülüğü mükemmeldir.
+
+• Keçi sütü ve E Vitamini dudaklarınız gün boyu nemlendirilecektir.
+
+• Paraben içermez.
+
+• Dermatolojik olarak test edilmiştir.
+
+• Gün boyu güzelliğinizle büyülerken cildiniz beslensin!
+`
+						}</Text>
+					</View>
+
+					<View style={styles.emptyFooter} />
 				</ScrollView>
 
 				<View style={styles.buttonContainer}>
-					<ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
+					<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
 				</View>
 			</View>
 		)
@@ -88,35 +139,45 @@ const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'space-between',
 		flex: 1,
-		backgroundColor: 'white',
-		paddingVertical: 12
+		backgroundColor: 'transparent'
 	},
 	scrollContainer: {
 		justifyContent: 'space-between'
 	},
 	imageContainer: {
 		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	image: {
-		height: 300,
-		marginBottom: 30
+		height: RFValue(260, 600)
 	},
 	details: {
 		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		paddingVertical: 20,
+		marginHorizontal: 20,
+		borderBottomWidth: 1,
+		borderBottomColor: '#CDCDCD'
+	},
+	details2: {
+		flex: 1,
 		flexDirection: 'column',
-		paddingBottom: 70,
+		marginTop: 20,
 		marginHorizontal: 20
 	},
+	productDetailText: {
+		margin: 4,
+		fontSize: RFValue(20, 600)
+	},
+	productDetail: {
+		margin: 4,
+		fontSize: RFValue(14, 600)
+	},
 	price: {
-		fontSize: RFValue(26, 600),
+		fontSize: RFValue(20, 600),
 		fontWeight: '700',
-		color: '#DB0099'
+		color: 'rgba(0,0,0,.8)'
 	},
 	productName: {
-		fontSize: RFValue(22, 600),
-		textAlign: 'center'
+		fontSize: RFValue(20, 600)
 	},
 	buttonContainer: {
 		position: 'absolute',
@@ -126,16 +187,32 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		flex: 1,
-		alignItems: 'center',
 		justifyContent: 'center',
 		display: 'flex',
 		textAlign: 'center',
 		margin: 4
+	},
+	priceContainer: {
+		margin: 4,
+		paddingHorizontal: 4
+	},
+	emptyFooter: { height: 100 }
+})
+
+const mapStateToProps = ({
+	reducer4: {
+		token,
+		user
 	}
+}) => ({
+	token,
+	user
 })
 
 const mapDispatchToProps = {
-	increaseProductQuantity
+	increaseProductQuantity,
+	addToFavoriteProducts,
+	removeFromFavoriteProdutcs
 }
 
-export default connect(null, mapDispatchToProps)(FullProductScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(FullProductScreen)

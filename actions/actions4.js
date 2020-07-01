@@ -6,6 +6,7 @@ export const SET_INITIAL_DATAS = 'SET_INITIAL_DATAS'
 export const SET_USER = 'SET_USER'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE_PROFILE = 'UPDATE_PROFILE'
+export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
 const getCategories = () => {
 	const url = `${SERVER_URL}/categories`
@@ -40,8 +41,8 @@ export const updateProfile = (body, cb) => (dispatch) => {
 				dispatch({
 					type: SET_USER,
 					payload: {
-						user: data,
-					},
+						user: data
+					}
 				})
 				cb()
 			}
@@ -61,8 +62,8 @@ export const setInitialDatas = () => (dispatch) => {
 						token: vals[0][1],
 						user: JSON.parse(vals[1][1]),
 						cart: res[2],
-						cards: res[3].cardDetails,
-					},
+						cards: res[3].cardDetails
+					}
 				})
 			})
 		}
@@ -74,8 +75,8 @@ export const setInitialDatas = () => (dispatch) => {
 					products: res[1],
 					token: vals[0][1],
 					user: JSON.parse(vals[1][1]),
-					cart: JSON.parse(vals[2][1]),
-				},
+					cart: JSON.parse(vals[2][1])
+				}
 			})
 		})
 	})
@@ -91,8 +92,8 @@ export const login = (body, popupRef, cb) => (dispatch) => {
 					type: SET_USER,
 					payload: {
 						user: data.user,
-						token: data.token,
-					},
+						token: data.token
+					}
 				})
 				cb()
 			})
@@ -110,8 +111,8 @@ export const register = (body, cb) => (dispatch) => {
 					type: SET_USER,
 					payload: {
 						user: data.user,
-						token: data.token,
-					},
+						token: data.token
+					}
 				})
 				cb()
 			})
@@ -127,8 +128,34 @@ export const logout = () => (dispatch) => {
 				// categories: [],
 				// products: [],
 				user: {},
-				token: null,
-			},
+				token: null
+			}
 		})
+	})
+}
+
+export const addToFavoriteProducts = (productId) => (dispatch) => {
+	axios.post(`${SERVER_URL}/user/favorite-product`, { _id: productId }).then(({ status, data }) => {
+		if (status === 200) {
+			dispatch({
+				type: UPDATE_FAVORITE_PRODUCTS,
+				payload: {
+					favoriteProducts: data
+				}
+			})
+		}
+	})
+}
+
+export const removeFromFavoriteProdutcs = (productId) => (dispatch) => {
+	axios.delete(`${SERVER_URL}/user/favorite-product/${productId}`).then(({ status, data }) => {
+		if (status === 200) {
+			dispatch({
+				type: UPDATE_FAVORITE_PRODUCTS,
+				payload: {
+					favoriteProducts: data
+				}
+			})
+		}
 	})
 }

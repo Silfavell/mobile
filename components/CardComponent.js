@@ -58,7 +58,7 @@ class CardComponent extends React.PureComponent {
 					</View>
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.child} onPress={this.onDeleteClick}>
-					<Ionicons name="md-trash" size={32} color="#DB0099" />
+					<Ionicons name="md-trash" size={32} color="rgba(0,0,0,.8)" />
 				</TouchableOpacity>
 			</View>
 		)
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 	},
 	highlightedText: {
 		fontSize: RFValue(16, 600),
-		color: '#DB0099'
+		color: 'rgba(0,0,0,.8)'
 	},
 	cardImage: {
 		height: 24,

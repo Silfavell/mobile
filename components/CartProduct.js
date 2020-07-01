@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
 	productPrice: {
 		fontSize: RFPercentage(3.1),
 		fontWeight: '700',
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		textAlign: 'center',
 		justifyContent: 'center'
 	},

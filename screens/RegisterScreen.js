@@ -127,7 +127,7 @@ class RegisterScreen extends React.PureComponent {
 						onChange={this.onPhoneChange}
 					>
 						<InputIcon>
-							<Text style={{ color: 'black', fontSize: RFValue(18, 600) }}>90</Text>
+							<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(18, 600) }}>90</Text>
 						</InputIcon>
 					</InputComponent>
 
@@ -147,7 +147,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name='ios-key'
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#DB0099'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : 'rgba(0,0,0,.8)'
 								}
 								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>
@@ -170,7 +170,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name='md-person'
 								color={
-									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? 'red' : '#DB0099'
+									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? 'red' : 'rgba(0,0,0,.8)'
 								}
 							/>
 						</InputIcon>
@@ -193,7 +193,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name='md-mail-open'
 								color={
-									this.state.invalidEmail && this.state.isEmailInitialized ? 'red' : '#DB0099'
+									this.state.invalidEmail && this.state.isEmailInitialized ? 'red' : 'rgba(0,0,0,.8)'
 								}
 							/>
 						</InputIcon>
@@ -214,11 +214,11 @@ class RegisterScreen extends React.PureComponent {
 						//      </View>
 						//      <View style={{ alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: RFValue(8, 600) }}>
 						//          <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-						//              <Text style={{ color: 'black', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>I give permissions for the use of my personal data for special offers and for receiving electronic communication, within the scope of The Law on Protection of Personal Data clarification document.</Text>
-						//              <Text style={{ color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>the Terms and</Text>
+						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>I give permissions for the use of my personal data for special offers and for receiving electronic communication, within the scope of The Law on Protection of Personal Data clarification document.</Text>
+						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>the Terms and</Text>
 						//          </View>
 						//          <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-						//              <Text style={{ color: '#DB0099', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>Conditions.</Text>
+						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>Conditions.</Text>
 						//          </View>
 						//      </View>
 						//  </View>
@@ -273,12 +273,12 @@ const styles = StyleSheet.create({
 		backgroundColor: 'transparent'
 	},
 	termsText: {
-		color: 'black',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(16, 600),
 		fontWeight: 'bold'
 	},
 	termsLinkText: {
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(16, 600),
 		fontWeight: 'bold'
 	},

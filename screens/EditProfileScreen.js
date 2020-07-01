@@ -52,7 +52,7 @@ class EditProfileScreen extends React.PureComponent {
 						onChange={this.onNameSurnameChange}
 					>
 						<InputIcon>
-							<Ionicons size={32} name="md-person" color="#DB0099" />
+							<Ionicons size={32} name="md-person" color="rgba(0,0,0,.8)" />
 						</InputIcon>
 
 					</InputComponent>
@@ -67,7 +67,7 @@ class EditProfileScreen extends React.PureComponent {
 						onChange={this.onEmailChange}
 					>
 						<InputIcon>
-							<Ionicons size={32} name="md-mail-open" color="#DB0099" />
+							<Ionicons size={32} name="md-mail-open" color="rgba(0,0,0,.8)" />
 						</InputIcon>
 
 					</InputComponent>
@@ -83,7 +83,7 @@ class EditProfileScreen extends React.PureComponent {
 						onChange={this.onPhoneChange}
 					>
 						<InputIcon>
-							<Ionicons size={32} name="md-phone-portrait" color="#DB0099" />
+							<Ionicons size={32} name="md-phone-portrait" color="rgba(0,0,0,.8)" />
 						</InputIcon>
 
 					</InputComponent>

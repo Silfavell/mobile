@@ -14,10 +14,11 @@ import { connect } from 'react-redux'
 import HomeScreen from '../HomeScreen'
 import ProductScreen from '../ProductsScreen'
 import FullProductScreen from '../FullProductScreen'
+import FilterProductsScreen from '../FilterProductsScreen'
 
 import { setRootNavigation } from '../../actions/global-actions'
 
-import logo from '../../assets/icon.png'
+import logo from '../../assets/icon-black.png'
 
 const Stack = createStackNavigator()
 
@@ -56,12 +57,29 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 				name='fullProductScreen'
 				options={{
 					title: 'Ürün detayı',
+					headerTitle: null,
+					headerTitleAlign: 'center',
+					headerTintColor: 'rgba(0,0,0,.8)',
+					// headerTransparent: true,
+					headerStyle: {
+						elevation: 0, // remove shadow on Android
+						shadowOpacity: 0 // remove shadow on iOS
+					},
+					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+				}}
+				component={FullProductScreen}
+			/>
+
+			<Stack.Screen
+				name='filterProductsScreen'
+				options={{
+					title: 'Filtrele',
 					headerTitleAlign: 'center',
 					headerTintColor: 'white',
-					headerStyle: styles.headerStyle
+					headerStyle: styles.headerStyle,
+					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 				}}
-
-				component={FullProductScreen}
+				component={FilterProductsScreen}
 			/>
 		</Stack.Navigator>
 	)
@@ -69,7 +87,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 
 const styles = StyleSheet.create({
 	headerStyle: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	headerTitle: {
 		height: '100%',
@@ -80,7 +98,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		flexDirection: 'column',
 		borderBottomWidth: 3,
-		borderBottomColor: '#DB0099'
+		borderBottomColor: 'rgba(0,0,0,.8)'
 	},
 	headerImage: {
 		height: '200%'

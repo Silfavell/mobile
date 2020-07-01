@@ -29,9 +29,15 @@ const Screen2 = () => (
 			name='fullProductScreen'
 			options={{
 				title: 'Ürün detayı',
+				headerTitle: null,
 				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
+				headerTintColor: 'rgba(0,0,0,.8)',
+				// headerTransparent: true,
+				headerStyle: {
+					elevation: 0, // remove shadow on Android
+					shadowOpacity: 0 // remove shadow on iOS
+				},
+				cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 			}}
 			component={FullProductScreen}
 		/>
@@ -39,7 +45,7 @@ const Screen2 = () => (
 )
 
 const styles = StyleSheet.create({
-	headerStyle: { backgroundColor: '#DB0099' }
+	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
 })
 
 export default Screen2

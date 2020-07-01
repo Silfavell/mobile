@@ -1,6 +1,9 @@
 /* eslint-disable no-param-reassign */
 import {
-	DECREASE_PRODUCT_QUANTITY, INCREASE_PRODUCT_QUANTITY, MAKE_ORDER, CLEAR_CART,
+	DECREASE_PRODUCT_QUANTITY,
+	INCREASE_PRODUCT_QUANTITY,
+	MAKE_ORDER,
+	CLEAR_CART
 } from '../actions/actions1'
 import { SET_INITIAL_DATAS } from '../actions/actions4'
 

@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	quantityContainer: {
-		backgroundColor: '#DB0099',
+		backgroundColor: 'rgba(0,0,0,.8)',
 		padding: RFValue(4, 600)
 	},
 	quantityButton: {
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(17, 600)
 	},
 	quantityText: {

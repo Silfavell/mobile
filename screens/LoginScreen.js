@@ -103,7 +103,7 @@ class LoginScreen extends React.Component {
 						onChange={this.onPhoneChange}
 					>
 						<InputIcon>
-							<Text style={{ color: 'black', fontSize: RFValue(18, 600) }}>90</Text>
+							<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(18, 600) }}>90</Text>
 						</InputIcon>
 					</InputComponent>
 
@@ -122,7 +122,7 @@ class LoginScreen extends React.Component {
 								size={32}
 								name='ios-key'
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : '#DB0099'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : 'rgba(0,0,0,.8)'
 								}
 								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>

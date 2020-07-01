@@ -24,7 +24,7 @@ class Screen4 extends React.PureComponent {
 		return (
 			<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 				<Stack.Screen
-					name="profile"
+					name='profile'
 					component={ProfileScreen}
 					options={{
 						title: 'Diğer',
@@ -35,7 +35,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="changePasswordScreen"
+					name='changePasswordScreen'
 					component={ChangePasswordScreen}
 					options={{
 						title: 'Şifremi değiştir',
@@ -46,7 +46,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="addresses"
+					name='addresses'
 					component={AddressesScreen}
 					options={{
 						title: 'Adreslerim',
@@ -57,7 +57,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="searchAddressScreen"
+					name='searchAddressScreen'
 					component={SearchAddressScreen}
 					options={{
 						title: 'Adres ara',
@@ -68,7 +68,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="pinAddressScreen"
+					name='pinAddressScreen'
 					component={PinAddressScreen}
 					options={{
 						title: 'Adres ekle',
@@ -79,7 +79,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="completeAddressScreen"
+					name='completeAddressScreen'
 					component={CompleteAddressScreen}
 					options={{
 						title: 'Adres ekle',
@@ -90,7 +90,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="paymentOptionsScreen"
+					name='paymentOptionsScreen'
 					component={PaymentOptionsScreen}
 					options={{
 						title: 'Ödeme Yöntemlerim',
@@ -101,7 +101,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="favoriteProductsScreen"
+					name='favoriteProductsScreen'
 					component={FavoriteProductsScreen}
 					options={{
 						title: 'Favorilerim',
@@ -112,7 +112,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="previousOrdersScreen"
+					name='previousOrdersScreen'
 					component={PreviousOrdersScreen}
 					options={{
 						title: 'Siparişlerim',
@@ -123,7 +123,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="addNewCardScreen"
+					name='addNewCardScreen'
 					component={AddNewCardScreen}
 					options={{
 						title: 'Kart ekle',
@@ -134,7 +134,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="changeLanguageScreen"
+					name='changeLanguageScreen'
 					component={ChangeLanguageScreen}
 					options={{
 						title: 'Dili değiştir',
@@ -145,7 +145,7 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="editProfileScreen"
+					name='editProfileScreen'
 					component={EditProfileScreen}
 					options={{
 						title: 'Profilim',
@@ -156,17 +156,21 @@ class Screen4 extends React.PureComponent {
 				/>
 
 				<Stack.Screen
-					name="fullProductScreen"
+					name='fullProductScreen'
 					options={{
 						title: 'Ürün detayı',
+						headerTitle: null,
 						headerTitleAlign: 'center',
-						headerTintColor: 'white',
-						headerStyle: styles.headerStyle
+						headerTintColor: 'rgba(0,0,0,.8)',
+						headerStyle: {
+							elevation: 0, // remove shadow on Android
+							shadowOpacity: 0 // remove shadow on iOS
+						},
+						// headerTransparent: true,
+						cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 					}}
-
 					component={FullProductScreen}
 				/>
-
 			</Stack.Navigator>
 		)
 	}
@@ -174,7 +178,7 @@ class Screen4 extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	headerStyle: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	}
 })
 

@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 	cards: [],
 	addresses: [],
 	selectedCard: null,
-	selectedAddress: null,
+	selectedAddress: null
 }
 
 export default (state = INITIAL_STATE, action) => {

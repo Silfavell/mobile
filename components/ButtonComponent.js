@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	button: {
-		backgroundColor: '#DB0099',
+		backgroundColor: 'rgba(0,0,0,.8)',
 		borderWidth: 1,
-		borderColor: '#DB0099',
+		borderColor: 'rgba(0,0,0,.8)',
 		flex: 1,
 		margin: RFValue(4, 600),
 		borderRadius: 6,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 	},
 	opposite: {
 		backgroundColor: 'white',
-		color: '#DB0099'
+		color: 'rgba(0,0,0,.8)'
 	},
 	text: {
 		color: 'white',

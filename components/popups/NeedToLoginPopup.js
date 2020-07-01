@@ -35,18 +35,18 @@ class NeedToLoginPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title="Devam etmeden önce giriş yapmalısın"
+						title='Devam etmeden önce giriş yapmalısın'
 						hasTitleBar={false}
 					/>
 				)}
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text="Ok"
+							text='Ok'
 							textStyle={styles.buttonText}
 							style={styles.buttonOk}
 							onPress={this.onConfirm}
-							key="button-2"
+							key='button-2'
 						/>
 					</ModalFooter>
 				)}
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 		height: RFValue(42, 600)
 	},
 	buttonOk: {
-		backgroundColor: '#DB0099'
+		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	buttonText: {
 		color: 'white'

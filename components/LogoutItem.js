@@ -26,7 +26,7 @@ class LogoutItem extends React.PureComponent {
 
 				<TouchableOpacity onPress={this.onClick}>
 					<SettingItem title="Çıkış Yap">
-						<MaterialIcons color="#DB0099" name="exit-to-app" size={32} />
+						<MaterialIcons color="rgba(0,0,0,.8)" name="exit-to-app" size={32} />
 					</SettingItem>
 				</TouchableOpacity>
 

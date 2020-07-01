@@ -10,7 +10,7 @@ import {
 
 import ButtonComponent from '../components/ButtonComponent'
 
-import icon from '../assets/icon.png'
+import icon from '../assets/icon-black.png'
 
 const WelcomeScreen = ({ navigation }) => (
 	<View style={styles.container}>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	loginText: {
-		color: '#DB0099',
+		color: 'rgba(0,0,0,.8)',
 		fontSize: RFValue(18, 600),
 		marginHorizontal: RFValue(10, 600)
 	}

@@ -24,12 +24,12 @@ class GlobalMessagePopup extends React.PureComponent {
 
 	render() {
 		return (
-			<View pointerEvents="none" style={styles.absoluteContainer}>
+			<View pointerEvents='none' style={styles.absoluteContainer}>
 				<FlashMessage
 					ref={this.props.setMessagePopupRef}
 					animationDuration={300}
 					duration={1250}
-					position="top"
+					position='top'
 					MessageComponent={this.messageComponent}
 				/>
 			</View>
