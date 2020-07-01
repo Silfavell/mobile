@@ -58,36 +58,36 @@ class SearchScreen extends React.PureComponent {
 
 	renderDivider = () => (
 		<ShadowContainer>
-			<HeadingDivider title="Popüler aramalar" />
+			<HeadingDivider title='Popüler aramalar' />
 			<SearchFilter onClick={this.search} />
 		</ShadowContainer>
 	)
 
 	fetching = () => (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<ActivityIndicator color="red" size="large" />
+			<ActivityIndicator color='red' size='large' />
 		</View>
 	)
 
 	render() {
 		return (
-			<ScrollView contentContainerStyle={styles.container} behavior="height">
+			<ScrollView contentContainerStyle={styles.container} behavior='height'>
 				<View style={styles.searchHeader}>
 					<View style={styles.iconContainer}>
-						<Ionicons name="md-search" size={32} color="rgba(0,0,0,.8)" />
+						<Ionicons name='md-search' size={32} color='rgba(0,0,0,.8)' />
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
 							value={this.state.text}
 							onChangeText={this.search}
 							style={styles.searchInput}
-							placeholder="Ara"
+							placeholder='Ara'
 						/>
 					</View>
 					{
 						this.state.text.length > 0 && (
 							<TouchableOpacity style={styles.iconContainer} onPress={this.clear}>
-								<Ionicons name="md-close" size={32} color="#6D7891" />
+								<Ionicons name='md-close' size={32} color='#6D7891' />
 							</TouchableOpacity>
 						)
 						//  <View style={styles.iconContainer}>
@@ -115,7 +115,8 @@ class SearchScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+		flex: 1,
+		backgroundColor: 'white'
 	},
 	searchHeader: {
 		height: 50,
