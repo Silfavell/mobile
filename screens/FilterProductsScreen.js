@@ -113,7 +113,9 @@ class FilterProductsScreen extends React.Component {
                     clearFilter={this.clearFilter}
                 />
 
-                <ShadowContainer>
+                <ShadowContainer containerStyle={{
+                    backgroundColor: 'rgba(255,255,255,0.7)'
+                }}>
                     <ModalSelector
                         data={this.sorts}
                         cancelText={'İptal'}

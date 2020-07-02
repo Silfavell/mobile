@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native'
 class ShadowContainer extends React.PureComponent {
 	render() {
 		return (
-			<View style={styles.x}>
+			<View style={[styles.x, this.props.containerStyle]}>
 				<View style={styles.y}>
 					<View style={[styles.z, this.props.style]}>
 						{this.props.children}
