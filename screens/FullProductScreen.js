@@ -32,14 +32,13 @@ class FullProductScreen extends React.PureComponent {
 		this.setHeader(this.props.route.params)
 	}
 
-
 	state = {
 		product: null,
 		pickedColor: -1
 	}
 
 	onHeartClick = (_id) => {
-		this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs(_id) : this.addToFavoriteProducts(_id)
+		this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef) : this.addToFavoriteProducts(_id, this.props.messagePopupRef)
 	}
 
 	setHeader = (_id) => {
@@ -67,15 +66,15 @@ class FullProductScreen extends React.PureComponent {
 
 	onAddToCartClick = () => {
 		if (this.state.pickedColor === -1) {
-			this.props.increaseProductQuantity(this.state.product._id)
+			this.props.increaseProductQuantity(this.state.product._id, this.props.messagePopupRef)
 		} else {
-			this.props.increaseProductQuantity(this.state.product.group[this.state.pickedColor]._id)
+			this.props.increaseProductQuantity(this.state.product.group[this.state.pickedColor]._id, this.props.messagePopupRef)
 		}
 	}
 
 	addToFavoriteProducts = (_id) => {
 		if (this.props.token) {
-			this.props.addToFavoriteProducts(_id)
+			this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
 		} else {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
@@ -83,7 +82,7 @@ class FullProductScreen extends React.PureComponent {
 
 	removeFromFavoriteProdutcs = (_id) => {
 		if (this.props.token) {
-			this.props.removeFromFavoriteProdutcs(_id)
+			this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
 		} else {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
@@ -318,10 +317,14 @@ const mapStateToProps = ({
 	reducer4: {
 		token,
 		user
+	},
+	globalReducer: {
+		messagePopupRef
 	}
 }) => ({
 	token,
-	user
+	user,
+	messagePopupRef
 })
 
 const mapDispatchToProps = {

@@ -15,14 +15,14 @@ import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
 
-class Product extends React.PureComponent {
+class Product extends React.Component {
 	onAddProductClick = () => {
-		this.props.increaseProductQuantity(this.props.data._id)
+		this.props.increaseProductQuantity(this.props.data._id, this.props.messagePopupRef)
 	}
 
 	addToFavoriteProducts = () => {
 		if (this.props.token) {
-			this.props.addToFavoriteProducts(this.props.data._id)
+			this.props.addToFavoriteProducts(this.props.data._id, this.props.messagePopupRef)
 		} else {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
@@ -30,7 +30,7 @@ class Product extends React.PureComponent {
 
 	removeFromFavoriteProdutcs = () => {
 		if (this.props.token) {
-			this.props.removeFromFavoriteProdutcs(this.props.data._id)
+			this.props.removeFromFavoriteProdutcs(this.props.data._id, this.props.messagePopupRef)
 		} else {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
@@ -53,7 +53,6 @@ class Product extends React.PureComponent {
 				_id,
 				name,
 				price,
-				categoryId,
 				image
 			}
 		} = this.props
@@ -151,10 +150,14 @@ const mapStateToProps = ({
 	reducer4: {
 		token,
 		user
+	},
+	globalReducer: {
+		messagePopupRef
 	}
 }) => ({
 	token,
-	user
+	user,
+	messagePopupRef
 })
 
 const mapDispatchToProps = {

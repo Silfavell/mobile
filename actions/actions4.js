@@ -44,6 +44,7 @@ export const updateProfile = (body, cb) => (dispatch) => {
 						user: data
 					}
 				})
+
 				cb()
 			}
 		})
@@ -82,7 +83,7 @@ export const setInitialDatas = () => (dispatch) => {
 	})
 }
 
-export const login = (body, popupRef, cb) => (dispatch) => {
+export const login = (body, cb) => (dispatch) => {
 	const url = `${SERVER_URL}/login`
 
 	axios.post(url, body).then(({ status, data }) => {
@@ -95,6 +96,7 @@ export const login = (body, popupRef, cb) => (dispatch) => {
 						token: data.token
 					}
 				})
+
 				cb()
 			})
 		}
@@ -114,6 +116,7 @@ export const register = (body, cb) => (dispatch) => {
 						token: data.token
 					}
 				})
+
 				cb()
 			})
 		}
@@ -134,7 +137,7 @@ export const logout = () => (dispatch) => {
 	})
 }
 
-export const addToFavoriteProducts = (productId) => (dispatch) => {
+export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) => {
 	axios.post(`${SERVER_URL}/user/favorite-product`, { _id: productId }).then(({ status, data }) => {
 		if (status === 200) {
 			dispatch({
@@ -143,11 +146,13 @@ export const addToFavoriteProducts = (productId) => (dispatch) => {
 					favoriteProducts: data
 				}
 			})
+
+			messagePopupRef?.showMessage({ message: 'Ürün favorilerinize eklendi.' })
 		}
 	})
 }
 
-export const removeFromFavoriteProdutcs = (productId) => (dispatch) => {
+export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => (dispatch) => {
 	axios.delete(`${SERVER_URL}/user/favorite-product/${productId}`).then(({ status, data }) => {
 		if (status === 200) {
 			AsyncStorage.getItem('user').then((user) => {
@@ -160,6 +165,8 @@ export const removeFromFavoriteProdutcs = (productId) => (dispatch) => {
 					})
 				})
 			})
+
+			messagePopupRef?.showMessage({ message: 'Ürün favorilerinizden çıkarıldı.' })
 		}
 	})
 }

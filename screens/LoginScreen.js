@@ -52,7 +52,7 @@ class LoginScreen extends React.Component {
 	}
 
 	onLoginClick = () => {
-		this.props.login({ phoneNumber: this.state.phoneNumber, password: this.state.password }, this.props.messagePopupRef, () => {
+		this.props.login({ phoneNumber: this.state.phoneNumber, password: this.state.password }, () => {
 			this.saveCart()
 			this.props.navigation.navigate('Loading', { next: true })
 		})
@@ -220,14 +220,10 @@ const mapStateToProps = ({
 	},
 	reducer4: {
 		token
-	},
-	globalReducer: {
-		messagePopupRef
 	}
 }) => ({
 	cart,
-	token,
-	messagePopupRef
+	token
 })
 
 const mapDispatchToProps = {

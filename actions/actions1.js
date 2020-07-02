@@ -13,13 +13,13 @@ export const clearCart = (token) => (dispatch) => {
 		axios.delete(url).then(({ status }) => {
 			if (status === 200) {
 				dispatch({
-					type: CLEAR_CART,
+					type: CLEAR_CART
 				})
 			}
 		})
 	} else {
 		dispatch({
-			type: CLEAR_CART,
+			type: CLEAR_CART
 		})
 	}
 }
@@ -30,10 +30,11 @@ export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
 
 	axios.post(url, body).then(({ status }) => {
 		if (status === 200) {
-			cb()
 			dispatch({
-				type: MAKE_ORDER,
+				type: MAKE_ORDER
 			})
+
+			cb()
 		}
 	}).catch(() => {
 		dispatch({
@@ -42,7 +43,7 @@ export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
 	})
 }
 
-export const decreaseProductQuantity = (productId) => (dispatch) => {
+export const decreaseProductQuantity = (productId, messagePopupRef) => (dispatch) => {
 	const url = `${SERVER_URL}/deduct-product/${productId}`
 
 	axios.delete(url).then(({ data, status }) => {
@@ -51,11 +52,14 @@ export const decreaseProductQuantity = (productId) => (dispatch) => {
 				type: DECREASE_PRODUCT_QUANTITY,
 				payload: data
 			})
+
+			messagePopupRef?.showMessage({ message: 'Ürün sepetinizden çıkarıldı.' })
+
 		}
 	})
 }
 
-export const increaseProductQuantity = (productId) => (dispatch) => {
+export const increaseProductQuantity = (productId, messagePopupRef) => (dispatch) => {
 	const url = `${SERVER_URL}/add-product/${productId}`
 
 	axios.get(url).then(({ data, status }) => {
@@ -64,6 +68,8 @@ export const increaseProductQuantity = (productId) => (dispatch) => {
 				type: INCREASE_PRODUCT_QUANTITY,
 				payload: data
 			})
+
+			messagePopupRef?.showMessage({ message: 'Ürün sepetinize eklendi.' })
 		}
 	})
 }

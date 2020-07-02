@@ -13,8 +13,8 @@ export const setPaymentType = (paymentType) => (dispatch) => {
 	dispatch({
 		type: SET_PAYMENT_TYPE,
 		payload: {
-			paymentType,
-		},
+			paymentType
+		}
 	})
 }
 
@@ -27,9 +27,10 @@ export const saveCard = (card, cb) => (dispatch) => {
 				dispatch({
 					type: SAVE_CARD,
 					payload: {
-						card: data,
-					},
+						card: data
+					}
 				})
+
 				cb()
 			}
 		})
@@ -45,7 +46,7 @@ export const deleteCard = (cardToken) => (dispatch) => {
 					type: DELETE_CARD,
 					payload: {
 						cardToken,
-					},
+					}
 				})
 			}
 		})
@@ -58,7 +59,7 @@ export const saveAddress = (address, details) => {
 		buildingNo: details.buildingNo,
 		floor: details.floor,
 		aptNo: details.aptNo,
-		directions: details.directions,
+		directions: details.directions
 	}
 
 	return (dispatch) => {
@@ -71,8 +72,8 @@ export const saveAddress = (address, details) => {
 					dispatch({
 						type: SAVE_ADDRESS,
 						payload: {
-							addresses: data.addresses,
-						},
+							addresses: data.addresses
+						}
 					})
 				}
 			})
@@ -90,8 +91,8 @@ export const deleteAddress = (addressId) => (dispatch) => {
 				dispatch({
 					type: DELETE_ADDRESS,
 					payload: {
-						addresses: data.addresses,
-					},
+						addresses: data.addresses
+					}
 				})
 			}
 		})
@@ -101,9 +102,10 @@ export const setSelectedCard = (selectedCard, cb) => (dispatch) => {
 	dispatch({
 		type: SET_SELECTED_CARD,
 		payload: {
-			selectedCard,
-		},
+			selectedCard
+		}
 	})
+
 	cb()
 }
 
@@ -111,8 +113,9 @@ export const setSelectedAddress = (selectedAddress, cb) => (dispatch) => {
 	dispatch({
 		type: SET_SELECTED_ADDRESS,
 		payload: {
-			selectedAddress,
-		},
+			selectedAddress
+		}
 	})
+
 	cb()
 }
