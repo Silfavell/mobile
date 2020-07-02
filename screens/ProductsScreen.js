@@ -23,7 +23,16 @@ class ProductsScreen extends React.Component {
 			title: this.props.products[this.selectedCategory].name,
 			headerRight: () => (
 				<TouchableOpacity onPress={this.onFilterClick}>
-					<MaterialIcons color={'white'} name='sort' size={28} style={{ transform: [{ rotateY: '180deg' }], marginRight: 12 }} />
+
+					<MaterialIcons
+						color={'white'}
+						name='sort'
+						size={28}
+						style={{
+							transform: [{ rotateY: '180deg' }],
+							marginRight: 12
+						}} />
+
 				</TouchableOpacity>
 			)
 		})
@@ -68,7 +77,7 @@ class ProductsScreen extends React.Component {
 				list={category.products}
 			/>
 
-		</Tab >
+		</Tab>
 	)
 
 	render() {

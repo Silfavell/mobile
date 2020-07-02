@@ -6,13 +6,18 @@ import CarouselViewer from './CarouselViewer'
 class Slider extends React.PureComponent {
 	render() {
 		return (
-			<CarouselViewer
-				{...this.props}
-			>
+			<CarouselViewer key={this.props._id} {...this.props}>
 				{
 					this.props.images.map((image) => (
-						<View key={image} style={this.props.imageContainerStyle}>
-							<Image source={{ uri: image }} resizeMode={'contain'} style={{ flex: 1, width: '100%' }} />
+						<View
+							key={image}
+							style={this.props.imageContainerStyle}>
+
+							<Image
+								source={{ uri: image }}
+								resizeMode={'contain'}
+								style={{ flex: 1, width: '100%' }} />
+
 						</View>
 					))
 				}

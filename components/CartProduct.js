@@ -10,8 +10,6 @@ import { SERVER_URL } from '../utils/global'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
-import productEx from '../assets/product.jpg'
-
 class CartProduct extends React.PureComponent {
 	render() {
 		const {
@@ -26,7 +24,7 @@ class CartProduct extends React.PureComponent {
 			previousOrder
 		} = this.props
 
-		const url = `${SERVER_URL}/assets/products-2/${category}/${image}.webp`
+		const url = `${SERVER_URL}/assets/products/${image}-0.webp`
 
 		return (
 			<View style={styles.container}>
@@ -35,8 +33,7 @@ class CartProduct extends React.PureComponent {
 					<Image
 						style={styles.productImage}
 						resizeMode='contain'
-						// source={{ uri: url }}
-						source={productEx}
+						source={{ uri: url }}
 					/>
 				</View>
 

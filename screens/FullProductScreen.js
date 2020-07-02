@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
 	ScrollView,
@@ -17,24 +18,39 @@ import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/ac
 import ButtonComponent from '../components/ButtonComponent'
 import ShadowContainer from '../components/ShadowContainer'
 
-import productEx from '../assets/product.jpg'
 import Slider from '../components/Slider'
+import Color from '../components/fullProdutScreen/Color'
+import Loading from '../components/LoadingCompenent'
 
 class FullProductScreen extends React.PureComponent {
+
+	scrollRef = React.createRef()
+
 	constructor(props) {
 		super(props)
-		this.setHeader()
+		this.getProductById(this.props.route.params)
+		this.setHeader(this.props.route.params)
 	}
 
-	setHeader = () => {
+
+	state = {
+		product: null,
+		pickedColor: -1
+	}
+
+	onHeartClick = (_id) => {
+		this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs(_id) : this.addToFavoriteProducts(_id)
+	}
+
+	setHeader = (_id) => {
 		this.props.navigation.setOptions({
 			headerRight: () => (
-				<TouchableOpacity onPress={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}>
+				<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
 					<Ionicons
 						size={26}
 						color={'rgba(0,0,0,.8)'}
 						style={{ marginRight: 18 }}
-						name={this.props.user?.favoriteProducts.includes(this.props.route.params._id) ? 'md-heart' : 'md-heart-empty'} />
+						name={this.props.user?.favoriteProducts.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
 
 				</TouchableOpacity>
 			)
@@ -42,73 +58,146 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	UNSAFE_componentWillReceiveProps() {
-		this.setHeader()
+		if (this.state.pickedColor === -1) {
+			this.setHeader(this.state.product._id)
+		} else {
+			this.setHeader(this.state.product.group[this.state.pickedColor]._id)
+		}
 	}
 
 	onAddToCartClick = () => {
-		this.props.increaseProductQuantity(this.props.route.params._id)
+		if (this.state.pickedColor === -1) {
+			this.props.increaseProductQuantity(this.state.product._id)
+		} else {
+			this.props.increaseProductQuantity(this.state.product.group[this.state.pickedColor]._id)
+		}
 	}
 
-	addToFavoriteProducts = () => {
+	addToFavoriteProducts = (_id) => {
 		if (this.props.token) {
-			this.props.addToFavoriteProducts(this.props.route.params._id)
+			this.props.addToFavoriteProducts(_id)
 		} else {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
 	}
 
-	removeFromFavoriteProdutcs = () => {
+	removeFromFavoriteProdutcs = (_id) => {
 		if (this.props.token) {
-			this.props.removeFromFavoriteProdutcs(this.props.route.params._id)
+			this.props.removeFromFavoriteProdutcs(_id)
 		} else {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
+	}
+
+	getProductById = (productId) => {
+		axios.get(`${SERVER_URL}/product/${productId}`).then(({
+			data,
+			status
+		}) => {
+			if (status === 200) {
+				this.setState({
+					product: data,
+					pickedColor: -1
+				}, () => {
+					this.scrollRef.current.scrollTo({ y: 0, animated: true })
+				})
+			}
+		})
+	}
+
+	onColorPicked = (colorIndex) => {
+		this.setState({ pickedColor: colorIndex }, () => {
+			this.setHeader(this.state.product.group[colorIndex]._id)
+		})
+	}
+
+	getImages = () => {
+		const {
+			image,
+			imageCount
+		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
+
+		return Array.from(new Array(imageCount)).map((el, index) => {
+			return `${SERVER_URL}/assets/products/${image}-${index}.webp`
+		})
+	}
+
+	isColorSelected = (index) => {
+		if (this.state.pickedColor === -1) {
+			const productIndexInGroup = this.state.product.group.find((product) => product._id === this.state.product._id)
+			return this.state.product.group.indexOf(productIndexInGroup) === index
+		}
+
+		return index === this.state.pickedColor
 	}
 
 	render() {
-		const {
-			name,
-			price,
-			categoryId,
-			image
-		} = this.props.route.params
+		if (this.state.product) {
+			const {
+				name,
+				price,
+				color
+			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-		// const url = `${SERVER_URL}/assets/original-products/${categoryId}/${image}.png` // TODO
-		const url = `${SERVER_URL}/assets/products-2/${categoryId}/${image}.webp`
+			const {
+				group
+			} = this.state.product
 
-		return (
-			<View style={styles.container}>
+			return (
+				<View style={styles.container}>
 
-				<ScrollView contentContainerStyle={styles.scrollContainer} onScroll={this.handleScroll}>
-					<ShadowContainer
-						style={{ backgroundColor: 'white' }}
-					>
-						<View style={styles.imageContainer}>
-							<Slider
-								imageContainerStyle={{ paddingBottom: 20 }}
-								images={[
-									'https://www.gratis.com/ccstore/v1/images/?source=/file/v4629752816058149622/products/10167208_01.jpg&height=940&width=940',
-									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2764064473853119068/products/10167209_01.jpg&height=940&width=940',
-									'https://www.gratis.com/ccstore/v1/images/?source=/file/v2938411743493834306/products/10204718_01.jpg&height=940&width=940'
-								]}
-								paginator
-							/>
+					<ScrollView
+						ref={this.scrollRef}
+						contentContainerStyle={styles.scrollContainer}
+						onScroll={this.handleScroll}>
+						<ShadowContainer style={{ backgroundColor: 'white' }}>
+							<View style={styles.imageContainer}>
+								<Slider
+									imageContainerStyle={{ paddingBottom: 20 }}
+									_id={'Slider:' + (this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}
+									images={this.getImages()}
+									paginator
+								/>
+							</View>
+						</ShadowContainer>
+						<View style={styles.details}>
+							<View style={styles.textContainer}>
+								<Text style={styles.productName}>{name}</Text>
+							</View>
+
+							<View style={styles.priceContainer}>
+								<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+							</View>
 						</View>
-					</ShadowContainer>
-					<View style={styles.details}>
-						<View style={styles.textContainer}>
-							<Text style={styles.productName}>{name}</Text>
-						</View>
 
-						<View style={styles.priceContainer}>
-							<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
-						</View>
-					</View>
+						{
+							group && (
+								<>
+									<View style={styles.colorContainer}>
+										<View style={styles.textContainer}>
+											<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
+										</View>
+										<View style={styles.colors}>
+											{
+												group.map((groupProduct, index) => (
+													<Color
+														product={groupProduct}
+														selected={this.isColorSelected(index)}
+														index={index}
+														onPress={this.onColorPicked} />
+												))
+											}
+										</View>
+									</View>
+								</>
+							)
+						}
 
-					<View style={styles.details2}>
-						<Text style={styles.productDetailText}>Ürün Hakkında</Text>
 
-						<Text style={styles.productDetail}>{`
+						<View style={styles.details2}>
+							<Text style={styles.productDetailText}>Ürün Hakkında</Text>
+
+							<Text style={styles.productDetail}>{`
 • Keçi sütlü formülü ve yoğun proteinli yapısı ile dudaklarıınız MATTE LIPS ile daha nemli bir görünüme kavuşacaktır.
 
 • Dudaklarınızda uzun süreli ,doğal mat etki sağlar. Kremsi yapısı ile örtücülüğü mükemmeldir.
@@ -120,18 +209,21 @@ class FullProductScreen extends React.PureComponent {
 • Dermatolojik olarak test edilmiştir.
 
 • Gün boyu güzelliğinizle büyülerken cildiniz beslensin!
-`
-						}</Text>
+	`
+							}</Text>
+						</View>
+
+						<View style={styles.emptyFooter} />
+					</ScrollView>
+
+					<View style={styles.buttonContainer}>
+						<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
 					</View>
-
-					<View style={styles.emptyFooter} />
-				</ScrollView>
-
-				<View style={styles.buttonContainer}>
-					<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
-				</View>
-			</View>
-		)
+				</View >
+			)
+		} else {
+			return <Loading />
+		}
 	}
 }
 
@@ -139,7 +231,7 @@ const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'space-between',
 		flex: 1,
-		backgroundColor: 'transparent'
+		backgroundColor: 'white'
 	},
 	scrollContainer: {
 		justifyContent: 'space-between'
@@ -148,36 +240,59 @@ const styles = StyleSheet.create({
 		flex: 1,
 		height: RFValue(260, 600)
 	},
+	colors: {
+		flex: 1,
+		flexWrap: 'wrap',
+		flexDirection: 'row',
+		marginTop: 20
+	},
+	colorContainer: {
+		flex: 1,
+		flexDirection: 'column',
+		paddingVertical: 20,
+		marginHorizontal: 10,
+		borderBottomWidth: 1,
+		borderBottomColor: '#EFEFEF'
+	},
 	details: {
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		paddingVertical: 20,
-		marginHorizontal: 20,
+		marginHorizontal: 10,
 		borderBottomWidth: 1,
-		borderBottomColor: '#CDCDCD'
+		borderBottomColor: '#EFEFEF'
 	},
 	details2: {
 		flex: 1,
 		flexDirection: 'column',
 		marginTop: 20,
-		marginHorizontal: 20
+		marginHorizontal: 10
 	},
 	productDetailText: {
 		margin: 4,
-		fontSize: RFValue(20, 600)
+		fontSize: RFValue(18, 600),
+		fontWeight: 'bold'
 	},
 	productDetail: {
 		margin: 4,
-		fontSize: RFValue(14, 600)
+		fontSize: RFValue(15, 600)
 	},
 	price: {
-		fontSize: RFValue(20, 600),
+		fontSize: RFValue(18, 600),
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
 	},
 	productName: {
-		fontSize: RFValue(20, 600)
+		fontSize: RFValue(18, 600),
+		fontWeight: 'bold'
+	},
+	colorText: {
+		fontSize: RFValue(18, 600),
+		fontWeight: 'bold'
+	},
+	colorName: {
+		fontWeight: 'normal'
 	},
 	buttonContainer: {
 		position: 'absolute',

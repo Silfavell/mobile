@@ -44,6 +44,7 @@ class CarouselViewer extends React.Component {
         <ViewPager
           ref={this.setViewPagerRef}
           style={styles.viewPager}
+          initialPage={0}
           onPageSelected={this.onPageSelected}
           {...this.props}
         />
@@ -54,7 +55,7 @@ class CarouselViewer extends React.Component {
               <View style={styles.dotContainer}>
                 {
                   this.props.children.map((item, i) => (
-                    <View key={'slide' + i.toString()} style={[styles.dot, { backgroundColor: this.state.current === i ? 'white' : '#CDCDCD' }]} />
+                    <View key={'slide' + i.toString()} style={[styles.dot, { backgroundColor: this.state.current === i ? 'black' : 'white' }]} />
                   ))
                 }
               </View>

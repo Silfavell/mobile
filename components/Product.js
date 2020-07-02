@@ -15,8 +15,6 @@ import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
 
-import productEx from '../assets/product.jpg'
-
 class Product extends React.PureComponent {
 	onAddProductClick = () => {
 		this.props.increaseProductQuantity(this.props.data._id)
@@ -38,8 +36,8 @@ class Product extends React.PureComponent {
 		}
 	}
 
-	onProductClick = () => {		
-		this.props.navigation.navigate('fullProductScreen', this.props.data)
+	onProductClick = () => {
+		this.props.navigation.navigate('fullProductScreen', this.props.data._id)
 	}
 
 	shouldComponentUpdate(nextProps) {
@@ -60,7 +58,7 @@ class Product extends React.PureComponent {
 			}
 		} = this.props
 
-		const url = `${SERVER_URL}/assets/products-2/${categoryId}/${image}.webp`
+		const url = `${SERVER_URL}/assets/products/${image}-0.webp`
 
 		return (
 			<View style={styles.container}>
@@ -68,15 +66,14 @@ class Product extends React.PureComponent {
 				<Ionicons
 					style={styles.favoriteIcon}
 					size={28}
-					name={this.props.user?.favoriteProducts.includes(_id) ? 'md-heart' : 'md-heart-empty'}
+					name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
 					color={'rgba(0,0,0,.8)'}
-					onPress={this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
+					onPress={this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
 				/>
 
 				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
 					<Image
-						// source={{ uri: url }}
-						source={productEx}
+						source={{ uri: url }}
 						resizeMode='contain'
 						style={styles.productImage}
 					/>
