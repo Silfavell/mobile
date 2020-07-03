@@ -11,10 +11,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { SERVER_URL } from '../utils/global'
-import HeadingDivider from '../components/HeadingDivider'
-import SearchFilter from '../components/SearchFilter'
 import RecyclerList from '../components/RecyclerList'
-import ShadowContainer from '../components/ShadowContainer'
 
 class SearchScreen extends React.PureComponent {
 	state = {
@@ -56,12 +53,6 @@ class SearchScreen extends React.PureComponent {
 		</View>
 	)
 
-	renderDivider = () => (
-		<ShadowContainer>
-			<HeadingDivider title='Popüler aramalar' />
-			<SearchFilter onClick={this.search} />
-		</ShadowContainer>
-	)
 
 	fetching = () => (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -84,26 +75,18 @@ class SearchScreen extends React.PureComponent {
 							placeholder='Ara'
 						/>
 					</View>
-					{
-						this.state.text.length > 0 && (
-							<TouchableOpacity style={styles.iconContainer} onPress={this.clear}>
+					<TouchableOpacity style={styles.iconContainer} onPress={this.state.text.length > 0 ? this.clear : null}>
+						{
+							this.state.text.length > 0 && (
 								<Ionicons name='md-close' size={32} color='#6D7891' />
-							</TouchableOpacity>
-						)
-						//  <View style={styles.iconContainer}>
-						//      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />
-						//  </View>
-					}
+							)
+							//  <View style={styles.iconContainer}>
+							//      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />
+							//  </View>
+						}
+					</TouchableOpacity>
 				</View>
 
-				{
-					/*
-					// eslint-disable-next-line no-nested-ternary
-					this.state.fetch ? this.fetching() : (
-						!this.state.products.length > 0 ? this.renderDivider() : this.renderSearchResult()
-					)
-					*/
-				}
 				{
 					// eslint-disable-next-line no-nested-ternary
 					this.state.fetch ? this.fetching() : (this.state.products.length > 0 && this.renderSearchResult())
@@ -120,9 +103,13 @@ const styles = StyleSheet.create({
 	},
 	searchHeader: {
 		height: 50,
-		margin: 2,
 		flexDirection: 'row',
-		backgroundColor: 'white'
+		backgroundColor: 'white',
+		shadowColor: '#000',
+		shadowOffset: { width: 1, height: 1 },
+		shadowOpacity: 0.2,
+		shadowRadius: 24,
+		elevation: 3
 	},
 	mostSearchContainer: {
 		flex: 0.7,
