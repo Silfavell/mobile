@@ -21,19 +21,11 @@ class Product extends React.Component {
 	}
 
 	addToFavoriteProducts = () => {
-		if (this.props.token) {
-			this.props.addToFavoriteProducts(this.props.data._id, this.props.messagePopupRef)
-		} else {
-			this.props.navigation.navigate('Welcome', { screen: 'login' })
-		}
+		this.props.addToFavoriteProducts(this.props.data._id, this.props.messagePopupRef)
 	}
 
 	removeFromFavoriteProdutcs = () => {
-		if (this.props.token) {
-			this.props.removeFromFavoriteProdutcs(this.props.data._id, this.props.messagePopupRef)
-		} else {
-			this.props.navigation.navigate('Welcome', { screen: 'login' })
-		}
+		this.props.removeFromFavoriteProdutcs(this.props.data._id, this.props.messagePopupRef)
 	}
 
 	onProductClick = () => {
@@ -54,7 +46,8 @@ class Product extends React.Component {
 				name,
 				price,
 				image
-			}
+			},
+			token
 		} = this.props
 
 		const url = `${SERVER_URL}/assets/products/${image}-0.webp`
@@ -62,13 +55,17 @@ class Product extends React.Component {
 		return (
 			<View style={styles.container}>
 
-				<Ionicons
-					style={styles.favoriteIcon}
-					size={28}
-					name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
-					color={'rgba(0,0,0,.8)'}
-					onPress={this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
-				/>
+				{
+					token && (
+						<Ionicons
+							style={styles.favoriteIcon}
+							size={28}
+							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
+							color={'rgba(0,0,0,.8)'}
+							onPress={this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts}
+						/>
+					)
+				}
 
 				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
 					<Image
