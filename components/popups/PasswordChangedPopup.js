@@ -30,7 +30,7 @@ class PasswordChangedPopup extends React.PureComponent {
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text='OK'
+							text='Tamam'
 							textStyle={styles.buttonText}
 							style={styles.button}
 							onPress={this.close}

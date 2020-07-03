@@ -31,7 +31,7 @@ class ConnectionPopup extends React.PureComponent {
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton
-							text='Ok'
+							text='Tamam'
 							textStyle={styles.buttonText}
 							style={styles.buttonOk}
 							onPress={this.close}
