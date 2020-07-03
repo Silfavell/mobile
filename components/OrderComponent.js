@@ -23,7 +23,7 @@ class OrderComponent extends React.PureComponent {
 		const { item } = this.props
 
 		const totalPrice = item.products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.price) * currentValue.quantity, 0).toFixed(2)
-		console.log(item)
+
 		return (
 			<View style={styles.container}>
 				<View style={styles.detailsContainer}>
