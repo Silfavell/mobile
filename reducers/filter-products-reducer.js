@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
     filteredProducts: [],
     filterCategory: -1,
-    selectedBrand: -1,
+    brands: [],
     selectedSort: -1
 }
 

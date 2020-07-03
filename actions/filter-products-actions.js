@@ -8,15 +8,15 @@ export const makeFilter = (
     {
         categoryId = '',
         sortType = '',
-        brands = ''
+        brandsAsString = ''
     },
     {
         filterCategory,
-        selectedBrand,
+        brands,
         selectedSort
     },
     callback) => (dispatch) => {
-        const url = `${SERVER_URL}/products-filter-with-categories?categoryId=${categoryId}&brands=${brands}&sortType=${sortType}`
+        const url = `${SERVER_URL}/products-filter-with-categories?categoryId=${categoryId}&brands=${brandsAsString}&sortType=${sortType}`
 
         axios.get(url).then(({ status, data }) => {
             if (status === 200) {
@@ -25,7 +25,7 @@ export const makeFilter = (
                     payload: {
                         filteredProducts: data || [],
                         filterCategory,
-                        selectedBrand,
+                        brands,
                         selectedSort
                     }
                 })
@@ -41,7 +41,7 @@ export const clearFilter = (callback) => (dispatch) => {
         payload: {
             filteredProducts: [],
             filterCategory: -1,
-            selectedBrand: -1,
+            brands: [],
             selectedSort: -1
         }
     })

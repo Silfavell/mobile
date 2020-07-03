@@ -3,14 +3,31 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import { View, Text, StyleSheet } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-const SettingItem = ({ children: icon, title, value, version }) => (
+const renderRightComponent = ({ version, rightComponent }) => {
+	if (version) {
+		return <View style={styles.empty} />
+	} else if (rightComponent) {
+		return rightComponent
+	}
+
+	return <MaterialIcons color='rgba(0,0,0,.8)' name='chevron-right' size={32} />
+}
+
+const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightComponent }) => (
 	<View style={styles.container}>
-		<View style={styles.iconContainer}>
-			{icon}
-		</View>
+
+		{
+			(icon || emptyIcon) && (
+				<View style={styles.iconContainer}>
+					{icon}
+				</View>
+			)
+		}
+
 		<View style={styles.titleContainer}>
 			<Text style={styles.title}>{title}</Text>
 		</View>
+
 		{
 			value && (
 				<View style={styles.titleContainer}>
@@ -18,11 +35,13 @@ const SettingItem = ({ children: icon, title, value, version }) => (
 				</View>
 			)
 		}
+
 		<View style={styles.rightIconContainer}>
 			{
-				version ? <View style={styles.empty} /> : <MaterialIcons color="rgba(0,0,0,.8)" name="chevron-right" size={32} />
+				renderRightComponent({ version, rightComponent })
 			}
 		</View>
+
 	</View>
 )
 

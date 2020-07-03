@@ -137,7 +137,7 @@ class ProfileScreen extends React.PureComponent {
 						//  </TouchableOpacity>
 					}
 
-					<SettingItem title='1.0.0' version />
+					<SettingItem title='1.0.0' version emptyIcon />
 
 				</ScrollView>
 			</ShadowContainer>

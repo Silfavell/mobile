@@ -63,7 +63,7 @@ class ProductsScreen extends React.Component {
 		<Tab
 			key={
 				category._id +
-				'selectedBrand:' + this.props.selectedBrand +
+				'brands:' + this.props.brands.join(',') +
 				'selectedSort:' + this.props.selectedSort}
 			heading={
 				<TabHeading style={styles.tabStyle}>
@@ -121,14 +121,14 @@ const mapStateToProps = ({
 	filterProductsReducer: {
 		filteredProducts,
 		filterCategory,
-		selectedBrand,
+		brands,
 		selectedSort
 	}
 }) => ({
 	products,
 	filteredProducts,
 	filterCategory,
-	selectedBrand,
+	brands,
 	selectedSort
 })
 

@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import CheckBox from 'react-native-check-box'
 
 import { makeFilter, clearFilter } from '../actions/filter-products-actions'
 
@@ -10,6 +12,48 @@ import ShadowContainer from '../components/ShadowContainer'
 import SettingItem from '../components/SettingItem'
 import ButtonComponent from '../components/ButtonComponent'
 import ClearFilterPopup from '../components/popups/ClearFilterPopup'
+import HeadingDivider from '../components/HeadingDivider'
+
+class RightComponent extends React.Component {
+    state = {
+        checked: this.props.checked
+    }
+
+    onClick = () => {
+        this.setState({ checked: !this.state.checked }, () => {
+            if (this.state.checked) {
+                this.props.addBrand(this.props.brand.name)
+            } else {
+                this.props.removeBrand(this.props.brand.name)
+            }
+        })
+    }
+
+    x = () => { }
+
+    render() {
+        return (
+            <TouchableOpacity
+                activeOpacity={0.4}
+                onPress={this.onClick}>
+
+                <SettingItem
+                    title={this.props.brand.name}
+                    rightComponent={
+                        <CheckBox
+                            style={{ height: 24 }}
+                            checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
+                            unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
+                            onClick={this.x}
+                            isChecked={this.state.checked}
+                        />
+                    } />
+
+            </TouchableOpacity>
+        )
+    }
+}
+
 
 class FilterProductsScreen extends React.Component {
 
@@ -17,7 +61,7 @@ class FilterProductsScreen extends React.Component {
         super(props)
 
         this.state = {
-            selectedBrand: this.props.selectedBrand,
+            brands: this.props.brands,
             selectedSort: this.props.selectedSort,
             scaleAnimationModal: false
         }
@@ -29,19 +73,13 @@ class FilterProductsScreen extends React.Component {
                 </TouchableOpacity>
             ),
             headerRight: () => (
-                (this.state.selectedBrand !== -1 || this.state.selectedSort !== -1) && (
+                (this.state.brands.length > 0 || this.state.selectedSort !== -1) && (
                     <TouchableOpacity onPress={this.onClearFilterClick} >
                         <Ionicons name='md-trash' size={26} color='white' style={{ marginRight: 18 }} />
                     </TouchableOpacity>
                 )
             )
         })
-
-        this.brands = this.props.route.params.category.brands.map((brand, index) => ({
-            index,
-            key: brand._id,
-            label: brand.name
-        }))
 
         this.sorts = [
             {
@@ -66,7 +104,7 @@ class FilterProductsScreen extends React.Component {
     clearFilter = () => {
         this.props.clearFilter(() => {
             this.setState({
-                selectedBrand: -1,
+                brands: [],
                 selectedSort: -1,
                 scaleAnimationModal: false
             })
@@ -77,23 +115,16 @@ class FilterProductsScreen extends React.Component {
         this.props.makeFilter(
             {
                 categoryId: this.props.route.params.category._id,
-                brands: this.brands[this.state.selectedBrand]?.label,
+                brandsAsString: this.state.brands.join(','),
                 sortType: this.sorts[this.state.selectedSort]?.sortType
             },
             {
                 filterCategory: this.props.route.params.selectedCategory,
-                selectedBrand: this.state.selectedBrand,
+                brands: this.state.brands,
                 selectedSort: this.state.selectedSort
             },
-            () => {
-                this.props.navigation.goBack()
-                //  this.props.navigation.pop(2) // TODO tek pop() yeterli ama en son bu ekrana geçişte kalan tab güncellenmiyor.
-                //  this.props.navigation.navigate('products', { selectedCategory: this.props.route.params.selectedCategory })
-            })
-    }
-
-    onBrandSelect = ({ index }) => {
-        this.setState({ selectedBrand: index })
+            this.props.navigation.goBack
+        )
     }
 
     onSortSelect = ({ index }) => {
@@ -102,6 +133,16 @@ class FilterProductsScreen extends React.Component {
 
     setPopupState = (state) => {
         this.setState(state)
+    }
+
+    addBrand = (brand) => {
+        this.state.brands.push(brand)
+        this.setState({ brands: this.state.brands })
+    }
+
+    removeBrand = (brand) => {
+        this.state.brands.splice(this.state.brands.indexOf(brand), 1)
+        this.setState({ brands: this.state.brands })
     }
 
     render() {
@@ -113,9 +154,7 @@ class FilterProductsScreen extends React.Component {
                     clearFilter={this.clearFilter}
                 />
 
-                <ShadowContainer containerStyle={{
-                    backgroundColor: 'rgba(255,255,255,0.7)'
-                }}>
+                <ShadowContainer>
                     <ModalSelector
                         data={this.sorts}
                         cancelText={'İptal'}
@@ -123,12 +162,21 @@ class FilterProductsScreen extends React.Component {
                         <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
                     </ModalSelector>
 
-                    <ModalSelector
-                        data={this.brands}
-                        cancelText={'İptal'}
-                        onChange={this.onBrandSelect}>
-                        <SettingItem title={'Markalar'} value={this.brands[this.state.selectedBrand]?.label ?? 'Seçiniz'} />
-                    </ModalSelector>
+
+                    <ShadowContainer>
+                        <HeadingDivider title='Markalar' />
+                    </ShadowContainer>
+
+                    {
+                        this.props.route.params.category.brands.map((brand) => (
+                            <RightComponent
+                                brand={brand}
+                                addBrand={this.addBrand}
+                                removeBrand={this.removeBrand}
+                                checked={this.state.brands.includes(brand.name)} />
+                        ))
+                    }
+
                 </ShadowContainer>
 
                 <View style={styles.bottom}>
@@ -159,11 +207,11 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({
     filterProductsReducer: {
-        selectedBrand,
+        brands,
         selectedSort
     }
 }) => ({
-    selectedBrand,
+    brands,
     selectedSort
 })
 
