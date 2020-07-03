@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Dimensions } from 'react-native'
+import { Dimensions } from 'react-native'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 
 import Product from './Product'
-// import SearchFilter from './SearchFilter'
 
 const { width, height } = Dimensions.get('window')
 
@@ -52,17 +51,11 @@ class List extends React.PureComponent {
 
 	render() {
 		return (
-			<View style={{ flex: 1, marginBottom: 20 }}>
-				{
-					// !this.props.fromSearch && <SearchFilter listRef={this.state.ref} />
-				}
-
-				<RecyclerListView
-					layoutProvider={this.layoutProvider}
-					dataProvider={this.state.dataProvider}
-					rowRenderer={this.rowRenderer}
-				/>
-			</View>
+			<RecyclerListView
+				layoutProvider={this.layoutProvider}
+				dataProvider={this.state.dataProvider}
+				rowRenderer={this.rowRenderer}
+			/>
 		)
 	}
 }

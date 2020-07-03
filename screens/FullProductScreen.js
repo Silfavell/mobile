@@ -20,7 +20,7 @@ import ShadowContainer from '../components/ShadowContainer'
 
 import Slider from '../components/Slider'
 import Color from '../components/fullProdutScreen/Color'
-import Loading from '../components/LoadingCompenent'
+import Loading from '../components/LoadingComponent'
 
 class FullProductScreen extends React.PureComponent {
 

@@ -21,7 +21,8 @@ class CartProduct extends React.PureComponent {
 				image,
 				quantity
 			},
-			previousOrder
+			previousOrder,
+			lastItem
 		} = this.props
 
 		const url = `${SERVER_URL}/assets/products/${image}-0.webp`

@@ -25,7 +25,7 @@ const InputComponent = ({
 			{...options}
 			value={value}
 			onChangeText={onChange}
-			placeholderTextColor={invalid ? 'red' : '#C7C7CD'}
+			placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
 			editable={!disabled}
 			selectTextOnFocus={!disabled}
 			style={[
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 		paddingLeft: RFValue(48, 600)
 	},
 	invalid: {
-		borderColor: 'red',
+		borderColor: '#EE4266',
 		borderWidth: 1.2
 	},
 	disabled: {

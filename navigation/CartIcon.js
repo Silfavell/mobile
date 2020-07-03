@@ -24,7 +24,7 @@ const CartIcon = ({ name, focused, cart }) => (
 
 const styles = StyleSheet.create({
 	badge: {
-		position: 'absolute', right: -10, top: 0, backgroundColor: 'red', borderRadius: 8, width: 16, height: 16, justifyContent: 'center', alignItems: 'center'
+		position: 'absolute', right: -10, top: 0, backgroundColor: '#EE4266', borderRadius: 8, width: 16, height: 16, justifyContent: 'center', alignItems: 'center'
 	},
 	badgeText: { color: 'white', fontSize: RFValue(12, 600) }
 })

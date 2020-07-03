@@ -13,8 +13,11 @@ const renderRightComponent = ({ version, rightComponent }) => {
 	return <MaterialIcons color='rgba(0,0,0,.8)' name='chevron-right' size={32} />
 }
 
-const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightComponent }) => (
-	<View style={styles.container}>
+const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightComponent, order }) => (
+	<View style={[
+		styles.container,
+		order ? styles.order : {}
+	]}>
 
 		{
 			(icon || emptyIcon) && (
@@ -25,7 +28,10 @@ const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightCo
 		}
 
 		<View style={styles.titleContainer}>
-			<Text style={styles.title}>{title}</Text>
+			<Text style={[
+				styles.title,
+				order ? styles.orderTitle : {}
+			]}>{title}</Text>
 		</View>
 
 		{
@@ -52,6 +58,14 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderBottomColor: '#D2D2D2',
 		marginHorizontal: RFValue(6, 600)
+	},
+	order: {
+		marginHorizontal: 0,
+		borderBottomWidth: 0
+	},
+	orderTitle: {
+		marginHorizontal: 0,
+		color: '#EE4266'
 	},
 	iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
 	titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },

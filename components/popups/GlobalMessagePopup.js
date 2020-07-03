@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: '#EFEFEF',
 		borderBottomWidth: 1,
-		borderBottomColor: 'red'
+		borderBottomColor: '#EE4266'
 	},
 	titleContainer: {
 		flex: 1,

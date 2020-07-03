@@ -65,7 +65,7 @@ class SearchScreen extends React.PureComponent {
 
 	fetching = () => (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<ActivityIndicator color='red' size='large' />
+			<ActivityIndicator color='#EE4266' size='large' />
 		</View>
 	)
 

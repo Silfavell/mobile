@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native'
 import { connect } from 'react-redux'
 
 import { setInitialDatas } from '../actions/actions4'
-import LoadingComponent from '../components/LoadingCompenent'
+import LoadingComponent from '../components/LoadingComponent'
 
 class LoadingScreen extends React.PureComponent {
 	// eslint-disable-next-line camelcase

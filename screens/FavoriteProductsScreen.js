@@ -8,10 +8,12 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import { SERVER_URL } from '../utils/global'
 
 import RecyclerList from '../components/RecyclerList'
+import LoadingComponent from '../components/LoadingComponent'
 
 class FavoriteProductsScreen extends React.Component {
 	state = {
-		products: []
+		products: [],
+		fetching: true
 	}
 
 	getFavoriteProducts = () => {
@@ -19,8 +21,12 @@ class FavoriteProductsScreen extends React.Component {
 
 		axios.get(url).then(({ status, data }) => {
 			if (status === 200) {
-				this.setState({ products: data.favoriteProducts || [] })
+				this.setState({ products: data.favoriteProducts || [], fetching: false })
+			} else {
+				this.setState({ fetching: false })
 			}
+		}).catch(() => {
+			this.setState({ fetching: false })
 		})
 	}
 
@@ -42,7 +48,10 @@ class FavoriteProductsScreen extends React.Component {
 	}
 
 	render() {
-		if (this.state.products.length > 0) {
+		if (this.state.fetching) {
+			return <LoadingComponent />
+
+		} else if (this.state.products.length > 0) {
 			return (
 				<View key={`favoriteProducts:${this.state.products.length}`} style={styles.listContainer}>
 					<RecyclerList

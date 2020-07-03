@@ -122,7 +122,7 @@ class LoginScreen extends React.Component {
 								size={32}
 								name='ios-key'
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : 'rgba(0,0,0,.8)'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
 								}
 								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>

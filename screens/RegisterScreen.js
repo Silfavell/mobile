@@ -147,7 +147,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name='ios-key'
 								color={
-									this.state.invalidPassword && this.state.isPasswordInitialized ? 'red' : 'rgba(0,0,0,.8)'
+									this.state.invalidPassword && this.state.isPasswordInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
 								}
 								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>
@@ -170,7 +170,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name='md-person'
 								color={
-									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? 'red' : 'rgba(0,0,0,.8)'
+									this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
 								}
 							/>
 						</InputIcon>
@@ -193,7 +193,7 @@ class RegisterScreen extends React.PureComponent {
 								size={32}
 								name='md-mail-open'
 								color={
-									this.state.invalidEmail && this.state.isEmailInitialized ? 'red' : 'rgba(0,0,0,.8)'
+									this.state.invalidEmail && this.state.isEmailInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
 								}
 							/>
 						</InputIcon>
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#EDEEF0'
 	},
 	invalid: {
-		borderColor: 'red'
+		borderColor: '#EE4266'
 	}
 })
 

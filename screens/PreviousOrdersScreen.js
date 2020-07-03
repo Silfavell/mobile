@@ -6,27 +6,34 @@ import { RFValue } from 'react-native-responsive-fontsize'
 
 import { SERVER_URL } from '../utils/global'
 import OrderComponent from '../components/OrderComponent'
+import LoadingComponent from '../components/LoadingComponent'
 
 class PreviousOrdersScreen extends React.PureComponent {
 	state = {
-		orders: []
+		orders: [],
+		fetching: true
 	}
 
-	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillMount() {
 		const url = `${SERVER_URL}/user/orders`
 
 		axios.get(url).then(({ status, data }) => {
 			if (status === 200) {
-				this.setState({ orders: data })
+				this.setState({ orders: data, fetching: false })
+			} else {
+				this.setState({ fetching: false })
 			}
+		}).catch(() => {
+			this.setState({ fetching: false })
 		})
 	}
 
 	keyExtractor = (item) => item._id
 
 	render() {
-		if (this.state.orders.length > 0) {
+		if (this.state.fetching) {
+			return <LoadingComponent />
+		} else if (this.state.orders.length > 0) {
 			return (
 				<View style={{ flex: 1 }}>
 					<FlatList
