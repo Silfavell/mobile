@@ -16,7 +16,7 @@ class OrderComponent extends React.PureComponent {
 
 	onCargoTrackClick = () => {
 		const trakingCode = 507080886413
-		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${trakingCode}`)
+		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${trakingCode}`) // TODO
 	}
 
 	render() {
