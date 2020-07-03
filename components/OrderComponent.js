@@ -62,8 +62,7 @@ class OrderComponent extends React.PureComponent {
 				</View>
 
 				{
-					// item.status && (
-					true && (
+					item.status && (
 						<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
 							<SettingItem title={'Kargo Takip'} order />
 						</TouchableOpacity>
