@@ -3,7 +3,6 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import {
 	FlatList,
 	View,
-	TouchableOpacity,
 	Text,
 	StyleSheet
 } from 'react-native'
@@ -48,9 +47,6 @@ class CartScreen extends React.PureComponent {
 						data={this.products}
 						keyExtractor={this.keyExtractor}
 						renderItem={this.renderCartProductItem}
-						ListFooterComponent={
-							<View style={styles.footer} />
-						}
 					/>
 					<CompletePayment navigation={this.props.navigation} />
 				</View>
@@ -68,7 +64,8 @@ class CartScreen extends React.PureComponent {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		paddingBottom: RFValue(65, 600)
 	},
 	emptyContainer: {
 		flex: 1,

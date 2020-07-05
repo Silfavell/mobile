@@ -4,6 +4,7 @@ import { SERVER_URL } from '../utils/global'
 export const CLEAR_CART = 'CLEAR_CART'
 export const DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY'
 export const INCREASE_PRODUCT_QUANTITY = 'INCREASE_PRODUCT_QUANTITY'
+export const SET_PRODUCT_QUANTITY = 'SET_PRODUCT_QUANTITY'
 export const MAKE_ORDER = 'MAKE_ORDER'
 
 export const clearCart = (token) => (dispatch) => {
@@ -43,10 +44,10 @@ export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
 	})
 }
 
-export const decreaseProductQuantity = (productId, messagePopupRef) => (dispatch) => {
+export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1) => (dispatch) => {
 	const url = `${SERVER_URL}/deduct-product/${productId}`
 
-	axios.delete(url).then(({ data, status }) => {
+	axios.put(url, { quantity }).then(({ data, status }) => {
 		if (status === 200) {
 			dispatch({
 				type: DECREASE_PRODUCT_QUANTITY,
@@ -59,10 +60,10 @@ export const decreaseProductQuantity = (productId, messagePopupRef) => (dispatch
 	})
 }
 
-export const increaseProductQuantity = (productId, messagePopupRef) => (dispatch) => {
+export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1) => (dispatch) => {
 	const url = `${SERVER_URL}/add-product/${productId}`
 
-	axios.get(url).then(({ data, status }) => {
+	axios.put(url, { quantity }).then(({ data, status }) => {
 		if (status === 200) {
 			dispatch({
 				type: INCREASE_PRODUCT_QUANTITY,
@@ -70,6 +71,23 @@ export const increaseProductQuantity = (productId, messagePopupRef) => (dispatch
 			})
 
 			messagePopupRef?.showMessage({ message: 'Ürün sepetinize eklendi.' })
+		}
+	})
+}
+
+
+export const setProductQuantity = (productId, quantity = 1) => (dispatch) => {
+	const url = `${SERVER_URL}/set-product/${productId}`
+
+	axios.put(url, { quantity }).then(({ data, status }) => {
+		if (status === 200) {
+			dispatch({
+				type: SET_PRODUCT_QUANTITY,
+				payload: {
+					...data,
+					quantity
+				}
+			})
 		}
 	})
 }

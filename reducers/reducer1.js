@@ -3,7 +3,8 @@ import {
 	DECREASE_PRODUCT_QUANTITY,
 	INCREASE_PRODUCT_QUANTITY,
 	MAKE_ORDER,
-	CLEAR_CART
+	CLEAR_CART,
+	SET_PRODUCT_QUANTITY
 } from '../actions/actions1'
 import { SET_INITIAL_DATAS } from '../actions/actions4'
 
@@ -43,6 +44,16 @@ export default (state = INITIAL_STATE, action) => {
 					}
 				}
 			}
+		}
+
+		case SET_PRODUCT_QUANTITY: {
+			state.cart[action.payload._id] = action.payload
+
+			if (action.payload.quantity <= 0) {
+				delete state.cart[action.payload._id]
+			}
+
+			return { cart: { ...state.cart } }
 		}
 
 		default: return state
