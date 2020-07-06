@@ -38,14 +38,16 @@ export const updateProfile = (body, cb) => (dispatch) => {
 	axios.put(url, body)
 		.then(({ data, status }) => {
 			if (status === 200) {
-				dispatch({
-					type: SET_USER,
-					payload: {
-						user: data
-					}
-				})
+				AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
+					dispatch({
+						type: SET_USER,
+						payload: {
+							user: data
+						}
+					})
 
-				cb()
+					cb()
+				})
 			}
 		})
 }
@@ -140,11 +142,15 @@ export const logout = () => (dispatch) => {
 export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) => {
 	axios.post(`${SERVER_URL}/user/favorite-product`, { _id: productId }).then(({ status, data }) => {
 		if (status === 200) {
-			dispatch({
-				type: UPDATE_FAVORITE_PRODUCTS,
-				payload: {
-					favoriteProducts: data
-				}
+			AsyncStorage.getItem('user').then((user) => {
+				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {
+					dispatch({
+						type: UPDATE_FAVORITE_PRODUCTS,
+						payload: {
+							favoriteProducts: data
+						}
+					})
+				})
 			})
 
 			messagePopupRef?.showMessage({ message: 'Ürün favorilerinize eklendi.' })

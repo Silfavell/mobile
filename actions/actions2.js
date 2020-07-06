@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { AsyncStorage } from 'react-native'
 import { SERVER_URL } from '../utils/global'
 
 export const SET_PAYMENT_TYPE = 'SET_PAYMENT_TYPE'
@@ -68,12 +69,13 @@ export const saveAddress = (address, details) => {
 		axios.post(url, body)
 			.then(({ status, data }) => {
 				if (status === 200) {
-					// AsyncStorage.setItem('user', JSON.stringify(data)) // User serverda güncellenince, güncellenenen tüm user'ı geri dönüyor.
-					dispatch({
-						type: SAVE_ADDRESS,
-						payload: {
-							addresses: data.addresses
-						}
+					AsyncStorage.setItem('user', JSON.stringify(data)).then(() => { // User serverda güncellenince, güncellenenen tüm user'ı geri dönüyor.
+						dispatch({
+							type: SAVE_ADDRESS,
+							payload: {
+								addresses: data.addresses
+							}
+						})
 					})
 				}
 			})
@@ -86,13 +88,13 @@ export const deleteAddress = (addressId) => (dispatch) => {
 	axios.delete(url)
 		.then(({ status, data }) => {
 			if (status === 200) {
-				// AsyncStorage.setItem('user', JSON.stringify(data)) // User serverda güncellenince, güncellenenen tüm user'ı geri dönüyor.
-
-				dispatch({
-					type: DELETE_ADDRESS,
-					payload: {
-						addresses: data.addresses
-					}
+				AsyncStorage.setItem('user', JSON.stringify(data)).then(() => { // User serverda güncellenince, güncellenenen tüm user'ı geri dönüyor.
+					dispatch({
+						type: DELETE_ADDRESS,
+						payload: {
+							addresses: data.addresses
+						}
+					})
 				})
 			}
 		})
