@@ -22,7 +22,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 				name='Home'
 				component={Home}
 				options={{
-					title: 'Sipariş',
+					title: 'Ana Sayfa',
 					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-home' />
 				}}
 			/>
