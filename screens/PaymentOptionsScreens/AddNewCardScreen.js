@@ -139,7 +139,7 @@ class AddNewCardScreen extends React.PureComponent {
 
 						<InputComponent
 							options={{
-								placeholder: 'Kart No',
+								placeholder: 'Kart Numarası',
 								maxLength: 16,
 								keyboardType: 'number-pad'
 							}}

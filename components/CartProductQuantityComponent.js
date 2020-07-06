@@ -39,7 +39,7 @@ class CartProductQuantityComponent extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		this.setState({ quantity: nextProps.previousOrder ? nextProps.quantity : nextProps.cart[this.props._id].quantity })
 	}
 
