@@ -21,8 +21,7 @@ class CartProduct extends React.PureComponent {
 				image,
 				quantity
 			},
-			previousOrder,
-			lastItem
+			previousOrder
 		} = this.props
 
 		const url = `${SERVER_URL}/assets/products/${image}-0.webp`
@@ -45,10 +44,10 @@ class CartProduct extends React.PureComponent {
 					</View>
 					<View style={styles.child} />
 					<View style={[styles.textContainer, styles.priceContainer]}>
-						<Text style={[styles.productPrice, discountedPrice ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+						<Text style={[styles.productPrice, (discountedPrice && !previousOrder) ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
 						{
-							discountedPrice && (
+							(discountedPrice && !previousOrder) && (
 								<Text style={styles.productPrice}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
 							)
 						}
