@@ -9,7 +9,7 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
 import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
@@ -135,6 +135,7 @@ class FullProductScreen extends React.PureComponent {
 			const {
 				name,
 				price,
+				discountedPrice,
 				color
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
@@ -165,7 +166,13 @@ class FullProductScreen extends React.PureComponent {
 							</View>
 
 							<View style={styles.priceContainer}>
-								<Text style={styles.price}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+								<Text style={[styles.price, discountedPrice ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+
+								{
+									discountedPrice && (
+										<Text style={styles.price}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
+									)
+								}
 							</View>
 						</View>
 
@@ -278,9 +285,15 @@ const styles = StyleSheet.create({
 		fontSize: RFValue(15, 600)
 	},
 	price: {
-		fontSize: RFValue(18, 600),
+		fontSize: RFPercentage(3.2),
+		marginRight: 8,
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
+	},
+	discountedPrice: {
+		fontWeight: 'normal',
+		fontWeight: '100',
+		textDecorationLine: 'line-through'
 	},
 	productName: {
 		fontSize: RFValue(18, 600),
@@ -308,7 +321,11 @@ const styles = StyleSheet.create({
 	},
 	priceContainer: {
 		margin: 4,
-		paddingHorizontal: 4
+		paddingHorizontal: 4,
+		flexDirection: 'row',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
 	emptyFooter: { height: 100 }
 })

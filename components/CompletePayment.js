@@ -47,7 +47,7 @@ class CompletePaymentComponent extends React.PureComponent {
 
 	render() {
 		const products = Object.values(this.props.cart)
-		const totalPrice = products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.price) * currentValue.quantity, 0).toFixed(2).replace('.', ',')
+		const totalPrice = products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity, 0).toFixed(2).replace('.', ',')
 
 		return (
 			<View style={styles.completePaymentContainer}>

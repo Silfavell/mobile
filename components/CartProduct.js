@@ -17,7 +17,7 @@ class CartProduct extends React.PureComponent {
 				_id,
 				name,
 				price,
-				category,
+				discountedPrice,
 				image,
 				quantity
 			},
@@ -44,8 +44,14 @@ class CartProduct extends React.PureComponent {
 						<Text style={styles.productName} numberOfLines={3}>{name}</Text>
 					</View>
 					<View style={styles.child} />
-					<View style={styles.textContainer}>
-						<Text style={styles.productPrice} numberOfLines={3}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+					<View style={[styles.textContainer, styles.priceContainer]}>
+						<Text style={[styles.productPrice, discountedPrice ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+
+						{
+							discountedPrice && (
+								<Text style={styles.productPrice}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
+							)
+						}
 					</View>
 					<View style={styles.rowChild}>
 						<View style={styles.child} />
@@ -96,6 +102,9 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
+	priceContainer: {
+		flexDirection: 'row'
+	},
 	productName: {
 		fontSize: RFPercentage(2.6),
 		fontWeight: '700',
@@ -108,7 +117,14 @@ const styles = StyleSheet.create({
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)',
 		textAlign: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		marginRight: 8
+	},
+	discountedPrice: {
+		fontWeight: 'normal',
+		fontWeight: '100',
+		marginRight: 8,
+		textDecorationLine: 'line-through'
 	},
 	imageContainer: {
 		padding: RFValue(4, 600),

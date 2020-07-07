@@ -45,6 +45,7 @@ class Product extends React.Component {
 				_id,
 				name,
 				price,
+				discountedPrice,
 				image
 			},
 			token
@@ -77,7 +78,15 @@ class Product extends React.Component {
 					<Ionicons style={styles.basketIcon} size={28} name={'md-basket'} color={'rgba(0,0,0,.8)'} onPress={this.onAddProductClick} />
 				</TouchableOpacity>
 
-				<Text style={[styles.child, styles.productPrice]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+				<View style={[styles.child, styles.priceContainer]}>
+					<Text style={[styles.productPrice, discountedPrice ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+
+					{
+						discountedPrice && (
+							<Text style={styles.productPrice}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
+						)
+					}
+				</View>
 
 				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
 
@@ -111,6 +120,10 @@ const styles = StyleSheet.create({
 		right: 2,
 		zIndex: 1
 	},
+	priceContainer: {
+		justifyContent: 'flex-start',
+		flexDirection: 'row'
+	},
 	child: {
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -134,12 +147,18 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	productPrice: {
-		fontSize: RFPercentage(2.9),
+		fontSize: RFPercentage(2.8),
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)',
 		textAlign: 'left',
 		justifyContent: 'center',
 		alignItems: 'flex-start'
+	},
+	discountedPrice: {
+		fontWeight: 'normal',
+		fontWeight: '100',
+		marginRight: 8,
+		textDecorationLine: 'line-through'
 	}
 })
 
