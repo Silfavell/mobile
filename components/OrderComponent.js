@@ -15,8 +15,7 @@ class OrderComponent extends React.PureComponent {
 	}
 
 	onCargoTrackClick = () => {
-		const trakingCode = 507080886413
-		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${trakingCode}`) // TODO
+		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${this.props.item.trackingNumber}`)
 	}
 
 	render() {
@@ -60,7 +59,7 @@ class OrderComponent extends React.PureComponent {
 				</View>
 
 				{
-					item.status && (
+					(item.status && item.trackingNumber) && (
 						<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
 							<SettingItem title={'Kargo Takip'} order />
 						</TouchableOpacity>
