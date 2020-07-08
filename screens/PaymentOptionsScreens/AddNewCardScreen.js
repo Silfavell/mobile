@@ -28,9 +28,6 @@ class AddNewCardScreen extends React.PureComponent {
 		invalidCardAlias: false,
 		// invalidCardHolderName: false,
 		invalidCardNumber: false,
-		invalidExpireYear: false,
-		// invalidExpireYear: false,
-		invalidExpireMonth: false,
 
 		isCardAliasInitialized: false,
 		// isCardHolderNameInitialized: true,
@@ -52,7 +49,7 @@ class AddNewCardScreen extends React.PureComponent {
 			cardAlias,
 			cardHolderName,
 			cardNumber,
-			expireYear: `20${expireYear}`,
+			expireYear,
 			expireMonth
 		}), () => {
 			this.props.navigation.goBack()
@@ -77,22 +74,23 @@ class AddNewCardScreen extends React.PureComponent {
 			})
 	}
 
-	onExpireMonthChange = (expireMonth) => {
-		joi.string()
-			.min(2)
-			.max(2)
-			.validate(expireMonth, (err) => {
-				this.setState({ expireMonth, isExpireMonthInitialized: true, invalidExpireMonth: !!err })
-			})
+	onExpireMonthChange = ({ label }) => {
+		this.setState({ expireMonth: label, isExpireMonthInitialized: true })
 	}
 
-	onExpireYearChange = (expireYear) => {
-		joi.string()
-			.min(2)
-			.max(2)
-			.validate(expireYear, (err) => {
-				this.setState({ expireYear, isExpireYearInitialized: true, invalidExpireYear: !!err })
-			})
+	onExpireYearChange = ({ label }) => {
+		this.setState({ expireYear: label, isExpireYearInitialized: true })
+	}
+
+	getYearSelectorValues = () => {
+		const years = Array.from(new Array(20)).map((_, index) => {
+			return {
+				key: 'year' + index,
+				label: (new Date().getFullYear() + index).toString()
+			}
+		})
+
+		return years
 	}
 
 	render() {
@@ -162,6 +160,57 @@ class AddNewCardScreen extends React.PureComponent {
 									invalid={
 										this.state.invalidExpireMonth && this.state.isExpireMonthInitialized
 									}
+									selector={[
+										{
+											key: 0,
+											label: '01'
+										},
+										{
+											key: 1,
+											label: '02'
+										},
+										{
+											key: 2,
+											label: '03'
+										},
+										{
+											key: 3,
+											label: '04'
+										},
+										{
+											key: 4,
+											label: '05'
+										},
+										{
+											key: 5,
+											label: '06'
+										},
+										{
+											key: 6,
+											label: '07'
+										},
+										{
+											key: 7,
+											label: '08'
+										},
+										{
+											key: 8,
+											label: '09'
+										},
+										{
+											key: 9,
+											label: '10'
+										},
+										{
+											key: 10,
+											label: '11'
+										},
+										{
+											key: 11,
+											label: '12'
+										}
+									]}
+									setPickedValue={this.onExpireMonthChange}
 									onChange={this.onExpireMonthChange}
 									value={this.state.expireMonth}
 								/>
@@ -171,12 +220,15 @@ class AddNewCardScreen extends React.PureComponent {
 								<InputComponent
 									options={{
 										placeholder: 'Yıl',
-										maxLength: 2,
 										keyboardType: 'number-pad'
 									}}
 									invalid={
 										this.state.invalidExpireYear && this.state.isExpireYearInitialized
 									}
+									selector={
+										this.getYearSelectorValues()
+									}
+									setPickedValue={this.onExpireYearChange}
 									onChange={this.onExpireYearChange}
 									value={this.state.expireYear}
 								/>
