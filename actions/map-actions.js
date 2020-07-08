@@ -1,4 +1,5 @@
 import axios from 'axios'
+import RNAndroidLocationEnabler from 'react-native-android-location-enabler'
 
 export const SET_REGION = 'SET_REGION'
 export const SET_ADDRESS = 'SET_ADDRESS'
@@ -12,7 +13,7 @@ const getLocationAsync = () => (
 			resolve(position)
 		}, (error) => {
 			reject(error)
-		}, { enableHighAccuracy: false })
+		}, { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 })
 	})
 )
 
@@ -66,16 +67,20 @@ export const setRegionByPlace = (placeId, cb) => ((dispatch) => {
 })
 
 export const setCurrentRegion = (cb) => ((dispatch) => {
-	getLocationAsync().then(({ coords }) => {
-		dispatch({
-			type: SET_CURRENT_REGION,
-			payload: {
-				region: coords
-			}
-		})
 
-		cb(coords)
-	}).catch((err) => {
-		cb(null, err)
-	})
+	RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({ interval: 10000, fastInterval: 5000 })
+		.then(() => {
+			getLocationAsync().then(({ coords }) => {
+				dispatch({
+					type: SET_CURRENT_REGION,
+					payload: {
+						region: coords
+					}
+				})
+
+				cb(coords)
+			}).catch((err) => {
+				cb(null, err)
+			})
+		})
 })
