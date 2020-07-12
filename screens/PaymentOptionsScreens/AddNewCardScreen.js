@@ -48,7 +48,7 @@ class AddNewCardScreen extends React.PureComponent {
 		this.props.saveCard(({
 			cardAlias,
 			cardHolderName,
-			cardNumber,
+			cardNumber: cardNumber.split(' ').join(''),
 			expireYear,
 			expireMonth
 		}), () => {
@@ -69,7 +69,7 @@ class AddNewCardScreen extends React.PureComponent {
 			.min(16)
 			.max(16)
 			.creditCard()
-			.validate(cardNumber, (err) => {
+			.validate(cardNumber.split(' ').join(''), (err) => {
 				this.setState({ cardNumber, isCardNumberInitialized: true, invalidCardNumber: !!err })
 			})
 	}
@@ -138,12 +138,13 @@ class AddNewCardScreen extends React.PureComponent {
 						<InputComponent
 							options={{
 								placeholder: 'Kart Numarası',
-								maxLength: 16,
+								maxLength: 19,
 								keyboardType: 'number-pad'
 							}}
 							invalid={
 								this.state.invalidCardNumber && this.state.isCardNumberInitialized
 							}
+							mask={'card'}
 							onChange={this.onCardNumberChange}
 							value={this.state.cardNumber}
 						/>

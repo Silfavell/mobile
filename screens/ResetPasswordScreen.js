@@ -80,8 +80,8 @@ class ResetPasswordScreen extends React.PureComponent {
 		joi.string()
 			.trim()
 			.strict()
-			.min(10)
-			.max(13)
+			.min(19)
+			.max(19)
 			.validate(phoneNumber, (err) => {
 				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
 			})
@@ -124,9 +124,10 @@ class ResetPasswordScreen extends React.PureComponent {
 					options={{
 						keyboardType: 'phone-pad',
 						textContentType: 'telephoneNumber',
-						placeholder: 'Telefon numarası',
-						maxLength: 10
+						placeholder: 'Telefon Numarası',
+						maxLength: 19
 					}}
+					mask={'telephoneNumber'}
 					invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
 					value={this.state.phoneNumber}
 					onChange={this.onPhoneChange}

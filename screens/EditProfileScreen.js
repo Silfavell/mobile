@@ -43,7 +43,14 @@ class EditProfileScreen extends React.Component {
 	}
 
 	onPhoneChange = (phoneNumber) => {
-		this.setState({ phoneNumber })
+		joi.string()
+			.trim()
+			.strict()
+			.min(19)
+			.max(19)
+			.validate(phoneNumber, (err) => {
+				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
+			})
 	}
 
 	onSaveClick = () => {
@@ -95,8 +102,10 @@ class EditProfileScreen extends React.Component {
 						options={{
 							keyboardType: 'phone-pad',
 							textContentType: 'telephoneNumber',
-							placeholder: 'Telefon numarası'
+							placeholder: 'Telefon Numarası',
+							maxLength: 19
 						}}
+						mask={'telephoneNumber'}
 						value={this.state.phoneNumber}
 						disabled
 						onChange={this.onPhoneChange}

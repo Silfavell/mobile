@@ -70,8 +70,8 @@ class LoginScreen extends React.Component {
 		joi.string()
 			.trim()
 			.strict()
-			.min(10)
-			.max(10)
+			.min(19)
+			.max(19)
 			.validate(phoneNumber, (err) => {
 				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
 			})
@@ -95,15 +95,19 @@ class LoginScreen extends React.Component {
 						options={{
 							keyboardType: 'phone-pad',
 							textContentType: 'telephoneNumber',
-							placeholder: 'Telefon numarası',
-							maxLength: 10
+							placeholder: 'Telefon Numarası',
+							maxLength: 19
 						}}
+						mask={'telephoneNumber'}
 						invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
 						value={this.state.phoneNumber}
 						onChange={this.onPhoneChange}
 					>
 						<InputIcon>
-							<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(18, 600) }}>90</Text>
+							<Ionicons
+								size={32}
+								name='md-phone-portrait'
+								color='rgba(0,0,0,.8)' />
 						</InputIcon>
 					</InputComponent>
 

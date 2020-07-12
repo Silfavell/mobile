@@ -8,6 +8,7 @@ import {
 	RFValue
 } from 'react-native-responsive-fontsize'
 import ModalSelector from 'react-native-modal-selector'
+import TextInputMask from 'react-native-text-input-mask'
 
 class InputComponent extends React.Component {
 	state = {
@@ -22,6 +23,15 @@ class InputComponent extends React.Component {
 		this.setState({ selectorRef })
 	}
 
+	getMask = (type) => {
+		switch (type) {
+			case 'telephoneNumber': return '+90 ([000]) [000] [00] [00]'
+			case 'card': return '[0000] [0000] [0000] [0000]'
+
+			default: return null
+		}
+	}
+
 	render() {
 		const {
 			value,
@@ -31,7 +41,8 @@ class InputComponent extends React.Component {
 			selector,
 			setPickedValue,
 			invalid,
-			disabled
+			disabled,
+			mask
 		} = this.props
 
 		return (
@@ -40,27 +51,48 @@ class InputComponent extends React.Component {
 					icon
 				}
 
-				<TextInput
-					// eslint-disable-next-line react/jsx-props-no-spreading
-					{...options}
-					value={value}
-					onChangeText={onChange}
-					placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
-					editable={!(disabled || selector)}
-					selectTextOnFocus={!disabled}
-					style={[
-						styles.input,
-						invalid ? styles.invalid : {},
-						icon ? styles.withIcon : {},
-						disabled ? styles.disabled : {},
-					]}
-				/>
+				{
+					mask ? (
+						<TextInputMask
+							mask={this.getMask(mask)}
+							{...options}
+							value={value}
+							onChangeText={onChange}
+							placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
+							editable={!(disabled || selector)}
+							selectTextOnFocus={!disabled}
+							style={[
+								styles.input,
+								invalid ? styles.invalid : {},
+								icon ? styles.withIcon : {},
+								disabled ? styles.disabled : {},
+							]}
+						/>
+					) : (
+							<TextInput
+								{...options}
+								value={value}
+								onChangeText={onChange}
+								placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
+								editable={!(disabled || selector)}
+								selectTextOnFocus={!disabled}
+								style={[
+									styles.input,
+									invalid ? styles.invalid : {},
+									icon ? styles.withIcon : {},
+									disabled ? styles.disabled : {},
+								]}
+							/>
+						)
+				}
+
 
 				{
 					selector && (
 						<ModalSelector
 							data={selector}
 							ref={this.setSelectorRef}
+							key={value}
 							customSelector={<></>}
 							onChange={setPickedValue} />
 					)
