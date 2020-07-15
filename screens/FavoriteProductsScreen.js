@@ -21,7 +21,10 @@ class FavoriteProductsScreen extends React.Component {
 
 		axios.get(url).then(({ status, data }) => {
 			if (status === 200) {
-				this.setState({ products: data.favoriteProducts || [], fetching: false })
+				this.setState({
+					products: data?.favoriteProducts || [],
+					fetching: false
+				})
 			} else {
 				this.setState({ fetching: false })
 			}
@@ -40,7 +43,7 @@ class FavoriteProductsScreen extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		if (nextState.products.length !== this.state.products.length) {
+		if (nextState.products.length !== this.state.products.length || nextState.fetching !== this.state.fetching) {
 			return true
 		}
 
@@ -50,7 +53,6 @@ class FavoriteProductsScreen extends React.Component {
 	render() {
 		if (this.state.fetching) {
 			return <LoadingComponent />
-
 		} else if (this.state.products.length > 0) {
 			return (
 				<View key={`favoriteProducts:${this.state.products.length}`} style={styles.listContainer}>
@@ -61,7 +63,6 @@ class FavoriteProductsScreen extends React.Component {
 				</View>
 			)
 		}
-
 		return (
 			<View style={styles.container}>
 				<Ionicons name='md-heart' size={96} color='#BDBDBD' />
