@@ -139,10 +139,6 @@ class FullProductScreen extends React.PureComponent {
 				color
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-			const {
-				group
-			} = this.state.product
-
 			return (
 				<View style={styles.container}>
 
@@ -177,25 +173,26 @@ class FullProductScreen extends React.PureComponent {
 						</View>
 
 						{
-							group && (
-								<>
-									<View style={styles.colorContainer}>
-										<View style={styles.textContainer}>
-											<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
-										</View>
-										<View style={styles.colors}>
-											{
-												group.map((groupProduct, index) => (
-													<Color
-														product={groupProduct}
-														selected={this.isColorSelected(index)}
-														index={index}
-														onPress={this.onColorPicked} />
-												))
-											}
-										</View>
+							(this.state.product.group && color) && (
+								<View style={styles.colorContainer}>
+									<View style={styles.textContainer}>
+										<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
 									</View>
-								</>
+
+									<View style={styles.colors}>
+
+										{
+											this.state.product.group.map((groupProduct, index) => (
+												<Color
+													product={groupProduct}
+													selected={this.isColorSelected(index)}
+													index={index}
+													onPress={this.onColorPicked} />
+											))
+										}
+
+									</View>
+								</View>
 							)
 						}
 

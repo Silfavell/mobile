@@ -26,7 +26,7 @@ const Stack = createStackNavigator()
 const Screen3 = ({ navigation }) => (
 	<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 		<Stack.Screen
-			name="cart"
+			name='cart'
 			component={CartScreen}
 			options={{
 				title: 'Sepetim',
@@ -39,7 +39,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="completePayment"
+			name='completePayment'
 			component={CompletePaymentScreen}
 			options={{
 				title: 'Ödemeyi tamamla',
@@ -50,7 +50,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="onlinePaymentScreen"
+			name='onlinePaymentScreen'
 			component={OnlinePaymentScreen}
 			options={{
 				title: 'Online Kredi/Banka Kartı',
@@ -61,7 +61,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="paymentOptionsScreen"
+			name='paymentOptionsScreen'
 			component={PaymentOptionsScreen}
 			options={{
 				title: 'Ödeme Yöntemlerim',
@@ -72,7 +72,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="addNewCardScreen"
+			name='addNewCardScreen'
 			component={AddNewCardScreen}
 			options={{
 				title: 'Kart ekle',
@@ -83,7 +83,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="addresses"
+			name='addresses'
 			component={AddressesScreen}
 			options={{
 				title: 'Adreslerim',
@@ -94,7 +94,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="searchAddressScreen"
+			name='searchAddressScreen'
 			component={SearchAddressScreen}
 			options={{
 				title: 'Adres ara',
@@ -105,7 +105,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="pinAddressScreen"
+			name='pinAddressScreen'
 			component={PinAddressScreen}
 			options={{
 				title: 'Adres ekle',
@@ -116,7 +116,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="completeAddressScreen"
+			name='completeAddressScreen'
 			component={CompleteAddressScreen}
 			options={{
 				title: 'Adres ekle',
@@ -127,7 +127,7 @@ const Screen3 = ({ navigation }) => (
 		/>
 
 		<Stack.Screen
-			name="thanksScreen"
+			name='thanksScreen'
 			component={ThanksScreen}
 			options={{
 				headerShown: false

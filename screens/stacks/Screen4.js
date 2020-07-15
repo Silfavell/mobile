@@ -30,6 +30,7 @@ class Screen4 extends React.PureComponent {
 						title: 'Diğer',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
+						headerLeft: null,
 						headerStyle: styles.headerStyle
 					}}
 				/>

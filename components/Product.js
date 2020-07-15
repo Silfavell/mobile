@@ -88,7 +88,9 @@ class Product extends React.Component {
 					}
 				</View>
 
-				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
+				<View style={[styles.child, styles.nameContainer]}>
+					<Text numberOfLines={3} style={styles.productName}>{name}</Text>
+				</View>
 
 			</View>
 		)
@@ -122,7 +124,14 @@ const styles = StyleSheet.create({
 	},
 	priceContainer: {
 		justifyContent: 'flex-start',
+		alignItems: 'center',
 		flexDirection: 'row'
+	},
+	nameContainer: {
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
+		flex: 1
 	},
 	child: {
 		alignItems: 'center',
@@ -142,14 +151,14 @@ const styles = StyleSheet.create({
 	productName: {
 		fontSize: RFPercentage(2.6),
 		fontWeight: '600',
-		color: 'rgba(0,0,0,.8)',
+		color: '#454545',
 		textAlign: 'left',
 		justifyContent: 'center'
 	},
 	productPrice: {
 		fontSize: RFPercentage(2.8),
-		fontWeight: '700',
-		color: 'rgba(0,0,0,.8)',
+		fontWeight: 'bold',
+		color: '#454545',
 		textAlign: 'left',
 		justifyContent: 'center',
 		alignItems: 'flex-start'

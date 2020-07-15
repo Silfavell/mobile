@@ -20,6 +20,7 @@ const Screen2 = () => (
 				title: 'Ara',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
+				headerLeft: null,
 				headerStyle: styles.headerStyle
 			}}
 			component={SearchScreen}

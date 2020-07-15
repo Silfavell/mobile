@@ -13,7 +13,7 @@ const LoadingComponent = () => (
 	<View style={styles.container}>
 		<View style={styles.center}>
 			<Image style={{ height: RFValue(300, 600), aspectRatio: 1 }} source={loadingGif} />
-			<Text style={styles.text}>Lütfen bekleyin.</Text>
+			<Text style={styles.text}>Lütfen bekleyin..</Text>
 		</View>
 	</View>
 )
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'column'
 	},
 	text: {
-		fontSize: RFValue(32, 600),
+		fontSize: RFValue(28, 600),
 		paddingVertical: RFValue(30, 600),
 		fontWeight: 'bold',
 		color: 'rgba(0,0,0,.8)'
