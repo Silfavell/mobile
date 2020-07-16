@@ -230,7 +230,7 @@ class RegisterScreen extends React.PureComponent {
 					<View style={styles.buttonDivider} />
 
 					<ButtonComponent
-						text='Kayıt ol'
+						text='Kayıt Ol'
 						onClick={this.onRegisterClick}
 						disabled={
 							this.state.invalidEmail || !this.state.isEmailInitialized

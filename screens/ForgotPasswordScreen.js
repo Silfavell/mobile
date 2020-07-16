@@ -59,7 +59,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 				</InputComponent>
 
 				<ButtonComponent
-					text='Aktivasyon kodu gönder'
+					text='Aktivasyon Kodu Gönder'
 					onClick={this.onSendCodeClick}
 					disabled={
 						this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized

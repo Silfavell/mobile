@@ -107,7 +107,7 @@ class ChangePasswordScreen extends React.PureComponent {
 							this.state.invalidPassword || !this.state.isPasswordInitialized
 							|| this.state.invalidOldPassword || !this.state.isOldPasswordInitialized
 						}
-						text="Şifremi değiştir"
+						text='Şifremi Değiştir'
 						onClick={this.onChangePasswordClick}
 					/>
 

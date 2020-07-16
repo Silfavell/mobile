@@ -41,12 +41,12 @@ class PinAddressScreen extends React.PureComponent {
 
 				<Map region={this.props.route.params.region} />
 
-				<View style={styles.markerContainer} pointerEvents="none">
+				<View style={styles.markerContainer} pointerEvents='none'>
 					<Image style={styles.marker} source={markerIcon} />
 				</View>
 
 				<View style={styles.buttonContainer}>
-					<ButtonComponent text="Bu adresi kullan" onClick={this.onUseThisAddressClick} needFlex />
+					<ButtonComponent text='Bu Adresi Kullan' onClick={this.onUseThisAddressClick} needFlex />
 				</View>
 
 			</View>

@@ -13,7 +13,7 @@ const LoadingComponent = () => (
 	<View style={styles.container}>
 		<View style={styles.center}>
 			<Image style={{ height: RFValue(300, 600), aspectRatio: 1 }} source={loadingGif} />
-			<Text style={styles.text}>Lütfen bekleyin..</Text>
+			<Text style={styles.text}>Lütfen Bekleyin</Text>
 		</View>
 	</View>
 )

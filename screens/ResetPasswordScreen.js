@@ -165,12 +165,12 @@ class ResetPasswordScreen extends React.PureComponent {
 						|| this.state.invalidActivationCode || !this.state.isActivationCodeInitialized
 						|| this.state.invalidPassword || !this.state.isPasswordInitialized
 					}
-					text="Şifremi sıfırla"
+					text='Şifremi Sıfırla'
 					onClick={this.onResetPasswordClick}
 				/>
 
 				<TouchableOpacity style={styles.resendContainer} onPress={this.onResendClick}>
-					<Ionicons name="md-refresh" size={28} color="#6E7586" />
+					<Ionicons name='md-refresh' size={28} color='#6E7586' />
 					<Text style={styles.resendCodeText}>Yeniden gönder</Text>
 				</TouchableOpacity>
 

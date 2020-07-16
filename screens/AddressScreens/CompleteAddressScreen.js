@@ -80,7 +80,7 @@ class CompleteAddressScreen extends React.Component {
 
 						<Map region={this.props.route.params.region} />
 
-						<View style={styles.markerContainer} pointerEvents="none">
+						<View style={styles.markerContainer} pointerEvents='none'>
 							<Image style={styles.marker} source={markerIcon} />
 						</View>
 
@@ -98,7 +98,7 @@ class CompleteAddressScreen extends React.Component {
 								<TextInput
 									onChangeText={this.onAddressTitleChange}
 									value={this.state.addressTitle}
-									placeholder="Address title (Home, Work)"
+									placeholder='Address title (Home, Work)'
 									style={styles.input}
 								/>
 							</View>
@@ -112,27 +112,27 @@ class CompleteAddressScreen extends React.Component {
 							<View style={styles.inputContainer}>
 								<TextInput
 									value={this.state.buildingNo}
-									keyboardType="number-pad"
+									keyboardType='number-pad'
 									onChangeText={this.onBuildingNoChange}
-									placeholder="Building No"
+									placeholder='Building No'
 									style={styles.input}
 								/>
 							</View>
 							<View style={styles.inputContainer}>
 								<TextInput
 									value={this.state.floor}
-									keyboardType="number-pad"
+									keyboardType='number-pad'
 									onChangeText={this.onFloorChange}
-									placeholder="Floor"
+									placeholder='Floor'
 									style={styles.input}
 								/>
 							</View>
 							<View style={styles.inputContainer}>
 								<TextInput
 									value={this.state.aptNo}
-									keyboardType="number-pad"
+									keyboardType='number-pad'
 									onChangeText={this.onAptNoChange}
-									placeholder="Apt No"
+									placeholder='Apt No'
 									style={styles.input}
 								/>
 							</View>
@@ -141,7 +141,7 @@ class CompleteAddressScreen extends React.Component {
 							<TextInput
 								onChangeText={this.onDirectionsChange}
 								value={this.state.directions}
-								placeholder="Directions"
+								placeholder='Directions'
 								style={styles.input}
 							/>
 						</View>
@@ -151,7 +151,7 @@ class CompleteAddressScreen extends React.Component {
 					disabled={
 						!(this.state.addressTitle.length > 0) || !(this.props.address.length > 0)
 					}
-					text="Kaydet"
+					text='Kaydet'
 					onClick={this.onSaveClick}
 				/>
 

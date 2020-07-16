@@ -18,7 +18,7 @@ const WelcomeScreen = ({ navigation }) => (
 		<View style={styles.child} />
 
 		<View style={[styles.child, styles.imageContainer]}>
-			<Image style={styles.image} resizeMode="contain" source={icon} />
+			<Image style={styles.image} resizeMode='contain' source={icon} />
 		</View>
 
 		<View style={styles.empty} />
@@ -35,7 +35,7 @@ const WelcomeScreen = ({ navigation }) => (
 		</View>
 
 		<ButtonComponent
-			text="Kayıt ol"
+			text='Kayıt Ol'
 			onClick={() => {
 				navigation.navigate('register')
 			}}
