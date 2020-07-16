@@ -137,6 +137,13 @@ class HelpScreen extends React.PureComponent {
                 <ButtonComponent
                     text='Gönder'
                     onClick={this.onSendClick}
+                    disabled={
+                        name.length === 0
+                        || surname.length === 0
+                        || email.length === 0
+                        || subject.length === 0
+                        || message.length === 0
+                    }
                 />
             </ScrollView>
         )
