@@ -162,7 +162,7 @@ class RegisterScreen extends React.PureComponent {
 					<InputComponent
 						options={{
 							textContentType: 'name',
-							placeholder: 'Ad soyad'
+							placeholder: 'Ad Soyad'
 						}}
 						invalid={this.state.invalidNameSurname && this.state.isNameSurnameInitialized}
 						value={this.state.nameSurname}
@@ -185,7 +185,7 @@ class RegisterScreen extends React.PureComponent {
 						options={{
 							keyboardType: 'email-address',
 							textContentType: 'emailAddress',
-							placeholder: 'E-mail'
+							placeholder: 'E-Mail'
 						}}
 						invalid={this.state.invalidEmail && this.state.isEmailInitialized}
 						value={this.state.email}
