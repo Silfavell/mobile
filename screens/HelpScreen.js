@@ -135,7 +135,7 @@ class HelpScreen extends React.PureComponent {
                 </View>
 
                 <ButtonComponent
-                    text='Tamamla'
+                    text='Gönder'
                     onClick={this.onSendClick}
                 />
             </ScrollView>
