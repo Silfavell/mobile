@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	completePaymentButton: {
-		flex: 1,
 		padding: RFValue(20, 600),
 		backgroundColor: 'rgba(0,0,0,.8)',
 		alignItems: 'center',
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
 	},
 	completePaymentText: {
 		color: 'white',
-		fontSize: RFValue(17, 600),
+		fontSize: RFValue(16, 600),
 		fontWeight: 'bold'
 	},
 	totalPriceContainer: {
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
 	},
 	totalPriceText: {
 		color: 'white',
-		fontSize: RFValue(17, 600),
+		fontSize: RFValue(16, 600),
 		padding: RFValue(12, 600),
 		fontWeight: 'bold'
 	}
