@@ -109,7 +109,9 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 1, height: 1 },
 		shadowOpacity: 0.2,
 		shadowRadius: 24,
-		elevation: 3
+		elevation: 3,
+		borderBottomWidth: 1,
+		borderBottomColor: '#BCBCBC'
 	},
 	mostSearchContainer: {
 		flex: 0.7,
