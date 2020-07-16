@@ -10,11 +10,12 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
 
-import { SERVER_URL } from '../utils/global'
-import PasswordChangedPopup from '../components/popups/PasswordChangedPopup'
 import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponent'
 import ShadowContainer from '../components/ShadowContainer'
+import AlertPopup from '../components/popups/AlertPopup'
+
+import { SERVER_URL } from '../utils/global'
 
 class ResetPasswordScreen extends React.PureComponent {
 	state = {
@@ -34,9 +35,9 @@ class ResetPasswordScreen extends React.PureComponent {
 		isPasswordInitialized: false
 	}
 
-	setPopupState = (state) => {
-		this.setState({ scaleAnimationModal: state.scaleAnimationModal })
-		if (!state.scaleAnimationModal) {
+	setPopupState = ({ scaleAnimationModal }) => {
+		this.setState({ scaleAnimationModal })
+		if (!scaleAnimationModal) {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
 	}
@@ -111,7 +112,10 @@ class ResetPasswordScreen extends React.PureComponent {
 		return (
 			<ShadowContainer>
 
-				<PasswordChangedPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
+				<AlertPopup
+					title={'Şifreniz güncellendi'}
+					scaleAnimationModal={this.state.scaleAnimationModal}
+					setPopupState={this.setPopupState} />
 
 				{
 					//  <TextInput

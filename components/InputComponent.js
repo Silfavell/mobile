@@ -42,11 +42,18 @@ class InputComponent extends React.Component {
 			setPickedValue,
 			invalid,
 			disabled,
-			mask
+			mask,
+			multiline
 		} = this.props
 
 		return (
-			<TouchableOpacity activeOpacity={1} style={styles.container} onPress={this.state.selectorRef ? this.onSelectorInputClick : null} >
+			<TouchableOpacity
+				activeOpacity={1}
+				style={[
+					styles.container,
+					multiline ? styles.multiline : {},
+				]}
+				onPress={this.state.selectorRef ? this.onSelectorInputClick : null} >
 				{
 					icon
 				}
@@ -76,9 +83,11 @@ class InputComponent extends React.Component {
 								placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
 								editable={!(disabled || selector)}
 								selectTextOnFocus={!disabled}
+								multiline={multiline}
 								style={[
 									styles.input,
 									invalid ? styles.invalid : {},
+									multiline ? styles.multilineInput : {},
 									icon ? styles.withIcon : {},
 									disabled ? styles.disabled : {},
 								]}
@@ -119,6 +128,12 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		color: 'black',
 		borderColor: '#CCC8E0'
+	},
+	multiline: {
+		height: RFValue(180, 600)
+	},
+	multilineInput: {
+		textAlignVertical: 'top'
 	},
 	withIcon: {
 		paddingLeft: RFValue(48, 600)

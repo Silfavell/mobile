@@ -16,6 +16,7 @@ import EditProfileScreen from '../EditProfileScreen'
 import FavoriteProductsScreen from '../FavoriteProductsScreen'
 import FullProductScreen from '../FullProductScreen'
 import PreviousOrdersScreen from '../PreviousOrdersScreen'
+import HelpScreen from '../HelpScreen'
 
 const Stack = createStackNavigator()
 
@@ -40,6 +41,18 @@ class Screen4 extends React.PureComponent {
 					component={ChangePasswordScreen}
 					options={{
 						title: 'Şifremi değiştir',
+						headerTitleAlign: 'center',
+						headerTintColor: 'white',
+						headerStyle: styles.headerStyle
+					}}
+				/>
+
+
+				<Stack.Screen
+					name='helpScreen'
+					component={HelpScreen}
+					options={{
+						title: 'İletişime Geç',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle

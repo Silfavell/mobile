@@ -40,6 +40,10 @@ class ProfileScreen extends React.PureComponent {
 		this.props.navigation.navigate('Welcome', { screen: 'login' })
 	}
 
+	moveToHelp = () => {
+		this.props.navigation.navigate('helpScreen')
+	}
+
 	render() {
 		return (
 			<ShadowContainer>
@@ -119,15 +123,29 @@ class ProfileScreen extends React.PureComponent {
 										//  </SettingItem>
 									}
 
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToHelp}>
+										<SettingItem title='Destek'>
+											<Ionicons color='rgba(0,0,0,.8)' name='md-information-circle' size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+
 									<LogoutItem navigation={this.props.navigation} />
 								</>
 							)
 							: (
-								<TouchableOpacity activeOpacity={0.9} onPress={this.moveToLogin}>
-									<SettingItem title='Giriş Yap'>
-										<Ionicons color='rgba(0,0,0,.8)' name='md-person' size={32} />
-									</SettingItem>
-								</TouchableOpacity>
+								<>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToLogin}>
+										<SettingItem title='Giriş Yap'>
+											<Ionicons color='rgba(0,0,0,.8)' name='md-person' size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToHelp}>
+										<SettingItem title='Destek'>
+											<Ionicons color='rgba(0,0,0,.8)' name='md-information-circle' size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+								</>
 							)
 					}
 
