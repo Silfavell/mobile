@@ -34,8 +34,8 @@ class Product extends React.Component {
 
 	shouldComponentUpdate(nextProps) {
 		return (
-			nextProps.user?.favoriteProducts.includes(this.props.data._id) && !this.props.user?.favoriteProducts.includes(this.props.data._id) ||
-			this.props.user?.favoriteProducts.includes(this.props.data._id) && !nextProps.user?.favoriteProducts.includes(this.props.data._id)
+			nextProps.user?.favoriteProducts?.includes(this.props.data._id) && !this.props.user?.favoriteProducts?.includes(this.props.data._id) ||
+			this.props.user?.favoriteProducts?.includes(this.props.data._id) && !nextProps.user?.favoriteProducts?.includes(this.props.data._id)
 		)
 	}
 

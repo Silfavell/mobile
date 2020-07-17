@@ -38,22 +38,24 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	onHeartClick = (_id) => {
-		this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef) : this.addToFavoriteProducts(_id, this.props.messagePopupRef)
+		this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef) : this.addToFavoriteProducts(_id, this.props.messagePopupRef)
 	}
 
 	setHeader = (_id) => {
-		this.props.navigation.setOptions({
-			headerRight: () => (
-				<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
-					<Ionicons
-						size={26}
-						color={'rgba(0,0,0,.8)'}
-						style={{ marginRight: 18 }}
-						name={this.props.user?.favoriteProducts.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
+		if (this.props.token) {
+			this.props.navigation.setOptions({
+				headerRight: () => (
+					<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
+						<Ionicons
+							size={26}
+							color={'rgba(0,0,0,.8)'}
+							style={{ marginRight: 18 }}
+							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
 
-				</TouchableOpacity>
-			)
-		})
+					</TouchableOpacity>
+				)
+			})
+		}
 	}
 
 	UNSAFE_componentWillReceiveProps() {
@@ -73,19 +75,11 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	addToFavoriteProducts = (_id) => {
-		if (this.props.token) {
-			this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
-		} else {
-			this.props.navigation.navigate('Welcome', { screen: 'login' })
-		}
+		this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
 	}
 
 	removeFromFavoriteProdutcs = (_id) => {
-		if (this.props.token) {
-			this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
-		} else {
-			this.props.navigation.navigate('Welcome', { screen: 'login' })
-		}
+		this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
 	}
 
 	getProductById = (productId) => {
