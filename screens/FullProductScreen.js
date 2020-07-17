@@ -152,6 +152,7 @@ class FullProductScreen extends React.PureComponent {
 									imageContainerStyle={{ paddingBottom: 20 }}
 									_id={'Slider:' + (this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}
 									images={this.getImages()}
+									shopSingle
 									paginator
 								/>
 							</View>
@@ -241,7 +242,7 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		flex: 1,
-		height: RFValue(260, 600)
+		height: 260
 	},
 	colors: {
 		flex: 1,
