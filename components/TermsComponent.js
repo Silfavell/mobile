@@ -2,10 +2,9 @@ import React from 'react'
 import {
 	View,
 	CheckBox,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const TermsComponent = () => (
 	<View style={styles.container}>
@@ -24,14 +23,14 @@ const TermsComponent = () => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
-		height: RFValue(60, 600),
+		height: '60@s',
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'flex-start',
-		margin: RFValue(3, 600),
-		marginVertical: RFValue(8, 600),
+		margin: '3@s',
+		marginVertical: '8@s',
 	},
 	checkBoxContainer: {
 		alignItems: 'flex-start',
@@ -41,10 +40,10 @@ const styles = StyleSheet.create({
 		backgroundColor: 'transparent'
 	},
 	termsText: {
-		color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold'
+		color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold'
 	},
 	termsLinkText: {
-		color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold'
+		color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold'
 	},
 	termsTextContainer: {
 		alignItems: 'center', justifyContent: 'center', flexDirection: 'row'
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 		flexDirection: 'column',
-		marginLeft: RFValue(8, 600)
+		marginLeft: '8@s'
 	}
 })
 

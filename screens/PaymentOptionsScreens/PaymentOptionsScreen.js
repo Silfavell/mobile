@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-	FlatList,
-	StyleSheet
-} from 'react-native'
+import {FlatList} from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
 import CardComponent from '../../components/CardComponent'
@@ -58,7 +56,7 @@ class PaymentOptionsScreen extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	list: { backgroundColor: 'white' }
 })
 

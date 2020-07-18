@@ -1,7 +1,7 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
-import { Text, StyleSheet } from 'react-native'
+import { Text } from 'react-native'
 import Modal, {
 	ModalTitle,
 	ModalButton,
@@ -62,9 +62,9 @@ class ConfirmAddressPopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	buttonNo: {
 		backgroundColor: '#697488'
@@ -76,20 +76,20 @@ const styles = StyleSheet.create({
 		color: 'white'
 	},
 	title: {
-		marginVertical: RFValue(8, 600)
+		marginVertical: '8@s'
 	},
 	titleText: {
 		textAlign: 'center',
 		color: 'rgba(0,0,0,.8)',
 		fontWeight: '600',
-		fontSize: RFValue(19, 600)
+		fontSize: '19@s'
 	},
 	content: {
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
 	contentText: {
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		color: '#454545',
 		fontWeight: 'bold',
 		textAlign: 'center'

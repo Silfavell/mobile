@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 
@@ -72,7 +72,7 @@ class FavoriteProductsScreen extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	listContainer: {
 		flex: 1,
 		backgroundColor: 'white'
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 	},
 	emptyText: {
 		marginTop: 32,
-		fontSize: RFValue(18, 600),
+		fontSize: '18@s',
 		textAlign: 'center',
 		color: '#454545'
 	}

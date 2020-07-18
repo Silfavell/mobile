@@ -6,10 +6,9 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	View,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
@@ -225,7 +224,7 @@ class FullProductScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		justifyContent: 'space-between',
 		flex: 1,
@@ -236,19 +235,19 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		flex: 1,
-		height: 260
+		height: '260@s'
 	},
 	colors: {
 		flex: 1,
 		flexWrap: 'wrap',
 		flexDirection: 'row',
-		marginTop: 20
+		marginTop: '20@s'
 	},
 	colorContainer: {
 		flex: 1,
 		flexDirection: 'column',
-		paddingVertical: 20,
-		marginHorizontal: 10,
+		paddingVertical: '20@s',
+		marginHorizontal: '10@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#EFEFEF'
 	},
@@ -256,29 +255,29 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		paddingVertical: 20,
-		marginHorizontal: 10,
+		paddingVertical: '20@s',
+		marginHorizontal: '10@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#EFEFEF'
 	},
 	details2: {
 		flex: 1,
 		flexDirection: 'column',
-		marginTop: 20,
-		marginHorizontal: 10
+		marginTop: '20@s',
+		marginHorizontal: '10@s'
 	},
 	productDetailText: {
-		margin: 4,
-		fontSize: RFValue(18, 600),
+		margin: '4@s',
+		fontSize: '18@s',
 		fontWeight: 'bold'
 	},
 	productDetail: {
-		margin: 4,
-		fontSize: RFValue(15, 600)
+		margin: '4@s',
+		fontSize: '15@s'
 	},
 	price: {
-		fontSize: RFPercentage(3.2),
-		marginRight: 8,
+		fontSize: '18@s',
+		marginRight: '8@s',
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
 	},
@@ -288,11 +287,11 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'line-through'
 	},
 	productName: {
-		fontSize: RFValue(18, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	colorText: {
-		fontSize: RFValue(18, 600),
+		fontSize: '18@s',
 		fontWeight: 'bold'
 	},
 	colorName: {
@@ -309,17 +308,17 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		display: 'flex',
 		textAlign: 'center',
-		margin: 4
+		margin: '4@s'
 	},
 	priceContainer: {
-		margin: 4,
-		paddingHorizontal: 4,
+		margin: '4@s',
+		paddingHorizontal: '4@s',
 		flexDirection: 'row',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	emptyFooter: { height: 100 }
+	emptyFooter: { height: '100@s' }
 })
 
 const mapStateToProps = ({

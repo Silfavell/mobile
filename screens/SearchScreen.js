@@ -5,10 +5,10 @@ import {
 	View,
 	TouchableOpacity,
 	ActivityIndicator,
-	TextInput,
-	StyleSheet
+	TextInput
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 import RecyclerList from '../components/RecyclerList'
@@ -96,7 +96,7 @@ class SearchScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: 'white'

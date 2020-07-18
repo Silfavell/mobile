@@ -1,7 +1,7 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
-import { TextInput, StyleSheet } from 'react-native'
+import { TextInput } from 'react-native'
 
 import { setAddress } from '../../actions/map-actions'
 
@@ -15,17 +15,17 @@ const CompleteAddressInput = ({ address, setAddress }) => (
 	/>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	input: {
 		flex: 1,
 		borderWidth: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: RFValue(3, 600),
+		margin: '3@s',
 		borderRadius: 8,
 		borderColor: '#C3C3C3',
-		paddingHorizontal: RFValue(13, 600),
-		fontSize: RFValue(17, 600)
+		paddingHorizontal: '13@s',
+		fontSize: '17@s'
 	},
 })
 

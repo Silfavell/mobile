@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-	RFValue
-} from 'react-native-responsive-fontsize'
-import {
-	StyleSheet
-} from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	createStackNavigator,
 	CardStyleInterpolators
@@ -89,7 +84,7 @@ const WelcomeStack = () => (
 	</Stack.Navigator>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' },
 	headerImage: {
 		height: '200%'

@@ -5,13 +5,12 @@ import {
 	View,
 	TouchableOpacity,
 	Text,
-	AsyncStorage,
-	StyleSheet
+	AsyncStorage
 } from 'react-native'
 import axios from 'axios'
-import { RFValue } from 'react-native-responsive-fontsize'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 import { login } from '../actions/actions4'
@@ -160,20 +159,20 @@ class LoginScreen extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'space-between',
 		marginBottom: 12
 	},
 	child: {
-		height: RFValue(60, 600),
-		margin: RFValue(3, 600)
+		height: '60@vs',
+		margin: 3
 	},
 	facebookButton: {
 		backgroundColor: '#3B589E',
 		flex: 1,
-		margin: RFValue(4, 600),
+		margin: '4@s',
 		borderRadius: 10,
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -188,28 +187,28 @@ const styles = StyleSheet.create({
 	},
 	input: {
 		flex: 1,
-		margin: RFValue(4, 600),
+		margin: '4@s',
 		zIndex: -1,
 		borderRadius: 6,
-		paddingHorizontal: RFValue(12, 600),
-		fontSize: RFValue(18, 600),
+		paddingHorizontal: '12@s',
+		fontSize: '18@s',
 		borderWidth: 0.8,
 		borderColor: '#ABABAB'
 	},
 	facebookText: {
 		color: 'white',
-		fontSize: RFValue(18, 600)
+		fontSize: '18@s'
 	},
 	forgotPasswordText: {
 		color: '#6E7586',
-		fontSize: RFValue(18, 600),
+		fontSize: '18@s',
 		fontWeight: 'bold'
 	},
 	empty: {
-		height: RFValue(28, 600)
+		height: '28@vs'
 	},
 	buttonDivider: {
-		height: RFValue(22, 600),
+		height: '22@vs',
 		backgroundColor: '#EDEEF0'
 	},
 	view: {

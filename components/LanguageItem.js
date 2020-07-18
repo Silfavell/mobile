@@ -1,9 +1,8 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -20,13 +19,13 @@ const LanguageItem = ({ title, selected }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'row',
-		padding: RFValue(10, 600),
+		padding: '10@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#D2D2D2',
-		marginHorizontal: RFValue(6, 600)
+		marginHorizontal: '6@s'
 	},
 	iconContainer: {
 		alignItems: 'center',
@@ -39,8 +38,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	title: {
-		marginHorizontal: RFValue(8, 600),
-		fontSize: RFValue(16, 600),
+		marginHorizontal: '8@s',
+		fontSize: '16@s',
 		color: '#505050',
 		fontWeight: 'bold'
 	},

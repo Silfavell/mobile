@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
 	Text,
-	StyleSheet,
 	Image
 } from 'react-native'
 
@@ -50,7 +49,7 @@ const WelcomeScreen = ({ navigation }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column'
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
 	},
 	child: {
 		flex: 1,
-		margin: RFValue(5, 600)
+		margin: '5@s'
 	},
 	continueWithRegistration: {
 		flex: 1,
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
 	},
 	buttonText: {
 		color: '#6E7586',
-		fontSize: RFValue(20, 600)
+		fontSize: '20@s'
 	},
 	goToLoginPageContainer: {
 		flex: 1,
@@ -90,8 +89,8 @@ const styles = StyleSheet.create({
 	},
 	loginText: {
 		color: 'rgba(0,0,0,.8)',
-		fontSize: RFValue(18, 600),
-		marginHorizontal: RFValue(10, 600)
+		fontSize: '18@s',
+		marginHorizontal: '10@s'
 	}
 })
 

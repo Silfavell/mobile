@@ -1,10 +1,8 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	ScrollView,
-	View,
-	StyleSheet,
-	Text
+	View
 } from 'react-native'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -216,13 +214,13 @@ class RegisterScreen extends React.PureComponent {
 						//      <View style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
 						//          <CheckBox />
 						//      </View>
-						//      <View style={{ alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: RFValue(8, 600) }}>
+						//      <View style={{ alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', marginLeft: '8@s' }}>
 						//          <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>I give permissions for the use of my personal data for special offers and for receiving electronic communication, within the scope of The Law on Protection of Personal Data clarification document.</Text>
-						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>the Terms and</Text>
+						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold' }}>I give permissions for the use of my personal data for special offers and for receiving electronic communication, within the scope of The Law on Protection of Personal Data clarification document.</Text>
+						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold' }}>the Terms and</Text>
 						//          </View>
 						//          <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(16, 600), fontWeight: 'bold' }}>Conditions.</Text>
+						//              <Text style={{ color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold' }}>Conditions.</Text>
 						//          </View>
 						//      </View>
 						//  </View>
@@ -245,7 +243,7 @@ class RegisterScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'space-between',
@@ -254,14 +252,14 @@ const styles = StyleSheet.create({
 	facebookButton: {
 		backgroundColor: '#3B589E',
 		flex: 1,
-		margin: RFValue(4, 600),
+		margin: '4@s',
 		borderRadius: 10,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
 	facebookText: {
 		color: 'white',
-		fontSize: RFValue(18, 600)
+		fontSize: '18@s'
 	},
 	termsContainer: {
 		flex: 1,
@@ -278,12 +276,12 @@ const styles = StyleSheet.create({
 	},
 	termsText: {
 		color: 'rgba(0,0,0,.8)',
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	termsLinkText: {
 		color: 'rgba(0,0,0,.8)',
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	termsTextContainer: {
@@ -295,10 +293,10 @@ const styles = StyleSheet.create({
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 		flexDirection: 'column',
-		marginLeft: RFValue(8, 600)
+		marginLeft: '8@s'
 	},
 	buttonDivider: {
-		height: RFValue(22, 600),
+		height: '22@s',
 		backgroundColor: '#EDEEF0'
 	},
 	invalid: {

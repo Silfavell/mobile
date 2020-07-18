@@ -1,7 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView, TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import {
+    ScrollView,
+    TouchableOpacity,
+    View,
+    Text
+} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { ScaledSheet } from 'react-native-size-matters'
+
+
 import ShadowContainer from './ShadowContainer'
 
 class ScrollableCategoryList extends React.Component {
@@ -30,7 +38,7 @@ class ScrollableCategoryList extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
         flex: 1,
         marginTop: 12,

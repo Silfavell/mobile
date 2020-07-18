@@ -6,7 +6,7 @@ import {
 	StyleSheet
 } from 'react-native'
 import FlashMessage from 'react-native-flash-message'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { setMessagePopupRef } from '../../actions/global-actions'
 
@@ -52,7 +52,7 @@ class GlobalMessagePopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	absoluteContainer: {
 		...StyleSheet.absoluteFillObject,
 		zIndex: 1000,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		margin: RFValue(12, 600),
+		margin: '12@s',
 		backgroundColor: 'white',
 		display: 'flex',
 		alignItems: 'center',
@@ -75,11 +75,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'flex-start',
 		justifyContent: 'center',
-		margin: RFValue(18, 600),
+		margin: '18@s',
 		backgroundColor: 'white'
 	},
 	title: {
-		fontSize: RFValue(18, 600)
+		fontSize: '18@s'
 	}
 })
 

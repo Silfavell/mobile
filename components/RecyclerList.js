@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dimensions } from 'react-native'
+import { s } from 'react-native-size-matters'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 
 import Product from './Product'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 class List extends React.PureComponent {
 	constructor(args) {
@@ -39,7 +40,7 @@ class List extends React.PureComponent {
 		// eslint-disable-next-line no-param-reassign
 		dim.width = (width / 2) - ((width / 2) % 1)
 		// eslint-disable-next-line no-param-reassign
-		dim.height = height / 1.7
+		dim.height = s(355)
 	}
 
 	rowRenderer = (type, item) => (

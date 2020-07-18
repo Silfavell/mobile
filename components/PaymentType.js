@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -42,24 +41,24 @@ const PaymentType = ({
 	)
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'row'
 	},
 	iconContainer: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		marginHorizontal: RFValue(8, 600),
-		padding: RFValue(4, 600),
+		marginHorizontal: '8@s',
+		padding: '4@s',
 		flex: 1
 	},
 	paymentInfoContainer: {
 		flexDirection: 'column',
-		marginHorizontal: RFValue(8, 600),
-		padding: RFValue(4, 600),
-		height: RFValue(72, 600),
+		marginHorizontal: '8@s',
+		padding: '4@s',
+		height: '72@s',
 		flex: 5,
-		borderBottomWidth: RFValue(2, 600),
+		borderBottomWidth: '2@s',
 		borderBottomColor: '#C3C3C3'
 	},
 	paymentInfoTextContainer: {
@@ -67,12 +66,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	paymentTitle: {
-		fontSize: RFValue(17, 600),
-		marginVertical: RFValue(4, 600),
+		fontSize: '17@s',
+		marginVertical: '4@s',
 	},
 	paymentDetail: {
-		fontSize: RFValue(14, 600),
-		marginVertical: RFValue(4, 600)
+		fontSize: '14@s',
+		marginVertical: '4@s'
 	}
 })
 

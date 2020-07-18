@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Text } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 
 import { SERVER_URL } from '../utils/global'
@@ -54,7 +54,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 					onChange={this.onPhoneNumberChange}
 				>
 					<InputIcon>
-						<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: RFValue(18, 600) }}>90</Text>
+						<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: '18@s' }}>90</Text>
 					</InputIcon>
 				</InputComponent>
 

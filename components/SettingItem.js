@@ -1,6 +1,6 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { View, Text, StyleSheet } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import { View, Text } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const renderRightComponent = ({ version, rightComponent }) => {
@@ -51,13 +51,13 @@ const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightCo
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'row',
-		padding: RFValue(10, 600),
+		padding: '10@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#D2D2D2',
-		marginHorizontal: RFValue(6, 600)
+		marginHorizontal: '6@s'
 	},
 	order: {
 		marginHorizontal: 0,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 	iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
 	titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },
 	title: {
-		marginHorizontal: RFValue(8, 600), fontSize: RFValue(16, 600), color: '#505050', fontWeight: 'bold'
+		marginHorizontal: '8@s', fontSize: '16@s', color: '#505050', fontWeight: 'bold'
 	},
 	rightIconContainer: { alignItems: 'flex-end', justifyContent: 'center', flex: 1 },
 	empty: { height: 32 }

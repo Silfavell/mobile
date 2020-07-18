@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -38,7 +37,7 @@ const ThanksScreen = ({ navigation }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	emptyCartContainer: {
 		flex: 1,
 		alignItems: 'center',
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	orderCompletedText: {
-		fontSize: RFValue(22, 600),
+		fontSize: '22@s',
 		textAlign: 'center'
 	},
 	goToHomeButtonContainer: {
@@ -62,13 +61,13 @@ const styles = StyleSheet.create({
 		borderRadius: 32,
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: RFValue(18, 600),
-		padding: RFValue(18, 600),
-		paddingHorizontal: RFValue(48, 600)
+		margin: '18@s',
+		padding: '18@s',
+		paddingHorizontal: '48@s'
 	},
 	goToHomeButtonText: {
 		color: 'white',
-		fontSize: RFValue(20, 600),
+		fontSize: '20@s',
 		alignItems: 'center',
 		justifyContent: 'center'
 	}

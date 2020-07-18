@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import axios from 'axios'
 import {
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
@@ -179,7 +178,7 @@ class ResetPasswordScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	resendContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -187,8 +186,8 @@ const styles = StyleSheet.create({
 		padding: 12
 	},
 	resendCodeText: {
-		fontSize: RFValue(19, 600),
-		paddingHorizontal: RFValue(12, 600),
+		fontSize: '19@s',
+		paddingHorizontal: '12@s',
 		color: '#6E7586'
 	}
 })

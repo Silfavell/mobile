@@ -1,6 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { View, Text, StyleSheet } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import {
+	View,
+	Text
+} from 'react-native'
 
 const HeadingDivider = ({ title }) => (
 	<View style={styles.container}>
@@ -10,7 +13,7 @@ const HeadingDivider = ({ title }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'row',
 		overflow: 'hidden'
@@ -18,8 +21,8 @@ const styles = StyleSheet.create({
 	titleContainer: {
 		flex: 1,
 		justifyContent: 'center',
-		height: 40,
-		paddingHorizontal: 16,
+		height: '40@s',
+		paddingHorizontal: '16@s',
 		backgroundColor: '#DFDFDF',
 		shadowColor: '#000',
 		shadowOffset: { width: 1, height: 1 },
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		color: '#A8A8A8',
-		fontSize: RFValue(17, 600),
+		fontSize: '17@s',
 		fontWeight: 'bold'
 	}
 })

@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-	StyleSheet
-} from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	createStackNavigator,
 	CardStyleInterpolators
@@ -45,7 +43,7 @@ const Screen2 = () => (
 	</Stack.Navigator>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
 })
 

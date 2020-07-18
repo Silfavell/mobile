@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -67,7 +66,7 @@ class CompletePaymentComponent extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	centeredContainer: {
 		flex: 1,
 		alignItems: 'center',
@@ -77,19 +76,19 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 0,
 		width: '100%',
-		height: RFValue(65, 600),
+		height: '65@s',
 		backgroundColor: 'rgba(0,0,0,.7)',
 		flexDirection: 'row'
 	},
 	completePaymentButton: {
-		padding: RFValue(20, 600),
+		padding: '20@s',
 		backgroundColor: 'rgba(0,0,0,.8)',
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
 	completePaymentText: {
 		color: 'white',
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	totalPriceContainer: {
@@ -98,8 +97,8 @@ const styles = StyleSheet.create({
 	},
 	totalPriceText: {
 		color: 'white',
-		fontSize: RFValue(16, 600),
-		padding: RFValue(12, 600),
+		fontSize: '16@s',
+		padding: '12@s',
 		fontWeight: 'bold'
 	}
 })

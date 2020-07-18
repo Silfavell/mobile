@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 
 const ClickableSettingItem = ({ children: icons, title, onClick }) => (
@@ -21,13 +20,13 @@ const ClickableSettingItem = ({ children: icons, title, onClick }) => (
 	</TouchableOpacity>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'row',
-		padding: RFValue(10, 600),
+		padding: '10@s',
 		borderBottomWidth: 0.8,
 		borderBottomColor: '#D2D2D2',
-		marginHorizontal: RFValue(6, 600)
+		marginHorizontal: '6@s'
 	},
 	iconContainer: {
 		alignItems: 'center',
@@ -40,8 +39,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	title: {
-		marginHorizontal: RFValue(4, 600),
-		fontSize: RFValue(16, 600),
+		marginHorizontal: '4@s',
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	rightIconContainer: {

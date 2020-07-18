@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-check-box'
+import { ScaledSheet, s } from 'react-native-size-matters'
 
 import { makeFilter, clearFilter } from '../actions/filter-products-actions'
 
@@ -69,13 +70,13 @@ class FilterProductsScreen extends React.Component {
         this.props.navigation.setOptions({
             headerLeft: () => (
                 <TouchableOpacity onPress={this.props.navigation.goBack} >
-                    <Ionicons name='md-close' size={26} color='white' style={{ marginLeft: 18 }} />
+                    <Ionicons name='md-close' size={26} color='white' style={{ marginLeft: s(18) }} />
                 </TouchableOpacity>
             ),
             headerRight: () => (
                 (this.state.brands.length > 0 || this.state.selectedSort !== -1) && (
                     <TouchableOpacity onPress={this.onClearFilterClick} >
-                        <Ionicons name='md-trash' size={26} color='white' style={{ marginRight: 18 }} />
+                        <Ionicons name='md-trash' size={26} color='white' style={{ marginRight: s(18) }} />
                     </TouchableOpacity>
                 )
             )
@@ -192,7 +193,7 @@ class FilterProductsScreen extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     bottom: {
         position: 'absolute',
         bottom: 0,

@@ -1,19 +1,12 @@
 import React from 'react'
 import {
 	TouchableOpacity,
-	View,
 	Text,
-	Image,
-	StyleSheet,
 	ImageBackground
 } from 'react-native'
-import { connect } from 'react-redux'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const Category = ({
-	data: {
-		imagePath,
-		name
-	},
 	index,
 	navigation
 }) => {
@@ -36,7 +29,7 @@ const Category = ({
 	)
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		height: 160,
 		marginVertical: 20,

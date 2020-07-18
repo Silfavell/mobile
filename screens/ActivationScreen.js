@@ -1,9 +1,10 @@
 import React from 'react'
 import {
-	TouchableOpacity, Text, StyleSheet
+	TouchableOpacity,
+	Text
 } from 'react-native'
 import axios from 'axios'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
@@ -79,7 +80,7 @@ class ActivationScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	resendContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -87,8 +88,8 @@ const styles = StyleSheet.create({
 		padding: 12
 	},
 	resendCodeText: {
-		fontSize: RFValue(19, 600),
-		paddingHorizontal: RFValue(12, 600),
+		fontSize: '19@s',
+		paddingHorizontal: '12@s',
 		color: '#6E7586'
 	}
 })

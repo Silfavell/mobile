@@ -1,7 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { FlatList, View, TouchableOpacity, Image, BackHandler, StyleSheet } from 'react-native'
+import { ScaledSheet, s } from 'react-native-size-matters'
+import {
+	FlatList,
+	View,
+	TouchableOpacity,
+	Image,
+	BackHandler
+} from 'react-native'
 import RNExitApp from 'react-native-exit-app'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -34,7 +40,7 @@ class HomeScreen extends React.Component {
 				</View>
 			),
 			headerLeft: () => (
-				<TouchableOpacity activeOpacity={0.9} style={{ paddingLeft: 18, zIndex: 2 }} onPress={this.onCategoryListClick}>
+				<TouchableOpacity activeOpacity={0.9} style={{ paddingLeft: s(18), zIndex: 2 }} onPress={this.onCategoryListClick}>
 					<Ionicons name='md-menu' size={26} color='black' />
 				</TouchableOpacity>
 			)
@@ -72,27 +78,27 @@ class HomeScreen extends React.Component {
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
 				ListHeaderComponent={
-					<View style={{ height: 190 }}>
+					<View style={{ height: s(190) }}>
 						<ShadowContainer>
 							<Slider images={banners} loop paginator />
 						</ShadowContainer>
 					</View>
 				}
 				ListFooterComponent={
-					<View style={{ height: 40 }} />
+					<View style={{ height: s(40) }} />
 				}
 			/>
 		)
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	headerStyle: {
 		backgroundColor: 'rgba(0,0,0,.8)'
 	},
 	headerTitle: {
 		height: '100%',
-		padding: RFValue(8, 600),
+		padding: '8@s',
 		backgroundColor: 'white',
 		alignItems: 'center',
 		justifyContent: 'space-between',

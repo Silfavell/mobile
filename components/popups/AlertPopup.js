@@ -1,8 +1,7 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Modal, {
 	ModalButton,
@@ -43,9 +42,9 @@ class PasswordChangedPopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	content: {
 		backgroundColor: '#fff',
@@ -53,10 +52,10 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	image: {
-		height: RFValue(72, 600)
+		height: '72@s'
 	},
 	text: {
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold',
 		marginBottom: -6
 	},

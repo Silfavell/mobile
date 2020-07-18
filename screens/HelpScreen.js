@@ -1,10 +1,10 @@
 import React from 'react'
 import {
     ScrollView,
-    View,
-    StyleSheet
+    View
 } from 'react-native'
 import axios from 'axios'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponent'
@@ -150,7 +150,7 @@ class HelpScreen extends React.PureComponent {
     }
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
         flexGrow: 1,
         justifyContent: 'space-between'

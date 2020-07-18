@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 import OrderComponent from '../components/OrderComponent'
@@ -54,7 +54,7 @@ class PreviousOrdersScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		alignItems: 'center',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 	},
 	emptyText: {
 		marginTop: 32,
-		fontSize: RFValue(18, 600),
+		fontSize: '18@s',
 		textAlign: 'center',
 		color: '#454545'
 	}
