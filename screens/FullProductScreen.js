@@ -167,7 +167,7 @@ class FullProductScreen extends React.PureComponent {
 						</View>
 
 						{
-							(this.state.product.group && color) && (
+							(this.state.product.group && this.state.product.group.length > 1 && color) && (
 								<View style={styles.colorContainer}>
 									<View style={styles.textContainer}>
 										<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
