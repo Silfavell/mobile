@@ -127,6 +127,7 @@ class FullProductScreen extends React.PureComponent {
 		if (this.state.product) {
 			const {
 				name,
+				details,
 				price,
 				discountedPrice,
 				color
@@ -190,24 +191,10 @@ class FullProductScreen extends React.PureComponent {
 							)
 						}
 
-
 						<View style={styles.details2}>
 							<Text style={styles.productDetailText}>Ürün Hakkında</Text>
 
-							<Text style={styles.productDetail}>{`
-• Keçi sütlü formülü ve yoğun proteinli yapısı ile dudaklarıınız MATTE LIPS ile daha nemli bir görünüme kavuşacaktır.
-
-• Dudaklarınızda uzun süreli ,doğal mat etki sağlar. Kremsi yapısı ile örtücülüğü mükemmeldir.
-
-• Keçi sütü ve E Vitamini dudaklarınız gün boyu nemlendirilecektir.
-
-• Paraben içermez.
-
-• Dermatolojik olarak test edilmiştir.
-
-• Gün boyu güzelliğinizle büyülerken cildiniz beslensin!
-	`
-							}</Text>
+							<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
 						</View>
 
 						<View style={styles.emptyFooter} />
