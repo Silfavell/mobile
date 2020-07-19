@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const InputIcon = ({ children: icon }) => (
 	<View style={styles.container}>
@@ -9,13 +10,13 @@ const InputIcon = ({ children: icon }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		position: 'absolute',
 		height: '100%',
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: 54
+		width: '54@s'
 	}
 })
 

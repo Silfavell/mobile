@@ -1,19 +1,12 @@
 import React from 'react'
 import {
 	TouchableOpacity,
-	View,
 	Text,
-	Image,
-	StyleSheet,
 	ImageBackground
 } from 'react-native'
-import { connect } from 'react-redux'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const Category = ({
-	data: {
-		imagePath,
-		name
-	},
 	index,
 	navigation
 }) => {
@@ -25,18 +18,18 @@ const Category = ({
 	}
 
 	return (
-		<TouchableOpacity onPress={onCategoryClick} activeOpacity={0.9}>
+		<TouchableOpacity activeOpacity={0.9}>
 			<ImageBackground
 				source={{ uri: imageUrl }}
 				resizeMode={'cover'}
 				style={styles.container}>
-				<Text style={styles.name}>{name}</Text>
+				<Text style={styles.name}>{`Kampanya ` + (parseInt(index) + 1)}</Text>
 			</ImageBackground>
 		</TouchableOpacity>
 	)
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		height: 160,
 		marginVertical: 20,

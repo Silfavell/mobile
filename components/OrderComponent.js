@@ -1,5 +1,11 @@
 import React from 'react'
-import { View, TouchableOpacity, Text, StyleSheet, Linking } from 'react-native'
+import {
+	View,
+	TouchableOpacity,
+	Text,
+	Linking
+} from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import CartProduct from './CartProduct'
 import SettingItem from './SettingItem'
@@ -70,7 +76,7 @@ class OrderComponent extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		height: 'auto',

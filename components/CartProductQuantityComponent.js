@@ -1,12 +1,11 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 import {
 	TouchableOpacity,
 	Text,
 	TextInput,
-	View,
-	StyleSheet
+	View
 } from 'react-native'
 
 import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/actions1'
@@ -88,7 +87,7 @@ class CartProductQuantityComponent extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		borderWidth: 1,
@@ -109,23 +108,23 @@ const styles = StyleSheet.create({
 	},
 	quantityContainer: {
 		backgroundColor: 'rgba(0,0,0,.8)',
-		paddingHorizontal: RFValue(4, 600)
+		paddingHorizontal: '4@s'
 	},
 	quantityButton: {
 		color: 'rgba(0,0,0,.8)',
-		fontSize: RFValue(17, 600)
+		fontSize: '17@s'
 	},
 	quantityText: {
 		color: 'white',
 		textAlign: 'center',
-		fontSize: RFValue(17, 600),
+		fontSize: '17@s',
 		padding: 4
 	},
 	decreaseButton: {
-		padding: RFValue(4, 600)
+		padding: '4@s'
 	},
 	increaseButton: {
-		padding: RFValue(4, 600)
+		padding: '4@s'
 	}
 })
 

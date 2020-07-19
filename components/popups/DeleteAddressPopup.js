@@ -1,6 +1,5 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { StyleSheet } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import Modal, {
 	ModalTitle,
 	ModalButton,
@@ -56,9 +55,9 @@ class DeleteAddressPopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	buttonNo: {
 		backgroundColor: '#697488'
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
 		color: 'white'
 	},
 	title: {
-		marginVertical: RFValue(8, 600)
+		marginVertical: '8@s'
 	},
 	titleText: {
 		textAlign: 'center'

@@ -1,14 +1,13 @@
 import React from 'react'
 import {
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Modal, {
 	ModalButton,
 	ModalFooter,
 	ModalContent
 } from 'react-native-modals'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 //  import { expo } from '../../app.json'
 //  expo.version // current version
@@ -64,9 +63,9 @@ class NeedUpdatePopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	content: {
 		backgroundColor: '#fff',
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	text: {
-		fontSize: RFValue(17, 600),
+		fontSize: '17@s',
 		fontWeight: 'bold',
 		marginBottom: -6
 	},

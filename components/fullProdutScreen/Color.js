@@ -1,5 +1,6 @@
 import React from 'react'
-import { TouchableOpacity, View, StyleSheet } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 class Color extends React.PureComponent {
     onPress = () => {
@@ -24,7 +25,7 @@ class Color extends React.PureComponent {
     }
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
         height: 32,
         width: 32,

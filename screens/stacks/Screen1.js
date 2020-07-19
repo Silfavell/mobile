@@ -1,10 +1,5 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import {
-	View,
-	Image,
-	StyleSheet
-} from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	createStackNavigator,
 	CardStyleInterpolators
@@ -15,10 +10,9 @@ import HomeScreen from '../HomeScreen'
 import ProductScreen from '../ProductsScreen'
 import FullProductScreen from '../FullProductScreen'
 import FilterProductsScreen from '../FilterProductsScreen'
+import CategoryList from '../CategoryList'
 
 import { setRootNavigation } from '../../actions/global-actions'
-
-import logo from '../../assets/icon-black.png'
 
 const Stack = createStackNavigator()
 
@@ -32,13 +26,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 				name='home'
 				component={HomeScreen}
 				options={{
-					headerTitleAlign: 'center',
-					headerStyle: styles.headerStyle,
-					headerTitle: () => (
-						<View style={styles.headerTitle}>
-							<Image source={logo} resizeMode='center' style={styles.headerImage} />
-						</View>
-					)
+
 				}}
 			/>
 
@@ -51,6 +39,18 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					headerStyle: styles.headerStyle
 				}}
 				component={ProductScreen}
+			/>
+
+			<Stack.Screen
+				name='categoryList'
+				options={{
+					title: 'Kategoriler',
+					headerTitleAlign: 'center',
+					headerTintColor: 'white',
+					headerStyle: styles.headerStyle,
+					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+				}}
+				component={CategoryList}
 			/>
 
 			<Stack.Screen
@@ -88,23 +88,9 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 	)
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	headerStyle: {
 		backgroundColor: 'rgba(0,0,0,.8)'
-	},
-	headerTitle: {
-		height: '100%',
-		padding: RFValue(8, 600),
-		backgroundColor: 'white',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		flexDirection: 'column',
-		borderBottomWidth: 3,
-		borderBottomColor: 'rgba(0,0,0,.8)'
-	},
-	headerImage: {
-		height: '200%'
 	}
 })
 

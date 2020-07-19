@@ -4,10 +4,9 @@ import {
 	ScrollView,
 	View,
 	Image,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 
 import { saveCard } from '../../actions/actions2'
@@ -256,7 +255,7 @@ class AddNewCardScreen extends React.PureComponent {
 		)
 	}
 }
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexGrow: 1,
 		justifyContent: 'space-between'
@@ -265,28 +264,28 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	imageContainer: {
-		margin: RFValue(10, 600),
-		marginLeft: RFValue(12, 600)
+		margin: '10@s',
+		marginLeft: '12@s'
 	},
 	caseImage: {
-		width: RFValue(95, 600),
-		height: RFValue(105, 600),
+		width: '95@s',
+		height: '105@s',
 		borderRadius: 8
 	},
 	securityText: {
 		color: 'rgba(0,0,0,.8)',
-		fontSize: RFValue(19, 600),
+		fontSize: '19@s',
 		fontWeight: 'bold'
 	},
 	infoContainer: {
 		flex: 1,
 		flexDirection: 'column',
-		margin: RFValue(10, 600),
-		marginRight: RFValue(12, 600)
+		margin: '10@s',
+		marginRight: '12@s'
 	},
 	securityInformation: {
 		color: '#757889',
-		fontSize: RFValue(15, 600),
+		fontSize: '15@s',
 		fontWeight: 'bold'
 	},
 	row: {
@@ -303,11 +302,11 @@ const styles = StyleSheet.create({
 		borderRadius: 10
 	},
 	continueText: {
-		fontSize: RFValue(20, 600),
+		fontSize: '20@s',
 		color: 'white'
 	},
 	empty: {
-		height: RFValue(22, 600)
+		height: '22@s'
 	}
 })
 

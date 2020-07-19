@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { Image, Text, StyleSheet } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import { Image, Text } from 'react-native'
 import Modal, {
 	ModalButton,
 	ModalFooter,
@@ -49,9 +49,9 @@ class ConnectionPopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	buttonOk: {
 		backgroundColor: 'rgba(0,0,0,.8)'
@@ -65,12 +65,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	contentImage: {
-		height: RFValue(72, 600)
+		height: '72@s'
 	},
 	contentText: {
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold',
-		marginTop: RFValue(12, 600),
+		marginTop: '12@s',
 		marginBottom: -6,
 		textAlign: 'center'
 	}

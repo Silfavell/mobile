@@ -40,6 +40,10 @@ class ProfileScreen extends React.PureComponent {
 		this.props.navigation.navigate('Welcome', { screen: 'login' })
 	}
 
+	moveToHelp = () => {
+		this.props.navigation.navigate('helpScreen')
+	}
+
 	render() {
 		return (
 			<ShadowContainer>
@@ -48,7 +52,7 @@ class ProfileScreen extends React.PureComponent {
 						this.props.token
 							? (
 								<>
-									<TouchableOpacity activeOpacity={0.6} onPress={this.moveToEditProfileScreen}>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToEditProfileScreen}>
 										<SettingItem title={this.props.user.nameSurname}>
 											<Ionicons color='rgba(0,0,0,.8)' name='md-person' size={32} />
 										</SettingItem>
@@ -64,25 +68,25 @@ class ProfileScreen extends React.PureComponent {
 										//  </SettingItem>
 									}
 
-									<TouchableOpacity activeOpacity={0.6} onPress={this.moveToAddress}>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToAddress}>
 										<SettingItem title='Adreslerim'>
 											<MaterialIcons color='rgba(0,0,0,.8)' name='place' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
-									<TouchableOpacity activeOpacity={0.6} onPress={this.moveToPaymentOptions}>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToPaymentOptions}>
 										<SettingItem title='Ödeme Seçeneklerim'>
 											<Ionicons color='rgba(0,0,0,.8)' name='ios-card' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
-									<TouchableOpacity activeOpacity={0.6} onPress={this.moveToFavoriteProducts}>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToFavoriteProducts}>
 										<SettingItem title='Favorilerim'>
 											<Ionicons color='rgba(0,0,0,.8)' name='md-heart' size={32} />
 										</SettingItem>
 									</TouchableOpacity>
 
-									<TouchableOpacity activeOpacity={0.6} onPress={this.moveToPreviousOrders}>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToPreviousOrders}>
 										<SettingItem title='Siparişlerim'>
 											<Ionicons color='rgba(0,0,0,.8)' name='ios-copy' size={32} />
 										</SettingItem>
@@ -103,7 +107,7 @@ class ProfileScreen extends React.PureComponent {
 										//  </SettingItem>
 									}
 
-									<TouchableOpacity activeOpacity={0.6} onPress={this.moveToChangePasssword}>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToChangePasssword}>
 										<SettingItem title='Şifremi Değiştir'>
 											<Ionicons color='rgba(0,0,0,.8)' name='ios-key' size={32} style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }} />
 										</SettingItem>
@@ -119,20 +123,34 @@ class ProfileScreen extends React.PureComponent {
 										//  </SettingItem>
 									}
 
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToHelp}>
+										<SettingItem title='Destek'>
+											<Ionicons color='rgba(0,0,0,.8)' name='md-information-circle' size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+
 									<LogoutItem navigation={this.props.navigation} />
 								</>
 							)
 							: (
-								<TouchableOpacity activeOpacity={0.6} onPress={this.moveToLogin}>
-									<SettingItem title='Giriş Yap'>
-										<Ionicons color='rgba(0,0,0,.8)' name='md-person' size={32} />
-									</SettingItem>
-								</TouchableOpacity>
+								<>
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToLogin}>
+										<SettingItem title='Giriş Yap'>
+											<Ionicons color='rgba(0,0,0,.8)' name='md-person' size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+
+									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToHelp}>
+										<SettingItem title='Destek'>
+											<Ionicons color='rgba(0,0,0,.8)' name='md-information-circle' size={32} />
+										</SettingItem>
+									</TouchableOpacity>
+								</>
 							)
 					}
 
 					{
-						//  <TouchableOpacity activeOpacity={0.6} onPress={() => { navigation.navigate('changeLanguageScreen') }}>
+						//  <TouchableOpacity activeOpacity={0.9} onPress={() => { navigation.navigate('changeLanguageScreen') }}>
 						//      <SettingItem title={'English'} />
 						//  </TouchableOpacity>
 					}

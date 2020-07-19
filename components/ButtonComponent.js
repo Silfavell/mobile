@@ -2,10 +2,9 @@ import React from 'react'
 import {
 	View,
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const ButtonComponent = ({
 	text,
@@ -14,37 +13,34 @@ const ButtonComponent = ({
 	needFlex,
 	disabled
 }) => (
-	<View style={[
-		styles.container,
-		needFlex ? styles.needFlex : {},
-		disabled ? styles.disabled : {}
-	]}
-	>
-		<TouchableOpacity
-			disabled={disabled}
-			onPress={onClick}
-			style={[
-				styles.button,
-				opposite ? styles.opposite : {}
-			]}
-		>
+		<View style={[
+			styles.container,
+			needFlex ? styles.needFlex : {},
+			disabled ? styles.disabled : {}
+		]}>
+			<TouchableOpacity
+				disabled={disabled}
+				onPress={onClick}
+				style={[
+					styles.button,
+					opposite ? styles.opposite : {}
+				]}>
 
-			<Text style={[
-				styles.text,
-				opposite ? styles.opposite : {}
-			]}
-			>
-				{text}
-			</Text>
+				<Text style={[
+					styles.text,
+					opposite ? styles.opposite : {}
+				]}>
+					{text}
+				</Text>
 
-		</TouchableOpacity>
-	</View>
-)
+			</TouchableOpacity>
+		</View>
+	)
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
-		height: RFValue(60, 600),
-		margin: RFValue(3, 600)
+		height: '60@s',
+		margin: '3@s'
 	},
 	needFlex: {
 		flex: 1
@@ -54,7 +50,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: 'rgba(0,0,0,.8)',
 		flex: 1,
-		margin: RFValue(4, 600),
+		margin: '4@s',
 		borderRadius: 6,
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -65,7 +61,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		color: 'white',
-		fontSize: RFValue(18, 600)
+		fontSize: '18@s'
 	},
 	disabled: {
 		opacity: 0.65

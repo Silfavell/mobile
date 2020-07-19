@@ -1,11 +1,10 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	ScrollView,
 	View,
 	Image,
-	TextInput,
-	StyleSheet
+	TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -80,7 +79,7 @@ class CompleteAddressScreen extends React.Component {
 
 						<Map region={this.props.route.params.region} />
 
-						<View style={styles.markerContainer} pointerEvents="none">
+						<View style={styles.markerContainer} pointerEvents='none'>
 							<Image style={styles.marker} source={markerIcon} />
 						</View>
 
@@ -98,7 +97,7 @@ class CompleteAddressScreen extends React.Component {
 								<TextInput
 									onChangeText={this.onAddressTitleChange}
 									value={this.state.addressTitle}
-									placeholder="Address title (Home, Work)"
+									placeholder='Address title (Home, Work)'
 									style={styles.input}
 								/>
 							</View>
@@ -112,27 +111,27 @@ class CompleteAddressScreen extends React.Component {
 							<View style={styles.inputContainer}>
 								<TextInput
 									value={this.state.buildingNo}
-									keyboardType="number-pad"
+									keyboardType='number-pad'
 									onChangeText={this.onBuildingNoChange}
-									placeholder="Building No"
+									placeholder='Building No'
 									style={styles.input}
 								/>
 							</View>
 							<View style={styles.inputContainer}>
 								<TextInput
 									value={this.state.floor}
-									keyboardType="number-pad"
+									keyboardType='number-pad'
 									onChangeText={this.onFloorChange}
-									placeholder="Floor"
+									placeholder='Floor'
 									style={styles.input}
 								/>
 							</View>
 							<View style={styles.inputContainer}>
 								<TextInput
 									value={this.state.aptNo}
-									keyboardType="number-pad"
+									keyboardType='number-pad'
 									onChangeText={this.onAptNoChange}
-									placeholder="Apt No"
+									placeholder='Apt No'
 									style={styles.input}
 								/>
 							</View>
@@ -141,7 +140,7 @@ class CompleteAddressScreen extends React.Component {
 							<TextInput
 								onChangeText={this.onDirectionsChange}
 								value={this.state.directions}
-								placeholder="Directions"
+								placeholder='Directions'
 								style={styles.input}
 							/>
 						</View>
@@ -151,7 +150,7 @@ class CompleteAddressScreen extends React.Component {
 					disabled={
 						!(this.state.addressTitle.length > 0) || !(this.props.address.length > 0)
 					}
-					text="Kaydet"
+					text='Kaydet'
 					onClick={this.onSaveClick}
 				/>
 
@@ -160,29 +159,29 @@ class CompleteAddressScreen extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: { flexGrow: 1, justifyContent: 'space-between' },
-	mapContainer: { height: RFValue(136, 600) },
-	body: { marginVertical: RFValue(12, 600) },
+	mapContainer: { height: '136@s' },
+	body: { marginVertical: '12@s' },
 	markerContainer: {
-		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: RFValue(2, 600)
+		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: '2@s'
 	},
-	marker: { width: RFValue(48, 600), borderColor: '#C3C3C3', height: RFValue(48, 600) },
-	inputContainer: { height: RFValue(60, 600), margin: RFValue(2, 600), flex: 1 },
-	input2Container: { flex: 2, margin: RFValue(2, 600) },
+	marker: { width: '48@s', borderColor: '#C3C3C3', height: '48@s' },
+	inputContainer: { height: '60@s', margin: '2@s', flex: 1 },
+	input2Container: { flex: 2, margin: '2@s' },
 	inputContainerChild: {
-		height: 62, margin: RFValue(2, 600), display: 'flex', flexDirection: 'row',
+		height: 62, margin: '2@s', display: 'flex', flexDirection: 'row',
 	},
 	input: {
 		flex: 1,
 		borderWidth: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: RFValue(3, 600),
+		margin: '3@s',
 		borderRadius: 8,
 		borderColor: '#C3C3C3',
-		paddingHorizontal: RFValue(13, 600),
-		fontSize: RFValue(17, 600)
+		paddingHorizontal: '13@s',
+		fontSize: '17@s'
 	}
 })
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
-import { View, TextInput, StyleSheet } from 'react-native'
+import { View, TextInput } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const HeaderAddressInput = ({ address }) => (
@@ -11,29 +11,29 @@ const HeaderAddressInput = ({ address }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		position: 'absolute',
 		top: 0,
-		height: RFValue(56, 600),
+		height: '56@s',
 		left: 0,
 		right: 0,
 		backgroundColor: 'white',
-		zIndex: RFValue(2, 600),
+		zIndex: '2@s',
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
 		borderRadius: 10,
-		margin: RFValue(18, 600),
-		paddingHorizontal: RFValue(12, 600)
+		margin: '18@s',
+		paddingHorizontal: '12@s'
 	},
 	input: {
-		margin: RFValue(8, 600),
-		marginHorizontal: RFValue(4, 600),
+		margin: '8@s',
+		marginHorizontal: '4@s',
 		flex: 1,
-		fontSize: RFValue(19, 600),
-		padding: RFValue(8, 600),
-		paddingHorizontal: RFValue(8, 600),
+		fontSize: '19@s',
+		padding: '8@s',
+		paddingHorizontal: '8@s',
 		color: '#757B8B'
 	}
 })

@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	FlatList,
 	View,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -61,11 +60,11 @@ class CartScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'space-between',
-		paddingBottom: RFValue(65, 600)
+		paddingBottom: '65@s'
 	},
 	emptyContainer: {
 		flex: 1,
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
 	},
 	emptyText: {
 		marginTop: 32,
-		fontSize: RFValue(18, 600),
+		fontSize: '18@s',
 		textAlign: 'center',
 		color: '#454545'
 	},
@@ -92,18 +91,18 @@ const styles = StyleSheet.create({
 		borderRadius: 32,
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: RFValue(18, 600),
-		padding: RFValue(18, 600),
-		paddingHorizontal: RFValue(48, 600)
+		margin: '18@s',
+		padding: '18@s',
+		paddingHorizontal: '48@s'
 	},
 	listProductsText: {
 		color: 'white',
-		fontSize: RFValue(19, 600),
+		fontSize: '19@s',
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
 	footer: {
-		height: RFValue(65, 600),
+		height: '65@s',
 		backgroundColor: 'transparent'
 	}
 })

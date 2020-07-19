@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const CartIcon = ({ name, focused, cart }) => (
 	<View>
@@ -22,11 +22,11 @@ const CartIcon = ({ name, focused, cart }) => (
 	</View>
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	badge: {
 		position: 'absolute', right: -10, top: 0, backgroundColor: '#EE4266', borderRadius: 8, width: 16, height: 16, justifyContent: 'center', alignItems: 'center'
 	},
-	badgeText: { color: 'white', fontSize: RFValue(12, 600) }
+	badgeText: { color: 'white', fontSize: '12@s' }
 })
 
 const mapStateToProps = ({

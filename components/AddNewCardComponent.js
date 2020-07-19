@@ -1,9 +1,11 @@
 import React from 'react'
 import {
-	View, TouchableOpacity, Text, StyleSheet
+	View,
+	TouchableOpacity,
+	Text
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 class AddNewCardComponent extends React.PureComponent {
 	onClick = () => {
@@ -49,7 +51,7 @@ class AddNewCardComponent extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'row',
@@ -62,14 +64,14 @@ const styles = StyleSheet.create({
 		marginHorizontal: 8
 	},
 	cardName: {
-		fontSize: RFValue(16, 600)
+		fontSize: '16@s'
 	},
 	cardNumber: {
-		fontSize: RFValue(15, 600),
+		fontSize: '15@s',
 		color: '#6C7486'
 	},
 	highlightedText: {
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		color: 'rgba(0,0,0,.8)'
 	},
 	iconContainer: {

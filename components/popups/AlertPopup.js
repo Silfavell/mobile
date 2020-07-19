@@ -1,17 +1,13 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
-	Image,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Modal, {
 	ModalButton,
 	ModalFooter,
 	ModalContent
 } from 'react-native-modals'
-
-import verifyImage from '../../assets/verify-image.jpeg'
 
 class PasswordChangedPopup extends React.PureComponent {
 	close = () => {
@@ -37,20 +33,18 @@ class PasswordChangedPopup extends React.PureComponent {
 							key='button-1'
 						/>
 					</ModalFooter>
-				)}
-			>
+				)}>
 				<ModalContent style={styles.content}>
-					<Image style={styles.image} source={verifyImage} />
-					<Text style={styles.text}>Şifre başarılı bir şekilde değiştirildi</Text>
+					<Text style={styles.text}>{this.props.title}</Text>
 				</ModalContent>
 			</Modal>
 		)
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	content: {
 		backgroundColor: '#fff',
@@ -58,12 +52,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	image: {
-		height: RFValue(72, 600)
+		height: '72@s'
 	},
 	text: {
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold',
-		marginTop: RFValue(12, 600),
 		marginBottom: -6
 	},
 	button: {

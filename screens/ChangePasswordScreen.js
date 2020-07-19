@@ -4,11 +4,12 @@ import { ScrollView } from 'react-native'
 import axios from 'axios'
 import joi from 'react-native-joi'
 
-import { SERVER_URL } from '../utils/global'
-import PasswordChangedPopup from '../components/popups/PasswordChangedPopup'
 import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponent'
 import ShadowContainer from '../components/ShadowContainer'
+import AlertPopup from '../components/popups/AlertPopup'
+
+import { SERVER_URL } from '../utils/global'
 
 class ChangePasswordScreen extends React.PureComponent {
 	state = {
@@ -24,10 +25,10 @@ class ChangePasswordScreen extends React.PureComponent {
 		isPasswordInitialized: false
 	}
 
-	setPopupState = (state) => {
-		this.setState({ scaleAnimationModal: state.scaleAnimationModal })
+	setPopupState = ({ scaleAnimationModal }) => {
+		this.setState({ scaleAnimationModal })
 
-		if (!state.scaleAnimationModal) {
+		if (!scaleAnimationModal) {
 			this.props.navigation.pop()
 		}
 	}
@@ -74,7 +75,10 @@ class ChangePasswordScreen extends React.PureComponent {
 			<ShadowContainer>
 				<ScrollView>
 
-					<PasswordChangedPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
+					<AlertPopup
+						title={'Şifreniz güncellendi'}
+						scaleAnimationModal={this.state.scaleAnimationModal}
+						setPopupState={this.setPopupState} />
 
 					<InputComponent
 						options={{
@@ -103,7 +107,7 @@ class ChangePasswordScreen extends React.PureComponent {
 							this.state.invalidPassword || !this.state.isPasswordInitialized
 							|| this.state.invalidOldPassword || !this.state.isOldPasswordInitialized
 						}
-						text="Şifremi değiştir"
+						text='Şifremi Değiştir'
 						onClick={this.onChangePasswordClick}
 					/>
 

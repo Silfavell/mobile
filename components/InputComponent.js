@@ -1,12 +1,9 @@
 import React from 'react'
 import {
 	TouchableOpacity,
-	TextInput,
-	StyleSheet
+	TextInput
 } from 'react-native'
-import {
-	RFValue
-} from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import ModalSelector from 'react-native-modal-selector'
 import TextInputMask from 'react-native-text-input-mask'
 
@@ -42,11 +39,18 @@ class InputComponent extends React.Component {
 			setPickedValue,
 			invalid,
 			disabled,
-			mask
+			mask,
+			multiline
 		} = this.props
 
 		return (
-			<TouchableOpacity activeOpacity={1} style={styles.container} onPress={this.state.selectorRef ? this.onSelectorInputClick : null} >
+			<TouchableOpacity
+				activeOpacity={1}
+				style={[
+					styles.container,
+					multiline ? styles.multiline : {},
+				]}
+				onPress={this.state.selectorRef ? this.onSelectorInputClick : null} >
 				{
 					icon
 				}
@@ -76,9 +80,11 @@ class InputComponent extends React.Component {
 								placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
 								editable={!(disabled || selector)}
 								selectTextOnFocus={!disabled}
+								multiline={multiline}
 								style={[
 									styles.input,
 									invalid ? styles.invalid : {},
+									multiline ? styles.multilineInput : {},
 									icon ? styles.withIcon : {},
 									disabled ? styles.disabled : {},
 								]}
@@ -103,25 +109,31 @@ class InputComponent extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
-		height: RFValue(60, 600),
-		margin: RFValue(3, 600),
+		height: '60@s',
+		margin: '3@s',
 		flexDirection: 'row'
 	},
 	input: {
 		flex: 1,
-		margin: RFValue(4, 600),
+		margin: '4@s',
 		zIndex: -1,
 		borderRadius: 6,
-		paddingHorizontal: RFValue(12, 600),
-		fontSize: RFValue(18, 600),
+		paddingHorizontal: '12@s',
+		fontSize: '18@s',
 		borderWidth: 1,
 		color: 'black',
 		borderColor: '#CCC8E0'
 	},
+	multiline: {
+		height: '180@s'
+	},
+	multilineInput: {
+		textAlignVertical: 'top'
+	},
 	withIcon: {
-		paddingLeft: RFValue(48, 600)
+		paddingLeft: '48@s'
 	},
 	invalid: {
 		borderColor: '#EE4266',

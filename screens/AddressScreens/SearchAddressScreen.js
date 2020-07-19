@@ -5,11 +5,10 @@ import {
 	FlatList,
 	TouchableOpacity,
 	Text,
-	TextInput,
-	StyleSheet
+	TextInput
 } from 'react-native'
 import axios from 'axios'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
@@ -123,7 +122,7 @@ class SearchAddressScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		backgroundColor: '#E5E5E5',
 		flex: 1
@@ -158,7 +157,7 @@ const styles = StyleSheet.create({
 	},
 	searchAddress: {
 		flex: 1,
-		paddingHorizontal: RFValue(16, 600),
+		paddingHorizontal: '16@s',
 		fontSize: 17
 	},
 	useCurrentLocationButton: {
@@ -176,33 +175,33 @@ const styles = StyleSheet.create({
 	},
 	useCurrentLocation: {
 		flex: 1,
-		paddingHorizontal: RFValue(16, 600),
+		paddingHorizontal: '16@s',
 		fontSize: 17
 	},
 	item: {
 		height: 70,
-		paddingVertical: RFValue(16, 600),
+		paddingVertical: '16@s',
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
-		margin: RFValue(6, 600)
+		margin: '6@s'
 	},
 	itemChild: {
 		flex: 1,
 		flexDirection: 'row',
-		marginHorizontal: RFValue(10, 600),
+		marginHorizontal: '10@s',
 		alignItems: 'center'
 	},
 	description: {
 		flex: 1,
-		paddingHorizontal: RFValue(16, 600),
-		fontSize: RFValue(15, 600),
+		paddingHorizontal: '16@s',
+		fontSize: '15@s',
 		color: '#6B788B',
 		fontWeight: '500'
 	},
 	meterText: {
-		paddingHorizontal: RFValue(4, 600),
-		fontSize: RFValue(13, 600),
+		paddingHorizontal: '4@s',
+		fontSize: '13@s',
 		color: '#6B788B',
 		fontWeight: '500'
 	}

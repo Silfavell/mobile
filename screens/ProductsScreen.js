@@ -1,6 +1,10 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { TouchableOpacity, StyleSheet, Text, Platform } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import {
+	TouchableOpacity,
+	Text,
+	Platform
+} from 'react-native'
 import { connect } from 'react-redux'
 import {
 	Container,
@@ -99,9 +103,9 @@ class ProductsScreen extends React.Component {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	tabBarTextStyle: {
-		fontSize: RFValue(15, 600),
+		fontSize: '15@s',
 		fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold',
 		color: 'rgba(0,0,0,.8)'
 	},

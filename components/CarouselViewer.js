@@ -1,6 +1,7 @@
 import React from 'react'
 import ViewPager from '@react-native-community/viewpager'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 class CarouselViewer extends React.Component {
   state = {
@@ -68,7 +69,7 @@ class CarouselViewer extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     height: '100%'
   },

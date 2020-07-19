@@ -1,11 +1,11 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 import {
 	Image,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
+
 import Modal, {
 	ModalButton,
 	ModalFooter,
@@ -60,9 +60,9 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	buttonNo: {
 		backgroundColor: '#697488'
@@ -79,12 +79,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	contentImage: {
-		height: RFValue(92, 600)
+		height: '92@s'
 	},
 	contentText: {
-		fontSize: RFValue(16, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold',
-		marginTop: RFValue(12, 600),
+		marginTop: '12@s',
 		marginBottom: -6,
 		textAlign: 'center'
 	},

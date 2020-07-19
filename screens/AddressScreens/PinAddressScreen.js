@@ -1,9 +1,8 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
-	Image,
-	StyleSheet
+	Image
 } from 'react-native'
 
 import ConfirmAccuratePinPopup from '../../components/popups/ConfirmAccuratePinPopup'
@@ -41,12 +40,12 @@ class PinAddressScreen extends React.PureComponent {
 
 				<Map region={this.props.route.params.region} />
 
-				<View style={styles.markerContainer} pointerEvents="none">
+				<View style={styles.markerContainer} pointerEvents='none'>
 					<Image style={styles.marker} source={markerIcon} />
 				</View>
 
 				<View style={styles.buttonContainer}>
-					<ButtonComponent text="Bu adresi kullan" onClick={this.onUseThisAddressClick} needFlex />
+					<ButtonComponent text='Bu Adresi Kullan' onClick={this.onUseThisAddressClick} needFlex />
 				</View>
 
 			</View>
@@ -54,12 +53,12 @@ class PinAddressScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flex: 1, left: 0, right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'center'
 	},
 	markerContainer: {
-		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: RFValue(2, 600)
+		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: '2@s'
 	},
 	marker: { width: 48, height: 48 },
 	buttonContainer: {
@@ -69,12 +68,12 @@ const styles = StyleSheet.create({
 		left: 0,
 		right: 0,
 		backgroundColor: 'transparent',
-		zIndex: RFValue(2, 600),
+		zIndex: '2@s',
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
-		paddingHorizontal: RFValue(24, 600),
-		paddingVertical: RFValue(24, 600)
+		paddingHorizontal: '24@s',
+		paddingVertical: '24@s'
 	}
 })
 

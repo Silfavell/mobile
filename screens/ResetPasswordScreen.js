@@ -1,20 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import axios from 'axios'
 import {
 	TouchableOpacity,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
 
-import { SERVER_URL } from '../utils/global'
-import PasswordChangedPopup from '../components/popups/PasswordChangedPopup'
 import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponent'
 import ShadowContainer from '../components/ShadowContainer'
+import AlertPopup from '../components/popups/AlertPopup'
+
+import { SERVER_URL } from '../utils/global'
 
 class ResetPasswordScreen extends React.PureComponent {
 	state = {
@@ -34,9 +34,9 @@ class ResetPasswordScreen extends React.PureComponent {
 		isPasswordInitialized: false
 	}
 
-	setPopupState = (state) => {
-		this.setState({ scaleAnimationModal: state.scaleAnimationModal })
-		if (!state.scaleAnimationModal) {
+	setPopupState = ({ scaleAnimationModal }) => {
+		this.setState({ scaleAnimationModal })
+		if (!scaleAnimationModal) {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
 	}
@@ -111,7 +111,10 @@ class ResetPasswordScreen extends React.PureComponent {
 		return (
 			<ShadowContainer>
 
-				<PasswordChangedPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
+				<AlertPopup
+					title={'Şifreniz güncellendi'}
+					scaleAnimationModal={this.state.scaleAnimationModal}
+					setPopupState={this.setPopupState} />
 
 				{
 					//  <TextInput
@@ -161,12 +164,12 @@ class ResetPasswordScreen extends React.PureComponent {
 						|| this.state.invalidActivationCode || !this.state.isActivationCodeInitialized
 						|| this.state.invalidPassword || !this.state.isPasswordInitialized
 					}
-					text="Şifremi sıfırla"
+					text='Şifremi Sıfırla'
 					onClick={this.onResetPasswordClick}
 				/>
 
 				<TouchableOpacity style={styles.resendContainer} onPress={this.onResendClick}>
-					<Ionicons name="md-refresh" size={28} color="#6E7586" />
+					<Ionicons name='md-refresh' size={28} color='#6E7586' />
 					<Text style={styles.resendCodeText}>Yeniden gönder</Text>
 				</TouchableOpacity>
 
@@ -175,7 +178,7 @@ class ResetPasswordScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	resendContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -183,8 +186,8 @@ const styles = StyleSheet.create({
 		padding: 12
 	},
 	resendCodeText: {
-		fontSize: RFValue(19, 600),
-		paddingHorizontal: RFValue(12, 600),
+		fontSize: '19@s',
+		paddingHorizontal: '12@s',
 		color: '#6E7586'
 	}
 })

@@ -1,10 +1,9 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
 	Text,
-	StyleSheet,
 	Dimensions
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -121,7 +120,7 @@ class OnlinePaymentScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'column',
 		top: 0,
@@ -138,14 +137,14 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		shadowColor: '#000',
-		shadowOffset: { width: 0, height: RFValue(4, 600) },
+		shadowOffset: { width: 0, height: '4@s' },
 		shadowOpacity: 0.32,
-		shadowRadius: RFValue(6, 600),
+		shadowRadius: '6@s',
 		elevation: 9
 	},
 	labelInput: {
 		color: '#57A25A',
-		fontSize: RFValue(14, 600)
+		fontSize: '14@s'
 	},
 	inputContainerChild: {
 		flex: 1
@@ -164,20 +163,20 @@ const styles = StyleSheet.create({
 	totalPrice: {
 		color: 'rgba(0,0,0,.8)',
 		fontWeight: 'bold',
-		fontSize: RFValue(22, 600)
+		fontSize: '22@s'
 	},
 	cardInformationContainer: {
 		flex: 0.34,
-		marginVertical: RFValue(24, 600)
+		marginVertical: '24@s'
 	},
 	inputContainer: {
 		flex: 1,
-		marginHorizontal: RFValue(12, 600)
+		marginHorizontal: '12@s'
 	},
 	rowInputContainer: {
 		flex: 1,
 		flexDirection: 'row',
-		marginHorizontal: RFValue(12, 600)
+		marginHorizontal: '12@s'
 	},
 	child: { flex: 1 },
 	completePaymentContainer: {
@@ -185,11 +184,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		flex: 0.6,
 		backgroundColor: '#D3D3D3',
-		margin: RFValue(8, 600),
+		margin: '8@s',
 		borderRadius: 36
 	},
 	completePaymentText: {
-		fontSize: RFValue(20, 600),
+		fontSize: '20@s',
 		fontWeight: 'bold',
 		color: '#8D8D8D'
 	},
@@ -198,7 +197,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	infoIconContainer: {
-		margin: RFValue(8, 600)
+		margin: '8@s'
 	},
 	cvcInfoTextContainer: {
 		flex: 1,
@@ -206,7 +205,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	cvcInfoText: {
-		fontSize: RFValue(13, 600),
+		fontSize: '13@s',
 		color: '#A5A5A5'
 	},
 	informationContainer: {

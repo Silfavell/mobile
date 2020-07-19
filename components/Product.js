@@ -1,14 +1,13 @@
 import React from 'react'
-import { RFValue, RFPercentage } from 'react-native-responsive-fontsize'
 import {
 	TouchableOpacity,
 	View,
 	Text,
-	Image,
-	StyleSheet
+	Image
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 
@@ -34,8 +33,8 @@ class Product extends React.Component {
 
 	shouldComponentUpdate(nextProps) {
 		return (
-			nextProps.user?.favoriteProducts.includes(this.props.data._id) && !this.props.user?.favoriteProducts.includes(this.props.data._id) ||
-			this.props.user?.favoriteProducts.includes(this.props.data._id) && !nextProps.user?.favoriteProducts.includes(this.props.data._id)
+			nextProps.user?.favoriteProducts?.includes(this.props.data._id) && !this.props.user?.favoriteProducts?.includes(this.props.data._id) ||
+			this.props.user?.favoriteProducts?.includes(this.props.data._id) && !nextProps.user?.favoriteProducts?.includes(this.props.data._id)
 		)
 	}
 
@@ -88,29 +87,32 @@ class Product extends React.Component {
 					}
 				</View>
 
-				<Text numberOfLines={3} style={[styles.productName, styles.child]}>{name}</Text>
+				<View style={[styles.child, styles.nameContainer]}>
+					<Text numberOfLines={3} style={styles.productName}>{name}</Text>
+				</View>
 
 			</View>
 		)
 	}
 }
 
-const styles = StyleSheet.create({
+
+const styles = ScaledSheet.create({
 	container: {
 		flexDirection: 'column',
-		padding: RFPercentage(1),
-		marginVertical: RFPercentage(2),
+		padding: '6@s',
+		marginVertical: '12@s',
 		zIndex: -1,
 		backgroundColor: 'transparent',
 		borderWidth: 1,
 		borderColor: '#EFEFEF',
 		borderBottomColor: '#EE4266',
-		marginHorizontal: 6,
+		marginHorizontal: '6@s',
 		height: '95%'
 	},
 	favoriteIcon: {
 		position: 'absolute',
-		top: 10,
+		top: '10@vs',
 		right: 15,
 		zIndex: 1
 	},
@@ -122,7 +124,14 @@ const styles = StyleSheet.create({
 	},
 	priceContainer: {
 		justifyContent: 'flex-start',
+		alignItems: 'center',
 		flexDirection: 'row'
+	},
+	nameContainer: {
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
+		flex: 1
 	},
 	child: {
 		alignItems: 'center',
@@ -137,19 +146,19 @@ const styles = StyleSheet.create({
 		width: '100%',
 		height: null,
 		aspectRatio: 0.6,
-		paddingBottom: RFValue(6, 600)
+		paddingBottom: '6@s'
 	},
 	productName: {
-		fontSize: RFPercentage(2.6),
+		fontSize: '14@s',
 		fontWeight: '600',
-		color: 'rgba(0,0,0,.8)',
+		color: '#454545',
 		textAlign: 'left',
 		justifyContent: 'center'
 	},
 	productPrice: {
-		fontSize: RFPercentage(2.8),
-		fontWeight: '700',
-		color: 'rgba(0,0,0,.8)',
+		fontSize: '16@s',
+		fontWeight: 'bold',
+		color: '#454545',
 		textAlign: 'left',
 		justifyContent: 'center',
 		alignItems: 'flex-start'

@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 class ShadowContainer extends React.PureComponent {
 	render() {
@@ -15,7 +16,7 @@ class ShadowContainer extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	x: {
 		flexGrow: 1,
 		backgroundColor: '#DFDFDF'

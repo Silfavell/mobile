@@ -6,10 +6,9 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	View,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
@@ -38,22 +37,24 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	onHeartClick = (_id) => {
-		this.props.user?.favoriteProducts.includes(_id) ? this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef) : this.addToFavoriteProducts(_id, this.props.messagePopupRef)
+		this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef) : this.addToFavoriteProducts(_id, this.props.messagePopupRef)
 	}
 
 	setHeader = (_id) => {
-		this.props.navigation.setOptions({
-			headerRight: () => (
-				<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
-					<Ionicons
-						size={26}
-						color={'rgba(0,0,0,.8)'}
-						style={{ marginRight: 18 }}
-						name={this.props.user?.favoriteProducts.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
+		if (this.props.token) {
+			this.props.navigation.setOptions({
+				headerRight: () => (
+					<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
+						<Ionicons
+							size={26}
+							color={'rgba(0,0,0,.8)'}
+							style={{ marginRight: 18 }}
+							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
 
-				</TouchableOpacity>
-			)
-		})
+					</TouchableOpacity>
+				)
+			})
+		}
 	}
 
 	UNSAFE_componentWillReceiveProps() {
@@ -73,19 +74,11 @@ class FullProductScreen extends React.PureComponent {
 	}
 
 	addToFavoriteProducts = (_id) => {
-		if (this.props.token) {
-			this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
-		} else {
-			this.props.navigation.navigate('Welcome', { screen: 'login' })
-		}
+		this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
 	}
 
 	removeFromFavoriteProdutcs = (_id) => {
-		if (this.props.token) {
-			this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
-		} else {
-			this.props.navigation.navigate('Welcome', { screen: 'login' })
-		}
+		this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
 	}
 
 	getProductById = (productId) => {
@@ -134,14 +127,11 @@ class FullProductScreen extends React.PureComponent {
 		if (this.state.product) {
 			const {
 				name,
+				details,
 				price,
 				discountedPrice,
 				color
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
-
-			const {
-				group
-			} = this.state.product
 
 			return (
 				<View style={styles.container}>
@@ -156,6 +146,7 @@ class FullProductScreen extends React.PureComponent {
 									imageContainerStyle={{ paddingBottom: 20 }}
 									_id={'Slider:' + (this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}
 									images={this.getImages()}
+									shopSingle
 									paginator
 								/>
 							</View>
@@ -177,46 +168,33 @@ class FullProductScreen extends React.PureComponent {
 						</View>
 
 						{
-							group && (
-								<>
-									<View style={styles.colorContainer}>
-										<View style={styles.textContainer}>
-											<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
-										</View>
-										<View style={styles.colors}>
-											{
-												group.map((groupProduct, index) => (
-													<Color
-														product={groupProduct}
-														selected={this.isColorSelected(index)}
-														index={index}
-														onPress={this.onColorPicked} />
-												))
-											}
-										</View>
+							(this.state.product.group && this.state.product.group.length > 1 && color) && (
+								<View style={styles.colorContainer}>
+									<View style={styles.textContainer}>
+										<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
 									</View>
-								</>
+
+									<View style={styles.colors}>
+
+										{
+											this.state.product.group.map((groupProduct, index) => (
+												<Color
+													product={groupProduct}
+													selected={this.isColorSelected(index)}
+													index={index}
+													onPress={this.onColorPicked} />
+											))
+										}
+
+									</View>
+								</View>
 							)
 						}
-
 
 						<View style={styles.details2}>
 							<Text style={styles.productDetailText}>Ürün Hakkında</Text>
 
-							<Text style={styles.productDetail}>{`
-• Keçi sütlü formülü ve yoğun proteinli yapısı ile dudaklarıınız MATTE LIPS ile daha nemli bir görünüme kavuşacaktır.
-
-• Dudaklarınızda uzun süreli ,doğal mat etki sağlar. Kremsi yapısı ile örtücülüğü mükemmeldir.
-
-• Keçi sütü ve E Vitamini dudaklarınız gün boyu nemlendirilecektir.
-
-• Paraben içermez.
-
-• Dermatolojik olarak test edilmiştir.
-
-• Gün boyu güzelliğinizle büyülerken cildiniz beslensin!
-	`
-							}</Text>
+							<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
 						</View>
 
 						<View style={styles.emptyFooter} />
@@ -233,7 +211,7 @@ class FullProductScreen extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		justifyContent: 'space-between',
 		flex: 1,
@@ -244,19 +222,19 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		flex: 1,
-		height: RFValue(260, 600)
+		height: '260@s'
 	},
 	colors: {
 		flex: 1,
 		flexWrap: 'wrap',
 		flexDirection: 'row',
-		marginTop: 20
+		marginTop: '20@s'
 	},
 	colorContainer: {
 		flex: 1,
 		flexDirection: 'column',
-		paddingVertical: 20,
-		marginHorizontal: 10,
+		paddingVertical: '20@s',
+		marginHorizontal: '10@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#EFEFEF'
 	},
@@ -264,29 +242,29 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		paddingVertical: 20,
-		marginHorizontal: 10,
+		paddingVertical: '20@s',
+		marginHorizontal: '10@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#EFEFEF'
 	},
 	details2: {
 		flex: 1,
 		flexDirection: 'column',
-		marginTop: 20,
-		marginHorizontal: 10
+		marginTop: '20@s',
+		marginHorizontal: '10@s'
 	},
 	productDetailText: {
-		margin: 4,
-		fontSize: RFValue(18, 600),
+		margin: '4@s',
+		fontSize: '18@s',
 		fontWeight: 'bold'
 	},
 	productDetail: {
-		margin: 4,
-		fontSize: RFValue(15, 600)
+		margin: '4@s',
+		fontSize: '15@s'
 	},
 	price: {
-		fontSize: RFPercentage(3.2),
-		marginRight: 8,
+		fontSize: '18@s',
+		marginRight: '8@s',
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
 	},
@@ -296,11 +274,11 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'line-through'
 	},
 	productName: {
-		fontSize: RFValue(18, 600),
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	colorText: {
-		fontSize: RFValue(18, 600),
+		fontSize: '18@s',
 		fontWeight: 'bold'
 	},
 	colorName: {
@@ -317,17 +295,17 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		display: 'flex',
 		textAlign: 'center',
-		margin: 4
+		margin: '4@s'
 	},
 	priceContainer: {
-		margin: 4,
-		paddingHorizontal: 4,
+		margin: '4@s',
+		paddingHorizontal: '4@s',
 		flexDirection: 'row',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	emptyFooter: { height: 100 }
+	emptyFooter: { height: '100@s' }
 })
 
 const mapStateToProps = ({

@@ -1,14 +1,11 @@
 import React from 'react'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
+import { ScaledSheet } from 'react-native-size-matters'
 import Modal, {
 	ModalTitle,
 	ModalButton,
 	ModalFooter
 } from 'react-native-modals'
 
-import { logout } from '../../actions/actions4'
 
 class LogoutPopup extends React.PureComponent {
 	close = () => {
@@ -18,7 +15,7 @@ class LogoutPopup extends React.PureComponent {
 
 	onConfirm = () => {
 		this.props.setPopupState({ scaleAnimationModal: false })
-		this.props.logout()
+		this.props.func()
 	}
 
 	render() {
@@ -33,7 +30,7 @@ class LogoutPopup extends React.PureComponent {
 					<ModalTitle
 						style={styles.title}
 						textStyle={styles.titleText}
-						title='Çıkış yapmak istediğinize emin misiniz ?'
+						title={this.props.title}
 						hasTitleBar={false}
 					/>
 				)}
@@ -60,9 +57,9 @@ class LogoutPopup extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	footer: {
-		height: RFValue(42, 600)
+		height: '42@s'
 	},
 	buttonNo: {
 		backgroundColor: '#697488'
@@ -74,16 +71,13 @@ const styles = StyleSheet.create({
 		color: 'white'
 	},
 	title: {
-		marginVertical: RFValue(6, 600)
+		marginVertical: '6@s'
 	},
 	titleText: {
 		textAlign: 'center',
-		fontSize: RFValue(16, 600)
+		fontSize: '16@s'
 	}
 })
 
-const mapDispatchToProps = {
-	logout
-}
 
-export default connect(null, mapDispatchToProps)(LogoutPopup)
+export default LogoutPopup

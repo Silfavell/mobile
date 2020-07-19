@@ -2,11 +2,10 @@ import React from 'react'
 import {
 	View,
 	Image,
-	Text,
-	StyleSheet
+	Text
 } from 'react-native'
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { SERVER_URL } from '../utils/global'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
@@ -63,12 +62,12 @@ class CartProduct extends React.PureComponent {
 	}
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	container: {
 		display: 'flex',
 		flexDirection: 'row',
-		padding: RFValue(4, 600),
-		paddingVertical: RFValue(12, 600),
+		padding: '4@s',
+		paddingVertical: '12@s',
 		borderBottomWidth: 1,
 		borderBottomColor: '#EFEFEF',
 		backgroundColor: 'white'
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		width: '100%',
-		paddingHorizontal: RFValue(8, 600),
+		paddingHorizontal: '8@s',
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
@@ -105,14 +104,14 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	productName: {
-		fontSize: RFPercentage(2.6),
+		fontSize: '15@s',
 		fontWeight: '700',
 		color: '#454545',
 		textAlign: 'center',
 		justifyContent: 'center'
 	},
 	productPrice: {
-		fontSize: RFPercentage(3.1),
+		fontSize: '18@s',
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)',
 		textAlign: 'center',
@@ -126,7 +125,7 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'line-through'
 	},
 	imageContainer: {
-		padding: RFValue(4, 600),
+		padding: '4@s',
 		backgroundColor: 'white'
 	},
 	productImage: {
