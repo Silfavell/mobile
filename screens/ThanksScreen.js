@@ -29,7 +29,7 @@ const ThanksScreen = ({ navigation }) => (
 				}}
 				style={styles.goToHomeButton}
 			>
-				<Text style={styles.goToHomeButtonText}>ANASAYFAYA GİT</Text>
+				<Text style={styles.goToHomeButtonText}>Ana Sayfaya Git</Text>
 			</TouchableOpacity>
 		</View>
 		<View style={styles.child} />
