@@ -12,8 +12,9 @@ const ThanksScreen = ({ navigation }) => (
 		<View style={styles.child} />
 		<View style={styles.child} />
 		<View style={styles.child} />
+		<View style={styles.child} />
 		<View style={styles.child}>
-			<Ionicons name="md-basket" size={96} color="#BDBDBD" />
+			<Ionicons name='md-checkmark-circle-outline' size={96} color='#4CAB51' />
 		</View>
 		<View style={styles.child} />
 		<View style={styles.child}>
@@ -31,6 +32,7 @@ const ThanksScreen = ({ navigation }) => (
 				<Text style={styles.goToHomeButtonText}>ANASAYFAYA GİT</Text>
 			</TouchableOpacity>
 		</View>
+		<View style={styles.child} />
 		<View style={styles.child} />
 		<View style={styles.child} />
 		<View style={styles.child} />
