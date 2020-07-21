@@ -263,7 +263,7 @@ const styles = ScaledSheet.create({
 		fontSize: '15@s'
 	},
 	price: {
-		fontSize: '18@s',
+		fontSize: '17@s',
 		marginRight: '8@s',
 		fontWeight: '700',
 		color: 'rgba(0,0,0,.8)'
@@ -278,7 +278,7 @@ const styles = ScaledSheet.create({
 		fontWeight: 'bold'
 	},
 	colorText: {
-		fontSize: '18@s',
+		fontSize: '16@s',
 		fontWeight: 'bold'
 	},
 	colorName: {

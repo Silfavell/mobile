@@ -6,7 +6,9 @@ import CarouselViewer from './CarouselViewer'
 class Slider extends React.PureComponent {
 	render() {
 		return (
-			<CarouselViewer key={this.props._id} {...this.props}>
+			<CarouselViewer
+				key={this.props._id}
+				{...this.props}>
 				{
 					this.props.images.map((image) => (
 						<View

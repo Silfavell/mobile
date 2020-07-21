@@ -51,7 +51,7 @@ class CarouselViewer extends React.Component {
         />
 
         {
-          this.props.paginator && (
+          (this.props.paginator && this.props.images.length > 1) && (
             <View style={styles.paginator}>
               <View style={styles.dotContainer}>
                 {
