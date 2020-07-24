@@ -81,8 +81,8 @@ class FullProductScreen extends React.PureComponent {
 		this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
 	}
 
-	getProductById = (productId) => {
-		axios.get(`${SERVER_URL}/product/${productId}`).then(({
+	getProductById = (productSlug) => {
+		axios.get(`${SERVER_URL}/product/${productSlug}`).then(({
 			data,
 			status
 		}) => {
