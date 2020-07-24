@@ -18,6 +18,7 @@ import ShadowContainer from '../components/ShadowContainer'
 import { SERVER_URL } from '../utils/global'
 
 import logo from '../assets/icon-black.png'
+import ScrollableCategoryList from '../components/ScrollableCategoryList'
 
 const banners = [
 	`${SERVER_URL}/assets/banners/1.jpg`,
@@ -78,11 +79,14 @@ class HomeScreen extends React.Component {
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
 				ListHeaderComponent={
-					<View style={{ height: s(190) }}>
-						<ShadowContainer>
-							<Slider images={banners} loop paginator />
-						</ShadowContainer>
-					</View>
+					<>
+						<View style={{ height: s(190) }}>
+							<ShadowContainer>
+								<Slider images={banners} loop paginator />
+							</ShadowContainer>
+						</View>
+						<ScrollableCategoryList navigation={this.props.navigation} />
+					</>
 				}
 				ListFooterComponent={
 					<View style={{ height: s(40) }} />

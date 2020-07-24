@@ -14,8 +14,12 @@ import ShadowContainer from './ShadowContainer'
 
 class ScrollableCategoryList extends React.Component {
 
-    renderCategoryElement = (icon, title) => (
-        <TouchableOpacity activeOpacity={0.9} style={styles.categoryElement}>
+    onPress = (index) => {
+        this.props.navigation.navigate('products', { selectedCategory: index })
+    }
+
+    renderCategoryElement = (icon, title, index) => (
+        <TouchableOpacity onPress={() => this.onPress(index)} activeOpacity={0.9} style={styles.categoryElement}>
             <View style={styles.iconContainer}>
                 <Ionicons name={icon} size={32} />
             </View>
@@ -28,8 +32,8 @@ class ScrollableCategoryList extends React.Component {
             <ShadowContainer>
                 <ScrollView style={styles.container} horizontal={true}>
                     {
-                        this.props.categories.map((category) => (
-                            this.renderCategoryElement('md-menu', category.name)
+                        this.props.categories.map((category, index) => (
+                            this.renderCategoryElement('md-menu', category.name, index)
                         ))
                     }
                 </ScrollView>
