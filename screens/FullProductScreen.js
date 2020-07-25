@@ -28,7 +28,6 @@ class FullProductScreen extends React.PureComponent {
 	constructor(props) {
 		super(props)
 		this.getProductById(this.props.route.params)
-		this.setHeader(this.props.route.params)
 	}
 
 	state = {
@@ -92,6 +91,7 @@ class FullProductScreen extends React.PureComponent {
 					pickedColor: -1
 				}, () => {
 					this.scrollRef.current.scrollTo({ y: 0, animated: true })
+					this.setHeader(data._id)
 				})
 			}
 		})
