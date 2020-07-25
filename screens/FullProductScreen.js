@@ -144,8 +144,18 @@ class FullProductScreen extends React.PureComponent {
 				details,
 				price,
 				discountedPrice,
-				color
+				color,
+				specifications
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
+
+			const {
+				feature,
+				benefit,
+				colorDetail,
+				brushThickness,
+				form,
+				kind
+			} = specifications || {}
 
 			return (
 				<View style={styles.container}>
@@ -213,19 +223,22 @@ class FullProductScreen extends React.PureComponent {
 
 						<View style={styles.extraDetailsContainer}>
 							{
-								this.renderExtraDetailsRow({ title: 'Ürün Kodu', value: '10060122', first: true })
+								feature && this.renderExtraDetailsRow({ title: 'Özellik', value: feature, first: true })
 							}
 							{
-								this.renderExtraDetailsRow({ title: 'Renk Tonu', value: 'Yeşil' })
+								benefit && this.renderExtraDetailsRow({ title: 'Fayda/İhtiyaç', value: benefit })
 							}
 							{
-								this.renderExtraDetailsRow({ title: 'Form', value: 'Standart' })
+								colorDetail && this.renderExtraDetailsRow({ title: 'Bitiş', value: colorDetail })
 							}
 							{
-								this.renderExtraDetailsRow({ title: 'Bitiş', value: 'Mat' })
+								brushThickness && this.renderExtraDetailsRow({ title: 'Fırça Kalınlığı', value: brushThickness })
 							}
 							{
-								this.renderExtraDetailsRow({ title: 'Çeşit', value: 'Tekli' })
+								form && this.renderExtraDetailsRow({ title: 'Form', value: form })
+							}
+							{
+								kind && this.renderExtraDetailsRow({ title: 'Çeşit', value: kind })
 							}
 						</View>
 						<View style={styles.emptyFooter} />
