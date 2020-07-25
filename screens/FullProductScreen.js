@@ -123,6 +123,20 @@ class FullProductScreen extends React.PureComponent {
 		return index === this.state.pickedColor
 	}
 
+	renderExtraDetailsRow = ({ title, value, first }) => (
+		<View style={[
+			styles.detailRow,
+			!first ? styles.nonFirstDetailsRow : {}
+		]}>
+			<View style={styles.detailRowTitleContainer}>
+				<Text style={styles.detailRowTitle}>{title}</Text>
+			</View>
+			<View style={styles.detailRowValueContainer}>
+				<Text style={styles.detailRowValue}>{value}</Text>
+			</View>
+		</View>
+	)
+
 	render() {
 		if (this.state.product) {
 			const {
@@ -197,13 +211,30 @@ class FullProductScreen extends React.PureComponent {
 							<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
 						</View>
 
+						<View style={styles.extraDetailsContainer}>
+							{
+								this.renderExtraDetailsRow({ title: 'Ürün Kodu', value: '10060122', first: true })
+							}
+							{
+								this.renderExtraDetailsRow({ title: 'Renk Tonu', value: 'Yeşil' })
+							}
+							{
+								this.renderExtraDetailsRow({ title: 'Form', value: 'Standart' })
+							}
+							{
+								this.renderExtraDetailsRow({ title: 'Bitiş', value: 'Mat' })
+							}
+							{
+								this.renderExtraDetailsRow({ title: 'Çeşit', value: 'Tekli' })
+							}
+						</View>
 						<View style={styles.emptyFooter} />
 					</ScrollView>
 
 					<View style={styles.buttonContainer}>
 						<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
 					</View>
-				</View >
+				</View>
 			)
 		} else {
 			return <Loading />
@@ -253,6 +284,43 @@ const styles = ScaledSheet.create({
 		marginTop: '20@s',
 		marginHorizontal: '10@s'
 	},
+	extraDetailsContainer: {
+		flex: 1,
+		flexDirection: 'column',
+		marginTop: '20@s',
+		marginHorizontal: '10@s',
+		borderWidth: 1,
+		borderColor: '#EFEFEF'
+	},
+	detailRow: {
+		display: 'flex',
+		flexDirection: 'row'
+	},
+	nonFirstDetailsRow: {
+		borderTopWidth: 1,
+		borderTopColor: '#EFEFEF'
+	},
+	detailRowTitleContainer: {
+		flex: 4,
+		display: 'flex',
+		justifyContent: 'center',
+		backgroundColor: '#F7F7F7'
+	},
+	detailRowTitle: {
+		padding: '12@s',
+		fontSize: '15@s'
+	},
+	detailRowValueContainer: {
+		flex: 8,
+		display: 'flex',
+		justifyContent: 'center',
+		borderLeftWidth: 1,
+		borderLeftColor: '#EFEFEF'
+	},
+	detailRowValue: {
+		padding: '12@s',
+		fontSize: '15@s'
+	},
 	productDetailText: {
 		margin: '4@s',
 		fontSize: '18@s',
@@ -299,8 +367,8 @@ const styles = ScaledSheet.create({
 	},
 	priceContainer: {
 		margin: '4@s',
-		paddingHorizontal: '4@s',
-		flexDirection: 'row',
+		paddingHorizontal: '8@s',
+		flexDirection: 'column',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center'
