@@ -46,14 +46,18 @@ class CompletePaymentComponent extends React.PureComponent {
 
 	render() {
 		const products = Object.values(this.props.cart)
-		const totalPrice = products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity, 0).toFixed(2).replace('.', ',')
+		let totalPrice = products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity, 0)
+
+		if (totalPrice < 85 && this.props.completable) {
+			totalPrice += 15
+		}
 
 		return (
 			<View style={styles.completePaymentContainer}>
 
 				<View style={styles.totalPriceContainer}>
 					<Text style={styles.totalPriceText}>
-						{`Toplam: ${totalPrice} TL`}
+						{`Toplam: ${totalPrice.toFixed(2).replace('.', ',')} TL`}
 					</Text>
 				</View>
 

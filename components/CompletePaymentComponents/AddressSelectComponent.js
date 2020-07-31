@@ -5,6 +5,7 @@ import {
 	TouchableOpacity,
 	Text
 } from 'react-native'
+
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import ShadowContainer from '../ShadowContainer'

@@ -6,6 +6,7 @@ import CompletePayment from '../components/CompletePayment'
 
 import AddressSelectComponent from '../components/CompletePaymentComponents/AddressSelectComponent'
 import PaymentTypeSelectComponent from '../components/CompletePaymentComponents/PaymentTypeSelectComponent'
+import CargoPriceComponent from '../components/CompletePaymentComponents/CargoPriceComponent'
 import ShadowContainer from '../components/ShadowContainer'
 
 import { setNeedToLoginPopupState } from '../actions/global-actions'
@@ -46,7 +47,11 @@ class CompletePaymentScreen extends React.PureComponent {
 						subTitle={(cards.find((card) => card.cardToken === selectedCard))?.cardNumber ?? 'Kart Seçiniz'}
 					/>
 
+					<HeadingDivider title='Kargo Ücreti' />
+
+					<CargoPriceComponent />
 				</ShadowContainer>
+
 
 				<CompletePayment
 					completable

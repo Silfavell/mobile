@@ -148,15 +148,6 @@ class FullProductScreen extends React.PureComponent {
 				specifications
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-			const {
-				feature,
-				benefit,
-				colorDetail,
-				brushThickness,
-				form,
-				kind
-			} = specifications || {}
-
 			return (
 				<View style={styles.container}>
 
@@ -223,22 +214,9 @@ class FullProductScreen extends React.PureComponent {
 
 						<View style={styles.extraDetailsContainer}>
 							{
-								feature && this.renderExtraDetailsRow({ title: 'Özellik', value: feature, first: true })
-							}
-							{
-								benefit && this.renderExtraDetailsRow({ title: 'Fayda/İhtiyaç', value: benefit })
-							}
-							{
-								colorDetail && this.renderExtraDetailsRow({ title: 'Bitiş', value: colorDetail })
-							}
-							{
-								brushThickness && this.renderExtraDetailsRow({ title: 'Fırça Kalınlığı', value: brushThickness })
-							}
-							{
-								form && this.renderExtraDetailsRow({ title: 'Form', value: form })
-							}
-							{
-								kind && this.renderExtraDetailsRow({ title: 'Çeşit', value: kind })
+								specifications.map((specification, index) => (
+									this.renderExtraDetailsRow({ title: specification.name, value: specification.value, first: index === 0 })
+								))
 							}
 						</View>
 						<View style={styles.emptyFooter} />

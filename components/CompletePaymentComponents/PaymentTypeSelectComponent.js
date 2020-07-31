@@ -5,8 +5,10 @@ import {
 	TouchableOpacity,
 	Text
 } from 'react-native'
+
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import ShadowContainer from '../ShadowContainer'
 
 const PaymentTypeSelectComponent = ({
 	navigation,
@@ -14,29 +16,31 @@ const PaymentTypeSelectComponent = ({
 	token,
 	setNeedToLoginPopupState
 }) => (
-	<TouchableOpacity
-		style={styles.container}
-		onPress={() => {
-			if (!token) {
-				setNeedToLoginPopupState(true)
-			} else {
-				navigation.navigate('paymentOptionsScreen')
-			}
-		}}
-	>
-		<View style={styles.iconContainer}>
-			<Ionicons size={32} name='ios-wallet' />
-		</View>
-		<View style={styles.paymentInfoContainer}>
-			<View style={styles.paymentInfoTextContainer}>
-				<Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
-			</View>
-		</View>
-		<View style={styles.iconContainer}>
-			<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
-		</View>
-	</TouchableOpacity>
-)
+		<ShadowContainer>
+			<TouchableOpacity
+				style={styles.container}
+				onPress={() => {
+					if (!token) {
+						setNeedToLoginPopupState(true)
+					} else {
+						navigation.navigate('paymentOptionsScreen')
+					}
+				}}
+			>
+				<View style={styles.iconContainer}>
+					<Ionicons size={32} name='ios-wallet' />
+				</View>
+				<View style={styles.paymentInfoContainer}>
+					<View style={styles.paymentInfoTextContainer}>
+						<Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
+					</View>
+				</View>
+				<View style={styles.iconContainer}>
+					<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
+				</View>
+			</TouchableOpacity>
+		</ShadowContainer>
+	)
 
 const styles = ScaledSheet.create({
 	container: {
