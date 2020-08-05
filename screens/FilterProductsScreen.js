@@ -85,16 +85,46 @@ class FilterProductsScreen extends React.Component {
         this.sorts = [
             {
                 index: 0,
+                key: 'classic',
+                sortType: 0,
+                label: 'Akıllı Sıralama'
+            },
+            {
+                index: 1,
+                key: 'bestSeller',
+                sortType: 1,
+                label: 'Çok Satanlar'
+            },
+            {
+                index: 2,
+                key: 'newest',
+                sortType: 2,
+                label: 'En Yeniler'
+            },
+            {
+                index: 3,
                 key: 'lowToHigh',
                 sortType: 3,
                 label: 'En Düşük Fiyat'
             },
             {
-                index: 1,
+                index: 4,
                 key: 'highToLow',
                 sortType: 4,
                 label: 'En Yüksek Fiyat'
-            }
+            },
+            //  {
+            //      index: 5,
+            //      key: 'highestRank',
+            //      sortType: 5,
+            //      label: 'En Yüksek Puan'
+            //  },
+            //  {
+            //      index: 6,
+            //      key: 'highestComment',
+            //      sortType: 6,
+            //      label: 'En Çok Yorumlanan'
+            //  }
         ]
     }
 
