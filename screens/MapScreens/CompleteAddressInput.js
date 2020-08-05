@@ -10,7 +10,7 @@ const CompleteAddressInput = ({ address, setAddress }) => (
 	<TextInput
 		value={address}
 		onChangeText={setAddress}
-		placeholder="Address"
+		placeholder='Address'
 		style={styles.input}
 	/>
 )

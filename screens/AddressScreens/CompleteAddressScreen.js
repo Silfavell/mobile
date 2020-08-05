@@ -3,7 +3,6 @@ import { ScaledSheet } from 'react-native-size-matters'
 import {
 	ScrollView,
 	View,
-	Image,
 	TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -19,21 +18,13 @@ import ButtonComponent from '../../components/ButtonComponent'
 class CompleteAddressScreen extends React.Component {
 	state = {
 		scaleAnimationModal: false,
-		addressTitle: 'Home',
-		buildingNo: '',
-		floor: '',
-		aptNo: '',
-		directions: ''
+		addressTitle: 'Home'
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
 			nextState.scaleAnimationModal !== this.state.scaleAnimationModal
 			|| nextState.addressTitle !== this.state.addressTitle
-			|| nextState.buildingNo !== this.state.buildingNo
-			|| nextState.floor !== this.state.floor
-			|| nextState.aptNo !== this.state.aptNo
-			|| nextState.directions !== this.state.directions
 		)
 	}
 
@@ -47,22 +38,6 @@ class CompleteAddressScreen extends React.Component {
 
 	onAddressTitleChange = (addressTitle) => {
 		this.setState({ addressTitle })
-	}
-
-	onBuildingNoChange = (buildingNo) => {
-		this.setState({ buildingNo })
-	}
-
-	onFloorChange = (floor) => {
-		this.setState({ floor })
-	}
-
-	onAptNoChange = (aptNo) => {
-		this.setState({ aptNo })
-	}
-
-	onDirectionsChange = (directions) => {
-		this.setState({ directions })
 	}
 
 	onSaveClick = () => {
@@ -106,43 +81,7 @@ class CompleteAddressScreen extends React.Component {
 								<CompleteAddressInput />
 							</View>
 						</View>
-						<View style={styles.inputContainerChild}>
-							<View style={styles.inputContainer}>
-								<TextInput
-									value={this.state.buildingNo}
-									keyboardType='number-pad'
-									onChangeText={this.onBuildingNoChange}
-									placeholder='Building No'
-									style={styles.input}
-								/>
-							</View>
-							<View style={styles.inputContainer}>
-								<TextInput
-									value={this.state.floor}
-									keyboardType='number-pad'
-									onChangeText={this.onFloorChange}
-									placeholder='Floor'
-									style={styles.input}
-								/>
-							</View>
-							<View style={styles.inputContainer}>
-								<TextInput
-									value={this.state.aptNo}
-									keyboardType='number-pad'
-									onChangeText={this.onAptNoChange}
-									placeholder='Apt No'
-									style={styles.input}
-								/>
-							</View>
-						</View>
-						<View style={styles.inputContainer}>
-							<TextInput
-								onChangeText={this.onDirectionsChange}
-								value={this.state.directions}
-								placeholder='Directions'
-								style={styles.input}
-							/>
-						</View>
+						
 					</View>
 				</View>
 				<ButtonComponent
@@ -165,9 +104,7 @@ const styles = ScaledSheet.create({
 	markerContainer: {
 		flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', zIndex: '2@s'
 	},
-	marker: { width: '48@s', borderColor: '#C3C3C3', height: '48@s' },
 	inputContainer: { height: '60@s', margin: '2@s', flex: 1 },
-	input2Container: { flex: 2, margin: '2@s' },
 	inputContainerChild: {
 		height: 62, margin: '2@s', display: 'flex', flexDirection: 'row',
 	},
