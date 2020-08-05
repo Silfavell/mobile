@@ -8,10 +8,9 @@ import Modal, {
 	ModalContent
 } from 'react-native-modals'
 import RNExitApp from 'react-native-exit-app'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import { setConnectionPopupState } from '../../actions/global-actions'
-
-import connectionImage from '../../assets/connection.png'
 
 class ConnectionPopup extends React.PureComponent {
 	close = () => {
@@ -41,8 +40,8 @@ class ConnectionPopup extends React.PureComponent {
 				)}
 			>
 				<ModalContent style={styles.content}>
-					<Image style={styles.contentImage} resizeMode='contain' source={connectionImage} />
-					<Text style={styles.contentText}>Lütfen internet bağlantını kontrol et</Text>
+					<MaterialIcons color='rgba(0,0,0,.8)' size={72} name={'wifi'} />
+					<Text style={styles.contentText}>Lütfen internet bağlantınızı kontrol edin</Text>
 				</ModalContent>
 			</Modal>
 		)

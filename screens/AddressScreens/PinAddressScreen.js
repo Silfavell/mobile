@@ -1,17 +1,12 @@
 import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters'
-import {
-	View,
-	Image
-} from 'react-native'
+import { View } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import ConfirmAccuratePinPopup from '../../components/popups/ConfirmAccuratePinPopup'
-
 import HeaderAddressInput from '../MapScreens/HeaderAddressInput'
 import Map from '../MapScreens/Map'
 import ButtonComponent from '../../components/ButtonComponent'
-
-import markerIcon from '../../assets/map-marker.png'
 
 class PinAddressScreen extends React.PureComponent {
 	state = {
@@ -41,7 +36,7 @@ class PinAddressScreen extends React.PureComponent {
 				<Map region={this.props.route.params.region} />
 
 				<View style={styles.markerContainer} pointerEvents='none'>
-					<Image style={styles.marker} source={markerIcon} />
+					<Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
 				</View>
 
 				<View style={styles.buttonContainer}>

@@ -1,18 +1,14 @@
 import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
-import {
-	Image,
-	Text
-} from 'react-native'
+import { Text } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import Modal, {
 	ModalButton,
 	ModalFooter,
 	ModalContent
 } from 'react-native-modals'
-
-import pinIcon from '../../assets/pin.png'
 
 class ConfirmAccuratePinPopup extends React.PureComponent {
 	close = () => {
@@ -52,7 +48,7 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
 				)}
 			>
 				<ModalContent style={styles.content}>
-					<Image style={styles.contentImage} resizeMode='contain' source={pinIcon} />
+					<Ionicons color='rgba(0,0,0,.8)' size={92} name='md-map' />
 					<Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz ?</Text>
 				</ModalContent>
 			</Modal>

@@ -8,13 +8,12 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { saveCard } from '../../actions/actions2'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
-
-import caseImage from '../../assets/case.png'
 
 class AddNewCardScreen extends React.PureComponent {
 	state = {
@@ -99,7 +98,7 @@ class AddNewCardScreen extends React.PureComponent {
 					<View style={styles.header}>
 
 						<View style={styles.imageContainer}>
-							<Image style={styles.caseImage} source={caseImage} />
+							<Ionicons color='rgba(0,0,0,.8)' name='ios-card' size={95} />
 						</View>
 
 						<View style={styles.infoContainer}>
@@ -113,7 +112,7 @@ class AddNewCardScreen extends React.PureComponent {
 									{
 										// TODO
 									}
-									Kredi kartı bilgileriniz App tarafından tutulmamaktadır ödeme altyapısı Iyzico tarafından sağlanmaktadır.
+									Kredi kartı bilgileriniz Silfavell tarafından tutulmamaktadır ödeme altyapısı Iyzico tarafından sağlanmaktadır.
 								</Text>
 							</View>
 
@@ -265,7 +264,11 @@ const styles = ScaledSheet.create({
 	},
 	imageContainer: {
 		margin: '10@s',
-		marginLeft: '12@s'
+		paddingHorizontal: '5@s',
+		marginLeft: '12@s',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
 	caseImage: {
 		width: '95@s',

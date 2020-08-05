@@ -7,6 +7,7 @@ import {
 	TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { saveAddress } from '../../actions/actions2'
 
@@ -14,8 +15,6 @@ import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
 import Map from '../MapScreens/Map'
 import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
 import ButtonComponent from '../../components/ButtonComponent'
-
-import markerIcon from '../../assets/map-marker.png'
 
 class CompleteAddressScreen extends React.Component {
 	state = {
@@ -80,7 +79,7 @@ class CompleteAddressScreen extends React.Component {
 						<Map region={this.props.route.params.region} />
 
 						<View style={styles.markerContainer} pointerEvents='none'>
-							<Image style={styles.marker} source={markerIcon} />
+							<Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
 						</View>
 
 					</View>
