@@ -6,12 +6,12 @@ import {
 	Text
 } from 'react-native'
 
-import loadingGif from '../assets/icon-black.png'
+import logo from '../assets/logo.png'
 
 const LoadingComponent = () => (
 	<View style={styles.container}>
 		<View style={styles.center}>
-			<Image style={styles.image} source={loadingGif} />
+			<Image style={styles.image} source={logo} resizeMode={'contain'} />
 			<Text style={styles.text}>Lütfen Bekleyin</Text>
 		</View>
 	</View>

@@ -21,7 +21,7 @@ class ScrollableCategoryList extends React.Component {
     renderCategoryElement = (title, index, imagePath) => (
         <TouchableOpacity onPress={() => this.onPress(index)} activeOpacity={0.9} style={styles.categoryElement}>
             <View style={styles.iconContainer}>
-                <Image style={{ width: 32, height: 32 }} source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
+                <Image style={{ width: 40, height: 40 }} source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
             </View>
             <Text numberOfLines={1}>{title}</Text>
         </TouchableOpacity>
@@ -29,7 +29,7 @@ class ScrollableCategoryList extends React.Component {
 
     render() {
         return (
-            <ScrollView style={styles.container} horizontal={true}>
+            <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
                 {
                     this.props.categories.map((category, index) => (
                         this.renderCategoryElement(category.name, index, category.imagePath)
@@ -57,14 +57,14 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     iconContainer: {
-        width: 56,
-        height: 56,
-        borderRadius: 28,
+        width: 64,
+        height: 64,
+        borderRadius: 32,
         backgroundColor: '#EFEFEF',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: .5,
+        borderWidth: 1,
         borderColor: '#EE4266',
         marginBottom: 8
     }

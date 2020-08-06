@@ -25,9 +25,6 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 			<Stack.Screen
 				name='home'
 				component={HomeScreen}
-				options={{
-
-				}}
 			/>
 
 			<Stack.Screen

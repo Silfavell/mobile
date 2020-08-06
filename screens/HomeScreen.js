@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import {
 	View,
+	ScrollView,
 	Text,
 	TouchableOpacity,
 	Image,
@@ -17,7 +18,7 @@ import ShadowContainer from '../components/ShadowContainer'
 
 import { SERVER_URL } from '../utils/global'
 
-import logo from '../assets/icon-black.png'
+import logo from '../assets/logo.png'
 import ScrollableCategoryList from '../components/ScrollableCategoryList'
 import BestSeller from '../components/HomeScreen/BestSeller'
 
@@ -38,7 +39,7 @@ class HomeScreen extends React.Component {
 			headerStyle: styles.headerStyle,
 			headerTitle: () => (
 				<View style={styles.headerTitle}>
-					<Image source={logo} resizeMode='center' style={styles.headerImage} />
+					<Image source={logo} resizeMode='contain' style={styles.headerImage} />
 				</View>
 			),
 			headerLeft: () => (
@@ -75,10 +76,15 @@ class HomeScreen extends React.Component {
 
 	render() {
 		return (
-			<View style={{ flex: 1 }}>
-				<View style={{ height: s(112) }}>
+			<ScrollView style={{ flex: 1 }} stickyHeaderIndices={[3]}>
+				<View style={{ height: s(190) }}>
 					<ShadowContainer>
-						<ScrollableCategoryList navigation={this.props.navigation} />
+						<Slider images={banners} loop paginator />
+					</ShadowContainer>
+				</View>
+				<View style={{ height: s(120) }}>
+					<ShadowContainer>
+						<ScrollableCategoryList images={banners} loop paginator />
 					</ShadowContainer>
 				</View>
 				<View style={styles.divider}>
@@ -89,7 +95,7 @@ class HomeScreen extends React.Component {
 					</ShadowContainer>
 				</View>
 				<BestSeller navigation={this.props.navigation} />
-			</View>
+			</ScrollView>
 		)
 	}
 }
@@ -110,7 +116,7 @@ const styles = ScaledSheet.create({
 		zIndex: 1
 	},
 	headerImage: {
-		height: '200%',
+		height: '140%',
 		zIndex: -1
 	},
 	divider: {
