@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import CheckBox from 'react-native-check-box'
 import { ScaledSheet, s } from 'react-native-size-matters'
 
 import { makeFilter, clearFilter } from '../actions/filter-products-actions'
@@ -13,48 +11,9 @@ import ShadowContainer from '../components/ShadowContainer'
 import SettingItem from '../components/SettingItem'
 import ButtonComponent from '../components/ButtonComponent'
 import ClearFilterPopup from '../components/popups/ClearFilterPopup'
-import HeadingDivider from '../components/HeadingDivider'
 
-class RightComponent extends React.Component {
-    state = {
-        checked: this.props.checked
-    }
-
-    onClick = () => {
-        this.setState({ checked: !this.state.checked }, () => {
-            if (this.state.checked) {
-                this.props.addBrand(this.props.brand.name)
-            } else {
-                this.props.removeBrand(this.props.brand.name)
-            }
-        })
-    }
-
-    x = () => { }
-
-    render() {
-        return (
-            <TouchableOpacity
-                activeOpacity={0.4}
-                onPress={this.onClick}>
-
-                <SettingItem
-                    title={this.props.brand.name}
-                    rightComponent={
-                        <CheckBox
-                            style={{ height: 24 }}
-                            checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
-                            unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
-                            onClick={this.x}
-                            isChecked={this.state.checked}
-                        />
-                    } />
-
-            </TouchableOpacity>
-        )
-    }
-}
-
+import Accordion from '../components/FilterScreenComponents/Accordion'
+import BrandComponent from '../components/FilterScreenComponents/BrandComponent'
 
 class FilterProductsScreen extends React.Component {
 
@@ -186,27 +145,50 @@ class FilterProductsScreen extends React.Component {
                 />
 
                 <ShadowContainer>
-                    <ModalSelector
-                        data={this.sorts}
-                        cancelText={'İptal'}
-                        onChange={this.onSortSelect}>
-                        <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
-                    </ModalSelector>
-
 
                     <ShadowContainer>
-                        <HeadingDivider title='Markalar' />
+                        <ModalSelector
+                            data={this.sorts}
+                            cancelText={'İptal'}
+                            onChange={this.onSortSelect}>
+                            <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
+                        </ModalSelector>
                     </ShadowContainer>
 
-                    {
-                        this.props.route.params.category.brands.map((brand) => (
-                            <RightComponent
-                                brand={brand}
-                                addBrand={this.addBrand}
-                                removeBrand={this.removeBrand}
-                                checked={this.state.brands.includes(brand.name)} />
-                        ))
-                    }
+                    <View style={{ height: 12, backgroundColor: '#DFDFDF' }} />
+
+                    <ShadowContainer>
+                        <Accordion title='Markalar'>
+                            <>
+                                {
+                                    this.props.route.params.category.brands.map((brand) => (
+                                        <BrandComponent
+                                            brand={brand}
+                                            addBrand={this.addBrand}
+                                            removeBrand={this.removeBrand}
+                                            checked={this.state.brands.includes(brand.name)} />
+                                    ))
+                                }
+                            </>
+                        </Accordion>
+                    </ShadowContainer>
+                    
+                    <View style={{ height: 12, backgroundColor: '#DFDFDF' }} />
+
+                    <Accordion title='Markalar'>
+                        <>
+                            {
+                                this.props.route.params.category.brands.map((brand) => (
+                                    <BrandComponent
+                                        brand={brand}
+                                        addBrand={this.addBrand}
+                                        removeBrand={this.removeBrand}
+                                        checked={this.state.brands.includes(brand.name)} />
+                                ))
+                            }
+                        </>
+                    </Accordion>
+
 
                 </ShadowContainer>
 

@@ -3,17 +3,17 @@ import { ScaledSheet } from 'react-native-size-matters'
 import { View, Text } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-const renderRightComponent = ({ version, rightComponent }) => {
+const renderRightComponent = ({ version, rightComponent, rightIcon }) => {
 	if (version) {
 		return <View style={styles.empty} />
 	} else if (rightComponent) {
 		return rightComponent
 	}
 
-	return <MaterialIcons color='rgba(0,0,0,.8)' name='chevron-right' size={32} />
+	return <MaterialIcons color='rgba(0,0,0,.8)' name={rightIcon ?? 'chevron-right'} size={32} />
 }
 
-const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightComponent, order }) => (
+const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightComponent, order, rightIcon }) => (
 	<View style={[
 		styles.container,
 		order ? styles.order : {}
@@ -44,7 +44,7 @@ const SettingItem = ({ children: icon, emptyIcon, title, value, version, rightCo
 
 		<View style={styles.rightIconContainer}>
 			{
-				renderRightComponent({ version, rightComponent })
+				renderRightComponent({ version, rightComponent, rightIcon })
 			}
 		</View>
 
@@ -71,6 +71,9 @@ const styles = ScaledSheet.create({
 	titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },
 	title: {
 		marginHorizontal: '8@s', fontSize: '16@s', color: '#505050', fontWeight: 'bold'
+	},
+	value: {
+		fontSize: '16@s'
 	},
 	rightIconContainer: { alignItems: 'flex-end', justifyContent: 'center', flex: 1 },
 	empty: { height: 32 }
