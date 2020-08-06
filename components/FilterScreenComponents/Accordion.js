@@ -3,24 +3,28 @@ import { View, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 're
 import SettingItem from '../SettingItem'
 
 class Accordion extends Component {
-
-    state = {
-        expanded: false
-    }
-
     constructor(props) {
         super(props)
+
+        this.state = {
+            expanded: false
+        }
 
         if (Platform.OS === 'android') {
             UIManager.setLayoutAnimationEnabledExperimental(true)
         }
     }
 
+    toggleExpand = () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+        this.setState({ expanded: !this.state.expanded })
+    }
+
     render() {
         return (
             <View>
 
-                <TouchableOpacity ref={this.accordion} onPress={() => this.toggleExpand()} activeOpacity={0.9}>
+                <TouchableOpacity ref={this.accordion} onPress={this.toggleExpand} activeOpacity={0.9}>
                     <SettingItem title={this.props.title} rightIcon={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} />
                 </TouchableOpacity>
 
@@ -35,12 +39,6 @@ class Accordion extends Component {
             </View>
         )
     }
-
-    toggleExpand = () => {
-        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
-        this.setState({ expanded: !this.state.expanded })
-    }
-
 }
 
 export default Accordion

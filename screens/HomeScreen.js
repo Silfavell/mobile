@@ -76,7 +76,7 @@ class HomeScreen extends React.Component {
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<View style={{ height: s(120) }}>
+				<View style={{ height: s(112) }}>
 					<ShadowContainer>
 						<ScrollableCategoryList navigation={this.props.navigation} />
 					</ShadowContainer>
