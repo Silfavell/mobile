@@ -3,6 +3,7 @@ import { SET_INITIAL_DATAS, SET_USER, LOGOUT, UPDATE_FAVORITE_PRODUCTS } from '.
 const INITIAL_STATE = {
 	categories: [],
 	products: [],
+	bestSeller: [],
 	user: {},
 	token: null
 }

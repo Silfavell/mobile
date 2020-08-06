@@ -172,7 +172,7 @@ class FilterProductsScreen extends React.Component {
                             </>
                         </Accordion>
                     </ShadowContainer>
-                    
+
                     <View style={{ height: 12, backgroundColor: '#DFDFDF' }} />
 
                     <Accordion title='Markalar'>

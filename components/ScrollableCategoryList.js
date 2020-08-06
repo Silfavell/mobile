@@ -29,22 +29,20 @@ class ScrollableCategoryList extends React.Component {
 
     render() {
         return (
-            <ShadowContainer>
-                <ScrollView style={styles.container} horizontal={true}>
-                    {
-                        this.props.categories.map((category, index) => (
-                            this.renderCategoryElement(category.name, index, category.imagePath)
-                        ))
-                    }
-                </ScrollView>
-            </ShadowContainer>
+            <ScrollView style={styles.container} horizontal={true}>
+                {
+                    this.props.categories.map((category, index) => (
+                        this.renderCategoryElement(category.name, index, category.imagePath)
+                    ))
+                }
+            </ScrollView>
         )
     }
 }
 
 const styles = ScaledSheet.create({
     container: {
-        flex: 1,
+        alignSelf: 'flex-start',
         marginTop: 12,
         backgroundColor: 'white',
         borderTopWidth: 1,
