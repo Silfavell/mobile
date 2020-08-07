@@ -19,10 +19,6 @@ class BestSeller extends React.Component {
 
     getTabBar = () => <ScrollableTab />
 
-    onTabsRef = (ref) => {
-        this.tabsRef = ref
-    }
-
     renderTab = (category) => (
         <Tab
             key={category._id + 'bestSeller'}
@@ -37,7 +33,6 @@ class BestSeller extends React.Component {
                 tabLabel={category.name}
                 list={category.products}
             />
-
         </Tab>
     )
 
@@ -45,7 +40,6 @@ class BestSeller extends React.Component {
         return (
             <Container>
                 <Tabs
-                    ref={this.onTabsRef}
                     tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
                     prerenderingSiblingsNumber={Infinity}
                     tabBarBackgroundColor={styles.tabStyle.backgroundColor}
