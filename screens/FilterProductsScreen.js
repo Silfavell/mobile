@@ -4,6 +4,7 @@ import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet, s } from 'react-native-size-matters'
+import RangeSlider from 'rn-range-slider'
 
 import { makeFilter, clearFilter } from '../actions/filter-products-actions'
 
@@ -11,7 +12,6 @@ import ShadowContainer from '../components/ShadowContainer'
 import SettingItem from '../components/SettingItem'
 import ButtonComponent from '../components/ButtonComponent'
 import ClearFilterPopup from '../components/popups/ClearFilterPopup'
-
 import Accordion from '../components/FilterScreenComponents/Accordion'
 import BrandComponent from '../components/FilterScreenComponents/BrandComponent'
 
@@ -175,18 +175,22 @@ class FilterProductsScreen extends React.Component {
 
                     <View style={{ height: 12, backgroundColor: '#DFDFDF' }} />
 
-                    <Accordion title='Markalar'>
-                        <>
-                            {
-                                this.props.route.params.category.brands.map((brand) => (
-                                    <BrandComponent
-                                        brand={brand}
-                                        addBrand={this.addBrand}
-                                        removeBrand={this.removeBrand}
-                                        checked={this.state.brands.includes(brand.name)} />
-                                ))
-                            }
-                        </>
+                    <Accordion title='Fiyat Aralığı'>
+                        <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+                            <RangeSlider
+                                style={{ flex: 1, height: 80, marginHorizontal: 32, marginVertical: 16 }}
+                                gravity={'top'}
+                                min={200}
+                                max={1000}
+                                step={1}
+                                labelBackgroundColor='#FF0000'
+                                labelBorderColor='#00FF00'
+                                selectionColor='#3df'
+                                blankColor='#f618'
+                                onValueChanged={(low, high, fromUser) => {
+                                    this.setState({ rangeLow: low, rangeHigh: high })
+                                }} />
+                        </View>
                     </Accordion>
 
 

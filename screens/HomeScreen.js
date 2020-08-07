@@ -84,7 +84,7 @@ class HomeScreen extends React.Component {
 				</View>
 				<View style={{ height: s(120) }}>
 					<ShadowContainer>
-						<ScrollableCategoryList images={banners} loop paginator />
+						<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
 					</ShadowContainer>
 				</View>
 				<View style={styles.divider}>

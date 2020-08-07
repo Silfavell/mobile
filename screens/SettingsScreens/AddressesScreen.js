@@ -13,11 +13,11 @@ class AddressesScreen extends React.PureComponent {
 
 	renderFooter = () => (
 		<>
-			<HeadingDivider title="Adres ekle" />
+			<HeadingDivider title='Adres ekle' />
 
-			<ClickableSettingItem title="Yeni adres" onClick={this.moveToSearchAddress}>
-				<Ionicons color="rgba(0,0,0,.8)" name="md-locate" size={32} />
-				<Ionicons color="rgba(0,0,0,.8)" name="md-add" size={32} />
+			<ClickableSettingItem title='Yeni adres' onClick={this.moveToSearchAddress}>
+				<Ionicons color='rgba(0,0,0,.8)' name='md-locate' size={32} />
+				<Ionicons color='rgba(0,0,0,.8)' name='md-add' size={32} />
 			</ClickableSettingItem>
 
 			{

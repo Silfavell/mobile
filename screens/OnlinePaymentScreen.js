@@ -103,7 +103,7 @@ class OnlinePaymentScreen extends React.PureComponent {
 				<View style={styles.informationContainer}>
 					<View style={styles.child} />
 					<View style={styles.informationTextContainer}>
-						<View style={styles.infoIconContainer}><Ionicons name="md-information-circle-outline" size={28} /></View>
+						<View style={styles.infoIconContainer}><Ionicons name='md-information-circle-outline' size={28} /></View>
 						<Text>Kredi kartı bilgileriniz Platform Silfavell tarafından tutulmamaktadır ödeme altyapısı Mastercard tarafından sağlanmaktadır.</Text>
 					</View>
 					<View style={styles.child} />
