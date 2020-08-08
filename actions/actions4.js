@@ -21,7 +21,7 @@ const getProducts = () => {
 }
 
 const getBestSellers = () => {
-	const url = `${SERVER_URL}/best-seller`
+	const url = `${SERVER_URL}/best-seller-mobile`
 
 	return axios.get(url).then(({ data }) => data)
 }

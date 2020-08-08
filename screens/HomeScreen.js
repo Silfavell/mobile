@@ -75,27 +75,30 @@ class HomeScreen extends React.Component {
 	}
 
 	render() {
+		const headers = [
+			<View style={{ height: s(190) }}>
+				<ShadowContainer>
+					<Slider images={banners} loop paginator />
+				</ShadowContainer>
+			</View>,
+			<View style={{ height: s(120) }}>
+				<ShadowContainer>
+					<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
+				</ShadowContainer>
+			</View>,
+			<View style={styles.divider}>
+				<ShadowContainer style={{ backgroundColor: 'white' }}>
+					<View style={styles.dividerChild}>
+						<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
+					</View>
+				</ShadowContainer>
+			</View>
+		]
+
 		return (
-			<ScrollView style={{ flex: 1 }} stickyHeaderIndices={[3]}>
-				<View style={{ height: s(190) }}>
-					<ShadowContainer>
-						<Slider images={banners} loop paginator />
-					</ShadowContainer>
-				</View>
-				<View style={{ height: s(120) }}>
-					<ShadowContainer>
-						<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
-					</ShadowContainer>
-				</View>
-				<View style={styles.divider}>
-					<ShadowContainer style={{ backgroundColor: 'white' }}>
-						<View style={styles.dividerChild}>
-							<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
-						</View>
-					</ShadowContainer>
-				</View>
-				<BestSeller navigation={this.props.navigation} />
-			</ScrollView>
+			<View style={{ flex: 1, backgroundColor: 'white' }}>
+				<BestSeller navigation={this.props.navigation} headers={headers}/>
+			</View>
 		)
 	}
 }
