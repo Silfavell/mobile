@@ -24,10 +24,13 @@ class SearchAddressScreen extends React.PureComponent {
 		this.setState({ locations: data.predictions })
 	}
 
-	search = (text) => {
-		const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${text}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA&components=country:tr&origin=41.0381511,28.9418645`
+	onSearchChange = (searchVal) => {
+		this.setState({ searchVal })
+	}
 
-		this.setState({ searchVal: text })
+	onSearchClick = () => {
+		const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${this.state.searchVal}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA&components=country:tr`
+
 		axios.get(url).then(this.onSearchResult)
 	}
 
@@ -63,13 +66,13 @@ class SearchAddressScreen extends React.PureComponent {
 			<View style={styles.header}>
 				<View style={styles.searchAddressContainerContainer}>
 					<View style={styles.searchAddressContainer}>
-						<Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' />
 						<TextInput
 							value={this.state.searchVal}
-							onChangeText={this.search}
+							onChangeText={this.onSearchChange}
 							placeholder='Adres ara'
 							style={styles.searchAddress}
 						/>
+						<Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' onPress={this.onSearchClick} />
 					</View>
 				</View>
 				<View style={styles.divider} />
@@ -112,10 +115,12 @@ class SearchAddressScreen extends React.PureComponent {
 		return (
 			<View style={styles.container}>
 				<FlatList
+					extraData={this.state.searchVal}
 					style={styles.list}
 					data={this.state.locations}
 					renderItem={this.renderSearchedItem}
 					ListHeaderComponent={this.renderListHeaderComponent}
+					stickyHeaderIndices={[0]}
 				/>
 			</View>
 		)

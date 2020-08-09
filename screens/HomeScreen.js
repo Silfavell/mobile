@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import {
-	FlatList,
 	View,
+	ScrollView,
+	Text,
 	TouchableOpacity,
 	Image,
 	BackHandler
@@ -17,8 +18,9 @@ import ShadowContainer from '../components/ShadowContainer'
 
 import { SERVER_URL } from '../utils/global'
 
-import logo from '../assets/icon-black.png'
+import logo from '../assets/logo.png'
 import ScrollableCategoryList from '../components/ScrollableCategoryList'
+import BestSeller from '../components/HomeScreen/BestSeller'
 
 const banners = [
 	`${SERVER_URL}/assets/banners/1.jpg`,
@@ -37,7 +39,7 @@ class HomeScreen extends React.Component {
 			headerStyle: styles.headerStyle,
 			headerTitle: () => (
 				<View style={styles.headerTitle}>
-					<Image source={logo} resizeMode='center' style={styles.headerImage} />
+					<Image source={logo} resizeMode='contain' style={styles.headerImage} />
 				</View>
 			),
 			headerLeft: () => (
@@ -73,25 +75,30 @@ class HomeScreen extends React.Component {
 	}
 
 	render() {
+		const headers = [
+			<View style={{ height: s(190) }}>
+				<ShadowContainer>
+					<Slider images={banners} loop paginator />
+				</ShadowContainer>
+			</View>,
+			<View style={{ height: s(120) }}>
+				<ShadowContainer>
+					<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
+				</ShadowContainer>
+			</View>,
+			<View style={styles.divider}>
+				<ShadowContainer style={{ backgroundColor: 'white' }}>
+					<View style={styles.dividerChild}>
+						<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
+					</View>
+				</ShadowContainer>
+			</View>
+		]
+
 		return (
-			<FlatList
-				data={this.props.categories}
-				keyExtractor={this.keyExtractor}
-				renderItem={this.renderItem}
-				ListHeaderComponent={
-					<>
-						<View style={{ height: s(190) }}>
-							<ShadowContainer>
-								<Slider images={banners} loop paginator />
-							</ShadowContainer>
-						</View>
-						<ScrollableCategoryList navigation={this.props.navigation} />
-					</>
-				}
-				ListFooterComponent={
-					<View style={{ height: s(40) }} />
-				}
-			/>
+			<View style={{ flex: 1, backgroundColor: 'white' }}>
+				<BestSeller navigation={this.props.navigation} headers={headers}/>
+			</View>
 		)
 	}
 }
@@ -112,17 +119,39 @@ const styles = ScaledSheet.create({
 		zIndex: 1
 	},
 	headerImage: {
-		height: '200%',
+		height: '140%',
 		zIndex: -1
+	},
+	divider: {
+		height: '50@s',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row'
+	},
+	dividerChild: {
+		height: '100%',
+		width: '100%',
+		display: 'flex',
+		alignItems: 'center',
+		flexDirection: 'row'
+	},
+	dividerTitle: {
+		color: 'black',
+		fontSize: '17@s',
+		fontWeight: '600',
+		paddingHorizontal: '16@s'
 	}
 })
 
 const mapStateToProps = ({
 	reducer4: {
-		categories
+		categories,
+		bestSeller
 	}
 }) => ({
-	categories
+	categories,
+	bestSeller
 })
 
 export default connect(mapStateToProps)(HomeScreen)

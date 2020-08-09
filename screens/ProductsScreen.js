@@ -51,10 +51,6 @@ class ProductsScreen extends React.Component {
 		})
 	}
 
-	onTabsRef = (ref) => {
-		this.tabsRef = ref
-	}
-
 	getProducts = () => {
 		if (this.selectedCategory === this.props.filterCategory) {
 			return this.props.filteredProducts
@@ -88,7 +84,6 @@ class ProductsScreen extends React.Component {
 		return (
 			<Container>
 				<Tabs
-					ref={this.onTabsRef}
 					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 					prerenderingSiblingsNumber={Infinity}
 					tabBarBackgroundColor={styles.tabStyle.backgroundColor}

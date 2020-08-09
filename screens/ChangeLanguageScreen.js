@@ -10,14 +10,14 @@ const ChangeLanguageScreen = ({ navigation }) => (
 			navigation.goBack()
 		}}
 		>
-			<LanguageItem title="English" />
+			<LanguageItem title='English' />
 		</TouchableOpacity>
 
 		<TouchableOpacity onPress={() => {
 			navigation.goBack()
 		}}
 		>
-			<LanguageItem title="Türkçe" />
+			<LanguageItem title='Türkçe' />
 		</TouchableOpacity>
 
 	</ScrollView>

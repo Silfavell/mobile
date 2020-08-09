@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Dimensions } from 'react-native'
 import { s } from 'react-native-size-matters'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
@@ -61,14 +60,5 @@ class List extends React.PureComponent {
 	}
 }
 
-const mapStateToProps = ({
-	filterProductsReducer: {
-		filteredProducts,
-		filterCategory
-	}
-}) => ({
-	filteredProducts,
-	filterCategory
-})
 
-export default connect(mapStateToProps)(List)
+export default List

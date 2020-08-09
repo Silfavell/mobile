@@ -85,6 +85,8 @@ target 'silfavell' do
 
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
 
+  pod 'rn-range-slider', :path => '../node_modules/rn-range-slider'
+
   target 'silfavellTests' do
     inherit! :complete
     # Pods for testing

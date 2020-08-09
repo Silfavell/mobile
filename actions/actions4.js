@@ -20,6 +20,12 @@ const getProducts = () => {
 	return axios.get(url).then(({ data }) => data)
 }
 
+const getBestSellers = () => {
+	const url = `${SERVER_URL}/best-seller-mobile`
+
+	return axios.get(url).then(({ data }) => data)
+}
+
 const getCart = (token) => {
 	const url = `${SERVER_URL}/user/cart`
 
@@ -56,7 +62,7 @@ export const setInitialDatas = () => (dispatch) => {
 	// AsyncStorage.removeItem('cart')
 	AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
 		if (vals[0][1]) {
-			return Promise.all([getCategories(), getProducts(), getCart(vals[0][1]), getPaymentCards(vals[0][1])]).then((res) => {
+			return Promise.all([getCategories(), getProducts(), getCart(vals[0][1]), getPaymentCards(vals[0][1]), getBestSellers()]).then((res) => {
 				dispatch({
 					type: SET_INITIAL_DATAS,
 					payload: {
@@ -65,12 +71,13 @@ export const setInitialDatas = () => (dispatch) => {
 						token: vals[0][1],
 						user: JSON.parse(vals[1][1]),
 						cart: res[2],
-						cards: res[3].cardDetails
+						cards: res[3].cardDetails,
+						bestSeller: res[4]
 					}
 				})
 			})
 		}
-		return Promise.all([getCategories(), getProducts()]).then((res) => {
+		return Promise.all([getCategories(), getProducts(), getBestSellers()]).then((res) => {
 			dispatch({
 				type: SET_INITIAL_DATAS,
 				payload: {
@@ -78,7 +85,8 @@ export const setInitialDatas = () => (dispatch) => {
 					products: res[1],
 					token: vals[0][1],
 					user: JSON.parse(vals[1][1]),
-					cart: JSON.parse(vals[2][1])
+					cart: JSON.parse(vals[2][1]),
+					bestSeller: res[2]
 				}
 			})
 		})
