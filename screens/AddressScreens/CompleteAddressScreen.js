@@ -76,8 +76,8 @@ class CompleteAddressScreen extends React.Component {
 								/>
 							</View>
 						</View>
-						<View style={styles.inputContainerChild}>
-							<View style={styles.inputContainer}>
+						<View style={styles.addressinputContainerChild}>
+							<View style={styles.addressInputContainer}>
 								<CompleteAddressInput />
 							</View>
 						</View>
@@ -106,7 +106,11 @@ const styles = ScaledSheet.create({
 	},
 	inputContainer: { height: '60@s', margin: '2@s', flex: 1 },
 	inputContainerChild: {
-		height: 62, margin: '2@s', display: 'flex', flexDirection: 'row',
+		height: '60@s', margin: '2@s', display: 'flex', flexDirection: 'row',
+	},
+	addressInputContainer: { height: '120@s', margin: '2@s', flex: 1 },
+	addressinputContainerChild: {
+		height: '120@s', margin: '2@s', display: 'flex', flexDirection: 'row',
 	},
 	input: {
 		flex: 1,
