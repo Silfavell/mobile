@@ -105,7 +105,7 @@ class FilterProductsScreen extends React.Component {
         this.props.makeFilter(
             {
                 categoryId: this.props.route.params.category._id,
-                brandsAsString: this.state.brands.join(','),
+                brandsAsString: this.state.brands.map((brand) => `&brands=${brand}`).join(''),
                 sortType: this.sorts[this.state.selectedSort]?.sortType
             },
             {
