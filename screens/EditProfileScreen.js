@@ -86,7 +86,7 @@ class EditProfileScreen extends React.Component {
 						options={{
 							keyboardType: 'email-address',
 							textContentType: 'emailAddress',
-							placeholder: 'E-Mail',
+							placeholder: 'E-Posta',
 						}}
 						invalid={this.state.invalidEmail && this.state.isEmailInitialized}
 						value={this.state.email}
