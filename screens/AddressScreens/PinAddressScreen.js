@@ -31,7 +31,7 @@ class PinAddressScreen extends React.PureComponent {
 
 				<ConfirmAccuratePinPopup setPopupState={this.setPopupState} scaleAnimationModal={this.state.scaleAnimationModal} />
 
-				<HeaderAddressInput />
+				<HeaderAddressInput disabled />
 
 				<Map region={this.props.route.params.region} />
 

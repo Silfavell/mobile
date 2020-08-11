@@ -9,6 +9,9 @@ import { setAddress } from '../../actions/map-actions'
 const CompleteAddressInput = ({ address, setAddress }) => (
 	<TextInput
 		value={address}
+		multiline={true}
+		textAlignVertical={'top'}
+		numberOfLines={4}
 		onChangeText={setAddress}
 		placeholder='Address'
 		style={styles.input}

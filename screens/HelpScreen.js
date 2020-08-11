@@ -109,7 +109,7 @@ class HelpScreen extends React.PureComponent {
 
                     <InputComponent
                         options={{
-                            placeholder: 'E-Mail'
+                            placeholder: 'E-Posta'
                         }}
                         onChange={this.onEmailChange}
                         value={email}

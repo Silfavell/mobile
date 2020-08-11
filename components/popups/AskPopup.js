@@ -6,8 +6,7 @@ import Modal, {
 	ModalFooter
 } from 'react-native-modals'
 
-
-class LogoutPopup extends React.PureComponent {
+class AskPopup extends React.PureComponent {
 	close = () => {
 		this.props.setPopupState({ scaleAnimationModal: false })
 		return true
@@ -79,5 +78,4 @@ const styles = ScaledSheet.create({
 	}
 })
 
-
-export default LogoutPopup
+export default AskPopup

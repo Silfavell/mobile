@@ -16,7 +16,7 @@ export const makeFilter = (
         selectedSort
     },
     callback) => (dispatch) => {
-        const url = `${SERVER_URL}/products-filter-with-categories?categoryId=${categoryId}&brands=${brandsAsString}&sortType=${sortType}`
+        const url = `${SERVER_URL}/products-filter-with-categories?categoryId=${categoryId}${brandsAsString}&sortType=${sortType}`
 
         axios.get(url).then(({ status, data }) => {
             if (status === 200) {

@@ -10,7 +10,7 @@ import { logout } from '../actions/actions4'
 
 class LogoutItem extends React.PureComponent {
 	state = {
-		scaleAnimationModal: false,
+		scaleAnimationModal: false
 	}
 
 	setPopupState = (state) => {
@@ -24,7 +24,6 @@ class LogoutItem extends React.PureComponent {
 	render() {
 		return (
 			<>
-
 				<AskPopup
 					func={this.props.logout}
 					title={'Çıkış yapmak istediğinize emin misiniz ?'}
@@ -36,7 +35,6 @@ class LogoutItem extends React.PureComponent {
 						<MaterialIcons color='rgba(0,0,0,.8)' name='exit-to-app' size={32} />
 					</SettingItem>
 				</TouchableOpacity>
-
 			</>
 		)
 	}
