@@ -1,15 +1,22 @@
 import React from 'react'
 import {
 	View,
-	CheckBox,
 	Text
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import CheckBox from 'react-native-check-box'
 
 const TermsComponent = () => (
 	<View style={styles.container}>
 		<View style={styles.checkBoxContainer}>
-			<CheckBox style={styles.checkBox} />
+			<CheckBox
+				style={{ height: 24 }}
+				checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
+				unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
+				onClick={() => { }}
+				isChecked={true}
+			/>
 		</View>
 		<View style={styles.termsInfoContainer}>
 			<View style={styles.termsTextContainer}>
@@ -29,15 +36,12 @@ const styles = ScaledSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'flex-start',
-		margin: '3@s',
 		marginVertical: '8@s',
+		marginHorizontal: '12@s'
 	},
 	checkBoxContainer: {
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start'
-	},
-	checkBox: {
-		backgroundColor: 'transparent'
 	},
 	termsText: {
 		color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold'

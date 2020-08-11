@@ -12,6 +12,7 @@ import { SERVER_URL } from '../utils/global'
 import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponent'
 import InputIcon from '../components/InputIcon'
+import TermsComponent from '../components/TermsComponent'
 
 
 class RegisterScreen extends React.PureComponent {
@@ -202,9 +203,7 @@ class RegisterScreen extends React.PureComponent {
 
 					</InputComponent>
 
-					{
-						// <TermsComponent />
-					}
+					<TermsComponent />
 				</View>
 
 				<View>
