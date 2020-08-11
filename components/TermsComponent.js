@@ -20,11 +20,7 @@ const TermsComponent = () => (
 		</View>
 		<View style={styles.termsInfoContainer}>
 			<View style={styles.termsTextContainer}>
-				<Text style={styles.termsText}>I have read and accept </Text>
-				<Text style={styles.termsLinkText}>the Terms and</Text>
-			</View>
-			<View style={styles.termsTextContainer}>
-				<Text style={styles.termsLinkText}>Conditions.</Text>
+				<Text style={styles.termsText}>Üyelik Sözleşmesi şartlarını okudum ve kabul ediyorum.</Text>
 			</View>
 		</View>
 	</View>
