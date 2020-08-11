@@ -3,41 +3,77 @@ import { ScaledSheet } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
-	Text
+	Text,
+	Linking
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import AskPopup from '../components/popups/AskPopup'
 
-const ThanksScreen = ({ navigation }) => (
-	<View style={styles.emptyCartContainer}>
-		<View style={styles.child} />
-		<View style={styles.child} />
-		<View style={styles.child} />
-		<View style={styles.child} />
-		<View style={styles.child}>
-			<Ionicons name='md-checkmark-circle-outline' size={96} color='#4CAB51' />
-		</View>
-		<View style={styles.child} />
-		<View style={styles.child}>
-			<Text style={styles.orderCompletedText}>Siparişiniz alınmıştır.</Text>
-		</View>
-		<View style={styles.child} />
-		<View style={[styles.child, styles.goToHomeButtonContainer]}>
-			<TouchableOpacity
-				onPress={() => {
-					navigation.popToTop()
-					navigation.navigate('home')
-				}}
-				style={styles.goToHomeButton}
-			>
-				<Text style={styles.goToHomeButtonText}>Ana Sayfaya Git</Text>
-			</TouchableOpacity>
-		</View>
-		<View style={styles.child} />
-		<View style={styles.child} />
-		<View style={styles.child} />
-		<View style={styles.child} />
-	</View>
-)
+class ThanksScreen extends React.Component {
+	state = {
+		scaleAnimationModal: false,
+		isRatePlaystoreAsked: false
+	}
+
+	setPopupState = (state) => {
+		this.setState(state, () => {
+			this.props.navigation.popToTop()
+			this.props.navigation.navigate('home')
+		})
+	}
+
+	moveToPlayStore = () => {
+		Linking.openURL('market://details?id=com.silfavell.android')
+	}
+
+	render() {
+		return (
+			<View style={styles.emptyCartContainer}>
+				<AskPopup
+					func={this.moveToPlayStore}
+					title={'Uygulamamızı puanlamak ister misiniz ?'}
+					scaleAnimationModal={this.state.scaleAnimationModal}
+					setPopupState={this.setPopupState} />
+
+
+				<View style={styles.child} />
+				<View style={styles.child} />
+				<View style={styles.child} />
+				<View style={styles.child} />
+				<View style={styles.child}>
+					<Ionicons name='md-checkmark-circle-outline' size={96} color='#4CAB51' />
+				</View>
+				<View style={styles.child} />
+				<View style={styles.child}>
+					<Text style={styles.orderCompletedText}>Siparişiniz alınmıştır.</Text>
+				</View>
+				<View style={styles.child} />
+				<View style={[styles.child, styles.goToHomeButtonContainer]}>
+					<TouchableOpacity
+						onPress={() => {
+							if (this.state.isRatePlaystoreAsked) {
+								this.props.navigation.popToTop()
+								this.props.navigation.navigate('home')
+							} else {
+								this.setState({
+									scaleAnimationModal: true,
+									isRatePlaystoreAsked: true
+								})
+							}
+						}}
+						style={styles.goToHomeButton}
+					>
+						<Text style={styles.goToHomeButtonText}>Ana Sayfaya Git</Text>
+					</TouchableOpacity>
+				</View>
+				<View style={styles.child} />
+				<View style={styles.child} />
+				<View style={styles.child} />
+				<View style={styles.child} />
+			</View>
+		)
+	}
+}
 
 const styles = ScaledSheet.create({
 	emptyCartContainer: {
