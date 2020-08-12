@@ -25,20 +25,20 @@ class ProductsScreen extends React.Component {
 
 		this.props.navigation.setOptions({
 			title: this.props.products[this.selectedCategory].name,
-			headerRight: () => (
-				<TouchableOpacity onPress={this.onFilterClick}>
-
-					<MaterialIcons
-						color={'white'}
-						name='sort'
-						size={28}
-						style={{
-							transform: [{ rotateY: '180deg' }],
-							marginRight: 12
-						}} />
-
-				</TouchableOpacity>
-			)
+			//	headerRight: () => (
+			//		<TouchableOpacity onPress={this.onFilterClick}>
+			//	
+			//			<MaterialIcons
+			//				color={'white'}
+			//				name='sort'
+			//				size={28}
+			//				style={{
+			//					transform: [{ rotateY: '180deg' }],
+			//					marginRight: 12
+			//				}} />
+			//	
+			//		</TouchableOpacity>
+			//	)
 		})
 	}
 
