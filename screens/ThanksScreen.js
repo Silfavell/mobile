@@ -31,7 +31,7 @@ class ThanksScreen extends React.Component {
 			<View style={styles.emptyCartContainer}>
 				<AskPopup
 					func={this.moveToPlayStore}
-					title={'Uygulamamızı puanlamak ister misiniz ?'}
+					title={'Silfavelli puanlamak ister misiniz ?'}
 					scaleAnimationModal={this.state.scaleAnimationModal}
 					setPopupState={this.setPopupState} />
 
