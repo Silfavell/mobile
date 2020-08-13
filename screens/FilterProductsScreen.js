@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import RangeSlider from 'rn-range-slider'
 
-import { makeFilter, clearFilter } from '../actions/filter-products-actions'
+import { makeFilter, clearFilter } from '../actions/filter-actions'
 
 import ShadowContainer from '../components/ShadowContainer'
 import SettingItem from '../components/SettingItem'
@@ -21,14 +21,16 @@ class FilterProductsScreen extends React.Component {
         super(props)
 
         this.state = {
-            brands: this.props.brands,
-            selectedSort: this.props.selectedSort,
-            scaleAnimationModal: false
+            brands: props.selectedBrands,
+            selectedSort: props.selectedSort,
+            scaleAnimationModal: false,
+            minPrice: props.selectedMinPrice,
+            maxPrice: props.selectedMaxPrice
         }
 
-        this.props.navigation.setOptions({
+        props.navigation.setOptions({
             headerLeft: () => (
-                <TouchableOpacity onPress={this.props.navigation.goBack} >
+                <TouchableOpacity onPress={props.navigation.goBack} >
                     <Ionicons name='md-close' size={26} color='white' style={{ marginLeft: s(18) }} />
                 </TouchableOpacity>
             ),
@@ -96,7 +98,9 @@ class FilterProductsScreen extends React.Component {
             this.setState({
                 brands: [],
                 selectedSort: -1,
-                scaleAnimationModal: false
+                scaleAnimationModal: false,
+                minPrice: null,
+                maxPrice: null
             })
         })
     }
@@ -104,13 +108,16 @@ class FilterProductsScreen extends React.Component {
     onFilterClick = () => {
         this.props.makeFilter(
             {
-                categoryId: this.props.route.params.category._id,
+                categoryId: this.props.route.params.categoryId,
+                subCategoryId: this.props.route.params.subCategoryId,
                 brandsAsString: this.state.brands.map((brand) => `&brands=${brand}`).join(''),
-                sortType: this.sorts[this.state.selectedSort]?.sortType
+                sortType: this.sorts[this.state.selectedSort]?.sortType,
+                minPrice: this.state.minPrice,
+                maxPrice: this.state.maxPrice
             },
             {
                 filterCategory: this.props.route.params.selectedCategory,
-                brands: this.state.brands,
+                selectedBrands: this.state.brands,
                 selectedSort: this.state.selectedSort
             },
             this.props.navigation.goBack
@@ -136,6 +143,14 @@ class FilterProductsScreen extends React.Component {
     }
 
     render() {
+        let { category } = this.props.route.params
+
+        if (this.props.filter) {
+            category = this.props.filter
+        }
+
+        console.log(this.state)
+
         return (
             <>
                 <ClearFilterPopup
@@ -155,13 +170,13 @@ class FilterProductsScreen extends React.Component {
                         </ModalSelector>
                     </ShadowContainer>
 
-                    <View style={{ height: 12, backgroundColor: '#DFDFDF' }} />
+                    <View style={styles.divider} />
 
                     <ShadowContainer>
                         <Accordion title='Markalar'>
                             <>
                                 {
-                                    this.props.route.params.category.brands.map((brand) => (
+                                    category.brands.map((brand) => (
                                         <BrandComponent
                                             brand={brand}
                                             addBrand={this.addBrand}
@@ -173,22 +188,24 @@ class FilterProductsScreen extends React.Component {
                         </Accordion>
                     </ShadowContainer>
 
-                    <View style={{ height: 12, backgroundColor: '#DFDFDF' }} />
+                    <View style={styles.divider} />
 
                     <Accordion title='Fiyat Aralığı'>
-                        <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+                        <View style={styles.sliderContainer}>
                             <RangeSlider
-                                style={{ flex: 1, height: 80, marginHorizontal: 32, marginVertical: 16 }}
+                                style={styles.slider}
                                 gravity={'top'}
-                                min={200}
-                                max={1000}
+                                min={category.minPrice}
+                                max={category.maxPrice}
+                                initialLowValue={this.state.minPrice ?? category.minPrice}
+                                initialHighValue={this.state.maxPrice ?? category.maxPrice}
                                 step={1}
                                 labelBackgroundColor='#FF0000'
                                 labelBorderColor='#00FF00'
                                 selectionColor='#3df'
                                 blankColor='#f618'
-                                onValueChanged={(low, high, fromUser) => {
-                                    this.setState({ rangeLow: low, rangeHigh: high })
+                                onValueChanged={(min, max) => {
+                                    this.setState({ minPrice: min, maxPrice: max })
                                 }} />
                         </View>
                     </Accordion>
@@ -219,17 +236,45 @@ const styles = ScaledSheet.create({
     },
     buttonContainer: {
         flex: 1
+    },
+    divider: {
+        height: '12@s',
+        backgroundColor: '#DFDFDF'
+    },
+    sliderContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+    slider: {
+        flex: 1,
+        height: '80@s',
+        marginHorizontal: '32@s',
+        marginVertical: '16@s'
     }
 })
 
 const mapStateToProps = ({
-    filterProductsReducer: {
-        brands,
-        selectedSort
+    filterReducer: {
+        filter,
+        filterCategory,
+        categorId,
+        subCategoryId,
+        selectedBrands,
+        selectedSort,
+        selectedMinPrice,
+        selectedMaxPrice
     }
 }) => ({
-    brands,
-    selectedSort
+    filter,
+    filterCategory,
+    categorId,
+    subCategoryId,
+    selectedBrands,
+    selectedSort,
+    selectedMinPrice,
+    selectedMaxPrice
 })
 
 const mapDispatchToProps = {

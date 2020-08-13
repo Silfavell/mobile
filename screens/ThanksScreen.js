@@ -45,7 +45,7 @@ class ThanksScreen extends React.Component {
 				</View>
 				<View style={styles.child} />
 				<View style={styles.child}>
-					<Text style={styles.orderCompletedText}>Siparişiniz alınmıştır.</Text>
+					<Text style={styles.orderCompletedText}>Siparişiniz alınmıştır</Text>
 				</View>
 				<View style={styles.child} />
 				<View style={[styles.child, styles.goToHomeButtonContainer]}>

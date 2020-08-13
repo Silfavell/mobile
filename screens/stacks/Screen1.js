@@ -74,10 +74,7 @@ const Screen1 = ({ navigation, setRootNavigation }) => {
 					headerTitleAlign: 'center',
 					headerTintColor: 'white',
 					headerStyle: styles.headerStyle,
-					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
-					cardStyle: {
-						backgroundColor: 'rgba(255,255,255,0.7)'
-					}
+					cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 				}}
 				component={FilterProductsScreen}
 			/>

@@ -54,7 +54,7 @@ class CartScreen extends React.PureComponent {
 		return (
 			<View style={styles.emptyContainer}>
 				<Ionicons name='md-basket' size={96} color='#BDBDBD' />
-				<Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır.</Text>
+				<Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
 			</View>
 		)
 	}
