@@ -25,7 +25,7 @@ class BrandComponent extends React.Component {
     render() {
         return (
             <TouchableOpacity
-                activeOpacity={0.4}
+                activeOpacity={0.9}
                 onPress={this.onClick}>
 
                 <SettingItem
