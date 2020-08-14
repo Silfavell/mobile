@@ -14,6 +14,7 @@ import ButtonComponent from '../components/ButtonComponent'
 import ClearFilterPopup from '../components/popups/ClearFilterPopup'
 import Accordion from '../components/FilterScreenComponents/Accordion'
 import BrandComponent from '../components/FilterScreenComponents/BrandComponent'
+import Slider from '../components/FilterScreenComponents/Slider'
 
 class FilterProductsScreen extends React.Component {
 
@@ -28,20 +29,7 @@ class FilterProductsScreen extends React.Component {
             maxPrice: props.selectedMaxPrice
         }
 
-        props.navigation.setOptions({
-            headerLeft: () => (
-                <TouchableOpacity onPress={props.navigation.goBack} >
-                    <Ionicons name='md-close' size={26} color='white' style={{ marginLeft: s(18) }} />
-                </TouchableOpacity>
-            ),
-            headerRight: () => (
-                (this.state.brands.length > 0 || this.state.selectedSort !== -1) && (
-                    <TouchableOpacity onPress={this.onClearFilterClick} >
-                        <Ionicons name='md-trash' size={26} color='white' style={{ marginRight: s(18) }} />
-                    </TouchableOpacity>
-                )
-            )
-        })
+        this.setNavigationOptions()
 
         this.sorts = [
             {
@@ -89,20 +77,35 @@ class FilterProductsScreen extends React.Component {
         ]
     }
 
+    setNavigationOptions = () => {
+        this.props.navigation.setOptions({
+            headerLeft: () => (
+                <TouchableOpacity onPress={this.props.navigation.goBack} >
+                    <Ionicons name='md-close' size={26} color='white' style={{ marginLeft: s(18) }} />
+                </TouchableOpacity>
+            ),
+            headerRight: () => (
+                (this.state.brands.length > 0 || this.state.selectedSort !== -1 || this.state.minPrice || this.state.maxPrice) && (
+                    <TouchableOpacity onPress={this.onClearFilterClick} >
+                        <Ionicons name='md-trash' size={26} color='white' style={{ marginRight: s(18) }} />
+                    </TouchableOpacity>
+                )
+            )
+        })
+    }
+
     onClearFilterClick = () => {
         this.setPopupState({ scaleAnimationModal: true })
     }
 
-    clearFilter = () => {
-        this.props.clearFilter(() => {
-            this.setState({
-                brands: [],
-                selectedSort: -1,
-                scaleAnimationModal: false,
-                minPrice: null,
-                maxPrice: null
-            })
-        })
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            brands: nextProps.selectedBrands,
+            selectedSort: nextProps.selectedSort,
+            scaleAnimationModal: false,
+            minPrice: nextProps.selectedMinPrice,
+            maxPrice: nextProps.selectedMaxPrice
+        }, this.setNavigationOptions)
     }
 
     onFilterClick = () => {
@@ -112,8 +115,8 @@ class FilterProductsScreen extends React.Component {
                 subCategoryId: this.props.route.params.subCategoryId,
                 brandsAsString: this.state.brands.map((brand) => `&brands=${brand}`).join(''),
                 sortType: this.sorts[this.state.selectedSort]?.sortType,
-                minPrice: this.state.minPrice,
-                maxPrice: this.state.maxPrice
+                minPrice: this.sliderRef.state.minPrice,
+                maxPrice: this.sliderRef.state.maxPrice
             },
             {
                 filterCategory: this.props.route.params.selectedCategory,
@@ -142,6 +145,10 @@ class FilterProductsScreen extends React.Component {
         this.setState({ brands: this.state.brands })
     }
 
+    onSliderRef = (ref) => {
+        this.sliderRef = ref
+    }
+
     render() {
         let { category } = this.props.route.params
 
@@ -149,14 +156,12 @@ class FilterProductsScreen extends React.Component {
             category = this.props.filter
         }
 
-        console.log(this.state)
-
         return (
             <>
                 <ClearFilterPopup
                     scaleAnimationModal={this.state.scaleAnimationModal}
                     setPopupState={this.setPopupState}
-                    clearFilter={this.clearFilter}
+                    clearFilter={this.props.clearFilter}
                 />
 
                 <ShadowContainer>
@@ -179,6 +184,7 @@ class FilterProductsScreen extends React.Component {
                                     category.brands.map((brand) => (
                                         <BrandComponent
                                             brand={brand}
+                                            key={brand.name + this.state.brands.includes(brand.name)}
                                             addBrand={this.addBrand}
                                             removeBrand={this.removeBrand}
                                             checked={this.state.brands.includes(brand.name)} />
@@ -191,23 +197,13 @@ class FilterProductsScreen extends React.Component {
                     <View style={styles.divider} />
 
                     <Accordion title='Fiyat Aralığı'>
-                        <View style={styles.sliderContainer}>
-                            <RangeSlider
-                                style={styles.slider}
-                                gravity={'top'}
-                                min={category.minPrice}
-                                max={category.maxPrice}
-                                initialLowValue={this.state.minPrice ?? category.minPrice}
-                                initialHighValue={this.state.maxPrice ?? category.maxPrice}
-                                step={1}
-                                labelBackgroundColor='#FF0000'
-                                labelBorderColor='#00FF00'
-                                selectionColor='#3df'
-                                blankColor='#f618'
-                                onValueChanged={(min, max) => {
-                                    this.setState({ minPrice: min, maxPrice: max })
-                                }} />
-                        </View>
+                        <Slider
+                            ref={this.onSliderRef}
+                            minPrice={category.minPrice}
+                            maxPrice={category.maxPrice}
+                            initialMinPrice={this.state.minPrice ?? category.minPrice}
+                            initialMaxPrice={this.state.maxPrice ?? category.maxPrice}
+                        />
                     </Accordion>
 
 

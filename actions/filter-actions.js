@@ -45,7 +45,7 @@ export const makeFilter = (
         })
     }
 
-export const clearFilter = (callback) => (dispatch) => {
+export const clearFilter = () => (dispatch) => {
     dispatch({
         type: CLEAR_FILTER,
         payload: {
@@ -59,6 +59,4 @@ export const clearFilter = (callback) => (dispatch) => {
             selectedMaxPrice: null
         }
     })
-
-    callback()
 }
