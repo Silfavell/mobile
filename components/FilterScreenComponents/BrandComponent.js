@@ -25,7 +25,7 @@ class BrandComponent extends React.Component {
     render() {
         return (
             <TouchableOpacity
-                activeOpacity={0.4}
+                activeOpacity={0.9}
                 onPress={this.onClick}>
 
                 <SettingItem
@@ -35,7 +35,7 @@ class BrandComponent extends React.Component {
                             style={{ height: 24 }}
                             checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
                             unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
-                            onClick={this.x}
+                            disabled
                             isChecked={this.state.checked}
                         />
                     } />

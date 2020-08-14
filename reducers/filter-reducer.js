@@ -1,8 +1,12 @@
 const INITIAL_STATE = {
-    filteredProducts: [],
+    filter: null,
     filterCategory: -1,
-    brands: [],
-    selectedSort: -1
+    categorId: null,
+    subCategoryId: null,
+    selectedBrands: [],
+    selectedSort: -1,
+    selectedMinPrice: null,
+    selectedMaxPrice: null
 }
 
 export default (state = INITIAL_STATE, action) => {

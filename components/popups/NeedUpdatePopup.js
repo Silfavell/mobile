@@ -55,7 +55,7 @@ class NeedUpdatePopup extends React.PureComponent {
 			>
 
 				<ModalContent style={styles.content}>
-					<Text style={styles.text}>There are more recent version of our application. Please update to continue.</Text>
+					<Text style={styles.text}>Silfavell'in yeni bir sürümü var. Lütfen devam etmeden önce güncelleyiniz.</Text>
 				</ModalContent>
 
 			</Modal>
