@@ -37,7 +37,6 @@ class RegisterScreen extends React.PureComponent {
 	}
 
 	setTermsState = () => {
-		console.log('here')
 		this.setState({ isTermsChecked: !this.state.isTermsChecked })
 	}
 
