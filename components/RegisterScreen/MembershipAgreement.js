@@ -162,7 +162,6 @@ class MembershipAgreement extends React.PureComponent {
 
     onConfirm = () => {
         this.props.setPopupState({ scaleAnimationModal: false })
-        this.props.func()
     }
 
     renderItem = ({ item }) => <Item item={item} />
@@ -193,8 +192,7 @@ class MembershipAgreement extends React.PureComponent {
                             key='button-1'
                         />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <FlatList
                     data={items}
                     renderItem={this.renderItem}

@@ -23,6 +23,8 @@ class RegisterScreen extends React.PureComponent {
 		nameSurname: '',
 		email: '',
 
+		isTermsChecked: false,
+
 		invalidPhoneNumber: false,
 		invalidPassword: false,
 		invalidNameSurname: false,
@@ -32,6 +34,11 @@ class RegisterScreen extends React.PureComponent {
 		isPasswordInitialized: false,
 		isNameSurnameInitialized: false,
 		isEmailInitialized: false
+	}
+
+	setTermsState = () => {
+		console.log('here')
+		this.setState({ isTermsChecked: !this.state.isTermsChecked })
 	}
 
 	onRegisterClick = () => {
@@ -203,7 +210,7 @@ class RegisterScreen extends React.PureComponent {
 
 					</InputComponent>
 
-					<TermsComponent />
+					<TermsComponent setTermsState={this.setTermsState} isTermsChecked={this.state.isTermsChecked} />
 				</View>
 
 				<View>
@@ -234,6 +241,7 @@ class RegisterScreen extends React.PureComponent {
 							|| this.state.invalidNameSurname || !this.state.isNameSurnameInitialized
 							|| this.state.invalidPassword || !this.state.isPasswordInitialized
 							|| this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized
+							|| !this.state.isTermsChecked
 						}
 					/>
 				</View>

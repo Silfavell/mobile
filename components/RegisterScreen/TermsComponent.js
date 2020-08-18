@@ -10,7 +10,7 @@ import MembershipAgreement from '../RegisterScreen/MembershipAgreement'
 
 class TermsComponent extends React.Component {
 	state = {
-		scaleAnimationModal: true
+		scaleAnimationModal: false
 	}
 
 	setPopupState = (state) => {
@@ -25,8 +25,6 @@ class TermsComponent extends React.Component {
 		return (
 			<View style={styles.container}>
 				<MembershipAgreement
-					func={this.props.logout}
-					title={'Çıkış yapmak istediğinize emin misiniz ?'}
 					scaleAnimationModal={this.state.scaleAnimationModal}
 					setPopupState={this.setPopupState} />
 
@@ -35,8 +33,8 @@ class TermsComponent extends React.Component {
 						style={{ height: 24 }}
 						checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
 						unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
-						onClick={() => { }}
-						isChecked={true}
+						onClick={this.props.setTermsState}
+						isChecked={this.props.isTermsChecked}
 					/>
 				</View>
 				<View style={styles.termsInfoContainer}>
