@@ -12,7 +12,7 @@ import { SERVER_URL } from '../utils/global'
 import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponent'
 import InputIcon from '../components/InputIcon'
-import TermsComponent from '../components/TermsComponent'
+import TermsComponent from '../components/RegisterScreen/TermsComponent'
 
 
 class RegisterScreen extends React.PureComponent {
