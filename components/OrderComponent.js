@@ -10,18 +10,21 @@ import { ScaledSheet } from 'react-native-size-matters'
 import CartProduct from './CartProduct'
 import SettingItem from './SettingItem'
 
+import OrderStatus from '../models/OrderStatus'
+
 class OrderComponent extends React.PureComponent {
 
 	getStatusText = (status) => {
 		switch (status) {
-			case true: return 'Onaylandı'
-			case false: return 'Iptal Edildi'
-			default: return 'Onay Bekliyor'
+			case OrderStatus.WAITING_FOR_APPROVAL: return 'Onay Bekliyor'
+			case OrderStatus.APPROVED: return 'Onaylandı'
+			case OrderStatus.CANCELED: return 'Iptal Edildi'
+			default: return 'Onaylandı'
 		}
 	}
 
 	onCargoTrackClick = () => {
-		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${this.props.item.trackingNumber}`)
+		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${this.props.item.message}`)
 	}
 
 	render() {
@@ -65,7 +68,7 @@ class OrderComponent extends React.PureComponent {
 				</View>
 
 				{
-					(item.status && item.trackingNumber) && (
+					(item.status === OrderStatus.APPROVED) && (
 						<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
 							<SettingItem title={'Kargo Takip'} order />
 						</TouchableOpacity>
