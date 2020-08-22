@@ -33,6 +33,7 @@ class OrderComponent extends React.PureComponent {
 			item: {
 				date,
 				paidPrice,
+				returnItemsTotalPayback,
 				products,
 				status
 			}
@@ -73,6 +74,11 @@ class OrderComponent extends React.PureComponent {
 						<>
 							<View style={styles.detailsContainer2}>
 								<View style={styles.detailContainer}>
+									<Text>Iade Edilecek Toplam Tutar:</Text>
+									<Text>{`₺${returnItemsTotalPayback.toFixed(2).replace('.', ',')}`}</Text>
+								</View>
+
+								<View style={styles.detailContainer}>
 									<Text>Iade Edilen Urunler:</Text>
 								</View>
 							</View>
@@ -89,7 +95,7 @@ class OrderComponent extends React.PureComponent {
 						</TouchableOpacity>
 					)
 				}
-			</View >
+			</View>
 		)
 	}
 }
