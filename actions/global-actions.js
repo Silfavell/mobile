@@ -8,8 +8,8 @@ export const setMessagePopupRef = (messagePopupRef) => (dispatch) => {
 	dispatch({
 		type: SET_MESSAGE_POPUP_REF,
 		payload: {
-			messagePopupRef,
-		},
+			messagePopupRef
+		}
 	})
 }
 
@@ -17,8 +17,8 @@ export const setRootNavigation = (navigation) => (dispatch) => {
 	dispatch({
 		type: SET_ROOT_NAVIGATION,
 		payload: {
-			navigation,
-		},
+			navigation
+		}
 	})
 }
 
@@ -26,8 +26,8 @@ export const setConnectionPopupState = (connectionPopupState) => (dispatch) => {
 	dispatch({
 		type: SET_CONNECTION_POPUP_STATE,
 		payload: {
-			connectionPopupState,
-		},
+			connectionPopupState
+		}
 	})
 }
 
@@ -35,8 +35,8 @@ export const setNeedToLoginPopupState = (needToLoginPopupState) => (dispatch) =>
 	dispatch({
 		type: NEED_TO_LOGIN_POPUP_STATE,
 		payload: {
-			needToLoginPopupState,
-		},
+			needToLoginPopupState
+		}
 	})
 }
 
@@ -44,7 +44,7 @@ export const setClearCartPopupState = (clearCartPopupState) => (dispatch) => {
 	dispatch({
 		type: CLEAR_CART_POPUP_STATE,
 		payload: {
-			clearCartPopupState,
-		},
+			clearCartPopupState
+		}
 	})
 }

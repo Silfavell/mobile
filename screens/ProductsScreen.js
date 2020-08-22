@@ -1,7 +1,6 @@
 import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters'
 import {
-	TouchableOpacity,
 	View,
 	Text,
 	Platform
@@ -14,7 +13,6 @@ import {
 	ScrollableTab,
 	TabHeading
 } from 'native-base'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
 
