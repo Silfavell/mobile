@@ -11,6 +11,8 @@ import SettingItem from '../components/SettingItem'
 import LogoutItem from '../components/LogoutItem'
 import ShadowContainer from '../components/ShadowContainer'
 
+import pckg from '../package.json'
+
 class ProfileScreen extends React.PureComponent {
 	moveToEditProfileScreen = () => {
 		this.props.navigation.navigate('editProfileScreen')
@@ -155,7 +157,7 @@ class ProfileScreen extends React.PureComponent {
 						//  </TouchableOpacity>
 					}
 
-					<SettingItem title='1.0.0' version emptyIcon />
+					<SettingItem title={pckg.version} version emptyIcon />
 
 				</ScrollView>
 			</ShadowContainer>
