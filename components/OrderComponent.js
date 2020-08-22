@@ -28,6 +28,32 @@ class OrderComponent extends React.PureComponent {
 		Linking.openURL(`http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${this.props.item.message}`)
 	}
 
+	onReturnClick = () => {
+		this.props.navigation.navigate('returnItems', { _id: this.props.item._id })
+	}
+
+	renderFooter = () => {
+		switch (this.props.item.status) {
+			case OrderStatus.APPROVED: {
+				return (
+					<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
+						<SettingItem title={'Kargo Takip'} order />
+					</TouchableOpacity>
+				)
+			}
+
+			case OrderStatus.RETURNABLE: {
+				return (
+					<TouchableOpacity activeOpacity={0.6} onPress={this.onReturnClick}>
+						<SettingItem title={'Iade talebinde bulun'} order />
+					</TouchableOpacity>
+				)
+			}
+
+			default: return null
+		}
+	}
+
 	render() {
 		const {
 			item: {
@@ -89,11 +115,7 @@ class OrderComponent extends React.PureComponent {
 				}
 
 				{
-					(status === OrderStatus.APPROVED) && (
-						<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
-							<SettingItem title={'Kargo Takip'} order />
-						</TouchableOpacity>
-					)
+					this.renderFooter()
 				}
 			</View>
 		)

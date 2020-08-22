@@ -39,7 +39,7 @@ class PreviousOrdersScreen extends React.PureComponent {
 					<FlatList
 						data={this.state.orders}
 						keyExtractor={this.keyExtractor}
-						renderItem={({ item }) => <OrderComponent item={item} />}
+						renderItem={({ item }) => <OrderComponent item={item} navigation={this.props.navigation} />}
 					/>
 				</View>
 			)
