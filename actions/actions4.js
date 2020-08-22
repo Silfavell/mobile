@@ -1,6 +1,10 @@
 import { AsyncStorage } from 'react-native'
 import axios from 'axios'
+
 import { SERVER_URL } from '../utils/global'
+import { SET_NEED_UPDATE_POPUP_STATE } from './global-actions'
+
+import pckg from '../package.json'
 
 export const SET_INITIAL_DATAS = 'SET_INITIAL_DATAS'
 export const SET_USER = 'SET_USER'
@@ -38,6 +42,12 @@ const getPaymentCards = (token) => {
 	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data)
 }
 
+const getVersion = () => {
+	const url = `${SERVER_URL}/version`
+
+	return axios.get(url).then(({ data }) => data)
+}
+
 export const updateProfile = (body, cb) => (dispatch) => {
 	const url = `${SERVER_URL}/user/profile`
 
@@ -60,36 +70,48 @@ export const updateProfile = (body, cb) => (dispatch) => {
 
 export const setInitialDatas = () => (dispatch) => {
 	// AsyncStorage.removeItem('cart')
-	AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
-		if (vals[0][1]) {
-			return Promise.all([getCategories(), getProducts(), getCart(vals[0][1]), getPaymentCards(vals[0][1]), getBestSellers()]).then((res) => {
-				dispatch({
-					type: SET_INITIAL_DATAS,
-					payload: {
-						categories: res[0],
-						products: res[1],
-						token: vals[0][1],
-						user: JSON.parse(vals[1][1]),
-						cart: res[2],
-						cards: res[3].cardDetails,
-						bestSeller: res[4]
-					}
+
+	getVersion().then((version) => {
+		if (version === pckg.version) {
+			AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
+				if (vals[0][1]) {
+					return Promise.all([getCategories(), getProducts(), getCart(vals[0][1]), getPaymentCards(vals[0][1]), getBestSellers()]).then((res) => {
+						dispatch({
+							type: SET_INITIAL_DATAS,
+							payload: {
+								categories: res[0],
+								products: res[1],
+								token: vals[0][1],
+								user: JSON.parse(vals[1][1]),
+								cart: res[2],
+								cards: res[3].cardDetails,
+								bestSeller: res[4]
+							}
+						})
+					})
+				}
+				return Promise.all([getCategories(), getProducts(), getBestSellers()]).then((res) => {
+					dispatch({
+						type: SET_INITIAL_DATAS,
+						payload: {
+							categories: res[0],
+							products: res[1],
+							token: vals[0][1],
+							user: JSON.parse(vals[1][1]),
+							cart: JSON.parse(vals[2][1]),
+							bestSeller: res[2]
+						}
+					})
 				})
 			})
-		}
-		return Promise.all([getCategories(), getProducts(), getBestSellers()]).then((res) => {
+		} else {
 			dispatch({
-				type: SET_INITIAL_DATAS,
+				type: SET_NEED_UPDATE_POPUP_STATE,
 				payload: {
-					categories: res[0],
-					products: res[1],
-					token: vals[0][1],
-					user: JSON.parse(vals[1][1]),
-					cart: JSON.parse(vals[2][1]),
-					bestSeller: res[2]
+					needUpdatePopupState: true
 				}
 			})
-		})
+		}
 	})
 }
 

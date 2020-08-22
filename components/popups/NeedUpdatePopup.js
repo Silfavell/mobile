@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {
-	Text
+	Text,
+	Linking
 } from 'react-native'
 import Modal, {
 	ModalButton,
@@ -13,14 +15,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 //  expo.version // current version
 
 class NeedUpdatePopup extends React.PureComponent {
-	close = () => {
-		console.log('Close App')
-		this.props.setPopupState({ scaleAnimationModal: false })
-		return true
-	}
-
 	onConfirm = () => {
-		console.log('Go to playstore')
+		Linking.openURL('market://details?id=com.silfavell.android')
 	}
 
 	render() {
@@ -28,36 +24,23 @@ class NeedUpdatePopup extends React.PureComponent {
 			<Modal
 				onTouchOutside={this.close}
 				width={0.9}
-				visible
+				visible={this.props.needUpdatePopupState}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
 				footer={(
 					<ModalFooter style={styles.footer}>
-
 						<ModalButton
-							text='Close'
-							textStyle={styles.buttonText}
-							style={styles.buttonNo}
-							onPress={this.close}
-							key='button-1'
-						/>
-
-						<ModalButton
-							text='Update'
+							text='Güncelle'
 							textStyle={styles.buttonText}
 							style={styles.buttonYes}
 							onPress={this.onConfirm}
 							key='button-2'
 						/>
-
 					</ModalFooter>
-				)}
-			>
-
+				)}>
 				<ModalContent style={styles.content}>
 					<Text style={styles.text}>Silfavell'in yeni bir sürümü var. Lütfen devam etmeden önce güncelleyiniz.</Text>
 				</ModalContent>
-
 			</Modal>
 		)
 	}
@@ -75,7 +58,8 @@ const styles = ScaledSheet.create({
 	text: {
 		fontSize: '17@s',
 		fontWeight: 'bold',
-		marginBottom: -6
+		marginBottom: -6,
+		textAlign: 'center'
 	},
 	buttonNo: {
 		backgroundColor: '#697488'
@@ -88,4 +72,12 @@ const styles = ScaledSheet.create({
 	}
 })
 
-export default NeedUpdatePopup
+const mapStateToProps = ({
+	globalReducer: {
+		needUpdatePopupState
+	}
+}) => ({
+	needUpdatePopupState
+})
+
+export default connect(mapStateToProps)(NeedUpdatePopup)

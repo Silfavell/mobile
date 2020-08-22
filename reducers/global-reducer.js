@@ -3,6 +3,7 @@ import {
 	SET_CONNECTION_POPUP_STATE,
 	NEED_TO_LOGIN_POPUP_STATE,
 	SET_ROOT_NAVIGATION,
+	SET_NEED_UPDATE_POPUP_STATE,
 	SET_MESSAGE_POPUP_REF
 } from '../actions/global-actions'
 
@@ -10,6 +11,7 @@ const INITIAL_STATE = {
 	connectionPopupState: false,
 	needToLoginPopupState: false,
 	clearCartPopupState: false,
+	needUpdatePopupState: false,
 	messagePopupRef: null
 }
 
@@ -19,6 +21,7 @@ export default (state = INITIAL_STATE, action) => {
 		case SET_ROOT_NAVIGATION:
 		case CLEAR_CART_POPUP_STATE:
 		case SET_CONNECTION_POPUP_STATE:
+		case SET_NEED_UPDATE_POPUP_STATE:
 		case NEED_TO_LOGIN_POPUP_STATE: return { ...state, ...action.payload }
 		default: return state
 	}
