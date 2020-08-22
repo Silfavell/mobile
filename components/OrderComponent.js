@@ -29,7 +29,14 @@ class OrderComponent extends React.PureComponent {
 	}
 
 	render() {
-		const { item } = this.props
+		const {
+			item: {
+				date,
+				paidPrice,
+				products,
+				status
+			}
+		} = this.props
 
 		return (
 			<View style={styles.container}>
@@ -38,7 +45,7 @@ class OrderComponent extends React.PureComponent {
 						<Text>Sipariş Tarihi:</Text>
 						<Text>
 							{
-								new Date(item.date).toLocaleDateString('tr-TR', {
+								new Date(date).toLocaleDateString('tr-TR', {
 									weekday: 'long',
 									year: 'numeric',
 									month: 'long',
@@ -50,25 +57,39 @@ class OrderComponent extends React.PureComponent {
 
 					<View style={styles.detailContainer}>
 						<Text>Ödenen Tutar:</Text>
-						<Text>{`₺${item.paidPrice.toFixed(2).replace('.', ',')}`}</Text>
+						<Text>{`₺${paidPrice.toFixed(2).replace('.', ',')}`}</Text>
 					</View>
 
 					<View style={styles.detailContainer}>
 						<Text>Sipariş Durumu:</Text>
-						<Text>{this.getStatusText(item.status)}</Text>
+						<Text>{this.getStatusText(status)}</Text>
 					</View>
-
 				</View>
 
-				<OrderCarousel item={this.props.item} />
+				<OrderCarousel products={products} />
+
 				{
-					(item.status === OrderStatus.APPROVED) && (
+					status === 5 && (
+						<>
+							<View style={styles.detailsContainer2}>
+								<View style={styles.detailContainer}>
+									<Text>Iade Edilen Urunler:</Text>
+								</View>
+							</View>
+
+							<OrderCarousel products={products} />
+						</>
+					)
+				}
+
+				{
+					(status === OrderStatus.APPROVED) && (
 						<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
 							<SettingItem title={'Kargo Takip'} order />
 						</TouchableOpacity>
 					)
 				}
-			</View>
+			</View >
 		)
 	}
 }
@@ -84,6 +105,12 @@ const styles = ScaledSheet.create({
 		backgroundColor: 'white'
 	},
 	detailsContainer: {
+		paddingBottom: 12,
+		borderBottomWidth: 1,
+		borderBottomColor: '#DFDFDF'
+	},
+	detailsContainer2: {
+		paddingTop: 24,
 		paddingBottom: 12,
 		borderBottomWidth: 1,
 		borderBottomColor: '#DFDFDF'
