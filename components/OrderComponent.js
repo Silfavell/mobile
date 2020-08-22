@@ -7,10 +7,11 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import CartProduct from './CartProduct'
 import SettingItem from './SettingItem'
 
 import OrderStatus from '../models/OrderStatus'
+import OrderCarousel from './OrderCarousel'
+import CartProduct from './CartProduct'
 
 class OrderComponent extends React.PureComponent {
 
@@ -59,14 +60,7 @@ class OrderComponent extends React.PureComponent {
 
 				</View>
 
-				<View style={styles.productContainer}>
-					{
-						item.products.map((product, index) => (
-							<CartProduct data={product} previousOrder />
-						))
-					}
-				</View>
-
+				<OrderCarousel item={this.props.item} />
 				{
 					(item.status === OrderStatus.APPROVED) && (
 						<TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
@@ -81,8 +75,6 @@ class OrderComponent extends React.PureComponent {
 
 const styles = ScaledSheet.create({
 	container: {
-		flex: 1,
-		height: 'auto',
 		marginHorizontal: 6,
 		marginVertical: 12,
 		padding: 6,
@@ -101,9 +93,6 @@ const styles = ScaledSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		padding: 4
-	},
-	productContainer: {
-		display: 'flex'
 	}
 })
 
