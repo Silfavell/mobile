@@ -4,7 +4,8 @@ import {
 	View,
 	TouchableOpacity,
 	Text,
-	Linking
+	Linking,
+	AsyncStorage
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AskPopup from '../components/popups/AskPopup'
@@ -23,7 +24,9 @@ class ThanksScreen extends React.Component {
 	}
 
 	moveToPlayStore = () => {
-		Linking.openURL('market://details?id=com.silfavell.android')
+		AsyncStorage.setItem('isRatePlaystoreAsked', '').then(() => {
+			Linking.openURL('market://details?id=com.silfavell.android')
+		})
 	}
 
 	render() {
@@ -51,7 +54,7 @@ class ThanksScreen extends React.Component {
 				<View style={[styles.child, styles.goToHomeButtonContainer]}>
 					<TouchableOpacity
 						onPress={() => {
-							if (this.state.isRatePlaystoreAsked) {
+							if (AsyncStorage.getItem('isRatePlaystoreAsked') || this.state.isRatePlaystoreAsked) {
 								this.props.navigation.popToTop()
 								this.props.navigation.navigate('home')
 							} else {

@@ -17,6 +17,7 @@ import FavoriteProductsScreen from '../FavoriteProductsScreen'
 import FullProductScreen from '../FullProductScreen'
 import PreviousOrdersScreen from '../PreviousOrdersScreen'
 import ReturnItems from '../ReturnItems'
+import ReturnItemsCompleted from '../ReturnItemsCompleted'
 import HelpScreen from '../HelpScreen'
 
 const Stack = createStackNavigator()
@@ -125,7 +126,7 @@ class Screen4 extends React.PureComponent {
 						headerStyle: styles.headerStyle
 					}}
 				/>
-				
+
 				<Stack.Screen
 					name='previousOrdersScreen'
 					component={PreviousOrdersScreen}
@@ -142,6 +143,17 @@ class Screen4 extends React.PureComponent {
 					component={ReturnItems}
 					options={{
 						title: 'Iade Talebinde Bulun',
+						headerTitleAlign: 'center',
+						headerTintColor: 'white',
+						headerStyle: styles.headerStyle
+					}}
+				/>
+
+				<Stack.Screen
+					name='returnItemsCompleted'
+					component={ReturnItemsCompleted}
+					options={{
+						title: 'Iade Talebiniz Alınmıştır',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle

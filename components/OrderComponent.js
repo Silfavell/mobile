@@ -61,6 +61,7 @@ class OrderComponent extends React.PureComponent {
 				paidPrice,
 				returnItemsTotalPayback,
 				products,
+				returnItems,
 				status
 			}
 		} = this.props
@@ -109,7 +110,7 @@ class OrderComponent extends React.PureComponent {
 								</View>
 							</View>
 
-							<OrderCarousel products={products} previousOrder />
+							<OrderCarousel products={returnItems} previousOrder />
 						</>
 					)
 				}

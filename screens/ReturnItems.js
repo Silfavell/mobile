@@ -88,8 +88,10 @@ class ReturnItems extends React.Component {
             return item
         })
 
-        axios.post(`${SERVER_URL}/user/return-items/${this.props.route.params.items._id}`, items).then(({ status, data }) => {
-            console.log(status, data)
+        axios.post(`${SERVER_URL}/user/return-items/${this.props.route.params.item._id}`, items).then(({ status, data }) => {
+            if (status === 200) {
+                this.props.navigation.navigate('returnItemsCompleted')
+            }
         })
     }
 
