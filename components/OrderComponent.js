@@ -11,7 +11,6 @@ import SettingItem from './SettingItem'
 
 import OrderStatus from '../models/OrderStatus'
 import OrderCarousel from './OrderCarousel'
-import CartProduct from './CartProduct'
 
 class OrderComponent extends React.PureComponent {
 
@@ -20,6 +19,9 @@ class OrderComponent extends React.PureComponent {
 			case OrderStatus.WAITING_FOR_APPROVAL: return 'Onay Bekliyor'
 			case OrderStatus.APPROVED: return 'Onaylandı'
 			case OrderStatus.CANCELED: return 'Iptal Edildi'
+			case OrderStatus.RETURNED: return 'Iade Talep Edildi'
+			case OrderStatus.RETURN_ACCEPTED: return 'Iade Kabul Edildi'
+			case OrderStatus.RETURN_DENIED: return 'Iade Reddedildi'
 			default: return 'Onaylandı'
 		}
 	}
