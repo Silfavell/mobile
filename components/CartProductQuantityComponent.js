@@ -12,16 +12,42 @@ import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } 
 
 class CartProductQuantityComponent extends React.Component {
 
-	state = {
-		quantity: this.props.previousOrder ? this.props.quantity : this.props.cart[this.props._id].quantity
+	constructor(props) {
+		super(props)
+
+		let quantity = 1
+		if (this.props.previousOrder) {
+			quantity = this.props.quantity
+		}
+		else if (this.props.returnItem) {
+
+		} else {
+			quantity = this.props.cart[this.props._id].quantity
+		}
+
+		this.state = {
+			quantity
+		}
 	}
 
 	onDecreaseClick = () => {
-		this.props.decreaseProductQuantity(this.props._id)
+		if (this.props.returnItem) {
+			this.setState({
+				quantity: this.props.returnItem.decreaseProductQuantity(this.props._id)
+			})
+		} else {
+			this.props.decreaseProductQuantity(this.props._id)
+		}
 	}
 
 	onIncreaseClick = () => {
-		this.props.increaseProductQuantity(this.props._id)
+		if (this.props.returnItem) {
+			this.setState({
+				quantity: this.props.returnItem.increaseProductQuantity(this.props._id)
+			})
+		} else {
+			this.props.increaseProductQuantity(this.props._id)
+		}
 	}
 
 	onQuantityChange = (quantity) => {
@@ -31,15 +57,29 @@ class CartProductQuantityComponent extends React.Component {
 	onFocusOut = () => {
 		if (this.state.quantity === '') {
 			this.setState({ quantity: 1 }, () => {
-				this.props.setProductQuantity(this.props._id, parseInt(1))
+				if (this.props.returnItem) {
+					this.setState({
+						quantity: this.props.returnItem.setProductQuantity(this.props._id, 1)
+					})
+				} else {
+					this.props.setProductQuantity(this.props._id, 1)
+				}
 			})
 		} else {
-			this.props.setProductQuantity(this.props._id, parseInt(this.state.quantity))
+			if (this.props.returnItem) {
+				this.setState({
+					quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(this.state.quantity))
+				})
+			} else {
+				this.props.setProductQuantity(this.props._id, parseInt(this.state.quantity))
+			}
 		}
 	}
 
 	UNSAFE_componentWillReceiveProps(nextProps) {
-		this.setState({ quantity: nextProps.previousOrder ? nextProps.quantity : nextProps.cart[this.props._id].quantity })
+		if (!this.props.returnItem) {
+			this.setState({ quantity: nextProps.previousOrder ? nextProps.quantity : nextProps.cart[this.props._id].quantity })
+		}
 	}
 
 	render() {

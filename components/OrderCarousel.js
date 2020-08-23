@@ -11,7 +11,9 @@ class OrderCarousel extends React.Component {
             <ViewPager style={styles.paginator} initialPage={0} showPageIndicator>
                 {
                     this.props.products.map((product, index) => (
-                        <CartProduct data={product} previousOrder />
+                        <CartProduct
+                            data={product}
+                            previousOrder />
                     ))
                 }
             </ViewPager>

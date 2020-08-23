@@ -29,7 +29,7 @@ class OrderComponent extends React.PureComponent {
 	}
 
 	onReturnClick = () => {
-		this.props.navigation.navigate('returnItems', { _id: this.props.item._id })
+		this.props.navigation.navigate('returnItems', { item: this.props.item })
 	}
 
 	renderFooter = () => {
@@ -45,7 +45,7 @@ class OrderComponent extends React.PureComponent {
 			case OrderStatus.RETURNABLE: {
 				return (
 					<TouchableOpacity activeOpacity={0.6} onPress={this.onReturnClick}>
-						<SettingItem title={'Iade talebinde bulun'} order />
+						<SettingItem title={'Iade Talebinde Bulun'} order />
 					</TouchableOpacity>
 				)
 			}
@@ -93,7 +93,7 @@ class OrderComponent extends React.PureComponent {
 					</View>
 				</View>
 
-				<OrderCarousel products={products} />
+				<OrderCarousel products={products} previousOrder />
 
 				{
 					status === 5 && (
@@ -109,7 +109,7 @@ class OrderComponent extends React.PureComponent {
 								</View>
 							</View>
 
-							<OrderCarousel products={products} />
+							<OrderCarousel products={products} previousOrder />
 						</>
 					)
 				}

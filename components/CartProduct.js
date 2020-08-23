@@ -4,30 +4,37 @@ import {
 	Image,
 	Text
 } from 'react-native'
+
 import { SERVER_URL } from '../utils/global'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
 class CartProduct extends React.PureComponent {
+
+	onReturnItemSelect = () => {
+		this.props.returnItem.onSelect(this.props.data._id)
+	}
+
 	render() {
 		const {
 			data: {
 				_id,
 				name,
 				price,
+				paidPrice,
 				discountedPrice,
 				image,
 				quantity
 			},
-			previousOrder
+			previousOrder,
+			returnItem
 		} = this.props
 
 		const url = `${SERVER_URL}/assets/products/${image}-0.webp`
 
 		return (
 			<View style={styles.container}>
-
 				<View style={[styles.child, styles.flex2, styles.imageContainer]}>
 					<Image
 						style={styles.productImage}
@@ -43,21 +50,34 @@ class CartProduct extends React.PureComponent {
 					</View>
 					<View style={styles.child} />
 					<View style={[styles.textContainer, styles.priceContainer]}>
-						<Text style={[styles.productPrice, (discountedPrice && !previousOrder) ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
-
 						{
-							(discountedPrice && !previousOrder) && (
-								<Text style={styles.productPrice}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
-							)
+							returnItem ? (
+								<Text style={styles.productPrice}>{`₺${paidPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
+							) : (
+									<>
+										<Text style={[styles.productPrice, (discountedPrice && !previousOrder) ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+										{
+											(discountedPrice && !previousOrder) && (
+												<Text style={styles.productPrice}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
+											)
+										}
+									</>
+								)
 						}
 					</View>
 					<View style={styles.rowChild}>
 						<View style={styles.child} />
-						<CartProductQuantityComponent _id={_id} previousOrder={previousOrder} quantity={quantity} />
+
+						<CartProductQuantityComponent
+							_id={_id}
+							previousOrder={previousOrder}
+							returnItem={returnItem}
+							quantity={quantity} />
+
 						<View style={styles.child} />
 					</View>
-				</View>
-			</View>
+				</View >
+			</View >
 		)
 	}
 }
