@@ -12,34 +12,14 @@ export const LOGOUT = 'LOGOUT'
 export const UPDATE_PROFILE = 'UPDATE_PROFILE'
 export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
-const getCategories = () => {
-	const url = `${SERVER_URL}/categories`
+const getDatas = (token) => {
+	const url = `${SERVER_URL}/mobile-initializer`
+
+	if (token) {
+		return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data)
+	}
 
 	return axios.get(url).then(({ data }) => data)
-}
-
-const getProducts = () => {
-	const url = `${SERVER_URL}/products-with-categories`
-
-	return axios.get(url).then(({ data }) => data)
-}
-
-const getBestSellers = () => {
-	const url = `${SERVER_URL}/best-seller-mobile`
-
-	return axios.get(url).then(({ data }) => data)
-}
-
-const getCart = (token) => {
-	const url = `${SERVER_URL}/user/cart`
-
-	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data?.cart ?? {})
-}
-
-const getPaymentCards = (token) => {
-	const url = `${SERVER_URL}/user/list-cards`
-
-	return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data)
 }
 
 const getVersion = () => {
@@ -75,32 +55,23 @@ export const setInitialDatas = () => (dispatch) => {
 		if (version === pckg.version) {
 			AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
 				if (vals[0][1]) {
-					return Promise.all([getCategories(), getProducts(), getCart(vals[0][1]), getPaymentCards(vals[0][1]), getBestSellers()]).then((res) => {
+					return getDatas(vals[0][1]).then((datas) => {
 						dispatch({
 							type: SET_INITIAL_DATAS,
 							payload: {
-								categories: res[0],
-								products: res[1],
+								...datas,
 								token: vals[0][1],
 								user: JSON.parse(vals[1][1]),
-								cart: res[2],
-								cards: res[3].cardDetails,
-								bestSeller: res[4]
+								cards: datas.cards.cardDetails
 							}
 						})
 					})
 				}
-				return Promise.all([getCategories(), getProducts(), getBestSellers()]).then((res) => {
+
+				return getDatas().then((datas) => {
 					dispatch({
 						type: SET_INITIAL_DATAS,
-						payload: {
-							categories: res[0],
-							products: res[1],
-							token: vals[0][1],
-							user: JSON.parse(vals[1][1]),
-							cart: JSON.parse(vals[2][1]),
-							bestSeller: res[2]
-						}
+						payload: datas
 					})
 				})
 			})

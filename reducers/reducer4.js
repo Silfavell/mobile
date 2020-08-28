@@ -4,6 +4,7 @@ const INITIAL_STATE = {
 	categories: [],
 	products: [],
 	bestSeller: [],
+	mostSearched: [],
 	user: {},
 	token: null
 }

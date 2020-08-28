@@ -1,8 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import axios from 'axios'
 import {
 	ScrollView,
 	View,
+	Text,
 	TouchableOpacity,
 	ActivityIndicator,
 	TextInput
@@ -12,6 +14,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 import { SERVER_URL } from '../utils/global'
 import RecyclerList from '../components/RecyclerList'
+import ShadowContainer from '../components/ShadowContainer'
 
 class SearchScreen extends React.PureComponent {
 	state = {
@@ -53,6 +56,19 @@ class SearchScreen extends React.PureComponent {
 		</View>
 	)
 
+	renderMostSearched = () => (
+		<View style={{ flex: 1 }}>
+			<View style={styles.divider}>
+				<ShadowContainer style={{ backgroundColor: 'white' }}>
+					<View style={styles.dividerChild}>
+						<Text style={styles.dividerTitle}>En Çok Arananlar</Text>
+					</View>
+				</ShadowContainer>
+			</View>
+			<RecyclerList list={this.props.mostSearched} navigation={this.props.navigation} />
+		</View>
+	)
+
 
 	fetching = () => (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -88,8 +104,9 @@ class SearchScreen extends React.PureComponent {
 				</View>
 
 				{
-					// eslint-disable-next-line no-nested-ternary
-					this.state.fetch ? this.fetching() : (this.state.products.length > 0 && this.renderSearchResult())
+					this.state.products.length > 0 ? (
+						this.state.fetch ? this.fetching() : (this.state.products.length > 0 && this.renderSearchResult())
+					) : this.renderMostSearched()
 				}
 			</ScrollView>
 		)
@@ -141,7 +158,35 @@ const styles = ScaledSheet.create({
 	emptyFooter: {
 		flex: 7,
 		margin: 2
+	},
+	divider: {
+		height: '50@s',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row'
+	},
+	dividerChild: {
+		height: '100%',
+		width: '100%',
+		display: 'flex',
+		alignItems: 'center',
+		flexDirection: 'row'
+	},
+	dividerTitle: {
+		color: 'black',
+		fontSize: '17@s',
+		fontWeight: '600',
+		paddingHorizontal: '16@s'
 	}
 })
 
-export default SearchScreen
+const mapStateToProps = ({
+	reducer4: {
+		mostSearched
+	}
+}) => ({
+	mostSearched
+})
+
+export default connect(mapStateToProps)(SearchScreen)
