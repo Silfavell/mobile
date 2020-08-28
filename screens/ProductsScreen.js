@@ -1,7 +1,8 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+import { ScaledSheet,s } from 'react-native-size-matters'
 import {
 	View,
+	TouchableOpacity,
 	Text,
 	Platform
 } from 'react-native'
@@ -13,6 +14,7 @@ import {
 	ScrollableTab,
 	TabHeading
 } from 'native-base'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../components/RecyclerList'
 
@@ -24,20 +26,20 @@ class ProductsScreen extends React.Component {
 
 		this.props.navigation.setOptions({
 			title: this.props.products[this.selectedCategory].name,
-			//	headerRight: () => (
-			//		<TouchableOpacity onPress={this.onFilterClick}>
-			//	
-			//			<MaterialIcons
-			//				color={'white'}
-			//				name='sort'
-			//				size={28}
-			//				style={{
-			//					transform: [{ rotateY: '180deg' }],
-			//					marginRight: 12
-			//				}} />
-			//	
-			//		</TouchableOpacity>
-			//	)
+			headerRight: () => (
+				<TouchableOpacity onPress={this.onFilterClick}>
+
+					<MaterialIcons
+						color={'white'}
+						name='sort'
+						size={28}
+						style={{
+							transform: [{ rotateY: '180deg' }],
+							marginRight: s(18)
+						}} />
+
+				</TouchableOpacity>
+			)
 		})
 	}
 

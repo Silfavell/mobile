@@ -32,6 +32,7 @@ export default (store) => {
 	axios.interceptors.response.use((response) => // Do something with response data
 		response,
 		(error) => { // Do something with response error
+			// console.log(error.response.data)
 			store.getState().globalReducer.messagePopupRef.showMessage({ message: error?.response?.data?.error ?? 'Beklenmedik bir hata oluştu, lütfen daha sonra tekrar deneyiniz' })
 			return Promise.reject(error)
 		})
