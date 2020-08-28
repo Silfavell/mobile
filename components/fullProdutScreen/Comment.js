@@ -40,25 +40,28 @@ const styles = ScaledSheet.create({
     container: {
         marginTop: '20@s',
         marginHorizontal: '10@s',
-        padding: '10@s'
+        padding: '10@s',
+        borderWidth: 1,
+        borderColor: '#EFEFEF',
+        borderRadius: '5@s'
     },
     rateContainer: {
         flexDirection: 'row'
     },
     alias: {
         fontWeight: 'bold',
-        fontSize: '18@s',
+        fontSize: '16@s',
         marginTop: '8@s',
         paddingHorizontal: '10@s'
     },
     title: {
         fontWeight: 'bold',
-        fontSize: '20@s',
+        fontSize: '18@s',
         marginTop: '8@s',
         paddingHorizontal: '10@s'
     },
     comment: {
-        fontSize: '18@s',
+        fontSize: '16@s',
         marginTop: '8@s',
         paddingHorizontal: '10@s'
     },

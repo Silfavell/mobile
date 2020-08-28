@@ -29,7 +29,7 @@ class FullProductScreen extends React.PureComponent {
 
 	constructor(props) {
 		super(props)
-		this.getProductById(this.props.route.params)
+		this.getProductBySlug(this.props.route.params.slug)
 	}
 
 	state = {
@@ -82,8 +82,8 @@ class FullProductScreen extends React.PureComponent {
 		this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
 	}
 
-	getProductById = (productSlug) => {
-		axios.get(`${SERVER_URL}/product/${productSlug}`).then(({
+	getProductBySlug = (productSlug) => {
+		axios.get(`${SERVER_URL}/product/${productSlug}?fromSearch=${!!this.props.route.params.fromSearch}`).then(({
 			data,
 			status
 		}) => {

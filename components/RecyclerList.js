@@ -46,7 +46,8 @@ class List extends React.PureComponent {
 		<Product
 			key={item._id}
 			data={item}
-			navigation={this.props.navigation} />
+			navigation={this.props.navigation}
+			fromSearch={this.props.fromSearch} />
 	)
 
 	render() {

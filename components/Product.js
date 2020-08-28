@@ -28,7 +28,7 @@ class Product extends React.Component {
 	}
 
 	onProductClick = () => {
-		this.props.navigation.navigate('fullProductScreen', this.props.data.slug)
+		this.props.navigation.navigate('fullProductScreen', { slug: this.props.data.slug, fromSearch: this.props.fromSearch })
 	}
 
 	shouldComponentUpdate(nextProps) {
