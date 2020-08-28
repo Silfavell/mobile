@@ -19,7 +19,9 @@ import ShadowContainer from '../components/ShadowContainer'
 
 import Slider from '../components/Slider'
 import Color from '../components/fullProdutScreen/Color'
+import Comment from '../components/fullProdutScreen/Comment'
 import Loading from '../components/LoadingComponent'
+import Accordion from '../components/Accordion'
 
 class FullProductScreen extends React.PureComponent {
 
@@ -145,7 +147,8 @@ class FullProductScreen extends React.PureComponent {
 				price,
 				discountedPrice,
 				color,
-				specifications
+				specifications,
+				comments
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
 			return (
@@ -206,19 +209,32 @@ class FullProductScreen extends React.PureComponent {
 							)
 						}
 
-						<View style={styles.details2}>
-							<Text style={styles.productDetailText}>Ürün Hakkında</Text>
+						<Accordion title='Ürün Hakkında' expanded>
+							<>
+								<View style={styles.details2}>
+									<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
+								</View>
 
-							<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
-						</View>
+								<View style={styles.extraDetailsContainer}>
+									{
+										specifications.map((specification, index) => (
+											this.renderExtraDetailsRow({ title: specification.name, value: specification.value, first: index === 0 })
+										))
+									}
+								</View>
+							</>
+						</Accordion>
 
-						<View style={styles.extraDetailsContainer}>
-							{
-								specifications.map((specification, index) => (
-									this.renderExtraDetailsRow({ title: specification.name, value: specification.value, first: index === 0 })
-								))
-							}
-						</View>
+						<Accordion title={`Yorumlar (${comments.length})`}>
+							<>
+								{
+									comments.map((comment) => (
+										<Comment item={comment} />
+									))
+								}
+							</>
+						</Accordion>
+
 						<View style={styles.emptyFooter} />
 					</ScrollView>
 

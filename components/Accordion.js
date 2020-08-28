@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native'
-import SettingItem from '../SettingItem'
+import SettingItem from './SettingItem'
 
 class Accordion extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            expanded: false
+            expanded: !!this.props.expanded
         }
 
         if (Platform.OS === 'android') {

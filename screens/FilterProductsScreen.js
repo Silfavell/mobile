@@ -4,7 +4,6 @@ import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet, s } from 'react-native-size-matters'
-import RangeSlider from 'rn-range-slider'
 
 import { makeFilter, clearFilter } from '../actions/filter-actions'
 
@@ -12,7 +11,7 @@ import ShadowContainer from '../components/ShadowContainer'
 import SettingItem from '../components/SettingItem'
 import ButtonComponent from '../components/ButtonComponent'
 import ClearFilterPopup from '../components/popups/ClearFilterPopup'
-import Accordion from '../components/FilterScreenComponents/Accordion'
+import Accordion from '../components/Accordion'
 import BrandComponent from '../components/FilterScreenComponents/BrandComponent'
 import Slider from '../components/FilterScreenComponents/Slider'
 
