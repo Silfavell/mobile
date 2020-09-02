@@ -45,7 +45,11 @@ class CardComponent extends React.PureComponent {
 			<View style={styles.container}>
 				<TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} onPress={this.onClick}>
 					<View style={styles.child}>
-						<Image style={styles.cardImage} resizeMode="contain" source={getCardIcon(item.cardAssociation)} />
+						<Image
+							style={styles.cardImage}
+							resizeMode='contain'
+							resizeMethod='resize'
+							source={getCardIcon(item.cardAssociation)} />
 					</View>
 					<View style={[styles.child, styles.textContainer]}>
 						<View style={styles.child}>
@@ -57,7 +61,7 @@ class CardComponent extends React.PureComponent {
 					</View>
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.child} onPress={this.onDeleteClick}>
-					<Ionicons name="md-trash" size={32} color="rgba(0,0,0,.8)" />
+					<Ionicons name='md-trash' size={32} color='rgba(0,0,0,.8)' />
 				</TouchableOpacity>
 			</View>
 		)

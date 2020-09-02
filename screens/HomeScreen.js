@@ -39,7 +39,11 @@ class HomeScreen extends React.Component {
 			headerStyle: styles.headerStyle,
 			headerTitle: () => (
 				<View style={styles.headerTitle}>
-					<Image source={logo} resizeMode='contain' style={styles.headerImage} />
+					<Image
+						source={logo}
+						resizeMode='contain'
+						resizeMethod='resize'
+						style={styles.headerImage} />
 				</View>
 			),
 			headerLeft: () => (
@@ -97,7 +101,7 @@ class HomeScreen extends React.Component {
 
 		return (
 			<View style={{ flex: 1, backgroundColor: 'white' }}>
-				<BestSeller navigation={this.props.navigation} headers={headers}/>
+				<BestSeller navigation={this.props.navigation} headers={headers} />
 			</View>
 		)
 	}

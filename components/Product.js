@@ -71,6 +71,7 @@ class Product extends React.Component {
 					<Image
 						source={{ uri: url }}
 						resizeMode='contain'
+						resizeMethod='resize'
 						style={styles.productImage}
 					/>
 

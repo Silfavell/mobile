@@ -21,7 +21,9 @@ class ScrollableCategoryList extends React.Component {
     renderCategoryElement = (title, index, imagePath) => (
         <TouchableOpacity onPress={() => this.onPress(index)} activeOpacity={0.9} style={styles.categoryElement}>
             <View style={styles.iconContainer}>
-                <Image style={{ width: 40, height: 40 }} source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
+                <Image
+                    style={{ width: 40, height: 40 }}
+                    source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
             </View>
             <Text numberOfLines={1}>{title}</Text>
         </TouchableOpacity>

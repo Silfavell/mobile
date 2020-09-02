@@ -18,6 +18,7 @@ class Slider extends React.PureComponent {
 							<Image
 								source={{ uri: image }}
 								resizeMode={this.props.shopSingle ? 'contain' : 'cover'}
+								resizeMethod='resize'
 								style={{ flex: 1, width: '100%' }} />
 
 						</View>

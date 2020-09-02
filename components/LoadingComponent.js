@@ -11,7 +11,11 @@ import logo from '../assets/logo.png'
 const LoadingComponent = () => (
 	<View style={styles.container}>
 		<View style={styles.center}>
-			<Image style={styles.image} source={logo} resizeMode={'contain'} />
+			<Image
+				style={styles.image}
+				source={logo}
+				resizeMode={'contain'}
+				resizeMethod='resize' />
 			<Text style={styles.text}>Lütfen Bekleyin</Text>
 		</View>
 	</View>

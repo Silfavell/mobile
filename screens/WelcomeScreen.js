@@ -17,7 +17,11 @@ const WelcomeScreen = ({ navigation }) => (
 		<View style={styles.child} />
 
 		<View style={[styles.child, styles.imageContainer]}>
-			<Image style={styles.image} resizeMode='contain' source={icon} />
+			<Image
+				style={styles.image}
+				resizeMode='contain'
+				resizeMethod='resize'
+				source={icon} />
 		</View>
 
 		<View style={styles.empty} />

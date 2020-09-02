@@ -39,6 +39,7 @@ class CartProduct extends React.PureComponent {
 					<Image
 						style={styles.productImage}
 						resizeMode='contain'
+						resizeMethod='resize'
 						source={{ uri: url }}
 					/>
 				</View>
