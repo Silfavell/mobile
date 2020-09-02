@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import NetInfo from '@react-native-community/netinfo'
 import geolocation from '@react-native-community/geolocation'
+import SplashScreen from 'react-native-splash-screen'
 
 import rootReducer from './reducers/root-reducer'
 
@@ -48,22 +49,30 @@ const handleAppStateChange = (nextAppState) => {
 	}
 }
 
-export default function App() {
-	console.disableYellowBox = true
-	networkListener()
-	AppState.addEventListener('change', handleAppStateChange)
+class App extends React.PureComponent {
 
-	return (
-		<Provider store={store}>
-			<StatusBar backgroundColor='rgba(0,0,0,.8)' barStyle='light-content' />
-			<GlobalScreen />
-			<NavigationContainer>
-				<Stack.Navigator initialRouteName='Loading'>
-					<Stack.Screen name='Welcome' component={WelcomeStack} options={{ headerShown: false }} />
-					<Stack.Screen name='Loading' component={LoadingScreen} options={{ headerShown: false }} />
-					<Stack.Screen name='Root' component={BottomTabNavigator} />
-				</Stack.Navigator>
-			</NavigationContainer>
-		</Provider>
-	)
+	componentDidMount() {
+		SplashScreen.hide()
+		console.disableYellowBox = true
+		networkListener()
+		AppState.addEventListener('change', handleAppStateChange)
+	}
+
+	render() {
+		return (
+			<Provider store={store}>
+				<StatusBar backgroundColor='rgba(0,0,0,.8)' barStyle='light-content' />
+				<GlobalScreen />
+				<NavigationContainer>
+					<Stack.Navigator initialRouteName='Loading'>
+						<Stack.Screen name='Welcome' component={WelcomeStack} options={{ headerShown: false }} />
+						<Stack.Screen name='Loading' component={LoadingScreen} options={{ headerShown: false }} />
+						<Stack.Screen name='Root' component={BottomTabNavigator} />
+					</Stack.Navigator>
+				</NavigationContainer>
+			</Provider>
+		)
+	}
 }
+
+export default App

@@ -66,7 +66,7 @@ const styles = ScaledSheet.create({
 	image: {
 		flex: 1,
 		borderWidth: 1,
-		height: '100%'
+		height: '90%'
 	},
 	child: {
 		flex: 1,
