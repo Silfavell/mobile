@@ -10,42 +10,49 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import ShadowContainer from '../ShadowContainer'
 
-const AddressSelectComponent = ({
-	navigation,
-	title,
-	subTitle,
-	token,
-	setNeedToLoginPopupState
-}) => (
-	<ShadowContainer>
-		<TouchableOpacity
-			style={styles.container}
-			onPress={() => {
-				if (!token) {
-					setNeedToLoginPopupState(true)
-				} else {
-					navigation.navigate('addresses')
-				}
-			}}
-		>
+class AddressSelectComponent extends React.PureComponent {
+	onPress = () => {
+		const {
+			navigation,
+			token,
+			setNeedToLoginPopupState
+		} = this.props
 
-			<View style={styles.iconContainer}>
-				<Ionicons size={32} name='md-home' />
-			</View>
-			<View style={styles.paymentInfoContainer}>
-				<View style={styles.paymentInfoTextContainer}>
-					<Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
-				</View>
-				<View style={styles.paymentInfoTextContainer}>
-					<Text numberOfLines={2} style={styles.paymentDetail}>{subTitle}</Text>
-				</View>
-			</View>
-			<View style={styles.iconContainer}>
-				<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
-			</View>
-		</TouchableOpacity>
-	</ShadowContainer>
-)
+		if (!token) {
+			setNeedToLoginPopupState(true)
+		} else {
+			navigation.navigate('addresses')
+		}
+	}
+
+	render() {
+		const {
+			title,
+			subTitle
+		} = this.props
+
+		return (
+			<ShadowContainer>
+				<TouchableOpacity style={styles.container} onPress={this.onPress}>
+					<View style={styles.iconContainer}>
+						<Ionicons size={32} name='md-home' />
+					</View>
+					<View style={styles.paymentInfoContainer}>
+						<View style={styles.paymentInfoTextContainer}>
+							<Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
+						</View>
+						<View style={styles.paymentInfoTextContainer}>
+							<Text numberOfLines={2} style={styles.paymentDetail}>{subTitle}</Text>
+						</View>
+					</View>
+					<View style={styles.iconContainer}>
+						<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
+					</View>
+				</TouchableOpacity>
+			</ShadowContainer>
+		)
+	}
+}
 
 const styles = ScaledSheet.create({
 	container: {
@@ -78,6 +85,5 @@ const styles = ScaledSheet.create({
 		marginVertical: '4@s'
 	}
 })
-
 
 export default AddressSelectComponent
