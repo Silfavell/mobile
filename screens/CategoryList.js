@@ -8,6 +8,20 @@ import {
 import SettingItem from '../components/SettingItem'
 import ShadowContainer from '../components/ShadowContainer'
 
+class CategoryItem extends React.PureComponent {
+    onPress = () => {
+        this.props.navigation.navigate('products', { selectedCategory: this.props.index })
+    }
+
+    render() {
+        return (
+            <TouchableOpacity activeOpacity={0.9} onPress={this.onPress}>
+                <SettingItem title={this.props.category.name} />
+            </TouchableOpacity>
+        )
+    }
+}
+
 class CategoryList extends React.PureComponent {
     render() {
         return (
@@ -15,11 +29,10 @@ class CategoryList extends React.PureComponent {
                 <ScrollView>
                     {
                         this.props.categories.map((category, index) => (
-                            <TouchableOpacity activeOpacity={0.9} onPress={() => {
-                                this.props.navigation.navigate('products', { selectedCategory: index })
-                            }}>
-                                <SettingItem title={category.name} />
-                            </TouchableOpacity>
+                            <CategoryItem
+                                category={category}
+                                index={index}
+                                navigation={this.props.navigation} />
                         ))
                     }
                 </ScrollView>
