@@ -5,12 +5,12 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 import CartProduct from './CartProduct'
 
-class OrderCarousel extends React.Component {
+class OrderCarousel extends React.PureComponent {
     render() {
         return (
             <ViewPager style={styles.paginator} initialPage={0} showPageIndicator>
                 {
-                    this.props.products.map((product, index) => (
+                    this.props.products.map((product) => (
                         <CartProduct
                             data={product}
                             previousOrder />

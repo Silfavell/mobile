@@ -14,7 +14,7 @@ import { SERVER_URL } from '../utils/global'
 import { increaseProductQuantity } from '../actions/actions1'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
 
-class Product extends React.Component {
+class Product extends React.PureComponent {
 	onAddProductClick = () => {
 		this.props.increaseProductQuantity(this.props.data._id, this.props.messagePopupRef)
 	}

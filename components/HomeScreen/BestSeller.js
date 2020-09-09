@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import RecyclerList from './List'
 
-class BestSeller extends React.Component {
+class BestSeller extends React.PureComponent {
     render() {
         return (
             <RecyclerList
