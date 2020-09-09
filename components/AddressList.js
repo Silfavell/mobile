@@ -1,17 +1,16 @@
 import React from 'react'
 import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import {
 	deleteAddress,
 	setSelectedAddress
 } from '../actions/actions2'
 
-import InteractiveSettingItem from './InteractiveSettingItem'
+import AddressItem from '../components/AddressList/AddressItem'
 import DeleteAddressPopup from './popups/DeleteAddressPopup'
 
-class AddressList extends React.PureComponent {
+class AddressList extends React.Component {
 	state = {
 		addressId: '',
 		scaleAnimationModal: false
@@ -26,29 +25,21 @@ class AddressList extends React.PureComponent {
 	}
 
 	renderAddressItem = ({ item: address }) => (
-		<InteractiveSettingItem
-			title={address.openAddress}
-			onLeftClick={() => {
-				this.props.setSelectedAddress(address._id, () => {
-					this.props.navigation.goBack()
-				})
-			}}
-			onRightIconClick={() => {
-				this.setPopupState({ scaleAnimationModal: true, addressId: address._id })
-			}}
-		>
-			<Ionicons color="rgba(0,0,0,.8)" name="md-locate" size={32} />
-			<Ionicons color="rgba(0,0,0,.8)" name="md-trash" size={32} />
-		</InteractiveSettingItem>
+		<AddressItem
+			address={address}
+			navigation={this.props.navigation}
+			setSelectedAddress={this.props.setSelectedAddress}
+			setPopupState={this.setPopupState} />
 	)
 
+	keyExtractor = (item) => item._id
 
 	render() {
 		return (
 			<>
 				<FlatList
 					data={this.props.addresses}
-					keyExtractor={(item) => item._id}
+					keyExtractor={this.keyExtractor}
 					renderItem={this.renderAddressItem}
 					ListFooterComponent={this.props.footer}
 				/>
