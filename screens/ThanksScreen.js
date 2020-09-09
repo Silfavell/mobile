@@ -29,6 +29,18 @@ class ThanksScreen extends React.Component {
 		})
 	}
 
+	onGoHomeClick = () => {
+		if (AsyncStorage.getItem('isRatePlaystoreAsked') || this.state.isRatePlaystoreAsked) {
+			this.props.navigation.popToTop()
+			this.props.navigation.navigate('home')
+		} else {
+			this.setState({
+				scaleAnimationModal: true,
+				isRatePlaystoreAsked: true
+			})
+		}
+	}
+
 	render() {
 		return (
 			<View style={styles.emptyCartContainer}>
@@ -53,19 +65,8 @@ class ThanksScreen extends React.Component {
 				<View style={styles.child} />
 				<View style={[styles.child, styles.goToHomeButtonContainer]}>
 					<TouchableOpacity
-						onPress={() => {
-							if (AsyncStorage.getItem('isRatePlaystoreAsked') || this.state.isRatePlaystoreAsked) {
-								this.props.navigation.popToTop()
-								this.props.navigation.navigate('home')
-							} else {
-								this.setState({
-									scaleAnimationModal: true,
-									isRatePlaystoreAsked: true
-								})
-							}
-						}}
-						style={styles.goToHomeButton}
-					>
+						onPress={this.onGoHomeClick}
+						style={styles.goToHomeButton}>
 						<Text style={styles.goToHomeButtonText}>Ana Sayfaya Git</Text>
 					</TouchableOpacity>
 				</View>
