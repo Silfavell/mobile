@@ -3,24 +3,20 @@ import { ScrollView, TouchableOpacity } from 'react-native'
 
 import LanguageItem from '../components/LanguageItem'
 
-const ChangeLanguageScreen = ({ navigation }) => (
-	<ScrollView>
+class ChangeLanguageScreen extends React.PureComponent {
+	render() {
+		return (
+			<ScrollView>
+				<TouchableOpacity onPress={this.props.navigation.goBack}>
+					<LanguageItem title='English' />
+				</TouchableOpacity>
 
-		<TouchableOpacity onPress={() => {
-			navigation.goBack()
-		}}
-		>
-			<LanguageItem title='English' />
-		</TouchableOpacity>
-
-		<TouchableOpacity onPress={() => {
-			navigation.goBack()
-		}}
-		>
-			<LanguageItem title='Türkçe' />
-		</TouchableOpacity>
-
-	</ScrollView>
-)
+				<TouchableOpacity onPress={this.props.navigation.goBack}>
+					<LanguageItem title='Türkçe' />
+				</TouchableOpacity>
+			</ScrollView>
+		)
+	}
+}
 
 export default ChangeLanguageScreen
