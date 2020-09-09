@@ -7,7 +7,12 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-class ReturnItemsCompleted extends React.Component {
+class ReturnItemsCompleted extends React.PureComponent {
+    onGoHomeClick = () => {
+        this.props.navigation.popToTop()
+        this.props.navigation.navigate('home')
+    }
+
     render() {
         return (
             <View style={styles.emptyCartContainer}>
@@ -25,12 +30,8 @@ class ReturnItemsCompleted extends React.Component {
                 <View style={styles.child} />
                 <View style={[styles.child, styles.goToHomeButtonContainer]}>
                     <TouchableOpacity
-                        onPress={() => {
-                            this.props.navigation.popToTop()
-                            this.props.navigation.navigate('home')
-                        }}
-                        style={styles.goToHomeButton}
-                    >
+                        onPress={this.onGoHomeClick}
+                        style={styles.goToHomeButton}>
                         <Text style={styles.goToHomeButtonText}>Ana Sayfaya Git</Text>
                     </TouchableOpacity>
                 </View>
