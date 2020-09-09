@@ -10,31 +10,42 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 import { SERVER_URL } from '../utils/global'
 
-import ShadowContainer from './ShadowContainer'
-
-class ScrollableCategoryList extends React.Component {
-
-    onPress = (index) => {
-        this.props.navigation.navigate('products', { selectedCategory: index })
+class CategoryElement extends React.PureComponent {
+    onPress = () => {
+        this.props.navigation.navigate('products', { selectedCategory: this.props.index })
     }
 
-    renderCategoryElement = (title, index, imagePath) => (
-        <TouchableOpacity onPress={() => this.onPress(index)} activeOpacity={0.9} style={styles.categoryElement}>
-            <View style={styles.iconContainer}>
-                <Image
-                    style={{ width: 40, height: 40 }}
-                    source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
-            </View>
-            <Text numberOfLines={1}>{title}</Text>
-        </TouchableOpacity>
-    )
+    render() {
+        const {
+            title,
+            imagePath
+        } = this.props
 
+        return (
+            <TouchableOpacity onPress={this.onPress} activeOpacity={0.9} style={styles.categoryElement}>
+                <View style={styles.iconContainer}>
+                    <Image
+                        style={{ width: 40, height: 40 }}
+                        source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
+                </View>
+                <Text numberOfLines={1}>{title}</Text>
+            </TouchableOpacity>
+        )
+    }
+}
+
+class ScrollableCategoryList extends React.PureComponent {
     render() {
         return (
             <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
                 {
                     this.props.categories.map((category, index) => (
-                        this.renderCategoryElement(category.name, index, category.imagePath)
+                        <CategoryElement
+                            navigation={this.props.navigation}
+                            title={category.name}
+                            index={index}
+                            imagePath={category.imagePath}
+                        />
                     ))
                 }
             </ScrollView>
