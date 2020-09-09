@@ -11,47 +11,58 @@ import ButtonComponent from '../components/ButtonComponent'
 
 import icon from '../assets/logo.png'
 
-const WelcomeScreen = ({ navigation }) => (
-	<View style={styles.container}>
-		<View style={styles.empty} />
-		<View style={styles.child} />
+class WelcomeScreen extends React.PureComponent {
+	onContinueClick = () => {
+		this.props.navigation.navigate('Loading', { next: true })
+	}
 
-		<View style={[styles.child, styles.imageContainer]}>
-			<Image
-				style={styles.image}
-				resizeMode='contain'
-				resizeMethod='resize'
-				source={icon} />
-		</View>
+	onRegisterClick = () => {
+		navigation.navigate('register')
+	}
 
-		<View style={styles.empty} />
+	onLoginClick = () => {
+		navigation.navigate('login')
+	}
 
-		<View style={styles.child}>
-			<TouchableOpacity
-				style={styles.continueWithRegistration}
-				onPress={() => {
-					navigation.navigate('Loading', { next: true })
-				}}
-			>
-				<Text style={styles.buttonText}>Giriş yapmadan devam et</Text>
-			</TouchableOpacity>
-		</View>
+	render() {
+		return (
+			<View style={styles.container}>
+				<View style={styles.empty} />
+				<View style={styles.child} />
 
-		<ButtonComponent
-			text='Kayıt Ol'
-			onClick={() => {
-				navigation.navigate('register')
-			}}
-		/>
+				<View style={[styles.child, styles.imageContainer]}>
+					<Image
+						style={styles.image}
+						resizeMode='contain'
+						resizeMethod='resize'
+						source={icon} />
+				</View>
 
-		<View style={styles.child}>
-			<TouchableOpacity style={styles.goToLoginPageContainer} onPress={() => { navigation.navigate('login') }}>
-				<Text style={styles.buttonText}>Hesabın var mı ?</Text>
-				<Text style={styles.loginText}>Giriş yap</Text>
-			</TouchableOpacity>
-		</View>
-	</View>
-)
+				<View style={styles.empty} />
+
+				<View style={styles.child}>
+					<TouchableOpacity
+						style={styles.continueWithRegistration}
+						onPress={this.onContinueClick}>
+						<Text style={styles.buttonText}>Giriş yapmadan devam et</Text>
+					</TouchableOpacity>
+				</View>
+
+				<ButtonComponent
+					text='Kayıt Ol'
+					onClick={this.onRegisterClick}
+				/>
+
+				<View style={styles.child}>
+					<TouchableOpacity style={styles.goToLoginPageContainer} onPress={this.onLoginClick}>
+						<Text style={styles.buttonText}>Hesabın var mı ?</Text>
+						<Text style={styles.loginText}>Giriş yap</Text>
+					</TouchableOpacity>
+				</View>
+			</View>
+		)
+	}
+}
 
 const styles = ScaledSheet.create({
 	container: {
