@@ -154,7 +154,9 @@ export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) 
 				})
 			})
 
-			messagePopupRef?.showMessage({ message: 'Ürün favorilerinize eklendi.' })
+			if (messagePopupRef) {
+				messagePopupRef.showMessage({ message: 'Ürün favorilerinize eklendi.' })
+			}
 		}
 	})
 }
@@ -173,7 +175,9 @@ export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => (dispa
 				})
 			})
 
-			messagePopupRef?.showMessage({ message: 'Ürün favorilerinizden çıkarıldı.' })
+			if (messagePopupRef) {
+				messagePopupRef.showMessage({ message: 'Ürün favorilerinizden çıkarıldı.' })
+			}
 		}
 	})
 }

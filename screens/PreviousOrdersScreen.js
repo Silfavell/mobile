@@ -14,7 +14,7 @@ class PreviousOrdersScreen extends React.PureComponent {
 		fetching: true
 	}
 
-	UNSAFE_componentWillMount() {
+	componentDidMount() {
 		const url = `${SERVER_URL}/user/orders`
 
 		axios.get(url).then(({ status, data }) => {
@@ -33,7 +33,7 @@ class PreviousOrdersScreen extends React.PureComponent {
 	render() {
 		if (this.state.fetching) {
 			return <LoadingComponent />
-		} else if (this.state.orders.length > 0) {
+		} if (this.state.orders.length > 0) {
 			return (
 				<View style={{ flex: 1 }}>
 					<FlatList
@@ -42,7 +42,8 @@ class PreviousOrdersScreen extends React.PureComponent {
 						renderItem={({ item }) => (
 							<OrderComponent
 								item={item}
-								navigation={this.props.navigation} />
+								navigation={this.props.navigation}
+							/>
 						)}
 					/>
 				</View>

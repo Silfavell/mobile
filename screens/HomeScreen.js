@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import {
 	View,
-	ScrollView,
 	Text,
 	TouchableOpacity,
 	Image,
@@ -30,9 +29,8 @@ const banners = [
 ]
 
 class HomeScreen extends React.Component {
-
 	constructor(props) {
-		super(props)
+		super()
 
 		props.navigation.setOptions({
 			headerTitleAlign: 'center',
@@ -43,7 +41,8 @@ class HomeScreen extends React.Component {
 						source={logo}
 						resizeMode='contain'
 						resizeMethod='resize'
-						style={styles.headerImage} />
+						style={styles.headerImage}
+					/>
 				</View>
 			),
 			headerLeft: () => (
@@ -54,13 +53,15 @@ class HomeScreen extends React.Component {
 		})
 	}
 
-	onCategoryListClick = () => {
-		this.props.navigation.navigate('categoryList')
+	componentDidMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick)
+	}
+
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick)
 	}
 
 	keyExtractor = (item) => item._id
-
-	renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />
 
 	handleBackButtonClick = () => {
 		if (this.props.navigation.isFocused()) {
@@ -70,13 +71,11 @@ class HomeScreen extends React.Component {
 		return false
 	}
 
-	componentWillUnmount() {
-		BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick)
+	onCategoryListClick = () => {
+		this.props.navigation.navigate('categoryList')
 	}
 
-	UNSAFE_componentWillMount() {
-		BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick)
-	}
+	renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />
 
 	render() {
 		const headers = [

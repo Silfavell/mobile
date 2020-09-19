@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ScaledSheet } from 'react-native-size-matters'
-import { Image, Text } from 'react-native'
+import { Text } from 'react-native'
 import Modal, {
 	ModalButton,
 	ModalFooter,
@@ -40,7 +40,7 @@ class ConnectionPopup extends React.PureComponent {
 				)}
 			>
 				<ModalContent style={styles.content}>
-					<MaterialIcons color='rgba(0,0,0,.8)' size={72} name={'wifi'} />
+					<MaterialIcons color='rgba(0,0,0,.8)' size={72} name='wifi' />
 					<Text style={styles.contentText}>Lütfen internet bağlantınızı kontrol edin</Text>
 				</ModalContent>
 			</Modal>

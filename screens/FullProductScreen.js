@@ -24,21 +24,32 @@ import Loading from '../components/LoadingComponent'
 import Accordion from '../components/Accordion'
 
 class FullProductScreen extends React.PureComponent {
-
 	scrollRef = React.createRef()
-
-	constructor(props) {
-		super(props)
-		this.getProductBySlug(this.props.route.params.slug)
-	}
 
 	state = {
 		product: null,
 		pickedColor: -1
 	}
 
+	componentDidMount() {
+		this.getProductBySlug(this.props.route.params.slug)
+	}
+
+	// eslint-disable-next-line camelcase
+	UNSAFE_componentWillReceiveProps() {
+		if (this.state.pickedColor === -1) {
+			this.setHeader(this.state.product._id)
+		} else {
+			this.setHeader(this.state.product.group[this.state.pickedColor]._id)
+		}
+	}
+
 	onHeartClick = (_id) => {
-		this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef) : this.addToFavoriteProducts(_id, this.props.messagePopupRef)
+		if (this.props.user?.favoriteProducts?.includes(_id)) {
+			this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
+		} else {
+			this.addToFavoriteProducts(_id, this.props.messagePopupRef)
+		}
 	}
 
 	setHeader = (_id) => {
@@ -48,21 +59,14 @@ class FullProductScreen extends React.PureComponent {
 					<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
 						<Ionicons
 							size={26}
-							color={'rgba(0,0,0,.8)'}
+							color="rgba(0,0,0,.8)"
 							style={{ marginRight: 18 }}
-							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
+							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
+						/>
 
 					</TouchableOpacity>
 				)
 			})
-		}
-	}
-
-	UNSAFE_componentWillReceiveProps() {
-		if (this.state.pickedColor === -1) {
-			this.setHeader(this.state.product._id)
-		} else {
-			this.setHeader(this.state.product.group[this.state.pickedColor]._id)
 		}
 	}
 
@@ -111,9 +115,7 @@ class FullProductScreen extends React.PureComponent {
 			imageCount
 		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-		return Array.from(new Array(imageCount)).map((el, index) => {
-			return `${SERVER_URL}/assets/products/${image}-${index}.webp`
-		})
+		return Array.from(new Array(imageCount)).map((el, index) => `${SERVER_URL}/assets/products/${image}-${index}.webp`)
 	}
 
 	isColorSelected = (index) => {
@@ -129,7 +131,8 @@ class FullProductScreen extends React.PureComponent {
 		<View style={[
 			styles.detailRow,
 			!first ? styles.nonFirstDetailsRow : {}
-		]}>
+		]}
+		>
 			<View style={styles.detailRowTitleContainer}>
 				<Text style={styles.detailRowTitle}>{title}</Text>
 			</View>
@@ -157,12 +160,13 @@ class FullProductScreen extends React.PureComponent {
 					<ScrollView
 						ref={this.scrollRef}
 						contentContainerStyle={styles.scrollContainer}
-						onScroll={this.handleScroll}>
+						onScroll={this.handleScroll}
+					>
 						<ShadowContainer style={{ backgroundColor: 'white' }}>
 							<View style={styles.imageContainer}>
 								<Slider
 									imageContainerStyle={{ paddingBottom: 20 }}
-									_id={'Slider:' + (this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}
+									_id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
 									images={this.getImages()}
 									shopSingle
 									paginator
@@ -189,7 +193,10 @@ class FullProductScreen extends React.PureComponent {
 							(this.state.product.group && this.state.product.group.length > 1 && color) && (
 								<View style={styles.colorContainer}>
 									<View style={styles.textContainer}>
-										<Text style={styles.colorText}>{'Renk:    '}<Text style={styles.colorName}>{color.name}</Text></Text>
+										<Text style={styles.colorText}>
+											{'Renk:    '}
+											<Text style={styles.colorName}>{color.name}</Text>
+										</Text>
 									</View>
 
 									<View style={styles.colors}>
@@ -200,7 +207,8 @@ class FullProductScreen extends React.PureComponent {
 													product={groupProduct}
 													selected={this.isColorSelected(index)}
 													index={index}
-													onPress={this.onColorPicked} />
+													onPress={this.onColorPicked}
+												/>
 											))
 										}
 
@@ -209,7 +217,7 @@ class FullProductScreen extends React.PureComponent {
 							)
 						}
 
-						<Accordion title='Ürün Hakkında' expanded>
+						<Accordion title="Ürün Hakkında" expanded>
 							<>
 								<View style={styles.details2}>
 									<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
@@ -239,13 +247,12 @@ class FullProductScreen extends React.PureComponent {
 					</ScrollView>
 
 					<View style={styles.buttonContainer}>
-						<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
+						<ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
 					</View>
 				</View>
 			)
-		} else {
-			return <Loading />
 		}
+		return <Loading />
 	}
 }
 
@@ -345,7 +352,7 @@ const styles = ScaledSheet.create({
 	},
 	discountedPrice: {
 		fontWeight: 'normal',
-		fontWeight: '100',
+		// fontWeight: '100',
 		textDecorationLine: 'line-through'
 	},
 	productName: {

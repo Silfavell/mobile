@@ -16,33 +16,13 @@ class FavoriteProductsScreen extends React.Component {
 		fetching: true
 	}
 
-	getFavoriteProducts = () => {
-		const url = `${SERVER_URL}/user/favorite-products`
-
-		axios.get(url).then(({ status, data }) => {
-			if (status === 200) {
-				this.setState({
-					products: data?.favoriteProducts || [],
-					fetching: false
-				})
-			} else {
-				this.setState({ fetching: false })
-			}
-		}).catch(() => {
-			this.setState({ fetching: false })
+	componentDidMount() {
+		this.getFavoriteProducts().then((state) => {
+			this.setState(state)
 		})
 	}
 
-	// eslint-disable-next-line camelcase
-	UNSAFE_componentWillMount() {
-		this.getFavoriteProducts()
-	}
-
-	UNSAFE_componentWillReceiveProps() {
-		this.getFavoriteProducts()
-	}
-
-	shouldComponentUpdate(nextProps, nextState) {
+	shouldComponentUpdate(_, nextState) {
 		if (nextState.products.length !== this.state.products.length || nextState.fetching !== this.state.fetching) {
 			return true
 		}
@@ -50,10 +30,28 @@ class FavoriteProductsScreen extends React.Component {
 		return false
 	}
 
+	//	UNSAFE_componentWillReceiveProps() {
+	//		this.getFavoriteProducts()
+	//	}
+
+	getFavoriteProducts = () => {
+		const url = `${SERVER_URL}/user/favorite-products`
+
+		return axios.get(url).then(({ status, data }) => {
+			if (status === 200) {
+				return ({
+					products: data?.favoriteProducts || [],
+					fetching: false
+				})
+			}
+			return ({ fetching: false })
+		}).catch(() => ({ fetching: false }))
+	}
+
 	render() {
 		if (this.state.fetching) {
 			return <LoadingComponent />
-		} else if (this.state.products.length > 0) {
+		} if (this.state.products.length > 0) {
 			return (
 				<View key={`favoriteProducts:${this.state.products.length}`} style={styles.listContainer}>
 					<RecyclerList

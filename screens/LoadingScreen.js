@@ -6,37 +6,19 @@ import { setInitialDatas } from '../actions/actions4'
 import LoadingComponent from '../components/LoadingComponent'
 
 class LoadingScreen extends React.PureComponent {
-	// eslint-disable-next-line camelcase
-	UNSAFE_componentWillMount() {
+	static getDerivedStateFromProps(props) {
 		// AsyncStorage.multiRemove(['init', 'token', 'user'])
 		AsyncStorage.getItem('init').then((init) => {
 			if (init) {
-				if (this.props.categories.length > 0) {
-					this.props.navigation.navigate('Root')
+				if (props.categories.length > 0) {
+					props.navigation.navigate('Root')
 				} else {
-					this.props.setInitialDatas()
+					props.setInitialDatas()
 				}
 			} else {
-				this.props.navigation.navigate('Welcome')
+				props.navigation.navigate('Welcome')
 			}
 		})
-	}
-
-	// eslint-disable-next-line camelcase
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		// if (nextProps.token) {
-		if (nextProps.categories.length > 0) {
-			AsyncStorage.setItem('init', 'true')
-			this.props.navigation.navigate('Root')
-		} else {
-			// if (this.props.token !== nextProps.token) {
-			// console.warn('Initial datas problem')
-			this.props.setInitialDatas()
-			// }
-		}
-		//	} else {
-		//		this.props.navigation.navigate('Welcome')
-		//	}
 	}
 
 	render() {

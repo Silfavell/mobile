@@ -11,23 +11,27 @@ import {
 import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/actions1'
 
 class CartProductQuantityComponent extends React.Component {
-
-	constructor(props) {
-		super(props)
-
+	componentDidMount() {
 		let quantity = 1
 		if (this.props.previousOrder) {
 			quantity = this.props.quantity
-		}
-		else if (this.props.returnItem) {
+			// eslint-disable-next-line no-empty
+		} else if (this.props.returnItem) {
 
 		} else {
 			quantity = this.props.cart[this.props._id].quantity
 		}
 
-		this.state = {
-			quantity
+		this.setState({ quantity })
+	}
+
+	// eslint-disable-next-line camelcase
+	static getDerivedStateFromProps(props) {
+		if (!props.returnItem) {
+			return ({ quantity: props.previousOrder ? props.quantity : props.cart[props._id].quantity })
 		}
+
+		return null
 	}
 
 	onDecreaseClick = () => {
@@ -55,7 +59,9 @@ class CartProductQuantityComponent extends React.Component {
 	}
 
 	onFocusOut = () => {
-		if (this.state.quantity === '') {
+		const { quantity } = this.state
+
+		if (quantity === '') {
 			this.setState({ quantity: 1 }, () => {
 				if (this.props.returnItem) {
 					this.setState({
@@ -65,20 +71,12 @@ class CartProductQuantityComponent extends React.Component {
 					this.props.setProductQuantity(this.props._id, 1)
 				}
 			})
+		} else if (this.props.returnItem) {
+			this.setState({
+				quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(quantity, 10))
+			})
 		} else {
-			if (this.props.returnItem) {
-				this.setState({
-					quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(this.state.quantity))
-				})
-			} else {
-				this.props.setProductQuantity(this.props._id, parseInt(this.state.quantity))
-			}
-		}
-	}
-
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		if (!this.props.returnItem) {
-			this.setState({ quantity: nextProps.previousOrder ? nextProps.quantity : nextProps.cart[this.props._id].quantity })
+			this.props.setProductQuantity(this.props._id, parseInt(quantity, 10))
 		}
 	}
 
@@ -104,11 +102,12 @@ class CartProductQuantityComponent extends React.Component {
 					<View style={[styles.child, styles.quantityContainer]}>
 						<TextInput
 							editable={!previousOrder}
-							keyboardType={'number-pad'}
+							keyboardType='number-pad'
 							style={styles.quantityText}
 							onBlur={this.onFocusOut}
 							onChangeText={this.onQuantityChange}
-							value={this.state.quantity.toString()} />
+							value={this.state?.quantity.toString()}
+						/>
 					</View>
 
 					{
@@ -144,7 +143,7 @@ const styles = ScaledSheet.create({
 		justifyContent: 'center'
 	},
 	child2: {
-		flex: .2
+		flex: 0.2
 	},
 	quantityContainer: {
 		backgroundColor: 'rgba(0,0,0,.8)',
