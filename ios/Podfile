@@ -89,6 +89,10 @@ target 'silfavell' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
+
   target 'silfavellTests' do
     inherit! :complete
     # Pods for testing

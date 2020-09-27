@@ -2,9 +2,9 @@ import React from 'react'
 import {
 	TouchableOpacity,
 	View,
-	Text,
-	Image
+	Text
 } from 'react-native'
+import FastImage from 'react-native-fast-image'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 import { ScaledSheet } from 'react-native-size-matters'
@@ -68,10 +68,9 @@ class Product extends React.PureComponent {
 				}
 
 				<TouchableOpacity activeOpacity={1} style={[styles.child, styles.productImageContainer]} onPress={this.onProductClick}>
-					<Image
+					<FastImage
 						source={{ uri: url }}
-						resizeMode='contain'
-						resizeMethod='resize'
+						resizeMode={FastImage.resizeMode.contain}
 						style={styles.productImage}
 					/>
 

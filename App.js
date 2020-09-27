@@ -1,5 +1,6 @@
 import React from 'react'
-import { AppState, AsyncStorage, LogBox, StatusBar } from 'react-native'
+import { AppState, LogBox, StatusBar } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -53,7 +54,7 @@ class App extends React.PureComponent {
 
 	componentDidMount() {
 		SplashScreen.hide()
-		LogBox.ignoreAllLogs(true)
+		console.disableYellowBox = true;
 		networkListener()
 		AppState.addEventListener('change', handleAppStateChange)
 	}

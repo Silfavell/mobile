@@ -10,11 +10,8 @@ import Modal, {
 import RNExitApp from 'react-native-exit-app'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-import { setConnectionPopupState } from '../../actions/global-actions'
-
 class ConnectionPopup extends React.PureComponent {
 	close = () => {
-		this.props.setConnectionPopupState(false)
 		RNExitApp.exitApp()
 		return true
 	}
@@ -83,8 +80,4 @@ const mapStateToProps = ({
 	connectionPopupState
 })
 
-const mapDispatchToProps = {
-	setConnectionPopupState
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConnectionPopup)
+export default connect(mapStateToProps)(ConnectionPopup)

@@ -4,9 +4,9 @@ import {
 	View,
 	TouchableOpacity,
 	Text,
-	Linking,
-	AsyncStorage
+	Linking
 } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AskPopup from '../components/popups/AskPopup'
 

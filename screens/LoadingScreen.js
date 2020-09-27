@@ -1,24 +1,33 @@
 import React from 'react'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import { connect } from 'react-redux'
 
 import { setInitialDatas } from '../actions/actions4'
 import LoadingComponent from '../components/LoadingComponent'
 
 class LoadingScreen extends React.PureComponent {
-	static getDerivedStateFromProps(props) {
+	componentDidMount() {
 		// AsyncStorage.multiRemove(['init', 'token', 'user'])
 		AsyncStorage.getItem('init').then((init) => {
 			if (init) {
-				if (props.categories.length > 0) {
-					props.navigation.navigate('Root')
+				if (this.props.categories.length > 0) {
+					this.props.navigation.navigate('Root')
 				} else {
-					props.setInitialDatas()
+					this.props.setInitialDatas()
 				}
 			} else {
-				props.navigation.navigate('Welcome')
+				this.props.navigation.navigate('Welcome')
 			}
 		})
+	}
+
+	static getDerivedStateFromProps(props) {
+		if (props.categories.length > 0) {
+			AsyncStorage.setItem('init', 'true')
+			props.navigation.navigate('Root')
+		} else {
+			props.setInitialDatas()
+		}
 	}
 
 	render() {

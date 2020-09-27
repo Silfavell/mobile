@@ -44,7 +44,7 @@ class List extends React.PureComponent {
 
 	rowRenderer = (type, item) => (
 		<Product
-			key={item._id}
+			// key={item._id}
 			data={item}
 			navigation={this.props.navigation}
 			fromSearch={this.props.fromSearch} />

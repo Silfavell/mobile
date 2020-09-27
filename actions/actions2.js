@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import { SERVER_URL } from '../utils/global'
 
 export const SET_PAYMENT_TYPE = 'SET_PAYMENT_TYPE'

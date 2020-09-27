@@ -23,15 +23,6 @@ export const setRootNavigation = (navigation) => (dispatch) => {
 	})
 }
 
-export const setConnectionPopupState = (connectionPopupState) => (dispatch) => {
-	dispatch({
-		type: SET_CONNECTION_POPUP_STATE,
-		payload: {
-			connectionPopupState
-		}
-	})
-}
-
 export const setNeedToLoginPopupState = (needToLoginPopupState) => (dispatch) => {
 	dispatch({
 		type: NEED_TO_LOGIN_POPUP_STATE,

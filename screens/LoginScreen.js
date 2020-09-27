@@ -4,9 +4,9 @@ import {
 	ScrollView,
 	View,
 	TouchableOpacity,
-	Text,
-	AsyncStorage
+	Text
 } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import axios from 'axios'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
