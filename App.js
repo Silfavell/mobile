@@ -10,16 +10,16 @@ import NetInfo from '@react-native-community/netinfo'
 import geolocation from '@react-native-community/geolocation'
 import SplashScreen from 'react-native-splash-screen'
 
-import rootReducer from './reducers/root-reducer'
+import rootReducer from './src/reducers/root-reducer'
 
-import BottomTabNavigator from './navigation/BottomTabNavigator'
-import WelcomeStack from './screens/stacks/WelcomeStack'
-import LoadingScreen from './screens/LoadingScreen'
-import GlobalScreen from './screens/GlobalScreen'
+import BottomTabNavigator from './src/navigation/BottomTabNavigator'
+import WelcomeStack from './src/stacks/WelcomeStack'
+import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen'
+import GlobalScreen from './src/screens/GlobalScreen/GlobalScreen'
 
-import axiosMiddleware from './utils/axios'
+import axiosMiddleware from './src/utils/axios'
 
-import { SET_NETWORK_STATUS } from './actions/network-actions'
+import { SET_NETWORK_STATUS } from './src/actions/network-actions'
 
 // eslint-disable-next-line no-undef
 navigator.geolocation = geolocation
@@ -41,8 +41,8 @@ const networkListener = () => {
 }
 
 const handleAppStateChange = (nextAppState) => {
-	const { cart } = store.getState().reducer1
-	// const { token } = store.getState().reducer4
+	const { cart } = store.getState().cartReducer
+	// const { token } = store.getState().sourceReducer
 	if (nextAppState.match(/inactive|background/)) {
 		if (Object.values(cart).length > 0) {
 			AsyncStorage.setItem('cart', JSON.stringify(cart))
