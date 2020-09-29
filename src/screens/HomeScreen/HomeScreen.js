@@ -17,7 +17,7 @@ import ShadowContainer from '../../components/ShadowContainer'
 
 import { SERVER_URL } from '../../utils/global'
 
-import logo from '../../assets/logo.png'
+import logo from '../../../assets/logo.png'
 import ScrollableCategoryList from '../../components/ScrollableCategoryList'
 import BestSeller from './BestSeller'
 

@@ -5,6 +5,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "build": "build.sh",
+    "build-bundle": "build-bundle.sh",
     "test": "jest",
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix"
   },

@@ -11,8 +11,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 import { setSelectedCard } from '../actions/actions2'
 
-import mastercard from '../assets/mastercard.png'
-import visa from '../assets/visa.png'
+import mastercard from '../../assets/mastercard.png'
+import visa from '../../assets/visa.png'
 
 const getCardIcon = (type) => {
 	switch (type) {

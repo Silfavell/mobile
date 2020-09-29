@@ -6,7 +6,7 @@ import {
 	Text
 } from 'react-native'
 
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
 
 const LoadingComponent = () => (
 	<View style={styles.container}>

@@ -9,7 +9,7 @@ import {
 
 import ButtonComponent from '../../components/ButtonComponent'
 
-import icon from '../../assets/logo.png'
+import icon from '../../../assets/logo.png'
 
 class WelcomeScreen extends React.PureComponent {
 	onContinueClick = () => {
