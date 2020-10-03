@@ -17,11 +17,11 @@ class WelcomeScreen extends React.PureComponent {
 	}
 
 	onRegisterClick = () => {
-		navigation.navigate('register')
+		this.props.navigation.navigate('register')
 	}
 
 	onLoginClick = () => {
-		navigation.navigate('login')
+		this.props.navigation.navigate('login')
 	}
 
 	render() {

@@ -111,11 +111,11 @@ class FullProductScreen extends React.Component {
 
 	getImages = () => {
 		const {
-			image,
+			slug,
 			imageCount
 		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-		return Array.from(new Array(imageCount)).map((el, index) => `${SERVER_URL}/assets/products/${image}-${index}.webp`)
+		return Array.from(new Array(imageCount)).map((el, index) => `${SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
 	}
 
 	isColorSelected = (index) => {
