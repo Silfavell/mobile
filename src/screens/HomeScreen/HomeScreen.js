@@ -122,7 +122,7 @@ const styles = ScaledSheet.create({
 		zIndex: 1
 	},
 	headerImage: {
-		height: '140%',
+		height: '130%',
 		zIndex: -1
 	},
 	divider: {
