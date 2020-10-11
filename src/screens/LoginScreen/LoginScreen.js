@@ -7,16 +7,16 @@ import {
 	Text
 } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
-import axios from 'axios'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
-import Config from 'react-native-config'
 
-import { login } from '../../actions/actions4'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
+
+import { login } from '../../actions/actions4'
+import { bulkCart } from '../../scripts/requests'
 
 class LoginScreen extends React.Component {
 	state = {
@@ -38,10 +38,9 @@ class LoginScreen extends React.Component {
 
 	saveCart = () => {
 		const { cart, token } = this.props
-		if (token && Object.values(cart).length > 0) {
-			const url = `${Config.SERVER_URL}/user/cart`
 
-			axios.post(url, Object.values(cart).map(({ _id, quantity }) => ({ _id, quantity })))
+		if (token && Object.values(cart).length > 0) {
+			bulkCart(Object.values(cart).map(({ _id, quantity }) => ({ _id, quantity })))
 				.then(({ status, data }) => {
 					if (status === 200) {
 						AsyncStorage.setItem('cart', JSON.stringify(data))
@@ -88,7 +87,6 @@ class LoginScreen extends React.Component {
 	render() {
 		return (
 			<ScrollView contentContainerStyle={styles.container}>
-
 				<View>
 					<InputComponent
 						options={{
@@ -130,7 +128,6 @@ class LoginScreen extends React.Component {
 								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
 							/>
 						</InputIcon>
-
 					</InputComponent>
 
 					<ButtonComponent
@@ -151,7 +148,6 @@ class LoginScreen extends React.Component {
 
 				<View>
 					<View style={styles.buttonDivider} />
-
 					<ButtonComponent text='Kayıt Ol' onClick={this.goToRegister} opposite />
 				</View>
 			</ScrollView>

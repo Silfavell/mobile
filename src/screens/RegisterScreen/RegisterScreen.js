@@ -4,16 +4,15 @@ import {
 	ScrollView,
 	View
 } from 'react-native'
-import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
-import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import TermsComponent from './TermsComponent'
 
+import { sendActivationCode } from '../../scripts/requests'
 
 class RegisterScreen extends React.Component {
 	state = {
@@ -41,9 +40,7 @@ class RegisterScreen extends React.Component {
 	}
 
 	onRegisterClick = () => {
-		const url = `${Config.SERVER_URL}/send-activation-code`
-
-		axios.post(url, {
+		sendActivationCode({
 			phoneNumber: this.state.phoneNumber,
 			activationCodeType: 0 // REGISTER
 		}).then(({ status }) => {
@@ -59,13 +56,13 @@ class RegisterScreen extends React.Component {
 	}
 
 	/*
-    joi.object({
-        phoneNumber: joi.string().trim().strict().min(10).required(),
-        password: joi.string().alphanum().min(4).required(),
-        nameSurname: joi.string().required(),
-        email: joi.string().trim().strict().email().required()
-    })
-    */
+		joi.object({
+				phoneNumber: joi.string().trim().strict().min(10).required(),
+				password: joi.string().alphanum().min(4).required(),
+				nameSurname: joi.string().required(),
+				email: joi.string().trim().strict().email().required()
+		})
+		*/
 
 	onPhoneChange = (phoneNumber) => {
 		joi.string()

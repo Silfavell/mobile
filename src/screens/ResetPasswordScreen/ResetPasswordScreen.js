@@ -1,19 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ScaledSheet } from 'react-native-size-matters'
-import axios from 'axios'
 import {
 	TouchableOpacity,
 	Text
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
-import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 import AlertPopup from '../../components/popups/AlertPopup'
+
+import { resetPassword, sendActivationCode } from '../../scripts/requests'
 
 class ResetPasswordScreen extends React.Component {
 	state = {
@@ -52,9 +52,7 @@ class ResetPasswordScreen extends React.Component {
 		} else if (this.state.password.length < 4) {
 			this.props.messagePopupRef.showMessage({ message: 'Yeni şifreniz en az 4 haneli olmalı' })
 		} else {
-			const url = `${Config.SERVER_URL}/reset-password`
-
-			axios.put(url, {
+			resetPassword({
 				activationCode: this.state.activationCode,
 				phoneNumber: this.state.phoneNumber,
 				newPassword: this.state.password
@@ -67,11 +65,9 @@ class ResetPasswordScreen extends React.Component {
 	}
 
 	onResendClick = () => {
-		const url = `${Config.SERVER_URL}/send-activation-code`
-
-		axios.post(url, {
+		sendActivationCode({
 			phoneNumber: this.state.phoneNumber,
-			activationCodeType: 1 // RESET
+			activationCodeType: 1 // RESET // TODO TS
 		})
 	}
 
@@ -109,7 +105,6 @@ class ResetPasswordScreen extends React.Component {
 	render() {
 		return (
 			<ShadowContainer>
-
 				<AlertPopup
 					title={'Şifreniz güncellendi'}
 					scaleAnimationModal={this.state.scaleAnimationModal}
@@ -171,7 +166,6 @@ class ResetPasswordScreen extends React.Component {
 					<Ionicons name='md-refresh' size={28} color='#6E7586' />
 					<Text style={styles.resendCodeText}>Yeniden gönder</Text>
 				</TouchableOpacity>
-
 			</ShadowContainer>
 		)
 	}

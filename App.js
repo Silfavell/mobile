@@ -10,16 +10,14 @@ import NetInfo from '@react-native-community/netinfo'
 import geolocation from '@react-native-community/geolocation'
 import SplashScreen from 'react-native-splash-screen'
 
-import rootReducer from './src/reducers/root-reducer'
-
 import BottomTabNavigator from './src/navigation/BottomTabNavigator'
 import WelcomeStack from './src/stacks/WelcomeStack'
 import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen'
 import GlobalScreen from './src/screens/GlobalScreen/GlobalScreen'
 
-import axiosMiddleware from './src/utils/axios'
-
+import rootReducer from './src/reducers/root-reducer'
 import { SET_NETWORK_STATUS } from './src/actions/network-actions'
+import axiosMiddleware from './src/scripts/axios'
 
 // eslint-disable-next-line no-undef
 navigator.geolocation = geolocation

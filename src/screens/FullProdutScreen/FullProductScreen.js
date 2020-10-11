@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
 	ScrollView,
@@ -9,7 +8,6 @@ import {
 	Text
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
-import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import ShadowContainer from '../../components/ShadowContainer'
@@ -21,6 +19,7 @@ import Accordion from '../../components/Accordion'
 
 import { increaseProductQuantity } from '../../actions/actions1'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/actions4'
+import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 
 class FullProductScreen extends React.Component {
 	scrollRef = React.createRef()
@@ -86,7 +85,9 @@ class FullProductScreen extends React.Component {
 	}
 
 	getProductBySlug = (productSlug) => {
-		axios.get(`${Config.SERVER_URL}/product/${productSlug}?fromSearch=${!!this.props.route.params.fromSearch}`).then(({
+		const fromSearch = !!this.props.route.params.fromSearch
+
+		getProductBySlugRequest(productSlug, fromSearch).then(({
 			data,
 			status
 		}) => {

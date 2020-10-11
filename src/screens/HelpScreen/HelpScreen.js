@@ -3,13 +3,13 @@ import {
     ScrollView,
     View
 } from 'react-native'
-import axios from 'axios'
 import { ScaledSheet } from 'react-native-size-matters'
-import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
+
+import { postTicket } from '../../scripts/requests'
 
 class HelpScreen extends React.Component {
 
@@ -59,7 +59,7 @@ class HelpScreen extends React.Component {
             message
         } = this.state
 
-        axios.post(`${Config.SERVER_URL}/ticket`, {
+        postTicket({
             name,
             surname,
             email,
@@ -130,7 +130,6 @@ class HelpScreen extends React.Component {
                         onChange={this.onMessageChange}
                         value={message}
                     />
-
                 </View>
 
                 <ButtonComponent

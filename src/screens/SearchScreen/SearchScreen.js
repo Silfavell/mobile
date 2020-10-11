@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import {
 	ScrollView,
 	View,
@@ -11,10 +10,11 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
-import Config from 'react-native-config'
 
 import RecyclerList from '../../components/RecyclerList'
 import ShadowContainer from '../../components/ShadowContainer'
+
+import { search as searchRequest } from '../../scripts/requests'
 
 class SearchScreen extends React.Component {
 	state = {
@@ -27,9 +27,7 @@ class SearchScreen extends React.Component {
 		if (text.length > 0) {
 			this.setState({ fetch: true, text })
 
-			const url = `${Config.SERVER_URL}/search-product?name=${text}`
-
-			axios.get(url).then((response) => {
+			searchRequest(text).then((response) => {
 				this.setState({
 					products: response.data.map(({ _source }) => {
 						// eslint-disable-next-line no-param-reassign
@@ -52,7 +50,10 @@ class SearchScreen extends React.Component {
 
 	renderSearchResult = () => (
 		<View style={{ flex: 1 }}>
-			<RecyclerList list={this.state.products} navigation={this.props.navigation} fromSearch />
+			<RecyclerList
+				list={this.state.products}
+				navigation={this.props.navigation}
+				fromSearch />
 		</View>
 	)
 
@@ -65,7 +66,9 @@ class SearchScreen extends React.Component {
 					</View>
 				</ShadowContainer>
 			</View>
-			<RecyclerList list={this.props.mostSearched} navigation={this.props.navigation} />
+			<RecyclerList
+				list={this.props.mostSearched}
+				navigation={this.props.navigation} />
 		</View>
 	)
 
