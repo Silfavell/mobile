@@ -8,7 +8,7 @@ import HeaderAddressInput from '../MapScreens/HeaderAddressInput'
 import Map from '../MapScreens/Map'
 import ButtonComponent from '../../components/ButtonComponent'
 
-class PinAddressScreen extends React.PureComponent {
+class PinAddressScreen extends React.Component {
 	state = {
 		scaleAnimationModal: false
 	}

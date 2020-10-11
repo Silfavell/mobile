@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage'
 import axios from 'axios'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../utils/global'
 import { SET_NEED_UPDATE_POPUP_STATE } from './global-actions'
 
 import pckg from '../../package.json'
@@ -13,7 +13,7 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE'
 export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
 const getDatas = (token) => {
-	const url = `${SERVER_URL}/mobile-initializer`
+	const url = `${Config.SERVER_URL}/mobile-initializer`
 
 	if (token) {
 		return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data)
@@ -23,13 +23,13 @@ const getDatas = (token) => {
 }
 
 const getVersion = () => {
-	const url = `${SERVER_URL}/version`
+	const url = `${Config.SERVER_URL}/version`
 
 	return axios.get(url).then(({ data }) => data)
 }
 
 export const updateProfile = (body, cb) => (dispatch) => {
-	const url = `${SERVER_URL}/user/profile`
+	const url = `${Config.SERVER_URL}/user/profile`
 
 	axios.put(url, body)
 		.then(({ data, status }) => {
@@ -87,7 +87,7 @@ export const setInitialDatas = () => (dispatch) => {
 }
 
 export const login = (body, cb) => (dispatch) => {
-	const url = `${SERVER_URL}/login`
+	const url = `${Config.SERVER_URL}/login`
 
 	axios.post(url, body).then(({ status, data }) => {
 		if (status === 200) {
@@ -107,7 +107,7 @@ export const login = (body, cb) => (dispatch) => {
 }
 
 export const register = (body, cb) => (dispatch) => {
-	const url = `${SERVER_URL}/register`
+	const url = `${Config.SERVER_URL}/register`
 
 	axios.post(url, body).then(({ status, data }) => {
 		if (status === 200) {
@@ -141,7 +141,7 @@ export const logout = () => (dispatch) => {
 }
 
 export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) => {
-	axios.post(`${SERVER_URL}/user/favorite-product`, { _id: productId }).then(({ status, data }) => {
+	axios.post(`${Config.SERVER_URL}/user/favorite-product`, { _id: productId }).then(({ status, data }) => {
 		if (status === 200) {
 			AsyncStorage.getItem('user').then((user) => {
 				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {
@@ -162,7 +162,7 @@ export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) 
 }
 
 export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => (dispatch) => {
-	axios.delete(`${SERVER_URL}/user/favorite-product/${productId}`).then(({ status, data }) => {
+	axios.delete(`${Config.SERVER_URL}/user/favorite-product/${productId}`).then(({ status, data }) => {
 		if (status === 200) {
 			AsyncStorage.getItem('user').then((user) => {
 				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {

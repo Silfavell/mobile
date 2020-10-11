@@ -9,19 +9,18 @@ import {
 	Text
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
-
-import { SERVER_URL } from '../../utils/global'
-import { increaseProductQuantity } from '../../actions/actions1'
-import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/actions4'
+import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import ShadowContainer from '../../components/ShadowContainer'
-
 import Slider from '../../components/Slider'
 import Color from './Color'
 import Comment from './Comment'
 import Loading from '../../components/LoadingComponent'
 import Accordion from '../../components/Accordion'
+
+import { increaseProductQuantity } from '../../actions/actions1'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/actions4'
 
 class FullProductScreen extends React.Component {
 	scrollRef = React.createRef()
@@ -87,7 +86,7 @@ class FullProductScreen extends React.Component {
 	}
 
 	getProductBySlug = (productSlug) => {
-		axios.get(`${SERVER_URL}/product/${productSlug}?fromSearch=${!!this.props.route.params.fromSearch}`).then(({
+		axios.get(`${Config.SERVER_URL}/product/${productSlug}?fromSearch=${!!this.props.route.params.fromSearch}`).then(({
 			data,
 			status
 		}) => {
@@ -115,7 +114,7 @@ class FullProductScreen extends React.Component {
 			imageCount
 		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-		return Array.from(new Array(imageCount)).map((el, index) => `${SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
+		return Array.from(new Array(imageCount)).map((el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
 	}
 
 	isColorSelected = (index) => {

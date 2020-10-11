@@ -8,15 +8,15 @@ import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../../utils/global'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 
 import { register } from '../../actions/actions4'
 
-class ActivationScreen extends React.PureComponent {
+class ActivationScreen extends React.Component {
 	state = {
 		activationCode: '',
 		invalidActivationCode: false,
@@ -41,7 +41,7 @@ class ActivationScreen extends React.PureComponent {
 	}
 
 	onResendClick = () => {
-		const url = `${SERVER_URL}/send-activation-code`
+		const url = `${Config.SERVER_URL}/send-activation-code`
 
 		axios.post(url, {
 			phoneNumber: this.props.route.params.phoneNumber,

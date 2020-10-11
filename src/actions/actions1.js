@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SERVER_URL } from '../utils/global'
+import Config from 'react-native-config'
 
 export const CLEAR_CART = 'CLEAR_CART'
 export const DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY'
@@ -9,7 +9,7 @@ export const MAKE_ORDER = 'MAKE_ORDER'
 
 export const clearCart = (token) => (dispatch) => {
 	if (token) {
-		const url = `${SERVER_URL}/user/cart`
+		const url = `${Config.SERVER_URL}/user/cart`
 
 		axios.delete(url).then(({ status }) => {
 			if (status === 200) {
@@ -27,7 +27,7 @@ export const clearCart = (token) => (dispatch) => {
 
 export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
 	const body = { card: selectedCard, address: selectedAddress }
-	const url = `${SERVER_URL}/user/order`
+	const url = `${Config.SERVER_URL}/user/order`
 
 	axios.post(url, body).then(({ status }) => {
 		if (status === 200) {
@@ -45,7 +45,7 @@ export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
 }
 
 export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1) => (dispatch) => {
-	const url = `${SERVER_URL}/deduct-product/${productId}`
+	const url = `${Config.SERVER_URL}/deduct-product/${productId}`
 
 	axios.put(url, { quantity }).then(({ data, status }) => {
 		if (status === 200) {
@@ -61,7 +61,7 @@ export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1
 }
 
 export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1) => (dispatch) => {
-	const url = `${SERVER_URL}/add-product/${productId}`
+	const url = `${Config.SERVER_URL}/add-product/${productId}`
 
 	axios.put(url, { quantity }).then(({ data, status }) => {
 		if (status === 200) {
@@ -77,7 +77,7 @@ export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1
 
 
 export const setProductQuantity = (productId, quantity = 1) => (dispatch) => {
-	const url = `${SERVER_URL}/set-product/${productId}`
+	const url = `${Config.SERVER_URL}/set-product/${productId}`
 
 	axios.put(url, { quantity }).then(({ data, status }) => {
 		if (status === 200) {

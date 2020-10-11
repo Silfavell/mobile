@@ -11,12 +11,12 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../../utils/global'
 import RecyclerList from '../../components/RecyclerList'
 import ShadowContainer from '../../components/ShadowContainer'
 
-class SearchScreen extends React.PureComponent {
+class SearchScreen extends React.Component {
 	state = {
 		fetch: false,
 		products: [],
@@ -27,7 +27,7 @@ class SearchScreen extends React.PureComponent {
 		if (text.length > 0) {
 			this.setState({ fetch: true, text })
 
-			const url = `${SERVER_URL}/search-product?name=${text}`
+			const url = `${Config.SERVER_URL}/search-product?name=${text}`
 
 			axios.get(url).then((response) => {
 				this.setState({

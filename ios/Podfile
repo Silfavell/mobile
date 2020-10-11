@@ -93,6 +93,8 @@ target 'silfavell' do
 
   pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   target 'silfavellTests' do
     inherit! :complete
     # Pods for testing

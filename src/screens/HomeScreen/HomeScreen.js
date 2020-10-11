@@ -10,22 +10,21 @@ import {
 } from 'react-native'
 import RNExitApp from 'react-native-exit-app'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import Config from 'react-native-config'
 
 import Category from '../../components/Category'
 import Slider from '../../components/Slider'
 import ShadowContainer from '../../components/ShadowContainer'
-
-import { SERVER_URL } from '../../utils/global'
-
-import logo from '../../../assets/logo.png'
 import ScrollableCategoryList from '../../components/ScrollableCategoryList'
 import BestSeller from './BestSeller'
 
+import logo from '../../../assets/logo.png'
+
 const banners = [
-	`${SERVER_URL}/assets/banners/1.jpg`,
-	`${SERVER_URL}/assets/banners/2.jpg`,
-	`${SERVER_URL}/assets/banners/3.jpg`,
-	`${SERVER_URL}/assets/banners/4.jpg`
+	`${Config.SERVER_URL}/assets/banners/1.jpg`,
+	`${Config.SERVER_URL}/assets/banners/2.jpg`,
+	`${Config.SERVER_URL}/assets/banners/3.jpg`,
+	`${Config.SERVER_URL}/assets/banners/4.jpg`
 ]
 
 class HomeScreen extends React.Component {

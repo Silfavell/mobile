@@ -1,16 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../../utils/global'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import ShadowContainer from '../../components/ShadowContainer'
 
-class ForgotPasswordScreen extends React.PureComponent {
+class ForgotPasswordScreen extends React.Component {
 	state = {
 		phoneNumber: '',
 		isPhoneNumberInitialized: false,
@@ -18,7 +17,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 	}
 
 	onSendCodeClick = () => {
-		const url = `${SERVER_URL}/send-activation-code`
+		const url = `${Config.SERVER_URL}/send-activation-code`
 
 		axios.post(url, {
 			phoneNumber: this.state.phoneNumber,

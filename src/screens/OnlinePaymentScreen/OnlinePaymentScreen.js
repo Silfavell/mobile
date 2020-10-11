@@ -13,7 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { makeOrder } from '../../actions/actions1'
 
-class OnlinePaymentScreen extends React.PureComponent {
+class OnlinePaymentScreen extends React.Component {
 	state = {
 		cardNumber: '4444 4444 4444 4444',
 		expirationDate: '09/23',

@@ -8,7 +8,7 @@ import AskPopup from './popups/AskPopup'
 
 import { logout } from '../actions/actions4'
 
-class LogoutItem extends React.PureComponent {
+class LogoutItem extends React.Component {
 	state = {
 		scaleAnimationModal: false
 	}

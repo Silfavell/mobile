@@ -14,7 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
 import ShadowContainer from '../../components/ShadowContainer'
 
-class SearchAddressScreen extends React.PureComponent {
+class SearchAddressScreen extends React.Component {
 	state = {
 		searchVal: '',
 		locations: []

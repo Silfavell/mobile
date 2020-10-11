@@ -9,10 +9,10 @@ import axios from 'axios'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-check-box'
+import Config from 'react-native-config'
 
 import CartProduct from '../../components/CartProduct'
 import ButtonComponent from '../../components/ButtonComponent'
-import { SERVER_URL } from '../../utils/global'
 
 class ReturnItems extends React.Component {
     constructor(props) {
@@ -88,7 +88,7 @@ class ReturnItems extends React.Component {
             return item
         })
 
-        axios.post(`${SERVER_URL}/user/return-items/${this.props.route.params.item._id}`, items).then(({ status, data }) => {
+        axios.post(`${Config.SERVER_URL}/user/return-items/${this.props.route.params.item._id}`, items).then(({ status, data }) => {
             if (status === 200) {
                 this.props.navigation.navigate('returnItemsCompleted')
             }

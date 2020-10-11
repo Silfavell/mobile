@@ -5,14 +5,13 @@ import {
 } from 'react-native'
 import axios from 'axios'
 import { ScaledSheet } from 'react-native-size-matters'
+import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
 
-import { SERVER_URL } from '../../utils/global'
-
-class HelpScreen extends React.PureComponent {
+class HelpScreen extends React.Component {
 
     state = { // autofill ?
         scaleAnimationModal: false,
@@ -60,7 +59,7 @@ class HelpScreen extends React.PureComponent {
             message
         } = this.state
 
-        axios.post(`${SERVER_URL}/ticket`, {
+        axios.post(`${Config.SERVER_URL}/ticket`, {
             name,
             surname,
             email,

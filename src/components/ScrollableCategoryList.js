@@ -8,7 +8,7 @@ import {
     Text
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
-import { SERVER_URL } from '../utils/global'
+import Config from 'react-native-config'
 
 class CategoryElement extends React.PureComponent {
     onPress = () => {
@@ -26,7 +26,7 @@ class CategoryElement extends React.PureComponent {
                 <View style={styles.iconContainer}>
                     <Image
                         style={{ width: 40, height: 40 }}
-                        source={{ uri: `${SERVER_URL}/assets/categories/${imagePath}.png` }} />
+                        source={{ uri: `${Config.SERVER_URL}/assets/categories/${imagePath}.png` }} />
                 </View>
                 <Text numberOfLines={1}>{title}</Text>
             </TouchableOpacity>

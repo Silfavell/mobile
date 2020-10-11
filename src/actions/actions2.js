@@ -1,6 +1,6 @@
 import axios from 'axios'
 import AsyncStorage from '@react-native-community/async-storage'
-import { SERVER_URL } from '../utils/global'
+import Config from 'react-native-config'
 
 export const SET_PAYMENT_TYPE = 'SET_PAYMENT_TYPE'
 export const SAVE_CARD = 'SAVE_CARD'
@@ -20,7 +20,7 @@ export const setPaymentType = (paymentType) => (dispatch) => {
 }
 
 export const saveCard = (card, cb) => (dispatch) => {
-	const url = `${SERVER_URL}/user/payment-card`
+	const url = `${Config.SERVER_URL}/user/payment-card`
 
 	axios.post(url, { card })
 		.then(({ status, data }) => {
@@ -38,7 +38,7 @@ export const saveCard = (card, cb) => (dispatch) => {
 }
 
 export const deleteCard = (cardToken) => (dispatch) => {
-	const url = `${SERVER_URL}/user/payment-card`
+	const url = `${Config.SERVER_URL}/user/payment-card`
 
 	axios.put(url, { cardToken })
 		.then(({ status }) => {
@@ -60,7 +60,7 @@ export const saveAddress = (address, details) => {
 	}
 
 	return (dispatch) => {
-		const url = `${SERVER_URL}/user/address`
+		const url = `${Config.SERVER_URL}/user/address`
 
 		axios.post(url, body)
 			.then(({ status, data }) => {
@@ -79,7 +79,7 @@ export const saveAddress = (address, details) => {
 }
 
 export const deleteAddress = (addressId) => (dispatch) => {
-	const url = `${SERVER_URL}/user/address/${addressId}`
+	const url = `${Config.SERVER_URL}/user/address/${addressId}`
 
 	axios.delete(url)
 		.then(({ status, data }) => {

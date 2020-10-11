@@ -10,7 +10,7 @@ const Category = ({
 	index,
 	navigation
 }) => {
-	// const imageUrl = `${SERVER_URL}/assets/categories-2/${imagePath}.jpg` // TODO
+	// const imageUrl = `${Config.SERVER_URL}/assets/categories-2/${imagePath}.jpg` // TODO
 	const imageUrl = 'https://img-kotonw.mncdn.com/static/images/10568566603806/1366tshirt-kadin-desktop-110520.jpg'
 
 	const onCategoryClick = () => {

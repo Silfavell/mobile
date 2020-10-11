@@ -8,15 +8,14 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
+import Config from 'react-native-config'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 import AlertPopup from '../../components/popups/AlertPopup'
 
-import { SERVER_URL } from '../../utils/global'
-
-class ResetPasswordScreen extends React.PureComponent {
+class ResetPasswordScreen extends React.Component {
 	state = {
 		scaleAnimationModal: false,
 		errorMessage: '',
@@ -53,7 +52,7 @@ class ResetPasswordScreen extends React.PureComponent {
 		} else if (this.state.password.length < 4) {
 			this.props.messagePopupRef.showMessage({ message: 'Yeni şifreniz en az 4 haneli olmalı' })
 		} else {
-			const url = `${SERVER_URL}/reset-password`
+			const url = `${Config.SERVER_URL}/reset-password`
 
 			axios.put(url, {
 				activationCode: this.state.activationCode,
@@ -68,7 +67,7 @@ class ResetPasswordScreen extends React.PureComponent {
 	}
 
 	onResendClick = () => {
-		const url = `${SERVER_URL}/send-activation-code`
+		const url = `${Config.SERVER_URL}/send-activation-code`
 
 		axios.post(url, {
 			phoneNumber: this.state.phoneNumber,

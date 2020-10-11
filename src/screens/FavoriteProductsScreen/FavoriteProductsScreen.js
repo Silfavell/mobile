@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
-
-import { SERVER_URL } from '../../utils/global'
+import Config from 'react-native-config'
 
 import RecyclerList from '../../components/RecyclerList'
 import LoadingComponent from '../../components/LoadingComponent'
@@ -35,7 +34,7 @@ class FavoriteProductsScreen extends React.Component {
 	//	}
 
 	getFavoriteProducts = () => {
-		const url = `${SERVER_URL}/user/favorite-products`
+		const url = `${Config.SERVER_URL}/user/favorite-products`
 
 		return axios.get(url).then(({ status, data }) => {
 			if (status === 200) {

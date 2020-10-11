@@ -15,7 +15,7 @@ import { saveCard } from '../../actions/actions2'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 
-class AddNewCardScreen extends React.PureComponent {
+class AddNewCardScreen extends React.Component {
 	state = {
 		cardAlias: '',
 		cardHolderName: this.props.user.nameSurname,

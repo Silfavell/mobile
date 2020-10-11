@@ -7,15 +7,15 @@ import {
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../../utils/global'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import TermsComponent from './TermsComponent'
 
 
-class RegisterScreen extends React.PureComponent {
+class RegisterScreen extends React.Component {
 	state = {
 		// countryCode: '+90',
 		phoneNumber: '',
@@ -41,7 +41,7 @@ class RegisterScreen extends React.PureComponent {
 	}
 
 	onRegisterClick = () => {
-		const url = `${SERVER_URL}/send-activation-code`
+		const url = `${Config.SERVER_URL}/send-activation-code`
 
 		axios.post(url, {
 			phoneNumber: this.state.phoneNumber,
