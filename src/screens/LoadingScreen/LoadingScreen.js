@@ -7,7 +7,7 @@ import LoadingComponent from '../../components/LoadingComponent'
 
 class LoadingScreen extends React.PureComponent {
 	componentDidMount() {
-		// AsyncStorage.multiRemove(['init', 'token', 'user'])
+		// AsyncStorage.clear()
 		AsyncStorage.getItem('init').then((init) => {
 			if (init) {
 				if (this.props.categories.length > 0) {
