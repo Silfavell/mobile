@@ -9,7 +9,6 @@ import pckg from '../../package.json'
 export const SET_INITIAL_DATAS = 'SET_INITIAL_DATAS'
 export const SET_USER = 'SET_USER'
 export const LOGOUT = 'LOGOUT'
-export const UPDATE_PROFILE = 'UPDATE_PROFILE'
 export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
 const getDatas = (token) => {

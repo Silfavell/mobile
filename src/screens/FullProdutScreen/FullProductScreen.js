@@ -17,8 +17,8 @@ import Comment from './Comment'
 import Loading from '../../components/LoadingComponent'
 import Accordion from '../../components/Accordion'
 
-import { increaseProductQuantity } from '../../actions/actions1'
-import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/actions4'
+import { increaseProductQuantity } from '../../actions/cart-actions'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 
 class FullProductScreen extends React.Component {

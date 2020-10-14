@@ -8,7 +8,7 @@ import {
 	View
 } from 'react-native'
 
-import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/actions1'
+import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/cart-actions'
 
 class CartProductQuantityComponent extends React.Component {
 	componentDidMount() {

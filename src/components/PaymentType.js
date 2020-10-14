@@ -8,7 +8,7 @@ import {
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { setPaymentType } from '../actions/actions2'
+import { setPaymentType } from '../actions/payment-actions'
 
 const PaymentType = ({
 	Id,

@@ -8,7 +8,7 @@ import CardComponent from '../../components/CardComponent'
 import AddNewCardComponent from '../../components/AddNewCardComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 
-import { deleteCard } from '../../actions/actions2'
+import { deleteCard } from '../../actions/payment-actions'
 
 class PaymentOptionsScreen extends React.Component {
 	state = {

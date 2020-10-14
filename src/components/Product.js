@@ -11,8 +11,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Config from 'react-native-config'
 
 
-import { increaseProductQuantity } from '../actions/actions1'
-import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
+import { increaseProductQuantity } from '../actions/cart-actions'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'
 
 class Product extends React.PureComponent {
 	onAddProductClick = () => {

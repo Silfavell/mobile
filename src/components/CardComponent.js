@@ -9,7 +9,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import { setSelectedCard } from '../actions/actions2'
+import { setSelectedCard } from '../actions/payment-actions'
 
 import mastercard from '../../assets/mastercard.png'
 import visa from '../../assets/visa.png'

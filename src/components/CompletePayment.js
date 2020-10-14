@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
-import { makeOrder } from '../actions/actions1'
+import { makeOrder } from '../actions/cart-actions'
 import { setNeedToLoginPopupState } from '../actions/global-actions'
 
 class CompletePaymentComponent extends React.PureComponent {

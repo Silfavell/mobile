@@ -12,7 +12,7 @@ import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 
-import { register } from '../../actions/actions4'
+import { register } from '../../actions/source-actions'
 import { sendActivationCode } from '../../scripts/requests'
 
 class ActivationScreen extends React.Component {

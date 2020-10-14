@@ -5,8 +5,8 @@ import {
 	MAKE_ORDER,
 	CLEAR_CART,
 	SET_PRODUCT_QUANTITY
-} from '../actions/actions1'
-import { SET_INITIAL_DATAS } from '../actions/actions4'
+} from '../actions/cart-actions'
+import { SET_INITIAL_DATAS } from '../actions/source-actions'
 
 const INITIAL_STATE = {
 	cart: {}

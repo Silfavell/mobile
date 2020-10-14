@@ -6,7 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import SettingItem from './SettingItem'
 import AskPopup from './popups/AskPopup'
 
-import { logout } from '../actions/actions4'
+import { logout } from '../actions/source-actions'
 
 class LogoutItem extends React.Component {
 	state = {

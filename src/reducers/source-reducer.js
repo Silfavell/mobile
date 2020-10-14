@@ -1,4 +1,4 @@
-import { SET_INITIAL_DATAS, SET_USER, LOGOUT, UPDATE_FAVORITE_PRODUCTS } from '../actions/actions4'
+import { SET_INITIAL_DATAS, SET_USER, LOGOUT, UPDATE_FAVORITE_PRODUCTS } from '../actions/source-actions'
 
 const INITIAL_STATE = {
 	categories: [],

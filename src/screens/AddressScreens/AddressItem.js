@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
     deleteAddress,
     setSelectedAddress
-} from '../../actions/actions2'
+} from '../../actions/payment-actions'
 
 import InteractiveSettingItem from '../../components/InteractiveSettingItem'
 

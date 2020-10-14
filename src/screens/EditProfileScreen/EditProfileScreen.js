@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
 
-import { updateProfile } from '../../actions/actions4'
+import { updateProfile } from '../../actions/source-actions'
 
 import InputComponent from '../../components/InputComponent'
 import ButtonComponent from '../../components/ButtonComponent'

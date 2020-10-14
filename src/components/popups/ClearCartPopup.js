@@ -7,7 +7,7 @@ import Modal, {
 	ModalFooter
 } from 'react-native-modals'
 
-import { clearCart } from '../../actions/actions1'
+import { clearCart } from '../../actions/cart-actions'
 import { setClearCartPopupState } from '../../actions/global-actions'
 
 class ClearCartPopup extends React.PureComponent {

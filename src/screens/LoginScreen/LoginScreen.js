@@ -15,7 +15,7 @@ import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 
-import { login } from '../../actions/actions4'
+import { login } from '../../actions/source-actions'
 import { bulkCart } from '../../scripts/requests'
 
 class LoginScreen extends React.Component {

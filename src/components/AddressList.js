@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {
 	deleteAddress,
 	setSelectedAddress
-} from '../actions/actions2'
+} from '../actions/payment-actions'
 
 import AddressItem from '../screens/AddressScreens/AddressItem'
 import DeleteAddressPopup from './popups/DeleteAddressPopup'
