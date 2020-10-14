@@ -7,7 +7,8 @@ import {
 	login as loginRequest,
 	signUp,
 	addFavorite,
-	removeFavorite
+	removeFavorite,
+	updateProfile as updateProfileRequest
 } from '../scripts/requests'
 import pckg from '../../package.json'
 
@@ -16,115 +17,122 @@ export const SET_USER = 'SET_USER'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
-export const getDatas = () => {
-	return mobileInitializer().then(({ data }) => data)
+export const getDatas = async () => {
+	const { data } = await mobileInitializer()
+
+	return data
 }
 
-export const getVersion = () => {
-	return getVersionRequest().then(({ data }) => data)
+export const getVersion = async () => {
+	const { data } = await getVersionRequest()
+
+	return data
 }
 
-export const updateProfile = (body, cb) => (dispatch) => {
-	updateProfile(body).then(({ data, status }) => {
+export const updateProfile = (body, cb) => {
+	return async (dispatch) => {
+		const { status, data } = await updateProfileRequest(body)
+
 		if (status === 200) {
-			AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
-				dispatch({
-					type: SET_USER,
-					payload: {
-						user: data
-					}
-				})
+			await AsyncStorage.setItem('user', JSON.stringify(data))
 
-				cb()
-			})
-		}
-	})
-}
-
-export const setInitialDatas = () => (dispatch) => {
-	// AsyncStorage.removeItem('cart')
-	getVersionRequest().then(({ data: version }) => {
-		if (version === pckg.version) {
-			AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
-				const [tokenObj, userObj, cartObj] = vals
-
-				if (tokenObj) {
-					return getDatas().then((datas) => {
-						dispatch({
-							type: SET_INITIAL_DATAS,
-							payload: {
-								...datas,
-								token: tokenObj[1],
-								user: JSON.parse(userObj[1]),
-								cart: JSON.parse(cartObj[1]),
-								cards: datas.cards?.cardDetails
-							}
-						})
-					})
-				}
-
-				return getDatas().then((datas) => {
-					dispatch({
-						type: SET_INITIAL_DATAS,
-						payload: datas
-					})
-				})
-			})
-		} else {
 			dispatch({
-				type: SET_NEED_UPDATE_POPUP_STATE,
+				type: SET_USER,
 				payload: {
-					needUpdatePopupState: true
+					user: data
 				}
 			})
+			cb()
 		}
-	})
+	}
 }
 
-export const login = (body, cb) => (dispatch) => {
-	loginRequest(body).then(({ status, data }) => {
-		if (status === 200) {
-			AsyncStorage.multiSet([
-				['token', data.token],
-				['user', JSON.stringify(data.user)]
-			]).then(() => {
-				dispatch({
-					type: SET_USER,
+export const setInitialDatas = () => {
+	return async (dispatch) => {
+		// AsyncStorage.removeItem('cart')
+		const { data: version } = await getVersionRequest()
+
+		if (version === pckg.version) {
+			const [tokenObj, userObj, cartObj] = await AsyncStorage.multiGet(['token', 'user', 'cart'])
+			const datas = await getDatas()
+
+			if (tokenObj) {
+				return dispatch({
+					type: SET_INITIAL_DATAS,
 					payload: {
-						user: data.user,
-						token: data.token
+						...datas,
+						token: tokenObj[1],
+						user: JSON.parse(userObj[1]),
+						cart: JSON.parse(cartObj[1]),
+						cards: datas.cards?.cardDetails
 					}
 				})
+			}
 
-				cb()
+			return dispatch({
+				type: SET_INITIAL_DATAS,
+				payload: datas
 			})
 		}
-	})
+
+		dispatch({
+			type: SET_NEED_UPDATE_POPUP_STATE,
+			payload: {
+				needUpdatePopupState: true
+			}
+		})
+	}
 }
 
-export const register = (body, cb) => (dispatch) => {
-	signUp(body).then(({ status, data }) => {
+export const login = (body, cb) => {
+	return async (dispatch) => {
+		const { status, data } = await loginRequest(body)
+
 		if (status === 200) {
-			AsyncStorage.multiSet([
+			await AsyncStorage.multiSet([
 				['token', data.token],
 				['user', JSON.stringify(data.user)]
-			]).then(() => {
-				dispatch({
-					type: SET_USER,
-					payload: {
-						user: data.user,
-						token: data.token
-					}
-				})
+			])
 
-				cb()
+			dispatch({
+				type: SET_USER,
+				payload: {
+					user: data.user,
+					token: data.token
+				}
 			})
+
+			cb()
 		}
-	})
+	}
 }
 
-export const logout = () => (dispatch) => {
-	AsyncStorage.multiRemove(['token', 'user']).then(() => {
+export const register = (body, cb) => {
+	return async (dispatch) => {
+		const { status, data } = await signUp(body)
+
+		if (status === 200) {
+			await AsyncStorage.multiSet([
+				['token', data.token],
+				['user', JSON.stringify(data.user)]
+			])
+
+			dispatch({
+				type: SET_USER,
+				payload: {
+					user: data.user,
+					token: data.token
+				}
+			})
+			cb()
+		}
+	}
+}
+
+export const logout = () => {
+	return async (dispatch) => {
+		await AsyncStorage.multiRemove(['token', 'user'])
+
 		dispatch({
 			type: LOGOUT,
 			payload: {
@@ -132,47 +140,49 @@ export const logout = () => (dispatch) => {
 				token: null
 			}
 		})
-	})
+	}
 }
 
-export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) => {
-	addFavorite(productId).then(({ status, data }) => {
+export const addToFavoriteProducts = (productId, messagePopupRef) => {
+	return async (dispatch) => {
+		const { status, data } = await addFavorite(productId)
+
 		if (status === 200) {
-			AsyncStorage.getItem('user').then((user) => {
-				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {
-					dispatch({
-						type: UPDATE_FAVORITE_PRODUCTS,
-						payload: {
-							favoriteProducts: data
-						}
-					})
-				})
+			const user = await AsyncStorage.getItem('user')
+			await AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data }))
+
+			dispatch({
+				type: UPDATE_FAVORITE_PRODUCTS,
+				payload: {
+					favoriteProducts: data
+				}
 			})
 
 			if (messagePopupRef) {
 				messagePopupRef.showMessage({ message: 'Ürün favorilerinize eklendi.' })
 			}
 		}
-	})
+	}
 }
 
-export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => (dispatch) => {
-	removeFavorite(productId).then(({ status, data }) => {
+export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => {
+	return async (dispatch) => {
+		const { status, data } = await removeFavorite(productId)
+
 		if (status === 200) {
-			AsyncStorage.getItem('user').then((user) => {
-				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {
-					dispatch({
-						type: UPDATE_FAVORITE_PRODUCTS,
-						payload: {
-							favoriteProducts: data
-						}
-					})
-				})
+			const user = await AsyncStorage.getItem('user')
+			await AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data }))
+
+			dispatch({
+				type: UPDATE_FAVORITE_PRODUCTS,
+				payload: {
+					favoriteProducts: data
+				}
 			})
 
 			if (messagePopupRef) {
 				messagePopupRef.showMessage({ message: 'Ürün favorilerinizden çıkarıldı.' })
 			}
 		}
-	})
+	}
 }

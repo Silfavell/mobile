@@ -84,23 +84,19 @@ class FullProductScreen extends React.Component {
 		this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
 	}
 
-	getProductBySlug = (productSlug) => {
+	getProductBySlug = async (productSlug) => {
 		const fromSearch = !!this.props.route.params.fromSearch
+		const { status, data } = await getProductBySlugRequest(productSlug, fromSearch)
 
-		getProductBySlugRequest(productSlug, fromSearch).then(({
-			data,
-			status
-		}) => {
-			if (status === 200) {
-				this.setState({
-					product: data,
-					pickedColor: -1
-				}, () => {
-					this.scrollRef.current.scrollTo({ y: 0, animated: true })
-					this.setHeader(data._id)
-				})
-			}
-		})
+		if (status === 200) {
+			this.setState({
+				product: data,
+				pickedColor: -1
+			}, () => {
+				this.scrollRef.current.scrollTo({ y: 0, animated: true })
+				this.setHeader(data._id)
+			})
+		}
 	}
 
 	onColorPicked = (colorIndex) => {
