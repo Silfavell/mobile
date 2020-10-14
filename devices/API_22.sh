@@ -1,1 +1,0 @@
-emulator -avd Pixel_XL_API_22 -wipe-data

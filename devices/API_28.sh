@@ -1,1 +1,0 @@
-emulator -avd Pixel_3a_API_28 -wipe-data
