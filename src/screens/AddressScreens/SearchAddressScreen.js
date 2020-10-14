@@ -101,7 +101,6 @@ class SearchAddressScreen extends React.Component {
 				<Text numberOfLines={3} style={styles.meterText}>
 					{
 						item.distance_meters
-						// eslint-disable-next-line radix
 						&& (parseInt(item.distance_meters) > 1000 ? `${(parseInt(item.distance_meters) / 1000).toFixed(2)}km` : `${item.distance_meters}m`)
 					}
 				</Text>

@@ -1,9 +1,14 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import axios from 'axios'
-import Config from 'react-native-config'
 
 import { SET_NEED_UPDATE_POPUP_STATE } from './global-actions'
-
+import {
+	mobileInitializer,
+	getVersion as getVersionRequest,
+	login as loginRequest,
+	signUp,
+	addFavorite,
+	removeFavorite
+} from '../scripts/requests'
 import pckg from '../../package.json'
 
 export const SET_INITIAL_DATAS = 'SET_INITIAL_DATAS'
@@ -11,45 +16,37 @@ export const SET_USER = 'SET_USER'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
-const getDatas = () => {
-	const url = `${Config.SERVER_URL}/mobile-initializer`
-
-	return axios.get(url).then(({ data }) => data)
+export const getDatas = () => {
+	return mobileInitializer().then(({ data }) => data)
 }
 
-const getVersion = () => {
-	const url = `${Config.SERVER_URL}/version`
-
-	return axios.get(url).then(({ data }) => data)
+export const getVersion = () => {
+	return getVersionRequest().then(({ data }) => data)
 }
 
 export const updateProfile = (body, cb) => (dispatch) => {
-	const url = `${Config.SERVER_URL}/user/profile`
-
-	axios.put(url, body)
-		.then(({ data, status }) => {
-			if (status === 200) {
-				AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
-					dispatch({
-						type: SET_USER,
-						payload: {
-							user: data
-						}
-					})
-
-					cb()
+	updateProfile(body).then(({ data, status }) => {
+		if (status === 200) {
+			AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
+				dispatch({
+					type: SET_USER,
+					payload: {
+						user: data
+					}
 				})
-			}
-		})
+
+				cb()
+			})
+		}
+	})
 }
 
 export const setInitialDatas = () => (dispatch) => {
 	// AsyncStorage.removeItem('cart')
-
-	getVersion().then((version) => {
+	getVersionRequest().then(({ data: version }) => {
 		if (version === pckg.version) {
-			AsyncStorage.multiGet(['token', 'user']).then((vals) => {
-				const [tokenObj, userObj] = vals
+			AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
+				const [tokenObj, userObj, cartObj] = vals
 
 				if (tokenObj) {
 					return getDatas().then((datas) => {
@@ -59,6 +56,7 @@ export const setInitialDatas = () => (dispatch) => {
 								...datas,
 								token: tokenObj[1],
 								user: JSON.parse(userObj[1]),
+								cart: JSON.parse(cartObj[1]),
 								cards: datas.cards?.cardDetails
 							}
 						})
@@ -84,11 +82,12 @@ export const setInitialDatas = () => (dispatch) => {
 }
 
 export const login = (body, cb) => (dispatch) => {
-	const url = `${Config.SERVER_URL}/login`
-
-	axios.post(url, body).then(({ status, data }) => {
+	loginRequest(body).then(({ status, data }) => {
 		if (status === 200) {
-			AsyncStorage.multiSet([['token', data.token], ['user', JSON.stringify(data.user)]]).then(() => {
+			AsyncStorage.multiSet([
+				['token', data.token],
+				['user', JSON.stringify(data.user)]
+			]).then(() => {
 				dispatch({
 					type: SET_USER,
 					payload: {
@@ -104,11 +103,12 @@ export const login = (body, cb) => (dispatch) => {
 }
 
 export const register = (body, cb) => (dispatch) => {
-	const url = `${Config.SERVER_URL}/register`
-
-	axios.post(url, body).then(({ status, data }) => {
+	signUp(body).then(({ status, data }) => {
 		if (status === 200) {
-			AsyncStorage.multiSet([['token', data.token], ['user', JSON.stringify(data.user)]]).then(() => {
+			AsyncStorage.multiSet([
+				['token', data.token],
+				['user', JSON.stringify(data.user)]
+			]).then(() => {
 				dispatch({
 					type: SET_USER,
 					payload: {
@@ -128,8 +128,6 @@ export const logout = () => (dispatch) => {
 		dispatch({
 			type: LOGOUT,
 			payload: {
-				// categories: [],
-				// products: [],
 				user: {},
 				token: null
 			}
@@ -138,7 +136,7 @@ export const logout = () => (dispatch) => {
 }
 
 export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) => {
-	axios.post(`${Config.SERVER_URL}/user/favorite-product`, { _id: productId }).then(({ status, data }) => {
+	addFavorite(productId).then(({ status, data }) => {
 		if (status === 200) {
 			AsyncStorage.getItem('user').then((user) => {
 				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {
@@ -159,7 +157,7 @@ export const addToFavoriteProducts = (productId, messagePopupRef) => (dispatch) 
 }
 
 export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => (dispatch) => {
-	axios.delete(`${Config.SERVER_URL}/user/favorite-product/${productId}`).then(({ status, data }) => {
+	removeFavorite(productId).then(({ status, data }) => {
 		if (status === 200) {
 			AsyncStorage.getItem('user').then((user) => {
 				AsyncStorage.setItem('user', JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })).then(() => {

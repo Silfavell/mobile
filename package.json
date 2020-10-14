@@ -11,7 +11,7 @@
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.12.0",
+    "@react-native-community/async-storage": "^1.6.3",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.7",
     "@react-native-community/netinfo": "5.9.3",

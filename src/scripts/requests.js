@@ -3,19 +3,17 @@ import Config from 'react-native-config'
 import AsyncStorage from '@react-native-community/async-storage'
 
 const instance = axios.create({
-  baseURL: Config.SERVER_URL,
-  transformRequest: [function (data, headers) {
-    const token = AsyncStorage.get('token')
-    if (token) {
-      headers['Authorization'] = token
-    }
+  baseURL: Config.SERVER_URL
+})
 
-    return JSON.stringify(data)
-  }],
-  headers: {
-    'Content-Type': 'application/json'
+instance.interceptors.request.use(async function (options) {
+  const token = await AsyncStorage.getItem('token')
+
+  if (token) {
+    options.headers['Authorization'] = token
   }
-  //  timeout: 1000,
+
+  return options
 })
 
 export const makeCustomRequest = ({
@@ -68,6 +66,8 @@ export const sendActivationCode = (data) => instance.post('/send-activation-code
 
 export const bulkCart = (data) => instance.post('/user/cart', data)
 
+export const clearCart = () => instance.delete('/user/cart')
+
 export const getBestSellerProducts = () => instance.get('/best-seller')
 
 export const changePassword = (data) => instance.put('/user/change-password', data)
@@ -88,7 +88,7 @@ export const getRelatedProductsBySlug = (slug) => instance.get(`/related-product
 
 export const deleteAddress = (_id) => instance.delete(`/user/address/${_id}`)
 
-export const saveAddress = (data) => instance.post('/user/address/', data)
+export const saveAddress = (data) => instance.post('/user/address', data)
 
 export const getOrderById = (_id) => instance.get(`/user/order/${_id}`)
 
@@ -103,3 +103,7 @@ export const makeOrder = (data) => instance.post('/user/order', data)
 export const getOrders = () => instance.get('/user/orders')
 
 export const returnItems = (orderId, items) => instance.post(`/user/return-items/${orderId}`, items)
+
+export const mobileInitializer = () => instance.get('/mobile-initializer')
+
+export const getVersion = () => instance.get('/version')

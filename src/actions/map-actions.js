@@ -8,7 +8,6 @@ export const SET_CURRENT_REGION = 'SET_CURRENT_REGION'
 
 const getLocationAsync = () => (
 	new Promise((resolve, reject) => {
-		// eslint-disable-next-line no-undef
 		navigator.geolocation.getCurrentPosition((position) => {
 			resolve(position)
 		}, (error) => {

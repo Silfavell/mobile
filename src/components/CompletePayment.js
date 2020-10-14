@@ -16,12 +16,10 @@ class CompletePaymentComponent extends React.PureComponent {
 			completable,
 			token,
 			navigation,
-			// eslint-disable-next-line no-shadow
 			makeOrder,
 			selectedCard,
 			selectedAddress,
 			messagePopupRef,
-			// eslint-disable-next-line no-shadow
 			setNeedToLoginPopupState
 		} = this.props
 

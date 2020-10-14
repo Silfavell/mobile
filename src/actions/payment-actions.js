@@ -1,6 +1,11 @@
-import axios from 'axios'
 import AsyncStorage from '@react-native-community/async-storage'
-import Config from 'react-native-config'
+
+import {
+	addCard,
+	removeCard,
+	saveAddress as saveAddressRequest,
+	deleteAddress as deleteAddressRequest
+} from '../scripts/requests'
 
 export const SET_PAYMENT_TYPE = 'SET_PAYMENT_TYPE'
 export const SAVE_CARD = 'SAVE_CARD'
@@ -20,37 +25,31 @@ export const setPaymentType = (paymentType) => (dispatch) => {
 }
 
 export const saveCard = (card, cb) => (dispatch) => {
-	const url = `${Config.SERVER_URL}/user/payment-card`
+	addCard({ card }).then(({ status, data }) => {
+		if (status === 200) {
+			dispatch({
+				type: SAVE_CARD,
+				payload: {
+					card: data
+				}
+			})
 
-	axios.post(url, { card })
-		.then(({ status, data }) => {
-			if (status === 200) {
-				dispatch({
-					type: SAVE_CARD,
-					payload: {
-						card: data
-					}
-				})
-
-				cb()
-			}
-		})
+			cb()
+		}
+	})
 }
 
 export const deleteCard = (cardToken) => (dispatch) => {
-	const url = `${Config.SERVER_URL}/user/payment-card`
-
-	axios.put(url, { cardToken })
-		.then(({ status }) => {
-			if (status === 200) {
-				dispatch({
-					type: DELETE_CARD,
-					payload: {
-						cardToken,
-					}
-				})
-			}
-		})
+	removeCard({ cardToken }).then(({ status }) => {
+		if (status === 200) {
+			dispatch({
+				type: DELETE_CARD,
+				payload: {
+					cardToken,
+				}
+			})
+		}
+	})
 }
 
 export const saveAddress = (address, details) => {
@@ -60,33 +59,11 @@ export const saveAddress = (address, details) => {
 	}
 
 	return (dispatch) => {
-		const url = `${Config.SERVER_URL}/user/address`
-
-		axios.post(url, body)
-			.then(({ status, data }) => {
-				if (status === 200) {
-					AsyncStorage.setItem('user', JSON.stringify(data)).then(() => { // User serverda güncellenince, güncellenenen tüm user'ı geri dönüyor.
-						dispatch({
-							type: SAVE_ADDRESS,
-							payload: {
-								addresses: data.addresses
-							}
-						})
-					})
-				}
-			})
-	}
-}
-
-export const deleteAddress = (addressId) => (dispatch) => {
-	const url = `${Config.SERVER_URL}/user/address/${addressId}`
-
-	axios.delete(url)
-		.then(({ status, data }) => {
+		saveAddressRequest(body).then(({ status, data }) => {
 			if (status === 200) {
-				AsyncStorage.setItem('user', JSON.stringify(data)).then(() => { // User serverda güncellenince, güncellenenen tüm user'ı geri dönüyor.
+				AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
 					dispatch({
-						type: DELETE_ADDRESS,
+						type: SAVE_ADDRESS,
 						payload: {
 							addresses: data.addresses
 						}
@@ -94,6 +71,22 @@ export const deleteAddress = (addressId) => (dispatch) => {
 				})
 			}
 		})
+	}
+}
+
+export const deleteAddress = (addressId) => (dispatch) => {
+	deleteAddressRequest(addressId).then(({ status, data }) => {
+		if (status === 200) {
+			AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
+				dispatch({
+					type: DELETE_ADDRESS,
+					payload: {
+						addresses: data.addresses
+					}
+				})
+			})
+		}
+	})
 }
 
 export const setSelectedCard = (selectedCard, cb) => (dispatch) => {

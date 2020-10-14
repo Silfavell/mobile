@@ -29,6 +29,7 @@ class ClearCartPopup extends React.PureComponent {
 				visible={this.props.clearCartPopupState}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
+				children={null}
 				modalTitle={(
 					<ModalTitle
 						style={styles.title}

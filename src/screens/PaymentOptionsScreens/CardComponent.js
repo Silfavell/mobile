@@ -25,8 +25,9 @@ const getCardIcon = (type) => {
 class CardComponent extends React.PureComponent {
 	onClick = () => {
 		const {
-			// eslint-disable-next-line no-shadow
-			item, navigation, setSelectedCard
+			item,
+			navigation,
+			setSelectedCard
 		} = this.props
 
 		setSelectedCard(item.cardToken, () => {

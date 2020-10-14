@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Config from 'react-native-config'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
 	ScrollView,
@@ -33,7 +34,6 @@ class FullProductScreen extends React.Component {
 		this.getProductBySlug(this.props.route.params.slug)
 	}
 
-	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillReceiveProps() {
 		if (this.state.pickedColor === -1) {
 			this.setHeader(this.state.product._id)
@@ -57,7 +57,7 @@ class FullProductScreen extends React.Component {
 					<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
 						<Ionicons
 							size={26}
-							color="rgba(0,0,0,.8)"
+							color='rgba(0,0,0,.8)'
 							style={{ marginRight: 18 }}
 							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
 						/>
@@ -217,7 +217,7 @@ class FullProductScreen extends React.Component {
 							)
 						}
 
-						<Accordion title="Ürün Hakkında" expanded>
+						<Accordion title='Ürün Hakkında' expanded>
 							<>
 								<View style={styles.details2}>
 									<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
@@ -247,7 +247,7 @@ class FullProductScreen extends React.Component {
 					</ScrollView>
 
 					<View style={styles.buttonContainer}>
-						<ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
+						<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
 					</View>
 				</View>
 			)

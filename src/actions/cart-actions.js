@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-community/async-storage'
+
 import {
 	clearCart as clearCartRequest,
 	makeOrder as makeOrderRequest,
@@ -22,8 +24,10 @@ export const clearCart = (token) => (dispatch) => {
 			}
 		})
 	} else {
-		dispatch({
-			type: CLEAR_CART
+		AsyncStorage.removeItem('cart').then(() => {
+			dispatch({
+				type: CLEAR_CART
+			})
 		})
 	}
 }

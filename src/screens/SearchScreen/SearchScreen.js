@@ -29,8 +29,7 @@ class SearchScreen extends React.Component {
 
 			searchRequest(text).then((response) => {
 				this.setState({
-					products: response.data.map(({ _source }) => {
-						// eslint-disable-next-line no-param-reassign
+					products: response.data.map(({ _source }) => {// TODO ??
 						_source._id = _source.id
 						return _source
 					}),

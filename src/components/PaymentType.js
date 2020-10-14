@@ -16,7 +16,6 @@ const PaymentType = ({
 	detail,
 	icon,
 	navigation,
-	// eslint-disable-next-line no-shadow
 	setPaymentType
 }) => {
 	const onPaymentTypeClick = () => {

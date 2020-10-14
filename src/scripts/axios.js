@@ -1,4 +1,3 @@
-/* eslint-disable */
 import axios from 'axios'
 
 import { SET_CONNECTION_POPUP_STATE } from '../actions/global-actions'

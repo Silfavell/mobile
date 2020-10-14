@@ -16,7 +16,6 @@ import { setRootNavigation } from '../actions/global-actions'
 
 const Stack = createStackNavigator()
 
-// eslint-disable-next-line no-shadow
 const HomeStack = ({ navigation, setRootNavigation }) => {
 	setRootNavigation(navigation)
 
