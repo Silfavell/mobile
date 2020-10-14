@@ -7,22 +7,25 @@ import {
 } from 'react-native'
 
 const InteractiveSettingItem = ({
-	children: icons, title, onLeftClick, onRightIconClick,
+	children: icons,
+	title,
+	onLeftClick,
+	onRightIconClick
 }) => (
-	<View style={styles.container}>
-		<TouchableOpacity style={{ flex: 7, flexDirection: 'row' }} onPress={onLeftClick}>
-			<View style={styles.iconContainer}>
-				{icons[0]}
-			</View>
-			<View style={styles.titleContainer}>
-				<Text style={styles.title}>{title}</Text>
-			</View>
-		</TouchableOpacity>
-		<TouchableOpacity style={styles.rightIconContainer} onPress={onRightIconClick}>
-			{icons[1]}
-		</TouchableOpacity>
-	</View>
-)
+		<View style={styles.container}>
+			<TouchableOpacity style={{ flex: 7, flexDirection: 'row' }} onPress={onLeftClick}>
+				<View style={styles.iconContainer}>
+					{icons[0]}
+				</View>
+				<View style={styles.titleContainer}>
+					<Text style={styles.title}>{title}</Text>
+				</View>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.rightIconContainer} onPress={onRightIconClick}>
+				{icons[1]}
+			</TouchableOpacity>
+		</View>
+	)
 
 const styles = ScaledSheet.create({
 	container: {

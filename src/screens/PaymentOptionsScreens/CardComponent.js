@@ -9,14 +9,15 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import { setSelectedCard } from '../actions/payment-actions'
+import { setSelectedCard } from '../../actions/payment-actions'
 
-import mastercard from '../../assets/mastercard.png'
-import visa from '../../assets/visa.png'
+import mastercard from '../../../assets/mastercard.png'
+import visa from '../../../assets/visa.png'
 
 const getCardIcon = (type) => {
 	switch (type) {
 		case 'MASTER_CARD': return mastercard
+		case 'VISA': return visa
 		default: return visa
 	}
 }

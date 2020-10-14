@@ -4,8 +4,8 @@ import {FlatList} from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
-import CardComponent from '../../components/CardComponent'
-import AddNewCardComponent from '../../components/AddNewCardComponent'
+import CardComponent from './CardComponent'
+import AddNewCardComponent from './AddNewCardComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 
 import { deleteCard } from '../../actions/payment-actions'

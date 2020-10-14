@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView, TouchableOpacity } from 'react-native'
 
-import LanguageItem from '../../components/LanguageItem'
+import LanguageItem from './LanguageItem'
 
 class ChangeLanguageScreen extends React.PureComponent {
 	render() {

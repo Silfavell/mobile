@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { TouchableOpacity } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-import SettingItem from './SettingItem'
-import AskPopup from './popups/AskPopup'
+import SettingItem from '../../components/SettingItem'
+import AskPopup from '../../components/popups/AskPopup'
 
-import { logout } from '../actions/source-actions'
+import { logout } from '../../actions/source-actions'
 
 class LogoutItem extends React.Component {
 	state = {
