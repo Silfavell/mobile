@@ -40,7 +40,7 @@ const CartStack = ({ navigation }) => (
 			name='completePayment'
 			component={CompletePaymentScreen}
 			options={{
-				title: 'Ödemeyi tamamla',
+				title: 'Ödemeyi Tamamla',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -73,7 +73,7 @@ const CartStack = ({ navigation }) => (
 			name='addNewCardScreen'
 			component={AddNewCardScreen}
 			options={{
-				title: 'Kart ekle',
+				title: 'Kart Ekle',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -95,7 +95,7 @@ const CartStack = ({ navigation }) => (
 			name='searchAddressScreen'
 			component={SearchAddressScreen}
 			options={{
-				title: 'Adres ara',
+				title: 'Adres Ara',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -106,7 +106,7 @@ const CartStack = ({ navigation }) => (
 			name='pinAddressScreen'
 			component={PinAddressScreen}
 			options={{
-				title: 'Adres ekle',
+				title: 'Adres Ekle',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -117,7 +117,7 @@ const CartStack = ({ navigation }) => (
 			name='completeAddressScreen'
 			component={CompleteAddressScreen}
 			options={{
-				title: 'Adres ekle',
+				title: 'Adres Ekle',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle

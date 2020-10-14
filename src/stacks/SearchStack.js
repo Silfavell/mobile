@@ -27,7 +27,7 @@ const SearchStack = () => (
 		<Stack.Screen
 			name='fullProductScreen'
 			options={{
-				title: 'Ürün detayı',
+				title: 'Ürün Detayı',
 				headerTitle: null,
 				headerTitleAlign: 'center',
 				headerTintColor: 'rgba(0,0,0,.8)',

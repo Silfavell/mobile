@@ -42,7 +42,7 @@ class ProfileStack extends React.PureComponent {
 					name='changePasswordScreen'
 					component={ChangePasswordScreen}
 					options={{
-						title: 'Şifremi değiştir',
+						title: 'Şifremi Değiştir',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
@@ -76,7 +76,7 @@ class ProfileStack extends React.PureComponent {
 					name='searchAddressScreen'
 					component={SearchAddressScreen}
 					options={{
-						title: 'Adres ara',
+						title: 'Adres Ara',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
@@ -87,7 +87,7 @@ class ProfileStack extends React.PureComponent {
 					name='pinAddressScreen'
 					component={PinAddressScreen}
 					options={{
-						title: 'Adres ekle',
+						title: 'Adres Ekle',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
@@ -98,7 +98,7 @@ class ProfileStack extends React.PureComponent {
 					name='completeAddressScreen'
 					component={CompleteAddressScreen}
 					options={{
-						title: 'Adres ekle',
+						title: 'Adres Ekle',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
@@ -164,7 +164,7 @@ class ProfileStack extends React.PureComponent {
 					name='addNewCardScreen'
 					component={AddNewCardScreen}
 					options={{
-						title: 'Kart ekle',
+						title: 'Kart Ekle',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
@@ -175,7 +175,7 @@ class ProfileStack extends React.PureComponent {
 					name='changeLanguageScreen'
 					component={ChangeLanguageScreen}
 					options={{
-						title: 'Dili değiştir',
+						title: 'Dili Değiştir',
 						headerTitleAlign: 'center',
 						headerTintColor: 'white',
 						headerStyle: styles.headerStyle
@@ -196,7 +196,7 @@ class ProfileStack extends React.PureComponent {
 				<Stack.Screen
 					name='fullProductScreen'
 					options={{
-						title: 'Ürün detayı',
+						title: 'Ürün Detayı',
 						headerTitle: null,
 						headerTitleAlign: 'center',
 						headerTintColor: 'rgba(0,0,0,.8)',
