@@ -11,12 +11,8 @@ export const SET_USER = 'SET_USER'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE_FAVORITE_PRODUCTS = 'UPDATE_FAVORITE_PRODUCTS'
 
-const getDatas = (token) => {
+const getDatas = () => {
 	const url = `${Config.SERVER_URL}/mobile-initializer`
-
-	if (token) {
-		return axios.get(url, { headers: { Authorization: token } }).then(({ data }) => data)
-	}
 
 	return axios.get(url).then(({ data }) => data)
 }
@@ -52,16 +48,18 @@ export const setInitialDatas = () => (dispatch) => {
 
 	getVersion().then((version) => {
 		if (version === pckg.version) {
-			AsyncStorage.multiGet(['token', 'user', 'cart']).then((vals) => {
-				if (vals[0][1]) {
-					return getDatas(vals[0][1]).then((datas) => {
+			AsyncStorage.multiGet(['token', 'user']).then((vals) => {
+				const [tokenObj, userObj] = vals
+
+				if (tokenObj) {
+					return getDatas().then((datas) => {
 						dispatch({
 							type: SET_INITIAL_DATAS,
 							payload: {
 								...datas,
-								token: vals[0][1],
-								user: JSON.parse(vals[1][1]),
-								cards: datas.cards.cardDetails
+								token: tokenObj[1],
+								user: JSON.parse(userObj[1]),
+								cards: datas.cards?.cardDetails
 							}
 						})
 					})
