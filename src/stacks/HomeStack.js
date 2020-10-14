@@ -17,7 +17,7 @@ import { setRootNavigation } from '../actions/global-actions'
 const Stack = createStackNavigator()
 
 // eslint-disable-next-line no-shadow
-const Screen1 = ({ navigation, setRootNavigation }) => {
+const HomeStack = ({ navigation, setRootNavigation }) => {
 	setRootNavigation(navigation)
 
 	return (
@@ -92,4 +92,4 @@ const mapDispatchToProps = {
 	setRootNavigation
 }
 
-export default connect(null, mapDispatchToProps)(Screen1)
+export default connect(null, mapDispatchToProps)(HomeStack)

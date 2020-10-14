@@ -1,10 +1,10 @@
-import * as React from 'react'
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import Home from '../stacks/Screen1'
-import Search from '../stacks/Screen2'
-import Cart from '../stacks/Screen3'
-import ProfileScreen from '../stacks/Screen4'
+import HomeStack from '../stacks/HomeStack'
+import SearchStack from '../stacks/SearchStack'
+import CartStack from '../stacks/CartStack'
+import ProfileStack from '../stacks/ProfileStack'
 
 import TabBarIcon from './TabBarIcon'
 import CartIcon from './CartIcon'
@@ -12,15 +12,15 @@ import CartIcon from './CartIcon'
 const BottomTab = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = 'Home'
 
-export default function BottomTabNavigator({ navigation, route }) {
-	navigation.setOptions({ headerTitle: getHeaderTitle(route), headerShown: false })
+export default function BottomTabNavigator({ navigation }) {
+	navigation.setOptions({ headerShown: false })
 
 	return (
 		<BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME} tabBarOptions={{ activeTintColor: 'rgba(0,0,0,.8)' }} lazy={false}>
 
 			<BottomTab.Screen
 				name='Home'
-				component={Home}
+				component={HomeStack}
 				options={{
 					title: 'Ana Sayfa',
 					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-home' />
@@ -29,7 +29,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
 			<BottomTab.Screen
 				name='Search'
-				component={Search}
+				component={SearchStack}
 				options={{
 					title: 'Ara',
 					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-search' />
@@ -38,7 +38,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
 			<BottomTab.Screen
 				name='Cart'
-				component={Cart}
+				component={CartStack}
 				options={{
 					title: 'Sepetim',
 					tabBarIcon: ({ focused }) => <CartIcon focused={focused} name='md-basket' />
@@ -47,7 +47,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
 			<BottomTab.Screen
 				name='Profile'
-				component={ProfileScreen}
+				component={ProfileStack}
 				options={{
 					title: 'Diğer',
 					tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-menu' />
@@ -56,21 +56,4 @@ export default function BottomTabNavigator({ navigation, route }) {
 
 		</BottomTab.Navigator>
 	)
-}
-
-function getHeaderTitle(route) {
-	const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME
-
-	switch (routeName) {
-		case 'Home':
-			return 'Home'
-		case 'Search':
-			return 'Search'
-		case 'Cart':
-			return 'Cart'
-		case 'Profile':
-			return 'Profile'
-		default:
-			return 'Profile'
-	}
 }

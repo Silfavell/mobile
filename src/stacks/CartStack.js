@@ -21,7 +21,7 @@ import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
 
 const Stack = createStackNavigator()
 
-const Screen3 = ({ navigation }) => (
+const CartStack = ({ navigation }) => (
 	<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 		<Stack.Screen
 			name='cart'
@@ -138,4 +138,4 @@ const styles = ScaledSheet.create({
 	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
 })
 
-export default Screen3
+export default CartStack

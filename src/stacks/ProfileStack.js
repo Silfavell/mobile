@@ -22,7 +22,7 @@ import HelpScreen from '../screens/HelpScreen/HelpScreen'
 
 const Stack = createStackNavigator()
 
-class Screen4 extends React.PureComponent {
+class ProfileStack extends React.PureComponent {
 	render() {
 		return (
 			<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
@@ -220,4 +220,4 @@ const styles = ScaledSheet.create({
 	}
 })
 
-export default Screen4
+export default ProfileStack
