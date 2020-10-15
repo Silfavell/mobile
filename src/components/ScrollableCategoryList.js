@@ -41,6 +41,7 @@ class ScrollableCategoryList extends React.PureComponent {
                 {
                     this.props.categories.map((category, index) => (
                         <CategoryElement
+                            key={'scrollableCategory:' + category._id}
                             navigation={this.props.navigation}
                             title={category.name}
                             index={index}
