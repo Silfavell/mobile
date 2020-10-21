@@ -39,20 +39,20 @@ class RegisterScreen extends React.Component {
 		this.setState({ isTermsChecked: !this.state.isTermsChecked })
 	}
 
-	onRegisterClick = () => {
-		sendActivationCode({
+	onRegisterClick = async () => {
+		const { status } = await sendActivationCode({
 			phoneNumber: this.state.phoneNumber,
-			activationCodeType: 0 // REGISTER
-		}).then(({ status }) => {
-			if (status === 202) {
-				this.props.navigation.navigate('activationScreen', {
-					phoneNumber: this.state.phoneNumber,
-					password: this.state.password,
-					nameSurname: this.state.nameSurname,
-					email: this.state.email
-				})
-			}
+			activationCodeType: 0 // REGISTER // TODO
 		})
+
+		if (status === 202) {
+			this.props.navigation.navigate('activationScreen', {
+				phoneNumber: this.state.phoneNumber,
+				password: this.state.password,
+				nameSurname: this.state.nameSurname,
+				email: this.state.email
+			})
+		}
 	}
 
 	/*

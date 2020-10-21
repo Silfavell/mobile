@@ -46,21 +46,21 @@ class ResetPasswordScreen extends React.Component {
 		})
 	}
 
-	onResetPasswordClick = () => {
+	onResetPasswordClick = async () => {
 		if (this.state.activationCode === '' || this.state.password === '' || this.state.phoneNumber === '') {
 			this.props.messagePopupRef.showMessage({ message: 'Lütfen gerekli alanlarını doldurunuz' })
 		} else if (this.state.password.length < 4) {
 			this.props.messagePopupRef.showMessage({ message: 'Yeni şifreniz en az 4 haneli olmalı' })
 		} else {
-			resetPassword({
+			const { status } = await resetPassword({
 				activationCode: this.state.activationCode,
 				phoneNumber: this.state.phoneNumber,
 				newPassword: this.state.password
-			}).then(({ status }) => {
-				if (status === 200) {
-					this.setState({ scaleAnimationModal: true })
-				}
 			})
+
+			if (status === 200) {
+				this.setState({ scaleAnimationModal: true })
+			}
 		}
 	}
 

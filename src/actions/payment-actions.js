@@ -15,17 +15,21 @@ export const DELETE_ADDRESS = 'DELETE_ADDRESS'
 export const SET_SELECTED_CARD = 'SET_SELECTED_CARD'
 export const SET_SELECTED_ADDRESS = 'SET_SELECTED_ADDRESS'
 
-export const setPaymentType = (paymentType) => (dispatch) => {
-	dispatch({
-		type: SET_PAYMENT_TYPE,
-		payload: {
-			paymentType
-		}
-	})
+export const setPaymentType = (paymentType) => {
+	return (dispatch) => {
+		dispatch({
+			type: SET_PAYMENT_TYPE,
+			payload: {
+				paymentType
+			}
+		})
+	}
 }
 
-export const saveCard = (card, cb) => (dispatch) => {
-	addCard({ card }).then(({ status, data }) => {
+export const saveCard = (card, cb) => {
+	return async (dispatch) => {
+		const { status, data } = await addCard({ card })
+
 		if (status === 200) {
 			dispatch({
 				type: SAVE_CARD,
@@ -33,14 +37,15 @@ export const saveCard = (card, cb) => (dispatch) => {
 					card: data
 				}
 			})
-
 			cb()
 		}
-	})
+	}
 }
 
-export const deleteCard = (cardToken) => (dispatch) => {
-	removeCard({ cardToken }).then(({ status }) => {
+export const deleteCard = (cardToken) => {
+	return async (dispatch) => {
+		const { status } = await removeCard({ cardToken })
+
 		if (status === 200) {
 			dispatch({
 				type: DELETE_CARD,
@@ -49,64 +54,67 @@ export const deleteCard = (cardToken) => (dispatch) => {
 				}
 			})
 		}
-	})
+	}
 }
 
 export const saveAddress = (address, details) => {
-	const body = {
-		openAddress: address,
-		addressTitle: details.addressTitle
-	}
+	return async (dispatch) => {
+		const body = {
+			openAddress: address,
+			addressTitle: details.addressTitle
+		}
+		const { status, data } = await saveAddressRequest(body)
 
-	return (dispatch) => {
-		saveAddressRequest(body).then(({ status, data }) => {
-			if (status === 200) {
-				AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
-					dispatch({
-						type: SAVE_ADDRESS,
-						payload: {
-							addresses: data.addresses
-						}
-					})
-				})
-			}
-		})
-	}
-}
-
-export const deleteAddress = (addressId) => (dispatch) => {
-	deleteAddressRequest(addressId).then(({ status, data }) => {
 		if (status === 200) {
-			AsyncStorage.setItem('user', JSON.stringify(data)).then(() => {
-				dispatch({
-					type: DELETE_ADDRESS,
-					payload: {
-						addresses: data.addresses
-					}
-				})
+			await AsyncStorage.setItem('user', JSON.stringify(data))
+			dispatch({
+				type: SAVE_ADDRESS,
+				payload: {
+					addresses: data.addresses
+				}
 			})
 		}
-	})
+	}
 }
 
-export const setSelectedCard = (selectedCard, cb) => (dispatch) => {
-	dispatch({
-		type: SET_SELECTED_CARD,
-		payload: {
-			selectedCard
-		}
-	})
+export const deleteAddress = (addressId) => {
+	return async (dispatch) => {
+		const { status, data } = await deleteAddressRequest(addressId)
 
-	cb()
+		if (status === 200) {
+			await AsyncStorage.setItem('user', JSON.stringify(data))
+			dispatch({
+				type: DELETE_ADDRESS,
+				payload: {
+					addresses: data.addresses
+				}
+			})
+		}
+	}
 }
 
-export const setSelectedAddress = (selectedAddress, cb) => (dispatch) => {
-	dispatch({
-		type: SET_SELECTED_ADDRESS,
-		payload: {
-			selectedAddress
-		}
-	})
+export const setSelectedCard = (selectedCard, cb) => {
+	return (dispatch) => {
+		dispatch({
+			type: SET_SELECTED_CARD,
+			payload: {
+				selectedCard
+			}
+		})
 
-	cb()
+		cb()
+	}
+}
+
+export const setSelectedAddress = (selectedAddress, cb) => {
+	return (dispatch) => {
+		dispatch({
+			type: SET_SELECTED_ADDRESS,
+			payload: {
+				selectedAddress
+			}
+		})
+
+		cb()
+	}
 }

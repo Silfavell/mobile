@@ -30,7 +30,7 @@ const WelcomeStack = () => (
 			name='login'
 			component={LoginScreen}
 			options={{
-				title: 'Giriş yap',
+				title: 'Giriş Yap',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -41,7 +41,7 @@ const WelcomeStack = () => (
 			name='register'
 			component={RegisterScreen}
 			options={{
-				title: 'Kayıt ol',
+				title: 'Kayıt Ol',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -52,7 +52,7 @@ const WelcomeStack = () => (
 			name='forgotPassword'
 			component={ForgotPasswordScreen}
 			options={{
-				title: 'Şifremi unuttum',
+				title: 'Şifremi Unuttum',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle
@@ -63,7 +63,7 @@ const WelcomeStack = () => (
 			name='resetPassword'
 			component={ResetPasswordScreen}
 			options={{
-				title: 'Şifremi unuttum',
+				title: 'Şifremi Değiştir',
 				headerTitleAlign: 'center',
 				headerTintColor: 'white',
 				headerStyle: styles.headerStyle

@@ -23,11 +23,13 @@ class SearchScreen extends React.Component {
 		text: ''
 	}
 
-	search = (text) => {
+	search = async (text) => {
 		if (text.length > 0) {
 			this.setState({ fetch: true, text })
 
-			searchRequest(text).then((response) => {
+			try {
+				const response = await searchRequest(text)
+
 				this.setState({
 					products: response.data.map(({ _source }) => {// TODO ??
 						_source._id = _source.id
@@ -35,9 +37,10 @@ class SearchScreen extends React.Component {
 					}),
 					fetch: false
 				})
-			}).catch(() => {
+			} catch (error) {
 				this.setState({ fetch: false })
-			})
+			}
+
 		} else {
 			this.setState({ fetch: false, products: [], text })
 		}

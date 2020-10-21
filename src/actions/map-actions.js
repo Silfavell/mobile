@@ -16,70 +16,77 @@ const getLocationAsync = () => (
 	})
 )
 
-const getAddress = (region) => {
+const getAddress = async (region) => {
 	const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${region.latitude},${region.longitude}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA`
+	const { data } = await axios.get(url)
 
-	return axios.get(url).then(({ data }) => data.results[0].formatted_address)
+	return data.results[0].formatted_address
 }
 
-export const setRegion = (region) => ((dispatch) => {
-	getAddress(region).then((address) => {
+export const setRegion = (region) => {
+	return async (dispatch) => {
+		try {
+			const address = await getAddress(region)
+
+			dispatch({
+				type: SET_REGION,
+				payload: {
+					region,
+					address
+				}
+			})
+		} catch (_) {
+			dispatch({ type: 'DO_NOT_HANDLE' })
+		}
+	}
+}
+
+export const setAddress = (address) => {
+	return (dispatch) => {
 		dispatch({
-			type: SET_REGION,
+			type: SET_ADDRESS,
 			payload: {
-				region,
 				address
 			}
 		})
-	}).catch(() => {
+	}
+}
+
+export const setRegionByPlace = (placeId, cb) => {
+	return async (dispatch) => {
+		const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA`
+		const { data } = await axios.get(url)
+
 		dispatch({
-			type: 'DO_NOT_HANDLE'
+			type: SET_REGION_BY_PLACE,
+			payload: {
+				region: {
+					latitude: data.result.geometry.location.lat,
+					longitude: data.result.geometry.location.lng
+				}
+			}
 		})
-	})
-})
 
-export const setAddress = (address) => ((dispatch) => {
-	dispatch({
-		type: SET_ADDRESS,
-		payload: {
-			address
-		}
-	})
-})
+		cb(data)
+	}
+}
 
-export const setRegionByPlace = (placeId, cb) => ((dispatch) => {
-	const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA`
+export const setCurrentRegion = (cb) => {
+	return async (dispatch) => {
+		await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({ interval: 10000, fastInterval: 5000 })
 
-	axios.get(url)
-		.then(({ data }) => {
+		try {
+			const { coords } = await getLocationAsync()
 			dispatch({
-				type: SET_REGION_BY_PLACE,
+				type: SET_CURRENT_REGION,
 				payload: {
-					region: {
-						latitude: data.result.geometry.location.lat,
-						longitude: data.result.geometry.location.lng
-					}
+					region: coords
 				}
 			})
-			cb(data)
-		})
-})
 
-export const setCurrentRegion = (cb) => ((dispatch) => {
-
-	RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({ interval: 10000, fastInterval: 5000 })
-		.then(() => {
-			getLocationAsync().then(({ coords }) => {
-				dispatch({
-					type: SET_CURRENT_REGION,
-					payload: {
-						region: coords
-					}
-				})
-
-				cb(coords)
-			}).catch((err) => {
-				cb(null, err)
-			})
-		})
-})
+			cb(coords)
+		} catch (error) {
+			cb(null, err)
+		}
+	}
+}

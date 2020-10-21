@@ -20,18 +20,15 @@ class SearchAddressScreen extends React.Component {
 		locations: []
 	}
 
-	onSearchResult = ({ data }) => {
-		this.setState({ locations: data.predictions })
-	}
-
 	onSearchChange = (searchVal) => {
 		this.setState({ searchVal })
 	}
 
-	onSearchClick = () => {
+	onSearchClick = async () => {
 		const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${this.state.searchVal}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA&components=country:tr`
+		const { data } = await axios.get(url)
 
-		axios.get(url).then(this.onSearchResult)
+		this.setState({ locations: data.predictions })
 	}
 
 	onAddress = (data) => {

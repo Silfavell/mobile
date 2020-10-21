@@ -32,7 +32,7 @@ class ChangePasswordScreen extends React.Component {
 		}
 	}
 
-	onChangePasswordClick = () => {
+	onChangePasswordClick = async () => {
 		if (this.state.oldPassword === '' || this.state.password === '') {
 			this.props.messagePopupRef.showMessage({ message: 'Lütfen gerekli alanlarını doldurunuz' })
 		} else if (this.state.password.length < 4) {
@@ -40,14 +40,14 @@ class ChangePasswordScreen extends React.Component {
 		} else if (this.state.oldPassword === this.state.password) {
 			this.props.messagePopupRef.showMessage({ message: 'Yeni şifre eskisi ise aynı olamaz' })
 		} else {
-			changePassword({
+			const { status } = await changePassword({
 				oldPassword: this.state.oldPassword,
 				newPassword: this.state.password
-			}).then(({ status }) => {
-				if (status === 200) {
-					this.setState({ scaleAnimationModal: true })
-				}
 			})
+
+			if (status === 200) {
+				this.setState({ scaleAnimationModal: true })
+			}
 		}
 	}
 

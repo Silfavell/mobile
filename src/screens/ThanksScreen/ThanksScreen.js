@@ -23,10 +23,9 @@ class ThanksScreen extends React.Component {
 		})
 	}
 
-	moveToPlayStore = () => {
-		AsyncStorage.setItem('isRatePlaystoreAsked', '').then(() => {
-			Linking.openURL('market://details?id=com.silfavell.android')
-		})
+	moveToPlayStore = async () => {
+		await AsyncStorage.setItem('isRatePlaystoreAsked', '')
+		Linking.openURL('market://details?id=com.silfavell.android')
 	}
 
 	onGoHomeClick = () => {

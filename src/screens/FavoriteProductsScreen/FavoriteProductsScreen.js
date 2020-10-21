@@ -29,16 +29,21 @@ class FavoriteProductsScreen extends React.Component {
 		return false
 	}
 
-	getFavoriteProducts = () => {
-		return listFavorites().then(({ status, data }) => {
+	getFavoriteProducts = async () => {
+		try {
+			const { status, data } = await listFavorites()
+
 			if (status === 200) {
 				return ({
 					products: data?.favoriteProducts || [],
 					fetching: false
 				})
 			}
-			return ({ fetching: false })
-		}).catch(() => ({ fetching: false }))
+
+			return { fetching: false }
+		} catch (error) {
+			return { fetching: false }
+		}
 	}
 
 	render() {

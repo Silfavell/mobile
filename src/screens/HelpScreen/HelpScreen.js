@@ -50,7 +50,7 @@ class HelpScreen extends React.Component {
         this.setState({ message })
     }
 
-    onSendClick = () => {
+    onSendClick = async () => {
         const {
             name,
             surname,
@@ -59,17 +59,17 @@ class HelpScreen extends React.Component {
             message
         } = this.state
 
-        postTicket({
+        const { status } = await postTicket({
             name,
             surname,
             email,
             subject,
             message
-        }).then(({ status }) => {
-            if (status === 200) {
-                this.setState({ scaleAnimationModal: true })
-            }
         })
+
+        if (status === 200) {
+            this.setState({ scaleAnimationModal: true })
+        }
     }
 
     render() {

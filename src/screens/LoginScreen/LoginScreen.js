@@ -36,16 +36,15 @@ class LoginScreen extends React.Component {
 		|| this.state.password !== nextState.password
 	)
 
-	saveCart = () => {
+	saveCart = async () => {
 		const { cart, token } = this.props
 
 		if (token && Object.values(cart).length > 0) {
-			bulkCart(Object.values(cart).map(({ _id, quantity }) => ({ _id, quantity })))
-				.then(({ status, data }) => {
-					if (status === 200) {
-						AsyncStorage.setItem('cart', JSON.stringify(data))
-					}
-				})
+			const { status, data } = await bulkCart(Object.values(cart).map(({ _id, quantity }) => ({ _id, quantity })))
+
+			if (status === 200) {
+				AsyncStorage.setItem('cart', JSON.stringify(data))
+			}
 		}
 	}
 

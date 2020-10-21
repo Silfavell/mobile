@@ -16,15 +16,15 @@ class ForgotPasswordScreen extends React.Component {
 		invalidPhoneNumber: false
 	}
 
-	onSendCodeClick = () => {
-		sendActivationCode({
+	onSendCodeClick = async () => {
+		const { status } = await sendActivationCode({
 			phoneNumber: this.state.phoneNumber,
-			activationCodeType: 1 // RESET
-		}).then(({ status }) => {
-			if (status === 202) {
-				this.props.navigation.navigate('resetPassword', { phoneNumber: this.state.phoneNumber })
-			}
+			activationCodeType: 1 // RESET // TODO
 		})
+
+		if (status === 202) {
+			this.props.navigation.navigate('resetPassword', { phoneNumber: this.state.phoneNumber })
+		}
 	}
 
 	onPhoneNumberChange = (phoneNumber) => {

@@ -81,17 +81,19 @@ class ReturnItems extends React.Component {
         this.setState({ items })
     }
 
-    onFinishClick = () => {
-        const items = this.state.items.filter((item) => item.selected).map((item) => {
-            delete item.selected
-            return item
-        })
+    onFinishClick = async () => {
+        const items = this.state.items
+            .filter((item) => item.selected)
+            .map((item) => {
+                delete item.selected
+                return item
+            })
 
-        returnItems(this.props.route.params.item._id, items).then(({ status, data }) => {
-            if (status === 200) {
-                this.props.navigation.navigate('returnItemsCompleted')
-            }
-        })
+        const { status } = await returnItems(this.props.route.params.item._id, items)
+
+        if (status === 200) {
+            this.props.navigation.navigate('returnItemsCompleted')
+        }
     }
 
     render() {

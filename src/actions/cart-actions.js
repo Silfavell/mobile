@@ -14,42 +14,42 @@ export const INCREASE_PRODUCT_QUANTITY = 'INCREASE_PRODUCT_QUANTITY'
 export const SET_PRODUCT_QUANTITY = 'SET_PRODUCT_QUANTITY'
 export const MAKE_ORDER = 'MAKE_ORDER'
 
-export const clearCart = (token) => (dispatch) => {
-	if (token) {
-		clearCartRequest().then(({ status }) => {
+export const clearCart = (token) => {
+	return async (dispatch) => {
+		if (token) {
+			const { status } = await clearCartRequest()
+
 			if (status === 200) {
-				dispatch({
-					type: CLEAR_CART
-				})
+				dispatch({ type: CLEAR_CART })
 			}
-		})
-	} else {
-		AsyncStorage.removeItem('cart').then(() => {
-			dispatch({
-				type: CLEAR_CART
-			})
-		})
+		} else {
+			await AsyncStorage.removeItem('cart')
+
+			dispatch({ type: CLEAR_CART })
+		}
 	}
 }
 
-export const makeOrder = (selectedCard, selectedAddress, cb) => (dispatch) => {
-	const body = { card: selectedCard, address: selectedAddress }
+export const makeOrder = (selectedCard, selectedAddress, cb) => {
+	return async (dispatch) => {
+		try {
+			const body = { card: selectedCard, address: selectedAddress }
+			const { status } = await makeOrderRequest(body)
 
-	makeOrderRequest(body).then(({ status }) => {
-		if (status === 200) {
-			dispatch({
-				type: MAKE_ORDER
-			})
-
-			cb()
+			if (status === 200) {
+				dispatch({ type: MAKE_ORDER })
+				cb()
+			}
+		} catch (error) {
+			dispatch({ type: 'DO_NOT_HANDLE' })
 		}
-	}).catch(() => {
-		dispatch({ type: 'DO_NOT_HANDLE' })
-	})
+	}
 }
 
-export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1) => (dispatch) => {
-	decreaseProductQuantityRequest(productId, quantity).then(({ data, status }) => {
+export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1) => {
+	return async (dispatch) => {
+		const { data, status } = await decreaseProductQuantityRequest(productId, quantity)
+
 		if (status === 200) {
 			dispatch({
 				type: DECREASE_PRODUCT_QUANTITY,
@@ -57,13 +57,14 @@ export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1
 			})
 
 			messagePopupRef?.showMessage({ message: 'Ürün sepetinizden çıkarıldı.' })
-
 		}
-	})
+	}
 }
 
-export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1) => (dispatch) => {
-	increaseProductQuantityRequest(productId, quantity).then(({ data, status }) => {
+export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1) => {
+	return async (dispatch) => {
+		const { data, status } = await increaseProductQuantityRequest(productId, quantity)
+
 		if (status === 200) {
 			dispatch({
 				type: INCREASE_PRODUCT_QUANTITY,
@@ -72,12 +73,14 @@ export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1
 
 			messagePopupRef?.showMessage({ message: 'Ürün sepetinize eklendi.' })
 		}
-	})
+	}
 }
 
 
-export const setProductQuantity = (productId, quantity = 1) => (dispatch) => {
-	setProductQuantityRequest(productId, quantity).then(({ data, status }) => {
+export const setProductQuantity = (productId, quantity = 1) => {
+	return async (dispatch) => {
+		const { data, status } = await setProductQuantityRequest(productId, quantity)
+
 		if (status === 200) {
 			dispatch({
 				type: SET_PRODUCT_QUANTITY,
@@ -87,5 +90,5 @@ export const setProductQuantity = (productId, quantity = 1) => (dispatch) => {
 				}
 			})
 		}
-	})
+	}
 }
