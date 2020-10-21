@@ -1,4 +1,3 @@
-/* eslint-disable */
 import axios from 'axios'
 
 import { SET_CONNECTION_POPUP_STATE } from '../actions/global-actions'
@@ -20,10 +19,6 @@ export default (store) => {
 			})
 		}
 
-		if (store.getState().sourceReducer.token) {
-			config.headers.Authorization = store.getState().sourceReducer.token
-		}
-
 		return config
 	}, (error) => // Do something with request error
 		Promise.reject(error))
@@ -32,7 +27,6 @@ export default (store) => {
 	axios.interceptors.response.use((response) => // Do something with response data
 		response,
 		(error) => { // Do something with response error
-			// console.log(error.response.data)
 			store.getState().globalReducer.messagePopupRef.showMessage({ message: error?.response?.data?.error ?? 'Beklenmedik bir hata oluştu, lütfen daha sonra tekrar deneyiniz' })
 			return Promise.reject(error)
 		})

@@ -5,7 +5,6 @@ import { TextInput } from 'react-native'
 
 import { setAddress } from '../../actions/map-actions'
 
-// eslint-disable-next-line no-shadow
 const CompleteAddressInput = ({ address, setAddress }) => (
 	<TextInput
 		value={address}

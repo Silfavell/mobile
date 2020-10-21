@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
-import { makeOrder } from '../actions/actions1'
+import { makeOrder } from '../actions/cart-actions'
 import { setNeedToLoginPopupState } from '../actions/global-actions'
 
 class CompletePaymentComponent extends React.PureComponent {
@@ -16,12 +16,10 @@ class CompletePaymentComponent extends React.PureComponent {
 			completable,
 			token,
 			navigation,
-			// eslint-disable-next-line no-shadow
 			makeOrder,
 			selectedCard,
 			selectedAddress,
 			messagePopupRef,
-			// eslint-disable-next-line no-shadow
 			setNeedToLoginPopupState
 		} = this.props
 

@@ -10,7 +10,7 @@ import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
 
 const Stack = createStackNavigator()
 
-const Screen2 = () => (
+const SearchStack = () => (
 	<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 		<Stack.Screen
 			name='search'
@@ -47,4 +47,4 @@ const styles = ScaledSheet.create({
 	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
 })
 
-export default Screen2
+export default SearchStack

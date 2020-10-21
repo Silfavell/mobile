@@ -20,7 +20,6 @@ class CompletePaymentScreen extends React.PureComponent {
 			selectedCard,
 			selectedAddress,
 			token,
-			// eslint-disable-next-line no-shadow
 			setNeedToLoginPopupState
 		} = this.props
 

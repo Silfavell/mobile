@@ -30,6 +30,7 @@ class NeedToLoginPopup extends React.PureComponent {
 				visible={this.props.needToLoginPopupState}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
+				children={null}
 				modalTitle={(
 					<ModalTitle
 						style={styles.title}

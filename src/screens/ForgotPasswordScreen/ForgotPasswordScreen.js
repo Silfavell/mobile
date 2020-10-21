@@ -1,16 +1,15 @@
 import React from 'react'
-import axios from 'axios'
 import { Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 
-import { SERVER_URL } from '../../utils/global'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import ShadowContainer from '../../components/ShadowContainer'
 
-class ForgotPasswordScreen extends React.PureComponent {
+import { sendActivationCode } from '../../scripts/requests'
+
+class ForgotPasswordScreen extends React.Component {
 	state = {
 		phoneNumber: '',
 		isPhoneNumberInitialized: false,
@@ -18,9 +17,7 @@ class ForgotPasswordScreen extends React.PureComponent {
 	}
 
 	onSendCodeClick = () => {
-		const url = `${SERVER_URL}/send-activation-code`
-
-		axios.post(url, {
+		sendActivationCode({
 			phoneNumber: this.state.phoneNumber,
 			activationCodeType: 1 // RESET
 		}).then(({ status }) => {
@@ -48,7 +45,8 @@ class ForgotPasswordScreen extends React.PureComponent {
 						maxLength: 10
 					}}
 					invalid={
-						this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized
+						this.state.invalidPhoneNumber
+						&& this.state.isPhoneNumberInitialized
 					}
 					value={this.state.phoneNumber}
 					onChange={this.onPhoneNumberChange}
@@ -62,10 +60,10 @@ class ForgotPasswordScreen extends React.PureComponent {
 					text='Aktivasyon Kodu Gönder'
 					onClick={this.onSendCodeClick}
 					disabled={
-						this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized
+						this.state.invalidPhoneNumber
+						|| !this.state.isPhoneNumberInitialized
 					}
 				/>
-
 			</ShadowContainer>
 		)
 	}

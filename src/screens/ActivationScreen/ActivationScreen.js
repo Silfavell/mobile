@@ -3,20 +3,19 @@ import {
 	TouchableOpacity,
 	Text
 } from 'react-native'
-import axios from 'axios'
 import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import { SERVER_URL } from '../../utils/global'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 
-import { register } from '../../actions/actions4'
+import { register } from '../../actions/source-actions'
+import { sendActivationCode } from '../../scripts/requests'
 
-class ActivationScreen extends React.PureComponent {
+class ActivationScreen extends React.Component {
 	state = {
 		activationCode: '',
 		invalidActivationCode: false,
@@ -41,9 +40,7 @@ class ActivationScreen extends React.PureComponent {
 	}
 
 	onResendClick = () => {
-		const url = `${SERVER_URL}/send-activation-code`
-
-		axios.post(url, {
+		sendActivationCode({
 			phoneNumber: this.props.route.params.phoneNumber,
 			activationCodeType: 0, // REGISTER
 		})
@@ -52,7 +49,6 @@ class ActivationScreen extends React.PureComponent {
 	render() {
 		return (
 			<ShadowContainer>
-
 				<InputComponent
 					value={this.state.activationCode}
 					onChange={this.onActivationCodeChange}
@@ -74,7 +70,6 @@ class ActivationScreen extends React.PureComponent {
 					<Ionicons name='md-refresh' size={28} color='#6E7586' />
 					<Text style={styles.resendCodeText}>Yeniden Gönder</Text>
 				</TouchableOpacity>
-
 			</ShadowContainer>
 		)
 	}

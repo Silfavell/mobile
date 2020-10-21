@@ -8,7 +8,7 @@ import {
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { saveAddress } from '../../actions/actions2'
+import { saveAddress } from '../../actions/payment-actions'
 
 import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
 import Map from '../MapScreens/Map'

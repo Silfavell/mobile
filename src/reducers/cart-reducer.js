@@ -5,8 +5,8 @@ import {
 	MAKE_ORDER,
 	CLEAR_CART,
 	SET_PRODUCT_QUANTITY
-} from '../actions/actions1'
-import { SET_INITIAL_DATAS } from '../actions/actions4'
+} from '../actions/cart-actions'
+import { SET_INITIAL_DATAS } from '../actions/source-actions'
 
 const INITIAL_STATE = {
 	cart: {}
@@ -24,7 +24,6 @@ export default (state = INITIAL_STATE, action) => {
 			if (state.cart[action.payload._id].quantity <= 0) {
 				delete state.cart[action.payload._id]
 			}
-			// eslint-disable-next-line prefer-object-spread
 			return { cart: { ...state.cart } }
 		}
 
@@ -32,7 +31,6 @@ export default (state = INITIAL_STATE, action) => {
 			if (state.cart[action.payload._id]) {
 				state.cart[action.payload._id].quantity = action.payload.quantity ?? state.cart[action.payload._id].quantity + 1
 
-				// eslint-disable-next-line prefer-object-spread
 				return { cart: { ...state.cart } }
 			}
 			return {

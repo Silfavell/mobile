@@ -1,8 +1,14 @@
 import {
-	SAVE_CARD, DELETE_CARD, DELETE_ADDRESS, SAVE_ADDRESS, SET_SELECTED_ADDRESS, SET_SELECTED_CARD, SET_PAYMENT_TYPE,
-} from '../actions/actions2'
-import { SET_INITIAL_DATAS, LOGOUT, SET_USER } from '../actions/actions4'
-import { MAKE_ORDER } from '../actions/actions1'
+	SAVE_CARD,
+	DELETE_CARD,
+	DELETE_ADDRESS,
+	SAVE_ADDRESS,
+	SET_SELECTED_ADDRESS,
+	SET_SELECTED_CARD,
+	SET_PAYMENT_TYPE,
+} from '../actions/payment-actions'
+import { SET_INITIAL_DATAS, LOGOUT, SET_USER } from '../actions/source-actions'
+import { MAKE_ORDER } from '../actions/cart-actions'
 
 const INITIAL_STATE = {
 	paymentType: 0,

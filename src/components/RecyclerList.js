@@ -36,9 +36,7 @@ class List extends React.PureComponent {
 	getLayoutTypeForIndex = () => 0
 
 	setLayoutForType = (type, dim) => {
-		// eslint-disable-next-line no-param-reassign
 		dim.width = (width / 2) - ((width / 2) % 1)
-		// eslint-disable-next-line no-param-reassign
 		dim.height = s(355)
 	}
 

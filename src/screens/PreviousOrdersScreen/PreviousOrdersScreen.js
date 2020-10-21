@@ -1,23 +1,21 @@
 import React from 'react'
 import { View, Text, FlatList } from 'react-native'
-import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import { SERVER_URL } from '../../utils/global'
 import OrderComponent from '../../components/OrderComponent'
 import LoadingComponent from '../../components/LoadingComponent'
 
-class PreviousOrdersScreen extends React.PureComponent {
+import { getOrders } from '../../scripts/requests'
+
+class PreviousOrdersScreen extends React.Component {
 	state = {
 		orders: [],
 		fetching: true
 	}
 
 	componentDidMount() {
-		const url = `${SERVER_URL}/user/orders`
-
-		axios.get(url).then(({ status, data }) => {
+		getOrders().then(({ status, data }) => {
 			if (status === 200) {
 				this.setState({ orders: data, fetching: false })
 			} else {
@@ -33,7 +31,9 @@ class PreviousOrdersScreen extends React.PureComponent {
 	render() {
 		if (this.state.fetching) {
 			return <LoadingComponent />
-		} if (this.state.orders.length > 0) {
+		}
+
+		if (this.state.orders.length > 0) {
 			return (
 				<View style={{ flex: 1 }}>
 					<FlatList

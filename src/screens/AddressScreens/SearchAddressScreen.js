@@ -14,7 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
 import ShadowContainer from '../../components/ShadowContainer'
 
-class SearchAddressScreen extends React.PureComponent {
+class SearchAddressScreen extends React.Component {
 	state = {
 		searchVal: '',
 		locations: []
@@ -101,7 +101,6 @@ class SearchAddressScreen extends React.PureComponent {
 				<Text numberOfLines={3} style={styles.meterText}>
 					{
 						item.distance_meters
-						// eslint-disable-next-line radix
 						&& (parseInt(item.distance_meters) > 1000 ? `${(parseInt(item.distance_meters) / 1000).toFixed(2)}km` : `${item.distance_meters}m`)
 					}
 				</Text>

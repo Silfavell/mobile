@@ -10,12 +10,12 @@ import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { saveCard } from '../../actions/actions2'
+import { saveCard } from '../../actions/payment-actions'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 
-class AddNewCardScreen extends React.PureComponent {
+class AddNewCardScreen extends React.Component {
 	state = {
 		cardAlias: '',
 		cardHolderName: this.props.user.nameSurname,

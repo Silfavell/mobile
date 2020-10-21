@@ -1,10 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
-    ScrollView,
-    TouchableOpacity,
     View,
     Text
 } from 'react-native'

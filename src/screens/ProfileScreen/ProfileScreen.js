@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import SettingItem from '../../components/SettingItem'
-import LogoutItem from '../../components/LogoutItem'
+import LogoutItem from './LogoutItem'
 import ShadowContainer from '../../components/ShadowContainer'
 
 import pckg from '../../../package.json'

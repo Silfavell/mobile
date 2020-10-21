@@ -1,17 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ScrollView } from 'react-native'
-import axios from 'axios'
 import joi from 'react-native-joi'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
 import AlertPopup from '../../components/popups/AlertPopup'
+import { changePassword } from '../../scripts/requests'
 
-import { SERVER_URL } from '../../utils/global'
 
-class ChangePasswordScreen extends React.PureComponent {
+class ChangePasswordScreen extends React.Component {
 	state = {
 		scaleAnimationModal: false,
 
@@ -41,14 +40,14 @@ class ChangePasswordScreen extends React.PureComponent {
 		} else if (this.state.oldPassword === this.state.password) {
 			this.props.messagePopupRef.showMessage({ message: 'Yeni şifre eskisi ise aynı olamaz' })
 		} else {
-			const url = `${SERVER_URL}/user/change-password`
-
-			axios.put(url, { oldPassword: this.state.oldPassword, newPassword: this.state.password })
-				.then(({ status }) => {
-					if (status === 200) {
-						this.setState({ scaleAnimationModal: true })
-					}
-				})
+			changePassword({
+				oldPassword: this.state.oldPassword,
+				newPassword: this.state.password
+			}).then(({ status }) => {
+				if (status === 200) {
+					this.setState({ scaleAnimationModal: true })
+				}
+			})
 		}
 	}
 

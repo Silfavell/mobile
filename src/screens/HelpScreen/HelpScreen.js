@@ -3,16 +3,15 @@ import {
     ScrollView,
     View
 } from 'react-native'
-import axios from 'axios'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
 
-import { SERVER_URL } from '../../utils/global'
+import { postTicket } from '../../scripts/requests'
 
-class HelpScreen extends React.PureComponent {
+class HelpScreen extends React.Component {
 
     state = { // autofill ?
         scaleAnimationModal: false,
@@ -60,7 +59,7 @@ class HelpScreen extends React.PureComponent {
             message
         } = this.state
 
-        axios.post(`${SERVER_URL}/ticket`, {
+        postTicket({
             name,
             surname,
             email,
@@ -131,7 +130,6 @@ class HelpScreen extends React.PureComponent {
                         onChange={this.onMessageChange}
                         value={message}
                     />
-
                 </View>
 
                 <ButtonComponent

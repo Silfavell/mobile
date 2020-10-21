@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
+import Config from 'react-native-config'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {
 	ScrollView,
@@ -10,18 +10,17 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import { SERVER_URL } from '../../utils/global'
-import { increaseProductQuantity } from '../../actions/actions1'
-import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/actions4'
-
 import ButtonComponent from '../../components/ButtonComponent'
 import ShadowContainer from '../../components/ShadowContainer'
-
 import Slider from '../../components/Slider'
 import Color from './Color'
 import Comment from './Comment'
 import Loading from '../../components/LoadingComponent'
 import Accordion from '../../components/Accordion'
+
+import { increaseProductQuantity } from '../../actions/cart-actions'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
+import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 
 class FullProductScreen extends React.Component {
 	scrollRef = React.createRef()
@@ -35,7 +34,6 @@ class FullProductScreen extends React.Component {
 		this.getProductBySlug(this.props.route.params.slug)
 	}
 
-	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillReceiveProps() {
 		if (this.state.pickedColor === -1) {
 			this.setHeader(this.state.product._id)
@@ -59,7 +57,7 @@ class FullProductScreen extends React.Component {
 					<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
 						<Ionicons
 							size={26}
-							color="rgba(0,0,0,.8)"
+							color='rgba(0,0,0,.8)'
 							style={{ marginRight: 18 }}
 							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
 						/>
@@ -87,7 +85,9 @@ class FullProductScreen extends React.Component {
 	}
 
 	getProductBySlug = (productSlug) => {
-		axios.get(`${SERVER_URL}/product/${productSlug}?fromSearch=${!!this.props.route.params.fromSearch}`).then(({
+		const fromSearch = !!this.props.route.params.fromSearch
+
+		getProductBySlugRequest(productSlug, fromSearch).then(({
 			data,
 			status
 		}) => {
@@ -115,7 +115,7 @@ class FullProductScreen extends React.Component {
 			imageCount
 		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-		return Array.from(new Array(imageCount)).map((el, index) => `${SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
+		return Array.from(new Array(imageCount)).map((el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
 	}
 
 	isColorSelected = (index) => {
@@ -217,7 +217,7 @@ class FullProductScreen extends React.Component {
 							)
 						}
 
-						<Accordion title="Ürün Hakkında" expanded>
+						<Accordion title='Ürün Hakkında' expanded>
 							<>
 								<View style={styles.details2}>
 									<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
@@ -247,7 +247,7 @@ class FullProductScreen extends React.Component {
 					</ScrollView>
 
 					<View style={styles.buttonContainer}>
-						<ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
+						<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
 					</View>
 				</View>
 			)

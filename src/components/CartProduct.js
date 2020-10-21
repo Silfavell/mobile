@@ -4,8 +4,8 @@ import {
 	Image,
 	Text
 } from 'react-native'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../utils/global'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
@@ -31,7 +31,7 @@ class CartProduct extends React.PureComponent {
 			returnItem
 		} = this.props
 
-		const url = `${SERVER_URL}/assets/products/${slug}_300x300.webp`
+		const url = `${Config.SERVER_URL}/assets/products/${slug}_300x300.webp`
 
 		return (
 			<View style={styles.container}>

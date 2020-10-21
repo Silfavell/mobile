@@ -11,9 +11,9 @@ import { connect } from 'react-redux'
 import FloatingInput from 'react-native-floating-labels'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { makeOrder } from '../../actions/actions1'
+import { makeOrder } from '../../actions/cart-actions'
 
-class OnlinePaymentScreen extends React.PureComponent {
+class OnlinePaymentScreen extends React.Component {
 	state = {
 		cardNumber: '4444 4444 4444 4444',
 		expirationDate: '09/23',

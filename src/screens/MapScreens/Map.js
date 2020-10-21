@@ -5,7 +5,6 @@ import MapView from 'react-native-maps'
 
 import { setRegion } from '../../actions/map-actions'
 
-// eslint-disable-next-line no-shadow
 const Map = ({ region, setRegion }) => (
 	<MapView
 		style={StyleSheet.absoluteFillObject}

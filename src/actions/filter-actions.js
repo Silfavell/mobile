@@ -1,5 +1,4 @@
-import axios from 'axios'
-import { SERVER_URL } from '../utils/global'
+import { makeCustomRequest } from '../scripts/requests'
 
 export const MAKE_FILTER = 'MAKE_FILTER'
 export const CLEAR_FILTER = 'CLEAR_FILTER'
@@ -19,12 +18,12 @@ export const makeFilter = (
         selectedSort
     },
     callback) => (dispatch) => {
-        let url = `${SERVER_URL}/products-filter-mobile?categoryId=${categoryId}&subCategoryId=${subCategoryId}&sortType=${sortType}${brandsAsString}`
+        let url = `/products-filter-mobile?categoryId=${categoryId}&subCategoryId=${subCategoryId}&sortType=${sortType}${brandsAsString}`
         if (minPrice && maxPrice) {
             url += `&minPrice=${minPrice}&maxPrice=${maxPrice}`
         }
 
-        axios.get(url).then(({ status, data }) => {
+        makeCustomRequest('GET', url).then(({ status, data }) => {
             if (status === 200) {
                 dispatch({
                     type: MAKE_FILTER,

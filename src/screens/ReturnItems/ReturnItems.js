@@ -5,14 +5,13 @@ import {
     Text,
     TouchableOpacity
 } from 'react-native'
-import axios from 'axios'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-check-box'
 
 import CartProduct from '../../components/CartProduct'
 import ButtonComponent from '../../components/ButtonComponent'
-import { SERVER_URL } from '../../utils/global'
+import { returnItems } from '../../scripts/requests'
 
 class ReturnItems extends React.Component {
     constructor(props) {
@@ -88,7 +87,7 @@ class ReturnItems extends React.Component {
             return item
         })
 
-        axios.post(`${SERVER_URL}/user/return-items/${this.props.route.params.item._id}`, items).then(({ status, data }) => {
+        returnItems(this.props.route.params.item._id, items).then(({ status, data }) => {
             if (status === 200) {
                 this.props.navigation.navigate('returnItemsCompleted')
             }
@@ -109,7 +108,6 @@ class ReturnItems extends React.Component {
                     // keyExtractor={(item, index) => item._id + ':' + this.state.items[index].quantity}
                     renderItem={({ item, index }) => (
                         <View>
-
                             <TouchableOpacity
                                 style={{ position: 'absolute', top: 5, left: 5, zIndex: 5, backgroundColor: 'white' }}
                                 activeOpacity={0.9}
@@ -128,7 +126,6 @@ class ReturnItems extends React.Component {
                                 data={item}
                                 returnItem={this.state.items[index]}
                             />
-
                         </View>
                     )}
                 />

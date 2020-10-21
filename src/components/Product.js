@@ -8,11 +8,11 @@ import FastImage from 'react-native-fast-image'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 import { ScaledSheet } from 'react-native-size-matters'
+import Config from 'react-native-config'
 
-import { SERVER_URL } from '../utils/global'
 
-import { increaseProductQuantity } from '../actions/actions1'
-import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/actions4'
+import { increaseProductQuantity } from '../actions/cart-actions'
+import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'
 
 class Product extends React.PureComponent {
 	onAddProductClick = () => {
@@ -50,7 +50,7 @@ class Product extends React.PureComponent {
 			token
 		} = this.props
 
-		const url = `${SERVER_URL}/assets/products/${slug}_300x300.webp`
+		const url = `${Config.SERVER_URL}/assets/products/${slug}_300x300.webp`
 
 		return (
 			<View style={styles.container}>

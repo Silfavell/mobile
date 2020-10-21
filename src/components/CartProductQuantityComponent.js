@@ -8,14 +8,13 @@ import {
 	View
 } from 'react-native'
 
-import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/actions1'
+import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/cart-actions'
 
 class CartProductQuantityComponent extends React.Component {
 	componentDidMount() {
 		let quantity = 1
 		if (this.props.previousOrder) {
 			quantity = this.props.quantity
-			// eslint-disable-next-line no-empty
 		} else if (this.props.returnItem) {
 
 		} else {
@@ -25,7 +24,6 @@ class CartProductQuantityComponent extends React.Component {
 		this.setState({ quantity })
 	}
 
-	// eslint-disable-next-line camelcase
 	static getDerivedStateFromProps(props) {
 		if (!props.returnItem) {
 			return ({ quantity: props.previousOrder ? props.quantity : props.cart[props._id].quantity })

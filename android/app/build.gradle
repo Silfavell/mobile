@@ -1,5 +1,13 @@
 apply plugin: "com.android.application"
 
+project.ext.envConfigFiles = [
+    release: ".env.production",
+    debug: ".env.development",
+    developmentrelease: ".env.development",
+    productionrelease: ".env.production",
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -137,6 +145,7 @@ android {
         versionCode 2
         versionName "1.0.1"
         multiDexEnabled true
+        resValue "string", "build_config_package", "com.silfavell.android"
     }
     splits {
         abi {
@@ -170,8 +179,8 @@ android {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
             signingConfig signingConfigs.release
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // minifyEnabled enableProguardInReleaseBuilds
+            // proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             crunchPngs false
         }
     }

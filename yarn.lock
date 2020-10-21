@@ -1261,10 +1261,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@react-native-community/async-storage@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.0.tgz#d2fc65bc08aa1c3e9514bbe9fe7095eab8e8aca3"
-  integrity sha512-y3zVxuVyiOxI8TXrvajmYfDbIt2vFNxzV5MiA28v15DQTxDk6uJH3rpc9my+la7u2Tiwt3PpdU2+59ZgZ4h7wA==
+"@react-native-community/async-storage@^1.6.3":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
+  integrity sha512-70WGaH3PKYASi4BThuEEKMkyAgE9k7VytBqmgPRx3MzJx9/MkspwqJGmn3QLCgHLIFUgF1pit2mWICbRJ3T3lg==
   dependencies:
     deep-assign "^3.0.0"
 
@@ -6523,6 +6523,11 @@ react-native-check-box@^2.1.7:
   integrity sha512-dPVOoz4jKs2je2HSHp7+XJXNyZFq8Kij7IHutigrQKzB550Dko6ZAQu/1mG1FzdUMFxxkZ2nX59KmbR0Co0T8Q==
   dependencies:
     prop-types "^15.5.7"
+
+react-native-config@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.3.3.tgz#307ba512f92e4ecdc9ced06288610c0608da3ae7"
+  integrity sha512-uc84IFVLqu2dC7Zutg3OlK6RZYvJlGbIdi0v1ZxjUhU379Nz9IkZR1t8J1L5QSnGV8885mtwWDPJRdQyVNFsAw==
 
 react-native-drawer@2.5.1:
   version "2.5.1"

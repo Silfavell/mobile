@@ -2,7 +2,7 @@ import React from 'react'
 import AsyncStorage from '@react-native-community/async-storage'
 import { connect } from 'react-redux'
 
-import { setInitialDatas } from '../../actions/actions4'
+import { setInitialDatas } from '../../actions/source-actions'
 import LoadingComponent from '../../components/LoadingComponent'
 
 class LoadingScreen extends React.PureComponent {

@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import ClickableSettingItem from '../../components/ClickableSettingItem'
 import HeadingDivider from '../../components/HeadingDivider'
-import AddressList from '../../components/AddressList'
+import AddressList from './AddressList'
 import ShadowContainer from '../../components/ShadowContainer'
 
 class AddressesScreen extends React.PureComponent {
