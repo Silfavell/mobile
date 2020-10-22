@@ -5,6 +5,7 @@ import {
 	Text
 } from 'react-native'
 import Config from 'react-native-config'
+import FastImage from 'react-native-fast-image'
 
 import { ScaledSheet } from 'react-native-size-matters'
 
@@ -36,11 +37,10 @@ class CartProduct extends React.PureComponent {
 		return (
 			<View style={styles.container}>
 				<View style={[styles.child, styles.flex2, styles.imageContainer]}>
-					<Image
-						style={styles.productImage}
-						resizeMode='contain'
-						resizeMethod='resize'
+					<FastImage
 						source={{ uri: url }}
+						resizeMode={FastImage.resizeMode.contain}
+						style={styles.productImage}
 					/>
 				</View>
 
