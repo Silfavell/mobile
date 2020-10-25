@@ -149,7 +149,7 @@ class FullProductScreen extends React.Component {
 				specifications,
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-			const {comments}=this.state.product
+			const { comments } = this.state.product
 
 			return (
 				<View style={styles.container}>
