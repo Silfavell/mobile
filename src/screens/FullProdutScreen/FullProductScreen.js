@@ -147,8 +147,9 @@ class FullProductScreen extends React.Component {
 				discountedPrice,
 				color,
 				specifications,
-				comments
 			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
+
+			const {comments}=this.state.product
 
 			return (
 				<View style={styles.container}>
@@ -229,7 +230,7 @@ class FullProductScreen extends React.Component {
 							</>
 						</Accordion>
 
-						<Accordion title={`Yorumlar (${comments.length})`}>
+						<Accordion title={`Yorumlar (${0})`}>
 							<>
 								{
 									comments.map((comment) => (

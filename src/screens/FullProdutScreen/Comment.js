@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-class Comment extends React.PureComponent {
+class Comment extends React.Component {
     render() {
         const {
             title,
