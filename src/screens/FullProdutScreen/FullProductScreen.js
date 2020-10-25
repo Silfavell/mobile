@@ -230,7 +230,7 @@ class FullProductScreen extends React.Component {
 							</>
 						</Accordion>
 
-						<Accordion title={`Yorumlar (${0})`}>
+						<Accordion title={`Yorumlar (${comments.length})`}>
 							<>
 								{
 									comments.map((comment) => (
