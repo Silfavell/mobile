@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 import joi from 'react-native-joi'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
@@ -52,7 +53,7 @@ class ForgotPasswordScreen extends React.Component {
 					onChange={this.onPhoneNumberChange}
 				>
 					<InputIcon>
-						<Text style={{ color: 'rgba(0,0,0,.8)', fontSize: '18@s' }}>90</Text>
+						<Text style={styles.textStyle}>90</Text>
 					</InputIcon>
 				</InputComponent>
 
@@ -69,5 +70,11 @@ class ForgotPasswordScreen extends React.Component {
 	}
 }
 
+const styles = ScaledSheet.create({
+	textStyle: {
+		color: 'rgba(0,0,0,.8)',
+		fontSize: '18@s'
+	}
+})
 
 export default ForgotPasswordScreen

@@ -78,6 +78,7 @@ class CartProduct extends React.PureComponent {
 						<View style={styles.child} />
 					</View>
 				</View >
+
 			</View >
 		)
 	}
@@ -155,7 +156,7 @@ const styles = ScaledSheet.create({
 		aspectRatio: 0.6,
 		borderWidth: 1,
 		borderColor: '#EFEFEF',
-	}
+	},
 })
 
 export default CartProduct

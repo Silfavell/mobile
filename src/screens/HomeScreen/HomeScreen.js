@@ -45,7 +45,7 @@ class HomeScreen extends React.Component {
 				</View>
 			),
 			headerLeft: () => (
-				<TouchableOpacity activeOpacity={0.9} style={{ paddingLeft: s(18), zIndex: 2 }} onPress={this.onCategoryListClick}>
+				<TouchableOpacity activeOpacity={0.9} style={styles.headerLeft} onPress={this.onCategoryListClick}>
 					<Ionicons name='md-menu' size={26} color='black' />
 				</TouchableOpacity>
 			)
@@ -78,18 +78,18 @@ class HomeScreen extends React.Component {
 
 	render() {
 		const headers = [
-			<View style={{ height: s(190) }}>
+			<View style={styles.headerContainer1}>
 				<ShadowContainer>
 					<Slider images={banners} loop paginator />
 				</ShadowContainer>
 			</View>,
-			<View style={{ height: s(120) }}>
+			<View style={styles.headerContainer2}>
 				<ShadowContainer>
 					<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
 				</ShadowContainer>
 			</View>,
 			<View style={styles.divider}>
-				<ShadowContainer style={{ backgroundColor: 'white' }}>
+				<ShadowContainer style={styles.shadowContainer}>
 					<View style={styles.dividerChild}>
 						<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
 					</View>
@@ -98,7 +98,7 @@ class HomeScreen extends React.Component {
 		]
 
 		return (
-			<View style={{ flex: 1, backgroundColor: 'white' }}>
+			<View style={styles.bestSellerContainer}>
 				<BestSeller navigation={this.props.navigation} headers={headers} />
 			</View>
 		)
@@ -143,6 +143,23 @@ const styles = ScaledSheet.create({
 		fontSize: '17@s',
 		fontWeight: '600',
 		paddingHorizontal: '16@s'
+	},
+	headerLeft: {
+		paddingLeft: s(18),
+		zIndex: 2
+	},
+	headerContainer1: {
+		height: s(190)
+	},
+	headerContainer2: {
+		height: s(120)
+	},
+	shadowContainer: {
+		backgroundColor: 'white'
+	},
+	bestSellerContainer: {
+		flex: 1,
+		backgroundColor: 'white'
 	}
 })
 

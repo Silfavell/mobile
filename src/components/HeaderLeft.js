@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { s } from 'react-native-size-matters'
 
@@ -12,7 +12,7 @@ class HeaderLeft extends React.PureComponent {
 	render() {
 		if (Object.values(this.props.cart).length > 0) {
 			return (
-				<TouchableOpacity style={{ marginLeft: s(18) }} onPress={this.onBackClick}>
+				<TouchableOpacity style={styles.backIcon} onPress={this.onBackClick}>
 					<Ionicons name='md-close' size={26} color='white' />
 				</TouchableOpacity>
 			)
@@ -27,6 +27,12 @@ const mapStateToProps = ({
 	}
 }) => ({
 	cart
+})
+
+const styles = StyleSheet.create({
+	backIcon: {
+		marginLeft: s(18)
+	}
 })
 
 export default connect(mapStateToProps)(HeaderLeft)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-check-box'
 
@@ -32,7 +32,7 @@ class BrandComponent extends React.Component {
                     title={this.props.brand.name}
                     rightComponent={
                         <CheckBox
-                            style={{ height: 24 }}
+                            style={styles.checkBoxStyle}
                             checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
                             unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
                             disabled
@@ -45,4 +45,9 @@ class BrandComponent extends React.Component {
     }
 }
 
+const styles = StyleSheet.create({
+    checkBoxStyle:{
+        height:24
+    } 
+})
 export default BrandComponent

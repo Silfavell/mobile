@@ -58,7 +58,7 @@ class FullProductScreen extends React.Component {
 						<Ionicons
 							size={26}
 							color='rgba(0,0,0,.8)'
-							style={{ marginRight: 18 }}
+							style={styles.iconStyle}
 							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
 						/>
 
@@ -159,10 +159,10 @@ class FullProductScreen extends React.Component {
 						contentContainerStyle={styles.scrollContainer}
 						onScroll={this.handleScroll}
 					>
-						<ShadowContainer style={{ backgroundColor: 'white' }}>
+						<ShadowContainer style={styles.shadowContainer}>
 							<View style={styles.imageContainer}>
 								<Slider
-									imageContainerStyle={{ paddingBottom: 20 }}
+									imageContainerStyle={styles.imageContainerStyle}
 									_id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
 									images={this.getImages()}
 									shopSingle
@@ -384,7 +384,18 @@ const styles = ScaledSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	emptyFooter: { height: '100@s' }
+	emptyFooter: {
+		height: '100@s'
+	},
+	iconStyle: {
+		marginRight: 18
+	},
+	shadowContainer: {
+		backgroundColor: 'white'
+	},
+	imageContainerStyle: {
+		paddingBottom: 20
+	}
 })
 
 const mapStateToProps = ({
