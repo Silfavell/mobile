@@ -51,7 +51,7 @@ class SearchScreen extends React.Component {
 	}
 
 	renderSearchResult = () => (
-		<View style={styles.littleContainers}>
+		<View style={styles.renderCountainer}>
 			<RecyclerList
 				list={this.state.products}
 				navigation={this.props.navigation}
@@ -60,7 +60,7 @@ class SearchScreen extends React.Component {
 	)
 
 	renderMostSearched = () => (
-		<View style={styles.littleContainers}>
+		<View style={styles.renderCountainer}>
 			<View style={styles.divider}>
 				<ShadowContainer style={styles.shadowContainer}>
 					<View style={styles.dividerChild}>
@@ -76,7 +76,7 @@ class SearchScreen extends React.Component {
 
 
 	fetching = () => (
-		<View style={styles.fetchingConteiner}>
+		<View style={styles.Container}>
 			<ActivityIndicator color='#EE4266' size='large' />
 		</View>
 	)
@@ -184,10 +184,10 @@ const styles = ScaledSheet.create({
 		fontWeight: '600',
 		paddingHorizontal: '16@s'
 	},
-	littleContainers: {
+	renderCountainer: {
 		flex: 1
 	},
-	fetchingConteiner: {
+	Container: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'

@@ -34,4 +34,5 @@ const styles = StyleSheet.create({
 		marginLeft: s(18)
 	}
 })
+
 export default connect(mapStateToProps)(HeaderLeft)

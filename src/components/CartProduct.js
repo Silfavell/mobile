@@ -17,7 +17,6 @@ class CartProduct extends React.PureComponent {
 		this.props.returnItem.onSelect(this.props.data._id)
 	}
 
-
 	render() {
 		const {
 			data: {

@@ -196,7 +196,7 @@ class MembershipAgreement extends React.PureComponent {
                 <FlatList
                     data={items}
                     renderItem={this.renderItem}
-                    style={styles.flatListStyle} />
+                    style={styles.listStyle} />
             </Modal>
         )
     }
@@ -222,7 +222,7 @@ const styles = ScaledSheet.create({
     textStyle: {
         fontWeight: 'bold'
     },
-    flatListStyle: {
+    listStyle: {
         height: Dimensions.get('window').height / 2,
         margin: 20
     }

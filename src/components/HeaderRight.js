@@ -14,7 +14,7 @@ class HeaderRight extends React.PureComponent {
 	render() {
 		if (Object.values(this.props.cart).length > 0) {
 			return (
-				<TouchableOpacity style={styles.ıconContainer} onPress={this.onClearClick}>
+				<TouchableOpacity style={styles.iconContainer} onPress={this.onClearClick}>
 					<Ionicons name='md-trash' size={26} color='white' />
 				</TouchableOpacity>
 			)
@@ -36,7 +36,7 @@ const mapDispatchToProps = {
 }
 
 const styles = StyleSheet.create({
-	ıconContainer: {
+	iconContainer: {
 		marginRight: s(18)
 	}
 })

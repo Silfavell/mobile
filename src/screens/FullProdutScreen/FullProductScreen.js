@@ -162,7 +162,7 @@ class FullProductScreen extends React.Component {
 						<ShadowContainer style={styles.shadowContainer}>
 							<View style={styles.imageContainer}>
 								<Slider
-									imageContainerStyle={styles.imageContainerStye}
+									imageContainerStyle={styles.imageContainerStyle}
 									_id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
 									images={this.getImages()}
 									shopSingle
@@ -393,7 +393,7 @@ const styles = ScaledSheet.create({
 	shadowContainer: {
 		backgroundColor: 'white'
 	},
-	imageContainerStye: {
+	imageContainerStyle: {
 		paddingBottom: 20
 	}
 })
