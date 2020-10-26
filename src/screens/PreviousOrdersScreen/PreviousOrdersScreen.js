@@ -35,7 +35,7 @@ class PreviousOrdersScreen extends React.Component {
 
 		if (this.state.orders.length > 0) {
 			return (
-				<View style={{ flex: 1 }}>
+				<View style={styles.flex1}>
 					<FlatList
 						data={this.state.orders}
 						keyExtractor={this.keyExtractor}
@@ -71,6 +71,9 @@ const styles = ScaledSheet.create({
 		fontSize: '18@s',
 		textAlign: 'center',
 		color: '#454545'
+	},
+	flex1:{
+		flex:1
 	}
 })
 

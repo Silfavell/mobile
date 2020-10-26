@@ -30,7 +30,7 @@ class TermsComponent extends React.Component {
 
 				<View style={styles.checkBoxContainer}>
 					<CheckBox
-						style={{ height: 24 }}
+						style={styles.height24}
 						checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
 						unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
 						onClick={this.props.setTermsState}
@@ -39,7 +39,7 @@ class TermsComponent extends React.Component {
 				</View>
 				<View style={styles.termsInfoContainer}>
 					<View style={styles.termsTextContainer}>
-						<Text style={styles.termsText}><Text onPress={this.showAgreement} style={{ color: '#5050FF' }}>Üyelik Sözleşmesi</Text> şartlarını okudum ve kabul ediyorum.</Text>
+						<Text style={styles.termsText}><Text onPress={this.showAgreement} style={styles.exeptFormText}>Üyelik Sözleşmesi</Text> şartlarını okudum ve kabul ediyorum.</Text>
 					</View>
 				</View>
 			</View>
@@ -74,6 +74,12 @@ const styles = ScaledSheet.create({
 		justifyContent: 'flex-start',
 		flexDirection: 'column',
 		marginLeft: '8@s'
+	},
+	height24: {
+		height: 24
+	},
+	exeptFormText: {
+		color: '#5050FF'
 	}
 })
 

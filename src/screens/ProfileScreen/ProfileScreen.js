@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import {
 	ScrollView,
@@ -111,7 +112,7 @@ class ProfileScreen extends React.PureComponent {
 
 									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToChangePasssword}>
 										<SettingItem title='Şifremi Değiştir'>
-											<Ionicons color='rgba(0,0,0,.8)' name='ios-key' size={32} style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }} />
+											<Ionicons color='rgba(0,0,0,.8)' name='ios-key' size={32} style={styles.ioskey} />
 										</SettingItem>
 									</TouchableOpacity>
 
@@ -164,6 +165,20 @@ class ProfileScreen extends React.PureComponent {
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	ioskey: {
+		transform:
+			[
+				{
+					rotateY: '180deg'
+				},
+				{
+					rotateX: '180deg'
+				}
+			]
+	}
+})
 
 const mapStateToProps = ({
 	sourceReducer: {

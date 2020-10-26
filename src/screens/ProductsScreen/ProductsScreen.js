@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScaledSheet,s } from 'react-native-size-matters'
+import { ScaledSheet, s } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
@@ -33,10 +33,7 @@ class ProductsScreen extends React.Component {
 						color={'white'}
 						name='sort'
 						size={28}
-						style={{
-							transform: [{ rotateY: '180deg' }],
-							marginRight: s(18)
-						}} />
+						style={styles.headerRight} />
 
 				</TouchableOpacity>
 			)
@@ -140,6 +137,14 @@ const styles = ScaledSheet.create({
 		fontSize: '18@s',
 		textAlign: 'center',
 		color: '#454545'
+	},
+	headerRight: {
+		transform: [
+			{
+				rotateY: '180deg'
+			}
+		],
+		marginRight: s(18)
 	}
 })
 

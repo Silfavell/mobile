@@ -124,7 +124,7 @@ class LoginScreen extends React.Component {
 								color={
 									this.state.invalidPassword && this.state.isPasswordInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
 								}
-								style={{ transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }] }}
+								style={styles.iosIccon}
 							/>
 						</InputIcon>
 					</InputComponent>
@@ -209,6 +209,14 @@ const styles = ScaledSheet.create({
 	view: {
 		justifyContent: 'flex-end',
 		margin: 0
+	},
+	iosIccon: {
+		transform: [{
+			rotateY: '180deg'
+		},
+		{
+			rotateX: '180deg'
+		}]
 	}
 })
 

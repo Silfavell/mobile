@@ -11,7 +11,7 @@ const Item = ({ item: { type, mark, content } }) => (
     <Text style={{
         [type === 0 ? 'marginVertical' : 'marginBottom']: 12
     }}>
-        <Text style={{ fontWeight: 'bold' }}>{mark}</Text>
+        <Text style={styles.fontWeight}>{mark}</Text>
         {content}
     </Text>
 )
@@ -196,7 +196,7 @@ class MembershipAgreement extends React.PureComponent {
                 <FlatList
                     data={items}
                     renderItem={this.renderItem}
-                    style={{ height: Dimensions.get('window').height / 2, margin: 20 }} />
+                    style={styles.heightAndMargin} />
             </Modal>
         )
     }
@@ -218,6 +218,13 @@ const styles = ScaledSheet.create({
     titleText: {
         textAlign: 'center',
         fontSize: '16@s'
+    },
+    fontWeight: {
+        fontWeight: 'bold'
+    },
+    heightAndMargin: {
+        height: Dimensions.get('window').height / 2,
+        margin: 20
     }
 })
 

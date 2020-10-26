@@ -25,7 +25,7 @@ class CategoryElement extends React.PureComponent {
             <TouchableOpacity onPress={this.onPress} activeOpacity={0.9} style={styles.categoryElement}>
                 <View style={styles.iconContainer}>
                     <Image
-                        style={{ width: 40, height: 40 }}
+                        style={styles.heightAndWitdh}
                         source={{ uri: `${Config.SERVER_URL}/assets/categories/${imagePath}.png` }} />
                 </View>
                 <Text numberOfLines={1}>{title}</Text>
@@ -81,6 +81,10 @@ const styles = ScaledSheet.create({
         borderWidth: 1,
         borderColor: '#EE4266',
         marginBottom: 8
+    },
+    heightAndWitdh: {
+        width: 40,
+        height: 40
     }
 })
 

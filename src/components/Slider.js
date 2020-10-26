@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 
 import CarouselViewer from './CarouselViewer'
 
@@ -19,7 +19,7 @@ class Slider extends React.PureComponent {
 								source={{ uri: image }}
 								resizeMode={this.props.shopSingle ? 'contain' : 'cover'}
 								resizeMethod='resize'
-								style={{ flex: 1, width: '100%' }} />
+								style={styles.ımageContainer} />
 
 						</View>
 					))
@@ -28,5 +28,12 @@ class Slider extends React.PureComponent {
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	ımageContainer: {
+		flex: 1,
+		width: '100%'
+	}
+})
 
 export default Slider

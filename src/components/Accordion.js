@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native'
+import { View, TouchableOpacity, LayoutAnimation, Platform, UIManager, StyleSheet } from 'react-native'
 import SettingItem from './SettingItem'
 
 class Accordion extends Component {
@@ -30,7 +30,7 @@ class Accordion extends Component {
 
                 {
                     this.state.expanded && (
-                        <View style={{ marginHorizontal: 4 }}>
+                        <View style={styles.marginalHorizontal}>
                             {this.props.children}
                         </View>
                     )
@@ -41,4 +41,9 @@ class Accordion extends Component {
     }
 }
 
+const styles = StyleSheet.create({
+    marginalHorizontal: {
+        marginHorizontal: 4
+    }
+})
 export default Accordion

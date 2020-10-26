@@ -44,10 +44,10 @@ class OnlinePaymentScreen extends React.Component {
 			<View style={styles.container}>
 
 				<View style={styles.paymentHeader}>
-					<View style={{ alignItems: 'center', justifyContent: 'center' }}>
+					<View style={styles.center}>
 						<Text style={styles.totalPriceText}>Ödeme Tutarı</Text>
 					</View>
-					<View style={{ alignItems: 'center', justifyContent: 'center' }}>
+					<View style={styles.center}>
 						<Text style={styles.totalPrice}>{`${totalPrice} TL`}</Text>
 					</View>
 				</View>
@@ -218,6 +218,10 @@ const styles = ScaledSheet.create({
 	informationTextContainer: {
 		flex: 7,
 		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	center: {
 		alignItems: 'center',
 		justifyContent: 'center'
 	}
