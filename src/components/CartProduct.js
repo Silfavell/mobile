@@ -90,9 +90,9 @@ class CartProduct extends React.PureComponent {
 						<View style={styles.child} />
 					</View>
 				</View >
-				
+
 				<TouchableOpacity style={styles.deleteIcon} onPress={this.deleteIcon}>
-					<Ionicons size={30} name='md-trash' style={styles.ionIcon} />
+					<Ionicons size={26} name='md-trash' style={styles.ionIcon} />
 				</TouchableOpacity>
 
 			</View >
@@ -174,9 +174,9 @@ const styles = ScaledSheet.create({
 		borderColor: '#EFEFEF',
 	},
 	deleteIcon: {
-		position:'absolute',
-		right:0,
-		marginRight:s(18),
+		position: 'absolute',
+		right: 0,
+		marginRight: s(18),
 	},
 	ionIcon: {
 		paddingTop: 10
