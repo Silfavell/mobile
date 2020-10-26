@@ -112,7 +112,7 @@ class ProfileScreen extends React.PureComponent {
 
 									<TouchableOpacity activeOpacity={0.9} onPress={this.moveToChangePasssword}>
 										<SettingItem title='Şifremi Değiştir'>
-											<Ionicons color='rgba(0,0,0,.8)' name='ios-key' size={32} style={styles.ioskey} />
+											<Ionicons color='rgba(0,0,0,.8)' name='ios-key' size={32} style={styles.iconContainer} />
 										</SettingItem>
 									</TouchableOpacity>
 
@@ -167,7 +167,7 @@ class ProfileScreen extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	ioskey: {
+	iconContainer: {
 		transform:
 			[
 				{

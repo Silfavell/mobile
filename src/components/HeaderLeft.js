@@ -12,7 +12,7 @@ class HeaderLeft extends React.PureComponent {
 	render() {
 		if (Object.values(this.props.cart).length > 0) {
 			return (
-				<TouchableOpacity style={styles.marginLeft} onPress={this.onBackClick}>
+				<TouchableOpacity style={styles.backIcon} onPress={this.onBackClick}>
 					<Ionicons name='md-close' size={26} color='white' />
 				</TouchableOpacity>
 			)
@@ -30,7 +30,7 @@ const mapStateToProps = ({
 })
 
 const styles = StyleSheet.create({
-	marginLeft: {
+	backIcon: {
 		marginLeft: s(18)
 	}
 })

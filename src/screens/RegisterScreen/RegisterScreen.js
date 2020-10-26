@@ -155,7 +155,7 @@ class RegisterScreen extends React.Component {
 								color={
 									this.state.invalidPassword && this.state.isPasswordInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
 								}
-								style={styles.iosKey}
+								style={styles.iconContainer}
 							/>
 						</InputIcon>
 
@@ -305,7 +305,7 @@ const styles = ScaledSheet.create({
 	invalid: {
 		borderColor: '#EE4266'
 	},
-	iosKey: {
+	iconContainer: {
 		transform:
 			[{
 				rotateY: '180deg'

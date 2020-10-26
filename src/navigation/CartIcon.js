@@ -9,7 +9,7 @@ const CartIcon = ({ name, focused, cart }) => (
 		<Ionicons
 			name={name}
 			size={28}
-			style={styles.marginBottom}
+			style={styles.iconContainer}
 			color={focused ? 'rgba(0,0,0,.8)' : '#CCC'}
 		/>
 		{
@@ -38,7 +38,7 @@ const styles = ScaledSheet.create({
 		color: 'white',
 		fontSize: '12@s'
 	},
-	marginBottom: {
+	iconContainer: {
 		marginBottom: -3
 	}
 })

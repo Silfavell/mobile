@@ -78,18 +78,18 @@ class HomeScreen extends React.Component {
 
 	render() {
 		const headers = [
-			<View style={styles.height190}>
+			<View style={styles.headerContainer1}>
 				<ShadowContainer>
 					<Slider images={banners} loop paginator />
 				</ShadowContainer>
 			</View>,
-			<View style={styles.height120}>
+			<View style={styles.headerContainer2}>
 				<ShadowContainer>
 					<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
 				</ShadowContainer>
 			</View>,
 			<View style={styles.divider}>
-				<ShadowContainer style={styles.whiteBackground}>
+				<ShadowContainer style={styles.shadowContainer}>
 					<View style={styles.dividerChild}>
 						<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
 					</View>
@@ -148,13 +148,13 @@ const styles = ScaledSheet.create({
 		paddingLeft: s(18),
 		zIndex: 2
 	},
-	height190: {
+	headerContainer1: {
 		height: s(190)
 	},
-	height120: {
+	headerContainer2: {
 		height: s(120)
 	},
-	whiteBackground: {
+	shadowContainer: {
 		backgroundColor: 'white'
 	},
 	bestSellerContainer: {

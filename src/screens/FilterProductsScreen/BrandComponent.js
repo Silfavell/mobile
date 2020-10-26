@@ -32,7 +32,7 @@ class BrandComponent extends React.Component {
                     title={this.props.brand.name}
                     rightComponent={
                         <CheckBox
-                            style={styles.height}
+                            style={styles.checkBoxStyle}
                             checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
                             unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
                             disabled
@@ -46,6 +46,8 @@ class BrandComponent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    height: 24
+    checkBoxStyle:{
+        height:24
+    } 
 })
 export default BrandComponent

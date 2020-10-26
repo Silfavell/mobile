@@ -45,7 +45,7 @@ class CardComponent extends React.PureComponent {
 
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity style={styles.flex1AndRow} onPress={this.onClick}>
+				<TouchableOpacity style={styles.childContainer} onPress={this.onClick}>
 					<View style={styles.child}>
 						<Image
 							style={styles.cardImage}
@@ -104,7 +104,7 @@ const styles = ScaledSheet.create({
 		alignItems: 'flex-start',
 		marginHorizontal: 6
 	},
-	flex1AndRow: {
+	childContainer: {
 		flex: 1,
 		flexDirection: 'row'
 	}

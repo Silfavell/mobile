@@ -30,7 +30,7 @@ class Accordion extends Component {
 
                 {
                     this.state.expanded && (
-                        <View style={styles.marginalHorizontal}>
+                        <View style={styles.childContainer}>
                             {this.props.children}
                         </View>
                     )
@@ -42,7 +42,7 @@ class Accordion extends Component {
 }
 
 const styles = StyleSheet.create({
-    marginalHorizontal: {
+    childContainer: {
         marginHorizontal: 4
     }
 })

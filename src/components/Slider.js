@@ -19,7 +19,7 @@ class Slider extends React.PureComponent {
 								source={{ uri: image }}
 								resizeMode={this.props.shopSingle ? 'contain' : 'cover'}
 								resizeMethod='resize'
-								style={styles.ımageContainer} />
+								style={styles.imageContainer} />
 
 						</View>
 					))
@@ -30,7 +30,7 @@ class Slider extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-	ımageContainer: {
+	imageContainer: {
 		flex: 1,
 		width: '100%'
 	}

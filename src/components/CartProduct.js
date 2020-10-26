@@ -1,7 +1,8 @@
 import React from 'react'
 import {
 	View,
-	Text,
+	Image,
+	Text
 } from 'react-native'
 import Config from 'react-native-config'
 import FastImage from 'react-native-fast-image'

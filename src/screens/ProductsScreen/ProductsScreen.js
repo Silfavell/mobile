@@ -33,7 +33,7 @@ class ProductsScreen extends React.Component {
 						color={'white'}
 						name='sort'
 						size={28}
-						style={styles.headerRight} />
+						style={styles.iconContainer} />
 
 				</TouchableOpacity>
 			)
@@ -138,7 +138,7 @@ const styles = ScaledSheet.create({
 		textAlign: 'center',
 		color: '#454545'
 	},
-	headerRight: {
+	iconContainer: {
 		transform: [
 			{
 				rotateY: '180deg'

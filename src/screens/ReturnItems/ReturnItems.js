@@ -111,7 +111,7 @@ class ReturnItems extends React.Component {
                     renderItem={({ item, index }) => (
                         <View>
                             <TouchableOpacity
-                                style={styles.flatListTouchableContainer}
+                                style={styles.flatListInsıdeTouchableOpacityStyle}
                                 activeOpacity={0.9}
                                 onPress={() => {
                                     this.onSelect(item._id)
@@ -164,7 +164,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'space-between',
         padding: 4
     },
-    flatListTouchableContainer: {
+    flatListInsıdeTouchableOpacityStyle: {
         position: 'absolute',
         top: 5,
         left: 5,
