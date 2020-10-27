@@ -26,7 +26,7 @@ class ProductsScreen extends React.Component {
 
 		this.props.navigation.setOptions({
 			title: this.props.products[this.selectedCategory].name,
-			headerRight: () => (
+		/*	headerRight: () => (       //filter button
 				<TouchableOpacity onPress={this.onFilterClick}>
 
 					<MaterialIcons
@@ -39,7 +39,7 @@ class ProductsScreen extends React.Component {
 						}} />
 
 				</TouchableOpacity>
-			)
+			) */
 		})
 	}
 
