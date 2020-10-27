@@ -4,12 +4,15 @@ import {
 	Image,
 	Text
 } from 'react-native'
+import { s, ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import Config from 'react-native-config'
 import FastImage from 'react-native-fast-image'
 
-import { ScaledSheet } from 'react-native-size-matters'
-
 import CartProductQuantityComponent from './CartProductQuantityComponent'
+
+import { setProductQuantity } from '../actions/cart-actions'
+
 
 class CartProduct extends React.PureComponent {
 
@@ -79,6 +82,9 @@ class CartProduct extends React.PureComponent {
 					</View>
 				</View >
 
+				<TouchableOpacity style={styles.deleteIcon} onPress={this.deleteIcon}>
+					<Ionicons size={26} name='md-trash' style={styles.ionIcon} />
+				</TouchableOpacity>
 			</View >
 		)
 	}
@@ -157,6 +163,14 @@ const styles = ScaledSheet.create({
 		borderWidth: 1,
 		borderColor: '#EFEFEF',
 	},
+	deleteIcon: {
+		position: 'absolute',
+		right: 0,
+		marginRight: s(18),
+	},
+	ionIcon: {
+		paddingTop: 10
+	}
 })
 
 export default CartProduct
