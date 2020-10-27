@@ -42,7 +42,7 @@ class CartScreen extends React.PureComponent {
 			return (
 				<View style={styles.container}>
 					<FlatList
-						style={{ backgroundColor: '#DFDFDF' }}
+						style={styles.flatListStyle}
 						data={this.products}
 						keyExtractor={this.keyExtractor}
 						renderItem={this.renderCartProductItem}
@@ -104,6 +104,9 @@ const styles = ScaledSheet.create({
 	footer: {
 		height: '65@s',
 		backgroundColor: 'transparent'
+	},
+	flatListStyle: {
+		backgroundColor: '#DFDFDF'
 	}
 })
 

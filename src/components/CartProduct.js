@@ -1,10 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import {
 	View,
 	Image,
-	Text,
-	TouchableOpacity
+	Text
 } from 'react-native'
 import { s, ScaledSheet } from 'react-native-size-matters'
 
@@ -17,16 +15,10 @@ import Config from 'react-native-config'
 import FastImage from 'react-native-fast-image'
 
 
-
-
 class CartProduct extends React.PureComponent {
 
 	onReturnItemSelect = () => {
 		this.props.returnItem.onSelect(this.props.data._id)
-	}
-
-	deleteIcon = () => {
-		this.props.setProductQuantity(this.props.data._id, 0)
 	}
 
 	render() {
@@ -94,7 +86,6 @@ class CartProduct extends React.PureComponent {
 				<TouchableOpacity style={styles.deleteIcon} onPress={this.deleteIcon}>
 					<Ionicons size={26} name='md-trash' style={styles.ionIcon} />
 				</TouchableOpacity>
-
 			</View >
 		)
 	}
@@ -183,8 +174,4 @@ const styles = ScaledSheet.create({
 	}
 })
 
-const mapDispatchToProps = {
-	setProductQuantity
-}
-
-export default connect(null, mapDispatchToProps)(CartProduct)
+export default CartProduct

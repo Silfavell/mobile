@@ -13,7 +13,7 @@ const InteractiveSettingItem = ({
 	onRightIconClick
 }) => (
 		<View style={styles.container}>
-			<TouchableOpacity style={{ flex: 7, flexDirection: 'row' }} onPress={onLeftClick}>
+			<TouchableOpacity style={styles.button} onPress={onLeftClick}>
 				<View style={styles.iconContainer}>
 					{icons[0]}
 				</View>
@@ -53,6 +53,10 @@ const styles = ScaledSheet.create({
 		alignItems: 'flex-end',
 		justifyContent: 'center',
 		flex: 1
+	},
+	button: {
+		flex: 7,
+		flexDirection: 'row'
 	}
 })
 

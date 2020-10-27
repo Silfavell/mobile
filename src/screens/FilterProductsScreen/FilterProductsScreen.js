@@ -80,13 +80,13 @@ class FilterProductsScreen extends React.Component {
         this.props.navigation.setOptions({
             headerLeft: () => (
                 <TouchableOpacity onPress={this.props.navigation.goBack} >
-                    <Ionicons name='md-close' size={26} color='white' style={{ marginLeft: s(18) }} />
+                    <Ionicons name='md-close' size={26} color='white' style={styles.leftIcon} />
                 </TouchableOpacity>
             ),
             headerRight: () => (
                 (this.state.brands.length > 0 || this.state.selectedSort !== -1 || this.state.minPrice || this.state.maxPrice) && (
                     <TouchableOpacity onPress={this.onClearFilterClick} >
-                        <Ionicons name='md-trash' size={26} color='white' style={{ marginRight: s(18) }} />
+                        <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
                     </TouchableOpacity>
                 )
             )
@@ -247,6 +247,12 @@ const styles = ScaledSheet.create({
         height: '80@s',
         marginHorizontal: '32@s',
         marginVertical: '16@s'
+    },
+    leftIcon:{
+        marginLeft: s(18)
+    },
+    rightIcon:{
+        marginRight: s(18)
     }
 })
 
