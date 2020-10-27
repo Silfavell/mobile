@@ -43,6 +43,8 @@ const handleAppStateChange = (nextAppState) => {
 	if (nextAppState.match(/inactive|background/)) {
 		if (Object.values(cart).length > 0) {
 			AsyncStorage.setItem('cart', JSON.stringify(cart))
+		} else {
+			AsyncStorage.removeItem('cart')
 		}
 	}
 }
