@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScaledSheet,s } from 'react-native-size-matters'
+import { ScaledSheet, s } from 'react-native-size-matters'
 import {
 	View,
 	TouchableOpacity,
@@ -26,9 +26,8 @@ class ProductsScreen extends React.Component {
 
 		this.props.navigation.setOptions({
 			title: this.props.products[this.selectedCategory].name,
-		/*	headerRight: () => (       //filter button
+			/* headerRight: () => ( // filter button
 				<TouchableOpacity onPress={this.onFilterClick}>
-
 					<MaterialIcons
 						color={'white'}
 						name='sort'
@@ -37,9 +36,8 @@ class ProductsScreen extends React.Component {
 							transform: [{ rotateY: '180deg' }],
 							marginRight: s(18)
 						}} />
-
 				</TouchableOpacity>
-			) */
+			)*/
 		})
 	}
 
