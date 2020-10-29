@@ -5,7 +5,7 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import ModalSelector from 'react-native-modal-selector'
-import TextInputMask from 'react-native-text-input-mask'
+import { TextInputMask } from 'react-native-masked-text'
 
 class InputComponent extends React.Component {
 	state = {
@@ -22,7 +22,7 @@ class InputComponent extends React.Component {
 
 	getMask = (type) => {
 		switch (type) {
-			case 'telephoneNumber': return '+90 ([000]) [000] [00] [00]'
+			case 'telephoneNumber': return ""
 			case 'card': return '[0000] [0000] [0000] [0000]'
 
 			default: return null
@@ -58,7 +58,12 @@ class InputComponent extends React.Component {
 				{
 					mask ? (
 						<TextInputMask
-							mask={this.getMask(mask)}
+							type={'cel-phone'}
+							options={{
+								maskType: 'BRL',
+								withDDD: true,
+								dddMask:  '(+90)  999 999 9999',
+							}}
 							{...options}
 							value={value}
 							onChangeText={onChange}
