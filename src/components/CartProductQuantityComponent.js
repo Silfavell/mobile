@@ -11,6 +11,8 @@ import {
 import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/cart-actions'
 
 class CartProductQuantityComponent extends React.Component {
+	state = {}
+
 	componentDidMount() {
 		let quantity = 1
 		if (this.props.previousOrder) {

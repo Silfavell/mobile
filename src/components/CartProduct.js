@@ -1,7 +1,7 @@
 import React from 'react'
 import {
 	View,
-	Image,
+	TouchableOpacity,
 	Text
 } from 'react-native'
 import { s, ScaledSheet } from 'react-native-size-matters'
@@ -10,9 +10,6 @@ import Config from 'react-native-config'
 import FastImage from 'react-native-fast-image'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
-
-import { setProductQuantity } from '../actions/cart-actions'
-
 
 class CartProduct extends React.PureComponent {
 

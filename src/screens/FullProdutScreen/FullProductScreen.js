@@ -201,6 +201,7 @@ class FullProductScreen extends React.Component {
 										{
 											this.state.product.group.map((groupProduct, index) => (
 												<Color
+													key={`${this.state.product._id}:colorGroup:${groupProduct._id}`}
 													product={groupProduct}
 													selected={this.isColorSelected(index)}
 													index={index}

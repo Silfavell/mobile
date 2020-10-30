@@ -4,9 +4,17 @@ import { TouchableOpacity, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { s } from 'react-native-size-matters'
 
-class HeaderLeft extends React.PureComponent {
+class HeaderLeft extends React.Component {
 	onBackClick = () => {
 		this.props.navigation.goBack()
+	}
+
+	shouldComponentUpdate() {
+		if (Object.values(this.props.cart).length === 1 || (Object.values(this.props.cart).length === 0)) {
+			return true
+		}
+
+		return false
 	}
 
 	render() {

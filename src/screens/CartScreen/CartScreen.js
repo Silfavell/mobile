@@ -12,8 +12,7 @@ import CartProduct from '../../components/CartProduct'
 import CompletePayment from '../../components/CompletePayment'
 import ShadowContainer from '../../components/ShadowContainer'
 
-
-class CartScreen extends React.PureComponent {
+class CartScreen extends React.Component {
 	products = Object.values(this.props.cart)
 
 	keyExtractor = (item) => `cart${item._id}`
@@ -34,6 +33,13 @@ class CartScreen extends React.PureComponent {
 		return <CartProduct data={item} />
 	}
 
+	shouldComponentUpdate(nextProps) {
+		if (Object.values(this.props.cart).length !== Object.values(nextProps.cart).length) {
+			return true
+		}
+
+		return false
+	}
 
 	render() {
 		this.products = Object.values(this.props.cart)

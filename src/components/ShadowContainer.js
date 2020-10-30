@@ -2,7 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-class ShadowContainer extends React.PureComponent {
+class ShadowContainer extends React.Component {
+	shouldComponentUpdate(){
+		return false
+	}
+
 	render() {
 		return (
 			<View style={[styles.x, this.props.containerStyle]}>
