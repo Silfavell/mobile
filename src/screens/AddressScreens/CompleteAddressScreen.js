@@ -21,7 +21,7 @@ class CompleteAddressScreen extends React.Component {
 		addressTitle: 'Home'
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
+	shouldComponentUpdate(_, nextState) {
 		return (
 			nextState.scaleAnimationModal !== this.state.scaleAnimationModal
 			|| nextState.addressTitle !== this.state.addressTitle

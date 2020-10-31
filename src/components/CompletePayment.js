@@ -42,11 +42,8 @@ class CompletePaymentComponent extends React.Component {
 		}
 	}
 
-	shouldComponentUpdate(prevProps) {
-		if (
-			(Object.values(this.props.cart).length > 0 && Object.values(prevProps.cart).length === 0) ||
-			(Object.values(this.props.cart).length === 0 && Object.values(prevProps.cart).length > 0)
-		) {
+	shouldComponentUpdate() {
+		if (Object.values(this.props.cart).length === 1 || (Object.values(this.props.cart).length === 0)) {
 			return true
 		}
 
