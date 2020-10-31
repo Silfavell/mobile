@@ -6,7 +6,7 @@ import LoadingComponent from '../../components/LoadingComponent'
 
 import { setInitialDatas } from '../../actions/source-actions'
 
-class LoadingScreen extends React.PureComponent {
+class LoadingScreen extends React.Component {
 	componentDidMount() {
 		// AsyncStorage.clear()
 		AsyncStorage.getItem('init').then((init) => {
