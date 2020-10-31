@@ -34,7 +34,8 @@ class CartScreen extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		if (Object.values(this.props.cart).length !== Object.values(nextProps.cart).length) {
+		// nextProps !== previousProps
+		if (Object.values(nextProps.cart).length !== this.products.length) {
 			return true
 		}
 
@@ -57,6 +58,7 @@ class CartScreen extends React.Component {
 				</View>
 			)
 		}
+
 		return (
 			<View style={styles.emptyContainer}>
 				<Ionicons name='md-basket' size={96} color='#BDBDBD' />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {
 	View,
 	TouchableOpacity,
@@ -11,10 +12,16 @@ import FastImage from 'react-native-fast-image'
 
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
+import { setProductQuantity } from '../actions/cart-actions'
+
 class CartProduct extends React.PureComponent {
 
 	onReturnItemSelect = () => {
 		this.props.returnItem.onSelect(this.props.data._id)
+	}
+
+	onRemoveClick = () => {
+		this.props.setProductQuantity(this.props.data._id, 0)
 	}
 
 	render() {
@@ -77,12 +84,12 @@ class CartProduct extends React.PureComponent {
 
 						<View style={styles.child} />
 					</View>
-				</View >
+				</View>
 
-				<TouchableOpacity style={styles.deleteIcon} onPress={this.deleteIcon}>
-					<Ionicons size={26} name='md-trash' style={styles.ionIcon} />
+				<TouchableOpacity style={styles.trashIconContainer} onPress={this.onRemoveClick}>
+					<Ionicons size={26} name='md-trash' style={styles.trashIcon} />
 				</TouchableOpacity>
-			</View >
+			</View>
 		)
 	}
 }
@@ -158,16 +165,20 @@ const styles = ScaledSheet.create({
 		height: null,
 		aspectRatio: 0.6,
 		borderWidth: 1,
-		borderColor: '#EFEFEF',
+		borderColor: '#EFEFEF'
 	},
-	deleteIcon: {
+	trashIconContainer: {
 		position: 'absolute',
 		right: 0,
-		marginRight: s(18),
+		marginRight: s(18)
 	},
-	ionIcon: {
+	trashIcon: {
 		paddingTop: 10
 	}
 })
 
-export default CartProduct
+const mapDispatchToProps = {
+	setProductQuantity
+}
+
+export default connect(null, mapDispatchToProps)(CartProduct)
