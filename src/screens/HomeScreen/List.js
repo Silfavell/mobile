@@ -63,7 +63,7 @@ class List extends React.PureComponent {
 
     render() {
         return (
-            <StickyContainer stickyHeaderIndices={[2]}>
+            <StickyContainer >
                 <RecyclerListView
                     layoutProvider={this.layoutProvider}
                     dataProvider={this.state.dataProvider}
