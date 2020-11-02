@@ -97,7 +97,8 @@ class FilterProductsScreen extends React.Component {
         this.setPopupState({ scaleAnimationModal: true })
     }
 
-    componentWillReceiveProps(nextProps) {
+    // TODO replace with another lifecycle method
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             brands: nextProps.selectedBrands,
             selectedSort: nextProps.selectedSort,
@@ -248,10 +249,10 @@ const styles = ScaledSheet.create({
         marginHorizontal: '32@s',
         marginVertical: '16@s'
     },
-    leftIcon:{
+    leftIcon: {
         marginLeft: s(18)
     },
-    rightIcon:{
+    rightIcon: {
         marginRight: s(18)
     }
 })

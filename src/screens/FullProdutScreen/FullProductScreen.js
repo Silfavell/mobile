@@ -34,6 +34,7 @@ class FullProductScreen extends React.Component {
 		this.getProductBySlug(this.props.route.params.slug)
 	}
 
+	// TODO replace with another lifecycle method
 	UNSAFE_componentWillReceiveProps() {
 		if (this.state.pickedColor === -1) {
 			this.setHeader(this.state.product._id)

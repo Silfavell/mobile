@@ -34,7 +34,7 @@ class CartScreen extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		// nextProps !== previousProps
+		// nextProps.cart and this.props.cart refers to same object that's what im using products.length for previousProps
 		if (Object.values(nextProps.cart).length !== this.products.length) {
 			return true
 		}

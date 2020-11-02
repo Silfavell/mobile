@@ -8,17 +8,17 @@ import {
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { saveAddress } from '../../actions/payment-actions'
-
 import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
 import Map from '../MapScreens/Map'
 import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
 import ButtonComponent from '../../components/ButtonComponent'
 
+import { saveAddress } from '../../actions/payment-actions'
+
 class CompleteAddressScreen extends React.Component {
 	state = {
 		scaleAnimationModal: false,
-		addressTitle: 'Home'
+		addressTitle: ''
 	}
 
 	shouldComponentUpdate(_, nextState) {
@@ -81,7 +81,7 @@ class CompleteAddressScreen extends React.Component {
 								<CompleteAddressInput />
 							</View>
 						</View>
-						
+
 					</View>
 				</View>
 				<ButtonComponent

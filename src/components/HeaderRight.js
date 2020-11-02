@@ -11,8 +11,8 @@ class HeaderRight extends React.Component {
 		this.props.setClearCartPopupState(true)
 	}
 
-	shouldComponentUpdate() {
-		if (Object.values(this.props.cart).length === 1 || (Object.values(this.props.cart).length === 0)) {
+	shouldComponentUpdate(nextProps) {
+		if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
 			return true
 		}
 

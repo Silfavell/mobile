@@ -31,9 +31,9 @@ class LoginScreen extends React.Component {
 		isPasswordInitialized: false
 	}
 
-	shouldComponentUpdate = (nextProps, nextState) => ( // Update only state change, not props
-		this.state.phoneNumber !== nextState.phoneNumber
-		|| this.state.password !== nextState.password
+	shouldComponentUpdate = (_, nextState) => ( // Update only state change, not props
+		this.state.phoneNumber !== nextState.phoneNumber ||
+		this.state.password !== nextState.password
 	)
 
 	saveCart = async () => {

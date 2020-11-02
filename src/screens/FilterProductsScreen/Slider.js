@@ -13,7 +13,8 @@ class Slider extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    // TODO replace with another lifecycle method
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             minPrice: nextProps.initialMinPrice,
             maxPrice: nextProps.initialMaxPrice

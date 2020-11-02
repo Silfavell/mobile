@@ -1,7 +1,6 @@
 import React from 'react'
-import { Text } from 'react-native'
 import joi from 'react-native-joi'
-import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
@@ -13,6 +12,7 @@ import { sendActivationCode } from '../../scripts/requests'
 class ForgotPasswordScreen extends React.Component {
 	state = {
 		phoneNumber: '',
+
 		isPhoneNumberInitialized: false,
 		invalidPhoneNumber: false
 	}
@@ -28,9 +28,12 @@ class ForgotPasswordScreen extends React.Component {
 		}
 	}
 
-	onPhoneNumberChange = (phoneNumber) => {
-		joi.string().trim().strict().min(10)
-			.max(10)
+	onPhoneChange = (phoneNumber) => {
+		joi.string()
+			.trim()
+			.strict()
+			.min(19)
+			.max(19)
 			.validate(phoneNumber, (err) => {
 				this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
 			})
@@ -42,39 +45,31 @@ class ForgotPasswordScreen extends React.Component {
 				<InputComponent
 					options={{
 						keyboardType: 'phone-pad',
-						placeholder: 'Telefon numarası',
-						maxLength: 10
+						textContentType: 'telephoneNumber',
+						placeholder: 'Telefon Numarası',
+						maxLength: 19
 					}}
-					invalid={
-						this.state.invalidPhoneNumber
-						&& this.state.isPhoneNumberInitialized
-					}
+					mask={'telephoneNumber'}
+					invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
 					value={this.state.phoneNumber}
-					onChange={this.onPhoneNumberChange}
+					onChange={this.onPhoneChange}
 				>
 					<InputIcon>
-						<Text style={styles.textStyle}>90</Text>
+						<Ionicons
+							size={32}
+							name='md-phone-portrait'
+							color='rgba(0,0,0,.8)' />
 					</InputIcon>
 				</InputComponent>
 
 				<ButtonComponent
 					text='Aktivasyon Kodu Gönder'
 					onClick={this.onSendCodeClick}
-					disabled={
-						this.state.invalidPhoneNumber
-						|| !this.state.isPhoneNumberInitialized
-					}
+					disabled={this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized}
 				/>
 			</ShadowContainer>
 		)
 	}
 }
-
-const styles = ScaledSheet.create({
-	textStyle: {
-		color: 'rgba(0,0,0,.8)',
-		fontSize: '18@s'
-	}
-})
 
 export default ForgotPasswordScreen

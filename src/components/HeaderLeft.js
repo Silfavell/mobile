@@ -5,12 +5,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { s } from 'react-native-size-matters'
 
 class HeaderLeft extends React.Component {
-	onBackClick = () => {
-		this.props.navigation.goBack()
-	}
-
-	shouldComponentUpdate() {
-		if (Object.values(this.props.cart).length === 1 || (Object.values(this.props.cart).length === 0)) {
+	shouldComponentUpdate(nextProps) {
+		if (Object.values(nextProps.cart).length === 1 || (Object.values(nextProps.cart).length === 0)) {
 			return true
 		}
 
@@ -20,7 +16,7 @@ class HeaderLeft extends React.Component {
 	render() {
 		if (Object.values(this.props.cart).length > 0) {
 			return (
-				<TouchableOpacity style={styles.backIcon} onPress={this.onBackClick}>
+				<TouchableOpacity style={styles.backIcon} onPress={this.props.navigation.goBack}>
 					<Ionicons name='md-close' size={26} color='white' />
 				</TouchableOpacity>
 			)
