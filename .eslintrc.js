@@ -35,6 +35,7 @@ module.exports = {
         'comma-dangle': [2, 'never'],
         semi: [2, 'never'],
         'jsx-quotes': [2, 'prefer-single'],
+        'newline-before-return': 2,
 
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 2,
