@@ -24,6 +24,7 @@ class DeleteCardPopup extends React.PureComponent {
 				visible={this.props.scaleAnimationModal}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
+				children={null}
 				modalTitle={(
 					<ModalTitle
 						style={styles.title}

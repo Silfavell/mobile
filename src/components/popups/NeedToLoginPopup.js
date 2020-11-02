@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
 
-class NeedToLoginPopup extends React.PureComponent {
+class NeedToLoginPopup extends React.Component {
 	close = () => {
 		this.props.setNeedToLoginPopupState(false)
 		return true
@@ -20,6 +20,10 @@ class NeedToLoginPopup extends React.PureComponent {
 		if (this.props.navigation) {
 			this.props.navigation.navigate('Welcome', { screen: 'login' })
 		}
+	}
+
+	shouldComponentUpdate() {
+		return false
 	}
 
 	render() {

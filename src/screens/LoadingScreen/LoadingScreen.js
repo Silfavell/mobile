@@ -6,7 +6,7 @@ import LoadingComponent from '../../components/LoadingComponent'
 
 import { setInitialDatas } from '../../actions/source-actions'
 
-class LoadingScreen extends React.PureComponent {
+class LoadingScreen extends React.Component {
 	componentDidMount() {
 		// AsyncStorage.clear()
 		AsyncStorage.getItem('init').then((init) => {
@@ -22,12 +22,12 @@ class LoadingScreen extends React.PureComponent {
 		})
 	}
 
-	static getDerivedStateFromProps(props) {
-		if (props.categories.length > 0) {
+	componentDidUpdate() {
+		if (this.props.categories.length > 0) {
 			AsyncStorage.setItem('init', 'true')
-			props.navigation.navigate('Root')
+			this.props.navigation.navigate('Root')
 		} else {
-			props.setInitialDatas()
+			this.props.setInitialDatas()
 		}
 	}
 

@@ -6,9 +6,17 @@ import { s } from 'react-native-size-matters'
 
 import { setClearCartPopupState } from '../actions/global-actions'
 
-class HeaderRight extends React.PureComponent {
+class HeaderRight extends React.Component {
 	onClearClick = () => {
 		this.props.setClearCartPopupState(true)
+	}
+
+	shouldComponentUpdate(nextProps) {
+		if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
+			return true
+		}
+
+		return false
 	}
 
 	render() {
@@ -19,6 +27,7 @@ class HeaderRight extends React.PureComponent {
 				</TouchableOpacity>
 			)
 		}
+
 		return null
 	}
 }

@@ -10,11 +10,10 @@ import { connect } from 'react-redux'
 import { ScaledSheet } from 'react-native-size-matters'
 import Config from 'react-native-config'
 
-
 import { increaseProductQuantity } from '../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'
 
-class Product extends React.PureComponent {
+class Product extends React.Component {
 	onAddProductClick = () => {
 		this.props.increaseProductQuantity(this.props.data._id, this.props.messagePopupRef)
 	}

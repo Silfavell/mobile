@@ -1665,6 +1665,13 @@
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
+"@welldone-software/why-did-you-render@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@welldone-software/why-did-you-render/-/why-did-you-render-5.0.0.tgz#5dd8d20ad9f00fd500de852dd06eea0c057a0bce"
+  integrity sha512-A6xUP/55vJQwA1+L6iZbG81cQanSQQVR15yPcjLIp6lHmybXEOXsYcuXaDZHYqiNStZRzv64YPcYJC9wdphfhw==
+  dependencies:
+    lodash "^4"
+
 abab@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.3.tgz#623e2075e02eb2d3f2475e49f99c91846467907a"
@@ -5291,6 +5298,11 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
+lodash@^4:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 lodash@^4.0.0, lodash@^4.11.1, lodash@^4.17.10, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.19"

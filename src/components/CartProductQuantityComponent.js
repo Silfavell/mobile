@@ -11,6 +11,8 @@ import {
 import { decreaseProductQuantity, increaseProductQuantity, setProductQuantity } from '../actions/cart-actions'
 
 class CartProductQuantityComponent extends React.Component {
+	state = {}
+
 	componentDidMount() {
 		let quantity = 1
 		if (this.props.previousOrder) {
@@ -26,7 +28,13 @@ class CartProductQuantityComponent extends React.Component {
 
 	static getDerivedStateFromProps(props) {
 		if (!props.returnItem) {
-			return ({ quantity: props.previousOrder ? props.quantity : props.cart[props._id].quantity })
+			if (props.previousOrder) {
+				return ({ quantity: props.previousOrder })
+			}
+
+			if (props.cart[props._id]) {
+				return ({ quantity: props.cart[props._id].quantity })
+			}
 		}
 
 		return null

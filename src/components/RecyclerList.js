@@ -7,7 +7,7 @@ import Product from './Product'
 
 const { width } = Dimensions.get('window')
 
-class List extends React.PureComponent {
+class List extends React.Component {
 	constructor(args) {
 		super(args)
 

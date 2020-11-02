@@ -19,6 +19,8 @@ import rootReducer from './src/reducers/root-reducer'
 import { SET_NETWORK_STATUS } from './src/actions/network-actions'
 import axiosMiddleware from './src/scripts/axios'
 
+import './src/scripts/wydr.js'
+
 navigator.geolocation = geolocation
 
 const store = createStore(rootReducer, applyMiddleware(thunk))

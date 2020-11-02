@@ -12,8 +12,7 @@ import CartProduct from '../../components/CartProduct'
 import CompletePayment from '../../components/CompletePayment'
 import ShadowContainer from '../../components/ShadowContainer'
 
-
-class CartScreen extends React.PureComponent {
+class CartScreen extends React.Component {
 	products = Object.values(this.props.cart)
 
 	keyExtractor = (item) => `cart${item._id}`
@@ -34,6 +33,14 @@ class CartScreen extends React.PureComponent {
 		return <CartProduct data={item} />
 	}
 
+	shouldComponentUpdate(nextProps) {
+		// nextProps.cart and this.props.cart refers to same object that's what im using products.length for previousProps
+		if (Object.values(nextProps.cart).length !== this.products.length) {
+			return true
+		}
+
+		return false
+	}
 
 	render() {
 		this.products = Object.values(this.props.cart)
@@ -51,6 +58,7 @@ class CartScreen extends React.PureComponent {
 				</View>
 			)
 		}
+
 		return (
 			<View style={styles.emptyContainer}>
 				<Ionicons name='md-basket' size={96} color='#BDBDBD' />

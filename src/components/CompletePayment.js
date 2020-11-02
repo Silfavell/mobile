@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { makeOrder } from '../actions/cart-actions'
 import { setNeedToLoginPopupState } from '../actions/global-actions'
 
-class CompletePaymentComponent extends React.PureComponent {
+class CompletePaymentComponent extends React.Component {
 	onCompletePaymentClick = () => {
 		const {
 			completable,
@@ -40,6 +40,14 @@ class CompletePaymentComponent extends React.PureComponent {
 		} else {
 			setNeedToLoginPopupState(true)
 		}
+	}
+
+	shouldComponentUpdate(nextProps) {
+		if (Object.values(nextProps.cart).length === 1 || (Object.values(nextProps.cart).length === 0)) {
+			return true
+		}
+
+		return false
 	}
 
 	render() {
