@@ -34,7 +34,7 @@ const styles = ScaledSheet.create({
         padding: '10@s',
         borderBottomWidth: 0.8,
         borderBottomColor: '#D2D2D2',
-        marginHorizontal: '6@s',
+        marginHorizontal: '6@s'
     },
     iconContainer: {
         alignItems: 'center',
@@ -48,7 +48,7 @@ const styles = ScaledSheet.create({
     },
     title: {
         marginHorizontal: '4@s',
-        fontSize: '16@s',
+        fontSize: '16@s'
     },
     rightIconContainer: {
         alignItems: 'flex-end',

@@ -24,7 +24,7 @@ class FilterProductsScreen extends React.Component {
             selectedSort: props.selectedSort,
             scaleAnimationModal: false,
             minPrice: props.selectedMinPrice,
-            maxPrice: props.selectedMaxPrice,
+            maxPrice: props.selectedMaxPrice
         }
 
         this.setNavigationOptions()
@@ -34,32 +34,32 @@ class FilterProductsScreen extends React.Component {
                 index: 0,
                 key: 'classic',
                 sortType: 0,
-                label: 'Akıllı Sıralama',
+                label: 'Akıllı Sıralama'
             },
             {
                 index: 1,
                 key: 'bestSeller',
                 sortType: 1,
-                label: 'Çok Satanlar',
+                label: 'Çok Satanlar'
             },
             {
                 index: 2,
                 key: 'newest',
                 sortType: 2,
-                label: 'En Yeniler',
+                label: 'En Yeniler'
             },
             {
                 index: 3,
                 key: 'lowToHigh',
                 sortType: 3,
-                label: 'En Düşük Fiyat',
+                label: 'En Düşük Fiyat'
             },
             {
                 index: 4,
                 key: 'highToLow',
                 sortType: 4,
-                label: 'En Yüksek Fiyat',
-            },
+                label: 'En Yüksek Fiyat'
+            }
             //  {
             //      index: 5,
             //      key: 'highestRank',
@@ -90,7 +90,7 @@ class FilterProductsScreen extends React.Component {
                   <TouchableOpacity onPress={this.onClearFilterClick}>
                       <Ionicons name="md-trash" size={26} color="white" style={styles.rightIcon} />
                   </TouchableOpacity>
-              ),
+              )
       })
   };
 
@@ -106,9 +106,9 @@ class FilterProductsScreen extends React.Component {
               selectedSort: nextProps.selectedSort,
               scaleAnimationModal: false,
               minPrice: nextProps.selectedMinPrice,
-              maxPrice: nextProps.selectedMaxPrice,
+              maxPrice: nextProps.selectedMaxPrice
           },
-          this.setNavigationOptions,
+          this.setNavigationOptions
       )
   }
 
@@ -120,14 +120,14 @@ class FilterProductsScreen extends React.Component {
               brandsAsString: this.state.brands.map((brand) => `&brands=${brand}`).join(''),
               sortType: this.sorts[this.state.selectedSort]?.sortType,
               minPrice: this.sliderRef.state.minPrice,
-              maxPrice: this.sliderRef.state.maxPrice,
+              maxPrice: this.sliderRef.state.maxPrice
           },
           {
               filterCategory: this.props.route.params.selectedCategory,
               selectedBrands: this.state.brands,
-              selectedSort: this.state.selectedSort,
+              selectedSort: this.state.selectedSort
           },
-          this.props.navigation.goBack,
+          this.props.navigation.goBack
       )
   };
 
@@ -228,33 +228,33 @@ const styles = ScaledSheet.create({
         bottom: 0,
         width: '100%',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     buttonContainer: {
-        flex: 1,
+        flex: 1
     },
     divider: {
         height: '12@s',
-        backgroundColor: '#DFDFDF',
+        backgroundColor: '#DFDFDF'
     },
     sliderContainer: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     slider: {
         flex: 1,
         height: '80@s',
         marginHorizontal: '32@s',
-        marginVertical: '16@s',
+        marginVertical: '16@s'
     },
     leftIcon: {
-        marginLeft: s(18),
+        marginLeft: s(18)
     },
     rightIcon: {
-        marginRight: s(18),
-    },
+        marginRight: s(18)
+    }
 })
 
 const mapStateToProps = ({
@@ -266,8 +266,8 @@ const mapStateToProps = ({
         selectedBrands,
         selectedSort,
         selectedMinPrice,
-        selectedMaxPrice,
-    },
+        selectedMaxPrice
+    }
 }) => ({
     filter,
     filterCategory,
@@ -276,12 +276,12 @@ const mapStateToProps = ({
     selectedBrands,
     selectedSort,
     selectedMinPrice,
-    selectedMaxPrice,
+    selectedMaxPrice
 })
 
 const mapDispatchToProps = {
     makeFilter,
-    clearFilter,
+    clearFilter
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterProductsScreen)

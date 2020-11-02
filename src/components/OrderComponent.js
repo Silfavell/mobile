@@ -30,7 +30,7 @@ class OrderComponent extends React.PureComponent {
 
   onCargoTrackClick = () => {
       Linking.openURL(
-          `http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${this.props.item.message}`,
+          `http://kargotakip.araskargo.com.tr/mainpage.aspx?code=${this.props.item.message}`
       )
   };
 
@@ -63,7 +63,7 @@ class OrderComponent extends React.PureComponent {
 
   render() {
       const {
-          item: { date, paidPrice, returnItemsTotalPayback, products, returnItems, status },
+          item: { date, paidPrice, returnItemsTotalPayback, products, returnItems, status }
       } = this.props
 
       return (
@@ -76,7 +76,7 @@ class OrderComponent extends React.PureComponent {
                               weekday: 'long',
                               year: 'numeric',
                               month: 'long',
-                              day: 'numeric',
+                              day: 'numeric'
                           })}
                       </Text>
                   </View>
@@ -125,25 +125,25 @@ const styles = ScaledSheet.create({
         display: 'flex',
         borderWidth: 1,
         borderColor: '#DFDFDF',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     detailsContainer: {
         paddingBottom: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#DFDFDF',
+        borderBottomColor: '#DFDFDF'
     },
     detailsContainer2: {
         paddingTop: 24,
         paddingBottom: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#DFDFDF',
+        borderBottomColor: '#DFDFDF'
     },
     detailContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 4,
-    },
+        padding: 4
+    }
 })
 
 export default OrderComponent

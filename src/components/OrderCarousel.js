@@ -21,20 +21,20 @@ class OrderCarousel extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     container: {
-        height: '100%',
+        height: '100%'
     },
     viewPager: {
-        flex: 1,
+        flex: 1
     },
     paginator: {
-        height: '210@s',
+        height: '210@s'
     },
     dotContainer: {
         zIndex: 1000,
         opacity: 0.8,
         backgroundColor: 'transparent',
         flexDirection: 'row',
-        paddingHorizontal: 10,
+        paddingHorizontal: 10
     },
     dot: {
         width: 20,
@@ -43,8 +43,8 @@ const styles = ScaledSheet.create({
         marginHorizontal: 3,
         marginVertical: 6,
         borderWidth: 1,
-        borderColor: '#CDCDCD',
-    },
+        borderColor: '#CDCDCD'
+    }
 })
 
 export default OrderCarousel

@@ -12,7 +12,7 @@ import ShadowContainer from '../../components/ShadowContainer'
 class SearchAddressScreen extends React.Component {
   state = {
       searchVal: '',
-      locations: [],
+      locations: []
   };
 
   onSearchChange = (searchVal) => {
@@ -30,8 +30,8 @@ class SearchAddressScreen extends React.Component {
       this.props.navigation.navigate('pinAddressScreen', {
           region: {
               latitude: data.result.geometry.location.lat,
-              longitude: data.result.geometry.location.lng,
-          },
+              longitude: data.result.geometry.location.lng
+          }
       })
   };
 
@@ -44,7 +44,7 @@ class SearchAddressScreen extends React.Component {
       // this.props.messagePopupRef.showMessage({ message: 'Konumunuzu için izine ihtiyaç var.' })
       } else {
           this.props.navigation.navigate('pinAddressScreen', {
-              region,
+              region
           })
       }
   };
@@ -122,58 +122,58 @@ class SearchAddressScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         backgroundColor: '#E5E5E5',
-        flex: 1,
+        flex: 1
     },
     list: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     header: {
         height: 110,
         display: 'flex',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     divider: {
         height: 1,
         backgroundColor: '#DFDFDF',
-        marginHorizontal: 12,
+        marginHorizontal: 12
     },
     searchAddressContainerContainer: {
         flex: 1,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 6,
+        marginHorizontal: 6
     },
     searchAddressContainer: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        marginHorizontal: 10,
+        marginHorizontal: 10
     },
     searchAddress: {
         flex: 1,
         paddingHorizontal: '16@s',
-        fontSize: 17,
+        fontSize: 17
     },
     useCurrentLocationButton: {
         flex: 1,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 6,
+        marginHorizontal: 6
     },
     useCurrentLocationContainer: {
         flex: 1,
         flexDirection: 'row',
         marginHorizontal: 10,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     useCurrentLocation: {
         flex: 1,
         paddingHorizontal: '16@s',
-        fontSize: 17,
+        fontSize: 17
     },
     item: {
         height: 70,
@@ -181,36 +181,36 @@ const styles = ScaledSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        margin: '6@s',
+        margin: '6@s'
     },
     itemChild: {
         flex: 1,
         flexDirection: 'row',
         marginHorizontal: '10@s',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     description: {
         flex: 1,
         paddingHorizontal: '16@s',
         fontSize: '15@s',
         color: '#6B788B',
-        fontWeight: '500',
+        fontWeight: '500'
     },
     meterText: {
         paddingHorizontal: '4@s',
         fontSize: '13@s',
         color: '#6B788B',
-        fontWeight: '500',
-    },
+        fontWeight: '500'
+    }
 })
 
 const mapStateToProps = ({ globalReducer: { messagePopupRef } }) => ({
-    messagePopupRef,
+    messagePopupRef
 })
 
 const mapDispatchToProps = {
     setRegionByPlace,
-    setCurrentRegion,
+    setCurrentRegion
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchAddressScreen)

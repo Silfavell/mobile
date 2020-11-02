@@ -20,24 +20,24 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white',
         display: 'flex',
-        flex: 1,
+        flex: 1
     },
     center: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'column',
+        flexDirection: 'column'
     },
     text: {
         fontSize: '28@s',
         paddingVertical: '30@s',
         fontWeight: 'bold',
-        color: 'rgba(0,0,0,.8)',
+        color: 'rgba(0,0,0,.8)'
     },
     image: {
         height: '300@s',
-        aspectRatio: 1,
-    },
+        aspectRatio: 1
+    }
 })
 
 export default LoadingComponent

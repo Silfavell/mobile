@@ -15,7 +15,7 @@ import Map from '../MapScreens/Map'
 class CompleteAddressScreen extends React.Component {
   state = {
       scaleAnimationModal: false,
-      addressTitle: '',
+      addressTitle: ''
   };
 
   shouldComponentUpdate(_, nextState) {
@@ -100,21 +100,21 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: '2@s',
+        zIndex: '2@s'
     },
     inputContainer: { height: '60@s', margin: '2@s', flex: 1 },
     inputContainerChild: {
         height: '60@s',
         margin: '2@s',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     addressInputContainer: { height: '120@s', margin: '2@s', flex: 1 },
     addressinputContainerChild: {
         height: '120@s',
         margin: '2@s',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     input: {
         flex: 1,
@@ -125,16 +125,16 @@ const styles = ScaledSheet.create({
         borderRadius: 8,
         borderColor: '#C3C3C3',
         paddingHorizontal: '13@s',
-        fontSize: '17@s',
-    },
+        fontSize: '17@s'
+    }
 })
 
 const mapStateToProps = ({ mapReducer: { address } }) => ({
-    address,
+    address
 })
 
 const mapDispatchToProps = {
-    saveAddress,
+    saveAddress
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompleteAddressScreen)

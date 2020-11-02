@@ -69,27 +69,27 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        paddingBottom: '65@s',
+        paddingBottom: '65@s'
     },
     emptyContainer: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED',
+        backgroundColor: '#EDEDED'
     },
     emptyText: {
         marginTop: 32,
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545',
+        color: '#454545'
     },
     child: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     listProductsButtonContainer: {
-        display: 'flex',
+        display: 'flex'
     },
     listProducts: {
         backgroundColor: 'rgba(0,0,0,.8)',
@@ -98,25 +98,25 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         margin: '18@s',
         padding: '18@s',
-        paddingHorizontal: '48@s',
+        paddingHorizontal: '48@s'
     },
     listProductsText: {
         color: 'white',
         fontSize: '19@s',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     footer: {
         height: '65@s',
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent'
     },
     flatListStyle: {
-        backgroundColor: '#DFDFDF',
-    },
+        backgroundColor: '#DFDFDF'
+    }
 })
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({
-    cart,
+    cart
 })
 
 export default connect(mapStateToProps)(CartScreen)

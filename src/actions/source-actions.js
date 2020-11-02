@@ -8,7 +8,7 @@ import {
     signUp,
     addFavorite,
     removeFavorite,
-    updateProfile as updateProfileRequest,
+    updateProfile as updateProfileRequest
 } from '../scripts/requests'
 import { SET_NEED_UPDATE_POPUP_STATE } from './global-actions'
 
@@ -39,8 +39,8 @@ export const updateProfile = (body, cb) => {
             dispatch({
                 type: SET_USER,
                 payload: {
-                    user: data,
-                },
+                    user: data
+                }
             })
             cb()
         }
@@ -64,22 +64,22 @@ export const setInitialDatas = () => {
                         token: tokenObj[1],
                         user: JSON.parse(userObj[1]),
                         cart: JSON.parse(cartObj[1]),
-                        cards: datas.cards?.cardDetails,
-                    },
+                        cards: datas.cards?.cardDetails
+                    }
                 })
             }
 
             return dispatch({
                 type: SET_INITIAL_DATAS,
-                payload: datas,
+                payload: datas
             })
         }
 
         dispatch({
             type: SET_NEED_UPDATE_POPUP_STATE,
             payload: {
-                needUpdatePopupState: true,
-            },
+                needUpdatePopupState: true
+            }
         })
     }
 }
@@ -91,15 +91,15 @@ export const login = (body, cb) => {
         if (status === 200) {
             await AsyncStorage.multiSet([
                 ['token', data.token],
-                ['user', JSON.stringify(data.user)],
+                ['user', JSON.stringify(data.user)]
             ])
 
             dispatch({
                 type: SET_USER,
                 payload: {
                     user: data.user,
-                    token: data.token,
-                },
+                    token: data.token
+                }
             })
 
             cb()
@@ -114,15 +114,15 @@ export const register = (body, cb) => {
         if (status === 200) {
             await AsyncStorage.multiSet([
                 ['token', data.token],
-                ['user', JSON.stringify(data.user)],
+                ['user', JSON.stringify(data.user)]
             ])
 
             dispatch({
                 type: SET_USER,
                 payload: {
                     user: data.user,
-                    token: data.token,
-                },
+                    token: data.token
+                }
             })
             cb()
         }
@@ -137,8 +137,8 @@ export const logout = () => {
             type: LOGOUT,
             payload: {
                 user: {},
-                token: null,
-            },
+                token: null
+            }
         })
     }
 }
@@ -151,14 +151,14 @@ export const addToFavoriteProducts = (productId, messagePopupRef) => {
             const user = await AsyncStorage.getItem('user')
             await AsyncStorage.setItem(
                 'user',
-                JSON.stringify({ ...JSON.parse(user), favoriteProducts: data }),
+                JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })
             )
 
             dispatch({
                 type: UPDATE_FAVORITE_PRODUCTS,
                 payload: {
-                    favoriteProducts: data,
-                },
+                    favoriteProducts: data
+                }
             })
 
             if (messagePopupRef) {
@@ -176,14 +176,14 @@ export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => {
             const user = await AsyncStorage.getItem('user')
             await AsyncStorage.setItem(
                 'user',
-                JSON.stringify({ ...JSON.parse(user), favoriteProducts: data }),
+                JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })
             )
 
             dispatch({
                 type: UPDATE_FAVORITE_PRODUCTS,
                 payload: {
-                    favoriteProducts: data,
-                },
+                    favoriteProducts: data
+                }
             })
 
             if (messagePopupRef) {

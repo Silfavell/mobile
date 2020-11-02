@@ -14,8 +14,8 @@ const TabBarIcon = ({ name, focused }) => (
 
 const styles = StyleSheet.create({
     iconContainer: {
-        marginBottom: -3,
-    },
+        marginBottom: -3
+    }
 })
 
 export default TabBarIcon

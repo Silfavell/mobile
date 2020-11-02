@@ -27,13 +27,13 @@ class HeaderLeft extends React.Component {
 }
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({
-    cart,
+    cart
 })
 
 const styles = StyleSheet.create({
     backIcon: {
-        marginLeft: s(18),
-    },
+        marginLeft: s(18)
+    }
 })
 
 export default connect(mapStateToProps)(HeaderLeft)

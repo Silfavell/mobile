@@ -4,29 +4,29 @@ module.exports = {
         browser: true,
         'react-native/react-native': true,
         es2020: true,
-        jest: true,
+        jest: true
     },
     parser: 'babel-eslint',
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:import/errors',
-        'plugin:import/warnings',
+        'plugin:import/warnings'
         // 'plugin:import/typescript'
     ],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
-            experimentalObjectRestSpread: true,
+            experimentalObjectRestSpread: true
         },
         ecmaVersion: 11,
-        sourceType: 'module',
+        sourceType: 'module'
     },
     plugins: [
         'react',
         'react-native',
         // 'react-hooks', // TODO
-        'prettier',
+        'prettier'
     ],
     rules: {
         indent: ['error', 4],
@@ -66,7 +66,7 @@ module.exports = {
     },
     settings: {
         react: {
-            version: 'detect',
+            version: 'detect'
         },
         'import/ignore': ['react-native']
     }

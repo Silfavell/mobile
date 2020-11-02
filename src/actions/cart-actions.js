@@ -5,7 +5,7 @@ import {
     makeOrder as makeOrderRequest,
     decreaseProductQuantity as decreaseProductQuantityRequest,
     increaseProductQuantity as increaseProductQuantityRequest,
-    setProductQuantity as setProductQuantityRequest,
+    setProductQuantity as setProductQuantityRequest
 } from '../scripts/requests'
 
 export const CLEAR_CART = 'CLEAR_CART'
@@ -53,7 +53,7 @@ export const decreaseProductQuantity = (productId, messagePopupRef, quantity = 1
         if (status === 200) {
             dispatch({
                 type: DECREASE_PRODUCT_QUANTITY,
-                payload: data,
+                payload: data
             })
 
       messagePopupRef?.showMessage({ message: 'Ürün sepetinizden çıkarıldı.' })
@@ -68,7 +68,7 @@ export const increaseProductQuantity = (productId, messagePopupRef, quantity = 1
         if (status === 200) {
             dispatch({
                 type: INCREASE_PRODUCT_QUANTITY,
-                payload: data,
+                payload: data
             })
 
       messagePopupRef?.showMessage({ message: 'Ürün sepetinize eklendi.' })
@@ -85,8 +85,8 @@ export const setProductQuantity = (productId, quantity = 1) => {
                 type: SET_PRODUCT_QUANTITY,
                 payload: {
                     ...data,
-                    quantity,
-                },
+                    quantity
+                }
             })
         }
     }

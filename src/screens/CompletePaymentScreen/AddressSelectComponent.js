@@ -50,34 +50,34 @@ class AddressSelectComponent extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     container: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     iconContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         marginHorizontal: '8@s',
         padding: '4@s',
-        flex: 1,
+        flex: 1
     },
     paymentInfoContainer: {
         flexDirection: 'column',
         marginHorizontal: '8@s',
         padding: '4@s',
         height: '72@s',
-        flex: 5,
+        flex: 5
     },
     paymentInfoTextContainer: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     paymentTitle: {
         fontSize: '17@s',
-        marginVertical: '4@s',
+        marginVertical: '4@s'
     },
     paymentDetail: {
         fontSize: '14@s',
-        marginVertical: '4@s',
-    },
+        marginVertical: '4@s'
+    }
 })
 
 export default AddressSelectComponent

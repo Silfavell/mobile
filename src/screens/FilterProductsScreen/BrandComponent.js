@@ -8,7 +8,7 @@ import SettingItem from '../../components/SettingItem'
 
 class BrandComponent extends React.Component {
   state = {
-      checked: this.props.checked,
+      checked: this.props.checked
   };
 
   onClick = () => {
@@ -47,7 +47,7 @@ class BrandComponent extends React.Component {
 
 const styles = StyleSheet.create({
     checkBoxStyle: {
-        height: 24,
-    },
+        height: 24
+    }
 })
 export default BrandComponent

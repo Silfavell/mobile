@@ -22,12 +22,12 @@ class ShadowContainer extends React.Component {
 const styles = ScaledSheet.create({
     x: {
         flexGrow: 1,
-        backgroundColor: '#DFDFDF',
+        backgroundColor: '#DFDFDF'
     },
     y: {
         flexDirection: 'row',
         overflow: 'hidden',
-        paddingBottom: 4,
+        paddingBottom: 4
     },
     z: {
         flex: 1,
@@ -37,8 +37,8 @@ const styles = ScaledSheet.create({
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 24,
-        elevation: 3,
-    },
+        elevation: 3
+    }
 })
 
 export default ShadowContainer

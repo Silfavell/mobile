@@ -10,7 +10,7 @@ class Slider extends React.Component {
 
         this.state = {
             minPrice: props.initialMinPrice,
-            maxPrice: props.initialMaxPrice,
+            maxPrice: props.initialMaxPrice
         }
     }
 
@@ -18,7 +18,7 @@ class Slider extends React.Component {
     UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             minPrice: nextProps.initialMinPrice,
-            maxPrice: nextProps.initialMaxPrice,
+            maxPrice: nextProps.initialMaxPrice
         })
     }
 
@@ -53,14 +53,14 @@ const styles = ScaledSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     slider: {
         flex: 1,
         height: '80@s',
         marginHorizontal: '32@s',
-        marginVertical: '16@s',
-    },
+        marginVertical: '16@s'
+    }
 })
 
 export default Slider

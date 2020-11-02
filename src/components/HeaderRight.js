@@ -34,17 +34,17 @@ class HeaderRight extends React.Component {
 }
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({
-    cart,
+    cart
 })
 
 const mapDispatchToProps = {
-    setClearCartPopupState,
+    setClearCartPopupState
 }
 
 const styles = StyleSheet.create({
     iconContainer: {
-        marginRight: s(18),
-    },
+        marginRight: s(18)
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderRight)

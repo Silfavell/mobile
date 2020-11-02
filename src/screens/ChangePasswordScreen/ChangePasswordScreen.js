@@ -21,7 +21,7 @@ class ChangePasswordScreen extends React.Component {
       invalidPassword: false,
 
       isOldPasswordInitialized: false,
-      isPasswordInitialized: false,
+      isPasswordInitialized: false
   };
 
   setPopupState = ({ scaleAnimationModal }) => {
@@ -42,7 +42,7 @@ class ChangePasswordScreen extends React.Component {
       } else {
           const { status } = await changePassword({
               oldPassword: this.state.oldPassword,
-              newPassword: this.state.password,
+              newPassword: this.state.password
           })
 
           if (status === 200) {
@@ -85,7 +85,7 @@ class ChangePasswordScreen extends React.Component {
                       options={{
                           secureTextEntry: true,
                           textContentType: 'password',
-                          placeholder: 'Geçerli şifre',
+                          placeholder: 'Geçerli şifre'
                       }}
                       invalid={this.state.invalidOldPassword && this.state.isOldPasswordInitialized}
                       value={this.state.oldPassword}
@@ -96,7 +96,7 @@ class ChangePasswordScreen extends React.Component {
                       options={{
                           secureTextEntry: true,
                           textContentType: 'password',
-                          placeholder: 'Yeni şifre (en az 4 karakter)',
+                          placeholder: 'Yeni şifre (en az 4 karakter)'
                       }}
                       invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
                       value={this.state.password}
@@ -120,7 +120,7 @@ class ChangePasswordScreen extends React.Component {
 }
 
 const mapStateToProps = ({ globalReducer: { messagePopupRef } }) => ({
-    messagePopupRef,
+    messagePopupRef
 })
 
 export default connect(mapStateToProps)(ChangePasswordScreen)

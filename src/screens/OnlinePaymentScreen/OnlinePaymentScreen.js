@@ -12,7 +12,7 @@ class OnlinePaymentScreen extends React.Component {
   state = {
       cardNumber: '4444 4444 4444 4444',
       expirationDate: '09/23',
-      CVC2: '333',
+      CVC2: '333'
   };
 
   makeOrder = () => {
@@ -38,7 +38,7 @@ class OnlinePaymentScreen extends React.Component {
               (previousValue, currentValue) =>
                   previousValue +
           parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
-              0,
+              0
           )
           .toFixed(2)
           .replace('.', ',')
@@ -128,7 +128,7 @@ const styles = ScaledSheet.create({
         height: 600,
         width: Dimensions.get('window').width,
         backgroundColor: '#EDEDED',
-        display: 'flex',
+        display: 'flex'
     },
     paymentHeader: {
         flex: 0.16,
@@ -140,43 +140,43 @@ const styles = ScaledSheet.create({
         shadowOffset: { width: 0, height: '4@s' },
         shadowOpacity: 0.32,
         shadowRadius: '6@s',
-        elevation: 9,
+        elevation: 9
     },
     labelInput: {
         color: '#57A25A',
-        fontSize: '14@s',
+        fontSize: '14@s'
     },
     inputContainerChild: {
-        flex: 1,
+        flex: 1
     },
     input: {
         borderWidth: 0,
         borderBottomWidth: 1.5,
         borderColor: '#333',
-        color: 'rgba(0,0,0,.8)',
+        color: 'rgba(0,0,0,.8)'
     },
     totalPriceText: {
         color: 'rgba(0,0,0,.8)',
         fontWeight: 'bold',
-        fontSize: 19,
+        fontSize: 19
     },
     totalPrice: {
         color: 'rgba(0,0,0,.8)',
         fontWeight: 'bold',
-        fontSize: '22@s',
+        fontSize: '22@s'
     },
     cardInformationContainer: {
         flex: 0.34,
-        marginVertical: '24@s',
+        marginVertical: '24@s'
     },
     inputContainer: {
         flex: 1,
-        marginHorizontal: '12@s',
+        marginHorizontal: '12@s'
     },
     rowInputContainer: {
         flex: 1,
         flexDirection: 'row',
-        marginHorizontal: '12@s',
+        marginHorizontal: '12@s'
     },
     child: { flex: 1 },
     completePaymentContainer: {
@@ -185,54 +185,54 @@ const styles = ScaledSheet.create({
         flex: 0.6,
         backgroundColor: '#D3D3D3',
         margin: '8@s',
-        borderRadius: 36,
+        borderRadius: 36
     },
     completePaymentText: {
         fontSize: '20@s',
         fontWeight: 'bold',
-        color: '#8D8D8D',
+        color: '#8D8D8D'
     },
     cvcInfoContainer: {
         flex: 0.1,
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     infoIconContainer: {
-        margin: '8@s',
+        margin: '8@s'
     },
     cvcInfoTextContainer: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     cvcInfoText: {
         fontSize: '13@s',
-        color: '#A5A5A5',
+        color: '#A5A5A5'
     },
     informationContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
         flexDirection: 'row',
-        flex: 0.1,
+        flex: 0.1
     },
     informationTextContainer: {
         flex: 7,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     centerContainer: {
         alignItems: 'center',
-        justifyContent: 'center',
-    },
+        justifyContent: 'center'
+    }
 })
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({
-    cart,
+    cart
 })
 
 const mapDispatchToProps = {
-    makeOrder,
+    makeOrder
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OnlinePaymentScreen)

@@ -6,7 +6,7 @@ import {
     LayoutAnimation,
     Platform,
     UIManager,
-    StyleSheet,
+    StyleSheet
 } from 'react-native'
 
 import SettingItem from './SettingItem'
@@ -16,7 +16,7 @@ class Accordion extends Component {
         super(props)
 
         this.state = {
-            expanded: !!this.props.expanded,
+            expanded: !!this.props.expanded
         }
 
         if (Platform.OS === 'android') {
@@ -47,7 +47,7 @@ class Accordion extends Component {
 
 const styles = StyleSheet.create({
     childContainer: {
-        marginHorizontal: 4,
-    },
+        marginHorizontal: 4
+    }
 })
 export default Accordion

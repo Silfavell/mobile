@@ -28,17 +28,17 @@ const styles = ScaledSheet.create({
         borderRadius: 8,
         borderColor: '#C3C3C3',
         paddingHorizontal: '13@s',
-        fontSize: '17@s',
-    },
+        fontSize: '17@s'
+    }
 })
 
 const mapStateToProps = ({ mapReducer: { region, address } }) => ({
     region,
-    address,
+    address
 })
 
 const mapDispatchToProps = {
-    setAddress,
+    setAddress
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompleteAddressInput)

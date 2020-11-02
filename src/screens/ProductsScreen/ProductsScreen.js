@@ -26,7 +26,7 @@ class ProductsScreen extends React.Component {
         this.selectedCategory = this.props.route.params.selectedCategory
 
         this.props.navigation.setOptions({
-            title: this.props.products[this.selectedCategory].name,
+            title: this.props.products[this.selectedCategory].name
             /* headerRight: () => ( // filter button
 				<TouchableOpacity onPress={this.onFilterClick}>
 					<MaterialIcons

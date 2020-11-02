@@ -12,7 +12,7 @@ import { listFavorites } from '../../scripts/requests'
 class FavoriteProductsScreen extends React.Component {
   state = {
       products: [],
-      fetching: true,
+      fetching: true
   };
 
   componentDidMount() {
@@ -39,7 +39,7 @@ class FavoriteProductsScreen extends React.Component {
           if (status === 200) {
               return {
                   products: data?.favoriteProducts || [],
-                  fetching: false,
+                  fetching: false
               }
           }
 
@@ -74,28 +74,28 @@ class FavoriteProductsScreen extends React.Component {
 const styles = ScaledSheet.create({
     listContainer: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED',
+        backgroundColor: '#EDEDED'
     },
     emptyText: {
         marginTop: 32,
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545',
-    },
+        color: '#454545'
+    }
 })
 
 const mapStateToProps = ({
     sourceReducer: {
-        user: { favoriteProducts },
-    },
+        user: { favoriteProducts }
+    }
 }) => ({
-    favoriteProducts,
+    favoriteProducts
 })
 
 export default connect(mapStateToProps)(FavoriteProductsScreen)

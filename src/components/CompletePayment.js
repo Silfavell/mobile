@@ -17,7 +17,7 @@ class CompletePaymentComponent extends React.Component {
           selectedCard,
           selectedAddress,
           messagePopupRef,
-          setNeedToLoginPopupState,
+          setNeedToLoginPopupState
       } = this.props
 
       if (token) {
@@ -53,7 +53,7 @@ class CompletePaymentComponent extends React.Component {
           (previousValue, currentValue) =>
               previousValue +
         parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
-          0,
+          0
       )
 
       if (totalPrice < 85 && this.props.completable) {
@@ -82,7 +82,7 @@ const styles = ScaledSheet.create({
     centeredContainer: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     completePaymentContainer: {
         position: 'absolute',
@@ -90,48 +90,48 @@ const styles = ScaledSheet.create({
         width: '100%',
         height: '65@s',
         backgroundColor: 'rgba(0,0,0,.7)',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     completePaymentButton: {
         padding: '20@s',
         backgroundColor: 'rgba(0,0,0,.8)',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     completePaymentText: {
         color: 'white',
         fontSize: '16@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     totalPriceContainer: {
         flex: 2,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     totalPriceText: {
         color: 'white',
         fontSize: '16@s',
         padding: '12@s',
-        fontWeight: 'bold',
-    },
+        fontWeight: 'bold'
+    }
 })
 
 const mapStateToProps = ({
     cartReducer: { cart },
     paymentReducer: { paymentType, selectedCard, selectedAddress },
     sourceReducer: { token },
-    globalReducer: { messagePopupRef },
+    globalReducer: { messagePopupRef }
 }) => ({
     cart,
     paymentType,
     selectedCard,
     selectedAddress,
     token,
-    messagePopupRef,
+    messagePopupRef
 })
 
 const mapDispatchToProps = {
     makeOrder,
-    setNeedToLoginPopupState,
+    setNeedToLoginPopupState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompletePaymentComponent)

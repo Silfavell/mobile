@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import {
     decreaseProductQuantity,
     increaseProductQuantity,
-    setProductQuantity,
+    setProductQuantity
 } from '../actions/cart-actions'
 
 class CartProductQuantityComponent extends React.Component {
@@ -42,7 +42,7 @@ class CartProductQuantityComponent extends React.Component {
   onDecreaseClick = () => {
       if (this.props.returnItem) {
           this.setState({
-              quantity: this.props.returnItem.decreaseProductQuantity(this.props._id),
+              quantity: this.props.returnItem.decreaseProductQuantity(this.props._id)
           })
       } else {
           this.props.decreaseProductQuantity(this.props._id)
@@ -52,7 +52,7 @@ class CartProductQuantityComponent extends React.Component {
   onIncreaseClick = () => {
       if (this.props.returnItem) {
           this.setState({
-              quantity: this.props.returnItem.increaseProductQuantity(this.props._id),
+              quantity: this.props.returnItem.increaseProductQuantity(this.props._id)
           })
       } else {
           this.props.increaseProductQuantity(this.props._id)
@@ -70,7 +70,7 @@ class CartProductQuantityComponent extends React.Component {
           this.setState({ quantity: 1 }, () => {
               if (this.props.returnItem) {
                   this.setState({
-                      quantity: this.props.returnItem.setProductQuantity(this.props._id, 1),
+                      quantity: this.props.returnItem.setProductQuantity(this.props._id, 1)
                   })
               } else {
                   this.props.setProductQuantity(this.props._id, 1)
@@ -78,7 +78,7 @@ class CartProductQuantityComponent extends React.Component {
           })
       } else if (this.props.returnItem) {
           this.setState({
-              quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(quantity, 10)),
+              quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(quantity, 10))
           })
       } else {
           this.props.setProductQuantity(this.props._id, parseInt(quantity, 10))
@@ -133,50 +133,50 @@ const styles = ScaledSheet.create({
         flex: 1,
         borderWidth: 1,
         borderColor: 'rgba(0,0,0,.8)',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     containerRow: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     child: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     child2: {
-        flex: 0.2,
+        flex: 0.2
     },
     quantityContainer: {
         backgroundColor: 'rgba(0,0,0,.8)',
-        paddingHorizontal: '4@s',
+        paddingHorizontal: '4@s'
     },
     quantityButton: {
         color: 'rgba(0,0,0,.8)',
-        fontSize: '17@s',
+        fontSize: '17@s'
     },
     quantityText: {
         color: 'white',
         textAlign: 'center',
         fontSize: '17@s',
-        padding: 4,
+        padding: 4
     },
     decreaseButton: {
-        padding: '4@s',
+        padding: '4@s'
     },
     increaseButton: {
-        padding: '4@s',
-    },
+        padding: '4@s'
+    }
 })
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({
-    cart,
+    cart
 })
 
 const mapDispatchToProps = {
     decreaseProductQuantity,
     increaseProductQuantity,
-    setProductQuantity,
+    setProductQuantity
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartProductQuantityComponent)

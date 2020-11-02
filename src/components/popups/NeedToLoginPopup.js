@@ -58,30 +58,30 @@ class NeedToLoginPopup extends React.Component {
 
 const styles = ScaledSheet.create({
     footer: {
-        height: '42@s',
+        height: '42@s'
     },
     buttonOk: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(0,0,0,.8)'
     },
     buttonText: {
-        color: 'white',
+        color: 'white'
     },
     title: {
-        marginVertical: '8@s',
+        marginVertical: '8@s'
     },
     titleText: {
         textAlign: 'center',
-        fontSize: 16,
-    },
+        fontSize: 16
+    }
 })
 
 const mapStateToProps = ({ globalReducer: { needToLoginPopupState, navigation } }) => ({
     needToLoginPopupState,
-    navigation,
+    navigation
 })
 
 const mapDispatchToProps = {
-    setNeedToLoginPopupState,
+    setNeedToLoginPopupState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NeedToLoginPopup)

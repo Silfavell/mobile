@@ -19,28 +19,28 @@ const styles = ScaledSheet.create({
         padding: '10@s',
         borderBottomWidth: 0.8,
         borderBottomColor: '#D2D2D2',
-        marginHorizontal: '6@s',
+        marginHorizontal: '6@s'
     },
     iconContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
+        flex: 1
     },
     titleContainer: {
         alignItems: 'flex-start',
         flex: 6,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     title: {
         marginHorizontal: '4@s',
         fontSize: '16@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     rightIconContainer: {
         alignItems: 'flex-end',
         justifyContent: 'center',
-        flex: 1,
-    },
+        flex: 1
+    }
 })
 
 export default ClickableSettingItem

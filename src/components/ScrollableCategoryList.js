@@ -51,7 +51,7 @@ const styles = ScaledSheet.create({
         marginTop: 12,
         backgroundColor: 'white',
         borderTopWidth: 1,
-        borderTopColor: '#CDCDCD',
+        borderTopColor: '#CDCDCD'
     },
     categoryElement: {
         width: 100,
@@ -59,7 +59,7 @@ const styles = ScaledSheet.create({
         margin: 5,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     iconContainer: {
         width: 64,
@@ -71,16 +71,16 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         borderWidth: 1,
         borderColor: '#EE4266',
-        marginBottom: 8,
+        marginBottom: 8
     },
     imageContainer: {
         width: 40,
-        height: 40,
-    },
+        height: 40
+    }
 })
 
 const mapStateToProps = ({ sourceReducer: { categories } }) => ({
-    categories,
+    categories
 })
 
 export default connect(mapStateToProps)(ScrollableCategoryList)

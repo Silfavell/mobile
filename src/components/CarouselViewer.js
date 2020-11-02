@@ -6,7 +6,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 class CarouselViewer extends React.Component {
   state = {
-      current: 0,
+      current: 0
   };
 
   componentDidMount() {
@@ -59,7 +59,7 @@ class CarouselViewer extends React.Component {
                                   key={'slide' + i.toString()}
                                   style={[
                                       styles.dot,
-                                      { backgroundColor: this.state.current === i ? 'black' : 'white' },
+                                      { backgroundColor: this.state.current === i ? 'black' : 'white' }
                                   ]}
                               />
                           ))}
@@ -73,10 +73,10 @@ class CarouselViewer extends React.Component {
 
 const styles = ScaledSheet.create({
     container: {
-        height: '100%',
+        height: '100%'
     },
     viewPager: {
-        flex: 1,
+        flex: 1
     },
     paginator: {
         position: 'absolute',
@@ -84,14 +84,14 @@ const styles = ScaledSheet.create({
         left: 0,
         right: 0,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     dotContainer: {
         zIndex: 1000,
         opacity: 0.8,
         backgroundColor: 'transparent',
         flexDirection: 'row',
-        paddingHorizontal: 10,
+        paddingHorizontal: 10
     },
     dot: {
         width: 20,
@@ -100,8 +100,8 @@ const styles = ScaledSheet.create({
         marginHorizontal: 3,
         marginVertical: 6,
         borderWidth: 1,
-        borderColor: '#CDCDCD',
-    },
+        borderColor: '#CDCDCD'
+    }
 })
 
 export default CarouselViewer

@@ -6,7 +6,7 @@ export const CLEAR_FILTER = 'CLEAR_FILTER'
 export const makeFilter = (
     { categoryId, subCategoryId, sortType = 0, minPrice, maxPrice, brandsAsString },
     { filterCategory, selectedBrands, selectedSort },
-    callback,
+    callback
 ) => {
     return async (dispatch) => {
         let url = `/products-filter-mobile?categoryId=${categoryId}&subCategoryId=${subCategoryId}&sortType=${sortType}${brandsAsString}`
@@ -27,8 +27,8 @@ export const makeFilter = (
                     selectedBrands,
                     selectedSort,
                     selectedMinPrice: minPrice,
-                    selectedMaxPrice: maxPrice,
-                },
+                    selectedMaxPrice: maxPrice
+                }
             })
             callback()
         }
@@ -47,8 +47,8 @@ export const clearFilter = () => {
                 selectedBrands: [],
                 selectedSort: -1,
                 selectedMinPrice: null,
-                selectedMaxPrice: null,
-            },
+                selectedMaxPrice: null
+            }
         })
     }
 }

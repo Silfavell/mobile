@@ -44,32 +44,32 @@ class NeedUpdatePopup extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     footer: {
-        height: '42@s',
+        height: '42@s'
     },
     content: {
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     text: {
         fontSize: '17@s',
         fontWeight: 'bold',
         marginBottom: -6,
-        textAlign: 'center',
+        textAlign: 'center'
     },
     buttonNo: {
-        backgroundColor: '#697488',
+        backgroundColor: '#697488'
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(0,0,0,.8)'
     },
     buttonText: {
-        color: 'white',
-    },
+        color: 'white'
+    }
 })
 
 const mapStateToProps = ({ globalReducer: { needUpdatePopupState } }) => ({
-    needUpdatePopupState,
+    needUpdatePopupState
 })
 
 export default connect(mapStateToProps)(NeedUpdatePopup)

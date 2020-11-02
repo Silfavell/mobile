@@ -55,23 +55,23 @@ class DeleteAddressPopup extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     footer: {
-        height: '42@s',
+        height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488',
+        backgroundColor: '#697488'
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(0,0,0,.8)'
     },
     buttonText: {
-        color: 'white',
+        color: 'white'
     },
     title: {
-        marginVertical: '8@s',
+        marginVertical: '8@s'
     },
     titleText: {
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 })
 
 export default DeleteAddressPopup

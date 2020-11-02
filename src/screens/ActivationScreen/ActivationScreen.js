@@ -16,7 +16,7 @@ class ActivationScreen extends React.Component {
   state = {
       activationCode: '',
       invalidActivationCode: false,
-      isActivationCodeInitialized: false,
+      isActivationCodeInitialized: false
   };
 
   onRegisterClick = () => {
@@ -24,7 +24,7 @@ class ActivationScreen extends React.Component {
           { ...this.props.route.params, activationCode: this.state.activationCode },
           () => {
               this.props.navigation.navigate('Loading', { next: true })
-          },
+          }
       )
   };
 
@@ -39,7 +39,7 @@ class ActivationScreen extends React.Component {
               this.setState({
                   activationCode: val,
                   isActivationCodeInitialized: true,
-                  invalidActivationCode: !!err,
+                  invalidActivationCode: !!err
               })
           })
   };
@@ -47,7 +47,7 @@ class ActivationScreen extends React.Component {
   onResendClick = () => {
       sendActivationCode({
           phoneNumber: this.props.route.params.phoneNumber,
-          activationCodeType: 0, // REGISTER
+          activationCodeType: 0 // REGISTER
       })
   };
 
@@ -61,7 +61,7 @@ class ActivationScreen extends React.Component {
                   options={{
                       keyboardType: 'number-pad',
                       placeholder: 'Aktivasyon kodu',
-                      maxLength: 4,
+                      maxLength: 4
                   }}
               />
 
@@ -85,17 +85,17 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 12,
+        padding: 12
     },
     resendCodeText: {
         fontSize: '19@s',
         paddingHorizontal: '12@s',
-        color: '#6E7586',
-    },
+        color: '#6E7586'
+    }
 })
 
 const mapDistachToProps = {
-    register,
+    register
 }
 
 export default connect(null, mapDistachToProps)(ActivationScreen)

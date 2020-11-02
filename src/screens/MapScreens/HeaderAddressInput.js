@@ -26,7 +26,7 @@ const styles = ScaledSheet.create({
         alignItems: 'center',
         borderRadius: 10,
         margin: '18@s',
-        paddingHorizontal: '12@s',
+        paddingHorizontal: '12@s'
     },
     input: {
         margin: '8@s',
@@ -35,12 +35,12 @@ const styles = ScaledSheet.create({
         fontSize: '19@s',
         padding: '8@s',
         paddingHorizontal: '8@s',
-        color: '#757B8B',
-    },
+        color: '#757B8B'
+    }
 })
 
 const mapStateToProps = ({ mapReducer: { address } }) => ({
-    address,
+    address
 })
 
 export default connect(mapStateToProps)(HeaderAddressInput)

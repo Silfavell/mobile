@@ -2,7 +2,7 @@ import {
     SET_INITIAL_DATAS,
     SET_USER,
     LOGOUT,
-    UPDATE_FAVORITE_PRODUCTS,
+    UPDATE_FAVORITE_PRODUCTS
 } from '../actions/source-actions'
 
 const INITIAL_STATE = {
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
     bestSeller: [],
     mostSearched: [],
     user: {},
-    token: null,
+    token: null
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -25,8 +25,8 @@ export default (state = INITIAL_STATE, action) => {
             ...state,
             user: {
                 ...state.user,
-                favoriteProducts: action.payload.favoriteProducts,
-            },
+                favoriteProducts: action.payload.favoriteProducts
+            }
         }
     }
     default:

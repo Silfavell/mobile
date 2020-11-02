@@ -7,7 +7,7 @@ import TextInputMask from 'react-native-text-input-mask'
 
 class InputComponent extends React.Component {
   state = {
-      selectorRef: null,
+      selectorRef: null
   };
 
   onSelectorInputClick = () => {
@@ -41,7 +41,7 @@ class InputComponent extends React.Component {
           invalid,
           disabled,
           mask,
-          multiline,
+          multiline
       } = this.props
 
       return (
@@ -64,7 +64,7 @@ class InputComponent extends React.Component {
                           styles.input,
                           invalid ? styles.invalid : {},
                           icon ? styles.withIcon : {},
-                          disabled ? styles.disabled : {},
+                          disabled ? styles.disabled : {}
                       ]}
                   />
               ) : (
@@ -81,7 +81,7 @@ class InputComponent extends React.Component {
                           invalid ? styles.invalid : {},
                           multiline ? styles.multilineInput : {},
                           icon ? styles.withIcon : {},
-                          disabled ? styles.disabled : {},
+                          disabled ? styles.disabled : {}
                       ]}
                   />
               )}
@@ -104,7 +104,7 @@ const styles = ScaledSheet.create({
     container: {
         height: '60@s',
         margin: '3@s',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     input: {
         flex: 1,
@@ -115,24 +115,24 @@ const styles = ScaledSheet.create({
         fontSize: '18@s',
         borderWidth: 1,
         color: 'black',
-        borderColor: '#CCC8E0',
+        borderColor: '#CCC8E0'
     },
     multiline: {
-        height: '180@s',
+        height: '180@s'
     },
     multilineInput: {
-        textAlignVertical: 'top',
+        textAlignVertical: 'top'
     },
     withIcon: {
-        paddingLeft: '48@s',
+        paddingLeft: '48@s'
     },
     invalid: {
         borderColor: '#EE4266',
-        borderWidth: 1.2,
+        borderWidth: 1.2
     },
     disabled: {
-        color: '#909090',
-    },
+        color: '#909090'
+    }
 })
 
 export default InputComponent

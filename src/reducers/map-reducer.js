@@ -2,12 +2,12 @@ import {
     SET_REGION,
     SET_ADDRESS,
     SET_REGION_BY_PLACE,
-    SET_CURRENT_REGION,
+    SET_CURRENT_REGION
 } from '../actions/map-actions'
 
 const INITIAL_STATE = {
     region: {},
-    address: '',
+    address: ''
 }
 
 export default (state = INITIAL_STATE, action) => {

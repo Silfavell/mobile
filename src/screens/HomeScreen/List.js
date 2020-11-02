@@ -21,7 +21,7 @@ class List extends React.Component {
 
   setData = (list) => {
       this.state = {
-          dataProvider: this.dataProvider.cloneWithRows(list),
+          dataProvider: this.dataProvider.cloneWithRows(list)
       }
   };
 

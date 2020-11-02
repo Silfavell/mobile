@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     selectedBrands: [],
     selectedSort: -1,
     selectedMinPrice: null,
-    selectedMaxPrice: null,
+    selectedMaxPrice: null
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -17,7 +17,7 @@ export default (state = INITIAL_STATE, action) => {
     case CLEAR_FILTER: {
         return {
             ...state,
-            ...action.payload,
+            ...action.payload
         }
     }
     default:

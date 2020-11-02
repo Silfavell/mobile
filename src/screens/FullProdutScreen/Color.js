@@ -25,16 +25,16 @@ const styles = ScaledSheet.create({
         width: 32,
         padding: 4,
         margin: 4,
-        borderRadius: 16,
+        borderRadius: 16
     },
     border: {
         borderWidth: 1,
-        borderColor: '#CDCDCD',
+        borderColor: '#CDCDCD'
     },
     color: {
         flex: 1,
-        borderRadius: 12,
-    },
+        borderRadius: 12
+    }
 })
 
 export default Color

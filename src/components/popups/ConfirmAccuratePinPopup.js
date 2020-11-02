@@ -56,36 +56,36 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     footer: {
-        height: '42@s',
+        height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488',
+        backgroundColor: '#697488'
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(0,0,0,.8)'
     },
     buttonText: {
-        color: 'white',
+        color: 'white'
     },
     content: {
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     contentImage: {
-        height: '92@s',
+        height: '92@s'
     },
     contentText: {
         fontSize: '16@s',
         fontWeight: 'bold',
         marginTop: '12@s',
         marginBottom: -6,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 })
 
 const mapStateToProps = ({ mapReducer: { region } }) => ({
-    region,
+    region
 })
 
 export default connect(mapStateToProps)(ConfirmAccuratePinPopup)

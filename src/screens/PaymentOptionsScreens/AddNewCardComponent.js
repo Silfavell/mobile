@@ -53,38 +53,38 @@ const styles = ScaledSheet.create({
         flex: 1,
         flexDirection: 'row',
         padding: 8,
-        marginHorizontal: 6,
+        marginHorizontal: 6
     },
     child: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal: 8,
+        marginHorizontal: 8
     },
     cardName: {
-        fontSize: '16@s',
+        fontSize: '16@s'
     },
     cardNumber: {
         fontSize: '15@s',
-        color: '#6C7486',
+        color: '#6C7486'
     },
     highlightedText: {
         fontSize: '16@s',
-        color: 'rgba(0,0,0,.8)',
+        color: 'rgba(0,0,0,.8)'
     },
     iconContainer: {
         height: 24,
         width: 36,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     emptyIcon: {
-        height: 32,
+        height: 32
     },
     textContainer: {
         flex: 1,
         alignItems: 'flex-start',
-        marginHorizontal: 6,
-    },
+        marginHorizontal: 6
+    }
 })
 
 export default AddNewCardComponent

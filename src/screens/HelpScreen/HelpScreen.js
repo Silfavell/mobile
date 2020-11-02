@@ -16,7 +16,7 @@ class HelpScreen extends React.Component {
       surname: '',
       email: '',
       subject: '',
-      message: '',
+      message: ''
   };
 
   setPopupState = ({ scaleAnimationModal }) => {
@@ -55,7 +55,7 @@ class HelpScreen extends React.Component {
           surname,
           email,
           subject,
-          message,
+          message
       })
 
       if (status === 200) {
@@ -77,7 +77,7 @@ class HelpScreen extends React.Component {
               <View>
                   <InputComponent
                       options={{
-                          placeholder: 'Adınız',
+                          placeholder: 'Adınız'
                       }}
                       onChange={this.onNameChange}
                       value={name}
@@ -85,7 +85,7 @@ class HelpScreen extends React.Component {
 
                   <InputComponent
                       options={{
-                          placeholder: 'Soyadınız',
+                          placeholder: 'Soyadınız'
                       }}
                       onChange={this.onSurnameChange}
                       value={surname}
@@ -93,7 +93,7 @@ class HelpScreen extends React.Component {
 
                   <InputComponent
                       options={{
-                          placeholder: 'E-Posta',
+                          placeholder: 'E-Posta'
                       }}
                       onChange={this.onEmailChange}
                       value={email}
@@ -101,7 +101,7 @@ class HelpScreen extends React.Component {
 
                   <InputComponent
                       options={{
-                          placeholder: 'Konu',
+                          placeholder: 'Konu'
                       }}
                       onChange={this.onSubjectChange}
                       value={subject}
@@ -109,7 +109,7 @@ class HelpScreen extends React.Component {
 
                   <InputComponent
                       options={{
-                          placeholder: 'Mesaj',
+                          placeholder: 'Mesaj'
                       }}
                       multiline
                       onChange={this.onMessageChange}
@@ -136,8 +136,8 @@ class HelpScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         flexGrow: 1,
-        justifyContent: 'space-between',
-    },
+        justifyContent: 'space-between'
+    }
 })
 
 export default HelpScreen

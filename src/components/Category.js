@@ -26,7 +26,7 @@ const styles = ScaledSheet.create({
         height: 160,
         marginVertical: 20,
         marginHorizontal: 10,
-        borderColor: '#CDCDCD',
+        borderColor: '#CDCDCD'
     },
     name: {
         position: 'absolute',
@@ -39,8 +39,8 @@ const styles = ScaledSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         paddingHorizontal: 18,
-        paddingVertical: 4,
-    },
+        paddingVertical: 4
+    }
 })
 
 export default Category

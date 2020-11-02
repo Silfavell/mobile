@@ -31,19 +31,19 @@ const styles = ScaledSheet.create({
         width: 16,
         height: 16,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     badgeText: {
         color: 'white',
-        fontSize: '12@s',
+        fontSize: '12@s'
     },
     iconContainer: {
-        marginBottom: -3,
-    },
+        marginBottom: -3
+    }
 })
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({
-    cart,
+    cart
 })
 
 export default connect(mapStateToProps)(CartIcon)

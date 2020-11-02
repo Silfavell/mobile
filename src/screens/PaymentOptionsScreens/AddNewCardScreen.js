@@ -26,7 +26,7 @@ class AddNewCardScreen extends React.Component {
       // isCardHolderNameInitialized: true,
       isCardNumberInitialized: false,
       isExpireYearInitialized: false,
-      isExpireMonthInitialized: false,
+      isExpireMonthInitialized: false
   };
 
   onContinueClick = () => {
@@ -38,11 +38,11 @@ class AddNewCardScreen extends React.Component {
               cardHolderName,
               cardNumber: cardNumber.split(' ').join(''),
               expireYear,
-              expireMonth,
+              expireMonth
           },
           () => {
               this.props.navigation.goBack()
-          },
+          }
       )
   };
 
@@ -78,7 +78,7 @@ class AddNewCardScreen extends React.Component {
       const years = Array.from(new Array(20)).map((_, index) => {
           return {
               key: 'year' + index,
-              label: (new Date().getFullYear() + index).toString(),
+              label: (new Date().getFullYear() + index).toString()
           }
       })
 
@@ -115,7 +115,7 @@ class AddNewCardScreen extends React.Component {
                       <InputComponent
                           options={{
                               placeholder: 'Kart etiketi (Kişisel, İş vb.)',
-                              maxLength: 20,
+                              maxLength: 20
                           }}
                           onChange={this.onAliasChange}
                           invalid={this.state.invalidCardAlias && this.state.isCardAliasInitialized}
@@ -126,7 +126,7 @@ class AddNewCardScreen extends React.Component {
                           options={{
                               placeholder: 'Kart Numarası',
                               maxLength: 19,
-                              keyboardType: 'number-pad',
+                              keyboardType: 'number-pad'
                           }}
                           invalid={this.state.invalidCardNumber && this.state.isCardNumberInitialized}
                           mask={'card'}
@@ -140,58 +140,58 @@ class AddNewCardScreen extends React.Component {
                                   options={{
                                       placeholder: 'Ay',
                                       maxLength: 2,
-                                      keyboardType: 'number-pad',
+                                      keyboardType: 'number-pad'
                                   }}
                                   invalid={this.state.invalidExpireMonth && this.state.isExpireMonthInitialized}
                                   selector={[
                                       {
                                           key: 0,
-                                          label: '01',
+                                          label: '01'
                                       },
                                       {
                                           key: 1,
-                                          label: '02',
+                                          label: '02'
                                       },
                                       {
                                           key: 2,
-                                          label: '03',
+                                          label: '03'
                                       },
                                       {
                                           key: 3,
-                                          label: '04',
+                                          label: '04'
                                       },
                                       {
                                           key: 4,
-                                          label: '05',
+                                          label: '05'
                                       },
                                       {
                                           key: 5,
-                                          label: '06',
+                                          label: '06'
                                       },
                                       {
                                           key: 6,
-                                          label: '07',
+                                          label: '07'
                                       },
                                       {
                                           key: 7,
-                                          label: '08',
+                                          label: '08'
                                       },
                                       {
                                           key: 8,
-                                          label: '09',
+                                          label: '09'
                                       },
                                       {
                                           key: 9,
-                                          label: '10',
+                                          label: '10'
                                       },
                                       {
                                           key: 10,
-                                          label: '11',
+                                          label: '11'
                                       },
                                       {
                                           key: 11,
-                                          label: '12',
-                                      },
+                                          label: '12'
+                                      }
                                   ]}
                                   setPickedValue={this.onExpireMonthChange}
                                   onChange={this.onExpireMonthChange}
@@ -203,7 +203,7 @@ class AddNewCardScreen extends React.Component {
                               <InputComponent
                                   options={{
                                       placeholder: 'Yıl',
-                                      keyboardType: 'number-pad',
+                                      keyboardType: 'number-pad'
                                   }}
                                   invalid={this.state.invalidExpireYear && this.state.isExpireYearInitialized}
                                   selector={this.getYearSelectorValues()}
@@ -239,10 +239,10 @@ class AddNewCardScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         flexGrow: 1,
-        justifyContent: 'space-between',
+        justifyContent: 'space-between'
     },
     header: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     imageContainer: {
         margin: '10@s',
@@ -250,57 +250,57 @@ const styles = ScaledSheet.create({
         marginLeft: '12@s',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     caseImage: {
         width: '95@s',
         height: '105@s',
-        borderRadius: 8,
+        borderRadius: 8
     },
     securityText: {
         color: 'rgba(0,0,0,.8)',
         fontSize: '19@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     infoContainer: {
         flex: 1,
         flexDirection: 'column',
         margin: '10@s',
-        marginRight: '12@s',
+        marginRight: '12@s'
     },
     securityInformation: {
         color: '#757889',
         fontSize: '15@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     row: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     inputContainer: {
-        flex: 1,
+        flex: 1
     },
     continueButton: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'rgb(94,63,190)',
-        borderRadius: 10,
+        borderRadius: 10
     },
     continueText: {
         fontSize: '20@s',
-        color: 'white',
+        color: 'white'
     },
     empty: {
-        height: '22@s',
-    },
+        height: '22@s'
+    }
 })
 
 const mapStateToProps = ({ sourceReducer: { user } }) => ({
-    user,
+    user
 })
 
 const mapDispatchToProps = {
-    saveCard,
+    saveCard
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNewCardScreen)

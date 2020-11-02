@@ -14,13 +14,13 @@ class ForgotPasswordScreen extends React.Component {
       phoneNumber: '',
 
       isPhoneNumberInitialized: false,
-      invalidPhoneNumber: false,
+      invalidPhoneNumber: false
   };
 
   onSendCodeClick = async () => {
       const { status } = await sendActivationCode({
           phoneNumber: this.state.phoneNumber,
-          activationCodeType: 1, // RESET // TODO
+          activationCodeType: 1 // RESET // TODO
       })
 
       if (status === 202) {
@@ -48,7 +48,7 @@ class ForgotPasswordScreen extends React.Component {
                       keyboardType: 'phone-pad',
                       textContentType: 'telephoneNumber',
                       placeholder: 'Telefon Numarası',
-                      maxLength: 19,
+                      maxLength: 19
                   }}
                   mask={'telephoneNumber'}
                   invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}

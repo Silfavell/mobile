@@ -20,7 +20,7 @@ class CompletePaymentScreen extends React.PureComponent {
             selectedCard,
             selectedAddress,
             token,
-            setNeedToLoginPopupState,
+            setNeedToLoginPopupState
         } = this.props
 
         return (
@@ -69,17 +69,17 @@ class CompletePaymentScreen extends React.PureComponent {
 
 const mapStateToProps = ({
     paymentReducer: { cards, addresses, selectedCard, selectedAddress },
-    sourceReducer: { token },
+    sourceReducer: { token }
 }) => ({
     cards,
     addresses,
     selectedCard,
     selectedAddress,
-    token,
+    token
 })
 
 const mapDispatchToProps = {
-    setNeedToLoginPopupState,
+    setNeedToLoginPopupState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompletePaymentScreen)

@@ -6,7 +6,7 @@ import {
     SAVE_ADDRESS,
     SET_SELECTED_ADDRESS,
     SET_SELECTED_CARD,
-    SET_PAYMENT_TYPE,
+    SET_PAYMENT_TYPE
 } from '../actions/payment-actions'
 import { SET_INITIAL_DATAS, LOGOUT, SET_USER } from '../actions/source-actions'
 
@@ -15,7 +15,7 @@ const INITIAL_STATE = {
     cards: [],
     addresses: [],
     selectedCard: null,
-    selectedAddress: null,
+    selectedAddress: null
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -31,7 +31,7 @@ export default (state = INITIAL_STATE, action) => {
         return {
             ...state,
             addresses: action.payload?.user?.addresses ?? [],
-            cards: action.payload?.cards ?? [],
+            cards: action.payload?.cards ?? []
         }
 
     case SAVE_CARD: {
@@ -42,9 +42,9 @@ export default (state = INITIAL_STATE, action) => {
     case DELETE_CARD: {
         state.cards.splice(
             state.cards.indexOf(
-                state.cards.find((card) => card.cardToken === action.payload.cardToken),
+                state.cards.find((card) => card.cardToken === action.payload.cardToken)
             ),
-            1,
+            1
         )
         return { ...state, cards: [...state.cards], selectedCard: null }
     }

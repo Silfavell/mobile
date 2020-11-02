@@ -19,7 +19,7 @@ const banners = [
     `${Config.SERVER_URL}/assets/banners/1.jpg`,
     `${Config.SERVER_URL}/assets/banners/2.jpg`,
     `${Config.SERVER_URL}/assets/banners/3.jpg`,
-    `${Config.SERVER_URL}/assets/banners/4.jpg`,
+    `${Config.SERVER_URL}/assets/banners/4.jpg`
 ]
 
 class HomeScreen extends React.Component {
@@ -46,7 +46,7 @@ class HomeScreen extends React.Component {
                     onPress={this.onCategoryListClick}>
                     <Ionicons name="md-menu" size={26} color="black" />
                 </TouchableOpacity>
-            ),
+            )
         })
     }
 
@@ -102,7 +102,7 @@ class HomeScreen extends React.Component {
                       <Text style={styles.dividerTitle}>En Çok Satanlar</Text>
                   </View>
               </ShadowContainer>
-          </View>,
+          </View>
       ]
 
       return (
@@ -115,7 +115,7 @@ class HomeScreen extends React.Component {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(0,0,0,.8)'
     },
     headerTitle: {
         height: '100%',
@@ -126,54 +126,54 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         borderBottomWidth: 3,
         borderBottomColor: 'rgba(0,0,0,.8)',
-        zIndex: 1,
+        zIndex: 1
     },
     headerImage: {
         height: '130%',
-        zIndex: -1,
+        zIndex: -1
     },
     divider: {
         height: '50@s',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     dividerChild: {
         height: '100%',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     dividerTitle: {
         color: 'black',
         fontSize: '17@s',
         fontWeight: '600',
-        paddingHorizontal: '16@s',
+        paddingHorizontal: '16@s'
     },
     headerLeft: {
         paddingLeft: s(18),
-        zIndex: 2,
+        zIndex: 2
     },
     headerContainer1: {
-        height: s(190),
+        height: s(190)
     },
     headerContainer2: {
-        height: s(120),
+        height: s(120)
     },
     shadowContainer: {
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     bestSellerContainer: {
         flex: 1,
-        backgroundColor: 'white',
-    },
+        backgroundColor: 'white'
+    }
 })
 
 const mapStateToProps = ({ sourceReducer: { categories, bestSeller } }) => ({
     categories,
-    bestSeller,
+    bestSeller
 })
 
 export default connect(mapStateToProps)(HomeScreen)

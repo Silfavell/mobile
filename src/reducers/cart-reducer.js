@@ -4,12 +4,12 @@ import {
     INCREASE_PRODUCT_QUANTITY,
     MAKE_ORDER,
     CLEAR_CART,
-    SET_PRODUCT_QUANTITY,
+    SET_PRODUCT_QUANTITY
 } from '../actions/cart-actions'
 import { SET_INITIAL_DATAS } from '../actions/source-actions'
 
 const INITIAL_STATE = {
-    cart: {},
+    cart: {}
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -42,9 +42,9 @@ export default (state = INITIAL_STATE, action) => {
                 ...state.cart,
                 [action.payload._id]: {
                     ...action.payload,
-                    quantity: 1,
-                },
-            },
+                    quantity: 1
+                }
+            }
         }
     }
 

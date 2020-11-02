@@ -24,7 +24,7 @@ class CartProduct extends React.PureComponent {
       const {
           data: { _id, name, price, paidPrice, discountedPrice, slug, quantity },
           previousOrder,
-          returnItem,
+          returnItem
       } = this.props
 
       const url = `${Config.SERVER_URL}/assets/products/${slug}_300x300.webp`
@@ -58,7 +58,7 @@ class CartProduct extends React.PureComponent {
                               <Text
                                   style={[
                                       styles.productPrice,
-                                      discountedPrice && !previousOrder ? styles.discountedPrice : {},
+                                      discountedPrice && !previousOrder ? styles.discountedPrice : {}
                                   ]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
                               {discountedPrice && !previousOrder && (
                                   <Text style={styles.productPrice}>{`₺${discountedPrice
@@ -99,45 +99,45 @@ const styles = ScaledSheet.create({
         paddingVertical: '12@s',
         borderBottomWidth: 1,
         borderBottomColor: '#EFEFEF',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     child: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     flex2: {
-        flex: 1.6,
+        flex: 1.6
     },
     flex3: {
-        flex: 3,
+        flex: 3
     },
     column: {
         flexDirection: 'column',
-        display: 'flex',
+        display: 'flex'
     },
     rowChild: {
         flex: 2,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        display: 'flex',
+        display: 'flex'
     },
     textContainer: {
         width: '100%',
         paddingHorizontal: '8@s',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     priceContainer: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     productName: {
         fontSize: '15@s',
         fontWeight: '700',
         color: '#454545',
         textAlign: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     productPrice: {
         fontSize: '18@s',
@@ -145,37 +145,37 @@ const styles = ScaledSheet.create({
         color: 'rgba(0,0,0,.8)',
         textAlign: 'center',
         justifyContent: 'center',
-        marginRight: 8,
+        marginRight: 8
     },
     discountedPrice: {
         fontWeight: 'normal',
         fontWeight: '100',
         marginRight: 8,
-        textDecorationLine: 'line-through',
+        textDecorationLine: 'line-through'
     },
     imageContainer: {
         padding: '4@s',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     productImage: {
         width: '100%',
         height: null,
         aspectRatio: 0.6,
         borderWidth: 1,
-        borderColor: '#EFEFEF',
+        borderColor: '#EFEFEF'
     },
     trashIconContainer: {
         position: 'absolute',
         right: 0,
-        marginRight: s(18),
+        marginRight: s(18)
     },
     trashIcon: {
-        paddingTop: 10,
-    },
+        paddingTop: 10
+    }
 })
 
 const mapDispatchToProps = {
-    setProductQuantity,
+    setProductQuantity
 }
 
 export default connect(null, mapDispatchToProps)(CartProduct)

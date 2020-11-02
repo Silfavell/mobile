@@ -37,31 +37,31 @@ const styles = ScaledSheet.create({
         padding: '10@s',
         borderWidth: 1,
         borderColor: '#EFEFEF',
-        borderRadius: '5@s',
+        borderRadius: '5@s'
     },
     rateContainer: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     alias: {
         fontWeight: 'bold',
         fontSize: '16@s',
         marginTop: '8@s',
-        paddingHorizontal: '10@s',
+        paddingHorizontal: '10@s'
     },
     title: {
         fontWeight: 'bold',
         fontSize: '18@s',
         marginTop: '8@s',
-        paddingHorizontal: '10@s',
+        paddingHorizontal: '10@s'
     },
     comment: {
         fontSize: '16@s',
         marginTop: '8@s',
-        paddingHorizontal: '10@s',
+        paddingHorizontal: '10@s'
     },
     star: {
-        marginLeft: '5@s',
-    },
+        marginLeft: '5@s'
+    }
 })
 
 export default Comment

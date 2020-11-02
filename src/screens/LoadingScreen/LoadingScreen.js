@@ -39,11 +39,11 @@ class LoadingScreen extends React.Component {
 
 const mapStateToProps = ({ sourceReducer: { token, categories } }) => ({
     token,
-    categories,
+    categories
 })
 
 const mapDispatchToProps = {
-    setInitialDatas,
+    setInitialDatas
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoadingScreen)

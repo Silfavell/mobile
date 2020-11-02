@@ -14,7 +14,7 @@ const HeadingDivider = ({ title }) => (
 const styles = ScaledSheet.create({
     container: {
         flexDirection: 'row',
-        overflow: 'hidden',
+        overflow: 'hidden'
     },
     titleContainer: {
         flex: 1,
@@ -26,13 +26,13 @@ const styles = ScaledSheet.create({
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 24,
-        elevation: 3,
+        elevation: 3
     },
     title: {
         color: '#A8A8A8',
         fontSize: '17@s',
-        fontWeight: 'bold',
-    },
+        fontWeight: 'bold'
+    }
 })
 
 export default HeadingDivider

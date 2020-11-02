@@ -22,7 +22,7 @@ const SettingItem = ({
     version,
     rightComponent,
     order,
-    rightIcon,
+    rightIcon
 }) => (
     <View style={[styles.container, order ? styles.order : {}]}>
         {(icon || emptyIcon) && <View style={styles.iconContainer}>{icon}</View>}
@@ -49,15 +49,15 @@ const styles = ScaledSheet.create({
         padding: '10@s',
         borderBottomWidth: 1,
         borderBottomColor: '#D2D2D2',
-        marginHorizontal: '6@s',
+        marginHorizontal: '6@s'
     },
     order: {
         marginHorizontal: 0,
-        borderBottomWidth: 0,
+        borderBottomWidth: 0
     },
     orderTitle: {
         marginHorizontal: 0,
-        color: '#EE4266',
+        color: '#EE4266'
     },
     iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
     titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },
@@ -65,13 +65,13 @@ const styles = ScaledSheet.create({
         marginHorizontal: '8@s',
         fontSize: '16@s',
         color: '#505050',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     value: {
-        fontSize: '16@s',
+        fontSize: '16@s'
     },
     rightIconContainer: { alignItems: 'flex-end', justifyContent: 'center', flex: 1 },
-    empty: { height: 32 },
+    empty: { height: 32 }
 })
 
 export default SettingItem

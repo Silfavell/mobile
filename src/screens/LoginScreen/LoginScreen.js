@@ -23,12 +23,12 @@ class LoginScreen extends React.Component {
       invalidPassword: false,
 
       isPhoneNumberInitialized: false,
-      isPasswordInitialized: false,
+      isPasswordInitialized: false
   };
 
   shouldComponentUpdate = (
       _,
-      nextState, // Update only state change, not props
+      nextState // Update only state change, not props
   ) =>
       this.state.phoneNumber !== nextState.phoneNumber || this.state.password !== nextState.password;
 
@@ -37,7 +37,7 @@ class LoginScreen extends React.Component {
 
       if (token && Object.values(cart).length > 0) {
           const { status, data } = await bulkCart(
-              Object.values(cart).map(({ _id, quantity }) => ({ _id, quantity })),
+              Object.values(cart).map(({ _id, quantity }) => ({ _id, quantity }))
           )
 
           if (status === 200) {
@@ -92,7 +92,7 @@ class LoginScreen extends React.Component {
                           keyboardType: 'phone-pad',
                           textContentType: 'telephoneNumber',
                           placeholder: 'Telefon Numarası',
-                          maxLength: 19,
+                          maxLength: 19
                       }}
                       mask={'telephoneNumber'}
                       invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
@@ -107,7 +107,7 @@ class LoginScreen extends React.Component {
                       options={{
                           secureTextEntry: true,
                           textContentType: 'password',
-                          placeholder: 'Şifre (en az 4 karakter)',
+                          placeholder: 'Şifre (en az 4 karakter)'
                       }}
                       invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
                       value={this.state.password}
@@ -157,11 +157,11 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        marginBottom: 12,
+        marginBottom: 12
     },
     child: {
         height: '60@vs',
-        margin: 3,
+        margin: 3
     },
     facebookButton: {
         backgroundColor: '#3B589E',
@@ -169,15 +169,15 @@ const styles = ScaledSheet.create({
         margin: '4@s',
         borderRadius: 10,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     forgotPasswordButton: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     inputContainer: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     input: {
         flex: 1,
@@ -187,47 +187,47 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '12@s',
         fontSize: '18@s',
         borderWidth: 0.8,
-        borderColor: '#ABABAB',
+        borderColor: '#ABABAB'
     },
     facebookText: {
         color: 'white',
-        fontSize: '18@s',
+        fontSize: '18@s'
     },
     forgotPasswordText: {
         color: '#6E7586',
         fontSize: '18@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     empty: {
-        height: '28@vs',
+        height: '28@vs'
     },
     buttonDivider: {
         height: '22@vs',
-        backgroundColor: '#EDEEF0',
+        backgroundColor: '#EDEEF0'
     },
     view: {
         justifyContent: 'flex-end',
-        margin: 0,
+        margin: 0
     },
     iosIcon: {
         transform: [
             {
-                rotateY: '180deg',
+                rotateY: '180deg'
             },
             {
-                rotateX: '180deg',
-            },
-        ],
-    },
+                rotateX: '180deg'
+            }
+        ]
+    }
 })
 
 const mapStateToProps = ({ cartReducer: { cart }, sourceReducer: { token } }) => ({
     cart,
-    token,
+    token
 })
 
 const mapDispatchToProps = {
-    login,
+    login
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)

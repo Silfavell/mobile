@@ -23,7 +23,7 @@ class FullProductScreen extends React.Component {
 
   state = {
       product: null,
-      pickedColor: -1,
+      pickedColor: -1
   };
 
   componentDidMount() {
@@ -61,7 +61,7 @@ class FullProductScreen extends React.Component {
                           }
                       />
                   </TouchableOpacity>
-              ),
+              )
           })
       }
   };
@@ -72,7 +72,7 @@ class FullProductScreen extends React.Component {
       } else {
           this.props.increaseProductQuantity(
               this.state.product.group[this.state.pickedColor]._id,
-              this.props.messagePopupRef,
+              this.props.messagePopupRef
           )
       }
   };
@@ -93,12 +93,12 @@ class FullProductScreen extends React.Component {
           this.setState(
               {
                   product: data,
-                  pickedColor: -1,
+                  pickedColor: -1
               },
               () => {
                   this.scrollRef.current.scrollTo({ y: 0, animated: true })
                   this.setHeader(data._id)
-              },
+              }
           )
       }
   };
@@ -116,14 +116,14 @@ class FullProductScreen extends React.Component {
           : this.state.product.group[this.state.pickedColor]
 
       return Array.from(new Array(imageCount)).map(
-          (el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`,
+          (el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`
       )
   };
 
   isColorSelected = (index) => {
       if (this.state.pickedColor === -1) {
           const productIndexInGroup = this.state.product.group.find(
-              (product) => product._id === this.state.product._id,
+              (product) => product._id === this.state.product._id
           )
           return this.state.product.group.indexOf(productIndexInGroup) === index
       }
@@ -182,7 +182,7 @@ class FullProductScreen extends React.Component {
                               <Text
                                   style={[
                                       styles.price,
-                                      discountedPrice ? styles.discountedPrice : {},
+                                      discountedPrice ? styles.discountedPrice : {}
                                   ]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
                               {discountedPrice && (
@@ -230,8 +230,8 @@ class FullProductScreen extends React.Component {
                                       this.renderExtraDetailsRow({
                                           title: specification.name,
                                           value: specification.value,
-                                          first: index === 0,
-                                      }),
+                                          first: index === 0
+                                      })
                                   )}
                               </View>
                           </>
@@ -262,20 +262,20 @@ const styles = ScaledSheet.create({
     container: {
         justifyContent: 'space-between',
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     scrollContainer: {
-        justifyContent: 'space-between',
+        justifyContent: 'space-between'
     },
     imageContainer: {
         flex: 1,
-        height: '260@s',
+        height: '260@s'
     },
     colors: {
         flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'row',
-        marginTop: '20@s',
+        marginTop: '20@s'
     },
     colorContainer: {
         flex: 1,
@@ -283,7 +283,7 @@ const styles = ScaledSheet.create({
         paddingVertical: '20@s',
         marginHorizontal: '10@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#EFEFEF',
+        borderBottomColor: '#EFEFEF'
     },
     details: {
         flex: 1,
@@ -292,13 +292,13 @@ const styles = ScaledSheet.create({
         paddingVertical: '20@s',
         marginHorizontal: '10@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#EFEFEF',
+        borderBottomColor: '#EFEFEF'
     },
     details2: {
         flex: 1,
         flexDirection: 'column',
         marginTop: '20@s',
-        marginHorizontal: '10@s',
+        marginHorizontal: '10@s'
     },
     extraDetailsContainer: {
         flex: 1,
@@ -306,80 +306,80 @@ const styles = ScaledSheet.create({
         marginTop: '20@s',
         marginHorizontal: '10@s',
         borderWidth: 1,
-        borderColor: '#EFEFEF',
+        borderColor: '#EFEFEF'
     },
     detailRow: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     nonFirstDetailsRow: {
         borderTopWidth: 1,
-        borderTopColor: '#EFEFEF',
+        borderTopColor: '#EFEFEF'
     },
     detailRowTitleContainer: {
         flex: 4,
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: '#F7F7F7',
+        backgroundColor: '#F7F7F7'
     },
     detailRowTitle: {
         padding: '12@s',
-        fontSize: '15@s',
+        fontSize: '15@s'
     },
     detailRowValueContainer: {
         flex: 8,
         display: 'flex',
         justifyContent: 'center',
         borderLeftWidth: 1,
-        borderLeftColor: '#EFEFEF',
+        borderLeftColor: '#EFEFEF'
     },
     detailRowValue: {
         padding: '12@s',
-        fontSize: '15@s',
+        fontSize: '15@s'
     },
     productDetailText: {
         margin: '4@s',
         fontSize: '18@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     productDetail: {
         margin: '4@s',
-        fontSize: '15@s',
+        fontSize: '15@s'
     },
     price: {
         fontSize: '17@s',
         marginRight: '8@s',
         fontWeight: '700',
-        color: 'rgba(0,0,0,.8)',
+        color: 'rgba(0,0,0,.8)'
     },
     discountedPrice: {
         fontWeight: 'normal',
         // fontWeight: '100',
-        textDecorationLine: 'line-through',
+        textDecorationLine: 'line-through'
     },
     productName: {
         fontSize: '16@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     colorText: {
         fontSize: '16@s',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     colorName: {
-        fontWeight: 'normal',
+        fontWeight: 'normal'
     },
     buttonContainer: {
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     textContainer: {
         flex: 1,
         justifyContent: 'center',
         display: 'flex',
         textAlign: 'center',
-        margin: '4@s',
+        margin: '4@s'
     },
     priceContainer: {
         margin: '4@s',
@@ -387,35 +387,35 @@ const styles = ScaledSheet.create({
         flexDirection: 'column',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     emptyFooter: {
-        height: '100@s',
+        height: '100@s'
     },
     iconStyle: {
-        marginRight: 18,
+        marginRight: 18
     },
     shadowContainer: {
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     imageContainerStyle: {
-        paddingBottom: 20,
-    },
+        paddingBottom: 20
+    }
 })
 
 const mapStateToProps = ({
     sourceReducer: { token, user },
-    globalReducer: { messagePopupRef },
+    globalReducer: { messagePopupRef }
 }) => ({
     token,
     user,
-    messagePopupRef,
+    messagePopupRef
 })
 
 const mapDispatchToProps = {
     increaseProductQuantity,
     addToFavoriteProducts,
-    removeFromFavoriteProdutcs,
+    removeFromFavoriteProdutcs
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullProductScreen)

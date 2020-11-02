@@ -15,7 +15,7 @@ const getLocationAsync = () =>
             (error) => {
                 reject(error)
             },
-            { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 },
+            { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
         )
     })
 
@@ -35,8 +35,8 @@ export const setRegion = (region) => {
                 type: SET_REGION,
                 payload: {
                     region,
-                    address,
-                },
+                    address
+                }
             })
         } catch (_) {
             dispatch({ type: 'DO_NOT_HANDLE' })
@@ -49,8 +49,8 @@ export const setAddress = (address) => {
         dispatch({
             type: SET_ADDRESS,
             payload: {
-                address,
-            },
+                address
+            }
         })
     }
 }
@@ -65,9 +65,9 @@ export const setRegionByPlace = (placeId, cb) => {
             payload: {
                 region: {
                     latitude: data.result.geometry.location.lat,
-                    longitude: data.result.geometry.location.lng,
-                },
-            },
+                    longitude: data.result.geometry.location.lng
+                }
+            }
         })
 
         cb(data)
@@ -78,7 +78,7 @@ export const setCurrentRegion = (cb) => {
     return async (dispatch) => {
         await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({
             interval: 10000,
-            fastInterval: 5000,
+            fastInterval: 5000
         })
 
         try {
@@ -86,8 +86,8 @@ export const setCurrentRegion = (cb) => {
             dispatch({
                 type: SET_CURRENT_REGION,
                 payload: {
-                    region: coords,
-                },
+                    region: coords
+                }
             })
 
             cb(coords)

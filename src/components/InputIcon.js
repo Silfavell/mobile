@@ -11,8 +11,8 @@ const styles = ScaledSheet.create({
         height: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '54@s',
-    },
+        width: '54@s'
+    }
 })
 
 export default InputIcon

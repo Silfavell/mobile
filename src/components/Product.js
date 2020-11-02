@@ -26,7 +26,7 @@ class Product extends React.Component {
   onProductClick = () => {
       this.props.navigation.navigate('fullProductScreen', {
           slug: this.props.data.slug,
-          fromSearch: this.props.fromSearch,
+          fromSearch: this.props.fromSearch
       })
   };
 
@@ -42,7 +42,7 @@ class Product extends React.Component {
   render() {
       const {
           data: { _id, name, price, discountedPrice, slug },
-          token,
+          token
       } = this.props
 
       const url = `${Config.SERVER_URL}/assets/products/${slug}_300x300.webp`
@@ -86,7 +86,7 @@ class Product extends React.Component {
                   <Text
                       style={[
                           styles.productPrice,
-                          discountedPrice ? styles.discountedPrice : {},
+                          discountedPrice ? styles.discountedPrice : {}
                       ]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
                   {discountedPrice && (
@@ -118,52 +118,52 @@ const styles = ScaledSheet.create({
         borderColor: '#EFEFEF',
         borderBottomColor: '#EE4266',
         marginHorizontal: '6@s',
-        height: '95%',
+        height: '95%'
     },
     favoriteIcon: {
         position: 'absolute',
         top: '10@vs',
         right: 15,
-        zIndex: 1,
+        zIndex: 1
     },
     basketIcon: {
         position: 'absolute',
         bottom: 10,
         right: 2,
-        zIndex: 1,
+        zIndex: 1
     },
     priceContainer: {
         justifyContent: 'flex-start',
         alignItems: 'center',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     nameContainer: {
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'row',
-        flex: 1,
+        flex: 1
     },
     child: {
         alignItems: 'center',
         justifyContent: 'center',
         marginHorizontal: 6,
-        marginVertical: 1,
+        marginVertical: 1
     },
     productImageContainer: {
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     productImage: {
         width: '100%',
         height: null,
         aspectRatio: 0.6,
-        paddingBottom: '6@s',
+        paddingBottom: '6@s'
     },
     productName: {
         fontSize: '14@s',
         fontWeight: '600',
         color: '#454545',
         textAlign: 'left',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     productPrice: {
         fontSize: '16@s',
@@ -171,29 +171,29 @@ const styles = ScaledSheet.create({
         color: '#454545',
         textAlign: 'left',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'flex-start'
     },
     discountedPrice: {
         fontWeight: 'normal',
         fontWeight: '100',
         marginRight: 8,
-        textDecorationLine: 'line-through',
-    },
+        textDecorationLine: 'line-through'
+    }
 })
 
 const mapStateToProps = ({
     sourceReducer: { token, user },
-    globalReducer: { messagePopupRef },
+    globalReducer: { messagePopupRef }
 }) => ({
     token,
     user,
-    messagePopupRef,
+    messagePopupRef
 })
 
 const mapDispatchToProps = {
     increaseProductQuantity,
     addToFavoriteProducts,
-    removeFromFavoriteProdutcs,
+    removeFromFavoriteProdutcs
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product)

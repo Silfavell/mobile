@@ -7,6 +7,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 class PasswordChangedPopup extends React.PureComponent {
     close = () => {
         this.props.setPopupState({ scaleAnimationModal: false })
+        
         return true
     }
 

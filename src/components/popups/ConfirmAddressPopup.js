@@ -61,40 +61,40 @@ class ConfirmAddressPopup extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     footer: {
-        height: '42@s',
+        height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488',
+        backgroundColor: '#697488'
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(0,0,0,.8)'
     },
     buttonText: {
-        color: 'white',
+        color: 'white'
     },
     title: {
-        marginVertical: '8@s',
+        marginVertical: '8@s'
     },
     titleText: {
         textAlign: 'center',
         color: 'rgba(0,0,0,.8)',
         fontWeight: '600',
-        fontSize: '19@s',
+        fontSize: '19@s'
     },
     content: {
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     contentText: {
         fontSize: '16@s',
         color: '#454545',
         fontWeight: 'bold',
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 })
 
 const mapStateToProps = ({ mapReducer: { address } }) => ({
-    address,
+    address
 })
 
 export default connect(mapStateToProps)(ConfirmAddressPopup)

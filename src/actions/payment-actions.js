@@ -4,7 +4,7 @@ import {
     addCard,
     removeCard,
     saveAddress as saveAddressRequest,
-    deleteAddress as deleteAddressRequest,
+    deleteAddress as deleteAddressRequest
 } from '../scripts/requests'
 
 export const SET_PAYMENT_TYPE = 'SET_PAYMENT_TYPE'
@@ -20,8 +20,8 @@ export const setPaymentType = (paymentType) => {
         dispatch({
             type: SET_PAYMENT_TYPE,
             payload: {
-                paymentType,
-            },
+                paymentType
+            }
         })
     }
 }
@@ -34,8 +34,8 @@ export const saveCard = (card, cb) => {
             dispatch({
                 type: SAVE_CARD,
                 payload: {
-                    card: data,
-                },
+                    card: data
+                }
             })
             cb()
         }
@@ -50,8 +50,8 @@ export const deleteCard = (cardToken) => {
             dispatch({
                 type: DELETE_CARD,
                 payload: {
-                    cardToken,
-                },
+                    cardToken
+                }
             })
         }
     }
@@ -61,7 +61,7 @@ export const saveAddress = (address, details) => {
     return async (dispatch) => {
         const body = {
             openAddress: address,
-            addressTitle: details.addressTitle,
+            addressTitle: details.addressTitle
         }
         const { status, data } = await saveAddressRequest(body)
 
@@ -70,8 +70,8 @@ export const saveAddress = (address, details) => {
             dispatch({
                 type: SAVE_ADDRESS,
                 payload: {
-                    addresses: data.addresses,
-                },
+                    addresses: data.addresses
+                }
             })
         }
     }
@@ -86,8 +86,8 @@ export const deleteAddress = (addressId) => {
             dispatch({
                 type: DELETE_ADDRESS,
                 payload: {
-                    addresses: data.addresses,
-                },
+                    addresses: data.addresses
+                }
             })
         }
     }
@@ -98,8 +98,8 @@ export const setSelectedCard = (selectedCard, cb) => {
         dispatch({
             type: SET_SELECTED_CARD,
             payload: {
-                selectedCard,
-            },
+                selectedCard
+            }
         })
 
         cb()
@@ -111,8 +111,8 @@ export const setSelectedAddress = (selectedAddress, cb) => {
         dispatch({
             type: SET_SELECTED_ADDRESS,
             payload: {
-                selectedAddress,
-            },
+                selectedAddress
+            }
         })
 
         cb()

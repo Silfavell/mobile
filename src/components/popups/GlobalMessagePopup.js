@@ -21,17 +21,17 @@ class GlobalMessagePopup extends React.PureComponent {
   horizontalTransition = (animValue) => {
       const opacity = animValue.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, 1],
+          outputRange: [0, 1]
       })
 
       const translateX = animValue.interpolate({
           inputRange: [0, 1],
-          outputRange: [100, 0],
+          outputRange: [100, 0]
       })
 
       return {
           transform: [{ translateX }],
-          opacity,
+          opacity
       }
   };
 
@@ -56,7 +56,7 @@ const styles = ScaledSheet.create({
         ...StyleSheet.absoluteFillObject,
         zIndex: 1000,
         elevation: 0.01,
-        marginVertical: 100,
+        marginVertical: 100
     },
     container: {
         flex: 1,
@@ -68,22 +68,22 @@ const styles = ScaledSheet.create({
         borderWidth: 1,
         borderColor: '#EFEFEF',
         borderBottomWidth: 1,
-        borderBottomColor: '#EE4266',
+        borderBottomColor: '#EE4266'
     },
     titleContainer: {
         flex: 1,
         alignItems: 'flex-start',
         justifyContent: 'center',
         margin: '18@s',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     title: {
-        fontSize: '18@s',
-    },
+        fontSize: '18@s'
+    }
 })
 
 const mapDispatchToProps = {
-    setMessagePopupRef,
+    setMessagePopupRef
 }
 
 export default connect(null, mapDispatchToProps)(GlobalMessagePopup)

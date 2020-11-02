@@ -11,7 +11,7 @@ import Map from '../MapScreens/Map'
 
 class PinAddressScreen extends React.Component {
   state = {
-      scaleAnimationModal: false,
+      scaleAnimationModal: false
   };
 
   setPopupState = (scaleAnimationModal, navigate, region) => {
@@ -57,14 +57,14 @@ const styles = ScaledSheet.create({
         right: 0,
         bottom: 0,
         justifyContent: 'flex-end',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     markerContainer: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: '2@s',
+        zIndex: '2@s'
     },
     marker: { width: 48, height: 48 },
     buttonContainer: {
@@ -79,8 +79,8 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: '24@s',
-        paddingVertical: '24@s',
-    },
+        paddingVertical: '24@s'
+    }
 })
 
 export default PinAddressScreen

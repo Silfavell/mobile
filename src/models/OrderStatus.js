@@ -8,7 +8,7 @@ const OrderStatus = {
     CAN_NOT_RETURNABLE: 4,
     RETURNED: 5,
     RETURN_ACCEPTED: 6,
-    RETURN_DENIED: 7,
+    RETURN_DENIED: 7
 }
 
 export default OrderStatus

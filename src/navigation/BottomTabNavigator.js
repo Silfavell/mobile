@@ -25,7 +25,7 @@ export default function BottomTabNavigator({ navigation }) {
                 component={HomeStack}
                 options={{
                     title: 'Ana Sayfa',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />
                 }}
             />
 
@@ -34,7 +34,7 @@ export default function BottomTabNavigator({ navigation }) {
                 component={SearchStack}
                 options={{
                     title: 'Ara',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-search" />,
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-search" />
                 }}
             />
 
@@ -43,7 +43,7 @@ export default function BottomTabNavigator({ navigation }) {
                 component={CartStack}
                 options={{
                     title: 'Sepetim',
-                    tabBarIcon: ({ focused }) => <CartIcon focused={focused} name="md-basket" />,
+                    tabBarIcon: ({ focused }) => <CartIcon focused={focused} name="md-basket" />
                 }}
             />
 
@@ -52,7 +52,7 @@ export default function BottomTabNavigator({ navigation }) {
                 component={ProfileStack}
                 options={{
                     title: 'Diğer',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-menu" />,
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-menu" />
                 }}
             />
         </BottomTab.Navigator>

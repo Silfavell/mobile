@@ -18,10 +18,10 @@ const ButtonComponent = ({ text, onClick, opposite, needFlex, disabled }) => (
 const styles = ScaledSheet.create({
     container: {
         height: '60@s',
-        margin: '3@s',
+        margin: '3@s'
     },
     needFlex: {
-        flex: 1,
+        flex: 1
     },
     button: {
         backgroundColor: 'rgba(0,0,0,.8)',
@@ -31,19 +31,19 @@ const styles = ScaledSheet.create({
         margin: '4@s',
         borderRadius: 6,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     opposite: {
         backgroundColor: 'white',
-        color: 'rgba(0,0,0,.8)',
+        color: 'rgba(0,0,0,.8)'
     },
     text: {
         color: 'white',
-        fontSize: '18@s',
+        fontSize: '18@s'
     },
     disabled: {
-        opacity: 0.65,
-    },
+        opacity: 0.65
+    }
 })
 
 export default ButtonComponent

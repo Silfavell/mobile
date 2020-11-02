@@ -21,7 +21,7 @@ class EditProfileScreen extends React.Component {
       invalidEmail: false,
 
       isNameSurnameInitialized: true,
-      isEmailInitialized: true,
+      isEmailInitialized: true
   };
 
   onNameSurnameChange = (nameSurname) => {
@@ -60,12 +60,12 @@ class EditProfileScreen extends React.Component {
       this.props.updateProfile(
           {
               nameSurname: this.state.nameSurname,
-              email: this.state.email,
+              email: this.state.email
           },
           () => {
         this.props.messagePopupRef?.showMessage({ message: 'Bilgileriniz güncellendi' })
         this.props.navigation.goBack()
-          },
+          }
       )
   };
 
@@ -76,7 +76,7 @@ class EditProfileScreen extends React.Component {
                   <InputComponent
                       options={{
                           textContentType: 'name',
-                          placeholder: 'Ad Soyad',
+                          placeholder: 'Ad Soyad'
                       }}
                       invalid={this.state.invalidNameSurname && this.state.isNameSurnameInitialized}
                       value={this.state.nameSurname}
@@ -90,7 +90,7 @@ class EditProfileScreen extends React.Component {
                       options={{
                           keyboardType: 'email-address',
                           textContentType: 'emailAddress',
-                          placeholder: 'E-Posta',
+                          placeholder: 'E-Posta'
                       }}
                       invalid={this.state.invalidEmail && this.state.isEmailInitialized}
                       value={this.state.email}
@@ -105,7 +105,7 @@ class EditProfileScreen extends React.Component {
                           keyboardType: 'phone-pad',
                           textContentType: 'telephoneNumber',
                           placeholder: 'Telefon Numarası',
-                          maxLength: 19,
+                          maxLength: 19
                       }}
                       mask={'telephoneNumber'}
                       value={this.state.phoneNumber}
@@ -134,11 +134,11 @@ class EditProfileScreen extends React.Component {
 
 const mapStateToProps = ({ sourceReducer: { user }, globalReducer: { messagePopupRef } }) => ({
     user,
-    messagePopupRef,
+    messagePopupRef
 })
 
 const mapDispatchToProps = {
-    updateProfile,
+    updateProfile
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditProfileScreen)
