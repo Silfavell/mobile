@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { TouchableOpacity, Text, ImageBackground } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 

@@ -1,13 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { updateProfile } from '../../actions/source-actions'
-
-import InputComponent from '../../components/InputComponent'
 import ButtonComponent from '../../components/ButtonComponent'
+import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import ShadowContainer from '../../components/ShadowContainer'
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ScaledSheet } from 'react-native-size-matters'
-import { View, Text } from 'react-native'
 
+import { View, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { connect } from 'react-redux'
 
 const CargoPriceComponent = ({ cart }) => {
     const products = Object.values(cart)

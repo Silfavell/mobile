@@ -1,12 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { ScrollView } from 'react-native'
 import joi from 'react-native-joi'
+import { connect } from 'react-redux'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
-import ShadowContainer from '../../components/ShadowContainer'
 import AlertPopup from '../../components/popups/AlertPopup'
+import ShadowContainer from '../../components/ShadowContainer'
 import { changePassword } from '../../scripts/requests'
 
 class ChangePasswordScreen extends React.Component {

@@ -1,15 +1,15 @@
 import React from 'react'
+
 import { connect } from 'react-redux'
 
-import HeadingDivider from '../../components/HeadingDivider'
-import CompletePayment from '../../components/CompletePayment'
-
-import AddressSelectComponent from './AddressSelectComponent'
-import PaymentTypeSelectComponent from './PaymentTypeSelectComponent'
-import CargoPriceComponent from './CargoPriceComponent'
-import ShadowContainer from '../../components/ShadowContainer'
-
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
+import CompletePayment from '../../components/CompletePayment'
+import HeadingDivider from '../../components/HeadingDivider'
+import ShadowContainer from '../../components/ShadowContainer'
+import AddressSelectComponent from './AddressSelectComponent'
+import CargoPriceComponent from './CargoPriceComponent'
+import PaymentTypeSelectComponent from './PaymentTypeSelectComponent'
+
 
 class CompletePaymentScreen extends React.PureComponent {
     render() {

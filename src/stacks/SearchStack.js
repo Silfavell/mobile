@@ -1,12 +1,13 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     createStackNavigator,
     CardStyleInterpolators
 } from '@react-navigation/stack'
+import { ScaledSheet } from 'react-native-size-matters'
 
-import SearchScreen from '../screens/SearchScreen/SearchScreen'
 import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
+import SearchScreen from '../screens/SearchScreen/SearchScreen'
 
 const Stack = createStackNavigator()
 

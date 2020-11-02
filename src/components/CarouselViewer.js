@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ViewPager from '@react-native-community/viewpager'
 import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'

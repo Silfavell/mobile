@@ -1,16 +1,17 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     createStackNavigator,
     CardStyleInterpolators
 } from '@react-navigation/stack'
+import { ScaledSheet } from 'react-native-size-matters'
 
-import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
+import ActivationScreen from '../screens/ActivationScreen/ActivationScreen'
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen'
 import LoginScreen from '../screens/LoginScreen/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen/RegisterScreen'
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen'
 import ResetPasswordScreen from '../screens/ResetPasswordScreen/ResetPasswordScreen'
-import ActivationScreen from '../screens/ActivationScreen/ActivationScreen'
+import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
 
 const Stack = createStackNavigator()
 

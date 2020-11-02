@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import {
     View,
     TouchableOpacity,
@@ -7,6 +8,7 @@ import {
     UIManager,
     StyleSheet,
 } from 'react-native'
+
 import SettingItem from './SettingItem'
 
 class Accordion extends Component {

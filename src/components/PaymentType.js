@@ -1,8 +1,9 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { View, TouchableOpacity, Text } from 'react-native'
-import { connect } from 'react-redux'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { setPaymentType } from '../actions/payment-actions'
 

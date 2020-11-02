@@ -1,18 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import {
     View,
     TouchableOpacity,
     Text,
     Image
 } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
-import { setSelectedCard } from '../../actions/payment-actions'
 
 import mastercard from '../../../assets/mastercard.png'
 import visa from '../../../assets/visa.png'
+import { setSelectedCard } from '../../actions/payment-actions'
 
 const getCardIcon = (type) => {
     switch (type) {

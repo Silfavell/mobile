@@ -1,11 +1,11 @@
 import React from 'react'
+
 import { View, Text, FlatList } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import OrderComponent from '../../components/OrderComponent'
 import LoadingComponent from '../../components/LoadingComponent'
-
+import OrderComponent from '../../components/OrderComponent'
 import { getOrders } from '../../scripts/requests'
 
 class PreviousOrdersScreen extends React.Component {

@@ -1,14 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View, TouchableOpacity, Text } from 'react-native'
-import { s, ScaledSheet } from 'react-native-size-matters'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import Config from 'react-native-config'
 import FastImage from 'react-native-fast-image'
+import { s, ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
-import CartProductQuantityComponent from './CartProductQuantityComponent'
 
 import { setProductQuantity } from '../actions/cart-actions'
+import CartProductQuantityComponent from './CartProductQuantityComponent'
 
 class CartProduct extends React.PureComponent {
   onReturnItemSelect = () => {

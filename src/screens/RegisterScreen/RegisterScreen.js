@@ -1,18 +1,19 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     ScrollView,
     View
 } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
+import { sendActivationCode } from '../../scripts/requests'
 import TermsComponent from './TermsComponent'
 
-import { sendActivationCode } from '../../scripts/requests'
 
 class RegisterScreen extends React.Component {
 	state = {

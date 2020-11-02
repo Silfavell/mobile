@@ -1,15 +1,15 @@
 import React from 'react'
+
 import { TouchableOpacity, Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
+import { register } from '../../actions/source-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainer from '../../components/ShadowContainer'
-
-import { register } from '../../actions/source-actions'
 import { sendActivationCode } from '../../scripts/requests'
 
 class ActivationScreen extends React.Component {

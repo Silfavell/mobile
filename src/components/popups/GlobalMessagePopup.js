@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View, Text, StyleSheet } from 'react-native'
 import FlashMessage from 'react-native-flash-message'
 import { ScaledSheet } from 'react-native-size-matters'
+import { connect } from 'react-redux'
 
 import { setMessagePopupRef } from '../../actions/global-actions'
 

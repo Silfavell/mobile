@@ -1,18 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ScaledSheet, s } from 'react-native-size-matters'
-import { View, Text, TouchableOpacity, Image, BackHandler } from 'react-native'
-import RNExitApp from 'react-native-exit-app'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import Config from 'react-native-config'
 
-import Category from '../../components/Category'
-import Slider from '../../components/Slider'
-import ShadowContainer from '../../components/ShadowContainer'
-import ScrollableCategoryList from '../../components/ScrollableCategoryList'
-import BestSeller from './BestSeller'
+import { View, Text, TouchableOpacity, Image, BackHandler } from 'react-native'
+import Config from 'react-native-config'
+import RNExitApp from 'react-native-exit-app'
+import { ScaledSheet, s } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import logo from '../../../assets/logo.png'
+import Category from '../../components/Category'
+import ScrollableCategoryList from '../../components/ScrollableCategoryList'
+import ShadowContainer from '../../components/ShadowContainer'
+import Slider from '../../components/Slider'
+import BestSeller from './BestSeller'
+
 
 const banners = [
     `${Config.SERVER_URL}/assets/banners/1.jpg`,
@@ -77,11 +78,13 @@ class HomeScreen extends React.Component {
 
   render() {
       const headers = [
+          // eslint-disable-next-line react/jsx-key
           <View style={styles.headerContainer1}>
               <ShadowContainer>
                   <Slider images={banners} loop paginator />
               </ShadowContainer>
           </View>,
+          // eslint-disable-next-line react/jsx-key
           <View style={styles.headerContainer2}>
               <ShadowContainer>
                   <ScrollableCategoryList
@@ -92,6 +95,7 @@ class HomeScreen extends React.Component {
                   />
               </ShadowContainer>
           </View>,
+          // eslint-disable-next-line react/jsx-key
           <View style={styles.divider}>
               <ShadowContainer style={styles.shadowContainer}>
                   <View style={styles.dividerChild}>

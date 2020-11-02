@@ -1,13 +1,13 @@
 import React from 'react'
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import HomeStack from '../stacks/HomeStack'
-import SearchStack from '../stacks/SearchStack'
 import CartStack from '../stacks/CartStack'
+import HomeStack from '../stacks/HomeStack'
 import ProfileStack from '../stacks/ProfileStack'
-
-import TabBarIcon from './TabBarIcon'
+import SearchStack from '../stacks/SearchStack'
 import CartIcon from './CartIcon'
+import TabBarIcon from './TabBarIcon'
 
 const BottomTab = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = 'Home'

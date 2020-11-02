@@ -1,15 +1,16 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     View,
     TouchableOpacity,
     Text,
     Image
 } from 'react-native'
-
-import ButtonComponent from '../../components/ButtonComponent'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import icon from '../../../assets/logo.png'
+import ButtonComponent from '../../components/ButtonComponent'
+
 
 class WelcomeScreen extends React.PureComponent {
 	onContinueClick = () => {

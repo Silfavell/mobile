@@ -1,8 +1,9 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { connect } from 'react-redux'
+
 import { View, TextInput } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 const HeaderAddressInput = ({ address, disabled }) => (
     <View style={styles.container}>

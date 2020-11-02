@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { ScrollView, TouchableOpacity, View, Image, Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import Config from 'react-native-config'
+import { ScaledSheet } from 'react-native-size-matters'
+import { connect } from 'react-redux'
 
 class CategoryElement extends React.PureComponent {
   onPress = () => {

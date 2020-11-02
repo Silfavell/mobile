@@ -1,21 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import Config from 'react-native-config'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import { ScrollView, TouchableOpacity, View, Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import ShadowContainer from '../../components/ShadowContainer'
-import Slider from '../../components/Slider'
-import Color from './Color'
-import Comment from './Comment'
-import Loading from '../../components/LoadingComponent'
-import Accordion from '../../components/Accordion'
+import { ScrollView, TouchableOpacity, View, Text } from 'react-native'
+import Config from 'react-native-config'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { increaseProductQuantity } from '../../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
+import Accordion from '../../components/Accordion'
+import ButtonComponent from '../../components/ButtonComponent'
+import Loading from '../../components/LoadingComponent'
+import ShadowContainer from '../../components/ShadowContainer'
+import Slider from '../../components/Slider'
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
+import Color from './Color'
+import Comment from './Comment'
+
 
 class FullProductScreen extends React.Component {
   scrollRef = React.createRef();

@@ -1,11 +1,12 @@
 import React from 'react'
+
 import { FlatList, Dimensions, Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import Modal, {
     ModalTitle,
     ModalButton,
     ModalFooter
 } from 'react-native-modals'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const Item = ({ item: { type, mark, content } }) => (
     <Text style={{

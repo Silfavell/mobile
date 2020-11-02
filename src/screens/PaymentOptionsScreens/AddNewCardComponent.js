@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { View, TouchableOpacity, Text } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 class AddNewCardComponent extends React.PureComponent {
   onClick = () => {

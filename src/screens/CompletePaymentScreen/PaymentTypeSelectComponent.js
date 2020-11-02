@@ -1,9 +1,10 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { View, TouchableOpacity, Text } from 'react-native'
 
+import { View, TouchableOpacity, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+
 import ShadowContainer from '../../components/ShadowContainer'
 
 class PaymentTypeSelectComponent extends React.PureComponent {

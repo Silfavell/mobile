@@ -1,15 +1,16 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { ScrollView, View, TextInput } from 'react-native'
-import { connect } from 'react-redux'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
-import Map from '../MapScreens/Map'
-import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
-import ButtonComponent from '../../components/ButtonComponent'
+import { ScrollView, View, TextInput } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { saveAddress } from '../../actions/payment-actions'
+import ButtonComponent from '../../components/ButtonComponent'
+import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
+import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
+import Map from '../MapScreens/Map'
+
 
 class CompleteAddressScreen extends React.Component {
   state = {

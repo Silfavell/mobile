@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -6,9 +7,8 @@ import {
     deleteAddress,
     setSelectedAddress
 } from '../../actions/payment-actions'
-
-import AddressItem from './AddressItem'
 import DeleteAddressPopup from '../../components/popups/DeleteAddressPopup'
+import AddressItem from './AddressItem'
 
 class AddressList extends React.Component {
 	state = {

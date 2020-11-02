@@ -1,9 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { View, FlatList, TouchableOpacity, Text, TextInput } from 'react-native'
+
 import axios from 'axios'
+import { View, FlatList, TouchableOpacity, Text, TextInput } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
 import ShadowContainer from '../../components/ShadowContainer'

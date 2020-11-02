@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View, Text, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 const CartIcon = ({ name, focused, cart }) => (
     <View>

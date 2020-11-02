@@ -1,6 +1,7 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { View, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const renderRightComponent = ({ version, rightComponent, rightIcon }) => {

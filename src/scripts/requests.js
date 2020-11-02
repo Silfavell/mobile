@@ -1,6 +1,6 @@
+import AsyncStorage from '@react-native-community/async-storage'
 import axios from 'axios'
 import Config from 'react-native-config'
-import AsyncStorage from '@react-native-community/async-storage'
 
 const instance = axios.create({
     baseURL: Config.SERVER_URL

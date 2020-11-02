@@ -1,18 +1,18 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     TouchableOpacity,
     Text
 } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import joi from 'react-native-joi'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
-import ShadowContainer from '../../components/ShadowContainer'
 import AlertPopup from '../../components/popups/AlertPopup'
-
+import ShadowContainer from '../../components/ShadowContainer'
 import { resetPassword, sendActivationCode } from '../../scripts/requests'
 
 class ResetPasswordScreen extends React.Component {

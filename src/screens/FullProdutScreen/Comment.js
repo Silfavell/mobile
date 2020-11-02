@@ -1,7 +1,8 @@
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+
 import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 class Comment extends React.Component {
     render() {

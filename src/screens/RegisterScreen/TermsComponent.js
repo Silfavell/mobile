@@ -1,11 +1,13 @@
 import React from 'react'
+
 import {
     View,
     Text
 } from 'react-native'
+import CheckBox from 'react-native-check-box'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import CheckBox from 'react-native-check-box'
+
 import MembershipAgreement from '../RegisterScreen/MembershipAgreement'
 
 class TermsComponent extends React.Component {

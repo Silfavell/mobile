@@ -1,10 +1,10 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { View, TouchableOpacity, Text, Dimensions } from 'react-native'
-import { connect } from 'react-redux'
 
+import { View, TouchableOpacity, Text, Dimensions } from 'react-native'
 import FloatingInput from 'react-native-floating-labels'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { makeOrder } from '../../actions/cart-actions'
 

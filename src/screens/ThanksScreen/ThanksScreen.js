@@ -1,13 +1,15 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
+import AsyncStorage from '@react-native-community/async-storage'
 import {
     View,
     TouchableOpacity,
     Text,
     Linking
 } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+
 import AskPopup from '../../components/popups/AskPopup'
 
 class ThanksScreen extends React.Component {

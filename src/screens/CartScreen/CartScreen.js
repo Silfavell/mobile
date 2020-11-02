@@ -1,8 +1,9 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { FlatList, View, Text } from 'react-native'
-import { connect } from 'react-redux'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import CartProduct from '../../components/CartProduct'
 import CompletePayment from '../../components/CompletePayment'

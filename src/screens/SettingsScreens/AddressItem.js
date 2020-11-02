@@ -1,13 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import InteractiveSettingItem from './InteractiveSettingItem'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import {
     deleteAddress,
     setSelectedAddress
 } from '../../actions/payment-actions'
+import InteractiveSettingItem from './InteractiveSettingItem'
+
 
 class AddressList extends React.PureComponent {
     onLeftClick = () => {

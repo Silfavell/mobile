@@ -1,18 +1,18 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     createStackNavigator,
     CardStyleInterpolators
 } from '@react-navigation/stack'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
+import { setRootNavigation } from '../actions/global-actions'
+import CategoryList from '../screens/CategoryList/CategoryList'
+import FilterProductsScreen from '../screens/FilterProductsScreen/FilterProductsScreen'
+import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
 import HomeScreen from '../screens/HomeScreen/HomeScreen'
 import ProductScreen from '../screens/ProductsScreen/ProductsScreen'
-import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
-import FilterProductsScreen from '../screens/FilterProductsScreen/FilterProductsScreen'
-import CategoryList from '../screens/CategoryList/CategoryList'
-
-import { setRootNavigation } from '../actions/global-actions'
 
 const Stack = createStackNavigator()
 

@@ -1,7 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
+import { connect } from 'react-redux'
 
 import { setRegion } from '../../actions/map-actions'
 

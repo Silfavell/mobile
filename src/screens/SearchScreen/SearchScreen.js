@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import {
     ScrollView,
     View,
@@ -8,12 +8,12 @@ import {
     ActivityIndicator,
     TextInput
 } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import RecyclerList from '../../components/RecyclerList'
 import ShadowContainer from '../../components/ShadowContainer'
-
 import { search as searchRequest } from '../../scripts/requests'
 
 class SearchScreen extends React.Component {

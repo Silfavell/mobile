@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { TouchableOpacity, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { s } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 class HeaderLeft extends React.Component {
     shouldComponentUpdate(nextProps) {

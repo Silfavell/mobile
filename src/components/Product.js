@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { TouchableOpacity, View, Text } from 'react-native'
+import Config from 'react-native-config'
 import FastImage from 'react-native-fast-image'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
-import { ScaledSheet } from 'react-native-size-matters'
-import Config from 'react-native-config'
 
 import { increaseProductQuantity } from '../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'

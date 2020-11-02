@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { TouchableOpacity, TextInput } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import ModalSelector from 'react-native-modal-selector'
+import { ScaledSheet } from 'react-native-size-matters'
 import TextInputMask from 'react-native-text-input-mask'
 
 class InputComponent extends React.Component {

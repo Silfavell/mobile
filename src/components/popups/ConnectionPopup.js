@@ -1,10 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { Text } from 'react-native'
-import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
 import RNExitApp from 'react-native-exit-app'
+import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { connect } from 'react-redux'
 
 class ConnectionPopup extends React.PureComponent {
   close = () => {

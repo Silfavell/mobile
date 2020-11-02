@@ -1,12 +1,5 @@
 import React from 'react'
-import { ScaledSheet, s } from 'react-native-size-matters'
-import {
-    View,
-    TouchableOpacity,
-    Text,
-    Platform
-} from 'react-native'
-import { connect } from 'react-redux'
+
 import {
     Container,
     Tab,
@@ -14,7 +7,15 @@ import {
     ScrollableTab,
     TabHeading
 } from 'native-base'
+import {
+    View,
+    TouchableOpacity,
+    Text,
+    Platform
+} from 'react-native'
+import { ScaledSheet, s } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { connect } from 'react-redux'
 
 import RecyclerList from '../../components/RecyclerList'
 

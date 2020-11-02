@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { Text, Linking } from 'react-native'
 import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
+import { connect } from 'react-redux'
 
 //  import { expo } from '../../app.json'
 //  expo.version // current version

@@ -1,12 +1,12 @@
 import React from 'react'
+
 import { View, Text } from 'react-native'
-import { connect } from 'react-redux'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
-import RecyclerList from '../../components/RecyclerList'
 import LoadingComponent from '../../components/LoadingComponent'
-
+import RecyclerList from '../../components/RecyclerList'
 import { listFavorites } from '../../scripts/requests'
 
 class FavoriteProductsScreen extends React.Component {

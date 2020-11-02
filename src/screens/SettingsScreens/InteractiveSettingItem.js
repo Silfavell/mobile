@@ -1,10 +1,11 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     View,
     TouchableOpacity,
     Text
 } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const InteractiveSettingItem = ({
     children: icons,

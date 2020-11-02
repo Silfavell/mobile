@@ -1,4 +1,5 @@
 import React from 'react'
+
 import joi from 'react-native-joi'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -6,7 +7,6 @@ import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import ShadowContainer from '../../components/ShadowContainer'
-
 import { sendActivationCode } from '../../scripts/requests'
 
 class ForgotPasswordScreen extends React.Component {

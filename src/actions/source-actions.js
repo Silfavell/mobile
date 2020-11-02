@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage'
 
-import { SET_NEED_UPDATE_POPUP_STATE } from './global-actions'
+import pckg from '../../package.json'
 import {
     mobileInitializer,
     getVersion as getVersionRequest,
@@ -10,7 +10,7 @@ import {
     removeFavorite,
     updateProfile as updateProfileRequest,
 } from '../scripts/requests'
-import pckg from '../../package.json'
+import { SET_NEED_UPDATE_POPUP_STATE } from './global-actions'
 
 export const SET_INITIAL_DATAS = 'SET_INITIAL_DATAS'
 export const SET_USER = 'SET_USER'

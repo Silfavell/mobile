@@ -1,8 +1,9 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { connect } from 'react-redux'
+
 import { Text } from 'react-native'
 import Modal, { ModalTitle, ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import { ScaledSheet } from 'react-native-size-matters'
+import { connect } from 'react-redux'
 
 class ConfirmAddressPopup extends React.PureComponent {
   close = () => {

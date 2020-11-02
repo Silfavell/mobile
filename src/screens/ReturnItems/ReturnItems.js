@@ -1,16 +1,17 @@
 import React from 'react'
+
 import {
     View,
     FlatList,
     Text,
     TouchableOpacity
 } from 'react-native'
+import CheckBox from 'react-native-check-box'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import CheckBox from 'react-native-check-box'
 
-import CartProduct from '../../components/CartProduct'
 import ButtonComponent from '../../components/ButtonComponent'
+import CartProduct from '../../components/CartProduct'
 import { returnItems } from '../../scripts/requests'
 
 class ReturnItems extends React.Component {

@@ -1,23 +1,24 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     createStackNavigator,
     CardStyleInterpolators
 } from '@react-navigation/stack'
+import { ScaledSheet } from 'react-native-size-matters'
 
-import CartScreen from '../screens/CartScreen/CartScreen'
-import CompletePaymentScreen from '../screens/CompletePaymentScreen/CompletePaymentScreen'
-import OnlinePaymentScreen from '../screens/OnlinePaymentScreen/OnlinePaymentScreen'
-import ThanksScreen from '../screens/ThanksScreen/ThanksScreen'
 
 import HeaderLeft from '../components/HeaderLeft'
 import HeaderRight from '../components/HeaderRight'
-import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
-import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
 import CompleteAddressScreen from '../screens/AddressScreens/CompleteAddressScreen'
 import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
 import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'
+import CartScreen from '../screens/CartScreen/CartScreen'
+import CompletePaymentScreen from '../screens/CompletePaymentScreen/CompletePaymentScreen'
+import OnlinePaymentScreen from '../screens/OnlinePaymentScreen/OnlinePaymentScreen'
+import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
+import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
 import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
+import ThanksScreen from '../screens/ThanksScreen/ThanksScreen'
 
 const Stack = createStackNavigator()
 

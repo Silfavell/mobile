@@ -9,7 +9,10 @@ module.exports = {
     parser: 'babel-eslint',
     extends: [
         'eslint:recommended',
-        'plugin:react/recommended'
+        'plugin:react/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        // 'plugin:import/typescript'
     ],
     parserOptions: {
         ecmaFeatures: {
@@ -29,7 +32,9 @@ module.exports = {
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
-        semi: ['error', 'never'],
+        'comma-dangle': [2, 'never'],
+        semi: [2, 'never'],
+
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 2,
         'react-native/no-inline-styles': 2,
@@ -39,6 +44,25 @@ module.exports = {
         'react/prop-types': 'off', // TODO will open when use typescript
         'react/display-name': 'off',
         'prettier/prettier': 'error',
+        'import/order': [
+            'error',
+            {
+                'groups': ['builtin', 'external', 'internal'],
+                'pathGroups': [
+                    {
+                        'pattern': 'react',
+                        'group': 'external',
+                        'position': 'before'
+                    }
+                ],
+                'pathGroupsExcludedImportTypes': ['react'],
+                'newlines-between': 'always',
+                'alphabetize': {
+                    'order': 'asc',
+                    'caseInsensitive': true
+                }
+            }
+        ]
     },
     settings: {
         react: {

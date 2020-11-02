@@ -1,7 +1,8 @@
 import React from 'react'
+
+import Modal, { ModalTitle, ModalButton, ModalFooter } from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
-import Modal, { ModalTitle, ModalButton, ModalFooter } from 'react-native-modals'
 
 import { clearCart } from '../../actions/cart-actions'
 import { setClearCartPopupState } from '../../actions/global-actions'

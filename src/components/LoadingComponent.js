@@ -1,6 +1,7 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { View, Image, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 import logo from '../../assets/logo.png'
 

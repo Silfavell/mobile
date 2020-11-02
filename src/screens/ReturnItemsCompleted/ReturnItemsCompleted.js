@@ -1,10 +1,11 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import {
     View,
     TouchableOpacity,
     Text
 } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 class ReturnItemsCompleted extends React.PureComponent {

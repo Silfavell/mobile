@@ -1,12 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { ScrollView, View, Image, Text } from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 import joi from 'react-native-joi'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { saveCard } from '../../actions/payment-actions'
-
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 

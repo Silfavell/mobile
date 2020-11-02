@@ -1,16 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ScrollView, View, TouchableOpacity, Text } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
-import joi from 'react-native-joi'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import { ScaledSheet } from 'react-native-size-matters'
 
+import AsyncStorage from '@react-native-community/async-storage'
+import { ScrollView, View, TouchableOpacity, Text } from 'react-native'
+import joi from 'react-native-joi'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
+
+import { login } from '../../actions/source-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
-
-import { login } from '../../actions/source-actions'
 import { bulkCart } from '../../scripts/requests'
 
 class LoginScreen extends React.Component {

@@ -8,5 +8,11 @@
   },
   "editor.formatOnSave": true,
   "prettier.semi": false,
-  "javascript.format.semicolons": "remove"
+  "javascript.format.semicolons": "remove",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "typescriptreact"
+  ],
 }

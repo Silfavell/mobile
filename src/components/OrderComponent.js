@@ -1,11 +1,12 @@
 import React from 'react'
+
 import { View, TouchableOpacity, Text, Linking } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import SettingItem from './SettingItem'
 
 import OrderStatus from '../models/OrderStatus'
 import OrderCarousel from './OrderCarousel'
+import SettingItem from './SettingItem'
 
 class OrderComponent extends React.PureComponent {
   getStatusText = (status) => {

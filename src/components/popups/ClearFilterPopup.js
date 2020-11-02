@@ -1,6 +1,7 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import Modal, { ModalTitle, ModalButton, ModalFooter, SlideAnimation } from 'react-native-modals'
+import { ScaledSheet } from 'react-native-size-matters'
 
 class ClearFilterPopup extends React.PureComponent {
   close = () => {

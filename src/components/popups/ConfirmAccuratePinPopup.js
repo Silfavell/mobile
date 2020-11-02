@@ -1,10 +1,10 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { connect } from 'react-redux'
-import { Text } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import { Text } from 'react-native'
 import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 class ConfirmAccuratePinPopup extends React.PureComponent {
   close = () => {

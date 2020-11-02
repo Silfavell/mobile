@@ -1,17 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet, s } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { makeFilter, clearFilter } from '../../actions/filter-actions'
-
-import ShadowContainer from '../../components/ShadowContainer'
-import SettingItem from '../../components/SettingItem'
+import Accordion from '../../components/Accordion'
 import ButtonComponent from '../../components/ButtonComponent'
 import ClearFilterPopup from '../../components/popups/ClearFilterPopup'
-import Accordion from '../../components/Accordion'
+import SettingItem from '../../components/SettingItem'
+import ShadowContainer from '../../components/ShadowContainer'
 import BrandComponent from './BrandComponent'
 import Slider from './Slider'
 

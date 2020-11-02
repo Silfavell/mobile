@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { TouchableOpacity, StyleSheet } from 'react-native'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-check-box'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import SettingItem from '../../components/SettingItem'
 

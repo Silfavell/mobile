@@ -1,6 +1,7 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { View, TouchableOpacity, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 import { makeOrder } from '../actions/cart-actions'

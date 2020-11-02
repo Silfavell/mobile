@@ -1,7 +1,8 @@
 import React from 'react'
+
+import { TouchableOpacity, Text, TextInput, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
-import { TouchableOpacity, Text, TextInput, View } from 'react-native'
 
 import {
     decreaseProductQuantity,

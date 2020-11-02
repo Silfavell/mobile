@@ -1,3 +1,4 @@
+import { MAKE_ORDER } from '../actions/cart-actions'
 import {
     SAVE_CARD,
     DELETE_CARD,
@@ -8,7 +9,6 @@ import {
     SET_PAYMENT_TYPE,
 } from '../actions/payment-actions'
 import { SET_INITIAL_DATAS, LOGOUT, SET_USER } from '../actions/source-actions'
-import { MAKE_ORDER } from '../actions/cart-actions'
 
 const INITIAL_STATE = {
     paymentType: 0,

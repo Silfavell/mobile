@@ -1,14 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import {FlatList} from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
-
-import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
-import CardComponent from './CardComponent'
-import AddNewCardComponent from './AddNewCardComponent'
-import ShadowContainer from '../../components/ShadowContainer'
+import { connect } from 'react-redux'
 
 import { deleteCard } from '../../actions/payment-actions'
+import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
+import ShadowContainer from '../../components/ShadowContainer'
+import AddNewCardComponent from './AddNewCardComponent'
+import CardComponent from './CardComponent'
+
 
 class PaymentOptionsScreen extends React.Component {
 	state = {

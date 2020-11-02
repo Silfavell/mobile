@@ -1,12 +1,13 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { View } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import ButtonComponent from '../../components/ButtonComponent'
 import ConfirmAccuratePinPopup from '../../components/popups/ConfirmAccuratePinPopup'
 import HeaderAddressInput from '../MapScreens/HeaderAddressInput'
 import Map from '../MapScreens/Map'
-import ButtonComponent from '../../components/ButtonComponent'
 
 class PinAddressScreen extends React.Component {
   state = {

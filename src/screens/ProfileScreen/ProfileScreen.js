@@ -1,18 +1,19 @@
 import React from 'react'
+
 import { StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
 import {
     ScrollView,
     TouchableOpacity
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { connect } from 'react-redux'
 
-import SettingItem from '../../components/SettingItem'
-import LogoutItem from './LogoutItem'
-import ShadowContainer from '../../components/ShadowContainer'
 
 import pckg from '../../../package.json'
+import SettingItem from '../../components/SettingItem'
+import ShadowContainer from '../../components/ShadowContainer'
+import LogoutItem from './LogoutItem'
 
 class ProfileScreen extends React.PureComponent {
 	moveToEditProfileScreen = () => {

@@ -1,24 +1,25 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
+
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
+import { ScaledSheet } from 'react-native-size-matters'
 
 
-import ProfileScreen from '../screens/ProfileScreen/ProfileScreen'
-import ChangePasswordScreen from '../screens/ChangePasswordScreen/ChangePasswordScreen'
-import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
-import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'
-import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
 import CompleteAddressScreen from '../screens/AddressScreens/CompleteAddressScreen'
-import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
-import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
+import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
+import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'
 import ChangeLanguageScreen from '../screens/ChangeLanguageScreen/ChangeLanguageScreen'
+import ChangePasswordScreen from '../screens/ChangePasswordScreen/ChangePasswordScreen'
 import EditProfileScreen from '../screens/EditProfileScreen/EditProfileScreen'
 import FavoriteProductsScreen from '../screens/FavoriteProductsScreen/FavoriteProductsScreen'
 import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
+import HelpScreen from '../screens/HelpScreen/HelpScreen'
+import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
+import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
 import PreviousOrdersScreen from '../screens/PreviousOrdersScreen/PreviousOrdersScreen'
+import ProfileScreen from '../screens/ProfileScreen/ProfileScreen'
 import ReturnItems from '../screens/ReturnItems/ReturnItems'
 import ReturnItemsCompleted from '../screens/ReturnItemsCompleted/ReturnItemsCompleted'
-import HelpScreen from '../screens/HelpScreen/HelpScreen'
+import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
 
 const Stack = createStackNavigator()
 
