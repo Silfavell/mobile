@@ -12,64 +12,64 @@ import { deleteCard } from '../../actions/payment-actions'
 
 class PaymentOptionsScreen extends React.Component {
 	state = {
-		scaleAnimationModal: false,
-		selectedCard: null
+	    scaleAnimationModal: false,
+	    selectedCard: null
 	}
 
 	renderCardComponent = ({ item }) => (
-		<CardComponent
-			item={item}
-			setPopupState={this.setPopupState}
-			navigation={this.props.navigation}
-		/>
+	    <CardComponent
+	        item={item}
+	        setPopupState={this.setPopupState}
+	        navigation={this.props.navigation}
+	    />
 	)
 
 	setPopupState = (result, confirm) => {
-		this.setState({
-			scaleAnimationModal: result.scaleAnimationModal,
-			selectedCard: result.selectedCard
-		})
+	    this.setState({
+	        scaleAnimationModal: result.scaleAnimationModal,
+	        selectedCard: result.selectedCard
+	    })
 
-		if (confirm) {
-			this.props.deleteCard(this.state.selectedCard)
-		}
+	    if (confirm) {
+	        this.props.deleteCard(this.state.selectedCard)
+	    }
 	}
 
 	renderListFooter = () => <AddNewCardComponent navigation={this.props.navigation} />
 
 	render() {
-		return (
-			<ShadowContainer>
+	    return (
+	        <ShadowContainer>
 
-				<DeleteCardPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
+	            <DeleteCardPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
 
-				<FlatList
-					contentContainerStyle={styles.list}
-					data={this.props.cards}
-					keyExtractor={(item) => item.cardToken}
-					renderItem={this.renderCardComponent}
-					ListFooterComponent={this.renderListFooter}
-				/>
+	            <FlatList
+	                contentContainerStyle={styles.list}
+	                data={this.props.cards}
+	                keyExtractor={(item) => item.cardToken}
+	                renderItem={this.renderCardComponent}
+	                ListFooterComponent={this.renderListFooter}
+	            />
 
-			</ShadowContainer>
-		)
+	        </ShadowContainer>
+	    )
 	}
 }
 
 const styles = ScaledSheet.create({
-	list: { backgroundColor: 'white' }
+    list: { backgroundColor: 'white' }
 })
 
 const mapStateToProps = ({
-	paymentReducer: {
-		cards
-	}
+    paymentReducer: {
+        cards
+    }
 }) => ({
-	cards
+    cards
 })
 
 const mapDispacthToProps = {
-	deleteCard
+    deleteCard
 }
 
 export default connect(mapStateToProps, mapDispacthToProps)(PaymentOptionsScreen)

@@ -7,47 +7,43 @@ import { s } from 'react-native-size-matters'
 import { setClearCartPopupState } from '../actions/global-actions'
 
 class HeaderRight extends React.Component {
-	onClearClick = () => {
-		this.props.setClearCartPopupState(true)
-	}
+  onClearClick = () => {
+      this.props.setClearCartPopupState(true)
+  };
 
-	shouldComponentUpdate(nextProps) {
-		if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
-			return true
-		}
+  shouldComponentUpdate(nextProps) {
+      if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
+          return true
+      }
 
-		return false
-	}
+      return false
+  }
 
-	render() {
-		if (Object.values(this.props.cart).length > 0) {
-			return (
-				<TouchableOpacity style={styles.iconContainer} onPress={this.onClearClick}>
-					<Ionicons name='md-trash' size={26} color='white' />
-				</TouchableOpacity>
-			)
-		}
+  render() {
+      if (Object.values(this.props.cart).length > 0) {
+          return (
+              <TouchableOpacity style={styles.iconContainer} onPress={this.onClearClick}>
+                  <Ionicons name="md-trash" size={26} color="white" />
+              </TouchableOpacity>
+          )
+      }
 
-		return null
-	}
+      return null
+  }
 }
 
-const mapStateToProps = ({
-	cartReducer: {
-		cart
-	}
-}) => ({
-	cart
+const mapStateToProps = ({ cartReducer: { cart } }) => ({
+    cart,
 })
 
 const mapDispatchToProps = {
-	setClearCartPopupState
+    setClearCartPopupState,
 }
 
 const styles = StyleSheet.create({
-	iconContainer: {
-		marginRight: s(18)
-	}
+    iconContainer: {
+        marginRight: s(18),
+    },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderRight)

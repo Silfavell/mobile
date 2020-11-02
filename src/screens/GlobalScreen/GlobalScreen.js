@@ -7,13 +7,13 @@ import GlobalMessagePopup from '../../components/popups/GlobalMessagePopup'
 import NeedUpdatePopup from '../../components/popups/NeedUpdatePopup'
 
 const GlobalScreen = () => (
-	<>
-		<ConnectionPopup />
-		<NeedToLoginPopup />
-		<ClearCartPopup />
-		<GlobalMessagePopup />
-		<NeedUpdatePopup />
-	</>
+    <>
+        <ConnectionPopup />
+        <NeedToLoginPopup />
+        <ClearCartPopup />
+        <GlobalMessagePopup />
+        <NeedUpdatePopup />
+    </>
 )
 
 export default GlobalScreen

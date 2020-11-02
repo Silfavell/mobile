@@ -15,12 +15,8 @@ class BestSeller extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ({
-    sourceReducer: {
-        bestSeller
-    }
-}) => ({
-    bestSeller
+const mapStateToProps = ({ sourceReducer: { bestSeller } }) => ({
+    bestSeller,
 })
 
 export default connect(mapStateToProps)(BestSeller)

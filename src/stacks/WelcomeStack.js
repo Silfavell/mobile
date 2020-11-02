@@ -1,8 +1,8 @@
 import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters'
 import {
-	createStackNavigator,
-	CardStyleInterpolators
+    createStackNavigator,
+    CardStyleInterpolators
 } from '@react-navigation/stack'
 
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
@@ -15,79 +15,79 @@ import ActivationScreen from '../screens/ActivationScreen/ActivationScreen'
 const Stack = createStackNavigator()
 
 const WelcomeStack = () => (
-	<Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
-		<Stack.Screen
-			name='welcome'
-			component={WelcomeScreen}
-			options={{
-				headerTitleAlign: 'center',
-				headerStyle: styles.headerStyle,
-				headerShown: false
-			}}
-		/>
+    <Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
+        <Stack.Screen
+            name='welcome'
+            component={WelcomeScreen}
+            options={{
+                headerTitleAlign: 'center',
+                headerStyle: styles.headerStyle,
+                headerShown: false
+            }}
+        />
 
-		<Stack.Screen
-			name='login'
-			component={LoginScreen}
-			options={{
-				title: 'Giriş Yap',
-				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
-			}}
-		/>
+        <Stack.Screen
+            name='login'
+            component={LoginScreen}
+            options={{
+                title: 'Giriş Yap',
+                headerTitleAlign: 'center',
+                headerTintColor: 'white',
+                headerStyle: styles.headerStyle
+            }}
+        />
 
-		<Stack.Screen
-			name='register'
-			component={RegisterScreen}
-			options={{
-				title: 'Kayıt Ol',
-				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
-			}}
-		/>
+        <Stack.Screen
+            name='register'
+            component={RegisterScreen}
+            options={{
+                title: 'Kayıt Ol',
+                headerTitleAlign: 'center',
+                headerTintColor: 'white',
+                headerStyle: styles.headerStyle
+            }}
+        />
 
-		<Stack.Screen
-			name='forgotPassword'
-			component={ForgotPasswordScreen}
-			options={{
-				title: 'Şifremi Unuttum',
-				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
-			}}
-		/>
+        <Stack.Screen
+            name='forgotPassword'
+            component={ForgotPasswordScreen}
+            options={{
+                title: 'Şifremi Unuttum',
+                headerTitleAlign: 'center',
+                headerTintColor: 'white',
+                headerStyle: styles.headerStyle
+            }}
+        />
 
-		<Stack.Screen
-			name='resetPassword'
-			component={ResetPasswordScreen}
-			options={{
-				title: 'Şifremi Değiştir',
-				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
-			}}
-		/>
+        <Stack.Screen
+            name='resetPassword'
+            component={ResetPasswordScreen}
+            options={{
+                title: 'Şifremi Değiştir',
+                headerTitleAlign: 'center',
+                headerTintColor: 'white',
+                headerStyle: styles.headerStyle
+            }}
+        />
 
-		<Stack.Screen
-			name='activationScreen'
-			component={ActivationScreen}
-			options={{
-				title: 'Aktivasyon',
-				headerTitleAlign: 'center',
-				headerTintColor: 'white',
-				headerStyle: styles.headerStyle
-			}}
-		/>
-	</Stack.Navigator>
+        <Stack.Screen
+            name='activationScreen'
+            component={ActivationScreen}
+            options={{
+                title: 'Aktivasyon',
+                headerTitleAlign: 'center',
+                headerTintColor: 'white',
+                headerStyle: styles.headerStyle
+            }}
+        />
+    </Stack.Navigator>
 )
 
 const styles = ScaledSheet.create({
-	headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' },
-	headerImage: {
-		height: '200%'
-	}
+    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' },
+    headerImage: {
+        height: '200%'
+    }
 })
 
 export default WelcomeStack

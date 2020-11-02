@@ -8,18 +8,19 @@ const INITIAL_STATE = {
     selectedBrands: [],
     selectedSort: -1,
     selectedMinPrice: null,
-    selectedMaxPrice: null
+    selectedMaxPrice: null,
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case MAKE_FILTER:
-        case CLEAR_FILTER: {
-            return {
-                ...state,
-                ...action.payload
-            }
+    case MAKE_FILTER:
+    case CLEAR_FILTER: {
+        return {
+            ...state,
+            ...action.payload,
         }
-        default: return state
+    }
+    default:
+        return state
     }
 }

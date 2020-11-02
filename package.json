@@ -1,5 +1,5 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.js",
   "version": "1.0.1",
   "scripts": {
     "android": "react-native run-android",
@@ -8,7 +8,9 @@
     "build": "build.sh",
     "build-bundle": "build-bundle.sh",
     "test": "jest",
-    "lint": "eslint \"**/*.{js,ts}\" --quiet --fix"
+    "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.3",
@@ -54,17 +56,17 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/runtime": "^7.9.6",
-    "@react-native-community/eslint-config": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
     "babel-preset-expo": "~8.2.3",
-    "eslint": "^7.3.1",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
+    "eslint": "^7.12.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-native": "^3.10.0",
     "jest": "^26.0.1",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^2.1.2",
     "react-test-renderer": "16.13.1"
   },
   "private": true,

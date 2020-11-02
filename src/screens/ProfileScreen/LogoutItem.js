@@ -10,38 +10,38 @@ import { logout } from '../../actions/source-actions'
 
 class LogoutItem extends React.Component {
 	state = {
-		scaleAnimationModal: false
+	    scaleAnimationModal: false
 	}
 
 	setPopupState = (state) => {
-		this.setState(state)
+	    this.setState(state)
 	}
 
 	onClick = () => {
-		this.setState({ scaleAnimationModal: true })
+	    this.setState({ scaleAnimationModal: true })
 	}
 
 	render() {
-		return (
-			<>
-				<AskPopup
-					func={this.props.logout}
-					title={'Çıkış yapmak istediğinize emin misiniz ?'}
-					scaleAnimationModal={this.state.scaleAnimationModal}
-					setPopupState={this.setPopupState} />
+	    return (
+	        <>
+	            <AskPopup
+	                func={this.props.logout}
+	                title={'Çıkış yapmak istediğinize emin misiniz ?'}
+	                scaleAnimationModal={this.state.scaleAnimationModal}
+	                setPopupState={this.setPopupState} />
 
-				<TouchableOpacity onPress={this.onClick}>
-					<SettingItem title='Çıkış Yap'>
-						<MaterialIcons color='rgba(0,0,0,.8)' name='exit-to-app' size={32} />
-					</SettingItem>
-				</TouchableOpacity>
-			</>
-		)
+	            <TouchableOpacity onPress={this.onClick}>
+	                <SettingItem title='Çıkış Yap'>
+	                    <MaterialIcons color='rgba(0,0,0,.8)' name='exit-to-app' size={32} />
+	                </SettingItem>
+	            </TouchableOpacity>
+	        </>
+	    )
 	}
 }
 
 const mapDispatchToProps = {
-	logout
+    logout
 }
 
 export default connect(null, mapDispatchToProps)(LogoutItem)

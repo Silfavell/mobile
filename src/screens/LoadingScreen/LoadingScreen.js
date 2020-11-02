@@ -7,47 +7,42 @@ import LoadingComponent from '../../components/LoadingComponent'
 import { setInitialDatas } from '../../actions/source-actions'
 
 class LoadingScreen extends React.Component {
-	componentDidMount() {
-		// AsyncStorage.clear()
-		AsyncStorage.getItem('init').then((init) => {
-			if (init) {
-				if (this.props.categories.length > 0) {
-					this.props.navigation.navigate('Root')
-				} else {
-					this.props.setInitialDatas()
-				}
-			} else {
-				this.props.navigation.navigate('Welcome')
-			}
-		})
-	}
+    componentDidMount() {
+    // AsyncStorage.clear()
+        AsyncStorage.getItem('init').then((init) => {
+            if (init) {
+                if (this.props.categories.length > 0) {
+                    this.props.navigation.navigate('Root')
+                } else {
+                    this.props.setInitialDatas()
+                }
+            } else {
+                this.props.navigation.navigate('Welcome')
+            }
+        })
+    }
 
-	componentDidUpdate() {
-		if (this.props.categories.length > 0) {
-			AsyncStorage.setItem('init', 'true')
-			this.props.navigation.navigate('Root')
-		} else {
-			this.props.setInitialDatas()
-		}
-	}
+    componentDidUpdate() {
+        if (this.props.categories.length > 0) {
+            AsyncStorage.setItem('init', 'true')
+            this.props.navigation.navigate('Root')
+        } else {
+            this.props.setInitialDatas()
+        }
+    }
 
-	render() {
-		return <LoadingComponent />
-	}
+    render() {
+        return <LoadingComponent />
+    }
 }
 
-const mapStateToProps = ({
-	sourceReducer: {
-		token,
-		categories
-	}
-}) => ({
-	token,
-	categories
+const mapStateToProps = ({ sourceReducer: { token, categories } }) => ({
+    token,
+    categories,
 })
 
 const mapDispatchToProps = {
-	setInitialDatas
+    setInitialDatas,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoadingScreen)

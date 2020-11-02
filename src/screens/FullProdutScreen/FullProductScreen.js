@@ -2,12 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Config from 'react-native-config'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import {
-	ScrollView,
-	TouchableOpacity,
-	View,
-	Text
-} from 'react-native'
+import { ScrollView, TouchableOpacity, View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import ButtonComponent from '../../components/ButtonComponent'
@@ -23,401 +18,403 @@ import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 
 class FullProductScreen extends React.Component {
-	scrollRef = React.createRef()
+  scrollRef = React.createRef();
 
-	state = {
-		product: null,
-		pickedColor: -1
-	}
+  state = {
+      product: null,
+      pickedColor: -1,
+  };
 
-	componentDidMount() {
-		this.getProductBySlug(this.props.route.params.slug)
-	}
+  componentDidMount() {
+      this.getProductBySlug(this.props.route.params.slug)
+  }
 
-	// TODO replace with another lifecycle method
-	UNSAFE_componentWillReceiveProps() {
-		if (this.state.pickedColor === -1) {
-			this.setHeader(this.state.product._id)
-		} else {
-			this.setHeader(this.state.product.group[this.state.pickedColor]._id)
-		}
-	}
+  // TODO replace with another lifecycle method
+  UNSAFE_componentWillReceiveProps() {
+      if (this.state.pickedColor === -1) {
+          this.setHeader(this.state.product._id)
+      } else {
+          this.setHeader(this.state.product.group[this.state.pickedColor]._id)
+      }
+  }
 
-	onHeartClick = (_id) => {
-		if (this.props.user?.favoriteProducts?.includes(_id)) {
-			this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
-		} else {
-			this.addToFavoriteProducts(_id, this.props.messagePopupRef)
-		}
-	}
+  onHeartClick = (_id) => {
+      if (this.props.user?.favoriteProducts?.includes(_id)) {
+          this.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
+      } else {
+          this.addToFavoriteProducts(_id, this.props.messagePopupRef)
+      }
+  };
 
-	setHeader = (_id) => {
-		if (this.props.token) {
-			this.props.navigation.setOptions({
-				headerRight: () => (
-					<TouchableOpacity onPress={() => this.onHeartClick(_id)}>
-						<Ionicons
-							size={26}
-							color='rgba(0,0,0,.8)'
-							style={styles.iconStyle}
-							name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
-						/>
+  setHeader = (_id) => {
+      if (this.props.token) {
+          this.props.navigation.setOptions({
+              headerRight: () => (
+                  <TouchableOpacity onPress={() => this.onHeartClick(_id)}>
+                      <Ionicons
+                          size={26}
+                          color="rgba(0,0,0,.8)"
+                          style={styles.iconStyle}
+                          name={
+                this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'
+                          }
+                      />
+                  </TouchableOpacity>
+              ),
+          })
+      }
+  };
 
-					</TouchableOpacity>
-				)
-			})
-		}
-	}
+  onAddToCartClick = () => {
+      if (this.state.pickedColor === -1) {
+          this.props.increaseProductQuantity(this.state.product._id, this.props.messagePopupRef)
+      } else {
+          this.props.increaseProductQuantity(
+              this.state.product.group[this.state.pickedColor]._id,
+              this.props.messagePopupRef,
+          )
+      }
+  };
 
-	onAddToCartClick = () => {
-		if (this.state.pickedColor === -1) {
-			this.props.increaseProductQuantity(this.state.product._id, this.props.messagePopupRef)
-		} else {
-			this.props.increaseProductQuantity(this.state.product.group[this.state.pickedColor]._id, this.props.messagePopupRef)
-		}
-	}
+  addToFavoriteProducts = (_id) => {
+      this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
+  };
 
-	addToFavoriteProducts = (_id) => {
-		this.props.addToFavoriteProducts(_id, this.props.messagePopupRef)
-	}
+  removeFromFavoriteProdutcs = (_id) => {
+      this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
+  };
 
-	removeFromFavoriteProdutcs = (_id) => {
-		this.props.removeFromFavoriteProdutcs(_id, this.props.messagePopupRef)
-	}
+  getProductBySlug = async (productSlug) => {
+      const fromSearch = !!this.props.route.params.fromSearch
+      const { status, data } = await getProductBySlugRequest(productSlug, fromSearch)
 
-	getProductBySlug = async (productSlug) => {
-		const fromSearch = !!this.props.route.params.fromSearch
-		const { status, data } = await getProductBySlugRequest(productSlug, fromSearch)
+      if (status === 200) {
+          this.setState(
+              {
+                  product: data,
+                  pickedColor: -1,
+              },
+              () => {
+                  this.scrollRef.current.scrollTo({ y: 0, animated: true })
+                  this.setHeader(data._id)
+              },
+          )
+      }
+  };
 
-		if (status === 200) {
-			this.setState({
-				product: data,
-				pickedColor: -1
-			}, () => {
-				this.scrollRef.current.scrollTo({ y: 0, animated: true })
-				this.setHeader(data._id)
-			})
-		}
-	}
+  onColorPicked = (colorIndex) => {
+      this.setState({ pickedColor: colorIndex }, () => {
+          this.setHeader(this.state.product.group[colorIndex]._id)
+      })
+  };
 
-	onColorPicked = (colorIndex) => {
-		this.setState({ pickedColor: colorIndex }, () => {
-			this.setHeader(this.state.product.group[colorIndex]._id)
-		})
-	}
+  getImages = () => {
+      const { slug, imageCount } =
+      this.state.pickedColor === -1
+          ? this.state.product
+          : this.state.product.group[this.state.pickedColor]
 
-	getImages = () => {
-		const {
-			slug,
-			imageCount
-		} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
+      return Array.from(new Array(imageCount)).map(
+          (el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`,
+      )
+  };
 
-		return Array.from(new Array(imageCount)).map((el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
-	}
+  isColorSelected = (index) => {
+      if (this.state.pickedColor === -1) {
+          const productIndexInGroup = this.state.product.group.find(
+              (product) => product._id === this.state.product._id,
+          )
+          return this.state.product.group.indexOf(productIndexInGroup) === index
+      }
 
-	isColorSelected = (index) => {
-		if (this.state.pickedColor === -1) {
-			const productIndexInGroup = this.state.product.group.find((product) => product._id === this.state.product._id)
-			return this.state.product.group.indexOf(productIndexInGroup) === index
-		}
+      return index === this.state.pickedColor
+  };
 
-		return index === this.state.pickedColor
-	}
+  renderExtraDetailsRow = ({ title, value, first }) => (
+      <View style={[styles.detailRow, !first ? styles.nonFirstDetailsRow : {}]}>
+          <View style={styles.detailRowTitleContainer}>
+              <Text style={styles.detailRowTitle}>{title}</Text>
+          </View>
+          <View style={styles.detailRowValueContainer}>
+              <Text style={styles.detailRowValue}>{value}</Text>
+          </View>
+      </View>
+  );
 
-	renderExtraDetailsRow = ({ title, value, first }) => (
-		<View style={[
-			styles.detailRow,
-			!first ? styles.nonFirstDetailsRow : {}
-		]}
-		>
-			<View style={styles.detailRowTitleContainer}>
-				<Text style={styles.detailRowTitle}>{title}</Text>
-			</View>
-			<View style={styles.detailRowValueContainer}>
-				<Text style={styles.detailRowValue}>{value}</Text>
-			</View>
-		</View>
-	)
+  render() {
+      if (this.state.product) {
+          const { name, details, price, discountedPrice, color, specifications } =
+        this.state.pickedColor === -1
+            ? this.state.product
+            : this.state.product.group[this.state.pickedColor]
 
-	render() {
-		if (this.state.product) {
-			const {
-				name,
-				details,
-				price,
-				discountedPrice,
-				color,
-				specifications,
-			} = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
+          const { comments } = this.state.product
 
-			const { comments } = this.state.product
+          return (
+              <View style={styles.container}>
+                  <ScrollView
+                      ref={this.scrollRef}
+                      contentContainerStyle={styles.scrollContainer}
+                      onScroll={this.handleScroll}>
+                      <ShadowContainer style={styles.shadowContainer}>
+                          <View style={styles.imageContainer}>
+                              <Slider
+                                  imageContainerStyle={styles.imageContainerStyle}
+                                  _id={`Slider:${
+                                      (this.state.pickedColor === -1
+                                          ? this.state.product
+                                          : this.state.product.group[this.state.pickedColor]
+                                      )._id
+                                  }`}
+                                  images={this.getImages()}
+                                  shopSingle
+                                  paginator
+                              />
+                          </View>
+                      </ShadowContainer>
+                      <View style={styles.details}>
+                          <View style={styles.textContainer}>
+                              <Text style={styles.productName}>{name}</Text>
+                          </View>
 
-			return (
-				<View style={styles.container}>
+                          <View style={styles.priceContainer}>
+                              <Text
+                                  style={[
+                                      styles.price,
+                                      discountedPrice ? styles.discountedPrice : {},
+                                  ]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
 
-					<ScrollView
-						ref={this.scrollRef}
-						contentContainerStyle={styles.scrollContainer}
-						onScroll={this.handleScroll}
-					>
-						<ShadowContainer style={styles.shadowContainer}>
-							<View style={styles.imageContainer}>
-								<Slider
-									imageContainerStyle={styles.imageContainerStyle}
-									_id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
-									images={this.getImages()}
-									shopSingle
-									paginator
-								/>
-							</View>
-						</ShadowContainer>
-						<View style={styles.details}>
-							<View style={styles.textContainer}>
-								<Text style={styles.productName}>{name}</Text>
-							</View>
+                              {discountedPrice && (
+                                  <Text style={styles.price}>{`₺${discountedPrice
+                                      .toFixed(2)
+                                      .toString()
+                                      .replace('.', ',')}`}</Text>
+                              )}
+                          </View>
+                      </View>
 
-							<View style={styles.priceContainer}>
-								<Text style={[styles.price, discountedPrice ? styles.discountedPrice : {}]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+                      {this.state.product.group && this.state.product.group.length > 1 && color && (
+                          <View style={styles.colorContainer}>
+                              <View style={styles.textContainer}>
+                                  <Text style={styles.colorText}>
+                                      {'Renk:    '}
+                                      <Text style={styles.colorName}>{color.name}</Text>
+                                  </Text>
+                              </View>
 
-								{
-									discountedPrice && (
-										<Text style={styles.price}>{`₺${discountedPrice.toFixed(2).toString().replace('.', ',')}`}</Text>
-									)
-								}
-							</View>
-						</View>
+                              <View style={styles.colors}>
+                                  {this.state.product.group.map((groupProduct, index) => (
+                                      <Color
+                                          key={`${this.state.product._id}:colorGroup:${groupProduct._id}`}
+                                          product={groupProduct}
+                                          selected={this.isColorSelected(index)}
+                                          index={index}
+                                          onPress={this.onColorPicked}
+                                      />
+                                  ))}
+                              </View>
+                          </View>
+                      )}
 
-						{
-							(this.state.product.group && this.state.product.group.length > 1 && color) && (
-								<View style={styles.colorContainer}>
-									<View style={styles.textContainer}>
-										<Text style={styles.colorText}>
-											{'Renk:    '}
-											<Text style={styles.colorName}>{color.name}</Text>
-										</Text>
-									</View>
+                      <Accordion title="Ürün Hakkında" expanded>
+                          <>
+                              <View style={styles.details2}>
+                                  <Text style={styles.productDetail}>
+                                      {details ?? 'Ürün detayı bulunmamaktadır'}
+                                  </Text>
+                              </View>
 
-									<View style={styles.colors}>
+                              <View style={styles.extraDetailsContainer}>
+                                  {specifications.map((specification, index) =>
+                                      this.renderExtraDetailsRow({
+                                          title: specification.name,
+                                          value: specification.value,
+                                          first: index === 0,
+                                      }),
+                                  )}
+                              </View>
+                          </>
+                      </Accordion>
 
-										{
-											this.state.product.group.map((groupProduct, index) => (
-												<Color
-													key={`${this.state.product._id}:colorGroup:${groupProduct._id}`}
-													product={groupProduct}
-													selected={this.isColorSelected(index)}
-													index={index}
-													onPress={this.onColorPicked}
-												/>
-											))
-										}
+                      <Accordion title={`Yorumlar (${comments.length})`}>
+                          <>
+                              {comments.map((comment) => (
+                                  <Comment item={comment} />
+                              ))}
+                          </>
+                      </Accordion>
 
-									</View>
-								</View>
-							)
-						}
+                      <View style={styles.emptyFooter} />
+                  </ScrollView>
 
-						<Accordion title='Ürün Hakkında' expanded>
-							<>
-								<View style={styles.details2}>
-									<Text style={styles.productDetail}>{details ?? 'Ürün detayı bulunmamaktadır'}</Text>
-								</View>
-
-								<View style={styles.extraDetailsContainer}>
-									{
-										specifications.map((specification, index) => (
-											this.renderExtraDetailsRow({ title: specification.name, value: specification.value, first: index === 0 })
-										))
-									}
-								</View>
-							</>
-						</Accordion>
-
-						<Accordion title={`Yorumlar (${comments.length})`}>
-							<>
-								{
-									comments.map((comment) => (
-										<Comment item={comment} />
-									))
-								}
-							</>
-						</Accordion>
-
-						<View style={styles.emptyFooter} />
-					</ScrollView>
-
-					<View style={styles.buttonContainer}>
-						<ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
-					</View>
-				</View>
-			)
-		}
-		return <Loading />
-	}
+                  <View style={styles.buttonContainer}>
+                      <ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
+                  </View>
+              </View>
+          )
+      }
+      return <Loading />
+  }
 }
 
 const styles = ScaledSheet.create({
-	container: {
-		justifyContent: 'space-between',
-		flex: 1,
-		backgroundColor: 'white'
-	},
-	scrollContainer: {
-		justifyContent: 'space-between'
-	},
-	imageContainer: {
-		flex: 1,
-		height: '260@s'
-	},
-	colors: {
-		flex: 1,
-		flexWrap: 'wrap',
-		flexDirection: 'row',
-		marginTop: '20@s'
-	},
-	colorContainer: {
-		flex: 1,
-		flexDirection: 'column',
-		paddingVertical: '20@s',
-		marginHorizontal: '10@s',
-		borderBottomWidth: 1,
-		borderBottomColor: '#EFEFEF'
-	},
-	details: {
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		paddingVertical: '20@s',
-		marginHorizontal: '10@s',
-		borderBottomWidth: 1,
-		borderBottomColor: '#EFEFEF'
-	},
-	details2: {
-		flex: 1,
-		flexDirection: 'column',
-		marginTop: '20@s',
-		marginHorizontal: '10@s'
-	},
-	extraDetailsContainer: {
-		flex: 1,
-		flexDirection: 'column',
-		marginTop: '20@s',
-		marginHorizontal: '10@s',
-		borderWidth: 1,
-		borderColor: '#EFEFEF'
-	},
-	detailRow: {
-		display: 'flex',
-		flexDirection: 'row'
-	},
-	nonFirstDetailsRow: {
-		borderTopWidth: 1,
-		borderTopColor: '#EFEFEF'
-	},
-	detailRowTitleContainer: {
-		flex: 4,
-		display: 'flex',
-		justifyContent: 'center',
-		backgroundColor: '#F7F7F7'
-	},
-	detailRowTitle: {
-		padding: '12@s',
-		fontSize: '15@s'
-	},
-	detailRowValueContainer: {
-		flex: 8,
-		display: 'flex',
-		justifyContent: 'center',
-		borderLeftWidth: 1,
-		borderLeftColor: '#EFEFEF'
-	},
-	detailRowValue: {
-		padding: '12@s',
-		fontSize: '15@s'
-	},
-	productDetailText: {
-		margin: '4@s',
-		fontSize: '18@s',
-		fontWeight: 'bold'
-	},
-	productDetail: {
-		margin: '4@s',
-		fontSize: '15@s'
-	},
-	price: {
-		fontSize: '17@s',
-		marginRight: '8@s',
-		fontWeight: '700',
-		color: 'rgba(0,0,0,.8)'
-	},
-	discountedPrice: {
-		fontWeight: 'normal',
-		// fontWeight: '100',
-		textDecorationLine: 'line-through'
-	},
-	productName: {
-		fontSize: '16@s',
-		fontWeight: 'bold'
-	},
-	colorText: {
-		fontSize: '16@s',
-		fontWeight: 'bold'
-	},
-	colorName: {
-		fontWeight: 'normal'
-	},
-	buttonContainer: {
-		position: 'absolute',
-		bottom: 0,
-		width: '100%',
-		backgroundColor: 'white'
-	},
-	textContainer: {
-		flex: 1,
-		justifyContent: 'center',
-		display: 'flex',
-		textAlign: 'center',
-		margin: '4@s'
-	},
-	priceContainer: {
-		margin: '4@s',
-		paddingHorizontal: '8@s',
-		flexDirection: 'column',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	emptyFooter: {
-		height: '100@s'
-	},
-	iconStyle: {
-		marginRight: 18
-	},
-	shadowContainer: {
-		backgroundColor: 'white'
-	},
-	imageContainerStyle: {
-		paddingBottom: 20
-	}
+    container: {
+        justifyContent: 'space-between',
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    scrollContainer: {
+        justifyContent: 'space-between',
+    },
+    imageContainer: {
+        flex: 1,
+        height: '260@s',
+    },
+    colors: {
+        flex: 1,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        marginTop: '20@s',
+    },
+    colorContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        paddingVertical: '20@s',
+        marginHorizontal: '10@s',
+        borderBottomWidth: 1,
+        borderBottomColor: '#EFEFEF',
+    },
+    details: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: '20@s',
+        marginHorizontal: '10@s',
+        borderBottomWidth: 1,
+        borderBottomColor: '#EFEFEF',
+    },
+    details2: {
+        flex: 1,
+        flexDirection: 'column',
+        marginTop: '20@s',
+        marginHorizontal: '10@s',
+    },
+    extraDetailsContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        marginTop: '20@s',
+        marginHorizontal: '10@s',
+        borderWidth: 1,
+        borderColor: '#EFEFEF',
+    },
+    detailRow: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    nonFirstDetailsRow: {
+        borderTopWidth: 1,
+        borderTopColor: '#EFEFEF',
+    },
+    detailRowTitleContainer: {
+        flex: 4,
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#F7F7F7',
+    },
+    detailRowTitle: {
+        padding: '12@s',
+        fontSize: '15@s',
+    },
+    detailRowValueContainer: {
+        flex: 8,
+        display: 'flex',
+        justifyContent: 'center',
+        borderLeftWidth: 1,
+        borderLeftColor: '#EFEFEF',
+    },
+    detailRowValue: {
+        padding: '12@s',
+        fontSize: '15@s',
+    },
+    productDetailText: {
+        margin: '4@s',
+        fontSize: '18@s',
+        fontWeight: 'bold',
+    },
+    productDetail: {
+        margin: '4@s',
+        fontSize: '15@s',
+    },
+    price: {
+        fontSize: '17@s',
+        marginRight: '8@s',
+        fontWeight: '700',
+        color: 'rgba(0,0,0,.8)',
+    },
+    discountedPrice: {
+        fontWeight: 'normal',
+        // fontWeight: '100',
+        textDecorationLine: 'line-through',
+    },
+    productName: {
+        fontSize: '16@s',
+        fontWeight: 'bold',
+    },
+    colorText: {
+        fontSize: '16@s',
+        fontWeight: 'bold',
+    },
+    colorName: {
+        fontWeight: 'normal',
+    },
+    buttonContainer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: 'white',
+    },
+    textContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        display: 'flex',
+        textAlign: 'center',
+        margin: '4@s',
+    },
+    priceContainer: {
+        margin: '4@s',
+        paddingHorizontal: '8@s',
+        flexDirection: 'column',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    emptyFooter: {
+        height: '100@s',
+    },
+    iconStyle: {
+        marginRight: 18,
+    },
+    shadowContainer: {
+        backgroundColor: 'white',
+    },
+    imageContainerStyle: {
+        paddingBottom: 20,
+    },
 })
 
 const mapStateToProps = ({
-	sourceReducer: {
-		token,
-		user
-	},
-	globalReducer: {
-		messagePopupRef
-	}
+    sourceReducer: { token, user },
+    globalReducer: { messagePopupRef },
 }) => ({
-	token,
-	user,
-	messagePopupRef
+    token,
+    user,
+    messagePopupRef,
 })
 
 const mapDispatchToProps = {
-	increaseProductQuantity,
-	addToFavoriteProducts,
-	removeFromFavoriteProdutcs
+    increaseProductQuantity,
+    addToFavoriteProducts,
+    removeFromFavoriteProdutcs,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullProductScreen)

@@ -9,11 +9,11 @@ import networkReducer from './network-reducer'
 import globalReducer from './global-reducer'
 
 export default combineReducers({
-	cartReducer,
-	paymentReducer,
-	sourceReducer,
-	filterReducer,
-	mapReducer,
-	networkReducer,
-	globalReducer
+    cartReducer,
+    paymentReducer,
+    sourceReducer,
+    filterReducer,
+    mapReducer,
+    networkReducer,
+    globalReducer,
 })

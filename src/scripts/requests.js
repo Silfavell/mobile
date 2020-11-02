@@ -3,29 +3,29 @@ import Config from 'react-native-config'
 import AsyncStorage from '@react-native-community/async-storage'
 
 const instance = axios.create({
-  baseURL: Config.SERVER_URL
+    baseURL: Config.SERVER_URL
 })
 
 instance.interceptors.request.use(async function (options) {
-  const token = await AsyncStorage.getItem('token')
+    const token = await AsyncStorage.getItem('token')
 
-  if (token) {
-    options.headers['Authorization'] = token
-  }
+    if (token) {
+        options.headers['Authorization'] = token
+    }
 
-  return options
+    return options
 })
 
 export const makeCustomRequest = ({
-  method,
-  url,
-  data
-}) => {
-  return instance({
     method,
     url,
     data
-  })
+}) => {
+    return instance({
+        method,
+        url,
+        data
+    })
 }
 
 export const getCategories = () => instance.get('/categories')
@@ -35,9 +35,9 @@ export const fetchShop = (productIds) => instance.get(`/filter-shop?${productIds
 export const getCartProducts = () => instance.get('/user/cart')
 
 export const fetchOfflineCartProducts = () => {
-  const url = `/filter-shop?${JSON.parse(window.localStorage.getItem('cart')).map((cartProduct) => `productIds=${cartProduct._id}`).join('&')}`
+    const url = `/filter-shop?${JSON.parse(window.localStorage.getItem('cart')).map((cartProduct) => `productIds=${cartProduct._id}`).join('&')}`
 
-  return instance.get(url)
+    return instance.get(url)
 }
 
 export const increaseProductQuantity = (productId, quantity) => instance.put(`/add-product/${productId}`, { quantity })
