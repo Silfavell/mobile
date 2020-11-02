@@ -31,9 +31,10 @@ module.exports = {
     rules: {
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
+        quotes: [2, 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
         'comma-dangle': [2, 'never'],
         semi: [2, 'never'],
+        'jsx-quotes': [2, 'prefer-single'],
 
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 2,
