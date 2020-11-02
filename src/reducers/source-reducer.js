@@ -1,6 +1,7 @@
 import { SET_INITIAL_DATAS, SET_USER, LOGOUT, UPDATE_FAVORITE_PRODUCTS } from '../actions/source-actions'
 
 const INITIAL_STATE = {
+	forWhich:0,
 	categories: [],
 	products: [],
 	bestSeller: [],
