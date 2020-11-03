@@ -16,20 +16,20 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-    case SET_INITIAL_DATAS:
-    case SET_USER:
-    case LOGOUT:
-        return { ...state, ...action.payload }
-    case UPDATE_FAVORITE_PRODUCTS: {
-        return {
-            ...state,
-            user: {
-                ...state.user,
-                favoriteProducts: action.payload.favoriteProducts
+        case SET_INITIAL_DATAS:
+        case SET_USER:
+        case LOGOUT:
+            return { ...state, ...action.payload }
+        case UPDATE_FAVORITE_PRODUCTS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    favoriteProducts: action.payload.favoriteProducts
+                }
             }
         }
-    }
-    default:
-        return state
+        default:
+            return state
     }
 }

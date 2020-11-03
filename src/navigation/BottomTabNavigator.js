@@ -19,42 +19,39 @@ export default function BottomTabNavigator({ navigation }) {
         <BottomTab.Navigator
             initialRouteName={INITIAL_ROUTE_NAME}
             tabBarOptions={{ activeTintColor: 'rgba(0,0,0,.8)' }}
-            lazy={false}>
+            lazy={false}
+        >
             <BottomTab.Screen
-                name="Home"
+                name='Home'
                 component={HomeStack}
                 options={{
                     title: 'Ana Sayfa',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />
-                }}
-            />
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-home' />
+                }} />
 
             <BottomTab.Screen
-                name="Search"
+                name='Search'
                 component={SearchStack}
                 options={{
                     title: 'Ara',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-search" />
-                }}
-            />
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-search' />
+                }} />
 
             <BottomTab.Screen
-                name="Cart"
+                name='Cart'
                 component={CartStack}
                 options={{
                     title: 'Sepetim',
-                    tabBarIcon: ({ focused }) => <CartIcon focused={focused} name="md-basket" />
-                }}
-            />
+                    tabBarIcon: ({ focused }) => <CartIcon focused={focused} name='md-basket' />
+                }} />
 
             <BottomTab.Screen
-                name="Profile"
+                name='Profile'
                 component={ProfileStack}
                 options={{
                     title: 'Diğer',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-menu" />
-                }}
-            />
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-menu' />
+                }} />
         </BottomTab.Navigator>
     )
 }

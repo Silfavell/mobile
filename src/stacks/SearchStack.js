@@ -22,8 +22,7 @@ const SearchStack = () => (
                 headerLeft: null,
                 headerStyle: styles.headerStyle
             }}
-            component={SearchScreen}
-        />
+            component={SearchScreen} />
 
         <Stack.Screen
             name='fullProductScreen'
@@ -39,8 +38,7 @@ const SearchStack = () => (
                 },
                 cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
             }}
-            component={FullProductScreen}
-        />
+            component={FullProductScreen} />
     </Stack.Navigator>
 )
 

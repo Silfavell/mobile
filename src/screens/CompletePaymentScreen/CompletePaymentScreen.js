@@ -10,7 +10,6 @@ import AddressSelectComponent from './AddressSelectComponent'
 import CargoPriceComponent from './CargoPriceComponent'
 import PaymentTypeSelectComponent from './PaymentTypeSelectComponent'
 
-
 class CompletePaymentScreen extends React.PureComponent {
     render() {
         const {
@@ -26,23 +25,22 @@ class CompletePaymentScreen extends React.PureComponent {
         return (
             <>
                 <ShadowContainer>
-                    <HeadingDivider title="Adres Seçimi" />
+                    <HeadingDivider title='Adres Seçimi' />
 
                     <AddressSelectComponent
                         navigation={navigation}
                         token={token}
                         setNeedToLoginPopupState={setNeedToLoginPopupState}
                         title={
-              addresses.find((address) => address._id === selectedAddress)?.openAddress ??
-              'Adres Seçiniz'
+              addresses.find((address) => address._id === selectedAddress)?.openAddress
+              ?? 'Adres Seçiniz'
                         }
                         subTitle={
-              addresses.find((address) => address._id === selectedAddress)?.openAddress ??
-              'Adres Seçiniz'
-                        }
-                    />
+              addresses.find((address) => address._id === selectedAddress)?.openAddress
+              ?? 'Adres Seçiniz'
+                        } />
 
-                    <HeadingDivider title="Ödeme Şekli" />
+                    <HeadingDivider title='Ödeme Şekli' />
 
                     <PaymentTypeSelectComponent
                         navigation={navigation}
@@ -53,10 +51,9 @@ class CompletePaymentScreen extends React.PureComponent {
                         }
                         subTitle={
               cards.find((card) => card.cardToken === selectedCard)?.cardNumber ?? 'Kart Seçiniz'
-                        }
-                    />
+                        } />
 
-                    <HeadingDivider title="Kargo Ücreti" />
+                    <HeadingDivider title='Kargo Ücreti' />
 
                     <CargoPriceComponent />
                 </ShadowContainer>
@@ -68,7 +65,9 @@ class CompletePaymentScreen extends React.PureComponent {
 }
 
 const mapStateToProps = ({
-    paymentReducer: { cards, addresses, selectedCard, selectedAddress },
+    paymentReducer: {
+        cards, addresses, selectedCard, selectedAddress
+    },
     sourceReducer: { token }
 }) => ({
     cards,

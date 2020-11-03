@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { View, TouchableOpacity, Text, Linking } from 'react-native'
+import {
+    View, TouchableOpacity, Text, Linking
+} from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
-
 
 import OrderStatus from '../models/OrderStatus'
 import OrderCarousel from './OrderCarousel'
@@ -11,20 +12,20 @@ import SettingItem from './SettingItem'
 class OrderComponent extends React.PureComponent {
   getStatusText = (status) => {
       switch (status) {
-      case OrderStatus.WAITING_FOR_APPROVAL:
-          return 'Onay Bekliyor'
-      case OrderStatus.APPROVED:
-          return 'Onaylandı'
-      case OrderStatus.CANCELED:
-          return 'Iptal Edildi'
-      case OrderStatus.RETURNED:
-          return 'Iade Talep Edildi'
-      case OrderStatus.RETURN_ACCEPTED:
-          return 'Iade Kabul Edildi'
-      case OrderStatus.RETURN_DENIED:
-          return 'Iade Reddedildi'
-      default:
-          return 'Onaylandı'
+          case OrderStatus.WAITING_FOR_APPROVAL:
+              return 'Onay Bekliyor'
+          case OrderStatus.APPROVED:
+              return 'Onaylandı'
+          case OrderStatus.CANCELED:
+              return 'Iptal Edildi'
+          case OrderStatus.RETURNED:
+              return 'Iade Talep Edildi'
+          case OrderStatus.RETURN_ACCEPTED:
+              return 'Iade Kabul Edildi'
+          case OrderStatus.RETURN_DENIED:
+              return 'Iade Reddedildi'
+          default:
+              return 'Onaylandı'
       }
   };
 
@@ -40,30 +41,32 @@ class OrderComponent extends React.PureComponent {
 
   renderFooter = () => {
       switch (this.props.item.status) {
-      case OrderStatus.APPROVED: {
-          return (
-              <TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
-                  <SettingItem title={'Kargo Takip'} order />
-              </TouchableOpacity>
-          )
-      }
+          case OrderStatus.APPROVED: {
+              return (
+                  <TouchableOpacity activeOpacity={0.6} onPress={this.onCargoTrackClick}>
+                      <SettingItem title='Kargo Takip' order />
+                  </TouchableOpacity>
+              )
+          }
 
-      case OrderStatus.RETURNABLE: {
-          return (
-              <TouchableOpacity activeOpacity={0.6} onPress={this.onReturnClick}>
-                  <SettingItem title={'Iade Talebinde Bulun'} order />
-              </TouchableOpacity>
-          )
-      }
+          case OrderStatus.RETURNABLE: {
+              return (
+                  <TouchableOpacity activeOpacity={0.6} onPress={this.onReturnClick}>
+                      <SettingItem title='Iade Talebinde Bulun' order />
+                  </TouchableOpacity>
+              )
+          }
 
-      default:
-          return null
+          default:
+              return null
       }
   };
 
   render() {
       const {
-          item: { date, paidPrice, returnItemsTotalPayback, products, returnItems, status }
+          item: {
+              date, paidPrice, returnItemsTotalPayback, products, returnItems, status
+          }
       } = this.props
 
       return (

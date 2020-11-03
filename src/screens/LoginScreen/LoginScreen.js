@@ -1,7 +1,9 @@
 import React from 'react'
 
 import AsyncStorage from '@react-native-community/async-storage'
-import { ScrollView, View, TouchableOpacity, Text } from 'react-native'
+import {
+    ScrollView, View, TouchableOpacity, Text
+} from 'react-native'
 import joi from 'react-native-joi'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -29,8 +31,7 @@ class LoginScreen extends React.Component {
   shouldComponentUpdate = (
       _,
       nextState // Update only state change, not props
-  ) =>
-      this.state.phoneNumber !== nextState.phoneNumber || this.state.password !== nextState.password;
+  ) => this.state.phoneNumber !== nextState.phoneNumber || this.state.password !== nextState.password;
 
   saveCart = async () => {
       const { cart, token } = this.props
@@ -94,12 +95,13 @@ class LoginScreen extends React.Component {
                           placeholder: 'Telefon Numarası',
                           maxLength: 19
                       }}
-                      mask={'telephoneNumber'}
+                      mask='telephoneNumber'
                       invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
                       value={this.state.phoneNumber}
-                      onChange={this.onPhoneChange}>
+                      onChange={this.onPhoneChange}
+                  >
                       <InputIcon>
-                          <Ionicons size={32} name="md-phone-portrait" color="rgba(0,0,0,.8)" />
+                          <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
                       </InputIcon>
                   </InputComponent>
 
@@ -111,31 +113,30 @@ class LoginScreen extends React.Component {
                       }}
                       invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
                       value={this.state.password}
-                      onChange={this.onPasswordChange}>
+                      onChange={this.onPasswordChange}
+                  >
                       <InputIcon>
                           <Ionicons
                               size={32}
-                              name="ios-key"
+                              name='ios-key'
                               color={
                                   this.state.invalidPassword && this.state.isPasswordInitialized
                                       ? '#EE4266'
                                       : 'rgba(0,0,0,.8)'
                               }
-                              style={styles.iosIcon}
-                          />
+                              style={styles.iosIcon} />
                       </InputIcon>
                   </InputComponent>
 
                   <ButtonComponent
                       disabled={
-                          this.state.invalidPhoneNumber ||
-              !this.state.isPhoneNumberInitialized ||
-              this.state.invalidPassword ||
-              !this.state.isPasswordInitialized
+                          this.state.invalidPhoneNumber
+              || !this.state.isPhoneNumberInitialized
+              || this.state.invalidPassword
+              || !this.state.isPasswordInitialized
                       }
-                      text="Giriş Yap"
-                      onClick={this.onLoginClick}
-                  />
+                      text='Giriş Yap'
+                      onClick={this.onLoginClick} />
 
                   <View style={styles.child}>
                       <TouchableOpacity style={styles.forgotPasswordButton} onPress={this.goToForgotPassword}>
@@ -146,7 +147,7 @@ class LoginScreen extends React.Component {
 
               <View>
                   <View style={styles.buttonDivider} />
-                  <ButtonComponent text="Kayıt Ol" onClick={this.goToRegister} opposite />
+                  <ButtonComponent text='Kayıt Ol' onClick={this.goToRegister} opposite />
               </View>
           </ScrollView>
       )

@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 class ConfirmAccuratePinPopup extends React.PureComponent {
   close = () => {
       this.props.setPopupState(false)
+
       return true
   };
 
@@ -24,29 +25,28 @@ class ConfirmAccuratePinPopup extends React.PureComponent {
               visible={this.props.scaleAnimationModal}
               onSwipeOut={this.close}
               onHardwareBackPress={this.close}
-              footer={
+              footer={(
                   <ModalFooter style={styles.footer}>
                       <ModalButton
-                          text="Hayır"
+                          text='Hayır'
                           textStyle={styles.buttonText}
                           style={styles.buttonNo}
                           onPress={this.close}
-                          key="button-1"
-                      />
+                          key='button-1' />
                       <ModalButton
-                          text="Evet"
+                          text='Evet'
                           textStyle={styles.buttonText}
                           style={styles.buttonYes}
                           onPress={this.onConfirm}
-                          key="button-2"
-                      />
+                          key='button-2' />
                   </ModalFooter>
-              }>
+              )}
+          >
               <ModalContent style={styles.content}>
-                  <Ionicons color="rgba(0,0,0,.8)" size={92} name="md-map" />
+                  <Ionicons color='rgba(0,0,0,.8)' size={92} name='md-map' />
                   <Text style={styles.contentText}>
-            Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz
-            ?
+                      Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz
+                      ?
                   </Text>
               </ModalContent>
           </Modal>

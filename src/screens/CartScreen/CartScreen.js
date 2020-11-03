@@ -12,24 +12,6 @@ import ShadowContainer from '../../components/ShadowContainer'
 class CartScreen extends React.Component {
   products = Object.values(this.props.cart);
 
-  keyExtractor = (item) => `cart${item._id}`;
-
-  onListProductsClick = () => {
-      this.props.navigation.navigate('products')
-  };
-
-  renderCartProductItem = ({ item, index }) => {
-      if (index === this.products.length - 1) {
-          return (
-              <ShadowContainer>
-                  <CartProduct data={item} />
-              </ShadowContainer>
-          )
-      }
-
-      return <CartProduct data={item} />
-  };
-
   shouldComponentUpdate(nextProps) {
       // nextProps.cart and this.props.cart refers to same object that's what im using products.length for previousProps
       if (Object.values(nextProps.cart).length !== this.products.length) {
@@ -39,30 +21,47 @@ class CartScreen extends React.Component {
       return false
   }
 
-  render() {
-      this.products = Object.values(this.props.cart)
+    keyExtractor = (item) => `cart${item._id}`;
 
-      if (this.products.length > 0) {
-          return (
-              <View style={styles.container}>
-                  <FlatList
-                      style={styles.flatListStyle}
-                      data={this.products}
-                      keyExtractor={this.keyExtractor}
-                      renderItem={this.renderCartProductItem}
-                  />
-                  <CompletePayment navigation={this.props.navigation} />
-              </View>
-          )
-      }
+    onListProductsClick = () => {
+        this.props.navigation.navigate('products')
+    };
 
-      return (
-          <View style={styles.emptyContainer}>
-              <Ionicons name="md-basket" size={96} color="#BDBDBD" />
-              <Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
-          </View>
-      )
-  }
+    renderCartProductItem = ({ item, index }) => {
+        if (index === this.products.length - 1) {
+            return (
+                <ShadowContainer>
+                    <CartProduct data={item} />
+                </ShadowContainer>
+            )
+        }
+
+        return <CartProduct data={item} />
+    };
+
+    render() {
+        this.products = Object.values(this.props.cart)
+
+        if (this.products.length > 0) {
+            return (
+                <View style={styles.container}>
+                    <FlatList
+                        style={styles.flatListStyle}
+                        data={this.products}
+                        keyExtractor={this.keyExtractor}
+                        renderItem={this.renderCartProductItem} />
+                    <CompletePayment navigation={this.props.navigation} />
+                </View>
+            )
+        }
+
+        return (
+            <View style={styles.emptyContainer}>
+                <Ionicons name='md-basket' size={96} color='#BDBDBD' />
+                <Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

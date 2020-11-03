@@ -21,20 +21,20 @@ class NeedUpdatePopup extends React.PureComponent {
               visible={this.props.needUpdatePopupState}
               onSwipeOut={this.close}
               onHardwareBackPress={this.close}
-              footer={
+              footer={(
                   <ModalFooter style={styles.footer}>
                       <ModalButton
-                          text="Güncelle"
+                          text='Güncelle'
                           textStyle={styles.buttonText}
                           style={styles.buttonYes}
                           onPress={this.onConfirm}
-                          key="button-2"
-                      />
+                          key='button-2' />
                   </ModalFooter>
-              }>
+              )}
+          >
               <ModalContent style={styles.content}>
                   <Text style={styles.text}>
-            Silfavell'in yeni bir sürümü var. Lütfen devam etmeden önce güncelleyiniz.
+                      {'Silfavell\'in yeni bir sürümü var. Lütfen devam etmeden önce güncelleyiniz.'}
                   </Text>
               </ModalContent>
           </Modal>

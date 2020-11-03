@@ -8,16 +8,15 @@ import { connect } from 'react-redux'
 const CargoPriceComponent = ({ cart }) => {
     const products = Object.values(cart)
     const totalPrice = products.reduce(
-        (previousValue, currentValue) =>
-            previousValue +
-      parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
+        (previousValue, currentValue) => previousValue
+      + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
         0
     )
 
     return (
         <View style={styles.container}>
             <View style={styles.iconContainer}>
-                <MaterialIcons size={32} name="markunread-mailbox" />
+                <MaterialIcons size={32} name='markunread-mailbox' />
             </View>
             <View style={styles.paymentInfoContainer}>
                 <View style={styles.paymentInfoTextContainer}>
@@ -26,12 +25,12 @@ const CargoPriceComponent = ({ cart }) => {
                 {totalPrice < 85 && (
                     <View style={styles.paymentInfoTextContainer}>
                         <Text numberOfLines={2} style={styles.paymentDetail}>
-                            {'85 TL ve üzeri alışverişlerinizde kargo bedava!'}
+                            85 TL ve üzeri alışverişlerinizde kargo bedava!
                         </Text>
                     </View>
                 )}
             </View>
-            <View style={styles.iconContainer}></View>
+            <View style={styles.iconContainer} />
         </View>
     )
 }

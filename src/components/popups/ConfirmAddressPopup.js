@@ -1,13 +1,16 @@
 import React from 'react'
 
 import { Text } from 'react-native'
-import Modal, { ModalTitle, ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
+import Modal, {
+    ModalTitle, ModalButton, ModalFooter, ModalContent
+} from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 class ConfirmAddressPopup extends React.PureComponent {
   close = () => {
       this.props.setPopupState(false)
+
       return true
   };
 
@@ -23,32 +26,30 @@ class ConfirmAddressPopup extends React.PureComponent {
               visible={this.props.scaleAnimationModal}
               onSwipeOut={this.close}
               onHardwareBackPress={this.close}
-              modalTitle={
+              modalTitle={(
                   <ModalTitle
                       style={styles.title}
                       textStyle={styles.titleText}
-                      title="Bu adresin doğru olduğuna emin misiniz ?"
-                      hasTitleBar={false}
-                  />
-              }
-              footer={
+                      title='Bu adresin doğru olduğuna emin misiniz ?'
+                      hasTitleBar={false} />
+              )}
+              footer={(
                   <ModalFooter style={styles.footer}>
                       <ModalButton
-                          text="Hayır"
+                          text='Hayır'
                           textStyle={styles.buttonText}
                           style={styles.buttonNo}
                           onPress={this.close}
-                          key="button-1"
-                      />
+                          key='button-1' />
                       <ModalButton
-                          text="Evet"
+                          text='Evet'
                           textStyle={styles.buttonText}
                           style={styles.buttonYes}
                           onPress={this.onConfirm}
-                          key="button-2"
-                      />
+                          key='button-2' />
                   </ModalFooter>
-              }>
+              )}
+          >
               <ModalContent style={styles.content}>
                   <Text numberOfLines={3} style={styles.contentText}>
                       {this.props.address}

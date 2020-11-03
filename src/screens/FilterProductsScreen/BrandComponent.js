@@ -12,6 +12,7 @@ class BrandComponent extends React.Component {
   };
 
   onClick = () => {
+      // eslint-disable-next-line react/no-access-state-in-setstate
       this.setState({ checked: !this.state.checked }, () => {
           if (this.state.checked) {
               this.props.addBrand(this.props.brand.name)
@@ -28,18 +29,16 @@ class BrandComponent extends React.Component {
           <TouchableOpacity activeOpacity={0.9} onPress={this.onClick}>
               <SettingItem
                   title={this.props.brand.name}
-                  rightComponent={
+                  rightComponent={(
                       <CheckBox
                           style={styles.checkBoxStyle}
-                          checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
+                          checkedImage={<MaterialIcons name='check' size={24} color='black' />}
                           unCheckedImage={
-                              <MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />
+                              <MaterialIcons name='check-box-outline-blank' size={24} color='black' />
                           }
                           disabled
-                          isChecked={this.state.checked}
-                      />
-                  }
-              />
+                          isChecked={this.state.checked} />
+                  )} />
           </TouchableOpacity>
       )
   }

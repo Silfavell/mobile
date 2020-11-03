@@ -9,11 +9,11 @@ class ChangeLanguageScreen extends React.PureComponent {
         return (
             <ScrollView>
                 <TouchableOpacity onPress={this.props.navigation.goBack}>
-                    <LanguageItem title="English" />
+                    <LanguageItem title='English' />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={this.props.navigation.goBack}>
-                    <LanguageItem title="Türkçe" />
+                    <LanguageItem title='Türkçe' />
                 </TouchableOpacity>
             </ScrollView>
         )

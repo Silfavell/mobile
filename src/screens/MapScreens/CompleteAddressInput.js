@@ -9,13 +9,12 @@ import { setAddress } from '../../actions/map-actions'
 const CompleteAddressInput = ({ address, setAddress }) => (
     <TextInput
         value={address}
-        multiline={true}
-        textAlignVertical={'top'}
+        multiline
+        textAlignVertical='top'
         numberOfLines={4}
         onChangeText={setAddress}
-        placeholder="Address"
-        style={styles.input}
-    />
+        placeholder='Address'
+        style={styles.input} />
 )
 
 const styles = ScaledSheet.create({

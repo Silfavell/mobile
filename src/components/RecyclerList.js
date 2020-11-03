@@ -18,47 +18,45 @@ class List extends React.Component {
         this.setData(this.props.list)
     }
 
-  setData = (list) => {
-      this.state = {
-          dataProvider: this.dataProvider.cloneWithRows(list)
-      }
-  };
+    shouldComponentUpdate(nextProps) {
+        if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
+            return true
+        }
 
-  shouldComponentUpdate(nextProps) {
-      if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
-          return true
-      }
+        return false
+    }
 
-      return false
-  }
+    setData = (list) => {
+        this.state = {
+            dataProvider: this.dataProvider.cloneWithRows(list)
+        }
+    };
 
-  rowHasChanges = (r1, r2) => r1 !== r2;
+    rowHasChanges = (r1, r2) => r1 !== r2;
 
-  getLayoutTypeForIndex = () => 0;
+    getLayoutTypeForIndex = () => 0;
 
-  setLayoutForType = (type, dim) => {
-      dim.width = width / 2 - ((width / 2) % 1)
-      dim.height = s(355)
-  };
+    setLayoutForType = (type, dim) => {
+        dim.width = width / 2 - ((width / 2) % 1)
+        dim.height = s(355)
+    };
 
-  rowRenderer = (type, item) => (
-      <Product
-      // key={item._id}
-          data={item}
-          navigation={this.props.navigation}
-          fromSearch={this.props.fromSearch}
-      />
-  );
+    rowRenderer = (type, item) => (
+        <Product
+        // key={item._id}
+            data={item}
+            navigation={this.props.navigation}
+            fromSearch={this.props.fromSearch} />
+    );
 
-  render() {
-      return (
-          <RecyclerListView
-              layoutProvider={this.layoutProvider}
-              dataProvider={this.state.dataProvider}
-              rowRenderer={this.rowRenderer}
-          />
-      )
-  }
+    render() {
+        return (
+            <RecyclerListView
+                layoutProvider={this.layoutProvider}
+                dataProvider={this.state.dataProvider}
+                rowRenderer={this.rowRenderer} />
+        )
+    }
 }
 
 export default List

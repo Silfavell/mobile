@@ -21,14 +21,15 @@ export default (store) => {
         }
 
         return config
-    }, (error) => // Do something with request error
-        Promise.reject(error))
+    }, (error) => { // Do something with request error
+        Promise.reject(error)
+    })
 
     // Add a response interceptor
-    axios.interceptors.response.use((response) => // Do something with response data
-        response,
-    (error) => { // Do something with response error
-        store.getState().globalReducer.messagePopupRef.showMessage({ message: error?.response?.data?.error ?? 'Beklenmedik bir hata oluştu, lütfen daha sonra tekrar deneyiniz' })
-        return Promise.reject(error)
-    })
+    axios.interceptors.response.use((response) => response, // Do something with response data
+        (error) => { // Do something with response error
+            store.getState().globalReducer.messagePopupRef.showMessage({ message: error?.response?.data?.error ?? 'Beklenmedik bir hata oluştu, lütfen daha sonra tekrar deneyiniz' })
+
+            return Promise.reject(error)
+        })
 }

@@ -8,61 +8,61 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import icon from '../../../assets/logo.png'
 import ButtonComponent from '../../components/ButtonComponent'
 
+import icon from '../../../assets/logo.png'
 
 class WelcomeScreen extends React.PureComponent {
-	onContinueClick = () => {
-	    this.props.navigation.navigate('Loading', { next: true })
-	}
+    onContinueClick = () => {
+        this.props.navigation.navigate('Loading', { next: true })
+    }
 
-	onRegisterClick = () => {
-	    this.props.navigation.navigate('register')
-	}
+    onRegisterClick = () => {
+        this.props.navigation.navigate('register')
+    }
 
-	onLoginClick = () => {
-	    this.props.navigation.navigate('login')
-	}
+    onLoginClick = () => {
+        this.props.navigation.navigate('login')
+    }
 
-	render() {
-	    return (
-	        <View style={styles.container}>
-	            <View style={styles.empty} />
-	            <View style={styles.child} />
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.empty} />
+                <View style={styles.child} />
 
-	            <View style={[styles.child, styles.imageContainer]}>
-	                <Image
-	                    style={styles.image}
-	                    resizeMode='contain'
-	                    resizeMethod='resize'
-	                    source={icon} />
-	            </View>
+                <View style={[styles.child, styles.imageContainer]}>
+                    <Image
+                        style={styles.image}
+                        resizeMode='contain'
+                        resizeMethod='resize'
+                        source={icon} />
+                </View>
 
-	            <View style={styles.empty} />
+                <View style={styles.empty} />
 
-	            <View style={styles.child}>
-	                <TouchableOpacity
-	                    style={styles.continueWithRegistration}
-	                    onPress={this.onContinueClick}>
-	                    <Text style={styles.buttonText}>Giriş yapmadan devam et</Text>
-	                </TouchableOpacity>
-	            </View>
+                <View style={styles.child}>
+                    <TouchableOpacity
+                        style={styles.continueWithRegistration}
+                        onPress={this.onContinueClick}
+                    >
+                        <Text style={styles.buttonText}>Giriş yapmadan devam et</Text>
+                    </TouchableOpacity>
+                </View>
 
-	            <ButtonComponent
-	                text='Kayıt Ol'
-	                onClick={this.onRegisterClick}
-	            />
+                <ButtonComponent
+                    text='Kayıt Ol'
+                    onClick={this.onRegisterClick} />
 
-	            <View style={styles.child}>
-	                <TouchableOpacity style={styles.goToLoginPageContainer} onPress={this.onLoginClick}>
-	                    <Text style={styles.buttonText}>Hesabın var mı ?</Text>
-	                    <Text style={styles.loginText}>Giriş yap</Text>
-	                </TouchableOpacity>
-	            </View>
-	        </View>
-	    )
-	}
+                <View style={styles.child}>
+                    <TouchableOpacity style={styles.goToLoginPageContainer} onPress={this.onLoginClick}>
+                        <Text style={styles.buttonText}>Hesabın var mı ?</Text>
+                        <Text style={styles.loginText}>Giriş yap</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

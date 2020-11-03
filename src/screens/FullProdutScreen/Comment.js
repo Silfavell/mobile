@@ -4,9 +4,11 @@ import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-class Comment extends React.Component {
+class Comment extends React.PureComponent {
     render() {
-        const { title, ownerAlias, comment, rate } = this.props.item
+        const {
+            title, ownerAlias, comment, rate
+        } = this.props.item
 
         return (
             <View style={styles.container}>
@@ -17,9 +19,8 @@ class Comment extends React.Component {
                         <Ionicons
                             style={styles.star}
                             size={26}
-                            color="orange"
-                            name={el <= rate ? 'ios-star' : 'ios-star-outline'}
-                        />
+                            color='orange'
+                            name={el <= rate ? 'ios-star' : 'ios-star-outline'} />
                     ))}
                 </View>
                 <Text style={styles.alias}>{ownerAlias}</Text>

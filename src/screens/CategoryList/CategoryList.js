@@ -10,7 +10,7 @@ class CategoryItem extends React.PureComponent {
     onPress = () => {
         this.props.navigation.navigate('products', { selectedCategory: this.props.index })
     };
-  
+
     render() {
         return (
             <TouchableOpacity activeOpacity={0.9} onPress={this.onPress}>
@@ -29,7 +29,7 @@ class CategoryList extends React.PureComponent {
                         // TODO
                         // eslint-disable-next-line react/jsx-key
                         <CategoryItem
-                            category={category} 
+                            category={category}
                             index={index}
                             navigation={this.props.navigation} />
                     ))}

@@ -13,14 +13,14 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-    case MAKE_FILTER:
-    case CLEAR_FILTER: {
-        return {
-            ...state,
-            ...action.payload
+        case MAKE_FILTER:
+        case CLEAR_FILTER: {
+            return {
+                ...state,
+                ...action.payload
+            }
         }
-    }
-    default:
-        return state
+        default:
+            return state
     }
 }

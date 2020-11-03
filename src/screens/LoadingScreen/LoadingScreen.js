@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { setInitialDatas } from '../../actions/source-actions'
 import LoadingComponent from '../../components/LoadingComponent'
 
-
 class LoadingScreen extends React.Component {
     componentDidMount() {
     // AsyncStorage.clear()

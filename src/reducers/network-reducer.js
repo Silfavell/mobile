@@ -6,10 +6,10 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-    case SET_NETWORK_STATUS:
-        return { ...state, ...action.payload }
+        case SET_NETWORK_STATUS:
+            return { ...state, ...action.payload }
 
-    default:
-        return state
+        default:
+            return state
     }
 }

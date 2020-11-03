@@ -19,7 +19,7 @@ import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen'
 import axiosMiddleware from './src/scripts/axios'
 import WelcomeStack from './src/stacks/WelcomeStack'
 
-import './src/scripts/wydr.js'
+import './src/scripts/wydr'
 
 navigator.geolocation = geolocation
 
@@ -52,7 +52,6 @@ const handleAppStateChange = (nextAppState) => {
 }
 
 class App extends React.PureComponent {
-
     componentDidMount() {
         SplashScreen.hide()
         console.disableYellowBox = true

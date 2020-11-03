@@ -23,8 +23,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
         <Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
             <Stack.Screen
                 name='home'
-                component={HomeScreen}
-            />
+                component={HomeScreen} />
 
             <Stack.Screen
                 name='products'
@@ -34,8 +33,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     headerTintColor: 'white',
                     headerStyle: styles.headerStyle
                 }}
-                component={ProductScreen}
-            />
+                component={ProductScreen} />
 
             <Stack.Screen
                 name='categoryList'
@@ -46,8 +44,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     headerStyle: styles.headerStyle,
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}
-                component={CategoryList}
-            />
+                component={CategoryList} />
 
             <Stack.Screen
                 name='fullProductScreen'
@@ -63,8 +60,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     },
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}
-                component={FullProductScreen}
-            />
+                component={FullProductScreen} />
 
             <Stack.Screen
                 name='filterProductsScreen'
@@ -75,8 +71,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     headerStyle: styles.headerStyle,
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}
-                component={FilterProductsScreen}
-            />
+                component={FilterProductsScreen} />
         </Stack.Navigator>
     )
 }

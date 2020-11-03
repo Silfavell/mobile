@@ -6,11 +6,11 @@ const instance = axios.create({
     baseURL: Config.SERVER_URL
 })
 
-instance.interceptors.request.use(async function (options) {
+instance.interceptors.request.use(async (options) => {
     const token = await AsyncStorage.getItem('token')
 
     if (token) {
-        options.headers['Authorization'] = token
+        options.headers.Authorization = token
     }
 
     return options
@@ -20,13 +20,11 @@ export const makeCustomRequest = ({
     method,
     url,
     data
-}) => {
-    return instance({
-        method,
-        url,
-        data
-    })
-}
+}) => instance({
+    method,
+    url,
+    data
+})
 
 export const getCategories = () => instance.get('/categories')
 

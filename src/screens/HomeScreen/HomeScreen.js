@@ -1,19 +1,21 @@
 import React from 'react'
 
-import { View, Text, TouchableOpacity, Image, BackHandler } from 'react-native'
+import {
+    View, Text, TouchableOpacity, Image, BackHandler
+} from 'react-native'
 import Config from 'react-native-config'
 import RNExitApp from 'react-native-exit-app'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import logo from '../../../assets/logo.png'
 import Category from '../../components/Category'
 import ScrollableCategoryList from '../../components/ScrollableCategoryList'
 import ShadowContainer from '../../components/ShadowContainer'
 import Slider from '../../components/Slider'
 import BestSeller from './BestSeller'
 
+import logo from '../../../assets/logo.png'
 
 const banners = [
     `${Config.SERVER_URL}/assets/banners/1.jpg`,
@@ -33,18 +35,18 @@ class HomeScreen extends React.Component {
                 <View style={styles.headerTitle}>
                     <Image
                         source={logo}
-                        resizeMode="contain"
-                        resizeMethod="resize"
-                        style={styles.headerImage}
-                    />
+                        resizeMode='contain'
+                        resizeMethod='resize'
+                        style={styles.headerImage} />
                 </View>
             ),
             headerLeft: () => (
                 <TouchableOpacity
                     activeOpacity={0.9}
                     style={styles.headerLeft}
-                    onPress={this.onCategoryListClick}>
-                    <Ionicons name="md-menu" size={26} color="black" />
+                    onPress={this.onCategoryListClick}
+                >
+                    <Ionicons name='md-menu' size={26} color='black' />
                 </TouchableOpacity>
             )
         })
@@ -91,8 +93,7 @@ class HomeScreen extends React.Component {
                       navigation={this.props.navigation}
                       images={banners}
                       loop
-                      paginator
-                  />
+                      paginator />
               </ShadowContainer>
           </View>,
           // eslint-disable-next-line react/jsx-key

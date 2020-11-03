@@ -87,6 +87,7 @@ class ReturnItems extends React.Component {
             .filter((item) => item.selected)
             .map((item) => {
                 delete item.selected
+
                 return item
             })
 
@@ -116,22 +117,20 @@ class ReturnItems extends React.Component {
                                 activeOpacity={0.9}
                                 onPress={() => {
                                     this.onSelect(item._id)
-                                }}>
+                                }}
+                            >
                                 <CheckBox
-                                    checkedImage={<MaterialIcons name={'check'} size={40} color={'black'} />}
-                                    unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={40} color={'black'} />}
+                                    checkedImage={<MaterialIcons name='check' size={40} color='black' />}
+                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color='black' />}
                                     disabled
-                                    isChecked={this.state.items[index].selected}
-                                />
+                                    isChecked={this.state.items[index].selected} />
                             </TouchableOpacity>
 
                             <CartProduct
                                 data={item}
-                                returnItem={this.state.items[index]}
-                            />
+                                returnItem={this.state.items[index]} />
                         </View>
-                    )}
-                />
+                    )} />
                 <ButtonComponent text='Tamamla' onClick={this.onFinishClick} />
             </View>
         )

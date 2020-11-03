@@ -18,6 +18,7 @@ const Map = ({ region, setRegion }) => (
             longitudeDelta: 0.007
         }}
         customMapStyle={[
+            // eslint-disable-next-line react-native/no-inline-styles
             {
                 featureType: 'poi',
                 elementType: 'labels.text',
@@ -27,6 +28,7 @@ const Map = ({ region, setRegion }) => (
                     }
                 ]
             },
+            // eslint-disable-next-line react-native/no-inline-styles
             {
                 featureType: 'poi.business',
                 stylers: [
@@ -35,6 +37,7 @@ const Map = ({ region, setRegion }) => (
                     }
                 ]
             },
+            // eslint-disable-next-line react-native/no-inline-styles
             {
                 featureType: 'road',
                 elementType: 'labels.icon',
@@ -44,6 +47,7 @@ const Map = ({ region, setRegion }) => (
                     }
                 ]
             },
+            // eslint-disable-next-line react-native/no-inline-styles
             {
                 featureType: 'transit',
                 stylers: [
@@ -53,8 +57,7 @@ const Map = ({ region, setRegion }) => (
                 ]
             }
         ]}
-        onRegionChangeComplete={setRegion}
-    />
+        onRegionChangeComplete={setRegion} />
 )
 
 const mapDispatchToProps = {

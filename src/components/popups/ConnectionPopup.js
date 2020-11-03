@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 class ConnectionPopup extends React.PureComponent {
   close = () => {
       RNExitApp.exitApp()
+
       return true
   };
 
@@ -21,19 +22,19 @@ class ConnectionPopup extends React.PureComponent {
               visible={this.props.connectionPopupState}
               onSwipeOut={this.close}
               onHardwareBackPress={this.close}
-              footer={
+              footer={(
                   <ModalFooter style={styles.footer}>
                       <ModalButton
-                          text="Tamam"
+                          text='Tamam'
                           textStyle={styles.buttonText}
                           style={styles.buttonOk}
                           onPress={this.close}
-                          key="button-1"
-                      />
+                          key='button-1' />
                   </ModalFooter>
-              }>
+              )}
+          >
               <ModalContent style={styles.content}>
-                  <MaterialIcons color="rgba(0,0,0,.8)" size={72} name="wifi" />
+                  <MaterialIcons color='rgba(0,0,0,.8)' size={72} name='wifi' />
                   <Text style={styles.contentText}>Lütfen internet bağlantınızı kontrol edin</Text>
               </ModalContent>
           </Modal>

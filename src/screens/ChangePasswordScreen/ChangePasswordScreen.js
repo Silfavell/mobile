@@ -76,10 +76,9 @@ class ChangePasswordScreen extends React.Component {
           <ShadowContainer>
               <ScrollView>
                   <AlertPopup
-                      title={'Şifreniz güncellendi'}
+                      title='Şifreniz güncellendi'
                       scaleAnimationModal={this.state.scaleAnimationModal}
-                      setPopupState={this.setPopupState}
-                  />
+                      setPopupState={this.setPopupState} />
 
                   <InputComponent
                       options={{
@@ -89,8 +88,7 @@ class ChangePasswordScreen extends React.Component {
                       }}
                       invalid={this.state.invalidOldPassword && this.state.isOldPasswordInitialized}
                       value={this.state.oldPassword}
-                      onChange={this.onOldPasswordChange}
-                  />
+                      onChange={this.onOldPasswordChange} />
 
                   <InputComponent
                       options={{
@@ -100,19 +98,17 @@ class ChangePasswordScreen extends React.Component {
                       }}
                       invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
                       value={this.state.password}
-                      onChange={this.onPasswordChange}
-                  />
+                      onChange={this.onPasswordChange} />
 
                   <ButtonComponent
                       disabled={
-                          this.state.invalidPassword ||
-              !this.state.isPasswordInitialized ||
-              this.state.invalidOldPassword ||
-              !this.state.isOldPasswordInitialized
+                          this.state.invalidPassword
+              || !this.state.isPasswordInitialized
+              || this.state.invalidOldPassword
+              || !this.state.isOldPasswordInitialized
                       }
-                      text="Şifremi Değiştir"
-                      onClick={this.onChangePasswordClick}
-                  />
+                      text='Şifremi Değiştir'
+                      onClick={this.onChangePasswordClick} />
               </ScrollView>
           </ShadowContainer>
       )

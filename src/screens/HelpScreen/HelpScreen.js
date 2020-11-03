@@ -48,7 +48,9 @@ class HelpScreen extends React.Component {
   };
 
   onSendClick = async () => {
-      const { name, surname, email, subject, message } = this.state
+      const {
+          name, surname, email, subject, message
+      } = this.state
 
       const { status } = await postTicket({
           name,
@@ -64,15 +66,16 @@ class HelpScreen extends React.Component {
   };
 
   render() {
-      const { name, surname, email, subject, message, scaleAnimationModal } = this.state
+      const {
+          name, surname, email, subject, message, scaleAnimationModal
+      } = this.state
 
       return (
           <ScrollView contentContainerStyle={styles.container}>
               <AlertPopup
-                  title={'Mesajınız iletildi'}
+                  title='Mesajınız iletildi'
                   scaleAnimationModal={scaleAnimationModal}
-                  setPopupState={this.setPopupState}
-              />
+                  setPopupState={this.setPopupState} />
 
               <View>
                   <InputComponent
@@ -80,32 +83,28 @@ class HelpScreen extends React.Component {
                           placeholder: 'Adınız'
                       }}
                       onChange={this.onNameChange}
-                      value={name}
-                  />
+                      value={name} />
 
                   <InputComponent
                       options={{
                           placeholder: 'Soyadınız'
                       }}
                       onChange={this.onSurnameChange}
-                      value={surname}
-                  />
+                      value={surname} />
 
                   <InputComponent
                       options={{
                           placeholder: 'E-Posta'
                       }}
                       onChange={this.onEmailChange}
-                      value={email}
-                  />
+                      value={email} />
 
                   <InputComponent
                       options={{
                           placeholder: 'Konu'
                       }}
                       onChange={this.onSubjectChange}
-                      value={subject}
-                  />
+                      value={subject} />
 
                   <InputComponent
                       options={{
@@ -113,21 +112,19 @@ class HelpScreen extends React.Component {
                       }}
                       multiline
                       onChange={this.onMessageChange}
-                      value={message}
-                  />
+                      value={message} />
               </View>
 
               <ButtonComponent
-                  text="Gönder"
+                  text='Gönder'
                   onClick={this.onSendClick}
                   disabled={
-                      name.length === 0 ||
-            surname.length === 0 ||
-            email.length === 0 ||
-            subject.length === 0 ||
-            message.length === 0
-                  }
-              />
+                      name.length === 0
+            || surname.length === 0
+            || email.length === 0
+            || subject.length === 0
+            || message.length === 0
+                  } />
           </ScrollView>
       )
   }

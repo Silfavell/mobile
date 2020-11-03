@@ -10,65 +10,65 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
+import { setSelectedCard } from '../../actions/payment-actions'
 
 import mastercard from '../../../assets/mastercard.png'
 import visa from '../../../assets/visa.png'
-import { setSelectedCard } from '../../actions/payment-actions'
 
 const getCardIcon = (type) => {
     switch (type) {
-    case 'MASTER_CARD': return mastercard
-    case 'VISA': return visa
-    default: return visa
+        case 'MASTER_CARD': return mastercard
+        case 'VISA': return visa
+        default: return visa
     }
 }
 
 class CardComponent extends React.PureComponent {
-	onClick = () => {
-	    const {
-	        item,
-	        navigation,
-	        setSelectedCard
-	    } = this.props
+    onClick = () => {
+        const {
+            item,
+            navigation,
+            setSelectedCard
+        } = this.props
 
-	    setSelectedCard(item.cardToken, () => {
-	        navigation.goBack()
-	    })
-	}
+        setSelectedCard(item.cardToken, () => {
+            navigation.goBack()
+        })
+    }
 
-	onDeleteClick = () => {
-	    const { item, setPopupState } = this.props
-	    setPopupState({ scaleAnimationModal: true, selectedCard: item.cardToken })
-	}
+    onDeleteClick = () => {
+        const { item, setPopupState } = this.props
+        setPopupState({ scaleAnimationModal: true, selectedCard: item.cardToken })
+    }
 
-	render() {
-	    const { item } = this.props
+    render() {
+        const { item } = this.props
 
-	    return (
-	        <View style={styles.container}>
-	            <TouchableOpacity style={styles.childContainer} onPress={this.onClick}>
-	                <View style={styles.child}>
-	                    <Image
-	                        style={styles.cardImage}
-	                        resizeMode='contain'
-	                        resizeMethod='resize'
-	                        source={getCardIcon(item.cardAssociation)} />
-	                </View>
-	                <View style={[styles.child, styles.textContainer]}>
-	                    <View style={styles.child}>
-	                        <Text style={styles.cardName}>{item.cardAlias}</Text>
-	                    </View>
-	                    <View style={styles.child}>
-	                        <Text style={styles.cardNumber}>{`•••• •••• •••• ${item.lastFourDigits}`}</Text>
-	                    </View>
-	                </View>
-	            </TouchableOpacity>
-	            <TouchableOpacity style={styles.child} onPress={this.onDeleteClick}>
-	                <Ionicons name='md-trash' size={32} color='rgba(0,0,0,.8)' />
-	            </TouchableOpacity>
-	        </View>
-	    )
-	}
+        return (
+            <View style={styles.container}>
+                <TouchableOpacity style={styles.childContainer} onPress={this.onClick}>
+                    <View style={styles.child}>
+                        <Image
+                            style={styles.cardImage}
+                            resizeMode='contain'
+                            resizeMethod='resize'
+                            source={getCardIcon(item.cardAssociation)} />
+                    </View>
+                    <View style={[styles.child, styles.textContainer]}>
+                        <View style={styles.child}>
+                            <Text style={styles.cardName}>{item.cardAlias}</Text>
+                        </View>
+                        <View style={styles.child}>
+                            <Text style={styles.cardNumber}>{`•••• •••• •••• ${item.lastFourDigits}`}</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.child} onPress={this.onDeleteClick}>
+                    <Ionicons name='md-trash' size={32} color='rgba(0,0,0,.8)' />
+                </TouchableOpacity>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

@@ -29,166 +29,153 @@ export const getVersion = async () => {
     return data
 }
 
-export const updateProfile = (body, cb) => {
-    return async (dispatch) => {
-        const { status, data } = await updateProfileRequest(body)
+export const updateProfile = (body, cb) => async (dispatch) => {
+    const { status, data } = await updateProfileRequest(body)
 
-        if (status === 200) {
-            await AsyncStorage.setItem('user', JSON.stringify(data))
+    if (status === 200) {
+        await AsyncStorage.setItem('user', JSON.stringify(data))
 
-            dispatch({
-                type: SET_USER,
-                payload: {
-                    user: data
-                }
-            })
-            cb()
-        }
+        dispatch({
+            type: SET_USER,
+            payload: {
+                user: data
+            }
+        })
+        cb()
     }
 }
 
-export const setInitialDatas = () => {
-    return async (dispatch) => {
+// eslint-disable-next-line consistent-return
+export const setInitialDatas = () => async (dispatch) => {
     // AsyncStorage.removeItem('cart')
-        const { data: version } = await getVersionRequest()
+    const { data: version } = await getVersionRequest()
 
-        if (version === pckg.version) {
-            const [tokenObj, userObj, cartObj] = await AsyncStorage.multiGet(['token', 'user', 'cart'])
-            const datas = await getDatas()
+    if (version === pckg.version) {
+        const [tokenObj, userObj, cartObj] = await AsyncStorage.multiGet(['token', 'user', 'cart'])
+        const datas = await getDatas()
 
-            if (tokenObj) {
-                return dispatch({
-                    type: SET_INITIAL_DATAS,
-                    payload: {
-                        ...datas,
-                        token: tokenObj[1],
-                        user: JSON.parse(userObj[1]),
-                        cart: JSON.parse(cartObj[1]),
-                        cards: datas.cards?.cardDetails
-                    }
-                })
-            }
-
+        if (tokenObj) {
             return dispatch({
                 type: SET_INITIAL_DATAS,
-                payload: datas
+                payload: {
+                    ...datas,
+                    token: tokenObj[1],
+                    user: JSON.parse(userObj[1]),
+                    cart: JSON.parse(cartObj[1]),
+                    cards: datas.cards?.cardDetails
+                }
             })
         }
 
-        dispatch({
-            type: SET_NEED_UPDATE_POPUP_STATE,
-            payload: {
-                needUpdatePopupState: true
-            }
+        return dispatch({
+            type: SET_INITIAL_DATAS,
+            payload: datas
         })
     }
-}
 
-export const login = (body, cb) => {
-    return async (dispatch) => {
-        const { status, data } = await loginRequest(body)
-
-        if (status === 200) {
-            await AsyncStorage.multiSet([
-                ['token', data.token],
-                ['user', JSON.stringify(data.user)]
-            ])
-
-            dispatch({
-                type: SET_USER,
-                payload: {
-                    user: data.user,
-                    token: data.token
-                }
-            })
-
-            cb()
+    dispatch({
+        type: SET_NEED_UPDATE_POPUP_STATE,
+        payload: {
+            needUpdatePopupState: true
         }
-    }
+    })
 }
 
-export const register = (body, cb) => {
-    return async (dispatch) => {
-        const { status, data } = await signUp(body)
+export const login = (body, cb) => async (dispatch) => {
+    const { status, data } = await loginRequest(body)
 
-        if (status === 200) {
-            await AsyncStorage.multiSet([
-                ['token', data.token],
-                ['user', JSON.stringify(data.user)]
-            ])
-
-            dispatch({
-                type: SET_USER,
-                payload: {
-                    user: data.user,
-                    token: data.token
-                }
-            })
-            cb()
-        }
-    }
-}
-
-export const logout = () => {
-    return async (dispatch) => {
-        await AsyncStorage.multiRemove(['token', 'user'])
+    if (status === 200) {
+        await AsyncStorage.multiSet([
+            ['token', data.token],
+            ['user', JSON.stringify(data.user)]
+        ])
 
         dispatch({
-            type: LOGOUT,
+            type: SET_USER,
             payload: {
-                user: {},
-                token: null
+                user: data.user,
+                token: data.token
             }
         })
+
+        cb()
     }
 }
 
-export const addToFavoriteProducts = (productId, messagePopupRef) => {
-    return async (dispatch) => {
-        const { status, data } = await addFavorite(productId)
+export const register = (body, cb) => async (dispatch) => {
+    const { status, data } = await signUp(body)
 
-        if (status === 200) {
-            const user = await AsyncStorage.getItem('user')
-            await AsyncStorage.setItem(
-                'user',
-                JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })
-            )
+    if (status === 200) {
+        await AsyncStorage.multiSet([
+            ['token', data.token],
+            ['user', JSON.stringify(data.user)]
+        ])
 
-            dispatch({
-                type: UPDATE_FAVORITE_PRODUCTS,
-                payload: {
-                    favoriteProducts: data
-                }
-            })
-
-            if (messagePopupRef) {
-                messagePopupRef.showMessage({ message: 'Ürün favorilerinize eklendi.' })
+        dispatch({
+            type: SET_USER,
+            payload: {
+                user: data.user,
+                token: data.token
             }
+        })
+        cb()
+    }
+}
+
+export const logout = () => async (dispatch) => {
+    await AsyncStorage.multiRemove(['token', 'user'])
+
+    dispatch({
+        type: LOGOUT,
+        payload: {
+            user: {},
+            token: null
+        }
+    })
+}
+
+export const addToFavoriteProducts = (productId, messagePopupRef) => async (dispatch) => {
+    const { status, data } = await addFavorite(productId)
+
+    if (status === 200) {
+        const user = await AsyncStorage.getItem('user')
+        await AsyncStorage.setItem(
+            'user',
+            JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })
+        )
+
+        dispatch({
+            type: UPDATE_FAVORITE_PRODUCTS,
+            payload: {
+                favoriteProducts: data
+            }
+        })
+
+        if (messagePopupRef) {
+            messagePopupRef.showMessage({ message: 'Ürün favorilerinize eklendi.' })
         }
     }
 }
 
-export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => {
-    return async (dispatch) => {
-        const { status, data } = await removeFavorite(productId)
+export const removeFromFavoriteProdutcs = (productId, messagePopupRef) => async (dispatch) => {
+    const { status, data } = await removeFavorite(productId)
 
-        if (status === 200) {
-            const user = await AsyncStorage.getItem('user')
-            await AsyncStorage.setItem(
-                'user',
-                JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })
-            )
+    if (status === 200) {
+        const user = await AsyncStorage.getItem('user')
+        await AsyncStorage.setItem(
+            'user',
+            JSON.stringify({ ...JSON.parse(user), favoriteProducts: data })
+        )
 
-            dispatch({
-                type: UPDATE_FAVORITE_PRODUCTS,
-                payload: {
-                    favoriteProducts: data
-                }
-            })
-
-            if (messagePopupRef) {
-                messagePopupRef.showMessage({ message: 'Ürün favorilerinizden çıkarıldı.' })
+        dispatch({
+            type: UPDATE_FAVORITE_PRODUCTS,
+            payload: {
+                favoriteProducts: data
             }
+        })
+
+        if (messagePopupRef) {
+            messagePopupRef.showMessage({ message: 'Ürün favorilerinizden çıkarıldı.' })
         }
     }
 }

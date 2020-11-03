@@ -12,7 +12,8 @@ class Color extends React.PureComponent {
       return (
           <TouchableOpacity
               style={[styles.container, this.props.selected ? styles.border : {}]}
-              onPress={this.onPress}>
+              onPress={this.onPress}
+          >
               <View style={[styles.color, { backgroundColor: this.props.product.color.code }]} />
           </TouchableOpacity>
       )

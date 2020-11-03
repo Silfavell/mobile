@@ -19,19 +19,19 @@ class List extends React.Component {
         this.setData([...Array.from(new Array(this.props.headers.length)), ...this.props.list])
     }
 
-  setData = (list) => {
-      this.state = {
-          dataProvider: this.dataProvider.cloneWithRows(list)
-      }
-  };
+    shouldComponentUpdate(nextProps) {
+        if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
+            return true
+        }
 
-  shouldComponentUpdate(nextProps) {
-      if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
-          return true
-      }
+        return false
+    }
 
-      return false
-  }
+    setData = (list) => {
+        this.state = {
+            dataProvider: this.dataProvider.cloneWithRows(list)
+        }
+    };
 
   rowHasChanges = (r1, r2) => r1 !== r2;
 
@@ -63,8 +63,7 @@ class List extends React.Component {
               <RecyclerListView
                   layoutProvider={this.layoutProvider}
                   dataProvider={this.state.dataProvider}
-                  rowRenderer={this.rowRenderer}
-              />
+                  rowRenderer={this.rowRenderer} />
           </StickyContainer>
       )
   }

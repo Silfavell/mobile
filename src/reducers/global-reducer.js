@@ -17,14 +17,14 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-    case SET_MESSAGE_POPUP_REF:
-    case SET_ROOT_NAVIGATION:
-    case CLEAR_CART_POPUP_STATE:
-    case SET_CONNECTION_POPUP_STATE:
-    case SET_NEED_UPDATE_POPUP_STATE:
-    case NEED_TO_LOGIN_POPUP_STATE:
-        return { ...state, ...action.payload }
-    default:
-        return state
+        case SET_MESSAGE_POPUP_REF:
+        case SET_ROOT_NAVIGATION:
+        case CLEAR_CART_POPUP_STATE:
+        case SET_CONNECTION_POPUP_STATE:
+        case SET_NEED_UPDATE_POPUP_STATE:
+        case NEED_TO_LOGIN_POPUP_STATE:
+            return { ...state, ...action.payload }
+        default:
+            return state
     }
 }

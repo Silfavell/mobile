@@ -48,20 +48,19 @@ class CarouselViewer extends React.Component {
                   style={styles.viewPager}
                   initialPage={0}
                   onPageSelected={this.onPageSelected}
-                  {...this.props}
-              />
+                  {...this.props} />
 
               {this.props.paginator && this.props.images.length > 1 && (
                   <View style={styles.paginator}>
                       <View style={styles.dotContainer}>
                           {this.props.children.map((item, i) => (
                               <View
-                                  key={'slide' + i.toString()}
+                                  key={`slide${i.toString()}`}
                                   style={[
                                       styles.dot,
+                                      // eslint-disable-next-line react-native/no-color-literals, react-native/no-inline-styles
                                       { backgroundColor: this.state.current === i ? 'black' : 'white' }
-                                  ]}
-                              />
+                                  ]} />
                           ))}
                       </View>
                   </View>

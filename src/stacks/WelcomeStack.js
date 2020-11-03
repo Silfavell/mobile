@@ -24,8 +24,7 @@ const WelcomeStack = () => (
                 headerTitleAlign: 'center',
                 headerStyle: styles.headerStyle,
                 headerShown: false
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='login'
@@ -35,8 +34,7 @@ const WelcomeStack = () => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='register'
@@ -46,8 +44,7 @@ const WelcomeStack = () => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='forgotPassword'
@@ -57,8 +54,7 @@ const WelcomeStack = () => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='resetPassword'
@@ -68,8 +64,7 @@ const WelcomeStack = () => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='activationScreen'
@@ -79,8 +74,7 @@ const WelcomeStack = () => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
     </Stack.Navigator>
 )
 

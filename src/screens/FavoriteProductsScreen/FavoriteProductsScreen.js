@@ -23,8 +23,8 @@ class FavoriteProductsScreen extends React.Component {
 
   shouldComponentUpdate(_, nextState) {
       if (
-          nextState.products.length !== this.state.products.length ||
-      nextState.fetching !== this.state.fetching
+          nextState.products.length !== this.state.products.length
+      || nextState.fetching !== this.state.fetching
       ) {
           return true
       }
@@ -64,7 +64,7 @@ class FavoriteProductsScreen extends React.Component {
 
       return (
           <View style={styles.container}>
-              <Ionicons name="md-heart" size={96} color="#BDBDBD" />
+              <Ionicons name='md-heart' size={96} color='#BDBDBD' />
               <Text style={styles.emptyText}>Favori ürününüz bulunmamaktadır</Text>
           </View>
       )

@@ -3,7 +3,6 @@ import React from 'react'
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 import { ScaledSheet } from 'react-native-size-matters'
 
-
 import CompleteAddressScreen from '../screens/AddressScreens/CompleteAddressScreen'
 import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
 import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'
@@ -36,8 +35,7 @@ class ProfileStack extends React.PureComponent {
                         headerTintColor: 'white',
                         headerLeft: null,
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='changePasswordScreen'
@@ -47,9 +45,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
-
+                    }} />
 
                 <Stack.Screen
                     name='helpScreen'
@@ -59,8 +55,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='addresses'
@@ -70,8 +65,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='searchAddressScreen'
@@ -81,8 +75,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='pinAddressScreen'
@@ -92,8 +85,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='completeAddressScreen'
@@ -103,8 +95,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='paymentOptionsScreen'
@@ -114,8 +105,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='favoriteProductsScreen'
@@ -125,8 +115,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='previousOrdersScreen'
@@ -136,8 +125,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='returnItems'
@@ -147,8 +135,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='returnItemsCompleted'
@@ -158,8 +145,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='addNewCardScreen'
@@ -169,8 +155,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='changeLanguageScreen'
@@ -180,8 +165,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='editProfileScreen'
@@ -191,8 +175,7 @@ class ProfileStack extends React.PureComponent {
                         headerTitleAlign: 'center',
                         headerTintColor: 'white',
                         headerStyle: styles.headerStyle
-                    }}
-                />
+                    }} />
 
                 <Stack.Screen
                     name='fullProductScreen'
@@ -208,8 +191,7 @@ class ProfileStack extends React.PureComponent {
                         // headerTransparent: true,
                         cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                     }}
-                    component={FullProductScreen}
-                />
+                    component={FullProductScreen} />
             </Stack.Navigator>
         )
     }

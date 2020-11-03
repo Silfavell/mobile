@@ -7,7 +7,9 @@ import { connect } from 'react-redux'
 
 import { setPaymentType } from '../actions/payment-actions'
 
-const PaymentType = ({ Id, title, detail, icon, navigation, setPaymentType }) => {
+const PaymentType = ({
+    Id, title, detail, icon, navigation, setPaymentType
+}) => {
     const onPaymentTypeClick = () => {
         setPaymentType(Id)
         navigation.goBack()

@@ -9,7 +9,6 @@ import {
 } from '../../actions/payment-actions'
 import InteractiveSettingItem from './InteractiveSettingItem'
 
-
 class AddressList extends React.PureComponent {
     onLeftClick = () => {
         this.props.setSelectedAddress(this.props.address._id, this.props.navigation.goBack)
@@ -24,7 +23,8 @@ class AddressList extends React.PureComponent {
             <InteractiveSettingItem
                 title={this.props.address.openAddress}
                 onLeftClick={this.onLeftClick}
-                onRightIconClick={this.onRightIconClick}>
+                onRightIconClick={this.onRightIconClick}
+            >
                 <Ionicons color='rgba(0,0,0,.8)' name='md-locate' size={32} />
                 <Ionicons color='rgba(0,0,0,.8)' name='md-trash' size={32} />
             </InteractiveSettingItem>

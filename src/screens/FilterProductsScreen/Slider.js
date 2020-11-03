@@ -15,6 +15,7 @@ class Slider extends React.Component {
     }
 
     // TODO replace with another lifecycle method
+    // eslint-disable-next-line camelcase
     UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             minPrice: nextProps.initialMinPrice,
@@ -26,23 +27,23 @@ class Slider extends React.Component {
         return (
             <View
                 style={styles.sliderContainer}
-                key={this.props.initialMinPrice + ':' + this.props.initialMaxPrice}>
+                key={`${this.props.initialMinPrice}:${this.props.initialMaxPrice}`}
+            >
                 <RangeSlider
                     style={styles.slider}
-                    gravity={'top'}
+                    gravity='top'
                     min={this.props.minPrice}
                     max={this.props.maxPrice}
                     initialLowValue={this.state.minPrice}
                     initialHighValue={this.state.maxPrice}
                     step={1}
-                    labelBackgroundColor="#FF0000"
-                    labelBorderColor="#00FF00"
-                    selectionColor="#3df"
-                    blankColor="#f618"
+                    labelBackgroundColor='#FF0000'
+                    labelBorderColor='#00FF00'
+                    selectionColor='#3df'
+                    blankColor='#f618'
                     onValueChanged={(min, max) => {
                         this.setState({ minPrice: min, maxPrice: max })
-                    }}
-                />
+                    }} />
             </View>
         )
     }

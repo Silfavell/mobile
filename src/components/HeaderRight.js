@@ -8,29 +8,29 @@ import { connect } from 'react-redux'
 import { setClearCartPopupState } from '../actions/global-actions'
 
 class HeaderRight extends React.Component {
-  onClearClick = () => {
-      this.props.setClearCartPopupState(true)
-  };
+    shouldComponentUpdate(nextProps) {
+        if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
+            return true
+        }
 
-  shouldComponentUpdate(nextProps) {
-      if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
-          return true
-      }
+        return false
+    }
 
-      return false
-  }
+    onClearClick = () => {
+        this.props.setClearCartPopupState(true)
+    }
 
-  render() {
-      if (Object.values(this.props.cart).length > 0) {
-          return (
-              <TouchableOpacity style={styles.iconContainer} onPress={this.onClearClick}>
-                  <Ionicons name="md-trash" size={26} color="white" />
-              </TouchableOpacity>
-          )
-      }
+    render() {
+        if (Object.values(this.props.cart).length > 0) {
+            return (
+                <TouchableOpacity style={styles.iconContainer} onPress={this.onClearClick}>
+                    <Ionicons name='md-trash' size={26} color='white' />
+                </TouchableOpacity>
+            )
+        }
 
-      return null
-  }
+        return null
+    }
 }
 
 const mapStateToProps = ({ cartReducer: { cart } }) => ({

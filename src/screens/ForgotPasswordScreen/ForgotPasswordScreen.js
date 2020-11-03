@@ -50,20 +50,20 @@ class ForgotPasswordScreen extends React.Component {
                       placeholder: 'Telefon Numarası',
                       maxLength: 19
                   }}
-                  mask={'telephoneNumber'}
+                  mask='telephoneNumber'
                   invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
                   value={this.state.phoneNumber}
-                  onChange={this.onPhoneChange}>
+                  onChange={this.onPhoneChange}
+              >
                   <InputIcon>
-                      <Ionicons size={32} name="md-phone-portrait" color="rgba(0,0,0,.8)" />
+                      <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
                   </InputIcon>
               </InputComponent>
 
               <ButtonComponent
-                  text="Aktivasyon Kodu Gönder"
+                  text='Aktivasyon Kodu Gönder'
                   onClick={this.onSendCodeClick}
-                  disabled={this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized}
-              />
+                  disabled={this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized} />
           </ShadowContainer>
       )
   }

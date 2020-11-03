@@ -1,7 +1,9 @@
 import React from 'react'
 
 import axios from 'axios'
-import { View, FlatList, TouchableOpacity, Text, TextInput } from 'react-native'
+import {
+    View, FlatList, TouchableOpacity, Text, TextInput
+} from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
@@ -61,22 +63,20 @@ class SearchAddressScreen extends React.Component {
                       <TextInput
                           value={this.state.searchVal}
                           onChangeText={this.onSearchChange}
-                          placeholder="Adres ara"
-                          style={styles.searchAddress}
-                      />
+                          placeholder='Adres ara'
+                          style={styles.searchAddress} />
                       <Ionicons
                           size={32}
-                          name="md-search"
-                          color="rgba(0,0,0,.8)"
-                          onPress={this.onSearchClick}
-                      />
+                          name='md-search'
+                          color='rgba(0,0,0,.8)'
+                          onPress={this.onSearchClick} />
                   </View>
               </View>
               <View style={styles.divider} />
 
               <TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
                   <View style={styles.useCurrentLocationContainer}>
-                      <Ionicons size={32} name="md-locate" color="rgba(0,0,0,.8)" />
+                      <Ionicons size={32} name='md-locate' color='rgba(0,0,0,.8)' />
                       <Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
                   </View>
               </TouchableOpacity>
@@ -87,16 +87,16 @@ class SearchAddressScreen extends React.Component {
   renderSearchedItem = ({ item }) => (
       <TouchableOpacity onPress={() => this.onAddressClick(item)} style={styles.item}>
           <View style={styles.itemChild}>
-              <Ionicons size={32} name="md-pin" color="#6B788B" />
+              <Ionicons size={32} name='md-pin' color='#6B788B' />
 
               <Text numberOfLines={3} style={styles.description}>
                   {item.description}
               </Text>
 
               <Text numberOfLines={3} style={styles.meterText}>
-                  {item.distance_meters &&
-            (parseInt(item.distance_meters) > 1000
-                ? `${(parseInt(item.distance_meters) / 1000).toFixed(2)}km`
+                  {item.distance_meters
+            && (parseInt(item.distance_meters, 2) > 1000
+                ? `${(parseInt(item.distance_meters, 2) / 1000).toFixed(2)}km`
                 : `${item.distance_meters}m`)}
               </Text>
           </View>
@@ -112,8 +112,7 @@ class SearchAddressScreen extends React.Component {
                   data={this.state.locations}
                   renderItem={this.renderSearchedItem}
                   ListHeaderComponent={this.renderListHeaderComponent}
-                  stickyHeaderIndices={[0]}
-              />
+                  stickyHeaderIndices={[0]} />
           </View>
       )
   }

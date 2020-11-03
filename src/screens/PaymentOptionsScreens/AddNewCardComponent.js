@@ -15,7 +15,7 @@ class AddNewCardComponent extends React.PureComponent {
               <TouchableOpacity style={styles.container} onPress={this.onClick}>
                   <View style={styles.child}>
                       <View style={styles.iconContainer}>
-                          <Ionicons name="md-add" size={32} color="rgba(0,0,0,.8)" />
+                          <Ionicons name='md-add' size={32} color='rgba(0,0,0,.8)' />
                       </View>
                   </View>
                   <View style={[styles.child, styles.textContainer]}>

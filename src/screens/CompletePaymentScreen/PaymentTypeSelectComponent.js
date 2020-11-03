@@ -25,7 +25,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
           <ShadowContainer>
               <TouchableOpacity style={styles.container} onPress={this.onPress}>
                   <View style={styles.iconContainer}>
-                      <Ionicons size={32} name="ios-wallet" />
+                      <Ionicons size={32} name='ios-wallet' />
                   </View>
                   <View style={styles.paymentInfoContainer}>
                       <View style={styles.paymentInfoTextContainer}>
@@ -35,7 +35,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
                       </View>
                   </View>
                   <View style={styles.iconContainer}>
-                      <MaterialIcons color="#ACACAC" size={32} name="chevron-right" />
+                      <MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
                   </View>
               </TouchableOpacity>
           </ShadowContainer>

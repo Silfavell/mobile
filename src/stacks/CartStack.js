@@ -6,7 +6,6 @@ import {
 } from '@react-navigation/stack'
 import { ScaledSheet } from 'react-native-size-matters'
 
-
 import HeaderLeft from '../components/HeaderLeft'
 import HeaderRight from '../components/HeaderRight'
 import CompleteAddressScreen from '../screens/AddressScreens/CompleteAddressScreen'
@@ -34,8 +33,7 @@ const CartStack = ({ navigation }) => (
                 headerStyle: styles.headerStyle,
                 headerLeft: () => <HeaderLeft navigation={navigation} />,
                 headerRight: () => <HeaderRight />
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='completePayment'
@@ -45,8 +43,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='onlinePaymentScreen'
@@ -56,8 +53,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='paymentOptionsScreen'
@@ -67,8 +63,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='addNewCardScreen'
@@ -78,8 +73,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='addresses'
@@ -89,8 +83,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='searchAddressScreen'
@@ -100,8 +93,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='pinAddressScreen'
@@ -111,8 +103,7 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='completeAddressScreen'
@@ -122,16 +113,14 @@ const CartStack = ({ navigation }) => (
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',
                 headerStyle: styles.headerStyle
-            }}
-        />
+            }} />
 
         <Stack.Screen
             name='thanksScreen'
             component={ThanksScreen}
             options={{
                 headerShown: false
-            }}
-        />
+            }} />
     </Stack.Navigator>
 )
 

@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { TouchableOpacity, Text, TextInput, View } from 'react-native'
+import {
+    TouchableOpacity, Text, TextInput, View
+} from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
@@ -17,6 +19,7 @@ class CartProductQuantityComponent extends React.Component {
       let quantity = 1
       if (this.props.previousOrder) {
           quantity = this.props.quantity
+      // eslint-disable-next-line no-empty
       } else if (this.props.returnItem) {
       } else {
           quantity = this.props.cart[this.props._id].quantity
@@ -97,7 +100,8 @@ class CartProductQuantityComponent extends React.Component {
                       <TouchableOpacity
                           disabled={previousOrder}
                           onPress={this.onDecreaseClick}
-                          style={[styles.child, styles.decreaseButton]}>
+                          style={[styles.child, styles.decreaseButton]}
+                      >
                           <Text style={styles.quantityButton}>-</Text>
                       </TouchableOpacity>
                   )}
@@ -105,18 +109,18 @@ class CartProductQuantityComponent extends React.Component {
                   <View style={[styles.child, styles.quantityContainer]}>
                       <TextInput
                           editable={!previousOrder}
-                          keyboardType="number-pad"
+                          keyboardType='number-pad'
                           style={styles.quantityText}
                           onBlur={this.onFocusOut}
                           onChangeText={this.onQuantityChange}
-                          value={this.state?.quantity.toString()}
-                      />
+                          value={this.state?.quantity.toString()} />
                   </View>
 
                   {!previousOrder && (
                       <TouchableOpacity
                           onPress={this.onIncreaseClick}
-                          style={[styles.child, styles.increaseButton]}>
+                          style={[styles.child, styles.increaseButton]}
+                      >
                           <Text style={styles.quantityButton}>+</Text>
                       </TouchableOpacity>
                   )}

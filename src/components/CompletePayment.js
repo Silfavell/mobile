@@ -8,74 +8,74 @@ import { makeOrder } from '../actions/cart-actions'
 import { setNeedToLoginPopupState } from '../actions/global-actions'
 
 class CompletePaymentComponent extends React.Component {
-  onCompletePaymentClick = () => {
-      const {
-          completable,
-          token,
-          navigation,
-          makeOrder,
-          selectedCard,
-          selectedAddress,
-          messagePopupRef,
-          setNeedToLoginPopupState
-      } = this.props
+    shouldComponentUpdate(nextProps) {
+        if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
+            return true
+        }
 
-      if (token) {
-          if (completable) {
-              if (selectedCard && selectedAddress) {
-                  makeOrder(selectedCard, selectedAddress, () => {
-                      navigation.navigate('thanksScreen')
-                  })
-              } else if (!selectedAddress) {
-                  messagePopupRef.showMessage({ message: 'Lütfen adres seçiniz' })
-              } else {
-                  messagePopupRef.showMessage({ message: 'Lütfen kart seçiniz' })
-              }
-          } else {
-              navigation.navigate('completePayment')
-          }
-      } else {
-          setNeedToLoginPopupState(true)
-      }
-  };
+        return false
+    }
 
-  shouldComponentUpdate(nextProps) {
-      if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
-          return true
-      }
+    onCompletePaymentClick = () => {
+        const {
+            completable,
+            token,
+            navigation,
+            makeOrder,
+            selectedCard,
+            selectedAddress,
+            messagePopupRef,
+            setNeedToLoginPopupState
+        } = this.props
 
-      return false
-  }
+        if (token) {
+            if (completable) {
+                if (selectedCard && selectedAddress) {
+                    makeOrder(selectedCard, selectedAddress, () => {
+                        navigation.navigate('thanksScreen')
+                    })
+                } else if (!selectedAddress) {
+                    messagePopupRef.showMessage({ message: 'Lütfen adres seçiniz' })
+                } else {
+                    messagePopupRef.showMessage({ message: 'Lütfen kart seçiniz' })
+                }
+            } else {
+                navigation.navigate('completePayment')
+            }
+        } else {
+            setNeedToLoginPopupState(true)
+        }
+    };
 
-  render() {
-      const products = Object.values(this.props.cart)
-      let totalPrice = products.reduce(
-          (previousValue, currentValue) =>
-              previousValue +
-        parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
-          0
-      )
+    render() {
+        const products = Object.values(this.props.cart)
+        let totalPrice = products.reduce(
+            (previousValue, currentValue) => previousValue
+            + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
+            0
+        )
 
-      if (totalPrice < 85 && this.props.completable) {
-          totalPrice += 15
-      }
+        if (totalPrice < 85 && this.props.completable) {
+            totalPrice += 15
+        }
 
-      return (
-          <View style={styles.completePaymentContainer}>
-              <View style={styles.totalPriceContainer}>
-                  <Text style={styles.totalPriceText}>
-                      {`Toplam: ${totalPrice.toFixed(2).replace('.', ',')} TL`}
-                  </Text>
-              </View>
+        return (
+            <View style={styles.completePaymentContainer}>
+                <View style={styles.totalPriceContainer}>
+                    <Text style={styles.totalPriceText}>
+                        {`Toplam: ${totalPrice.toFixed(2).replace('.', ',')} TL`}
+                    </Text>
+                </View>
 
-              <TouchableOpacity
-                  onPress={this.onCompletePaymentClick}
-                  style={styles.completePaymentButton}>
-                  <Text style={styles.completePaymentText}>SİPARİŞ VER</Text>
-              </TouchableOpacity>
-          </View>
-      )
-  }
+                <TouchableOpacity
+                    onPress={this.onCompletePaymentClick}
+                    style={styles.completePaymentButton}
+                >
+                    <Text style={styles.completePaymentText}>SİPARİŞ VER</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

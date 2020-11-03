@@ -11,7 +11,6 @@ import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
 import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
 import Map from '../MapScreens/Map'
 
-
 class CompleteAddressScreen extends React.Component {
   state = {
       scaleAnimationModal: false,
@@ -20,8 +19,8 @@ class CompleteAddressScreen extends React.Component {
 
   shouldComponentUpdate(_, nextState) {
       return (
-          nextState.scaleAnimationModal !== this.state.scaleAnimationModal ||
-      nextState.addressTitle !== this.state.addressTitle
+          nextState.scaleAnimationModal !== this.state.scaleAnimationModal
+      || nextState.addressTitle !== this.state.addressTitle
       )
   }
 
@@ -46,14 +45,13 @@ class CompleteAddressScreen extends React.Component {
           <ScrollView contentContainerStyle={styles.container}>
               <ConfirmAddressPopup
                   scaleAnimationModal={this.state.scaleAnimationModal}
-                  setPopupState={this.setPopupState}
-              />
+                  setPopupState={this.setPopupState} />
               <View>
                   <View style={styles.mapContainer}>
                       <Map region={this.props.route.params.region} />
 
-                      <View style={styles.markerContainer} pointerEvents="none">
-                          <Ionicons color="rgba(0,0,0,.8)" size={48} name="md-pin" />
+                      <View style={styles.markerContainer} pointerEvents='none'>
+                          <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
                       </View>
                   </View>
                   <View style={styles.body}>
@@ -69,9 +67,8 @@ class CompleteAddressScreen extends React.Component {
                               <TextInput
                                   onChangeText={this.onAddressTitleChange}
                                   value={this.state.addressTitle}
-                                  placeholder="Address title (Home, Work)"
-                                  style={styles.input}
-                              />
+                                  placeholder='Address title (Home, Work)'
+                                  style={styles.input} />
                           </View>
                       </View>
                       <View style={styles.addressinputContainerChild}>
@@ -83,9 +80,8 @@ class CompleteAddressScreen extends React.Component {
               </View>
               <ButtonComponent
                   disabled={!(this.state.addressTitle.length > 0) || !(this.props.address.length > 0)}
-                  text="Kaydet"
-                  onClick={this.onSaveClick}
-              />
+                  text='Kaydet'
+                  onClick={this.onSaveClick} />
           </ScrollView>
       )
   }

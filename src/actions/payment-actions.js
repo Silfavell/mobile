@@ -15,106 +15,92 @@ export const DELETE_ADDRESS = 'DELETE_ADDRESS'
 export const SET_SELECTED_CARD = 'SET_SELECTED_CARD'
 export const SET_SELECTED_ADDRESS = 'SET_SELECTED_ADDRESS'
 
-export const setPaymentType = (paymentType) => {
-    return (dispatch) => {
+export const setPaymentType = (paymentType) => (dispatch) => {
+    dispatch({
+        type: SET_PAYMENT_TYPE,
+        payload: {
+            paymentType
+        }
+    })
+}
+
+export const saveCard = (card, cb) => async (dispatch) => {
+    const { status, data } = await addCard({ card })
+
+    if (status === 200) {
         dispatch({
-            type: SET_PAYMENT_TYPE,
+            type: SAVE_CARD,
             payload: {
-                paymentType
+                card: data
             }
         })
-    }
-}
-
-export const saveCard = (card, cb) => {
-    return async (dispatch) => {
-        const { status, data } = await addCard({ card })
-
-        if (status === 200) {
-            dispatch({
-                type: SAVE_CARD,
-                payload: {
-                    card: data
-                }
-            })
-            cb()
-        }
-    }
-}
-
-export const deleteCard = (cardToken) => {
-    return async (dispatch) => {
-        const { status } = await removeCard({ cardToken })
-
-        if (status === 200) {
-            dispatch({
-                type: DELETE_CARD,
-                payload: {
-                    cardToken
-                }
-            })
-        }
-    }
-}
-
-export const saveAddress = (address, details) => {
-    return async (dispatch) => {
-        const body = {
-            openAddress: address,
-            addressTitle: details.addressTitle
-        }
-        const { status, data } = await saveAddressRequest(body)
-
-        if (status === 200) {
-            await AsyncStorage.setItem('user', JSON.stringify(data))
-            dispatch({
-                type: SAVE_ADDRESS,
-                payload: {
-                    addresses: data.addresses
-                }
-            })
-        }
-    }
-}
-
-export const deleteAddress = (addressId) => {
-    return async (dispatch) => {
-        const { status, data } = await deleteAddressRequest(addressId)
-
-        if (status === 200) {
-            await AsyncStorage.setItem('user', JSON.stringify(data))
-            dispatch({
-                type: DELETE_ADDRESS,
-                payload: {
-                    addresses: data.addresses
-                }
-            })
-        }
-    }
-}
-
-export const setSelectedCard = (selectedCard, cb) => {
-    return (dispatch) => {
-        dispatch({
-            type: SET_SELECTED_CARD,
-            payload: {
-                selectedCard
-            }
-        })
-
         cb()
     }
 }
 
-export const setSelectedAddress = (selectedAddress, cb) => {
-    return (dispatch) => {
+export const deleteCard = (cardToken) => async (dispatch) => {
+    const { status } = await removeCard({ cardToken })
+
+    if (status === 200) {
         dispatch({
-            type: SET_SELECTED_ADDRESS,
+            type: DELETE_CARD,
             payload: {
-                selectedAddress
+                cardToken
             }
         })
-
-        cb()
     }
+}
+
+export const saveAddress = (address, details) => async (dispatch) => {
+    const body = {
+        openAddress: address,
+        addressTitle: details.addressTitle
+    }
+    const { status, data } = await saveAddressRequest(body)
+
+    if (status === 200) {
+        await AsyncStorage.setItem('user', JSON.stringify(data))
+        dispatch({
+            type: SAVE_ADDRESS,
+            payload: {
+                addresses: data.addresses
+            }
+        })
+    }
+}
+
+export const deleteAddress = (addressId) => async (dispatch) => {
+    const { status, data } = await deleteAddressRequest(addressId)
+
+    if (status === 200) {
+        await AsyncStorage.setItem('user', JSON.stringify(data))
+        dispatch({
+            type: DELETE_ADDRESS,
+            payload: {
+                addresses: data.addresses
+            }
+        })
+    }
+}
+
+export const setSelectedCard = (selectedCard, cb) => (dispatch) => {
+    dispatch({
+        type: SET_SELECTED_CARD,
+        payload: {
+            selectedCard
+        }
+    })
+
+    cb()
+}
+
+export const setSelectedAddress = (selectedAddress, cb) => (dispatch) => {
+    dispatch({
+        type: SET_SELECTED_ADDRESS,
+        payload: {
+            selectedAddress
+        }
+    })
+
+    cb()
 }

@@ -20,13 +20,13 @@ class InputComponent extends React.Component {
 
   getMask = (type) => {
       switch (type) {
-      case 'telephoneNumber':
-          return '+90 ([000]) [000] [00] [00]'
-      case 'card':
-          return '[0000] [0000] [0000] [0000]'
+          case 'telephoneNumber':
+              return '+90 ([000]) [000] [00] [00]'
+          case 'card':
+              return '[0000] [0000] [0000] [0000]'
 
-      default:
-          return null
+          default:
+              return null
       }
   };
 
@@ -48,7 +48,8 @@ class InputComponent extends React.Component {
           <TouchableOpacity
               activeOpacity={1}
               style={[styles.container, multiline ? styles.multiline : {}]}
-              onPress={this.state.selectorRef ? this.onSelectorInputClick : null}>
+              onPress={this.state.selectorRef ? this.onSelectorInputClick : null}
+          >
               {icon}
 
               {mask ? (
@@ -65,8 +66,7 @@ class InputComponent extends React.Component {
                           invalid ? styles.invalid : {},
                           icon ? styles.withIcon : {},
                           disabled ? styles.disabled : {}
-                      ]}
-                  />
+                      ]} />
               ) : (
                   <TextInput
                       {...options}
@@ -82,8 +82,7 @@ class InputComponent extends React.Component {
                           multiline ? styles.multilineInput : {},
                           icon ? styles.withIcon : {},
                           disabled ? styles.disabled : {}
-                      ]}
-                  />
+                      ]} />
               )}
 
               {selector && (
@@ -92,8 +91,7 @@ class InputComponent extends React.Component {
                       ref={this.setSelectorRef}
                       key={value}
                       customSelector={<></>}
-                      onChange={setPickedValue}
-                  />
+                      onChange={setPickedValue} />
               )}
           </TouchableOpacity>
       )

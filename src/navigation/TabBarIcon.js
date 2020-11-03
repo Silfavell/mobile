@@ -8,8 +8,7 @@ const TabBarIcon = ({ name, focused }) => (
         name={name}
         size={28}
         style={styles.iconContainer}
-        color={focused ? 'rgba(0,0,0,.8)' : '#CCC'}
-    />
+        color={focused ? 'rgba(0,0,0,.8)' : '#CCC'} />
 )
 
 const styles = StyleSheet.create({

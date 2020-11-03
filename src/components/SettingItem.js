@@ -7,11 +7,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const renderRightComponent = ({ version, rightComponent, rightIcon }) => {
     if (version) {
         return <View style={styles.empty} />
-    } else if (rightComponent) {
+    } if (rightComponent) {
         return rightComponent
     }
 
-    return <MaterialIcons color="rgba(0,0,0,.8)" name={rightIcon ?? 'chevron-right'} size={32} />
+    return <MaterialIcons color='rgba(0,0,0,.8)' name={rightIcon ?? 'chevron-right'} size={32} />
 }
 
 const SettingItem = ({

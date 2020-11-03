@@ -11,100 +11,105 @@ import { increaseProductQuantity } from '../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'
 
 class Product extends React.Component {
-  onAddProductClick = () => {
-      this.props.increaseProductQuantity(this.props.data._id, this.props.messagePopupRef)
-  };
+    shouldComponentUpdate(nextProps) {
+        return (
+            (nextProps.user?.favoriteProducts?.includes(this.props.data._id)
+            && !this.props.user?.favoriteProducts?.includes(this.props.data._id))
+        || (this.props.user?.favoriteProducts?.includes(this.props.data._id)
+            && !nextProps.user?.favoriteProducts?.includes(this.props.data._id))
+        )
+    }
 
-  addToFavoriteProducts = () => {
-      this.props.addToFavoriteProducts(this.props.data._id, this.props.messagePopupRef)
-  };
+    onAddProductClick = () => {
+        this.props.increaseProductQuantity(this.props.data._id, this.props.messagePopupRef)
+    };
 
-  removeFromFavoriteProdutcs = () => {
-      this.props.removeFromFavoriteProdutcs(this.props.data._id, this.props.messagePopupRef)
-  };
+    addToFavoriteProducts = () => {
+        this.props.addToFavoriteProducts(this.props.data._id, this.props.messagePopupRef)
+    };
 
-  onProductClick = () => {
-      this.props.navigation.navigate('fullProductScreen', {
-          slug: this.props.data.slug,
-          fromSearch: this.props.fromSearch
-      })
-  };
+    removeFromFavoriteProdutcs = () => {
+        this.props.removeFromFavoriteProdutcs(this.props.data._id, this.props.messagePopupRef)
+    };
 
-  shouldComponentUpdate(nextProps) {
-      return (
-          (nextProps.user?.favoriteProducts?.includes(this.props.data._id) &&
-        !this.props.user?.favoriteProducts?.includes(this.props.data._id)) ||
-      (this.props.user?.favoriteProducts?.includes(this.props.data._id) &&
-        !nextProps.user?.favoriteProducts?.includes(this.props.data._id))
-      )
-  }
+    onProductClick = () => {
+        this.props.navigation.navigate('fullProductScreen', {
+            slug: this.props.data.slug,
+            fromSearch: this.props.fromSearch
+        })
+    };
 
-  render() {
-      const {
-          data: { _id, name, price, discountedPrice, slug },
-          token
-      } = this.props
+    render() {
+        const {
+            data: {
+                _id, name, price, discountedPrice, slug
+            },
+            token
+        } = this.props
 
-      const url = `${Config.SERVER_URL}/assets/products/${slug}_300x300.webp`
+        const url = `${Config.SERVER_URL}/assets/products/${slug}_300x300.webp`
 
-      return (
-          <View style={styles.container}>
-              {token && (
-                  <Ionicons
-                      style={styles.favoriteIcon}
-                      size={28}
-                      name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
-                      color={'rgba(0,0,0,.8)'}
-                      onPress={
-              this.props.user?.favoriteProducts?.includes(_id)
-                  ? this.removeFromFavoriteProdutcs
-                  : this.addToFavoriteProducts
-                      }
-                  />
-              )}
+        return (
+            <View style={styles.container}>
+                {token && (
+                    <Ionicons
+                        style={styles.favoriteIcon}
+                        size={28}
+                        name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
+                        color='rgba(0,0,0,.8)'
+                        onPress={
+                this.props.user?.favoriteProducts?.includes(_id)
+                    ? this.removeFromFavoriteProdutcs
+                    : this.addToFavoriteProducts
+                        } />
+                )}
 
-              <TouchableOpacity
-                  activeOpacity={1}
-                  style={[styles.child, styles.productImageContainer]}
-                  onPress={this.onProductClick}>
-                  <FastImage
-                      source={{ uri: url }}
-                      resizeMode={FastImage.resizeMode.contain}
-                      style={styles.productImage}
-                  />
+                <TouchableOpacity
+                    activeOpacity={1}
+                    style={[styles.child, styles.productImageContainer]}
+                    onPress={this.onProductClick}
+                >
+                    <FastImage
+                        source={{ uri: url }}
+                        resizeMode={FastImage.resizeMode.contain}
+                        style={styles.productImage} />
 
-                  <Ionicons
-                      style={styles.basketIcon}
-                      size={28}
-                      name={'md-basket'}
-                      color={'rgba(0,0,0,.8)'}
-                      onPress={this.onAddProductClick}
-                  />
-              </TouchableOpacity>
+                    <Ionicons
+                        style={styles.basketIcon}
+                        size={28}
+                        name='md-basket'
+                        color='rgba(0,0,0,.8)'
+                        onPress={this.onAddProductClick} />
+                </TouchableOpacity>
 
-              <View style={[styles.child, styles.priceContainer]}>
-                  <Text
-                      style={[
-                          styles.productPrice,
-                          discountedPrice ? styles.discountedPrice : {}
-                      ]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+                <View style={[styles.child, styles.priceContainer]}>
+                    <Text
+                        style={[
+                            styles.productPrice,
+                            discountedPrice ? styles.discountedPrice : {}
+                        ]}
+                    >
+                        {`₺${price.toFixed(2).toString().replace('.', ',')}`}
+                    </Text>
 
-                  {discountedPrice && (
-                      <Text style={styles.productPrice}>{`₺${discountedPrice
-                          .toFixed(2)
-                          .toString()
-                          .replace('.', ',')}`}</Text>
-                  )}
-              </View>
+                    {discountedPrice && (
+                        <Text style={styles.productPrice}>
+                            {`₺${discountedPrice
+                                .toFixed(2)
+                                .toString()
+                                .replace('.', ',')}`}
+                        </Text>
+                    )}
+                </View>
 
-              <View style={[styles.child, styles.nameContainer]}>
-                  <Text numberOfLines={3} style={styles.productName}>
-                      {name}
-                  </Text>
-              </View>
-          </View>
-      )
-  }
+                <View style={[styles.child, styles.nameContainer]}>
+                    <Text numberOfLines={3} style={styles.productName}>
+                        {name}
+                    </Text>
+                </View>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({
@@ -175,7 +180,7 @@ const styles = ScaledSheet.create({
     },
     discountedPrice: {
         fontWeight: 'normal',
-        fontWeight: '100',
+        // fontWeight: '100',
         marginRight: 8,
         textDecorationLine: 'line-through'
     }

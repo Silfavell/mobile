@@ -31,19 +31,18 @@ class PinAddressScreen extends React.Component {
           <View style={styles.container}>
               <ConfirmAccuratePinPopup
                   setPopupState={this.setPopupState}
-                  scaleAnimationModal={this.state.scaleAnimationModal}
-              />
+                  scaleAnimationModal={this.state.scaleAnimationModal} />
 
               <HeaderAddressInput disabled />
 
               <Map region={this.props.route.params.region} />
 
-              <View style={styles.markerContainer} pointerEvents="none">
-                  <Ionicons color="rgba(0,0,0,.8)" size={48} name="md-pin" />
+              <View style={styles.markerContainer} pointerEvents='none'>
+                  <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
               </View>
 
               <View style={styles.buttonContainer}>
-                  <ButtonComponent text="Bu Adresi Kullan" onClick={this.onUseThisAddressClick} needFlex />
+                  <ButtonComponent text='Bu Adresi Kullan' onClick={this.onUseThisAddressClick} needFlex />
               </View>
           </View>
       )

@@ -35,8 +35,7 @@ class Accordion extends Component {
               <TouchableOpacity ref={this.accordion} onPress={this.toggleExpand} activeOpacity={0.9}>
                   <SettingItem
                       title={this.props.title}
-                      rightIcon={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}
-                  />
+                      rightIcon={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} />
               </TouchableOpacity>
 
               {this.state.expanded && <View style={styles.childContainer}>{this.props.children}</View>}

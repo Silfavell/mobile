@@ -9,9 +9,11 @@ import Modal, {
 import { ScaledSheet } from 'react-native-size-matters'
 
 const Item = ({ item: { type, mark, content } }) => (
+    // eslint-disable-next-line react-native/no-inline-styles
     <Text style={{
         [type === 0 ? 'marginVertical' : 'marginBottom']: 12
-    }}>
+    }}
+    >
         <Text style={styles.textStyle}>{mark}</Text>
         {content}
     </Text>
@@ -158,6 +160,7 @@ const items = [
 class MembershipAgreement extends React.PureComponent {
     close = () => {
         this.props.setPopupState({ scaleAnimationModal: false })
+
         return true
     }
 
@@ -179,9 +182,8 @@ class MembershipAgreement extends React.PureComponent {
                     <ModalTitle
                         style={styles.title}
                         textStyle={styles.titleText}
-                        title={'Silfavell Elektronik Ticaret Sitesi Üyelik Sözleşmesi'}
-                        hasTitleBar={false}
-                    />
+                        title='Silfavell Elektronik Ticaret Sitesi Üyelik Sözleşmesi'
+                        hasTitleBar={false} />
                 )}
                 footer={(
                     <ModalFooter style={styles.footer}>
@@ -190,10 +192,10 @@ class MembershipAgreement extends React.PureComponent {
                             textStyle={styles.buttonText}
                             style={styles.buttonNo}
                             onPress={this.close}
-                            key='button-1'
-                        />
+                            key='button-1' />
                     </ModalFooter>
-                )}>
+                )}
+            >
                 <FlatList
                     data={items}
                     renderItem={this.renderItem}

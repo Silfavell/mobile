@@ -52,6 +52,7 @@ class EditProfileScreen extends React.Component {
           .min(19)
           .max(19)
           .validate(phoneNumber, (err) => {
+              // eslint-disable-next-line react/no-unused-state
               this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
           })
   };
@@ -80,9 +81,10 @@ class EditProfileScreen extends React.Component {
                       }}
                       invalid={this.state.invalidNameSurname && this.state.isNameSurnameInitialized}
                       value={this.state.nameSurname}
-                      onChange={this.onNameSurnameChange}>
+                      onChange={this.onNameSurnameChange}
+                  >
                       <InputIcon>
-                          <Ionicons size={32} name="md-person" color="rgba(0,0,0,.8)" />
+                          <Ionicons size={32} name='md-person' color='rgba(0,0,0,.8)' />
                       </InputIcon>
                   </InputComponent>
 
@@ -94,9 +96,10 @@ class EditProfileScreen extends React.Component {
                       }}
                       invalid={this.state.invalidEmail && this.state.isEmailInitialized}
                       value={this.state.email}
-                      onChange={this.onEmailChange}>
+                      onChange={this.onEmailChange}
+                  >
                       <InputIcon>
-                          <Ionicons size={32} name="md-mail-open" color="rgba(0,0,0,.8)" />
+                          <Ionicons size={32} name='md-mail-open' color='rgba(0,0,0,.8)' />
                       </InputIcon>
                   </InputComponent>
 
@@ -107,26 +110,26 @@ class EditProfileScreen extends React.Component {
                           placeholder: 'Telefon Numarası',
                           maxLength: 19
                       }}
-                      mask={'telephoneNumber'}
+                      mask='telephoneNumber'
                       value={this.state.phoneNumber}
                       disabled
-                      onChange={this.onPhoneChange}>
+                      onChange={this.onPhoneChange}
+                  >
                       <InputIcon>
-                          <Ionicons size={32} name="md-phone-portrait" color="rgba(0,0,0,.8)" />
+                          <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
                       </InputIcon>
                   </InputComponent>
               </View>
 
               <ButtonComponent
-                  text="Kaydet"
+                  text='Kaydet'
                   onClick={this.onSaveClick}
                   disabled={
-                      this.state.invalidEmail ||
-            !this.state.isEmailInitialized ||
-            this.state.invalidNameSurname ||
-            !this.state.isNameSurnameInitialized
-                  }
-              />
+                      this.state.invalidEmail
+            || !this.state.isEmailInitialized
+            || this.state.invalidNameSurname
+            || !this.state.isNameSurnameInitialized
+                  } />
           </ShadowContainer>
       )
   }

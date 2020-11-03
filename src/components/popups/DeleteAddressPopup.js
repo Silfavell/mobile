@@ -6,6 +6,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 class DeleteAddressPopup extends React.PureComponent {
   close = () => {
       this.props.setPopupState({ scaleAnimationModal: false })
+
       return true
   };
 
@@ -22,33 +23,29 @@ class DeleteAddressPopup extends React.PureComponent {
               onSwipeOut={this.close}
               onHardwareBackPress={this.close}
               children={null}
-              modalTitle={
+              modalTitle={(
                   <ModalTitle
                       style={styles.title}
                       textStyle={styles.titleText}
-                      title="Adresi silmek istediğinize emin misiniz ?"
-                      hasTitleBar={false}
-                  />
-              }
-              footer={
+                      title='Adresi silmek istediğinize emin misiniz ?'
+                      hasTitleBar={false} />
+              )}
+              footer={(
                   <ModalFooter style={styles.footer}>
                       <ModalButton
-                          text="Hayır"
+                          text='Hayır'
                           textStyle={styles.buttonText}
                           style={styles.buttonNo}
                           onPress={this.close}
-                          key="button-1"
-                      />
+                          key='button-1' />
                       <ModalButton
-                          text="Evet"
+                          text='Evet'
                           textStyle={styles.buttonText}
                           style={styles.buttonYes}
                           onPress={this.onConfirm}
-                          key="button-2"
-                      />
+                          key='button-2' />
                   </ModalFooter>
-              }
-          />
+              )} />
       )
   }
 }

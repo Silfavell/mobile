@@ -75,42 +75,42 @@ class FilterProductsScreen extends React.Component {
         ]
     }
 
-  setNavigationOptions = () => {
-      this.props.navigation.setOptions({
-          headerLeft: () => (
-              <TouchableOpacity onPress={this.props.navigation.goBack}>
-                  <Ionicons name="md-close" size={26} color="white" style={styles.leftIcon} />
-              </TouchableOpacity>
-          ),
-          headerRight: () =>
-              (this.state.brands.length > 0 ||
-          this.state.selectedSort !== -1 ||
-          this.state.minPrice ||
-          this.state.maxPrice) && (
-                  <TouchableOpacity onPress={this.onClearFilterClick}>
-                      <Ionicons name="md-trash" size={26} color="white" style={styles.rightIcon} />
-                  </TouchableOpacity>
-              )
-      })
-  };
+    // TODO replace with another lifecycle method
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        this.setState(
+            {
+                brands: nextProps.selectedBrands,
+                selectedSort: nextProps.selectedSort,
+                scaleAnimationModal: false,
+                minPrice: nextProps.selectedMinPrice,
+                maxPrice: nextProps.selectedMaxPrice
+            },
+            this.setNavigationOptions
+        )
+    }
 
-  onClearFilterClick = () => {
-      this.setPopupState({ scaleAnimationModal: true })
-  };
+    setNavigationOptions = () => {
+        this.props.navigation.setOptions({
+            headerLeft: () => (
+                <TouchableOpacity onPress={this.props.navigation.goBack}>
+                    <Ionicons name='md-close' size={26} color='white' style={styles.leftIcon} />
+                </TouchableOpacity>
+            ),
+            headerRight: () => (this.state.brands.length > 0
+            || this.state.selectedSort !== -1
+            || this.state.minPrice
+            || this.state.maxPrice) && (
+                <TouchableOpacity onPress={this.onClearFilterClick}>
+                    <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
+                </TouchableOpacity>
+            )
+        })
+    };
 
-  // TODO replace with another lifecycle method
-  UNSAFE_componentWillReceiveProps(nextProps) {
-      this.setState(
-          {
-              brands: nextProps.selectedBrands,
-              selectedSort: nextProps.selectedSort,
-              scaleAnimationModal: false,
-              minPrice: nextProps.selectedMinPrice,
-              maxPrice: nextProps.selectedMaxPrice
-          },
-          this.setNavigationOptions
-      )
-  }
+    onClearFilterClick = () => {
+        this.setPopupState({ scaleAnimationModal: true })
+    };
 
   onFilterClick = () => {
       this.props.makeFilter(
@@ -165,23 +165,21 @@ class FilterProductsScreen extends React.Component {
               <ClearFilterPopup
                   scaleAnimationModal={this.state.scaleAnimationModal}
                   setPopupState={this.setPopupState}
-                  clearFilter={this.props.clearFilter}
-              />
+                  clearFilter={this.props.clearFilter} />
 
               <ShadowContainer>
                   <ShadowContainer>
-                      <ModalSelector data={this.sorts} cancelText={'İptal'} onChange={this.onSortSelect}>
+                      <ModalSelector data={this.sorts} cancelText='İptal' onChange={this.onSortSelect}>
                           <SettingItem
-                              title={'Sırala'}
-                              value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'}
-                          />
+                              title='Sırala'
+                              value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
                       </ModalSelector>
                   </ShadowContainer>
 
                   <View style={styles.divider} />
 
                   <ShadowContainer>
-                      <Accordion title="Markalar">
+                      <Accordion title='Markalar'>
                           <>
                               {category.brands.map((brand) => (
                                   <BrandComponent
@@ -189,8 +187,7 @@ class FilterProductsScreen extends React.Component {
                                       key={brand.name + this.state.brands.includes(brand.name)}
                                       addBrand={this.addBrand}
                                       removeBrand={this.removeBrand}
-                                      checked={this.state.brands.includes(brand.name)}
-                                  />
+                                      checked={this.state.brands.includes(brand.name)} />
                               ))}
                           </>
                       </Accordion>
@@ -198,23 +195,22 @@ class FilterProductsScreen extends React.Component {
 
                   <View style={styles.divider} />
 
-                  <Accordion title="Fiyat Aralığı">
+                  <Accordion title='Fiyat Aralığı'>
                       <Slider
                           ref={this.onSliderRef}
                           minPrice={category.minPrice}
                           maxPrice={category.maxPrice}
                           initialMinPrice={this.state.minPrice ?? category.minPrice}
-                          initialMaxPrice={this.state.maxPrice ?? category.maxPrice}
-                      />
+                          initialMaxPrice={this.state.maxPrice ?? category.maxPrice} />
                   </Accordion>
               </ShadowContainer>
 
               <View style={styles.bottom}>
                   <View style={styles.buttonContainer}>
-                      <ButtonComponent text="İptal" onClick={this.props.navigation.goBack} />
+                      <ButtonComponent text='İptal' onClick={this.props.navigation.goBack} />
                   </View>
                   <View style={styles.buttonContainer}>
-                      <ButtonComponent text="Filtrele" onClick={this.onFilterClick} />
+                      <ButtonComponent text='Filtrele' onClick={this.onFilterClick} />
                   </View>
               </View>
           </>

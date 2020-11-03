@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { ScrollView, TouchableOpacity, View, Text } from 'react-native'
+import {
+    ScrollView, TouchableOpacity, View, Text
+} from 'react-native'
 import Config from 'react-native-config'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -17,7 +19,6 @@ import { getProductBySlug as getProductBySlugRequest } from '../../scripts/reque
 import Color from './Color'
 import Comment from './Comment'
 
-
 class FullProductScreen extends React.Component {
   scrollRef = React.createRef();
 
@@ -31,6 +32,7 @@ class FullProductScreen extends React.Component {
   }
 
   // TODO replace with another lifecycle method
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps() {
       if (this.state.pickedColor === -1) {
           this.setHeader(this.state.product._id)
@@ -54,12 +56,11 @@ class FullProductScreen extends React.Component {
                   <TouchableOpacity onPress={() => this.onHeartClick(_id)}>
                       <Ionicons
                           size={26}
-                          color="rgba(0,0,0,.8)"
+                          color='rgba(0,0,0,.8)'
                           style={styles.iconStyle}
                           name={
                 this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'
-                          }
-                      />
+                          } />
                   </TouchableOpacity>
               )
           })
@@ -110,8 +111,7 @@ class FullProductScreen extends React.Component {
   };
 
   getImages = () => {
-      const { slug, imageCount } =
-      this.state.pickedColor === -1
+      const { slug, imageCount } = this.state.pickedColor === -1
           ? this.state.product
           : this.state.product.group[this.state.pickedColor]
 
@@ -125,6 +125,7 @@ class FullProductScreen extends React.Component {
           const productIndexInGroup = this.state.product.group.find(
               (product) => product._id === this.state.product._id
           )
+
           return this.state.product.group.indexOf(productIndexInGroup) === index
       }
 
@@ -144,10 +145,11 @@ class FullProductScreen extends React.Component {
 
   render() {
       if (this.state.product) {
-          const { name, details, price, discountedPrice, color, specifications } =
-        this.state.pickedColor === -1
-            ? this.state.product
-            : this.state.product.group[this.state.pickedColor]
+          const {
+              name, details, price, discountedPrice, color, specifications
+          } = this.state.pickedColor === -1
+              ? this.state.product
+              : this.state.product.group[this.state.pickedColor]
 
           const { comments } = this.state.product
 
@@ -156,7 +158,8 @@ class FullProductScreen extends React.Component {
                   <ScrollView
                       ref={this.scrollRef}
                       contentContainerStyle={styles.scrollContainer}
-                      onScroll={this.handleScroll}>
+                      onScroll={this.handleScroll}
+                  >
                       <ShadowContainer style={styles.shadowContainer}>
                           <View style={styles.imageContainer}>
                               <Slider
@@ -169,8 +172,7 @@ class FullProductScreen extends React.Component {
                                   }`}
                                   images={this.getImages()}
                                   shopSingle
-                                  paginator
-                              />
+                                  paginator />
                           </View>
                       </ShadowContainer>
                       <View style={styles.details}>
@@ -183,13 +185,18 @@ class FullProductScreen extends React.Component {
                                   style={[
                                       styles.price,
                                       discountedPrice ? styles.discountedPrice : {}
-                                  ]}>{`₺${price.toFixed(2).toString().replace('.', ',')}`}</Text>
+                                  ]}
+                              >
+                                  {`₺${price.toFixed(2).toString().replace('.', ',')}`}
+                              </Text>
 
                               {discountedPrice && (
-                                  <Text style={styles.price}>{`₺${discountedPrice
-                                      .toFixed(2)
-                                      .toString()
-                                      .replace('.', ',')}`}</Text>
+                                  <Text style={styles.price}>
+                                      {`₺${discountedPrice
+                                          .toFixed(2)
+                                          .toString()
+                                          .replace('.', ',')}`}
+                                  </Text>
                               )}
                           </View>
                       </View>
@@ -210,14 +217,13 @@ class FullProductScreen extends React.Component {
                                           product={groupProduct}
                                           selected={this.isColorSelected(index)}
                                           index={index}
-                                          onPress={this.onColorPicked}
-                                      />
+                                          onPress={this.onColorPicked} />
                                   ))}
                               </View>
                           </View>
                       )}
 
-                      <Accordion title="Ürün Hakkında" expanded>
+                      <Accordion title='Ürün Hakkında' expanded>
                           <>
                               <View style={styles.details2}>
                                   <Text style={styles.productDetail}>
@@ -226,13 +232,11 @@ class FullProductScreen extends React.Component {
                               </View>
 
                               <View style={styles.extraDetailsContainer}>
-                                  {specifications.map((specification, index) =>
-                                      this.renderExtraDetailsRow({
-                                          title: specification.name,
-                                          value: specification.value,
-                                          first: index === 0
-                                      })
-                                  )}
+                                  {specifications.map((specification, index) => this.renderExtraDetailsRow({
+                                      title: specification.name,
+                                      value: specification.value,
+                                      first: index === 0
+                                  }))}
                               </View>
                           </>
                       </Accordion>
@@ -249,11 +253,12 @@ class FullProductScreen extends React.Component {
                   </ScrollView>
 
                   <View style={styles.buttonContainer}>
-                      <ButtonComponent text="Sepete Ekle" onClick={this.onAddToCartClick} />
+                      <ButtonComponent text='Sepete Ekle' onClick={this.onAddToCartClick} />
                   </View>
               </View>
           )
       }
+
       return <Loading />
   }
 }

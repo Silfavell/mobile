@@ -13,9 +13,8 @@ class Slider extends React.PureComponent {
                         <Image
                             source={{ uri: image }}
                             resizeMode={this.props.shopSingle ? 'contain' : 'cover'}
-                            resizeMethod="resize"
-                            style={styles.imageContainer}
-                        />
+                            resizeMethod='resize'
+                            style={styles.imageContainer} />
                     </View>
                 ))}
             </CarouselViewer>

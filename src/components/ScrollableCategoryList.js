@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { ScrollView, TouchableOpacity, View, Image, Text } from 'react-native'
+import {
+    ScrollView, TouchableOpacity, View, Image, Text
+} from 'react-native'
 import Config from 'react-native-config'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
@@ -18,8 +20,7 @@ class CategoryElement extends React.PureComponent {
               <View style={styles.iconContainer}>
                   <Image
                       style={styles.imageContainer}
-                      source={{ uri: `${Config.SERVER_URL}/assets/categories/${imagePath}.png` }}
-                  />
+                      source={{ uri: `${Config.SERVER_URL}/assets/categories/${imagePath}.png` }} />
               </View>
               <Text numberOfLines={1}>{title}</Text>
           </TouchableOpacity>
@@ -30,15 +31,14 @@ class CategoryElement extends React.PureComponent {
 class ScrollableCategoryList extends React.PureComponent {
     render() {
         return (
-            <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
+            <ScrollView style={styles.container} horizontal showsHorizontalScrollIndicator={false}>
                 {this.props.categories.map((category, index) => (
                     <CategoryElement
-                        key={'scrollableCategory:' + category._id}
+                        key={`scrollableCategory:${category._id}`}
                         navigation={this.props.navigation}
                         title={category.name}
                         index={index}
-                        imagePath={category.imagePath}
-                    />
+                        imagePath={category.imagePath} />
                 ))}
             </ScrollView>
         )

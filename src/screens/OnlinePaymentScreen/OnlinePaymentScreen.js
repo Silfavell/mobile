@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { View, TouchableOpacity, Text, Dimensions } from 'react-native'
+import {
+    View, TouchableOpacity, Text, Dimensions
+} from 'react-native'
 import FloatingInput from 'react-native-floating-labels'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -35,9 +37,8 @@ class OnlinePaymentScreen extends React.Component {
       const products = Object.values(this.props.cart)
       const totalPrice = products
           .reduce(
-              (previousValue, currentValue) =>
-                  previousValue +
-          parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
+              (previousValue, currentValue) => previousValue
+          + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
               0
           )
           .toFixed(2)
@@ -61,8 +62,9 @@ class OnlinePaymentScreen extends React.Component {
                           inputStyle={styles.input}
                           style={styles.formInput}
                           onChangeText={this.onCardNumberChange}
-                          value={this.state.cardNumber}>
-              Kart Numarası *
+                          value={this.state.cardNumber}
+                      >
+                          Kart Numarası *
                       </FloatingInput>
                   </View>
 
@@ -73,8 +75,9 @@ class OnlinePaymentScreen extends React.Component {
                               inputStyle={styles.input}
                               style={styles.formInput}
                               onChangeText={this.onExpirationDateChange}
-                              value={this.state.expirationDate}>
-                Son Kullanma Tarihi *
+                              value={this.state.expirationDate}
+                          >
+                              Son Kullanma Tarihi *
                           </FloatingInput>
                       </View>
 
@@ -84,8 +87,9 @@ class OnlinePaymentScreen extends React.Component {
                               inputStyle={styles.input}
                               style={styles.formInput}
                               onChangeText={this.onCvcChange}
-                              value={this.state.CVC2}>
-                Güvenlik Kodu (CVC2) *
+                              value={this.state.CVC2}
+                          >
+                              Güvenlik Kodu (CVC2) *
                           </FloatingInput>
                       </View>
                   </View>
@@ -102,11 +106,11 @@ class OnlinePaymentScreen extends React.Component {
                   <View style={styles.child} />
                   <View style={styles.informationTextContainer}>
                       <View style={styles.infoIconContainer}>
-                          <Ionicons name="md-information-circle-outline" size={28} />
+                          <Ionicons name='md-information-circle-outline' size={28} />
                       </View>
                       <Text>
-              Kredi kartı bilgileriniz Platform Silfavell tarafından tutulmamaktadır ödeme altyapısı
-              Mastercard tarafından sağlanmaktadır
+                          Kredi kartı bilgileriniz Platform Silfavell tarafından tutulmamaktadır ödeme altyapısı
+                          Mastercard tarafından sağlanmaktadır
                       </Text>
                   </View>
                   <View style={styles.child} />

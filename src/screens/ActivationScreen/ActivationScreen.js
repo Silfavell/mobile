@@ -62,17 +62,15 @@ class ActivationScreen extends React.Component {
                       keyboardType: 'number-pad',
                       placeholder: 'Aktivasyon kodu',
                       maxLength: 4
-                  }}
-              />
+                  }} />
 
               <ButtonComponent
                   disabled={this.state.invalidActivationCode || !this.state.isActivationCodeInitialized}
-                  text="Kayıt Ol"
-                  onClick={this.onRegisterClick}
-              />
+                  text='Kayıt Ol'
+                  onClick={this.onRegisterClick} />
 
               <TouchableOpacity style={styles.resendContainer} onPress={this.onResendClick}>
-                  <Ionicons name="md-refresh" size={28} color="#6E7586" />
+                  <Ionicons name='md-refresh' size={28} color='#6E7586' />
                   <Text style={styles.resendCodeText}>Yeniden Gönder</Text>
               </TouchableOpacity>
           </ShadowContainer>

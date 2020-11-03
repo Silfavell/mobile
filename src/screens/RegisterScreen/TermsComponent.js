@@ -8,45 +8,48 @@ import CheckBox from 'react-native-check-box'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-import MembershipAgreement from '../RegisterScreen/MembershipAgreement'
+import MembershipAgreement from './MembershipAgreement'
 
 class TermsComponent extends React.Component {
-	state = {
-	    scaleAnimationModal: false
-	}
+    state = {
+        scaleAnimationModal: false
+    }
 
-	setPopupState = (state) => {
-	    this.setState(state)
-	}
+    setPopupState = (state) => {
+        this.setState(state)
+    }
 
-	showAgreement = () => {
-	    this.setState({ scaleAnimationModal: true })
-	}
+    showAgreement = () => {
+        this.setState({ scaleAnimationModal: true })
+    }
 
-	render() {
-	    return (
-	        <View style={styles.container}>
-	            <MembershipAgreement
-	                scaleAnimationModal={this.state.scaleAnimationModal}
-	                setPopupState={this.setPopupState} />
+    render() {
+        return (
+            <View style={styles.container}>
+                <MembershipAgreement
+                    scaleAnimationModal={this.state.scaleAnimationModal}
+                    setPopupState={this.setPopupState} />
 
-	            <View style={styles.checkBoxContainer}>
-	                <CheckBox
-	                    style={styles.checkBoxStyle}
-	                    checkedImage={<MaterialIcons name={'check'} size={24} color={'black'} />}
-	                    unCheckedImage={<MaterialIcons name={'check-box-outline-blank'} size={24} color={'black'} />}
-	                    onClick={this.props.setTermsState}
-	                    isChecked={this.props.isTermsChecked}
-	                />
-	            </View>
-	            <View style={styles.termsInfoContainer}>
-	                <View style={styles.termsTextContainer}>
-	                    <Text style={styles.termsText}><Text onPress={this.showAgreement} style={styles.termsAgreementText}>Üyelik Sözleşmesi</Text> şartlarını okudum ve kabul ediyorum.</Text>
-	                </View>
-	            </View>
-	        </View>
-	    )
-	}
+                <View style={styles.checkBoxContainer}>
+                    <CheckBox
+                        style={styles.checkBoxStyle}
+                        checkedImage={<MaterialIcons name='check' size={24} color='black' />}
+                        unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={24} color='black' />}
+                        onClick={this.props.setTermsState}
+                        isChecked={this.props.isTermsChecked} />
+                </View>
+                <View style={styles.termsInfoContainer}>
+                    <View style={styles.termsTextContainer}>
+                        <Text style={styles.termsText}>
+                            <Text onPress={this.showAgreement} style={styles.termsAgreementText}>Üyelik Sözleşmesi</Text>
+                            {' '}
+                            şartlarını okudum ve kabul ediyorum.
+                        </Text>
+                    </View>
+                </View>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

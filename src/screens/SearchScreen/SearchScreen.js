@@ -17,105 +17,104 @@ import ShadowContainer from '../../components/ShadowContainer'
 import { search as searchRequest } from '../../scripts/requests'
 
 class SearchScreen extends React.Component {
-	state = {
-	    fetch: false,
-	    products: [],
-	    text: ''
-	}
+    state = {
+        fetch: false,
+        products: [],
+        text: ''
+    }
 
-	search = async (text) => {
-	    if (text.length > 0) {
-	        this.setState({ fetch: true, text })
+    search = async (text) => {
+        if (text.length > 0) {
+            this.setState({ fetch: true, text })
 
-	        try {
-	            const response = await searchRequest(text)
+            try {
+                const response = await searchRequest(text)
 
-	            this.setState({
-	                products: response.data.map(({ _source }) => {// TODO ??
-	                    _source._id = _source.id
-	                    return _source
-	                }),
-	                fetch: false
-	            })
-	        } catch (error) {
-	            this.setState({ fetch: false })
-	        }
+                this.setState({
+                    products: response.data.map(({ _source }) => { // TODO ??
+                        _source._id = _source.id
 
-	    } else {
-	        this.setState({ fetch: false, products: [], text })
-	    }
-	}
+                        return _source
+                    }),
+                    fetch: false
+                })
+            } catch (error) {
+                this.setState({ fetch: false })
+            }
+        } else {
+            this.setState({ fetch: false, products: [], text })
+        }
+    }
 
-	clear = () => {
-	    this.search('')
-	}
+    clear = () => {
+        this.search('')
+    }
 
-	renderSearchResult = () => (
-	    <View style={styles.renderCountainer}>
-	        <RecyclerList
-	            list={this.state.products}
-	            navigation={this.props.navigation}
-	            fromSearch />
-	    </View>
-	)
+    renderSearchResult = () => (
+        <View style={styles.renderCountainer}>
+            <RecyclerList
+                list={this.state.products}
+                navigation={this.props.navigation}
+                fromSearch />
+        </View>
+    )
 
-	renderMostSearched = () => (
-	    <View style={styles.renderCountainer}>
-	        <View style={styles.divider}>
-	            <ShadowContainer style={styles.shadowContainer}>
-	                <View style={styles.dividerChild}>
-	                    <Text style={styles.dividerTitle}>En Çok Arananlar</Text>
-	                </View>
-	            </ShadowContainer>
-	        </View>
-	        <RecyclerList
-	            list={this.props.mostSearched}
-	            navigation={this.props.navigation} />
-	    </View>
-	)
+    renderMostSearched = () => (
+        <View style={styles.renderCountainer}>
+            <View style={styles.divider}>
+                <ShadowContainer style={styles.shadowContainer}>
+                    <View style={styles.dividerChild}>
+                        <Text style={styles.dividerTitle}>En Çok Arananlar</Text>
+                    </View>
+                </ShadowContainer>
+            </View>
+            <RecyclerList
+                list={this.props.mostSearched}
+                navigation={this.props.navigation} />
+        </View>
+    )
 
+    fetching = () => (
+        <View style={styles.Container}>
+            <ActivityIndicator color='#EE4266' size='large' />
+        </View>
+    )
 
-	fetching = () => (
-	    <View style={styles.Container}>
-	        <ActivityIndicator color='#EE4266' size='large' />
-	    </View>
-	)
+    render() {
+        return (
+            <ScrollView contentContainerStyle={styles.container} behavior='height'>
+                <View style={styles.searchHeader}>
+                    <View style={styles.iconContainer}>
+                        <Ionicons name='md-search' size={32} color='rgba(0,0,0,.8)' />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            value={this.state.text}
+                            onChangeText={this.search}
+                            style={styles.searchInput}
+                            placeholder='Ara' />
+                    </View>
+                    <TouchableOpacity style={styles.iconContainer} onPress={this.state.text.length > 0 ? this.clear : null}>
+                        {
+                            this.state.text.length > 0 && (
+                                <Ionicons name='md-close' size={32} color='#6D7891' />
+                            )
+                            //  <View style={styles.iconContainer}>
+                            //      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />
+                            //  </View>
+                        }
+                    </TouchableOpacity>
+                </View>
 
-	render() {
-	    return (
-	        <ScrollView contentContainerStyle={styles.container} behavior='height'>
-	            <View style={styles.searchHeader}>
-	                <View style={styles.iconContainer}>
-	                    <Ionicons name='md-search' size={32} color='rgba(0,0,0,.8)' />
-	                </View>
-	                <View style={styles.inputContainer}>
-	                    <TextInput
-	                        value={this.state.text}
-	                        onChangeText={this.search}
-	                        style={styles.searchInput}
-	                        placeholder='Ara'
-	                    />
-	                </View>
-	                <TouchableOpacity style={styles.iconContainer} onPress={this.state.text.length > 0 ? this.clear : null}>
-	                    {
-	                        this.state.text.length > 0 && (
-	                            <Ionicons name='md-close' size={32} color='#6D7891' />
-	                        )
-	                        //  <View style={styles.iconContainer}>
-	                        //      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />
-	                        //  </View>
-	                    }
-	                </TouchableOpacity>
-	            </View>
-
-	            {
-	                this.state.products.length > 0 ? (
-	                    this.state.fetch ? this.fetching() : (this.state.products.length > 0 && this.renderSearchResult())
-	                ) : this.renderMostSearched()
-	            }
-	        </ScrollView>
-	    )
-	}
+                {
+                    // eslint-disable-next-line no-nested-ternary
+                    this.state.products.length > 0 ? (
+                        this.state.fetch ? this.fetching() : (this.state.products.length > 0 && this.renderSearchResult())
+                    ) : this.renderMostSearched()
+                }
+            </ScrollView>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

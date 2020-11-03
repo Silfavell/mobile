@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { ScrollView, View, Image, Text } from 'react-native'
+import {
+    ScrollView, View, Text
+} from 'react-native'
 import joi from 'react-native-joi'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -30,7 +32,9 @@ class AddNewCardScreen extends React.Component {
   };
 
   onContinueClick = () => {
-      const { cardAlias, cardHolderName, cardNumber, expireYear, expireMonth } = this.state
+      const {
+          cardAlias, cardHolderName, cardNumber, expireYear, expireMonth
+      } = this.state
 
       this.props.saveCard(
           {
@@ -75,12 +79,10 @@ class AddNewCardScreen extends React.Component {
   };
 
   getYearSelectorValues = () => {
-      const years = Array.from(new Array(20)).map((_, index) => {
-          return {
-              key: 'year' + index,
-              label: (new Date().getFullYear() + index).toString()
-          }
-      })
+      const years = Array.from(new Array(20)).map((_, index) => ({
+          key: `year${index}`,
+          label: (new Date().getFullYear() + index).toString()
+      }))
 
       return years
   };
@@ -91,7 +93,7 @@ class AddNewCardScreen extends React.Component {
               <View>
                   <View style={styles.header}>
                       <View style={styles.imageContainer}>
-                          <Ionicons color="rgba(0,0,0,.8)" name="ios-card" size={95} />
+                          <Ionicons color='rgba(0,0,0,.8)' name='ios-card' size={95} />
                       </View>
 
                       <View style={styles.infoContainer}>
@@ -104,8 +106,8 @@ class AddNewCardScreen extends React.Component {
                                   {
                                       // TODO
                                   }
-                  Kredi kartı bilgileriniz Silfavell tarafından tutulmamaktadır ödeme altyapısı
-                  Iyzico tarafından sağlanmaktadır.
+                                  Kredi kartı bilgileriniz Silfavell tarafından tutulmamaktadır ödeme altyapısı
+                                  Iyzico tarafından sağlanmaktadır.
                               </Text>
                           </View>
                       </View>
@@ -119,8 +121,7 @@ class AddNewCardScreen extends React.Component {
                           }}
                           onChange={this.onAliasChange}
                           invalid={this.state.invalidCardAlias && this.state.isCardAliasInitialized}
-                          value={this.state.cardAlias}
-                      />
+                          value={this.state.cardAlias} />
 
                       <InputComponent
                           options={{
@@ -129,10 +130,9 @@ class AddNewCardScreen extends React.Component {
                               keyboardType: 'number-pad'
                           }}
                           invalid={this.state.invalidCardNumber && this.state.isCardNumberInitialized}
-                          mask={'card'}
+                          mask='card'
                           onChange={this.onCardNumberChange}
-                          value={this.state.cardNumber}
-                      />
+                          value={this.state.cardNumber} />
 
                       <View style={styles.row}>
                           <View style={styles.inputContainer}>
@@ -195,8 +195,7 @@ class AddNewCardScreen extends React.Component {
                                   ]}
                                   setPickedValue={this.onExpireMonthChange}
                                   onChange={this.onExpireMonthChange}
-                                  value={this.state.expireMonth}
-                              />
+                                  value={this.state.expireMonth} />
                           </View>
 
                           <View style={styles.inputContainer}>
@@ -209,8 +208,7 @@ class AddNewCardScreen extends React.Component {
                                   selector={this.getYearSelectorValues()}
                                   setPickedValue={this.onExpireYearChange}
                                   onChange={this.onExpireYearChange}
-                                  value={this.state.expireYear}
-                              />
+                                  value={this.state.expireYear} />
                           </View>
                       </View>
                   </View>
@@ -219,19 +217,18 @@ class AddNewCardScreen extends React.Component {
                   // <TermsComponent />
               }
               <ButtonComponent
-                  text="Tamamla"
+                  text='Tamamla'
                   onClick={this.onContinueClick}
                   disabled={
-                      this.state.invalidCardAlias ||
-            !this.state.isCardAliasInitialized ||
-            this.state.invalidCardNumber ||
-            !this.state.isCardNumberInitialized ||
-            this.state.invalidExpireYear ||
-            !this.state.isExpireYearInitialized ||
-            this.state.invalidExpireMonth ||
-            !this.state.isExpireMonthInitialized
-                  }
-              />
+                      this.state.invalidCardAlias
+            || !this.state.isCardAliasInitialized
+            || this.state.invalidCardNumber
+            || !this.state.isCardNumberInitialized
+            || this.state.invalidExpireYear
+            || !this.state.isExpireYearInitialized
+            || this.state.invalidExpireMonth
+            || !this.state.isExpireMonthInitialized
+                  } />
           </ScrollView>
       )
   }
