@@ -1,25 +1,25 @@
 import React from 'react'
-import { AppState, LogBox, StatusBar } from 'react-native'
+
 import AsyncStorage from '@react-native-community/async-storage'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
+import geolocation from '@react-native-community/geolocation'
+import NetInfo from '@react-native-community/netinfo'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import NetInfo from '@react-native-community/netinfo'
-import geolocation from '@react-native-community/geolocation'
+import { AppState, StatusBar } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 
-import BottomTabNavigator from './src/navigation/BottomTabNavigator'
-import WelcomeStack from './src/stacks/WelcomeStack'
-import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen'
-import GlobalScreen from './src/screens/GlobalScreen/GlobalScreen'
-
-import rootReducer from './src/reducers/root-reducer'
 import { SET_NETWORK_STATUS } from './src/actions/network-actions'
+import BottomTabNavigator from './src/navigation/BottomTabNavigator'
+import rootReducer from './src/reducers/root-reducer'
+import GlobalScreen from './src/screens/GlobalScreen/GlobalScreen'
+import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen'
 import axiosMiddleware from './src/scripts/axios'
+import WelcomeStack from './src/stacks/WelcomeStack'
 
-import './src/scripts/wydr.js'
+import './src/scripts/wydr'
 
 navigator.geolocation = geolocation
 
@@ -29,52 +29,51 @@ const Stack = createStackNavigator()
 axiosMiddleware(store)
 
 const networkListener = () => {
-	NetInfo.addEventListener((state) => {
-		store.dispatch({
-			type: SET_NETWORK_STATUS,
-			payload: {
-				networkStatus: state.isConnected
-			}
-		})
-	})
+    NetInfo.addEventListener((state) => {
+        store.dispatch({
+            type: SET_NETWORK_STATUS,
+            payload: {
+                networkStatus: state.isConnected
+            }
+        })
+    })
 }
 
 const handleAppStateChange = (nextAppState) => {
-	const { cart } = store.getState().cartReducer
-	// const { token } = store.getState().sourceReducer
-	if (nextAppState.match(/inactive|background/)) {
-		if (Object.values(cart).length > 0) {
-			AsyncStorage.setItem('cart', JSON.stringify(cart))
-		} else {
-			AsyncStorage.removeItem('cart')
-		}
-	}
+    const { cart } = store.getState().cartReducer
+    // const { token } = store.getState().sourceReducer
+    if (nextAppState.match(/inactive|background/)) {
+        if (Object.values(cart).length > 0) {
+            AsyncStorage.setItem('cart', JSON.stringify(cart))
+        } else {
+            AsyncStorage.removeItem('cart')
+        }
+    }
 }
 
 class App extends React.PureComponent {
+    componentDidMount() {
+        SplashScreen.hide()
+        console.disableYellowBox = true
+        networkListener()
+        AppState.addEventListener('change', handleAppStateChange)
+    }
 
-	componentDidMount() {
-		SplashScreen.hide()
-		console.disableYellowBox = true;
-		networkListener()
-		AppState.addEventListener('change', handleAppStateChange)
-	}
-
-	render() {
-		return (
-			<Provider store={store}>
-				<StatusBar backgroundColor='rgba(0,0,0,.8)' barStyle='light-content' />
-				<GlobalScreen />
-				<NavigationContainer>
-					<Stack.Navigator initialRouteName='Loading'>
-						<Stack.Screen name='Welcome' component={WelcomeStack} options={{ headerShown: false }} />
-						<Stack.Screen name='Loading' component={LoadingScreen} options={{ headerShown: false }} />
-						<Stack.Screen name='Root' component={BottomTabNavigator} />
-					</Stack.Navigator>
-				</NavigationContainer>
-			</Provider>
-		)
-	}
+    render() {
+        return (
+            <Provider store={store}>
+                <StatusBar backgroundColor='rgba(0,0,0,.8)' barStyle='light-content' />
+                <GlobalScreen />
+                <NavigationContainer>
+                    <Stack.Navigator initialRouteName='Loading'>
+                        <Stack.Screen name='Welcome' component={WelcomeStack} options={{ headerShown: false }} />
+                        <Stack.Screen name='Loading' component={LoadingScreen} options={{ headerShown: false }} />
+                        <Stack.Screen name='Root' component={BottomTabNavigator} />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </Provider>
+        )
+    }
 }
 
 export default App

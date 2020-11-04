@@ -1,16 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { ScaledSheet } from 'react-native-size-matters'
-import {
-    View,
-    Text
-} from 'react-native'
 
+import { View, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { connect } from 'react-redux'
 
 const CargoPriceComponent = ({ cart }) => {
     const products = Object.values(cart)
-    const totalPrice = products.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity, 0)
+    const totalPrice = products.reduce(
+        (previousValue, currentValue) => previousValue
+      + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
+        0
+    )
 
     return (
         <View style={styles.container}>
@@ -21,16 +22,15 @@ const CargoPriceComponent = ({ cart }) => {
                 <View style={styles.paymentInfoTextContainer}>
                     <Text style={styles.paymentTitle}>{totalPrice >= 85 ? 'Ücretsiz Kargo' : '15TL'}</Text>
                 </View>
-                {
-                    totalPrice < 85 && (
-                        <View style={styles.paymentInfoTextContainer}>
-                            <Text numberOfLines={2} style={styles.paymentDetail}>{'85 TL ve üzeri alışverişlerinizde kargo bedava!'}</Text>
-                        </View>
-                    )
-                }
+                {totalPrice < 85 && (
+                    <View style={styles.paymentInfoTextContainer}>
+                        <Text numberOfLines={2} style={styles.paymentDetail}>
+                            85 TL ve üzeri alışverişlerinizde kargo bedava!
+                        </Text>
+                    </View>
+                )}
             </View>
-            <View style={styles.iconContainer}>
-            </View>
+            <View style={styles.iconContainer} />
         </View>
     )
 }
@@ -67,11 +67,7 @@ const styles = ScaledSheet.create({
     }
 })
 
-const mapStateToProps = ({
-    cartReducer: {
-        cart
-    }
-}) => ({
+const mapStateToProps = ({ cartReducer: { cart } }) => ({
     cart
 })
 

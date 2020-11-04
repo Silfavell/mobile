@@ -1,22 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet, s } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { makeFilter, clearFilter } from '../../actions/filter-actions'
-
-import ShadowContainer from '../../components/ShadowContainer'
-import SettingItem from '../../components/SettingItem'
+import Accordion from '../../components/Accordion'
 import ButtonComponent from '../../components/ButtonComponent'
 import ClearFilterPopup from '../../components/popups/ClearFilterPopup'
-import Accordion from '../../components/Accordion'
+import SettingItem from '../../components/SettingItem'
+import ShadowContainer from '../../components/ShadowContainer'
 import BrandComponent from './BrandComponent'
 import Slider from './Slider'
 
 class FilterProductsScreen extends React.Component {
-
     constructor(props) {
         super(props)
 
@@ -60,7 +59,7 @@ class FilterProductsScreen extends React.Component {
                 key: 'highToLow',
                 sortType: 4,
                 label: 'En Yüksek Fiyat'
-            },
+            }
             //  {
             //      index: 5,
             //      key: 'highestRank',
@@ -76,150 +75,147 @@ class FilterProductsScreen extends React.Component {
         ]
     }
 
+    // TODO replace with another lifecycle method
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        this.setState(
+            {
+                brands: nextProps.selectedBrands,
+                selectedSort: nextProps.selectedSort,
+                scaleAnimationModal: false,
+                minPrice: nextProps.selectedMinPrice,
+                maxPrice: nextProps.selectedMaxPrice
+            },
+            this.setNavigationOptions
+        )
+    }
+
     setNavigationOptions = () => {
         this.props.navigation.setOptions({
             headerLeft: () => (
-                <TouchableOpacity onPress={this.props.navigation.goBack} >
+                <TouchableOpacity onPress={this.props.navigation.goBack}>
                     <Ionicons name='md-close' size={26} color='white' style={styles.leftIcon} />
                 </TouchableOpacity>
             ),
-            headerRight: () => (
-                (this.state.brands.length > 0 || this.state.selectedSort !== -1 || this.state.minPrice || this.state.maxPrice) && (
-                    <TouchableOpacity onPress={this.onClearFilterClick} >
-                        <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
-                    </TouchableOpacity>
-                )
+            headerRight: () => (this.state.brands.length > 0
+            || this.state.selectedSort !== -1
+            || this.state.minPrice
+            || this.state.maxPrice) && (
+                <TouchableOpacity onPress={this.onClearFilterClick}>
+                    <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
+                </TouchableOpacity>
             )
         })
-    }
+    };
 
     onClearFilterClick = () => {
         this.setPopupState({ scaleAnimationModal: true })
-    }
+    };
 
-    // TODO replace with another lifecycle method
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        this.setState({
-            brands: nextProps.selectedBrands,
-            selectedSort: nextProps.selectedSort,
-            scaleAnimationModal: false,
-            minPrice: nextProps.selectedMinPrice,
-            maxPrice: nextProps.selectedMaxPrice
-        }, this.setNavigationOptions)
-    }
+  onFilterClick = () => {
+      this.props.makeFilter(
+          {
+              categoryId: this.props.route.params.categoryId,
+              subCategoryId: this.props.route.params.subCategoryId,
+              brandsAsString: this.state.brands.map((brand) => `&brands=${brand}`).join(''),
+              sortType: this.sorts[this.state.selectedSort]?.sortType,
+              minPrice: this.sliderRef.state.minPrice,
+              maxPrice: this.sliderRef.state.maxPrice
+          },
+          {
+              filterCategory: this.props.route.params.selectedCategory,
+              selectedBrands: this.state.brands,
+              selectedSort: this.state.selectedSort
+          },
+          this.props.navigation.goBack
+      )
+  };
 
-    onFilterClick = () => {
-        this.props.makeFilter(
-            {
-                categoryId: this.props.route.params.categoryId,
-                subCategoryId: this.props.route.params.subCategoryId,
-                brandsAsString: this.state.brands.map((brand) => `&brands=${brand}`).join(''),
-                sortType: this.sorts[this.state.selectedSort]?.sortType,
-                minPrice: this.sliderRef.state.minPrice,
-                maxPrice: this.sliderRef.state.maxPrice
-            },
-            {
-                filterCategory: this.props.route.params.selectedCategory,
-                selectedBrands: this.state.brands,
-                selectedSort: this.state.selectedSort
-            },
-            this.props.navigation.goBack
-        )
-    }
+  onSortSelect = ({ index }) => {
+      this.setState({ selectedSort: index })
+  };
 
-    onSortSelect = ({ index }) => {
-        this.setState({ selectedSort: index })
-    }
+  setPopupState = (state) => {
+      this.setState(state)
+  };
 
-    setPopupState = (state) => {
-        this.setState(state)
-    }
+  addBrand = (brand) => {
+      this.state.brands.push(brand)
+      this.setState({ brands: this.state.brands })
+  };
 
-    addBrand = (brand) => {
-        this.state.brands.push(brand)
-        this.setState({ brands: this.state.brands })
-    }
+  removeBrand = (brand) => {
+      this.state.brands.splice(this.state.brands.indexOf(brand), 1)
+      this.setState({ brands: this.state.brands })
+  };
 
-    removeBrand = (brand) => {
-        this.state.brands.splice(this.state.brands.indexOf(brand), 1)
-        this.setState({ brands: this.state.brands })
-    }
+  onSliderRef = (ref) => {
+      this.sliderRef = ref
+  };
 
-    onSliderRef = (ref) => {
-        this.sliderRef = ref
-    }
+  render() {
+      let { category } = this.props.route.params
 
-    render() {
-        let { category } = this.props.route.params
+      if (this.props.filter) {
+          category = this.props.filter
+      }
 
-        if (this.props.filter) {
-            category = this.props.filter
-        }
+      return (
+          <>
+              <ClearFilterPopup
+                  scaleAnimationModal={this.state.scaleAnimationModal}
+                  setPopupState={this.setPopupState}
+                  clearFilter={this.props.clearFilter} />
 
-        return (
-            <>
-                <ClearFilterPopup
-                    scaleAnimationModal={this.state.scaleAnimationModal}
-                    setPopupState={this.setPopupState}
-                    clearFilter={this.props.clearFilter}
-                />
+              <ShadowContainer>
+                  <ShadowContainer>
+                      <ModalSelector data={this.sorts} cancelText='İptal' onChange={this.onSortSelect}>
+                          <SettingItem
+                              title='Sırala'
+                              value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
+                      </ModalSelector>
+                  </ShadowContainer>
 
-                <ShadowContainer>
+                  <View style={styles.divider} />
 
-                    <ShadowContainer>
-                        <ModalSelector
-                            data={this.sorts}
-                            cancelText={'İptal'}
-                            onChange={this.onSortSelect}>
-                            <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
-                        </ModalSelector>
-                    </ShadowContainer>
+                  <ShadowContainer>
+                      <Accordion title='Markalar'>
+                          <>
+                              {category.brands.map((brand) => (
+                                  <BrandComponent
+                                      brand={brand}
+                                      key={brand.name + this.state.brands.includes(brand.name)}
+                                      addBrand={this.addBrand}
+                                      removeBrand={this.removeBrand}
+                                      checked={this.state.brands.includes(brand.name)} />
+                              ))}
+                          </>
+                      </Accordion>
+                  </ShadowContainer>
 
-                    <View style={styles.divider} />
+                  <View style={styles.divider} />
 
-                    <ShadowContainer>
-                        <Accordion title='Markalar'>
-                            <>
-                                {
-                                    category.brands.map((brand) => (
-                                        <BrandComponent
-                                            brand={brand}
-                                            key={brand.name + this.state.brands.includes(brand.name)}
-                                            addBrand={this.addBrand}
-                                            removeBrand={this.removeBrand}
-                                            checked={this.state.brands.includes(brand.name)} />
-                                    ))
-                                }
-                            </>
-                        </Accordion>
-                    </ShadowContainer>
+                  <Accordion title='Fiyat Aralığı'>
+                      <Slider
+                          ref={this.onSliderRef}
+                          minPrice={category.minPrice}
+                          maxPrice={category.maxPrice}
+                          initialMinPrice={this.state.minPrice ?? category.minPrice}
+                          initialMaxPrice={this.state.maxPrice ?? category.maxPrice} />
+                  </Accordion>
+              </ShadowContainer>
 
-                    <View style={styles.divider} />
-
-                    <Accordion title='Fiyat Aralığı'>
-                        <Slider
-                            ref={this.onSliderRef}
-                            minPrice={category.minPrice}
-                            maxPrice={category.maxPrice}
-                            initialMinPrice={this.state.minPrice ?? category.minPrice}
-                            initialMaxPrice={this.state.maxPrice ?? category.maxPrice}
-                        />
-                    </Accordion>
-
-
-                </ShadowContainer>
-
-                <View style={styles.bottom}>
-                    <View style={styles.buttonContainer}>
-                        <ButtonComponent text='İptal' onClick={this.props.navigation.goBack} />
-                    </View>
-                    <View style={styles.buttonContainer}>
-                        <ButtonComponent text='Filtrele' onClick={this.onFilterClick} />
-                    </View>
-                </View>
-            </>
-        )
-    }
+              <View style={styles.bottom}>
+                  <View style={styles.buttonContainer}>
+                      <ButtonComponent text='İptal' onClick={this.props.navigation.goBack} />
+                  </View>
+                  <View style={styles.buttonContainer}>
+                      <ButtonComponent text='Filtrele' onClick={this.onFilterClick} />
+                  </View>
+              </View>
+          </>
+      )
+  }
 }
 
 const styles = ScaledSheet.create({

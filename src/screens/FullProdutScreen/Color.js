@@ -1,28 +1,23 @@
 import React from 'react'
+
 import { TouchableOpacity, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 class Color extends React.PureComponent {
-    onPress = () => {
-        this.props.onPress(this.props.index)
-    }
+  onPress = () => {
+      this.props.onPress(this.props.index)
+  };
 
-    render() {
-        return (
-            <TouchableOpacity
-                style={[
-                    styles.container,
-                    this.props.selected ? styles.border : {}
-                ]} onPress={this.onPress}>
-
-                <View style={[
-                    styles.color,
-                    { backgroundColor: this.props.product.color.code }
-                ]} />
-
-            </TouchableOpacity>
-        )
-    }
+  render() {
+      return (
+          <TouchableOpacity
+              style={[styles.container, this.props.selected ? styles.border : {}]}
+              onPress={this.onPress}
+          >
+              <View style={[styles.color, { backgroundColor: this.props.product.color.code }]} />
+          </TouchableOpacity>
+      )
+  }
 }
 
 const styles = ScaledSheet.create({
@@ -39,7 +34,7 @@ const styles = ScaledSheet.create({
     },
     color: {
         flex: 1,
-        borderRadius: 12,
+        borderRadius: 12
     }
 })
 

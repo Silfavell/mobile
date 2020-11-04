@@ -20,6 +20,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...action.payload
             }
         }
-        default: return state
+        default:
+            return state
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Dimensions } from 'react-native'
 import { s } from 'react-native-size-matters'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
@@ -18,12 +19,6 @@ class List extends React.Component {
         this.setData([...Array.from(new Array(this.props.headers.length)), ...this.props.list])
     }
 
-    setData = (list) => {
-        this.state = {
-            dataProvider: this.dataProvider.cloneWithRows(list)
-        }
-    }
-
     shouldComponentUpdate(nextProps) {
         if (nextProps.list.length > this.props.list.length && !this.props.favoriteProducts) {
             return true
@@ -32,47 +27,46 @@ class List extends React.Component {
         return false
     }
 
-    rowHasChanges = (r1, r2) => r1 !== r2
-
-    getLayoutTypeForIndex = (index) => index
-
-    setLayoutForType = (type, dim) => {
-        const headerHeights = [s(190), s(120), s(50)]
-
-        if (type < this.props.headers.length) {
-            dim.width = width
-            dim.height = headerHeights[type]
-        } else {
-            dim.width = (width / 2) - ((width / 2) % 1)
-            dim.height = s(355)
+    setData = (list) => {
+        this.state = {
+            dataProvider: this.dataProvider.cloneWithRows(list)
         }
-    }
+    };
 
-    rowRenderer = (type, item) => {
-        if (type < this.props.headers.length) {
-            return this.props.headers[type]
-        }
+  rowHasChanges = (r1, r2) => r1 !== r2;
 
-        return (
-            <Product
-                key={item._id}
-                data={item}
-                navigation={this.props.navigation} />
-        )
-    }
+  getLayoutTypeForIndex = (index) => index;
 
-    render() {
-        return (
-            <StickyContainer>
-                <RecyclerListView
-                    layoutProvider={this.layoutProvider}
-                    dataProvider={this.state.dataProvider}
-                    rowRenderer={this.rowRenderer}
-                />
-            </StickyContainer>
-        )
-    }
+  setLayoutForType = (type, dim) => {
+      const headerHeights = [s(190), s(120), s(50)]
+
+      if (type < this.props.headers.length) {
+          dim.width = width
+          dim.height = headerHeights[type]
+      } else {
+          dim.width = width / 2 - ((width / 2) % 1)
+          dim.height = s(355)
+      }
+  };
+
+  rowRenderer = (type, item) => {
+      if (type < this.props.headers.length) {
+          return this.props.headers[type]
+      }
+
+      return <Product key={item._id} data={item} navigation={this.props.navigation} />
+  };
+
+  render() {
+      return (
+          <StickyContainer>
+              <RecyclerListView
+                  layoutProvider={this.layoutProvider}
+                  dataProvider={this.state.dataProvider}
+                  rowRenderer={this.rowRenderer} />
+          </StickyContainer>
+      )
+  }
 }
-
 
 export default List
