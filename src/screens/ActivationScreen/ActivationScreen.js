@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 import { register } from '../../actions/source-actions'
 import { sendActivationCode } from '../../scripts/requests'
@@ -48,7 +48,7 @@ class ActivationScreen extends React.Component {
 
 	render() {
 		return (
-			<ShadowContainer>
+			<>
 				<InputComponent
 					value={this.state.activationCode}
 					onChange={this.onActivationCodeChange}
@@ -70,7 +70,7 @@ class ActivationScreen extends React.Component {
 					<Ionicons name='md-refresh' size={28} color='#6E7586' />
 					<Text style={styles.resendCodeText}>Yeniden Gönder</Text>
 				</TouchableOpacity>
-			</ShadowContainer>
+			</>
 		)
 	}
 }
@@ -93,4 +93,4 @@ const mapDistachToProps = {
 	register
 }
 
-export default connect(null, mapDistachToProps)(ActivationScreen)
+export default ShadowContainerHoc(connect(null, mapDistachToProps)(ActivationScreen))

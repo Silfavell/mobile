@@ -23,6 +23,7 @@ class PasswordChangedPopup extends React.PureComponent {
 				visible={this.props.scaleAnimationModal}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
+				useNativeDriver={true}
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton

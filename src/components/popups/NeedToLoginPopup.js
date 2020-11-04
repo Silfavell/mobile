@@ -35,6 +35,7 @@ class NeedToLoginPopup extends React.Component {
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
 				children={null}
+				useNativeDriver={true}
 				modalTitle={(
 					<ModalTitle
 						style={styles.title}

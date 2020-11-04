@@ -8,7 +8,7 @@ import {
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class PaymentTypeSelectComponent extends React.PureComponent {
 	onPress = () => {
@@ -29,23 +29,21 @@ class PaymentTypeSelectComponent extends React.PureComponent {
 		const { title } = this.props
 
 		return (
-			<ShadowContainer>
-				<TouchableOpacity
-					style={styles.container}
-					onPress={this.onPress}>
-					<View style={styles.iconContainer}>
-						<Ionicons size={32} name='ios-wallet' />
+			<TouchableOpacity
+				style={styles.container}
+				onPress={this.onPress}>
+				<View style={styles.iconContainer}>
+					<Ionicons size={32} name='ios-wallet' />
+				</View>
+				<View style={styles.paymentInfoContainer}>
+					<View style={styles.paymentInfoTextContainer}>
+						<Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
 					</View>
-					<View style={styles.paymentInfoContainer}>
-						<View style={styles.paymentInfoTextContainer}>
-							<Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
-						</View>
-					</View>
-					<View style={styles.iconContainer}>
-						<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
-					</View>
-				</TouchableOpacity>
-			</ShadowContainer>
+				</View>
+				<View style={styles.iconContainer}>
+					<MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
+				</View>
+			</TouchableOpacity>
 		)
 	}
 }
@@ -82,4 +80,4 @@ const styles = ScaledSheet.create({
 	},
 })
 
-export default PaymentTypeSelectComponent
+export default ShadowContainerHoc(PaymentTypeSelectComponent)

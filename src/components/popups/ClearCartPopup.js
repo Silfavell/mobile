@@ -30,6 +30,7 @@ class ClearCartPopup extends React.PureComponent {
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
 				children={null}
+				useNativeDriver={true}
 				modalTitle={(
 					<ModalTitle
 						style={styles.title}

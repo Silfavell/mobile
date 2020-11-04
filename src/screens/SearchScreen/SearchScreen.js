@@ -12,7 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import RecyclerList from '../../components/RecyclerList'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 import { search as searchRequest } from '../../scripts/requests'
 
@@ -62,11 +62,14 @@ class SearchScreen extends React.Component {
 	renderMostSearched = () => (
 		<View style={styles.renderCountainer}>
 			<View style={styles.divider}>
-				<ShadowContainer style={styles.shadowContainer}>
-					<View style={styles.dividerChild}>
-						<Text style={styles.dividerTitle}>En Çok Arananlar</Text>
-					</View>
-				</ShadowContainer>
+				{
+					ShadowContainerHoc(
+						<View style={styles.dividerChild}>
+							<Text style={styles.dividerTitle}>En Çok Arananlar</Text>
+						</View>,
+						{ style: styles.shadowContainer }
+					)
+				}
 			</View>
 			<RecyclerList
 				list={this.props.mostSearched}

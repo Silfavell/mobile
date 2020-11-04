@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import ClickableSettingItem from '../../components/ClickableSettingItem'
 import HeadingDivider from '../../components/HeadingDivider'
 import AddressList from './AddressList'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class AddressesScreen extends React.PureComponent {
 	moveToSearchAddress = () => {
@@ -43,11 +43,9 @@ class AddressesScreen extends React.PureComponent {
 
 	render() {
 		return (
-			<ShadowContainer>
-				<AddressList navigation={this.props.navigation} footer={this.renderFooter} />
-			</ShadowContainer>
+			<AddressList navigation={this.props.navigation} footer={this.renderFooter} />
 		)
 	}
 }
 
-export default AddressesScreen
+export default ShadowContainerHoc(AddressesScreen)

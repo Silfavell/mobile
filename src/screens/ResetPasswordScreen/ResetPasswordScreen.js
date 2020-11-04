@@ -10,7 +10,7 @@ import joi from 'react-native-joi'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import AlertPopup from '../../components/popups/AlertPopup'
 
 import { resetPassword, sendActivationCode } from '../../scripts/requests'
@@ -104,7 +104,7 @@ class ResetPasswordScreen extends React.Component {
 
 	render() {
 		return (
-			<ShadowContainer>
+			<>
 				<AlertPopup
 					title={'Şifreniz güncellendi'}
 					scaleAnimationModal={this.state.scaleAnimationModal}
@@ -166,7 +166,7 @@ class ResetPasswordScreen extends React.Component {
 					<Ionicons name='md-refresh' size={28} color='#6E7586' />
 					<Text style={styles.resendCodeText}>Yeniden gönder</Text>
 				</TouchableOpacity>
-			</ShadowContainer>
+			</>
 		)
 	}
 }
@@ -193,4 +193,4 @@ const mapStateToProps = ({
 	messagePopupRef
 })
 
-export default connect(mapStateToProps)(ResetPasswordScreen)
+export default ShadowContainerHoc(connect(mapStateToProps)(ResetPasswordScreen))

@@ -5,7 +5,7 @@ import joi from 'react-native-joi'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import AlertPopup from '../../components/popups/AlertPopup'
 import { changePassword } from '../../scripts/requests'
 
@@ -71,47 +71,43 @@ class ChangePasswordScreen extends React.Component {
 
 	render() {
 		return (
-			<ShadowContainer>
-				<ScrollView>
+			<ScrollView>
+				<AlertPopup
+					title={'Şifreniz güncellendi'}
+					scaleAnimationModal={this.state.scaleAnimationModal}
+					setPopupState={this.setPopupState} />
 
-					<AlertPopup
-						title={'Şifreniz güncellendi'}
-						scaleAnimationModal={this.state.scaleAnimationModal}
-						setPopupState={this.setPopupState} />
+				<InputComponent
+					options={{
+						secureTextEntry: true,
+						textContentType: 'password',
+						placeholder: 'Geçerli şifre',
+					}}
+					invalid={this.state.invalidOldPassword && this.state.isOldPasswordInitialized}
+					value={this.state.oldPassword}
+					onChange={this.onOldPasswordChange}
+				/>
 
-					<InputComponent
-						options={{
-							secureTextEntry: true,
-							textContentType: 'password',
-							placeholder: 'Geçerli şifre',
-						}}
-						invalid={this.state.invalidOldPassword && this.state.isOldPasswordInitialized}
-						value={this.state.oldPassword}
-						onChange={this.onOldPasswordChange}
-					/>
+				<InputComponent
+					options={{
+						secureTextEntry: true,
+						textContentType: 'password',
+						placeholder: 'Yeni şifre (en az 4 karakter)',
+					}}
+					invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
+					value={this.state.password}
+					onChange={this.onPasswordChange}
+				/>
 
-					<InputComponent
-						options={{
-							secureTextEntry: true,
-							textContentType: 'password',
-							placeholder: 'Yeni şifre (en az 4 karakter)',
-						}}
-						invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
-						value={this.state.password}
-						onChange={this.onPasswordChange}
-					/>
-
-					<ButtonComponent
-						disabled={
-							this.state.invalidPassword || !this.state.isPasswordInitialized
-							|| this.state.invalidOldPassword || !this.state.isOldPasswordInitialized
-						}
-						text='Şifremi Değiştir'
-						onClick={this.onChangePasswordClick}
-					/>
-
-				</ScrollView>
-			</ShadowContainer>
+				<ButtonComponent
+					disabled={
+						this.state.invalidPassword || !this.state.isPasswordInitialized
+						|| this.state.invalidOldPassword || !this.state.isOldPasswordInitialized
+					}
+					text='Şifremi Değiştir'
+					onClick={this.onChangePasswordClick}
+				/>
+			</ScrollView>
 		)
 	}
 }
@@ -124,4 +120,4 @@ const mapStateToProps = ({
 	messagePopupRef
 })
 
-export default connect(mapStateToProps)(ChangePasswordScreen)
+export default ShadowContainerHoc(connect(mapStateToProps)(ChangePasswordScreen))

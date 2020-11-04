@@ -12,7 +12,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class SearchAddressScreen extends React.Component {
 	state = {
@@ -59,30 +59,27 @@ class SearchAddressScreen extends React.Component {
 	}
 
 	renderListHeaderComponent = () => (
-		<ShadowContainer>
-			<View style={styles.header}>
-				<View style={styles.searchAddressContainerContainer}>
-					<View style={styles.searchAddressContainer}>
-						<TextInput
-							value={this.state.searchVal}
-							onChangeText={this.onSearchChange}
-							placeholder='Adres ara'
-							style={styles.searchAddress}
-						/>
-						<Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' onPress={this.onSearchClick} />
-					</View>
+		<View style={styles.header}>
+			<View style={styles.searchAddressContainerContainer}>
+				<View style={styles.searchAddressContainer}>
+					<TextInput
+						value={this.state.searchVal}
+						onChangeText={this.onSearchChange}
+						placeholder='Adres ara'
+						style={styles.searchAddress}
+					/>
+					<Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' onPress={this.onSearchClick} />
 				</View>
-				<View style={styles.divider} />
-
-				<TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
-					<View style={styles.useCurrentLocationContainer}>
-						<Ionicons size={32} name='md-locate' color='rgba(0,0,0,.8)' />
-						<Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
-					</View>
-				</TouchableOpacity>
-
 			</View>
-		</ShadowContainer>
+			<View style={styles.divider} />
+
+			<TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
+				<View style={styles.useCurrentLocationContainer}>
+					<Ionicons size={32} name='md-locate' color='rgba(0,0,0,.8)' />
+					<Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
+				</View>
+			</TouchableOpacity>
+		</View>
 	)
 
 	renderSearchedItem = ({ item }) => (
@@ -221,4 +218,4 @@ const mapDispatchToProps = {
 	setCurrentRegion
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchAddressScreen)
+export default ShadowContainerHoc(connect(mapStateToProps, mapDispatchToProps)(SearchAddressScreen))

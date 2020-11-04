@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 import { sendActivationCode } from '../../scripts/requests'
 
@@ -41,7 +41,7 @@ class ForgotPasswordScreen extends React.Component {
 
 	render() {
 		return (
-			<ShadowContainer>
+			<>
 				<InputComponent
 					options={{
 						keyboardType: 'phone-pad',
@@ -67,9 +67,9 @@ class ForgotPasswordScreen extends React.Component {
 					onClick={this.onSendCodeClick}
 					disabled={this.state.invalidPhoneNumber || !this.state.isPhoneNumberInitialized}
 				/>
-			</ShadowContainer>
+			</>
 		)
 	}
 }
 
-export default ForgotPasswordScreen
+export default ShadowContainerHoc(ForgotPasswordScreen)

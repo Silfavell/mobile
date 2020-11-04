@@ -24,6 +24,7 @@ class ConnectionPopup extends React.PureComponent {
 				visible={this.props.connectionPopupState}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
+				useNativeDriver={true}
 				footer={(
 					<ModalFooter style={styles.footer}>
 						<ModalButton

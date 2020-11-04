@@ -132,7 +132,7 @@ export const register = (body, cb) => {
 export const logout = () => {
 	return async (dispatch) => {
 		await AsyncStorage.multiRemove(['token', 'user'])
-
+		console.log('here')
 		dispatch({
 			type: LOGOUT,
 			payload: {

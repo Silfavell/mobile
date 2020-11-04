@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {FlatList} from 'react-native'
+import { FlatList } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
 import CardComponent from './CardComponent'
 import AddNewCardComponent from './AddNewCardComponent'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 import { deleteCard } from '../../actions/payment-actions'
 
@@ -39,8 +39,7 @@ class PaymentOptionsScreen extends React.Component {
 
 	render() {
 		return (
-			<ShadowContainer>
-
+			<>
 				<DeleteCardPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
 
 				<FlatList
@@ -50,8 +49,7 @@ class PaymentOptionsScreen extends React.Component {
 					renderItem={this.renderCardComponent}
 					ListFooterComponent={this.renderListFooter}
 				/>
-
-			</ShadowContainer>
+			</>
 		)
 	}
 }
@@ -72,4 +70,4 @@ const mapDispacthToProps = {
 	deleteCard
 }
 
-export default connect(mapStateToProps, mapDispacthToProps)(PaymentOptionsScreen)
+export default ShadowContainerHoc(connect(mapStateToProps, mapDispacthToProps)(PaymentOptionsScreen))

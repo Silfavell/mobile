@@ -9,7 +9,7 @@ import { updateProfile } from '../../actions/source-actions'
 import InputComponent from '../../components/InputComponent'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputIcon from '../../components/InputIcon'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class EditProfileScreen extends React.Component {
 	state = {
@@ -65,7 +65,7 @@ class EditProfileScreen extends React.Component {
 
 	render() {
 		return (
-			<ShadowContainer>
+			<>
 				<View>
 					<InputComponent
 						options={{
@@ -125,7 +125,7 @@ class EditProfileScreen extends React.Component {
 						|| this.state.invalidNameSurname || !this.state.isNameSurnameInitialized
 					}
 				/>
-			</ShadowContainer>
+			</>
 		)
 	}
 }
@@ -146,4 +146,4 @@ const mapDispatchToProps = {
 	updateProfile
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfileScreen)
+export default ShadowContainerHoc(connect(mapStateToProps, mapDispatchToProps)(EditProfileScreen))

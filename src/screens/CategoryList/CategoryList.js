@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 
 import SettingItem from '../../components/SettingItem'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class CategoryItem extends React.PureComponent {
     onPress = () => {
@@ -25,18 +25,16 @@ class CategoryItem extends React.PureComponent {
 class CategoryList extends React.PureComponent {
     render() {
         return (
-            <ShadowContainer>
-                <ScrollView>
-                    {
-                        this.props.categories.map((category, index) => (
-                            <CategoryItem
-                                category={category}
-                                index={index}
-                                navigation={this.props.navigation} />
-                        ))
-                    }
-                </ScrollView>
-            </ShadowContainer>
+            <ScrollView>
+                {
+                    this.props.categories.map((category, index) => (
+                        <CategoryItem
+                            category={category}
+                            index={index}
+                            navigation={this.props.navigation} />
+                    ))
+                }
+            </ScrollView>
         )
     }
 }
@@ -49,4 +47,4 @@ const mapStateToProps = ({
     categories
 })
 
-export default connect(mapStateToProps)(CategoryList)
+export default ShadowContainerHoc(connect(mapStateToProps)(CategoryList))

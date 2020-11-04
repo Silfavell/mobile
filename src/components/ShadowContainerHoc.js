@@ -2,23 +2,21 @@ import React from 'react'
 import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-class ShadowContainer extends React.Component {
-	shouldComponentUpdate(){
-		return false
-	}
-
-	render() {
-		return (
-			<View style={[styles.x, this.props.containerStyle]}>
-				<View style={styles.y}>
-					<View style={[styles.z, this.props.style]}>
-						{this.props.children}
+const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) => (
+	class extends React.Component {
+		render(){
+			return (
+				<View style={[styles.x, containerStyle]}>
+					<View style={styles.y}>
+						<View style={[styles.z, style]}>
+							<WrappedComponent {...this.props} />
+						</View>
 					</View>
 				</View>
-			</View>
-		)
+			)
+		}
 	}
-}
+)
 
 const styles = ScaledSheet.create({
 	x: {
@@ -42,4 +40,4 @@ const styles = ScaledSheet.create({
 	}
 })
 
-export default ShadowContainer
+export default ShadowContainerHoc

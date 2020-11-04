@@ -10,11 +10,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import SettingItem from '../../components/SettingItem'
 import LogoutItem from './LogoutItem'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 import pckg from '../../../package.json'
 
-class ProfileScreen extends React.PureComponent {
+class ProfileScreen extends React.Component {
 	moveToEditProfileScreen = () => {
 		this.props.navigation.navigate('editProfileScreen')
 	}
@@ -49,7 +49,6 @@ class ProfileScreen extends React.PureComponent {
 
 	render() {
 		return (
-			<ShadowContainer>
 				<ScrollView>
 					{
 						this.props.token
@@ -161,7 +160,6 @@ class ProfileScreen extends React.PureComponent {
 					<SettingItem title={pckg.version} version emptyIcon />
 
 				</ScrollView>
-			</ShadowContainer>
 		)
 	}
 }
@@ -190,4 +188,4 @@ const mapStateToProps = ({
 	user
 })
 
-export default connect(mapStateToProps)(ProfileScreen)
+export default ShadowContainerHoc(connect(mapStateToProps)(ProfileScreen))

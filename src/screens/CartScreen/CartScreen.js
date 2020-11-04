@@ -10,7 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import CartProduct from '../../components/CartProduct'
 import CompletePayment from '../../components/CompletePayment'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class CartScreen extends React.Component {
 	products = Object.values(this.props.cart)
@@ -23,11 +23,7 @@ class CartScreen extends React.Component {
 
 	renderCartProductItem = ({ item, index }) => {
 		if (index === this.products.length - 1) {
-			return (
-				<ShadowContainer>
-					<CartProduct data={item} />
-				</ShadowContainer>
-			)
+			return ShadowContainerHoc(<CartProduct data={item} />)
 		}
 
 		return <CartProduct data={item} />

@@ -27,6 +27,7 @@ class ConfirmAddressPopup extends React.PureComponent {
 				visible={this.props.scaleAnimationModal}
 				onSwipeOut={this.close}
 				onHardwareBackPress={this.close}
+				useNativeDriver={true}
 				modalTitle={(
 					<ModalTitle
 						style={styles.title}

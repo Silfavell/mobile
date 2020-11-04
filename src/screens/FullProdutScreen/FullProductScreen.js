@@ -11,7 +11,7 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 
 import ButtonComponent from '../../components/ButtonComponent'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import Slider from '../../components/Slider'
 import Color from './Color'
 import Comment from './Comment'
@@ -160,17 +160,21 @@ class FullProductScreen extends React.Component {
 						contentContainerStyle={styles.scrollContainer}
 						onScroll={this.handleScroll}
 					>
-						<ShadowContainer style={styles.shadowContainer}>
-							<View style={styles.imageContainer}>
-								<Slider
-									imageContainerStyle={styles.imageContainerStyle}
-									_id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
-									images={this.getImages()}
-									shopSingle
-									paginator
-								/>
-							</View>
-						</ShadowContainer>
+						{
+							ShadowContainerHoc(
+								<View style={styles.imageContainer}>
+									<Slider
+										imageContainerStyle={styles.imageContainerStyle}
+										_id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
+										images={this.getImages()}
+										shopSingle
+										paginator
+									/>
+								</View>,
+								{ style: styles.shadowContainer }
+							)
+						}
+
 						<View style={styles.details}>
 							<View style={styles.textContainer}>
 								<Text style={styles.productName}>{name}</Text>

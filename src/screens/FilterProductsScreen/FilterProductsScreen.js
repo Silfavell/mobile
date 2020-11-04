@@ -7,7 +7,7 @@ import { ScaledSheet, s } from 'react-native-size-matters'
 
 import { makeFilter, clearFilter } from '../../actions/filter-actions'
 
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import SettingItem from '../../components/SettingItem'
 import ButtonComponent from '../../components/ButtonComponent'
 import ClearFilterPopup from '../../components/popups/ClearFilterPopup'
@@ -16,7 +16,6 @@ import BrandComponent from './BrandComponent'
 import Slider from './Slider'
 
 class FilterProductsScreen extends React.Component {
-
     constructor(props) {
         super(props)
 
@@ -163,51 +162,55 @@ class FilterProductsScreen extends React.Component {
                     setPopupState={this.setPopupState}
                     clearFilter={this.props.clearFilter}
                 />
-
-                <ShadowContainer>
-
-                    <ShadowContainer>
-                        <ModalSelector
-                            data={this.sorts}
-                            cancelText={'İptal'}
-                            onChange={this.onSortSelect}>
-                            <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
-                        </ModalSelector>
-                    </ShadowContainer>
-
-                    <View style={styles.divider} />
-
-                    <ShadowContainer>
-                        <Accordion title='Markalar'>
-                            <>
-                                {
-                                    category.brands.map((brand) => (
-                                        <BrandComponent
-                                            brand={brand}
-                                            key={brand.name + this.state.brands.includes(brand.name)}
-                                            addBrand={this.addBrand}
-                                            removeBrand={this.removeBrand}
-                                            checked={this.state.brands.includes(brand.name)} />
-                                    ))
-                                }
-                            </>
-                        </Accordion>
-                    </ShadowContainer>
-
-                    <View style={styles.divider} />
-
-                    <Accordion title='Fiyat Aralığı'>
-                        <Slider
-                            ref={this.onSliderRef}
-                            minPrice={category.minPrice}
-                            maxPrice={category.maxPrice}
-                            initialMinPrice={this.state.minPrice ?? category.minPrice}
-                            initialMaxPrice={this.state.maxPrice ?? category.maxPrice}
-                        />
-                    </Accordion>
-
-
-                </ShadowContainer>
+                {
+                    ShadowContainerHoc(
+                        <>
+                            {
+                                ShadowContainerHoc(
+                                    <ModalSelector
+                                        data={this.sorts}
+                                        cancelText={'İptal'}
+                                        onChange={this.onSortSelect}>
+                                        <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
+                                    </ModalSelector>
+                                )
+                            }
+        
+                            <View style={styles.divider} />
+        
+                            {
+                                ShadowContainerHoc(
+                                    <Accordion title='Markalar'>
+                                        <>
+                                            {
+                                                category.brands.map((brand) => (
+                                                    <BrandComponent
+                                                        brand={brand}
+                                                        key={brand.name + this.state.brands.includes(brand.name)}
+                                                        addBrand={this.addBrand}
+                                                        removeBrand={this.removeBrand}
+                                                        checked={this.state.brands.includes(brand.name)} />
+                                                ))
+                                            }
+                                        </>
+                                    </Accordion>
+                                )
+                            }
+        
+                            <View style={styles.divider} />
+        
+                            <Accordion title='Fiyat Aralığı'>
+                                <Slider
+                                    ref={this.onSliderRef}
+                                    minPrice={category.minPrice}
+                                    maxPrice={category.maxPrice}
+                                    initialMinPrice={this.state.minPrice ?? category.minPrice}
+                                    initialMaxPrice={this.state.maxPrice ?? category.maxPrice}
+                                />
+                            </Accordion>
+                        </>
+                    )
+                }
 
                 <View style={styles.bottom}>
                     <View style={styles.buttonContainer}>
@@ -284,4 +287,4 @@ const mapDispatchToProps = {
     clearFilter
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterProductsScreen)
+export default ShadowContainerHoc(connect(mapStateToProps, mapDispatchToProps)(FilterProductsScreen))

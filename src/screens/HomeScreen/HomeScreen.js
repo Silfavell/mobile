@@ -14,7 +14,7 @@ import Config from 'react-native-config'
 
 import Category from '../../components/Category'
 import Slider from '../../components/Slider'
-import ShadowContainer from '../../components/ShadowContainer'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import ScrollableCategoryList from '../../components/ScrollableCategoryList'
 import BestSeller from './BestSeller'
 
@@ -79,21 +79,24 @@ class HomeScreen extends React.Component {
 	render() {
 		const headers = [
 			<View style={styles.headerContainer1}>
-				<ShadowContainer>
-					<Slider images={banners} loop paginator />
-				</ShadowContainer>
+				{
+					ShadowContainerHoc(<Slider images={banners} loop paginator />)
+				}
 			</View>,
 			<View style={styles.headerContainer2}>
-				<ShadowContainer>
-					<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />
-				</ShadowContainer>
+				{
+					ShadowContainerHoc(<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />)
+				}
 			</View>,
 			<View style={styles.divider}>
-				<ShadowContainer style={styles.shadowContainer}>
-					<View style={styles.dividerChild}>
-						<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
-					</View>
-				</ShadowContainer>
+				{
+					ShadowContainerHoc(
+						<View style={styles.dividerChild}>
+							<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
+						</View>,
+						{ style: styles.shadowContainer}
+					)
+				}
 			</View>
 		]
 
