@@ -22,10 +22,6 @@ class NeedToLoginPopup extends React.Component {
 		}
 	}
 
-	shouldComponentUpdate() {
-		return false
-	}
-
 	render() {
 		return (
 			<Modal

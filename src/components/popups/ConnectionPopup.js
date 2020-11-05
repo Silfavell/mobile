@@ -10,7 +10,7 @@ import Modal, {
 import RNExitApp from 'react-native-exit-app'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-class ConnectionPopup extends React.PureComponent {
+class ConnectionPopup extends React.Component {
 	close = () => {
 		RNExitApp.exitApp()
 		return true

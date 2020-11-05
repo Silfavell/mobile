@@ -14,7 +14,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 //  import { expo } from '../../app.json'
 //  expo.version // current version
 
-class NeedUpdatePopup extends React.PureComponent {
+class NeedUpdatePopup extends React.Component {
 	onConfirm = () => {
 		Linking.openURL('market://details?id=com.silfavell.android')
 	}

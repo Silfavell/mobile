@@ -163,7 +163,7 @@ class FilterProductsScreen extends React.Component {
                     clearFilter={this.props.clearFilter}
                 />
                 {
-                    ShadowContainerHoc(
+                    ShadowContainerHoc( // TODO ??
                         <>
                             {
                                 ShadowContainerHoc(

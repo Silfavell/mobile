@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import {
 	ScrollView,
 	View,
-	Text,
 	TouchableOpacity,
 	ActivityIndicator,
 	TextInput
@@ -12,7 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import RecyclerList from '../../components/RecyclerList'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import MostSearchedWithHoc from './MostSearchedWithHoc'
 
 import { search as searchRequest } from '../../scripts/requests'
 
@@ -62,14 +61,7 @@ class SearchScreen extends React.Component {
 	renderMostSearched = () => (
 		<View style={styles.renderCountainer}>
 			<View style={styles.divider}>
-				{
-					ShadowContainerHoc(
-						<View style={styles.dividerChild}>
-							<Text style={styles.dividerTitle}>En Çok Arananlar</Text>
-						</View>,
-						{ style: styles.shadowContainer }
-					)
-				}
+				<MostSearchedWithHoc />
 			</View>
 			<RecyclerList
 				list={this.props.mostSearched}
@@ -174,19 +166,6 @@ const styles = ScaledSheet.create({
 		justifyContent: 'center',
 		flexDirection: 'row'
 	},
-	dividerChild: {
-		height: '100%',
-		width: '100%',
-		display: 'flex',
-		alignItems: 'center',
-		flexDirection: 'row'
-	},
-	dividerTitle: {
-		color: 'black',
-		fontSize: '17@s',
-		fontWeight: '600',
-		paddingHorizontal: '16@s'
-	},
 	renderCountainer: {
 		flex: 1
 	},
@@ -194,9 +173,6 @@ const styles = ScaledSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
-	},
-	shadowContainer: {
-		backgroundColor: 'white'
 	}
 })
 

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import {
 	View,
-	Text,
 	TouchableOpacity,
 	Image,
 	BackHandler
@@ -13,9 +12,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Config from 'react-native-config'
 
 import Category from '../../components/Category'
-import Slider from '../../components/Slider'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
-import ScrollableCategoryList from '../../components/ScrollableCategoryList'
+import ScrollableCategoryListWithHoc from './ComponentsWithHoc/ScrollableCategoryListWithHoc'
+import SliderWithHoc from './ComponentsWithHoc/SliderWithHoc'
+import MostSellerWithHoc from './ComponentsWithHoc/MostSellerWithHoc'
 import BestSeller from './BestSeller'
 
 import logo from '../../../assets/logo.png'
@@ -79,24 +78,13 @@ class HomeScreen extends React.Component {
 	render() {
 		const headers = [
 			<View style={styles.headerContainer1}>
-				{
-					ShadowContainerHoc(<Slider images={banners} loop paginator />)
-				}
+				<SliderWithHoc images={banners} loop paginator />
 			</View>,
 			<View style={styles.headerContainer2}>
-				{
-					ShadowContainerHoc(<ScrollableCategoryList navigation={this.props.navigation} images={banners} loop paginator />)
-				}
+				<ScrollableCategoryListWithHoc images={banners} loop paginator />
 			</View>,
 			<View style={styles.divider}>
-				{
-					ShadowContainerHoc(
-						<View style={styles.dividerChild}>
-							<Text style={styles.dividerTitle}>En Çok Satanlar</Text>
-						</View>,
-						{ style: styles.shadowContainer}
-					)
-				}
+				<MostSellerWithHoc />
 			</View>
 		]
 
