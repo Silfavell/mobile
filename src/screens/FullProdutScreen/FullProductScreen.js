@@ -12,12 +12,11 @@ import { increaseProductQuantity } from '../../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
 import Accordion from '../../components/Accordion'
 import ButtonComponent from '../../components/ButtonComponent'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
-import Slider from '../../components/Slider'
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 import Loading from '../LoadingScreen/LoadingScreen'
 import Color from './Color'
 import Comment from './Comment'
+import SliderWithHoc from './SliderWithHoc'
 
 class FullProductScreen extends React.Component {
     scrollRef = React.createRef()
@@ -158,19 +157,9 @@ class FullProductScreen extends React.Component {
                         contentContainerStyle={styles.scrollContainer}
                         onScroll={this.handleScroll}
                     >
-                        {
-                            ShadowContainerHoc(
-                                <View style={styles.imageContainer}>
-                                    <Slider
-                                        imageContainerStyle={styles.imageContainerStyle}
-                                        _id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
-                                        images={this.getImages()}
-                                        shopSingle
-                                        paginator />
-                                </View>,
-                                { style: styles.shadowContainer }
-                            )
-                        }
+                        <SliderWithHoc
+                            _id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
+                            images={this.getImages()} />
 
                         <View style={styles.details}>
                             <View style={styles.textContainer}>

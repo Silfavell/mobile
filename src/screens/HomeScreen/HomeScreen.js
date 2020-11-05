@@ -81,7 +81,11 @@ class HomeScreen extends React.Component {
                 <SliderWithHoc images={banners} loop paginator />
             </View>,
             <View style={styles.headerContainer2}>
-                <ScrollableCategoryListWithHoc images={banners} loop paginator />
+                <ScrollableCategoryListWithHoc
+                    images={banners}
+                    loop
+                    paginator
+                    navigation={this.props.navigation} />
             </View>,
             <View style={styles.divider}>
                 <MostSellerWithHoc />
