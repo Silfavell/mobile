@@ -1,6 +1,7 @@
 import React from 'react'
+
 import { View } from 'react-native'
-import { ScaledSheet, s } from 'react-native-size-matters'
+import { ScaledSheet } from 'react-native-size-matters'
 import RangeSlider from 'rn-range-slider'
 
 class Slider extends React.Component {
@@ -14,6 +15,7 @@ class Slider extends React.Component {
     }
 
     // TODO replace with another lifecycle method
+    // eslint-disable-next-line camelcase
     UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             minPrice: nextProps.initialMinPrice,
@@ -23,10 +25,13 @@ class Slider extends React.Component {
 
     render() {
         return (
-            <View style={styles.sliderContainer} key={this.props.initialMinPrice + ':' + this.props.initialMaxPrice}>
+            <View
+                style={styles.sliderContainer}
+                key={`${this.props.initialMinPrice}:${this.props.initialMaxPrice}`}
+            >
                 <RangeSlider
                     style={styles.slider}
-                    gravity={'top'}
+                    gravity='top'
                     min={this.props.minPrice}
                     max={this.props.maxPrice}
                     initialLowValue={this.state.minPrice}

@@ -1,10 +1,8 @@
 import React from 'react'
 
-import Slider from '../../../components/Slider'
 import ShadowContainerHoc from '../../../components/ShadowContainerHoc'
+import Slider from '../../../components/Slider'
 
-const SliderWithHoc = (props) => {
-    return <Slider {...props} />
-}
+const SliderWithHoc = (props) => <Slider {...props} />
 
 export default ShadowContainerHoc(SliderWithHoc)

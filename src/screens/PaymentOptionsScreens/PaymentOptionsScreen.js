@@ -1,73 +1,71 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { FlatList } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
-
-import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
-import CardComponent from './CardComponent'
-import AddNewCardComponent from './AddNewCardComponent'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { connect } from 'react-redux'
 
 import { deleteCard } from '../../actions/payment-actions'
+import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import AddNewCardComponent from './AddNewCardComponent'
+import CardComponent from './CardComponent'
 
 class PaymentOptionsScreen extends React.Component {
-	state = {
-		scaleAnimationModal: false,
-		selectedCard: null
-	}
+    state = {
+        scaleAnimationModal: false,
+        selectedCard: null
+    }
 
-	renderCardComponent = ({ item }) => (
-		<CardComponent
-			item={item}
-			setPopupState={this.setPopupState}
-			navigation={this.props.navigation}
-		/>
-	)
+    renderCardComponent = ({ item }) => (
+        <CardComponent
+            item={item}
+            setPopupState={this.setPopupState}
+            navigation={this.props.navigation} />
+    )
 
-	setPopupState = (result, confirm) => {
-		this.setState({
-			scaleAnimationModal: result.scaleAnimationModal,
-			selectedCard: result.selectedCard
-		})
+    setPopupState = (result, confirm) => {
+        this.setState({
+            scaleAnimationModal: result.scaleAnimationModal,
+            selectedCard: result.selectedCard
+        })
 
-		if (confirm) {
-			this.props.deleteCard(this.state.selectedCard)
-		}
-	}
+        if (confirm) {
+            this.props.deleteCard(this.state.selectedCard)
+        }
+    }
 
-	renderListFooter = () => <AddNewCardComponent navigation={this.props.navigation} />
+    renderListFooter = () => <AddNewCardComponent navigation={this.props.navigation} />
 
-	render() {
-		return (
-			<>
-				<DeleteCardPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
+    render() {
+        return (
+            <>
+                <DeleteCardPopup scaleAnimationModal={this.state.scaleAnimationModal} setPopupState={this.setPopupState} />
 
-				<FlatList
-					contentContainerStyle={styles.list}
-					data={this.props.cards}
-					keyExtractor={(item) => item.cardToken}
-					renderItem={this.renderCardComponent}
-					ListFooterComponent={this.renderListFooter}
-				/>
-			</>
-		)
-	}
+                <FlatList
+                    contentContainerStyle={styles.list}
+                    data={this.props.cards}
+                    keyExtractor={(item) => item.cardToken}
+                    renderItem={this.renderCardComponent}
+                    ListFooterComponent={this.renderListFooter} />
+            </>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({
-	list: { backgroundColor: 'white' }
+    list: { backgroundColor: 'white' }
 })
 
 const mapStateToProps = ({
-	paymentReducer: {
-		cards
-	}
+    paymentReducer: {
+        cards
+    }
 }) => ({
-	cards
+    cards
 })
 
 const mapDispacthToProps = {
-	deleteCard
+    deleteCard
 }
 
 export default ShadowContainerHoc(connect(mapStateToProps, mapDispacthToProps)(PaymentOptionsScreen))

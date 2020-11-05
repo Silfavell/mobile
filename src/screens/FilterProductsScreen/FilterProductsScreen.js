@@ -1,17 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { View, TouchableOpacity } from 'react-native'
 import ModalSelector from 'react-native-modal-selector'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { ScaledSheet, s } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { connect } from 'react-redux'
 
 import { makeFilter, clearFilter } from '../../actions/filter-actions'
-
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
-import SettingItem from '../../components/SettingItem'
+import Accordion from '../../components/Accordion'
 import ButtonComponent from '../../components/ButtonComponent'
 import ClearFilterPopup from '../../components/popups/ClearFilterPopup'
-import Accordion from '../../components/Accordion'
+import SettingItem from '../../components/SettingItem'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import BrandComponent from './BrandComponent'
 import Slider from './Slider'
 
@@ -59,7 +59,7 @@ class FilterProductsScreen extends React.Component {
                 key: 'highToLow',
                 sortType: 4,
                 label: 'En Yüksek Fiyat'
-            },
+            }
             //  {
             //      index: 5,
             //      key: 'highestRank',
@@ -75,28 +75,8 @@ class FilterProductsScreen extends React.Component {
         ]
     }
 
-    setNavigationOptions = () => {
-        this.props.navigation.setOptions({
-            headerLeft: () => (
-                <TouchableOpacity onPress={this.props.navigation.goBack} >
-                    <Ionicons name='md-close' size={26} color='white' style={styles.leftIcon} />
-                </TouchableOpacity>
-            ),
-            headerRight: () => (
-                (this.state.brands.length > 0 || this.state.selectedSort !== -1 || this.state.minPrice || this.state.maxPrice) && (
-                    <TouchableOpacity onPress={this.onClearFilterClick} >
-                        <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
-                    </TouchableOpacity>
-                )
-            )
-        })
-    }
-
-    onClearFilterClick = () => {
-        this.setPopupState({ scaleAnimationModal: true })
-    }
-
     // TODO replace with another lifecycle method
+    // eslint-disable-next-line camelcase
     UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             brands: nextProps.selectedBrands,
@@ -105,6 +85,28 @@ class FilterProductsScreen extends React.Component {
             minPrice: nextProps.selectedMinPrice,
             maxPrice: nextProps.selectedMaxPrice
         }, this.setNavigationOptions)
+    }
+
+    setNavigationOptions = () => {
+        this.props.navigation.setOptions({
+            headerLeft: () => (
+                <TouchableOpacity onPress={this.props.navigation.goBack}>
+                    <Ionicons name='md-close' size={26} color='white' style={styles.leftIcon} />
+                </TouchableOpacity>
+            ),
+            headerRight: () => (this.state.brands.length > 0
+            || this.state.selectedSort !== -1
+            || this.state.minPrice
+            || this.state.maxPrice) && (
+                <TouchableOpacity onPress={this.onClearFilterClick}>
+                    <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
+                </TouchableOpacity>
+            )
+        })
+    };
+
+    onClearFilterClick = () => {
+        this.setPopupState({ scaleAnimationModal: true })
     }
 
     onFilterClick = () => {
@@ -160,8 +162,7 @@ class FilterProductsScreen extends React.Component {
                 <ClearFilterPopup
                     scaleAnimationModal={this.state.scaleAnimationModal}
                     setPopupState={this.setPopupState}
-                    clearFilter={this.props.clearFilter}
-                />
+                    clearFilter={this.props.clearFilter} />
                 {
                     ShadowContainerHoc( // TODO ??
                         <>
@@ -169,15 +170,16 @@ class FilterProductsScreen extends React.Component {
                                 ShadowContainerHoc(
                                     <ModalSelector
                                         data={this.sorts}
-                                        cancelText={'İptal'}
-                                        onChange={this.onSortSelect}>
-                                        <SettingItem title={'Sırala'} value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
+                                        cancelText='İptal'
+                                        onChange={this.onSortSelect}
+                                    >
+                                        <SettingItem title='Sırala' value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
                                     </ModalSelector>
                                 )
                             }
-        
+
                             <View style={styles.divider} />
-        
+
                             {
                                 ShadowContainerHoc(
                                     <Accordion title='Markalar'>
@@ -196,17 +198,16 @@ class FilterProductsScreen extends React.Component {
                                     </Accordion>
                                 )
                             }
-        
+
                             <View style={styles.divider} />
-        
+
                             <Accordion title='Fiyat Aralığı'>
                                 <Slider
                                     ref={this.onSliderRef}
                                     minPrice={category.minPrice}
                                     maxPrice={category.maxPrice}
                                     initialMinPrice={this.state.minPrice ?? category.minPrice}
-                                    initialMaxPrice={this.state.maxPrice ?? category.maxPrice}
-                                />
+                                    initialMaxPrice={this.state.maxPrice ?? category.maxPrice} />
                             </Accordion>
                         </>
                     )

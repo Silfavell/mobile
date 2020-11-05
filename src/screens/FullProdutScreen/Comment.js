@@ -1,28 +1,27 @@
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import {
-    View,
-    Text
-} from 'react-native'
-import { ScaledSheet } from 'react-native-size-matters'
 
-class Comment extends React.Component {
+import { View, Text } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
+class Comment extends React.PureComponent {
     render() {
         const {
-            title,
-            ownerAlias,
-            comment,
-            rate
+            title, ownerAlias, comment, rate
         } = this.props.item
 
         return (
             <View style={styles.container}>
                 <View style={styles.rateContainer}>
-                    {
-                        [1, 2, 3, 4, 5].map((el) => (
-                            <Ionicons style={styles.star} size={26} color='orange' name={el <= rate ? 'ios-star' : 'ios-star-outline'} />
-                        ))
-                    }
+                    {[1, 2, 3, 4, 5].map((el) => (
+                        // TODO
+                        // eslint-disable-next-line react/jsx-key
+                        <Ionicons
+                            style={styles.star}
+                            size={26}
+                            color='orange'
+                            name={el <= rate ? 'ios-star' : 'ios-star-outline'} />
+                    ))}
                 </View>
                 <Text style={styles.alias}>{ownerAlias}</Text>
                 <Text style={styles.title}>{title}</Text>

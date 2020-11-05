@@ -1,9 +1,7 @@
 import React from 'react'
+
+import { ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import {
-    ScrollView,
-    TouchableOpacity
-} from 'react-native'
 
 import SettingItem from '../../components/SettingItem'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
@@ -11,7 +9,7 @@ import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 class CategoryItem extends React.PureComponent {
     onPress = () => {
         this.props.navigation.navigate('products', { selectedCategory: this.props.index })
-    }
+    };
 
     render() {
         return (
@@ -39,11 +37,7 @@ class CategoryList extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ({
-    sourceReducer: {
-        categories
-    }
-}) => ({
+const mapStateToProps = ({ sourceReducer: { categories } }) => ({
     categories
 })
 

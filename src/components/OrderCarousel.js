@@ -1,6 +1,6 @@
 import React from 'react'
+
 import ViewPager from '@react-native-community/viewpager'
-import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import CartProduct from './CartProduct'
@@ -9,13 +9,11 @@ class OrderCarousel extends React.PureComponent {
     render() {
         return (
             <ViewPager style={styles.paginator} initialPage={0} showPageIndicator>
-                {
-                    this.props.products.map((product) => (
-                        <CartProduct
-                            data={product}
-                            previousOrder />
-                    ))
-                }
+                {this.props.products.map((product) => (
+                    // TODO
+                    // eslint-disable-next-line react/jsx-key
+                    <CartProduct data={product} previousOrder />
+                ))}
             </ViewPager>
         )
     }
