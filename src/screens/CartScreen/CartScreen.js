@@ -21,49 +21,51 @@ class CartScreen extends React.Component {
         return false
     }
 
-        renderCartProductItem = ({ item, index }) => {
-            if (index === this.products.length - 1) {
-                return <CartProductWithHoc data={item} />
-            }
-
-            return <></>
+    renderCartProductItem = ({ item, index }) => {
+        if (index === this.products.length - 1) {
+            return <CartProductWithHoc data={item} />
         }
 
-        onListProductsClick = () => {
-            this.props.navigation.navigate('products')
-        };
+        return <></>
+    }
 
-        renderCartProductItem = ({ item, index }) => {
-            if (index === this.products.length - 1) {
-                return <CartProductWithHoc data={item} />
-            }
+    keyExtractor = (item) => `cart${item._id}`;
 
-            return <CartProduct data={item} />
-        };
+    onListProductsClick = () => {
+        this.props.navigation.navigate('products')
+    }
 
-        render() {
-            this.products = Object.values(this.props.cart)
+    renderCartProductItem = ({ item, index }) => {
+        if (index === this.products.length - 1) {
+            return <CartProductWithHoc data={item} />
+        }
 
-            if (this.products.length > 0) {
-                return (
-                    <View style={styles.container}>
-                        <FlatList
-                            style={styles.flatListStyle}
-                            data={this.products}
-                            keyExtractor={this.keyExtractor}
-                            renderItem={this.renderCartProductItem} />
-                        <CompletePayment navigation={this.props.navigation} />
-                    </View>
-                )
-            }
+        return <CartProduct data={item} />
+    }
 
+    render() {
+        this.products = Object.values(this.props.cart)
+
+        if (this.products.length > 0) {
             return (
-                <View style={styles.emptyContainer}>
-                    <Ionicons name='md-basket' size={96} color='#BDBDBD' />
-                    <Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
+                <View style={styles.container}>
+                    <FlatList
+                        style={styles.flatListStyle}
+                        data={this.products}
+                        keyExtractor={this.keyExtractor}
+                        renderItem={this.renderCartProductItem} />
+                    <CompletePayment navigation={this.props.navigation} />
                 </View>
             )
         }
+
+        return (
+            <View style={styles.emptyContainer}>
+                <Ionicons name='md-basket' size={96} color='#BDBDBD' />
+                <Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

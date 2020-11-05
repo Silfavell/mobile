@@ -5,7 +5,7 @@ import Modal, {
 } from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
 
-class ClearFilterPopup extends React.PureComponent {
+class ClearFilterPopup extends React.Component {
     close = () => {
         this.props.setPopupState({ scaleAnimationModal: false })
 

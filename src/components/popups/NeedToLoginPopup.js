@@ -7,14 +7,17 @@ import { connect } from 'react-redux'
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
 
 class NeedToLoginPopup extends React.Component {
-    shouldComponentUpdate() {
-        return false
-    }
-
     close = () => {
         this.props.setNeedToLoginPopupState(false)
 
         return true
+    };
+
+    onConfirm = () => {
+        this.props.setNeedToLoginPopupState(false)
+        if (this.props.navigation) {
+            this.props.navigation.navigate('Welcome', { screen: 'login' })
+        }
     };
 
     render() {
