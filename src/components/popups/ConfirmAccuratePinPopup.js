@@ -13,6 +13,10 @@ class ConfirmAccuratePinPopup extends React.Component {
         return true
     };
 
+    onConfirm = () => {
+        this.props.setPopupState(false, true, this.props.region)
+    };
+
     render() {
         return (
             <Modal

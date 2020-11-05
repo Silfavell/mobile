@@ -14,6 +14,11 @@ class ClearCartPopup extends React.Component {
         return true
     }
 
+    onConfirm = () => {
+        this.props.setClearCartPopupState(false)
+        this.props.clearCart(this.props.token)
+    };
+
     render() {
         return (
             <Modal
