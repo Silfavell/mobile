@@ -31,10 +31,6 @@ class CartScreen extends React.Component {
 
     keyExtractor = (item) => `cart${item._id}`;
 
-    onListProductsClick = () => {
-        this.props.navigation.navigate('products')
-    }
-
     renderCartProductItem = ({ item, index }) => {
         if (index === this.products.length - 1) {
             return <CartProductWithHoc data={item} />
