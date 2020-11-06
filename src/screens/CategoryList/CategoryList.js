@@ -8,33 +8,21 @@ import {
 import SettingItem from '../../components/SettingItem'
 import ShadowContainer from '../../components/ShadowContainer'
 
-
-const FOR_WHICH = {
-    CATEGORIES: 0,
-    SUB_CATEGORIES: 1,
-    TYPES: 2
-}
-
-let selectedCategoryIndex,
-    selectedSubCategoryIndex,
-    selectedTypeIndex,
-    forWhich = 0
+import FOR_WHICH from '../../models/ForWhich'
 
 class CategoryItem extends React.PureComponent {
     onPress = () => {
+        const { forWhich, selectedCategory, selectedSubCategory } = this.props.params
+
         if (forWhich === FOR_WHICH.CATEGORIES) {
-            selectedCategoryIndex = this.props.index
-            forWhich = 1
-            this.props.navigation.navigate('categoryList', { selectedCategory: selectedCategoryIndex })
+            this.props.navigation.push('categoryList', { forWhich: FOR_WHICH.SUB_CATEGORIES, selectedCategory: this.props.index })
         } else if (forWhich === FOR_WHICH.SUB_CATEGORIES) {
-            selectedSubCategoryIndex = this.props.index
-            forWhich = 2
-            this.props.navigation.navigate('categoryList', { selectedCategory: selectedCategoryIndex, selectedSubCategory: selectedSubCategoryIndex })
+            this.props.navigation.push('categoryList', { forWhich: FOR_WHICH.TYPES, selectedCategory, selectedSubCategory: this.props.index })
         } else {
-            selectedTypeIndex = this.props.index
-            this.props.navigation.navigate('products', { selectedCategory: selectedCategoryIndex, selectedSubCategory: selectedSubCategoryIndex, selectedType: selectedTypeIndex })
+            this.props.navigation.navigate('products', { selectedCategory, selectedSubCategory, selectedType: this.props.index })
         }
     }
+
     render() {
         return (
             <TouchableOpacity activeOpacity={0.9} onPress={this.onPress}>
@@ -46,14 +34,23 @@ class CategoryItem extends React.PureComponent {
 
 class CategoryList extends React.PureComponent {
     render() {
+        const { forWhich, selectedCategory, selectedSubCategory } = this.props.route.params
         let datas = []
+
         if (forWhich === FOR_WHICH.CATEGORIES) {
             datas = this.props.categories
         } else if (forWhich === FOR_WHICH.SUB_CATEGORIES) {
-            datas = this.props.categories[this.props.route.params.selectedCategory].subCategories
+            datas = this.props.categories[selectedCategory].subCategories
+            this.props.navigation.setOptions({
+                title: this.props.categories[selectedCategory].name
+            })
         } else {
-            datas = this.props.categories[this.props.route.params.selectedCategory].subCategories[this.props.route.params.selectedSubCategory].types
+            datas = this.props.categories[selectedCategory].subCategories[selectedSubCategory].types
+            this.props.navigation.setOptions({
+                title: this.props.categories[selectedCategory].subCategories[selectedSubCategory].name
+            })
         }
+
         return (
             <ShadowContainer>
                 <ScrollView>
@@ -63,7 +60,9 @@ class CategoryList extends React.PureComponent {
                                 category={category}
                                 index={index}
                                 navigation={this.props.navigation}
-                                forWhich={forWhich} />
+                                forWhich={forWhich}
+                                params={this.props.route.params}
+                            />
                         ))
                     }
                 </ScrollView>

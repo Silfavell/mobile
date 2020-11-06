@@ -71,7 +71,7 @@ class HomeScreen extends React.Component {
 	}
 
 	onCategoryListClick = () => {
-		this.props.navigation.navigate('categoryList')
+		this.props.navigation.navigate('categoryList', { forWhich: 0 })
 	}
 
 	renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />

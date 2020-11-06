@@ -7,13 +7,7 @@ import {
 	Platform
 } from 'react-native'
 import { connect } from 'react-redux'
-import {
-	Container,
-	Tab,
-	Tabs,
-	ScrollableTab,
-	TabHeading
-} from 'native-base'
+import { ScrollableTab } from 'native-base'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../../components/RecyclerList'
@@ -27,7 +21,7 @@ class ProductsScreen extends React.Component {
 		this.selectedType = this.props.route.params.selectedType
 
 		this.props.navigation.setOptions({
-			title: this.props.products[this.selectedCategory].name,
+			title: this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].name,
 			/* headerRight: () => ( // filter button
 				<TouchableOpacity onPress={this.onFilterClick}>
 					<MaterialIcons
@@ -52,12 +46,12 @@ class ProductsScreen extends React.Component {
 		})
 	}
 
-	getProducts = (subCategory) => {
-		if (subCategory.parentCategoryId === this.props.categoryId && subCategory._id === this.props.subCategoryId) {
-			return this.props.filter.products
+	getProducts = (products) => {
+		if (products.parentCategoryId === this.props.categoryId && products._id === this.props.subCategoryId) {
+			return this.props.filter
 		}
 
-		return subCategory.products
+		return products
 	}
 
 	emptyProducts = () => (
@@ -66,39 +60,27 @@ class ProductsScreen extends React.Component {
 		</View>
 	)
 
-	renderTab = (subCategory) => (
-		<Tab
-			key={
-				subCategory.parentCategoryId === this.props.categoryId && subCategory._id === this.props.subCategoryId ?
-					subCategory._id + subCategory._id + 'brands:' + this.props.selectedBrands.join(',') + 'selectedSort:' + this.props.selectedSort : subCategory._id
-			}
-			heading={
-				<TabHeading style={styles.tabStyle}>
-					<Text style={styles.tabBarTextStyle}>{subCategory.name}</Text>
-				</TabHeading>
-			}>
-
-			{
-				this.getProducts(subCategory)?.length > 0 ? (
-					<RecyclerList
-						navigation={this.props.navigation}
-						tabLabel={subCategory.name}
-						list={this.getProducts(subCategory)}
-					/>
-				) : this.emptyProducts()
-			}
-		</Tab>
+	renderTab = (products) => (
+		this.getProducts(products)?.length > 0 ? (
+			<View style={styles.productContainer}>
+				<RecyclerList
+					navigation={this.props.navigation}
+					tabLabel={products.name}
+					list={this.getProducts(products)}
+				/></View>
+		) : this.emptyProducts()
 	)
 
 	onRef = (ref) => {
 		this.tabs = ref
 	}
+
 	render() {
-		const items = this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].products
+		const products = this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].products
 		return (
-			<View>
+			<View style={styles.conainer}>
 				{
-					this.renderTab(items)
+					this.renderTab(products)
 				}
 			</View>
 		)
@@ -136,6 +118,13 @@ const styles = ScaledSheet.create({
 			}
 		],
 		marginRight: s(18)
+	},
+	conainer: {
+		flex: 1,
+		backgroundColor: 'white'
+	},
+	productContainer: {
+		flex: 1
 	}
 })
 

@@ -12,7 +12,7 @@ import Config from 'react-native-config'
 
 class CategoryElement extends React.PureComponent {
     onPress = () => {
-        this.props.navigation.navigate('products', { selectedCategory: this.props.index })
+        this.props.navigation.navigate('categoryList', { forWhich: 1, selectedCategory: this.props.index })
     }
 
     render() {
