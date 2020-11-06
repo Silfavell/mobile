@@ -15,9 +15,9 @@ class Product extends React.Component {
         if (nextProps.user?.favoriteProducts && this.props.user?.favoriteProducts) {
             return (
                 // eslint-disable-next-line no-mixed-operators
-                nextProps.user.favoriteProducts.includes(this.props.data._id) && this.props.user.favoriteProducts.includes(this.props.data._id)
+                nextProps.user.favoriteProducts.includes(this.props.data._id) && !this.props.user.favoriteProducts.includes(this.props.data._id)
                 // eslint-disable-next-line no-mixed-operators
-                || this.props.user.favoriteProducts.includes(this.props.data._id) && nextProps.user.favoriteProducts.includes(this.props.data._id)
+                || this.props.user.favoriteProducts.includes(this.props.data._id) && !nextProps.user.favoriteProducts.includes(this.props.data._id)
             )
         }
 

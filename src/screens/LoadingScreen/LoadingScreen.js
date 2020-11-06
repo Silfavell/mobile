@@ -8,7 +8,7 @@ import LoadingComponent from '../../components/LoadingComponent'
 
 class LoadingScreen extends React.Component {
     componentDidMount() {
-    // AsyncStorage.clear()
+        // AsyncStorage.clear()
         AsyncStorage.getItem('init').then((init) => {
             if (init) {
                 if (this.props.categories.length > 0) {
