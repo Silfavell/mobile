@@ -7,7 +7,6 @@ import {
 	Platform
 } from 'react-native'
 import { connect } from 'react-redux'
-import { ScrollableTab } from 'native-base'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import RecyclerList from '../../components/RecyclerList'
@@ -34,8 +33,6 @@ class ProductsScreen extends React.Component {
 		})
 	}
 
-	getTabBar = () => <ScrollableTab />
-
 	onFilterClick = () => {
 		this.props.navigation.navigate('filterProductsScreen', {
 			selectedCategory: this.selectedCategory,
@@ -46,29 +43,10 @@ class ProductsScreen extends React.Component {
 		})
 	}
 
-	getProducts = (products) => {
-		if (products.parentCategoryId === this.props.categoryId && products._id === this.props.subCategoryId) {
-			return this.props.filter
-		}
-
-		return products
-	}
-
 	emptyProducts = () => (
 		<View style={styles.emptyContainer}>
 			<Text style={styles.emptyText}>Seçtiğiniz filtrelere uygun ürün bulunmamaktadır</Text>
 		</View>
-	)
-
-	renderTab = (products) => (
-		this.getProducts(products)?.length > 0 ? (
-			<View style={styles.productContainer}>
-				<RecyclerList
-					navigation={this.props.navigation}
-					tabLabel={products.name}
-					list={this.getProducts(products)}
-				/></View>
-		) : this.emptyProducts()
 	)
 
 	onRef = (ref) => {
@@ -77,12 +55,16 @@ class ProductsScreen extends React.Component {
 
 	render() {
 		const products = this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].products
+
 		return (
-			<View style={styles.conainer}>
-				{
-					this.renderTab(products)
-				}
-			</View>
+			products?.length > 0 ? (
+				<View style={styles.container}>
+					<RecyclerList
+						navigation={this.props.navigation}
+						list={products}
+					/>
+				</View>
+			) : this.emptyProducts()
 		)
 	}
 }
@@ -119,13 +101,10 @@ const styles = ScaledSheet.create({
 		],
 		marginRight: s(18)
 	},
-	conainer: {
+	container: {
 		flex: 1,
 		backgroundColor: 'white'
 	},
-	productContainer: {
-		flex: 1
-	}
 })
 
 const mapStateToProps = ({
