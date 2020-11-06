@@ -8,7 +8,7 @@ import Product from './Product'
 
 const { width } = Dimensions.get('window')
 
-class List extends React.Component {
+class RecyclerList extends React.Component {
     constructor(args) {
         super(args)
 
@@ -30,24 +30,24 @@ class List extends React.Component {
         this.state = {
             dataProvider: this.dataProvider.cloneWithRows(list)
         }
-    };
+    }
 
-    rowHasChanges = (r1, r2) => r1 !== r2;
+    rowHasChanges = (r1, r2) => r1 !== r2
 
-    getLayoutTypeForIndex = () => 0;
+    getLayoutTypeForIndex = () => 0
 
-    setLayoutForType = (type, dim) => {
+    setLayoutForType = (_, dim) => {
         dim.width = width / 2 - ((width / 2) % 1)
         dim.height = s(355)
-    };
+    }
 
-    rowRenderer = (type, item) => (
+    rowRenderer = (_, item) => (
         <Product
-        // key={item._id}
+            // key={item._id}
             data={item}
             navigation={this.props.navigation}
             fromSearch={this.props.fromSearch} />
-    );
+    )
 
     render() {
         return (
@@ -59,4 +59,4 @@ class List extends React.Component {
     }
 }
 
-export default List
+export default RecyclerList

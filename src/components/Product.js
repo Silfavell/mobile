@@ -12,6 +12,10 @@ import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/so
 
 class Product extends React.Component {
     shouldComponentUpdate(nextProps) {
+        if (nextProps.data._id !== this.props.data._id) { // due to RecyclerList
+            return true
+        }
+
         if (nextProps.user?.favoriteProducts && this.props.user?.favoriteProducts) {
             return (
                 // eslint-disable-next-line no-mixed-operators
