@@ -23,6 +23,8 @@ class ProductsScreen extends React.Component {
 	constructor(props) {
 		super(props)
 		this.selectedCategory = this.props.route.params.selectedCategory
+		this.selectedSubCategory = this.props.route.params.selectedSubCategory
+		this.selectedType = this.props.route.params.selectedType
 
 		this.props.navigation.setOptions({
 			title: this.props.products[this.selectedCategory].name,
@@ -85,29 +87,20 @@ class ProductsScreen extends React.Component {
 					/>
 				) : this.emptyProducts()
 			}
-
-
 		</Tab>
 	)
 
 	onRef = (ref) => {
 		this.tabs = ref
 	}
-
 	render() {
+		const items = this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].products
 		return (
-			<Container>
-				<Tabs
-					ref={this.onRef}
-					tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
-					prerenderingSiblingsNumber={Infinity}
-					tabBarBackgroundColor={styles.tabStyle.backgroundColor}
-					renderTabBar={this.getTabBar}>
-					{
-						this.props.products[this.selectedCategory].subCategories.map(this.renderTab)
-					}
-				</Tabs>
-			</Container>
+			<View>
+				{
+					this.renderTab(items)
+				}
+			</View>
 		)
 	}
 }
