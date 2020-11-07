@@ -9,12 +9,14 @@ class OrderCarousel extends React.PureComponent {
     render() {
         return (
             <ViewPager style={styles.paginator} initialPage={0} showPageIndicator>
-                {this.props.products.map((product) => (
-                    <CartProduct
+                {
+                    this.props.products.map((product) => (
+                        <CartProduct
                         // key={`cartProduct:${}`}
-                        data={product}
-                        previousOrder />
-                ))}
+                            data={product}
+                            previousOrder />
+                    ))
+                }
             </ViewPager>
         )
     }

@@ -14,16 +14,18 @@ class PreviousOrdersScreen extends React.Component {
         fetching: true
     }
 
-    componentDidMount() {
-        getOrders().then(({ status, data }) => {
+    async componentDidMount() {
+        try {
+            const { status, data } = await getOrders()
+
             if (status === 200) {
                 this.setState({ orders: data, fetching: false })
             } else {
                 this.setState({ fetching: false })
             }
-        }).catch(() => {
+        } catch (error) {
             this.setState({ fetching: false })
-        })
+        }
     }
 
     keyExtractor = (item) => item._id

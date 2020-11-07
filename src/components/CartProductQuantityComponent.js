@@ -34,7 +34,7 @@ class CartProductQuantityComponent extends React.Component {
         static getDerivedStateFromProps(props) {
             if (!props.returnItem) {
                 if (props.previousOrder) {
-                    return { quantity: props.previousOrder }
+                    return { quantity: props.quantity }
                 }
 
                 if (props.cart[props._id]) {

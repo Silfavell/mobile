@@ -48,32 +48,36 @@ class CartProduct extends React.PureComponent {
                     </View>
                     <View style={styles.child} />
                     <View style={[styles.textContainer, styles.priceContainer]}>
-                        {returnItem ? (
-                            <Text style={styles.productPrice}>
-                                {`₺${paidPrice
-                                    .toFixed(2)
-                                    .toString()
-                                    .replace('.', ',')}`}
-                            </Text>
-                        ) : (
-                            <>
-                                <Text
-                                    style={[
-                                        styles.productPrice,
-                                        discountedPrice && !previousOrder ? styles.discountedPrice : {}
-                                    ]}>
-                                    {`₺${price.toFixed(2).toString().replace('.', ',')}`}
+                        {
+                            returnItem ? (
+                                <Text style={styles.productPrice}>
+                                    {`₺${paidPrice
+                                        .toFixed(2)
+                                        .toString()
+                                        .replace('.', ',')}`}
                                 </Text>
-                                {discountedPrice && !previousOrder && (
-                                    <Text style={styles.productPrice}>
-                                        {`₺${discountedPrice
-                                            .toFixed(2)
-                                            .toString()
-                                            .replace('.', ',')}`}
+                            ) : (
+                                <>
+                                    <Text
+                                        style={[
+                                            styles.productPrice,
+                                            discountedPrice && !previousOrder ? styles.discountedPrice : {}
+                                        ]}>
+                                        {`₺${price.toFixed(2).toString().replace('.', ',')}`}
                                     </Text>
-                                )}
-                            </>
-                        )}
+                                    {
+                                        discountedPrice && !previousOrder && (
+                                            <Text style={styles.productPrice}>
+                                                {`₺${discountedPrice
+                                                    .toFixed(2)
+                                                    .toString()
+                                                    .replace('.', ',')}`}
+                                            </Text>
+                                        )
+                                    }
+                                </>
+                            )
+                        }
                     </View>
                     <View style={styles.rowChild}>
                         <View style={styles.child} />
