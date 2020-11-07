@@ -10,9 +10,11 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 import Config from 'react-native-config'
 
+import FOR_WHICH from '../models/ForWhich'
+
 class CategoryElement extends React.PureComponent {
     onPress = () => {
-        this.props.navigation.navigate('categoryList', { forWhich: 1, selectedCategory: this.props.index })
+        this.props.navigation.navigate('categoryList', { forWhich: FOR_WHICH.SUB_CATEGORIES, selectedCategory: this.props.index })
     }
 
     render() {
