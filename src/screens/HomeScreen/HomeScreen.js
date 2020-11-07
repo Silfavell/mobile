@@ -13,6 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import Category from '../../components/Category'
+import FOR_WHICH from '../../models/ForWhich'
 import BestSeller from './BestSeller'
 import MostSellerWithHoc from './ComponentsWithHoc/MostSellerWithHoc'
 import ScrollableCategoryListWithHoc from './ComponentsWithHoc/ScrollableCategoryListWithHoc'
@@ -70,7 +71,7 @@ class HomeScreen extends React.Component {
     }
 
     onCategoryListClick = () => {
-        this.props.navigation.navigate('categoryList')
+        this.props.navigation.navigate('categoryList', { forWhich: FOR_WHICH.CATEGORIES })
     }
 
     renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />

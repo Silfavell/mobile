@@ -5,11 +5,20 @@ import { connect } from 'react-redux'
 
 import SettingItem from '../../components/SettingItem'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import FOR_WHICH from '../../models/ForWhich'
 
 class CategoryItem extends React.PureComponent {
     onPress = () => {
-        this.props.navigation.navigate('products', { selectedCategory: this.props.index })
-    };
+        const { forWhich, selectedCategory, selectedSubCategory } = this.props.params
+
+        if (forWhich === FOR_WHICH.CATEGORIES) {
+            this.props.navigation.push('categoryList', { forWhich: FOR_WHICH.SUB_CATEGORIES, selectedCategory: this.props.index })
+        } else if (forWhich === FOR_WHICH.SUB_CATEGORIES) {
+            this.props.navigation.push('categoryList', { forWhich: FOR_WHICH.TYPES, selectedCategory, selectedSubCategory: this.props.index })
+        } else {
+            this.props.navigation.navigate('products', { selectedCategory, selectedSubCategory, selectedType: this.props.index })
+        }
+    }
 
     render() {
         return (
@@ -22,14 +31,33 @@ class CategoryItem extends React.PureComponent {
 
 class CategoryList extends React.PureComponent {
     render() {
+        const { forWhich, selectedCategory, selectedSubCategory } = this.props.route.params
+        let datas = []
+
+        if (forWhich === FOR_WHICH.CATEGORIES) {
+            datas = this.props.categories
+        } else if (forWhich === FOR_WHICH.SUB_CATEGORIES) {
+            datas = this.props.categories[selectedCategory].subCategories
+            this.props.navigation.setOptions({
+                title: this.props.categories[selectedCategory].name
+            })
+        } else {
+            datas = this.props.categories[selectedCategory].subCategories[selectedSubCategory].types
+            this.props.navigation.setOptions({
+                title: this.props.categories[selectedCategory].subCategories[selectedSubCategory].name
+            })
+        }
+
         return (
             <ScrollView>
                 {
-                    this.props.categories.map((category, index) => (
+                    datas.map((category, index) => (
                         <CategoryItem
                             category={category}
                             index={index}
-                            navigation={this.props.navigation} />
+                            navigation={this.props.navigation}
+                            forWhich={forWhich}
+                            params={this.props.route.params} />
                     ))
                 }
             </ScrollView>

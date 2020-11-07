@@ -7,25 +7,27 @@ import Config from 'react-native-config'
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
+import FOR_WHICH from '../models/ForWhich'
+
 class CategoryElement extends React.PureComponent {
-  onPress = () => {
-      this.props.navigation.navigate('products', { selectedCategory: this.props.index })
-  };
+    onPress = () => {
+        this.props.navigation.navigate('categoryList', { forWhich: FOR_WHICH.SUB_CATEGORIES, selectedCategory: this.props.index })
+    }
 
-  render() {
-      const { title, imagePath } = this.props
+    render() {
+        const { title, imagePath } = this.props
 
-      return (
-          <TouchableOpacity onPress={this.onPress} activeOpacity={0.9} style={styles.categoryElement}>
-              <View style={styles.iconContainer}>
-                  <Image
-                      style={styles.imageContainer}
-                      source={{ uri: `${Config.SERVER_URL}/assets/categories/${imagePath}.png` }} />
-              </View>
-              <Text numberOfLines={1}>{title}</Text>
-          </TouchableOpacity>
-      )
-  }
+        return (
+            <TouchableOpacity onPress={this.onPress} activeOpacity={0.9} style={styles.categoryElement}>
+                <View style={styles.iconContainer}>
+                    <Image
+                        style={styles.imageContainer}
+                        source={{ uri: `${Config.SERVER_URL}/assets/categories/${imagePath}.png` }} />
+                </View>
+                <Text numberOfLines={1}>{title}</Text>
+            </TouchableOpacity>
+        )
+    }
 }
 
 class ScrollableCategoryList extends React.PureComponent {

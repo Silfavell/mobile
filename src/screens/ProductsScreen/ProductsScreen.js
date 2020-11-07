@@ -1,13 +1,6 @@
 import React from 'react'
 
 import {
-    Container,
-    Tab,
-    Tabs,
-    ScrollableTab,
-    TabHeading
-} from 'native-base'
-import {
     View,
     Text,
     Platform
@@ -21,22 +14,22 @@ class ProductsScreen extends React.Component {
     constructor(props) {
         super(props)
         this.selectedCategory = this.props.route.params.selectedCategory
+        this.selectedSubCategory = this.props.route.params.selectedSubCategory
+        this.selectedType = this.props.route.params.selectedType
 
         this.props.navigation.setOptions({
-            title: this.props.products[this.selectedCategory].name
+            title: this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].name
             /* headerRight: () => ( // filter button
                 <TouchableOpacity onPress={this.onFilterClick}>
-                    <MaterialIcons
-                        color={'white'}
-                        name='sort'
-                        size={28}
-                        style={styles.iconContainer} />
+                <MaterialIcons
+                color={'white'}
+                name='sort'
+                size={28}
+                style={styles.iconContainer} />
                 </TouchableOpacity>
             ) */
         })
     }
-
-    getTabBar = () => <ScrollableTab />
 
     onFilterClick = () => {
         this.props.navigation.navigate('filterProductsScreen', {
@@ -48,62 +41,23 @@ class ProductsScreen extends React.Component {
         })
     }
 
-    getProducts = (subCategory) => {
-        if (subCategory.parentCategoryId === this.props.categoryId && subCategory._id === this.props.subCategoryId) {
-            return this.props.filter.products
-        }
-
-        return subCategory.products
-    }
-
     emptyProducts = () => (
         <View style={styles.emptyContainer}>
             <Text style={styles.emptyText}>Seçtiğiniz filtrelere uygun ürün bulunmamaktadır</Text>
         </View>
     )
 
-    renderTab = (subCategory) => (
-        <Tab
-            key={
-                subCategory.parentCategoryId === this.props.categoryId && subCategory._id === this.props.subCategoryId
-                    ? `${subCategory._id + subCategory._id}brands:${this.props.selectedBrands.join(',')}selectedSort:${this.props.selectedSort}` : subCategory._id
-            }
-            heading={(
-                <TabHeading style={styles.tabStyle}>
-                    <Text style={styles.tabBarTextStyle}>{subCategory.name}</Text>
-                </TabHeading>
-            )}>
+    render() {
+        const { products } = this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType]
 
-            {
-                this.getProducts(subCategory)?.length > 0 ? (
+        return (
+            products?.length > 0 ? (
+                <View style={styles.container}>
                     <RecyclerList
                         navigation={this.props.navigation}
-                        tabLabel={subCategory.name}
-                        list={this.getProducts(subCategory)} />
-                ) : this.emptyProducts()
-            }
-
-        </Tab>
-    )
-
-    onRef = (ref) => {
-        this.tabs = ref
-    }
-
-    render() {
-        return (
-            <Container>
-                <Tabs
-                    ref={this.onRef}
-                    tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
-                    prerenderingSiblingsNumber={Infinity}
-                    tabBarBackgroundColor={styles.tabStyle.backgroundColor}
-                    renderTabBar={this.getTabBar}>
-                    {
-                        this.props.products[this.selectedCategory].subCategories.map(this.renderTab)
-                    }
-                </Tabs>
-            </Container>
+                        list={products} />
+                </View>
+            ) : this.emptyProducts()
         )
     }
 }
@@ -139,6 +93,10 @@ const styles = ScaledSheet.create({
             }
         ],
         marginRight: s(18)
+    },
+    container: {
+        flex: 1,
+        backgroundColor: 'white'
     }
 })
 
