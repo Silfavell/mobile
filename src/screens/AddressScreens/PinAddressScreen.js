@@ -10,43 +10,43 @@ import HeaderAddressInput from '../MapScreens/HeaderAddressInput'
 import Map from '../MapScreens/Map'
 
 class PinAddressScreen extends React.Component {
-  state = {
-      scaleAnimationModal: false
-  };
+    state = {
+        scaleAnimationModal: false
+    }
 
-  setPopupState = (scaleAnimationModal, navigate, region) => {
-      this.setState({ scaleAnimationModal })
+    setPopupState = (scaleAnimationModal, navigate, region) => {
+        this.setState({ scaleAnimationModal })
 
-      if (navigate) {
-          this.props.navigation.navigate('completeAddressScreen', { region })
-      }
-  };
+        if (navigate) {
+            this.props.navigation.navigate('completeAddressScreen', { region })
+        }
+    }
 
-  onUseThisAddressClick = () => {
-      this.setPopupState(true)
-  };
+    onUseThisAddressClick = () => {
+        this.setPopupState(true)
+    }
 
-  render() {
-      return (
-          <View style={styles.container}>
-              <ConfirmAccuratePinPopup
-                  setPopupState={this.setPopupState}
-                  scaleAnimationModal={this.state.scaleAnimationModal} />
+    render() {
+        return (
+            <View style={styles.container}>
+                <ConfirmAccuratePinPopup
+                    setPopupState={this.setPopupState}
+                    scaleAnimationModal={this.state.scaleAnimationModal} />
 
-              <HeaderAddressInput disabled />
+                <HeaderAddressInput disabled />
 
-              <Map region={this.props.route.params.region} />
+                <Map region={this.props.route.params.region} />
 
-              <View style={styles.markerContainer} pointerEvents='none'>
-                  <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
-              </View>
+                <View style={styles.markerContainer} pointerEvents='none'>
+                    <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
+                </View>
 
-              <View style={styles.buttonContainer}>
-                  <ButtonComponent text='Bu Adresi Kullan' onClick={this.onUseThisAddressClick} needFlex />
-              </View>
-          </View>
-      )
-  }
+                <View style={styles.buttonContainer}>
+                    <ButtonComponent text='Bu Adresi Kullan' onClick={this.onUseThisAddressClick} needFlex />
+                </View>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

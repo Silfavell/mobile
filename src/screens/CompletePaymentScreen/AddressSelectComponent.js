@@ -8,38 +8,38 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 
 class AddressSelectComponent extends React.PureComponent {
-  onPress = () => {
-      const { navigation, token, setNeedToLoginPopupState } = this.props
+    onPress = () => {
+        const { navigation, token, setNeedToLoginPopupState } = this.props
 
-      if (!token) {
-          setNeedToLoginPopupState(true)
-      } else {
-          navigation.navigate('addresses')
-      }
-  };
+        if (!token) {
+            setNeedToLoginPopupState(true)
+        } else {
+            navigation.navigate('addresses')
+        }
+    }
 
-  render() {
-      const { title, subTitle } = this.props
+    render() {
+        const { title, subTitle } = this.props
 
-      return (
-          <TouchableOpacity style={styles.container} onPress={this.onPress}>
-              <View style={styles.iconContainer}>
-                  <Ionicons size={32} name='md-home' />
-              </View>
-              <View style={styles.paymentInfoContainer}>
-                  <View style={styles.paymentInfoTextContainer}>
-                      <Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
-                  </View>
-                  <View style={styles.paymentInfoTextContainer}>
-                      <Text numberOfLines={2} style={styles.paymentDetail}>{subTitle}</Text>
-                  </View>
-              </View>
-              <View style={styles.iconContainer}>
-                  <MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
-              </View>
-          </TouchableOpacity>
-      )
-  }
+        return (
+            <TouchableOpacity style={styles.container} onPress={this.onPress}>
+                <View style={styles.iconContainer}>
+                    <Ionicons size={32} name='md-home' />
+                </View>
+                <View style={styles.paymentInfoContainer}>
+                    <View style={styles.paymentInfoTextContainer}>
+                        <Text numberOfLines={1} style={styles.paymentTitle}>{title}</Text>
+                    </View>
+                    <View style={styles.paymentInfoTextContainer}>
+                        <Text numberOfLines={2} style={styles.paymentDetail}>{subTitle}</Text>
+                    </View>
+                </View>
+                <View style={styles.iconContainer}>
+                    <MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
+                </View>
+            </TouchableOpacity>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

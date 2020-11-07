@@ -27,46 +27,46 @@ class List extends React.Component {
         return false
     }
 
-    setData = (list) => {
-        this.state = {
-            dataProvider: this.dataProvider.cloneWithRows(list)
+        setData = (list) => {
+            this.state = {
+                dataProvider: this.dataProvider.cloneWithRows(list)
+            }
         }
-    };
 
-  rowHasChanges = (r1, r2) => r1 !== r2;
+    rowHasChanges = (r1, r2) => r1 !== r2
 
-  getLayoutTypeForIndex = (index) => index;
+    getLayoutTypeForIndex = (index) => index
 
-  setLayoutForType = (type, dim) => {
-      const headerHeights = [s(190), s(120), s(50)]
+    setLayoutForType = (type, dim) => {
+        const headerHeights = [s(190), s(120), s(50)]
 
-      if (type < this.props.headers.length) {
-          dim.width = width
-          dim.height = headerHeights[type]
-      } else {
-          dim.width = width / 2 - ((width / 2) % 1)
-          dim.height = s(355)
-      }
-  };
+        if (type < this.props.headers.length) {
+            dim.width = width
+            dim.height = headerHeights[type]
+        } else {
+            dim.width = width / 2 - ((width / 2) % 1)
+            dim.height = s(355)
+        }
+    }
 
-  rowRenderer = (type, item) => {
-      if (type < this.props.headers.length) {
-          return this.props.headers[type]
-      }
+    rowRenderer = (type, item) => {
+        if (type < this.props.headers.length) {
+            return this.props.headers[type]
+        }
 
-      return <Product key={item._id} data={item} navigation={this.props.navigation} />
-  };
+        return <Product key={item._id} data={item} navigation={this.props.navigation} />
+    }
 
-  render() {
-      return (
-          <StickyContainer>
-              <RecyclerListView
-                  layoutProvider={this.layoutProvider}
-                  dataProvider={this.state.dataProvider}
-                  rowRenderer={this.rowRenderer} />
-          </StickyContainer>
-      )
-  }
+    render() {
+        return (
+            <StickyContainer>
+                <RecyclerListView
+                    layoutProvider={this.layoutProvider}
+                    dataProvider={this.state.dataProvider}
+                    rowRenderer={this.rowRenderer} />
+            </StickyContainer>
+        )
+    }
 }
 
 export default List

@@ -9,11 +9,21 @@
   "editor.formatOnSave": true,
   "prettier.semi": false,
   "javascript.format.semicolons": "remove",
+  "javascript.format.enable": false,
+  "eslint.options": {
+    "extensions": [
+      ".html",
+      ".js",
+      ".vue",
+      ".jsx"
+    ]
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "html",
     "typescriptreact"
   ],
+  "eslint.alwaysShowStatus": true,
   "files.eol": "\n"
 }

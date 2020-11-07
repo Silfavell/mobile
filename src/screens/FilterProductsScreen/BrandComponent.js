@@ -7,41 +7,41 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import SettingItem from '../../components/SettingItem'
 
 class BrandComponent extends React.Component {
-  state = {
-      checked: this.props.checked
-  };
+    state = {
+        checked: this.props.checked
+    }
 
-  onClick = () => {
-      // eslint-disable-next-line react/no-access-state-in-setstate
-      this.setState({ checked: !this.state.checked }, () => {
-          if (this.state.checked) {
-              this.props.addBrand(this.props.brand.name)
-          } else {
-              this.props.removeBrand(this.props.brand.name)
-          }
-      })
-  };
+    onClick = () => {
+        // eslint-disable-next-line react/no-access-state-in-setstate
+        this.setState({ checked: !this.state.checked }, () => {
+            if (this.state.checked) {
+                this.props.addBrand(this.props.brand.name)
+            } else {
+                this.props.removeBrand(this.props.brand.name)
+            }
+        })
+    }
 
-  x = () => {};
+    x = () => {}
 
-  render() {
-      return (
-          <TouchableOpacity activeOpacity={0.9} onPress={this.onClick}>
-              <SettingItem
-                  title={this.props.brand.name}
-                  rightComponent={(
-                      <CheckBox
-                          style={styles.checkBoxStyle}
-                          checkedImage={<MaterialIcons name='check' size={24} color='black' />}
-                          unCheckedImage={
-                              <MaterialIcons name='check-box-outline-blank' size={24} color='black' />
-                          }
-                          disabled
-                          isChecked={this.state.checked} />
-                  )} />
-          </TouchableOpacity>
-      )
-  }
+    render() {
+        return (
+            <TouchableOpacity activeOpacity={0.9} onPress={this.onClick}>
+                <SettingItem
+                    title={this.props.brand.name}
+                    rightComponent={(
+                        <CheckBox
+                            style={styles.checkBoxStyle}
+                            checkedImage={<MaterialIcons name='check' size={24} color='black' />}
+                            unCheckedImage={
+                                <MaterialIcons name='check-box-outline-blank' size={24} color='black' />
+                            }
+                            disabled
+                            isChecked={this.state.checked} />
+                    )} />
+            </TouchableOpacity>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

@@ -7,48 +7,48 @@ import { connect } from 'react-redux'
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
 
 class NeedToLoginPopup extends React.Component {
-    close = () => {
-        this.props.setNeedToLoginPopupState(false)
+        close = () => {
+            this.props.setNeedToLoginPopupState(false)
 
-        return true
-    };
-
-    onConfirm = () => {
-        this.props.setNeedToLoginPopupState(false)
-        if (this.props.navigation) {
-            this.props.navigation.navigate('Welcome', { screen: 'login' })
+            return true
         }
-    };
 
-    render() {
-        return (
-            <Modal
-                onTouchOutside={this.close}
-                width={0.9}
-                visible={this.props.needToLoginPopupState}
-                onSwipeOut={this.close}
-                onHardwareBackPress={this.close}
-                children={null}
-                useNativeDriver
-                modalTitle={(
-                    <ModalTitle
-                        style={styles.title}
-                        textStyle={styles.titleText}
-                        title='Devam etmeden önce giriş yapmalısın'
-                        hasTitleBar={false} />
-                )}
-                footer={(
-                    <ModalFooter style={styles.footer}>
-                        <ModalButton
-                            text='Tamam'
-                            textStyle={styles.buttonText}
-                            style={styles.buttonOk}
-                            onPress={this.onConfirm}
-                            key='button-2' />
-                    </ModalFooter>
-                )} />
-        )
-    }
+        onConfirm = () => {
+            this.props.setNeedToLoginPopupState(false)
+            if (this.props.navigation) {
+                this.props.navigation.navigate('Welcome', { screen: 'login' })
+            }
+        }
+
+        render() {
+            return (
+                <Modal
+                    onTouchOutside={this.close}
+                    width={0.9}
+                    visible={this.props.needToLoginPopupState}
+                    onSwipeOut={this.close}
+                    onHardwareBackPress={this.close}
+                    children={null}
+                    useNativeDriver
+                    modalTitle={(
+                        <ModalTitle
+                            style={styles.title}
+                            textStyle={styles.titleText}
+                            title='Devam etmeden önce giriş yapmalısın'
+                            hasTitleBar={false} />
+                    )}
+                    footer={(
+                        <ModalFooter style={styles.footer}>
+                            <ModalButton
+                                text='Tamam'
+                                textStyle={styles.buttonText}
+                                style={styles.buttonOk}
+                                onPress={this.onConfirm}
+                                key='button-2' />
+                        </ModalFooter>
+                    )} />
+            )
+        }
 }
 
 const styles = ScaledSheet.create({

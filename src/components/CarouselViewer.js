@@ -5,69 +5,69 @@ import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 class CarouselViewer extends React.Component {
-  state = {
-      current: 0
-  };
+    state = {
+        current: 0
+    }
 
-  componentDidMount() {
-      if (this.props.loop) {
-          this.interval = setInterval(() => {
-              if (this.state.current === 3) {
-                  this.viewPager.setPage(0)
-                  this.setState({ current: 0 })
-              } else {
-                  this.viewPager.setPage(this.state.current + 1)
-                  this.setState({ current: this.state.current + 1 })
-              }
-          }, 5000)
-      }
-  }
+    componentDidMount() {
+        if (this.props.loop) {
+            this.interval = setInterval(() => {
+                if (this.state.current === 3) {
+                    this.viewPager.setPage(0)
+                    this.setState({ current: 0 })
+                } else {
+                    this.viewPager.setPage(this.state.current + 1)
+                    this.setState({ current: this.state.current + 1 })
+                }
+            }, 5000)
+        }
+    }
 
-  componentWillUnmount() {
-      if (this.props.loop) {
-          clearInterval(this.interval)
-      }
-  }
+    componentWillUnmount() {
+        if (this.props.loop) {
+            clearInterval(this.interval)
+        }
+    }
 
-  onPageSelected = (event) => {
-      const current = event.nativeEvent.position
-      if (this.state.current !== current) {
-          this.setState({ current })
-      }
-  };
+    onPageSelected = (event) => {
+        const current = event.nativeEvent.position
+        if (this.state.current !== current) {
+            this.setState({ current })
+        }
+    }
 
-  setViewPagerRef = (ref) => {
-      this.viewPager = ref
-  };
+    setViewPagerRef = (ref) => {
+        this.viewPager = ref
+    }
 
-  render() {
-      return (
-          <View style={styles.container}>
-              <ViewPager
-                  ref={this.setViewPagerRef}
-                  style={styles.viewPager}
-                  initialPage={0}
-                  onPageSelected={this.onPageSelected}
-                  {...this.props} />
+    render() {
+        return (
+            <View style={styles.container}>
+                <ViewPager
+                    ref={this.setViewPagerRef}
+                    style={styles.viewPager}
+                    initialPage={0}
+                    onPageSelected={this.onPageSelected}
+                    {...this.props} />
 
-              {this.props.paginator && this.props.images.length > 1 && (
-                  <View style={styles.paginator}>
-                      <View style={styles.dotContainer}>
-                          {this.props.children.map((item, i) => (
-                              <View
-                                  key={`slide${i.toString()}`}
-                                  style={[
-                                      styles.dot,
-                                      // eslint-disable-next-line react-native/no-color-literals, react-native/no-inline-styles
-                                      { backgroundColor: this.state.current === i ? 'black' : 'white' }
-                                  ]} />
-                          ))}
-                      </View>
-                  </View>
-              )}
-          </View>
-      )
-  }
+                {this.props.paginator && this.props.images.length > 1 && (
+                    <View style={styles.paginator}>
+                        <View style={styles.dotContainer}>
+                            {this.props.children.map((item, i) => (
+                                <View
+                                    key={`slide${i.toString()}`}
+                                    style={[
+                                        styles.dot,
+                                        // eslint-disable-next-line react-native/no-color-literals, react-native/no-inline-styles
+                                        { backgroundColor: this.state.current === i ? 'black' : 'white' }
+                                    ]} />
+                            ))}
+                        </View>
+                    </View>
+                )}
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

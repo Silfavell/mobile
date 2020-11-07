@@ -24,24 +24,24 @@ class Accordion extends Component {
         }
     }
 
-  toggleExpand = () => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
-      this.setState({ expanded: !this.state.expanded })
-  };
+    toggleExpand = () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+        this.setState({ expanded: !this.state.expanded })
+    }
 
-  render() {
-      return (
-          <View>
-              <TouchableOpacity ref={this.accordion} onPress={this.toggleExpand} activeOpacity={0.9}>
-                  <SettingItem
-                      title={this.props.title}
-                      rightIcon={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} />
-              </TouchableOpacity>
+    render() {
+        return (
+            <View>
+                <TouchableOpacity ref={this.accordion} onPress={this.toggleExpand} activeOpacity={0.9}>
+                    <SettingItem
+                        title={this.props.title}
+                        rightIcon={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} />
+                </TouchableOpacity>
 
-              {this.state.expanded && <View style={styles.childContainer}>{this.props.children}</View>}
-          </View>
-      )
-  }
+                {this.state.expanded && <View style={styles.childContainer}>{this.props.children}</View>}
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

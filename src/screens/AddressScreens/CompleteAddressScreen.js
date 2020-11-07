@@ -12,79 +12,79 @@ import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
 import Map from '../MapScreens/Map'
 
 class CompleteAddressScreen extends React.Component {
-  state = {
-      scaleAnimationModal: false,
-      addressTitle: ''
-  };
+        state = {
+            scaleAnimationModal: false,
+            addressTitle: ''
+        }
 
-  shouldComponentUpdate(_, nextState) {
-      return (
-          nextState.scaleAnimationModal !== this.state.scaleAnimationModal
-      || nextState.addressTitle !== this.state.addressTitle
-      )
-  }
+        shouldComponentUpdate(_, nextState) {
+            return (
+                nextState.scaleAnimationModal !== this.state.scaleAnimationModal
+            || nextState.addressTitle !== this.state.addressTitle
+            )
+        }
 
-  setPopupState = (scaleAnimationModal, complete, address) => {
-      this.setState({ scaleAnimationModal })
-      if (complete) {
-          this.props.saveAddress(address, this.state)
-          this.props.navigation.pop(3)
-      }
-  };
+        setPopupState = (scaleAnimationModal, complete, address) => {
+            this.setState({ scaleAnimationModal })
+            if (complete) {
+                this.props.saveAddress(address, this.state)
+                this.props.navigation.pop(3)
+            }
+        }
 
-  onAddressTitleChange = (addressTitle) => {
-      this.setState({ addressTitle })
-  };
+        onAddressTitleChange = (addressTitle) => {
+            this.setState({ addressTitle })
+        }
 
-  onSaveClick = () => {
-      this.setPopupState(true)
-  };
+        onSaveClick = () => {
+            this.setPopupState(true)
+        }
 
-  render() {
-      return (
-          <ScrollView contentContainerStyle={styles.container}>
-              <ConfirmAddressPopup
-                  scaleAnimationModal={this.state.scaleAnimationModal}
-                  setPopupState={this.setPopupState} />
-              <View>
-                  <View style={styles.mapContainer}>
-                      <Map region={this.props.route.params.region} />
+        render() {
+            return (
+                <ScrollView contentContainerStyle={styles.container}>
+                    <ConfirmAddressPopup
+                        scaleAnimationModal={this.state.scaleAnimationModal}
+                        setPopupState={this.setPopupState} />
+                    <View>
+                        <View style={styles.mapContainer}>
+                            <Map region={this.props.route.params.region} />
 
-                      <View style={styles.markerContainer} pointerEvents='none'>
-                          <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
-                      </View>
-                  </View>
-                  <View style={styles.body}>
-                      <View style={styles.inputContainerChild}>
-                          {
-                              //  <View style={styles.inputContainer}>
-                              //      <TextInput
-                              //          placeholder={'Address Icon'}
-                              //          style={styles.input} />
-                              //  </View>
-                          }
-                          <View style={styles.inputContainer}>
-                              <TextInput
-                                  onChangeText={this.onAddressTitleChange}
-                                  value={this.state.addressTitle}
-                                  placeholder='Address title (Home, Work)'
-                                  style={styles.input} />
-                          </View>
-                      </View>
-                      <View style={styles.addressinputContainerChild}>
-                          <View style={styles.addressInputContainer}>
-                              <CompleteAddressInput />
-                          </View>
-                      </View>
-                  </View>
-              </View>
-              <ButtonComponent
-                  disabled={!(this.state.addressTitle.length > 0) || !(this.props.address.length > 0)}
-                  text='Kaydet'
-                  onClick={this.onSaveClick} />
-          </ScrollView>
-      )
-  }
+                            <View style={styles.markerContainer} pointerEvents='none'>
+                                <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
+                            </View>
+                        </View>
+                        <View style={styles.body}>
+                            <View style={styles.inputContainerChild}>
+                                {
+                                    //  <View style={styles.inputContainer}>
+                                    //      <TextInput
+                                    //          placeholder={'Address Icon'}
+                                    //          style={styles.input} />
+                                    //  </View>
+                                }
+                                <View style={styles.inputContainer}>
+                                    <TextInput
+                                        onChangeText={this.onAddressTitleChange}
+                                        value={this.state.addressTitle}
+                                        placeholder='Address title (Home, Work)'
+                                        style={styles.input} />
+                                </View>
+                            </View>
+                            <View style={styles.addressinputContainerChild}>
+                                <View style={styles.addressInputContainer}>
+                                    <CompleteAddressInput />
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                    <ButtonComponent
+                        disabled={!(this.state.addressTitle.length > 0) || !(this.props.address.length > 0)}
+                        text='Kaydet'
+                        onClick={this.onSaveClick} />
+                </ScrollView>
+            )
+        }
 }
 
 const styles = ScaledSheet.create({

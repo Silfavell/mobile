@@ -8,46 +8,46 @@ import { connect } from 'react-redux'
 import { setMessagePopupRef } from '../../actions/global-actions'
 
 class GlobalMessagePopup extends React.PureComponent {
-    messageComponent = (source) => (
-        <View style={styles.container}>
-            <View style={styles.titleContainer}>
-                <Text numberOfLines={3} style={styles.title}>
-                    {source.message.message}
-                </Text>
-            </View>
-        </View>
-    );
-
-    horizontalTransition = (animValue) => {
-        const opacity = animValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, 1]
-        })
-
-        const translateX = animValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: [100, 0]
-        })
-
-        return {
-            transform: [{ translateX }],
-            opacity
-        }
-    };
-
-    render() {
-        return (
-            <View pointerEvents='none' style={styles.absoluteContainer}>
-                <FlashMessage
-                    ref={this.props.setMessagePopupRef}
-                    animationDuration={250}
-                    duration={2000}
-                    position='bottom'
-                    transitionConfig={this.horizontalTransition}
-                    MessageComponent={this.messageComponent} />
+        messageComponent = (source) => (
+            <View style={styles.container}>
+                <View style={styles.titleContainer}>
+                    <Text numberOfLines={3} style={styles.title}>
+                        {source.message.message}
+                    </Text>
+                </View>
             </View>
         )
-    }
+
+        horizontalTransition = (animValue) => {
+            const opacity = animValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 1]
+            })
+
+            const translateX = animValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [100, 0]
+            })
+
+            return {
+                transform: [{ translateX }],
+                opacity
+            }
+        }
+
+        render() {
+            return (
+                <View pointerEvents='none' style={styles.absoluteContainer}>
+                    <FlashMessage
+                        ref={this.props.setMessagePopupRef}
+                        animationDuration={250}
+                        duration={2000}
+                        position='bottom'
+                        transitionConfig={this.horizontalTransition}
+                        MessageComponent={this.messageComponent} />
+                </View>
+            )
+        }
 }
 
 const styles = ScaledSheet.create({
