@@ -62,15 +62,15 @@ class LoginScreen extends React.Component {
         this.props.navigation.navigate('forgotPassword')
     }
 
-    onPhoneChange = (phoneNumber) => {
+    onPhoneChange = (formatted, extracted) => {
         joi
             .string()
             .trim()
             .strict()
             .min(19)
             .max(19)
-            .validate(phoneNumber, (err) => {
-                this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
+            .validate(formatted, (err) => {
+                this.setState({ phoneNumber: extracted, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
             })
     }
 

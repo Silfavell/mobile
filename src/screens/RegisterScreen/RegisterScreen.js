@@ -64,14 +64,15 @@ class RegisterScreen extends React.Component {
         })
         */
 
-    onPhoneChange = (phoneNumber) => {
-        joi.string()
+    onPhoneChange = (formatted, extracted) => {
+        joi
+            .string()
             .trim()
             .strict()
             .min(19)
             .max(19)
-            .validate(phoneNumber, (err) => {
-                this.setState({ phoneNumber, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
+            .validate(formatted, (err) => {
+                this.setState({ phoneNumber: extracted, isPhoneNumberInitialized: true, invalidPhoneNumber: !!err })
             })
     }
 
