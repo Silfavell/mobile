@@ -20,7 +20,7 @@ import BestSeller from './BestSeller'
 
 import logo from '../../../assets/logo.png'
 
-import FOR_WHİCH from '../../models/ForWhich'
+import FOR_WHICH from '../../models/ForWhich'
 
 const banners = [
 	`${Config.SERVER_URL}/assets/banners/1.jpg`,
@@ -73,7 +73,7 @@ class HomeScreen extends React.Component {
 	}
 
 	onCategoryListClick = () => {
-		this.props.navigation.navigate('categoryList', { forWhich: FOR_WHİCH.CATEGORIES })
+		this.props.navigation.navigate('categoryList', { forWhich: FOR_WHICH.CATEGORIES })
 	}
 
 	renderItem = ({ item, index }) => <Category navigation={this.props.navigation} index={index} data={item} />
