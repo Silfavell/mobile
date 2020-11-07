@@ -1,20 +1,4 @@
-import AsyncStorage from '@react-native-community/async-storage'
-import axios from 'axios'
-import Config from 'react-native-config'
-
-const instance = axios.create({
-    baseURL: Config.SERVER_URL
-})
-
-instance.interceptors.request.use(async (options) => {
-    const token = await AsyncStorage.getItem('token')
-
-    if (token) {
-        options.headers.Authorization = token
-    }
-
-    return options
-})
+import { instance } from './axios'
 
 export const makeCustomRequest = ({
     method,

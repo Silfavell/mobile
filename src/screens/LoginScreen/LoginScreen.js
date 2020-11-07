@@ -98,8 +98,7 @@ class LoginScreen extends React.Component {
                       mask='telephoneNumber'
                       invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
                       value={this.state.phoneNumber}
-                      onChange={this.onPhoneChange}
-                  >
+                      onChange={this.onPhoneChange}>
                       <InputIcon>
                           <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
                       </InputIcon>
@@ -113,8 +112,7 @@ class LoginScreen extends React.Component {
                       }}
                       invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
                       value={this.state.password}
-                      onChange={this.onPasswordChange}
-                  >
+                      onChange={this.onPasswordChange}>
                       <InputIcon>
                           <Ionicons
                               size={32}

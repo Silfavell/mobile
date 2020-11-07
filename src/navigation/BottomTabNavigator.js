@@ -19,8 +19,7 @@ export default function BottomTabNavigator({ navigation }) {
         <BottomTab.Navigator
             initialRouteName={INITIAL_ROUTE_NAME}
             tabBarOptions={{ activeTintColor: 'rgba(0,0,0,.8)' }}
-            lazy={false}
-        >
+            lazy={false}>
             <BottomTab.Screen
                 name='Home'
                 component={HomeStack}

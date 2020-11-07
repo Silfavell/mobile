@@ -66,8 +66,7 @@ class ThanksScreen extends React.Component {
                 <View style={[styles.child, styles.goToHomeButtonContainer]}>
                     <TouchableOpacity
                         onPress={this.onGoHomeClick}
-                        style={styles.goToHomeButton}
-                    >
+                        style={styles.goToHomeButton}>
                         <Text style={styles.goToHomeButtonText}>Ana Sayfaya Git</Text>
                     </TouchableOpacity>
                 </View>

@@ -29,8 +29,7 @@ class PasswordChangedPopup extends React.Component {
                             onPress={this.close}
                             key='button-1' />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <ModalContent style={styles.content}>
                     <Text style={styles.text}>{this.props.title}</Text>
                 </ModalContent>

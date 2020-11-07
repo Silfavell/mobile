@@ -69,8 +69,7 @@ class CompletePaymentComponent extends React.Component {
 
                 <TouchableOpacity
                     onPress={this.onCompletePaymentClick}
-                    style={styles.completePaymentButton}
-                >
+                    style={styles.completePaymentButton}>
                     <Text style={styles.completePaymentText}>SİPARİŞ VER</Text>
                 </TouchableOpacity>
             </View>

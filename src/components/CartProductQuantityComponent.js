@@ -13,123 +13,128 @@ import {
 } from '../actions/cart-actions'
 
 class CartProductQuantityComponent extends React.Component {
-  state = {};
+    state = {
+        quantity: 1
+    }
 
-  componentDidMount() {
-      let quantity = 1
-      if (this.props.previousOrder) {
-          quantity = this.props.quantity
-      // eslint-disable-next-line no-empty
-      } else if (this.props.returnItem) {
-      } else {
-          quantity = this.props.cart[this.props._id].quantity
-      }
+    componentDidMount() {
+        let quantity = 1
 
-      this.setState({ quantity })
-  }
+        if (this.props.previousOrder) {
+            quantity = this.props.quantity
+        // eslint-disable-next-line no-empty
+        } else if (this.props.returnItem) {
+        } else {
+            quantity = this.props.cart[this.props._id].quantity
+        }
 
-  static getDerivedStateFromProps(props) {
-      if (!props.returnItem) {
-          if (props.previousOrder) {
-              return { quantity: props.previousOrder }
-          }
+        this.setState({ quantity })
+    }
 
-          if (props.cart[props._id]) {
-              return { quantity: props.cart[props._id].quantity }
-          }
-      }
+    static getDerivedStateFromProps(props) {
+        if (!props.returnItem) {
+            if (props.previousOrder) {
+                return { quantity: props.previousOrder }
+            }
 
-      return null
-  }
+            if (props.cart[props._id]) {
+                return { quantity: props.cart[props._id].quantity }
+            }
+        }
 
-  onDecreaseClick = () => {
-      if (this.props.returnItem) {
-          this.setState({
-              quantity: this.props.returnItem.decreaseProductQuantity(this.props._id)
-          })
-      } else {
-          this.props.decreaseProductQuantity(this.props._id)
-      }
-  };
+        return null
+    }
 
-  onIncreaseClick = () => {
-      if (this.props.returnItem) {
-          this.setState({
-              quantity: this.props.returnItem.increaseProductQuantity(this.props._id)
-          })
-      } else {
-          this.props.increaseProductQuantity(this.props._id)
-      }
-  };
+    onDecreaseClick = () => {
+        if (this.props.returnItem) {
+            this.setState({
+                quantity: this.props.returnItem.decreaseProductQuantity(this.props._id)
+            })
+        } else {
+            this.props.decreaseProductQuantity(this.props._id)
+        }
+    };
 
-  onQuantityChange = (quantity) => {
-      this.setState({ quantity })
-  };
+    onIncreaseClick = () => {
+        if (this.props.returnItem) {
+            this.setState({
+                quantity: this.props.returnItem.increaseProductQuantity(this.props._id)
+            })
+        } else {
+            this.props.increaseProductQuantity(this.props._id)
+        }
+    };
 
-  onFocusOut = () => {
-      const { quantity } = this.state
+    onQuantityChange = (quantity) => {
+        this.setState({ quantity })
+    };
 
-      if (quantity === '') {
-          this.setState({ quantity: 1 }, () => {
-              if (this.props.returnItem) {
-                  this.setState({
-                      quantity: this.props.returnItem.setProductQuantity(this.props._id, 1)
-                  })
-              } else {
-                  this.props.setProductQuantity(this.props._id, 1)
-              }
-          })
-      } else if (this.props.returnItem) {
-          this.setState({
-              quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(quantity, 10))
-          })
-      } else {
-          this.props.setProductQuantity(this.props._id, parseInt(quantity, 10))
-      }
-  };
+    onFocusOut = () => {
+        const { quantity } = this.state
 
-  render() {
-      const { previousOrder } = this.props
+        if (quantity === '') {
+            this.setState({ quantity: 1 }, () => {
+                if (this.props.returnItem) {
+                    this.setState({
+                        quantity: this.props.returnItem.setProductQuantity(this.props._id, 1)
+                    })
+                } else {
+                    this.props.setProductQuantity(this.props._id, 1)
+                }
+            })
+        } else if (this.props.returnItem) {
+            this.setState({
+                quantity: this.props.returnItem.setProductQuantity(this.props._id, parseInt(quantity, 10))
+            })
+        } else {
+            this.props.setProductQuantity(this.props._id, parseInt(quantity, 10))
+        }
+    };
 
-      return (
-          <View style={styles.containerRow}>
-              <View style={styles.child2} />
+    render() {
+        const { previousOrder } = this.props
 
-              <View style={styles.container}>
-                  {!previousOrder && (
-                      <TouchableOpacity
-                          disabled={previousOrder}
-                          onPress={this.onDecreaseClick}
-                          style={[styles.child, styles.decreaseButton]}
-                      >
-                          <Text style={styles.quantityButton}>-</Text>
-                      </TouchableOpacity>
-                  )}
+        return (
+            <View style={styles.containerRow}>
+                <View style={styles.child2} />
 
-                  <View style={[styles.child, styles.quantityContainer]}>
-                      <TextInput
-                          editable={!previousOrder}
-                          keyboardType='number-pad'
-                          style={styles.quantityText}
-                          onBlur={this.onFocusOut}
-                          onChangeText={this.onQuantityChange}
-                          value={this.state?.quantity.toString()} />
-                  </View>
+                <View style={styles.container}>
+                    {
+                        !previousOrder && (
+                            <TouchableOpacity
+                                disabled={previousOrder}
+                                onPress={this.onDecreaseClick}
+                                style={[styles.child, styles.decreaseButton]}>
+                                <Text style={styles.quantityButton}>-</Text>
+                            </TouchableOpacity>
+                        )
+                    }
 
-                  {!previousOrder && (
-                      <TouchableOpacity
-                          onPress={this.onIncreaseClick}
-                          style={[styles.child, styles.increaseButton]}
-                      >
-                          <Text style={styles.quantityButton}>+</Text>
-                      </TouchableOpacity>
-                  )}
-              </View>
+                    <View style={[styles.child, styles.quantityContainer]}>
+                        <TextInput
+                            editable={!previousOrder}
+                            keyboardType='number-pad'
+                            style={styles.quantityText}
+                            onBlur={this.onFocusOut}
+                            onChangeText={this.onQuantityChange}
+                            value={this.state?.quantity.toString()} />
+                    </View>
 
-              <View style={styles.child2} />
-          </View>
-      )
-  }
+                    {
+                        !previousOrder && (
+                            <TouchableOpacity
+                                onPress={this.onIncreaseClick}
+                                style={[styles.child, styles.increaseButton]}>
+                                <Text style={styles.quantityButton}>+</Text>
+                            </TouchableOpacity>
+                        )
+                    }
+                </View>
+
+                <View style={styles.child2} />
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({

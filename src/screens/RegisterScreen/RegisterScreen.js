@@ -127,8 +127,7 @@ class RegisterScreen extends React.Component {
                         mask='telephoneNumber'
                         invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
                         value={this.state.phoneNumber}
-                        onChange={this.onPhoneChange}
-                    >
+                        onChange={this.onPhoneChange}>
                         <InputIcon>
                             <Ionicons
                                 size={32}
@@ -145,8 +144,7 @@ class RegisterScreen extends React.Component {
                         }}
                         invalid={this.state.invalidPassword && this.state.isPasswordInitialized}
                         value={this.state.password}
-                        onChange={this.onPasswordChange}
-                    >
+                        onChange={this.onPasswordChange}>
 
                         <InputIcon>
                             <Ionicons
@@ -167,8 +165,7 @@ class RegisterScreen extends React.Component {
                         }}
                         invalid={this.state.invalidNameSurname && this.state.isNameSurnameInitialized}
                         value={this.state.nameSurname}
-                        onChange={this.onNameSurnameChange}
-                    >
+                        onChange={this.onNameSurnameChange}>
 
                         <InputIcon>
                             <Ionicons
@@ -189,8 +186,7 @@ class RegisterScreen extends React.Component {
                         }}
                         invalid={this.state.invalidEmail && this.state.isEmailInitialized}
                         value={this.state.email}
-                        onChange={this.onEmailChange}
-                    >
+                        onChange={this.onEmailChange}>
 
                         <InputIcon>
                             <Ionicons

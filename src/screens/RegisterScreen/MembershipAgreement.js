@@ -12,8 +12,7 @@ const Item = ({ item: { type, mark, content } }) => (
     // eslint-disable-next-line react-native/no-inline-styles
     <Text style={{
         [type === 0 ? 'marginVertical' : 'marginBottom']: 12
-    }}
-    >
+    }}>
         <Text style={styles.textStyle}>{mark}</Text>
         {content}
     </Text>
@@ -194,8 +193,7 @@ class MembershipAgreement extends React.PureComponent {
                             onPress={this.close}
                             key='button-1' />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <FlatList
                     data={items}
                     renderItem={this.renderItem}

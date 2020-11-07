@@ -60,7 +60,10 @@ module.exports = {
         'react/jsx-indent-props': ['error', 4],
         'react/jsx-filename-extension': 'off', // TODO remove
         'react/state-in-constructor': 'off',
-        'react/jsx-closing-bracket-location': [2, { selfClosing: 'after-props' }],
+        'react/jsx-closing-bracket-location': [2, {
+            nonEmpty: 'after-props',
+            selfClosing: 'after-props'
+        }],
         'object-curly-newline': ['error', {
             ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
             ObjectPattern: { minProperties: 4, multiline: true, consistent: true },

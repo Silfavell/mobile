@@ -44,8 +44,7 @@ class WelcomeScreen extends React.PureComponent {
                 <View style={styles.child}>
                     <TouchableOpacity
                         style={styles.continueWithRegistration}
-                        onPress={this.onContinueClick}
-                    >
+                        onPress={this.onContinueClick}>
                         <Text style={styles.buttonText}>Giriş yapmadan devam et</Text>
                     </TouchableOpacity>
                 </View>

@@ -171,8 +171,7 @@ class FilterProductsScreen extends React.Component {
                                     <ModalSelector
                                         data={this.sorts}
                                         cancelText='İptal'
-                                        onChange={this.onSortSelect}
-                                    >
+                                        onChange={this.onSortSelect}>
                                         <SettingItem title='Sırala' value={this.sorts[this.state.selectedSort]?.label ?? 'Seçiniz'} />
                                     </ModalSelector>
                                 )

@@ -10,9 +10,10 @@ class OrderCarousel extends React.PureComponent {
         return (
             <ViewPager style={styles.paginator} initialPage={0} showPageIndicator>
                 {this.props.products.map((product) => (
-                    // TODO
-                    // eslint-disable-next-line react/jsx-key
-                    <CartProduct data={product} previousOrder />
+                    <CartProduct
+                        // key={`cartProduct:${}`}
+                        data={product}
+                        previousOrder />
                 ))}
             </ViewPager>
         )

@@ -125,8 +125,7 @@ class FullProductScreen extends React.Component {
         <View style={[
             styles.detailRow,
             !first ? styles.nonFirstDetailsRow : {}
-        ]}
-        >
+        ]}>
             <View style={styles.detailRowTitleContainer}>
                 <Text style={styles.detailRowTitle}>{title}</Text>
             </View>
@@ -155,8 +154,7 @@ class FullProductScreen extends React.Component {
                     <ScrollView
                         ref={this.scrollRef}
                         contentContainerStyle={styles.scrollContainer}
-                        onScroll={this.handleScroll}
-                    >
+                        onScroll={this.handleScroll}>
                         <SliderWithHoc
                             _id={`Slider:${(this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor])._id}`}
                             images={this.getImages()} />

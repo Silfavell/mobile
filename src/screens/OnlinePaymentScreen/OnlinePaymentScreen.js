@@ -62,8 +62,7 @@ class OnlinePaymentScreen extends React.Component {
                           inputStyle={styles.input}
                           style={styles.formInput}
                           onChangeText={this.onCardNumberChange}
-                          value={this.state.cardNumber}
-                      >
+                          value={this.state.cardNumber}>
                           Kart Numarası *
                       </FloatingInput>
                   </View>
@@ -75,8 +74,7 @@ class OnlinePaymentScreen extends React.Component {
                               inputStyle={styles.input}
                               style={styles.formInput}
                               onChangeText={this.onExpirationDateChange}
-                              value={this.state.expirationDate}
-                          >
+                              value={this.state.expirationDate}>
                               Son Kullanma Tarihi *
                           </FloatingInput>
                       </View>
@@ -87,8 +85,7 @@ class OnlinePaymentScreen extends React.Component {
                               inputStyle={styles.input}
                               style={styles.formInput}
                               onChangeText={this.onCvcChange}
-                              value={this.state.CVC2}
-                          >
+                              value={this.state.CVC2}>
                               Güvenlik Kodu (CVC2) *
                           </FloatingInput>
                       </View>

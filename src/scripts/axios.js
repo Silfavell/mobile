@@ -1,10 +1,25 @@
+import AsyncStorage from '@react-native-community/async-storage'
 import axios from 'axios'
+import Config from 'react-native-config'
 
 import { SET_CONNECTION_POPUP_STATE } from '../actions/global-actions'
 
+export const instance = axios.create({
+    baseURL: Config.SERVER_URL
+})
+
+instance.interceptors.request.use(async (options) => {
+    const token = await AsyncStorage.getItem('token')
+
+    if (token) {
+        options.headers.Authorization = token
+    }
+
+    return options
+})
+
 export default (store) => {
-    // Add a request interceptor
-    axios.interceptors.request.use((config) => { // Do something before request is sent
+    instance.interceptors.request.use((config) => {
         if (!store.getState().networkReducer.networkStatus) {
             store.dispatch({
                 type: SET_CONNECTION_POPUP_STATE,
@@ -12,24 +27,26 @@ export default (store) => {
                     connectionPopupState: true
                 }
             })
-            // throw new Error('Network Error')
-        } else {
-            config.cancelToken = new axios.CancelToken((c) => {
+        }
+        /* else {
+            config.cancelToken = new instance.CancelToken((c) => {
                 // eslint-disable-next-line no-undef
                 cancel = c
             })
         }
+        */
 
         return config
-    }, (error) => { // Do something with request error
+    }, (error) => { // Request Error
         Promise.reject(error)
     })
 
-    // Add a response interceptor
-    axios.interceptors.response.use((response) => response, // Do something with response data
-        (error) => { // Do something with response error
+    instance.interceptors.response.use(
+        (response) => response,
+        (error) => { // Response Error
             store.getState().globalReducer.messagePopupRef.showMessage({ message: error?.response?.data?.error ?? 'Beklenmedik bir hata oluştu, lütfen daha sonra tekrar deneyiniz' })
 
             return Promise.reject(error)
-        })
+        }
+    )
 }

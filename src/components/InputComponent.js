@@ -48,8 +48,7 @@ class InputComponent extends React.Component {
           <TouchableOpacity
               activeOpacity={1}
               style={[styles.container, multiline ? styles.multiline : {}]}
-              onPress={this.state.selectorRef ? this.onSelectorInputClick : null}
-          >
+              onPress={this.state.selectorRef ? this.onSelectorInputClick : null}>
               {icon}
 
               {mask ? (

@@ -72,8 +72,7 @@ class ProductsScreen extends React.Component {
                 <TabHeading style={styles.tabStyle}>
                     <Text style={styles.tabBarTextStyle}>{subCategory.name}</Text>
                 </TabHeading>
-            )}
-        >
+            )}>
 
             {
                 this.getProducts(subCategory)?.length > 0 ? (
@@ -99,8 +98,7 @@ class ProductsScreen extends React.Component {
                     tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
                     prerenderingSiblingsNumber={Infinity}
                     tabBarBackgroundColor={styles.tabStyle.backgroundColor}
-                    renderTabBar={this.getTabBar}
-                >
+                    renderTabBar={this.getTabBar}>
                     {
                         this.props.products[this.selectedCategory].subCategories.map(this.renderTab)
                     }

@@ -24,8 +24,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
       return (
           <TouchableOpacity
               style={styles.container}
-              onPress={this.onPress}
-          >
+              onPress={this.onPress}>
               <View style={styles.iconContainer}>
                   <Ionicons size={32} name='ios-wallet' />
               </View>

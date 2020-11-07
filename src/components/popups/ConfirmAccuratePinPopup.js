@@ -41,8 +41,7 @@ class ConfirmAccuratePinPopup extends React.Component {
                             onPress={this.onConfirm}
                             key='button-2' />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <ModalContent style={styles.content}>
                     <Ionicons color='rgba(0,0,0,.8)' size={92} name='md-map' />
                     <Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz ?</Text>

@@ -53,8 +53,7 @@ class ForgotPasswordScreen extends React.Component {
                   mask='telephoneNumber'
                   invalid={this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized}
                   value={this.state.phoneNumber}
-                  onChange={this.onPhoneChange}
-              >
+                  onChange={this.onPhoneChange}>
                   <InputIcon>
                       <Ionicons
                           size={32}

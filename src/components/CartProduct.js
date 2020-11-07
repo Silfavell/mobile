@@ -13,11 +13,11 @@ import CartProductQuantityComponent from './CartProductQuantityComponent'
 class CartProduct extends React.PureComponent {
     onReturnItemSelect = () => {
         this.props.returnItem.onSelect(this.props.data._id)
-    };
+    }
 
     onRemoveClick = () => {
         this.props.setProductQuantity(this.props.data._id, 0)
-    };
+    }
 
     render() {
         const {
@@ -61,8 +61,7 @@ class CartProduct extends React.PureComponent {
                                     style={[
                                         styles.productPrice,
                                         discountedPrice && !previousOrder ? styles.discountedPrice : {}
-                                    ]}
-                                >
+                                    ]}>
                                     {`₺${price.toFixed(2).toString().replace('.', ',')}`}
                                 </Text>
                                 {discountedPrice && !previousOrder && (
@@ -89,9 +88,13 @@ class CartProduct extends React.PureComponent {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.trashIconContainer} onPress={this.onRemoveClick}>
-                    <Ionicons size={26} name='md-trash' style={styles.trashIcon} />
-                </TouchableOpacity>
+                {
+                    !previousOrder && (
+                        <TouchableOpacity style={styles.trashIconContainer} onPress={this.onRemoveClick}>
+                            <Ionicons size={26} name='md-trash' style={styles.trashIcon} />
+                        </TouchableOpacity>
+                    )
+                }
             </View>
         )
     }

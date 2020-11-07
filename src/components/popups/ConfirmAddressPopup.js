@@ -49,8 +49,7 @@ class ConfirmAddressPopup extends React.Component {
                             onPress={this.onConfirm}
                             key='button-2' />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <ModalContent style={styles.content}>
                     <Text numberOfLines={3} style={styles.contentText}>{this.props.address}</Text>
                 </ModalContent>

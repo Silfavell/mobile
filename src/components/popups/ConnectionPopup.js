@@ -32,8 +32,7 @@ class ConnectionPopup extends React.Component {
                             onPress={this.close}
                             key='button-1' />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <ModalContent style={styles.content}>
                     <MaterialIcons color='rgba(0,0,0,.8)' size={72} name='wifi' />
                     <Text style={styles.contentText}>Lütfen internet bağlantınızı kontrol edin</Text>

@@ -27,8 +27,7 @@ class Slider extends React.Component {
         return (
             <View
                 style={styles.sliderContainer}
-                key={`${this.props.initialMinPrice}:${this.props.initialMaxPrice}`}
-            >
+                key={`${this.props.initialMinPrice}:${this.props.initialMaxPrice}`}>
                 <RangeSlider
                     style={styles.slider}
                     gravity='top'

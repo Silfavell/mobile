@@ -7,13 +7,11 @@ const ButtonComponent = ({
     text, onClick, opposite, needFlex, disabled
 }) => (
     <View
-        style={[styles.container, needFlex ? styles.needFlex : {}, disabled ? styles.disabled : {}]}
-    >
+        style={[styles.container, needFlex ? styles.needFlex : {}, disabled ? styles.disabled : {}]}>
         <TouchableOpacity
             disabled={disabled}
             onPress={onClick}
-            style={[styles.button, opposite ? styles.opposite : {}]}
-        >
+            style={[styles.button, opposite ? styles.opposite : {}]}>
             <Text style={[styles.text, opposite ? styles.opposite : {}]}>{text}</Text>
         </TouchableOpacity>
     </View>

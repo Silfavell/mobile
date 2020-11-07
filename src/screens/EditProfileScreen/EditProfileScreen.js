@@ -74,8 +74,7 @@ class EditProfileScreen extends React.Component {
                         }}
                         invalid={this.state.invalidNameSurname && this.state.isNameSurnameInitialized}
                         value={this.state.nameSurname}
-                        onChange={this.onNameSurnameChange}
-                    >
+                        onChange={this.onNameSurnameChange}>
                         <InputIcon>
                             <Ionicons size={32} name='md-person' color='rgba(0,0,0,.8)' />
                         </InputIcon>
@@ -90,8 +89,7 @@ class EditProfileScreen extends React.Component {
                         }}
                         invalid={this.state.invalidEmail && this.state.isEmailInitialized}
                         value={this.state.email}
-                        onChange={this.onEmailChange}
-                    >
+                        onChange={this.onEmailChange}>
                         <InputIcon>
                             <Ionicons size={32} name='md-mail-open' color='rgba(0,0,0,.8)' />
                         </InputIcon>
@@ -108,8 +106,7 @@ class EditProfileScreen extends React.Component {
                         mask='telephoneNumber'
                         value={this.state.phoneNumber}
                         disabled
-                        onChange={this.onPhoneChange}
-                    >
+                        onChange={this.onPhoneChange}>
                         <InputIcon>
                             <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
                         </InputIcon>

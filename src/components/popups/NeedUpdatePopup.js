@@ -31,8 +31,7 @@ class NeedUpdatePopup extends React.Component {
                             onPress={this.onConfirm}
                             key='button-2' />
                     </ModalFooter>
-                )}
-            >
+                )}>
                 <ModalContent style={styles.content}>
                     <Text style={styles.text}>{'Silfavell\'in yeni bir sürümü var. Lütfen devam etmeden önce güncelleyiniz.'}</Text>
                 </ModalContent>
