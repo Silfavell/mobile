@@ -112,7 +112,7 @@ class CartProductQuantityComponent extends React.Component {
 
                         <View style={[styles.child, styles.quantityContainer]}>
                             <TextInput
-                                editable={!previousOrder}
+                                editable={false}
                                 keyboardType='number-pad'
                                 style={styles.quantityText}
                                 onBlur={this.onFocusOut}
