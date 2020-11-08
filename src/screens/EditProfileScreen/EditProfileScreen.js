@@ -42,14 +42,15 @@ class EditProfileScreen extends React.Component {
             })
     }
 
-    onPhoneChange = (phoneNumber) => {
-        joi.string()
+    onPhoneChange = (formatted, extracted) => {
+        joi
+            .string()
             .trim()
             .strict()
             .min(19)
             .max(19)
-            .validate(phoneNumber, () => {
-                this.setState({ phoneNumber /* isPhoneNumberInitialized: true, invalidPhoneNumber: !!err */ })
+            .validate(formatted, () => {
+                this.setState({ phoneNumber: extracted /* isPhoneNumberInitialized: true, invalidPhoneNumber: true */ })
             })
     }
 

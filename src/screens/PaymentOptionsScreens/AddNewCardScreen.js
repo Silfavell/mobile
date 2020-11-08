@@ -59,14 +59,14 @@ class AddNewCardScreen extends React.Component {
             })
     }
 
-    onCardNumberChange = (cardNumber) => {
+    onCardNumberChange = (formatted, extracted) => {
         joi
             .string()
             .min(16)
             .max(16)
             .creditCard()
-            .validate(cardNumber.split(' ').join(''), (err) => {
-                this.setState({ cardNumber, isCardNumberInitialized: true, invalidCardNumber: !!err })
+            .validate(formatted.split(' ').join(''), (err) => {
+                this.setState({ cardNumber: extracted, isCardNumberInitialized: true, invalidCardNumber: !!err })
             })
     }
 
