@@ -19,6 +19,7 @@ import ProfileScreen from '../screens/ProfileScreen/ProfileScreen'
 import ReturnItems from '../screens/ReturnItems/ReturnItems'
 import ReturnItemsCompleted from '../screens/ReturnItemsCompleted/ReturnItemsCompleted'
 import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -199,7 +200,7 @@ class ProfileStack extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     }
 })
 

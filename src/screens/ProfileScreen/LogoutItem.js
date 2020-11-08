@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { logout } from '../../actions/source-actions'
 import AskPopup from '../../components/popups/AskPopup'
 import SettingItem from '../../components/SettingItem'
+import { COLORS } from '../../scripts/colors'
 
 class LogoutItem extends React.Component {
     state = {
@@ -32,7 +33,7 @@ class LogoutItem extends React.Component {
 
                 <TouchableOpacity onPress={this.onClick}>
                     <SettingItem title='Çıkış Yap'>
-                        <MaterialIcons color='rgba(0,0,0,.8)' name='exit-to-app' size={32} />
+                        <MaterialIcons color={COLORS.TERTIARY} name='exit-to-app' size={32} />
                     </SettingItem>
                 </TouchableOpacity>
             </>

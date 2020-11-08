@@ -7,6 +7,7 @@ import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 import { sendActivationCode } from '../../scripts/requests'
 
 class ForgotPasswordScreen extends React.Component {
@@ -58,7 +59,7 @@ class ForgotPasswordScreen extends React.Component {
                         <Ionicons
                             size={32}
                             name='md-phone-portrait'
-                            color='rgba(0,0,0,.8)' />
+                            color={COLORS.TERTIARY} />
                     </InputIcon>
                 </InputComponent>
 

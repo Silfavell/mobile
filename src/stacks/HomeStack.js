@@ -13,6 +13,7 @@ import FilterProductsScreen from '../screens/FilterProductsScreen/FilterProducts
 import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
 import HomeScreen from '../screens/HomeScreen/HomeScreen'
 import ProductScreen from '../screens/ProductsScreen/ProductsScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -78,7 +79,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     }
 })
 

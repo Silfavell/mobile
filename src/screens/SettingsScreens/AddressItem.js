@@ -7,6 +7,7 @@ import {
     deleteAddress,
     setSelectedAddress
 } from '../../actions/payment-actions'
+import { COLORS } from '../../scripts/colors'
 import InteractiveSettingItem from './InteractiveSettingItem'
 
 class AddressList extends React.PureComponent {
@@ -24,8 +25,8 @@ class AddressList extends React.PureComponent {
                 title={this.props.address.openAddress}
                 onLeftClick={this.onLeftClick}
                 onRightIconClick={this.onRightIconClick}>
-                <Ionicons color='rgba(0,0,0,.8)' name='md-locate' size={32} />
-                <Ionicons color='rgba(0,0,0,.8)' name='md-trash' size={32} />
+                <Ionicons color={COLORS.TERTIARY} name='md-locate' size={32} />
+                <Ionicons color={COLORS.TERTIARY} name='md-trash' size={32} />
             </InteractiveSettingItem>
         )
     }

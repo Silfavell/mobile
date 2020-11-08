@@ -18,6 +18,7 @@ import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
 import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
 import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
 import ThanksScreen from '../screens/ThanksScreen/ThanksScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -125,7 +126,7 @@ const CartStack = ({ navigation }) => (
 )
 
 const styles = ScaledSheet.create({
-    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
+    headerStyle: { backgroundColor: COLORS.PRIMARY }
 })
 
 export default CartStack

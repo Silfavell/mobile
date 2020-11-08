@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setProductQuantity } from '../actions/cart-actions'
+import { COLORS } from '../scripts/colors'
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
 class CartProduct extends React.PureComponent {
@@ -95,7 +96,7 @@ class CartProduct extends React.PureComponent {
                 {
                     !previousOrder && (
                         <TouchableOpacity style={styles.trashIconContainer} onPress={this.onRemoveClick}>
-                            <Ionicons size={26} name='md-trash' style={styles.trashIcon} />
+                            <Ionicons size={26} name='md-trash' color={COLORS.SECONDARY} style={styles.trashIcon} />
                         </TouchableOpacity>
                     )
                 }

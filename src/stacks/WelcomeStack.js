@@ -12,6 +12,7 @@ import LoginScreen from '../screens/LoginScreen/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen/RegisterScreen'
 import ResetPasswordScreen from '../screens/ResetPasswordScreen/ResetPasswordScreen'
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -79,7 +80,9 @@ const WelcomeStack = () => (
 )
 
 const styles = ScaledSheet.create({
-    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' },
+    headerStyle: {
+        backgroundColor: COLORS.PRIMARY
+    },
     headerImage: {
         height: '200%'
     }

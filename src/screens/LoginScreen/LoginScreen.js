@@ -13,6 +13,7 @@ import { login } from '../../actions/source-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
+import { COLORS } from '../../scripts/colors'
 import { bulkCart } from '../../scripts/requests'
 
 class LoginScreen extends React.Component {
@@ -100,7 +101,7 @@ class LoginScreen extends React.Component {
                         value={this.state.phoneNumber}
                         onChange={this.onPhoneChange}>
                         <InputIcon>
-                            <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
+                            <Ionicons size={32} name='md-phone-portrait' color={COLORS.TERTIARY} />
                         </InputIcon>
                     </InputComponent>
 
@@ -119,8 +120,8 @@ class LoginScreen extends React.Component {
                                 name='ios-key'
                                 color={
                                     this.state.invalidPassword && this.state.isPasswordInitialized
-                                        ? '#EE4266'
-                                        : 'rgba(0,0,0,.8)'
+                                        ? COLORS.SECONDARY
+                                        : COLORS.TERTIARY
                                 }
                                 style={styles.iosIcon} />
                         </InputIcon>

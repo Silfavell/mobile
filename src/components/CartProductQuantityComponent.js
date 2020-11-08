@@ -11,6 +11,7 @@ import {
     increaseProductQuantity,
     setProductQuantity
 } from '../actions/cart-actions'
+import { COLORS } from '../scripts/colors'
 
 class CartProductQuantityComponent extends React.Component {
         state = {
@@ -141,7 +142,7 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         borderWidth: 1,
-        borderColor: 'rgba(0,0,0,.8)',
+        borderColor: COLORS.SECONDARY,
         flexDirection: 'row'
     },
     containerRow: {
@@ -157,11 +158,11 @@ const styles = ScaledSheet.create({
         flex: 0.2
     },
     quantityContainer: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: COLORS.SECONDARY,
         paddingHorizontal: '4@s'
     },
     quantityButton: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontSize: '17@s'
     },
     quantityText: {

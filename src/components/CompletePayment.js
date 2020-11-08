@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 import { makeOrder } from '../actions/cart-actions'
 import { setNeedToLoginPopupState } from '../actions/global-actions'
+import { COLORS } from '../scripts/colors'
 
 class CompletePaymentComponent extends React.Component {
     shouldComponentUpdate(nextProps) {
@@ -93,7 +94,7 @@ const styles = ScaledSheet.create({
     },
     completePaymentButton: {
         padding: '20@s',
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: COLORS.SECONDARY,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -104,7 +105,8 @@ const styles = ScaledSheet.create({
     },
     totalPriceContainer: {
         flex: 2,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: COLORS.TERTIARY
     },
     totalPriceText: {
         color: 'white',

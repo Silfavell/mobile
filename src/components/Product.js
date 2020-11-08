@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 
 import { increaseProductQuantity } from '../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'
+import { COLORS } from '../scripts/colors'
 
 class Product extends React.Component {
     shouldComponentUpdate(nextProps) {
@@ -78,7 +79,7 @@ class Product extends React.Component {
                         resizeMode={FastImage.resizeMode.contain}
                         style={styles.productImage} />
 
-                    <Ionicons style={styles.basketIcon} size={28} name='md-basket' color='rgba(0,0,0,.8)' onPress={this.onAddProductClick} />
+                    <Ionicons style={styles.basketIcon} size={28} name='md-basket' color={COLORS.TERTIARY} onPress={this.onAddProductClick} />
                 </TouchableOpacity>
 
                 <View style={[styles.child, styles.priceContainer]}>
