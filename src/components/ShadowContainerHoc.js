@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { View } from 'react-native'
+import ShadowView from 'react-native-simple-shadow-view'
 import { ScaledSheet } from 'react-native-size-matters'
 
 const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) => (
@@ -9,9 +10,9 @@ const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) =>
             return (
                 <View style={[styles.x, containerStyle]}>
                     <View style={styles.y}>
-                        <View style={[styles.z, style]}>
+                        <ShadowView style={[styles.z, style]}>
                             <WrappedComponent {...this.props} />
-                        </View>
+                        </ShadowView>
                     </View>
                 </View>
             )
@@ -35,9 +36,9 @@ const styles = ScaledSheet.create({
         backgroundColor: '#EDEDED',
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 1 },
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.6,
         shadowRadius: 24,
-        elevation: 3
+        elevation: 5
     }
 })
 
