@@ -12,6 +12,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import CartProduct from '../../components/CartProduct'
+import { COLORS } from '../../scripts/colors'
 import { returnItems } from '../../scripts/requests'
 
 class ReturnItems extends React.Component {
@@ -120,7 +121,7 @@ class ReturnItems extends React.Component {
                                 }}>
                                 <CheckBox
                                     checkedImage={<MaterialIcons name='check' size={40} color='black' />}
-                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color='black' />}
+                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color={COLORS.SECONDARY} />}
                                     disabled
                                     isChecked={this.state.items[index].selected} />
                             </TouchableOpacity>

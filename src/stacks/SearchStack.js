@@ -8,6 +8,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
 import SearchScreen from '../screens/SearchScreen/SearchScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -43,7 +44,7 @@ const SearchStack = () => (
 )
 
 const styles = ScaledSheet.create({
-    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
+    headerStyle: { backgroundColor: COLORS.PRIMARY }
 })
 
 export default SearchStack

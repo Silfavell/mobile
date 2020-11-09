@@ -10,6 +10,7 @@ import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 
 class EditProfileScreen extends React.Component {
     state = {
@@ -76,7 +77,7 @@ class EditProfileScreen extends React.Component {
                         value={this.state.nameSurname}
                         onChange={this.onNameSurnameChange}>
                         <InputIcon>
-                            <Ionicons size={32} name='md-person' color='rgba(0,0,0,.8)' />
+                            <Ionicons size={32} name='md-person' color={COLORS.TERTIARY} />
                         </InputIcon>
 
                     </InputComponent>
@@ -91,7 +92,7 @@ class EditProfileScreen extends React.Component {
                         value={this.state.email}
                         onChange={this.onEmailChange}>
                         <InputIcon>
-                            <Ionicons size={32} name='md-mail-open' color='rgba(0,0,0,.8)' />
+                            <Ionicons size={32} name='md-mail-open' color={COLORS.TERTIARY} />
                         </InputIcon>
 
                     </InputComponent>
@@ -108,7 +109,7 @@ class EditProfileScreen extends React.Component {
                         disabled
                         onChange={this.onPhoneChange}>
                         <InputIcon>
-                            <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
+                            <Ionicons size={32} name='md-phone-portrait' color={COLORS.TERTIARY} />
                         </InputIcon>
 
                     </InputComponent>

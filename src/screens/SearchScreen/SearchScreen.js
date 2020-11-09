@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import RecyclerList from '../../components/RecyclerList'
+import { COLORS } from '../../scripts/colors'
 import { search as searchRequest } from '../../scripts/requests'
 import MostSearchedWithHoc from './MostSearchedWithHoc'
 
@@ -80,7 +81,7 @@ class SearchScreen extends React.Component {
             <ScrollView contentContainerStyle={styles.container} behavior='height'>
                 <View style={styles.searchHeader}>
                     <View style={styles.iconContainer}>
-                        <Ionicons name='md-search' size={32} color='rgba(0,0,0,.8)' />
+                        <Ionicons name='md-search' size={32} color={COLORS.SECONDARY} />
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput
@@ -92,7 +93,7 @@ class SearchScreen extends React.Component {
                     <TouchableOpacity style={styles.iconContainer} onPress={this.state.text.length > 0 ? this.clear : null}>
                         {
                             this.state.text.length > 0 && (
-                                <Ionicons name='md-close' size={32} color='#6D7891' />
+                                <Ionicons name='md-close' size={32} color={COLORS.TERTIARY} />
                             )
                             //  <View style={styles.iconContainer}>
                             //      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />

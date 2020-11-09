@@ -68,7 +68,7 @@ class Product extends React.Component {
                             style={styles.favoriteIcon}
                             size={28}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
-                            color='rgba(0,0,0,.8)'
+                            color={COLORS.SECONDARY}
                             onPress={this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts} />
                     )
                 }

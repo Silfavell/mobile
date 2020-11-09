@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 
 class SearchAddressScreen extends React.Component {
     state = {
@@ -64,14 +65,14 @@ class SearchAddressScreen extends React.Component {
                         onChangeText={this.onSearchChange}
                         placeholder='Adres ara'
                         style={styles.searchAddress} />
-                    <Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' onPress={this.onSearchClick} />
+                    <Ionicons size={32} name='md-search' color={COLORS.TERTIARY} onPress={this.onSearchClick} />
                 </View>
             </View>
             <View style={styles.divider} />
 
             <TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
                 <View style={styles.useCurrentLocationContainer}>
-                    <Ionicons size={32} name='md-locate' color='rgba(0,0,0,.8)' />
+                    <Ionicons size={32} name='md-locate' color={COLORS.TERTIARY} />
                     <Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
                 </View>
             </TouchableOpacity>
@@ -82,7 +83,7 @@ class SearchAddressScreen extends React.Component {
         <TouchableOpacity onPress={() => this.onAddressClick(item)} style={styles.item}>
 
             <View style={styles.itemChild}>
-                <Ionicons size={32} name='md-pin' color='#6B788B' />
+                <Ionicons size={32} name='md-pin' color={COLORS.TERTIARY} />
 
                 <Text numberOfLines={3} style={styles.description}>
                     {item.description}

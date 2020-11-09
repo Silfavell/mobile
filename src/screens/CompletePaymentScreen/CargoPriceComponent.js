@@ -5,6 +5,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../../scripts/colors'
+
 const CargoPriceComponent = ({ cart }) => {
     const products = Object.values(cart)
     const totalPrice = products.reduce(
@@ -16,7 +18,7 @@ const CargoPriceComponent = ({ cart }) => {
     return (
         <View style={styles.container}>
             <View style={styles.iconContainer}>
-                <MaterialIcons size={32} name='markunread-mailbox' />
+                <MaterialIcons size={32} name='markunread-mailbox' color={COLORS.TERTIARY} />
             </View>
             <View style={styles.paymentInfoContainer}>
                 <View style={styles.paymentInfoTextContainer}>

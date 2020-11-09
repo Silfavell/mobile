@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { saveCard } from '../../actions/payment-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
+import { COLORS } from '../../scripts/colors'
 
 class AddNewCardScreen extends React.Component {
     state = {
@@ -93,7 +94,7 @@ class AddNewCardScreen extends React.Component {
                 <View>
                     <View style={styles.header}>
                         <View style={styles.imageContainer}>
-                            <Ionicons color='rgba(0,0,0,.8)' name='ios-card' size={95} />
+                            <Ionicons color={COLORS.TERTIARY} name='ios-card' size={95} />
                         </View>
 
                         <View style={styles.infoContainer}>

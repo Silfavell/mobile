@@ -12,6 +12,7 @@ import { increaseProductQuantity } from '../../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
 import Accordion from '../../components/Accordion'
 import ButtonComponent from '../../components/ButtonComponent'
+import { COLORS } from '../../scripts/colors'
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 import Loading from '../LoadingScreen/LoadingScreen'
 import Color from './Color'
@@ -55,7 +56,7 @@ class FullProductScreen extends React.Component {
                     <TouchableOpacity onPress={() => this.onHeartClick(_id)}>
                         <Ionicons
                             size={26}
-                            color='rgba(0,0,0,.8)'
+                            color={COLORS.TERTIARY}
                             style={styles.iconStyle}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
 

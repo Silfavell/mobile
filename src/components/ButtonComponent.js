@@ -3,6 +3,8 @@ import React from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 const ButtonComponent = ({
     text, onClick, opposite, needFlex, disabled
 }) => (
@@ -26,7 +28,7 @@ const styles = ScaledSheet.create({
         flex: 1
     },
     button: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: COLORS.SECONDARY,
         borderWidth: 1,
         borderColor: 'rgba(0,0,0,.8)',
         flex: 1,

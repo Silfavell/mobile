@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import ConfirmAccuratePinPopup from '../../components/popups/ConfirmAccuratePinPopup'
+import { COLORS } from '../../scripts/colors'
 import HeaderAddressInput from '../MapScreens/HeaderAddressInput'
 import Map from '../MapScreens/Map'
 
@@ -38,7 +39,7 @@ class PinAddressScreen extends React.Component {
                 <Map region={this.props.route.params.region} />
 
                 <View style={styles.markerContainer} pointerEvents='none'>
-                    <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
+                    <Ionicons color={COLORS.TERTIARY} size={48} name='md-pin' />
                 </View>
 
                 <View style={styles.buttonContainer}>
