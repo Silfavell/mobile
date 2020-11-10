@@ -64,18 +64,6 @@ class ProductsScreen extends React.Component {
 }
 
 const styles = ScaledSheet.create({
-    tabBarTextStyle: {
-        fontSize: '15@s',
-        fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold',
-        color: COLORS.TERTIARY
-    },
-    tabBarUnderlineStyle: {
-        backgroundColor: '#FED110',
-        height: 3
-    },
-    tabStyle: {
-        backgroundColor: COLORS.LIGHT
-    },
     emptyContainer: {
         flex: 1,
         alignItems: 'center',

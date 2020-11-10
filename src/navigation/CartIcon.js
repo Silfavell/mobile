@@ -35,8 +35,8 @@ const styles = ScaledSheet.create({
         alignItems: 'center'
     },
     badgeText: {
-        color: COLORS.SECONDARY,
-        fontSize: '12@s'
+        color: COLORS.LIGHT,
+        fontSize: '10@s'
     },
     iconContainer: {
         marginBottom: -3

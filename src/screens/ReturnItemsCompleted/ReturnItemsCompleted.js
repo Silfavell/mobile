@@ -24,7 +24,7 @@ class ReturnItemsCompleted extends React.PureComponent {
                 <View style={styles.child} />
                 <View style={styles.child} />
                 <View style={styles.child}>
-                    <Ionicons name='md-checkmark-circle-outline' size={96} color='#4CAB51' />
+                    <Ionicons name='md-checkmark-circle-outline' size={96} color={COLORS.SECONDARY} />
                 </View>
                 <View style={styles.child} />
                 <View style={styles.child}>
@@ -67,7 +67,7 @@ const styles = ScaledSheet.create({
         display: 'flex'
     },
     goToHomeButton: {
-        backgroundColor: '#4CAB51',
+        backgroundColor: COLORS.SECONDARY,
         borderRadius: 32,
         alignItems: 'center',
         justifyContent: 'center',
