@@ -31,7 +31,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                 options={{
                     title: 'Ürünler',
                     headerTitleAlign: 'center',
-                    headerTintColor: 'white',
+                    headerTintColor: COLORS.LIGHT,
                     headerStyle: styles.headerStyle
                 }}
                 component={ProductScreen} />
@@ -41,7 +41,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                 options={{
                     title: 'Kategoriler',
                     headerTitleAlign: 'center',
-                    headerTintColor: 'white',
+                    headerTintColor: COLORS.LIGHT,
                     headerStyle: styles.headerStyle,
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}
@@ -53,7 +53,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     title: 'Ürün detayı',
                     headerTitle: null,
                     headerTitleAlign: 'center',
-                    headerTintColor: 'rgba(0,0,0,.8)',
+                    headerTintColor: COLORS.TERTIARY,
                     // headerTransparent: true,
                     headerStyle: {
                         elevation: 0, // remove shadow on Android
@@ -68,7 +68,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                 options={{
                     title: 'Filtrele',
                     headerTitleAlign: 'center',
-                    headerTintColor: 'white',
+                    headerTintColor: COLORS.LIGHT,
                     headerStyle: styles.headerStyle,
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}

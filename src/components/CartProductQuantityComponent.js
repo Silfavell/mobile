@@ -166,7 +166,7 @@ const styles = ScaledSheet.create({
         fontSize: '17@s'
     },
     quantityText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         textAlign: 'center',
         fontSize: '17@s',
         padding: 4

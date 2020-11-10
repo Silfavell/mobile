@@ -7,6 +7,8 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../../scripts/colors'
+
 const InteractiveSettingItem = ({
     children: icons,
     title,
@@ -33,7 +35,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         padding: '10@s',
         borderBottomWidth: 0.8,
-        borderBottomColor: '#D2D2D2',
+        borderBottomColor: COLORS.GRAY,
         marginHorizontal: '6@s'
     },
     iconContainer: {

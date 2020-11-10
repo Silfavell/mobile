@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { saveAddress } from '../../actions/payment-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
+import { COLORS } from '../../scripts/colors'
 import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
 import Map from '../MapScreens/Map'
 
@@ -51,7 +52,7 @@ class CompleteAddressScreen extends React.Component {
                             <Map region={this.props.route.params.region} />
 
                             <View style={styles.markerContainer} pointerEvents='none'>
-                                <Ionicons color='rgba(0,0,0,.8)' size={48} name='md-pin' />
+                                <Ionicons color={COLORS.TERTIARY} size={48} name='md-pin' />
                             </View>
                         </View>
                         <View style={styles.body}>
@@ -119,7 +120,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         margin: '3@s',
         borderRadius: 8,
-        borderColor: '#C3C3C3',
+        borderColor: COLORS.GRAY,
         paddingHorizontal: '13@s',
         fontSize: '17@s'
     }

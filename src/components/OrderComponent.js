@@ -6,6 +6,7 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 
 import OrderStatus from '../models/OrderStatus'
+import { COLORS } from '../scripts/colors'
 import OrderCarousel from './OrderCarousel'
 import SettingItem from './SettingItem'
 
@@ -136,19 +137,19 @@ const styles = ScaledSheet.create({
         padding: 6,
         display: 'flex',
         borderWidth: 1,
-        borderColor: '#DFDFDF',
-        backgroundColor: 'white'
+        borderColor: COLORS.GRAY,
+        backgroundColor: COLORS.LIGHT
     },
     detailsContainer: {
         paddingBottom: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#DFDFDF'
+        borderBottomColor: COLORS.GRAY
     },
     detailsContainer2: {
         paddingTop: 24,
         paddingBottom: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#DFDFDF'
+        borderBottomColor: COLORS.GRAY
     },
     detailContainer: {
         display: 'flex',

@@ -164,7 +164,7 @@ const styles = ScaledSheet.create({
         margin: 3
     },
     facebookButton: {
-        backgroundColor: '#3B589E',
+        backgroundColor: COLORS.BLUE,
         flex: 1,
         margin: '4@s',
         borderRadius: 10,
@@ -187,14 +187,14 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '12@s',
         fontSize: '18@s',
         borderWidth: 0.8,
-        borderColor: '#ABABAB'
+        borderColor: COLORS.GRAY
     },
     facebookText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '18@s'
     },
     forgotPasswordText: {
-        color: '#6E7586',
+        color: COLORS.BLUE,
         fontSize: '18@s',
         fontWeight: 'bold'
     },
@@ -203,7 +203,7 @@ const styles = ScaledSheet.create({
     },
     buttonDivider: {
         height: '22@vs',
-        backgroundColor: '#EDEEF0'
+        backgroundColor: COLORS.LIGHT
     },
     view: {
         justifyContent: 'flex-end',

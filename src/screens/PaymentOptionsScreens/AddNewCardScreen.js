@@ -256,7 +256,7 @@ const styles = ScaledSheet.create({
         borderRadius: 8
     },
     securityText: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontSize: '19@s',
         fontWeight: 'bold'
     },
@@ -267,7 +267,7 @@ const styles = ScaledSheet.create({
         marginRight: '12@s'
     },
     securityInformation: {
-        color: '#757889',
+        color: COLORS.GRAY,
         fontSize: '15@s',
         fontWeight: 'bold'
     },
@@ -286,7 +286,7 @@ const styles = ScaledSheet.create({
     },
     continueText: {
         fontSize: '20@s',
-        color: 'white'
+        color: COLORS.LIGHT
     },
     empty: {
         height: '22@s'

@@ -72,7 +72,7 @@ class SearchScreen extends React.Component {
 
     fetching = () => (
         <View style={styles.Container}>
-            <ActivityIndicator color='#EE4266' size='large' />
+            <ActivityIndicator color={COLORS.SECONDARY} size='large' />
         </View>
     )
 
@@ -116,19 +116,19 @@ class SearchScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     searchHeader: {
         height: 50,
         flexDirection: 'row',
-        backgroundColor: 'white',
-        shadowColor: '#000',
+        backgroundColor: COLORS.LIGHT,
+        shadowColor: COLORS.DARK,
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 24,
         elevation: 3,
         borderBottomWidth: 1,
-        borderBottomColor: '#BCBCBC'
+        borderBottomColor: COLORS.GRAY
     },
     mostSearchContainer: {
         flex: 0.7,
@@ -136,7 +136,7 @@ const styles = ScaledSheet.create({
         margin: 2,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     iconContainer: {
         alignItems: 'center',

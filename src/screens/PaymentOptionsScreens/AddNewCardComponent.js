@@ -67,11 +67,11 @@ const styles = ScaledSheet.create({
     },
     cardNumber: {
         fontSize: '15@s',
-        color: '#6C7486'
+        color: COLORS.GRAY
     },
     highlightedText: {
         fontSize: '16@s',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.TERTIARY
     },
     iconContainer: {
         height: 24,

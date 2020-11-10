@@ -8,6 +8,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 import FOR_WHICH from '../models/ForWhich'
+import { COLORS } from '../scripts/colors'
 
 class CategoryElement extends React.PureComponent {
     onPress = () => {
@@ -51,9 +52,9 @@ const styles = ScaledSheet.create({
     container: {
         alignSelf: 'flex-start',
         marginTop: 12,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         borderTopWidth: 1,
-        borderTopColor: '#CDCDCD'
+        borderTopColor: COLORS.GRAY
     },
     categoryElement: {
         width: 100,
@@ -67,12 +68,12 @@ const styles = ScaledSheet.create({
         width: 64,
         height: 64,
         borderRadius: 32,
-        backgroundColor: '#EFEFEF',
+        backgroundColor: COLORS.GRAY,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#EE4266',
+        borderColor: COLORS.SECONDARY,
         marginBottom: 8
     },
     imageContainer: {

@@ -6,6 +6,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 import { setMessagePopupRef } from '../../actions/global-actions'
+import { COLORS } from '../../scripts/colors'
 
 class GlobalMessagePopup extends React.PureComponent {
         messageComponent = (source) => (
@@ -60,21 +61,21 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         margin: '12@s',
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#EFEFEF',
+        borderColor: COLORS.GRAY,
         borderBottomWidth: 1,
-        borderBottomColor: '#EE4266'
+        borderBottomColor: COLORS.SECONDARY
     },
     titleContainer: {
         flex: 1,
         alignItems: 'flex-start',
         justifyContent: 'center',
         margin: '18@s',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     title: {
         fontSize: '18@s'

@@ -3,6 +3,8 @@ import React from 'react'
 import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) => (
     class extends React.PureComponent {
         render() {
@@ -22,7 +24,7 @@ const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) =>
 const styles = ScaledSheet.create({
     x: {
         flexGrow: 1,
-        backgroundColor: '#DFDFDF'
+        backgroundColor: COLORS.GRAY
     },
     y: {
         flexDirection: 'row',
@@ -32,8 +34,8 @@ const styles = ScaledSheet.create({
     z: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#EDEDED',
-        shadowColor: '#000',
+        backgroundColor: COLORS.LIGHT,
+        shadowColor: COLORS.DARK,
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 24,

@@ -3,6 +3,8 @@ import React from 'react'
 import { TouchableOpacity, Text, ImageBackground } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 const Category = ({ index /* navigation */ }) => {
     // const imageUrl = `${Config.SERVER_URL}/assets/categories-2/${imagePath}.jpg` // TODO
     const imageUrl = 'https://img-kotonw.mncdn.com/static/images/10568566603806/1366tshirt-kadin-desktop-110520.jpg'
@@ -27,7 +29,7 @@ const styles = ScaledSheet.create({
         height: 160,
         marginVertical: 20,
         marginHorizontal: 10,
-        borderColor: '#CDCDCD'
+        borderColor: COLORS.GRAY
     },
     name: {
         position: 'absolute',
@@ -35,10 +37,10 @@ const styles = ScaledSheet.create({
         fontSize: 18,
         bottom: -18,
         alignSelf: 'center',
-        backgroundColor: 'white',
-        color: 'black',
+        backgroundColor: COLORS.LIGHT,
+        color: COLORS.DARK,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: COLORS.DARK,
         paddingHorizontal: 18,
         paddingVertical: 4
     }

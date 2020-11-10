@@ -8,6 +8,7 @@ import CheckBox from 'react-native-check-box'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
+import { COLORS } from '../../scripts/colors'
 import MembershipAgreement from './MembershipAgreement'
 
 class TermsComponent extends React.Component {
@@ -33,8 +34,8 @@ class TermsComponent extends React.Component {
                 <View style={styles.checkBoxContainer}>
                     <CheckBox
                         style={styles.checkBoxStyle}
-                        checkedImage={<MaterialIcons name='check' size={24} color='black' />}
-                        unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={24} color='black' />}
+                        checkedImage={<MaterialIcons name='check' size={24} color={COLORS.DARK} />}
+                        unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={24} color={COLORS.DARK} />}
                         onClick={this.props.setTermsState}
                         isChecked={this.props.isTermsChecked} />
                 </View>
@@ -66,10 +67,10 @@ const styles = ScaledSheet.create({
         justifyContent: 'flex-start'
     },
     termsText: {
-        color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold'
+        color: COLORS.TERTIARY, fontSize: '16@s', fontWeight: 'bold'
     },
     termsLinkText: {
-        color: 'rgba(0,0,0,.8)', fontSize: '16@s', fontWeight: 'bold'
+        color: COLORS.TERTIARY, fontSize: '16@s', fontWeight: 'bold'
     },
     termsTextContainer: {
         alignItems: 'center', justifyContent: 'center', flexDirection: 'row'
@@ -84,7 +85,7 @@ const styles = ScaledSheet.create({
         height: 24
     },
     termsAgreementText: {
-        color: '#5050FF'
+        color: COLORS.BLUE
     }
 })
 

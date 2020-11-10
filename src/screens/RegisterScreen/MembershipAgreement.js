@@ -8,6 +8,8 @@ import Modal, {
 } from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../../scripts/colors'
+
 const Item = ({ item: { type, mark, content } }) => (
     // eslint-disable-next-line react-native/no-inline-styles
     <Text style={{
@@ -208,13 +210,13 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488'
+        backgroundColor: COLORS.GRAY
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.TERTIARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     titleText: {
         textAlign: 'center',

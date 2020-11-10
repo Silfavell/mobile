@@ -99,7 +99,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     completePaymentText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '16@s',
         fontWeight: 'bold'
     },
@@ -109,7 +109,7 @@ const styles = ScaledSheet.create({
         backgroundColor: COLORS.TERTIARY
     },
     totalPriceText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '16@s',
         padding: '12@s',
         fontWeight: 'bold'

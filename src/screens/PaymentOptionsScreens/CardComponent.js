@@ -79,7 +79,7 @@ const styles = ScaledSheet.create({
         padding: 8,
         marginHorizontal: 6,
         borderBottomWidth: 0.4,
-        borderBottomColor: '#CDCDCD'
+        borderBottomColor: COLORS.TERTIARY
     },
     child: {
         alignItems: 'center',
@@ -91,11 +91,11 @@ const styles = ScaledSheet.create({
     },
     cardNumber: {
         fontSize: '15@s',
-        color: '#6C7486'
+        color: COLORS.GRAY
     },
     highlightedText: {
         fontSize: '16@s',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.TERTIARY
     },
     cardImage: {
         height: 24,

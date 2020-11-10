@@ -13,6 +13,7 @@ import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 import { resetPassword, sendActivationCode } from '../../scripts/requests'
 
 class ResetPasswordScreen extends React.Component {
@@ -159,7 +160,7 @@ class ResetPasswordScreen extends React.Component {
                     onClick={this.onResetPasswordClick} />
 
                 <TouchableOpacity style={styles.resendContainer} onPress={this.onResendClick}>
-                    <Ionicons name='md-refresh' size={28} color='#6E7586' />
+                    <Ionicons name='md-refresh' size={28} color={COLORS.GRAY} />
                     <Text style={styles.resendCodeText}>Yeniden gönder</Text>
                 </TouchableOpacity>
             </>
@@ -177,7 +178,7 @@ const styles = ScaledSheet.create({
     resendCodeText: {
         fontSize: '19@s',
         paddingHorizontal: '12@s',
-        color: '#6E7586'
+        color: COLORS.GRAY
     }
 })
 

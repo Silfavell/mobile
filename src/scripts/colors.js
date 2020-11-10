@@ -5,5 +5,6 @@ export const COLORS = {
     TERTIARY: '#AA9BBF',
     DARK: '#000',
     LIGHT: '#FFF',
-    GRAY: '#CDCDCD'
+    GRAY: '#CDCDCD',
+    BLUE: '#5050FF'
 }

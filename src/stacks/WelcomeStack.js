@@ -33,7 +33,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Giriş Yap',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -43,7 +43,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Kayıt Ol',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -53,7 +53,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Şifremi Unuttum',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -63,7 +63,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Şifremi Değiştir',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -73,7 +73,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Aktivasyon',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
     </Stack.Navigator>

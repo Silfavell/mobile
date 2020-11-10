@@ -9,6 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { makeOrder } from '../../actions/cart-actions'
+import { COLORS } from '../../scripts/colors'
 
 class OnlinePaymentScreen extends React.Component {
     state = {
@@ -128,16 +129,16 @@ const styles = ScaledSheet.create({
         left: 0,
         height: 600,
         width: Dimensions.get('window').width,
-        backgroundColor: '#EDEDED',
+        backgroundColor: COLORS.LIGHT,
         display: 'flex'
     },
     paymentHeader: {
         flex: 0.16,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        shadowColor: '#000',
+        shadowColor: COLORS.DARKS,
         shadowOffset: { width: 0, height: '4@s' },
         shadowOpacity: 0.32,
         shadowRadius: '6@s',
@@ -154,15 +155,15 @@ const styles = ScaledSheet.create({
         borderWidth: 0,
         borderBottomWidth: 1.5,
         borderColor: '#333',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.TERTIARY
     },
     totalPriceText: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontWeight: 'bold',
         fontSize: 19
     },
     totalPrice: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontWeight: 'bold',
         fontSize: '22@s'
     },
@@ -184,14 +185,14 @@ const styles = ScaledSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 0.6,
-        backgroundColor: '#D3D3D3',
+        backgroundColor: COLORS.GRAY,
         margin: '8@s',
         borderRadius: 36
     },
     completePaymentText: {
         fontSize: '20@s',
         fontWeight: 'bold',
-        color: '#8D8D8D'
+        color: COLORS.GRAY
     },
     cvcInfoContainer: {
         flex: 0.1,
@@ -207,7 +208,7 @@ const styles = ScaledSheet.create({
     },
     cvcInfoText: {
         fontSize: '13@s',
-        color: '#A5A5A5'
+        color: COLORS.GRAY
     },
     informationContainer: {
         alignItems: 'center',

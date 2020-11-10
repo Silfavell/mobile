@@ -35,7 +35,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
                     </View>
                 </View>
                 <View style={styles.iconContainer}>
-                    <MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
+                    <MaterialIcons color={COLORS.GRAY} size={32} name='chevron-right' />
                 </View>
             </TouchableOpacity>
         )

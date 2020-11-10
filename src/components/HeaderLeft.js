@@ -5,6 +5,8 @@ import { s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../scripts/colors'
+
 class HeaderLeft extends React.Component {
     shouldComponentUpdate(nextProps) {
         if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
@@ -18,7 +20,7 @@ class HeaderLeft extends React.Component {
         if (Object.values(this.props.cart).length > 0) {
             return (
                 <TouchableOpacity style={styles.backIcon} onPress={this.props.navigation.goBack}>
-                    <Ionicons name='md-close' size={26} color='white' />
+                    <Ionicons name='md-close' size={26} color={COLORS.LIGHT} />
                 </TouchableOpacity>
             )
         }

@@ -9,6 +9,7 @@ import { ScaledSheet, s } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 import RecyclerList from '../../components/RecyclerList'
+import { COLORS } from '../../scripts/colors'
 
 class ProductsScreen extends React.Component {
     constructor(props) {
@@ -66,25 +67,25 @@ const styles = ScaledSheet.create({
     tabBarTextStyle: {
         fontSize: '15@s',
         fontFamily: Platform.OS === 'ios' ? 'Moon-Bold' : 'MoonBold',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.TERTIARY
     },
     tabBarUnderlineStyle: {
         backgroundColor: '#FED110',
         height: 3
     },
     tabStyle: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     emptyContainer: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     emptyText: {
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545'
+        color: COLORS.DARK
     },
     iconContainer: {
         transform: [
@@ -96,7 +97,7 @@ const styles = ScaledSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     }
 })
 

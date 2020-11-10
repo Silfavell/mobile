@@ -104,12 +104,12 @@ class HomeScreen extends React.Component {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.TERTIARY
     },
     headerTitle: {
         height: '100%',
         padding: '8@s',
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
@@ -136,7 +136,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row'
     },
     dividerTitle: {
-        color: 'black',
+        color: COLORS.GRAY,
         fontSize: '17@s',
         fontWeight: '600',
         paddingHorizontal: '16@s'
@@ -156,7 +156,7 @@ const styles = ScaledSheet.create({
     },
     bestSellerContainer: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     }
 })
 

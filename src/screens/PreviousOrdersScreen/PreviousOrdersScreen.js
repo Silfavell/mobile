@@ -65,13 +65,13 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     emptyText: {
         marginTop: 32,
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545'
+        color: COLORS.DARK
     },
     conteiner2: {
         flex: 1

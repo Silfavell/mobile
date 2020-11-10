@@ -3,6 +3,8 @@ import React from 'react'
 import { View, Image, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 import logo from '../../assets/logo.png'
 
 const LoadingComponent = () => (
@@ -18,7 +20,7 @@ const styles = ScaledSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         display: 'flex',
         flex: 1
     },
@@ -32,7 +34,7 @@ const styles = ScaledSheet.create({
         fontSize: '28@s',
         paddingVertical: '30@s',
         fontWeight: 'bold',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.DARK
     },
     image: {
         height: '300@s',

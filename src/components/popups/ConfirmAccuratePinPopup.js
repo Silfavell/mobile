@@ -6,6 +6,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../../scripts/colors'
+
 class ConfirmAccuratePinPopup extends React.Component {
         close = () => {
             this.props.setPopupState(false)
@@ -43,7 +45,7 @@ class ConfirmAccuratePinPopup extends React.Component {
                         </ModalFooter>
                     )}>
                     <ModalContent style={styles.content}>
-                        <Ionicons color='rgba(0,0,0,.8)' size={92} name='md-map' />
+                        <Ionicons color={COLORS.TERTIARY} size={92} name='md-map' />
                         <Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz ?</Text>
                     </ModalContent>
                 </Modal>
@@ -56,16 +58,16 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488'
+        backgroundColor: COLORS.TERTIARY
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.SECONDARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     content: {
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.LIGHT,
         alignItems: 'center',
         justifyContent: 'center'
     },

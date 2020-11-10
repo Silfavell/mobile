@@ -28,9 +28,9 @@ const styles = ScaledSheet.create({
         flex: 1
     },
     button: {
-        backgroundColor: COLORS.SECONDARY,
+        backgroundColor: COLORS.PRIMARY,
         borderWidth: 1,
-        borderColor: 'rgba(0,0,0,.8)',
+        borderColor: COLORS.TERTIARY,
         flex: 1,
         margin: '4@s',
         borderRadius: 6,
@@ -38,11 +38,11 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     opposite: {
-        backgroundColor: 'white',
-        color: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.LIGHT,
+        color: COLORS.TERTIARY
     },
     text: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '18@s'
     },
     disabled: {

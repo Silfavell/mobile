@@ -11,6 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
+import { COLORS } from '../../scripts/colors'
 import { sendActivationCode } from '../../scripts/requests'
 import TermsComponent from './TermsComponent'
 
@@ -132,7 +133,7 @@ class RegisterScreen extends React.Component {
                             <Ionicons
                                 size={32}
                                 name='md-phone-portrait'
-                                color='rgba(0,0,0,.8)' />
+                                color={COLORS.TERTIARY} />
                         </InputIcon>
                     </InputComponent>
 
@@ -151,7 +152,7 @@ class RegisterScreen extends React.Component {
                                 size={32}
                                 name='ios-key'
                                 color={
-                                    this.state.invalidPassword && this.state.isPasswordInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
+                                    this.state.invalidPassword && this.state.isPasswordInitialized ? COLORS.SECONDARY : COLORS.TERTIARY
                                 }
                                 style={styles.iconContainer} />
                         </InputIcon>
@@ -172,7 +173,7 @@ class RegisterScreen extends React.Component {
                                 size={32}
                                 name='md-person'
                                 color={
-                                    this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
+                                    this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? COLORS.SECONDARY : COLORS.TERTIARY
                                 } />
                         </InputIcon>
 
@@ -193,7 +194,7 @@ class RegisterScreen extends React.Component {
                                 size={32}
                                 name='md-mail-open'
                                 color={
-                                    this.state.invalidEmail && this.state.isEmailInitialized ? '#EE4266' : 'rgba(0,0,0,.8)'
+                                    this.state.invalidEmail && this.state.isEmailInitialized ? COLORS.SECONDARY : COLORS.TERTIARY
                                 } />
                         </InputIcon>
 
@@ -246,7 +247,7 @@ const styles = ScaledSheet.create({
         marginBottom: 12
     },
     facebookButton: {
-        backgroundColor: '#3B589E',
+        backgroundColor: COLORS.BLUE,
         flex: 1,
         margin: '4@s',
         borderRadius: 10,
@@ -254,7 +255,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     facebookText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '18@s'
     },
     termsContainer: {
@@ -271,12 +272,12 @@ const styles = ScaledSheet.create({
         backgroundColor: 'transparent'
     },
     termsText: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontSize: '16@s',
         fontWeight: 'bold'
     },
     termsLinkText: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontSize: '16@s',
         fontWeight: 'bold'
     },
@@ -293,10 +294,10 @@ const styles = ScaledSheet.create({
     },
     buttonDivider: {
         height: '22@s',
-        backgroundColor: '#EDEEF0'
+        backgroundColor: COLORS.GRAY
     },
     invalid: {
-        borderColor: '#EE4266'
+        borderColor: COLORS.SECONDARY
     },
     iconContainer: {
         transform:

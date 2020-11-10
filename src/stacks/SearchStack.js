@@ -19,7 +19,7 @@ const SearchStack = () => (
             options={{
                 title: 'Ara',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerLeft: null,
                 headerStyle: styles.headerStyle
             }}
@@ -31,7 +31,7 @@ const SearchStack = () => (
                 title: 'Ürün Detayı',
                 headerTitle: null,
                 headerTitleAlign: 'center',
-                headerTintColor: 'rgba(0,0,0,.8)',
+                headerTintColor: COLORS.TERTIARY,
                 // headerTransparent: true,
                 headerStyle: {
                     elevation: 0, // remove shadow on Android

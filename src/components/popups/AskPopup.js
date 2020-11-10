@@ -65,7 +65,7 @@ const styles = ScaledSheet.create({
         backgroundColor: COLORS.SECONDARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     title: {
         marginVertical: '6@s'

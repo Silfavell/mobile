@@ -4,6 +4,7 @@ import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 
 const MostSellerWithHoc = () => (
     <View style={styles.dividerChild}>
@@ -20,13 +21,13 @@ const styles = ScaledSheet.create({
         flexDirection: 'row'
     },
     dividerTitle: {
-        color: 'black',
+        color: COLORS.DARK,
         fontSize: '17@s',
         fontWeight: '600',
         paddingHorizontal: '16@s'
     },
     shadowContainer: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     }
 })
 

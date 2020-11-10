@@ -30,7 +30,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Sepetim',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle,
                 headerLeft: () => <HeaderLeft navigation={navigation} />,
                 headerRight: () => <HeaderRight />
@@ -42,7 +42,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Ödemeyi Tamamla',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -52,7 +52,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Online Kredi/Banka Kartı',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -62,7 +62,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Ödeme Yöntemlerim',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -72,7 +72,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Kart Ekle',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -82,7 +82,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adreslerim',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -92,7 +92,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adres Ara',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -102,7 +102,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adres Ekle',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -112,7 +112,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adres Ekle',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 

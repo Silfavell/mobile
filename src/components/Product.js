@@ -109,8 +109,8 @@ const styles = ScaledSheet.create({
         zIndex: -1,
         backgroundColor: 'transparent',
         borderWidth: 1,
-        borderColor: '#EFEFEF',
-        borderBottomColor: '#EE4266',
+        borderColor: COLORS.GRAY,
+        borderBottomColor: COLORS.SECONDARY,
         marginHorizontal: '6@s',
         height: '95%'
     },
@@ -144,7 +144,7 @@ const styles = ScaledSheet.create({
         marginVertical: 1
     },
     productImageContainer: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     productImage: {
         width: '100%',
@@ -155,14 +155,14 @@ const styles = ScaledSheet.create({
     productName: {
         fontSize: '14@s',
         fontWeight: '600',
-        color: '#454545',
+        color: COLORS.DARK,
         textAlign: 'left',
         justifyContent: 'center'
     },
     productPrice: {
         fontSize: '16@s',
         fontWeight: 'bold',
-        color: '#454545',
+        color: COLORS.DARK,
         textAlign: 'left',
         justifyContent: 'center',
         alignItems: 'flex-start'

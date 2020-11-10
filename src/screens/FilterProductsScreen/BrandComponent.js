@@ -5,6 +5,7 @@ import CheckBox from 'react-native-check-box'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import SettingItem from '../../components/SettingItem'
+import { COLORS } from '../../scripts/colors'
 
 class BrandComponent extends React.Component {
     state = {
@@ -32,9 +33,9 @@ class BrandComponent extends React.Component {
                     rightComponent={(
                         <CheckBox
                             style={styles.checkBoxStyle}
-                            checkedImage={<MaterialIcons name='check' size={24} color='black' />}
+                            checkedImage={<MaterialIcons name='check' size={24} color={COLORS.DARK} />}
                             unCheckedImage={
-                                <MaterialIcons name='check-box-outline-blank' size={24} color='black' />
+                                <MaterialIcons name='check-box-outline-blank' size={24} color={COLORS.DARK} />
                             }
                             disabled
                             isChecked={this.state.checked} />

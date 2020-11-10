@@ -5,6 +5,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
+import { COLORS } from '../../scripts/colors'
 
 class NeedToLoginPopup extends React.Component {
         close = () => {
@@ -56,10 +57,10 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonOk: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.TERTIARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     title: {
         marginVertical: '8@s'

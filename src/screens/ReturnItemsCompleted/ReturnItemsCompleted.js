@@ -8,6 +8,8 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import { COLORS } from '../../scripts/colors'
+
 class ReturnItemsCompleted extends React.PureComponent {
     onGoHomeClick = () => {
         this.props.navigation.popToTop()
@@ -50,7 +52,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     child: {
         flex: 1,
@@ -74,7 +76,7 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '48@s'
     },
     goToHomeButtonText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '20@s',
         alignItems: 'center',
         justifyContent: 'center'

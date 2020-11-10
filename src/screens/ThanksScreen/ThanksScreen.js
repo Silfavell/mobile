@@ -11,6 +11,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import AskPopup from '../../components/popups/AskPopup'
+import { COLORS } from '../../scripts/colors'
 
 class ThanksScreen extends React.Component {
     state = {
@@ -84,7 +85,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     child: {
         flex: 1,
@@ -108,7 +109,7 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '48@s'
     },
     goToHomeButtonText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '20@s',
         alignItems: 'center',
         justifyContent: 'center'

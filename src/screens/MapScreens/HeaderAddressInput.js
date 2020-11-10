@@ -5,9 +5,11 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../../scripts/colors'
+
 const HeaderAddressInput = ({ address, disabled }) => (
     <View style={styles.container}>
-        <Ionicons name='md-pin' size={32} color='rgba(0,0,0,.8)' />
+        <Ionicons name='md-pin' size={32} color={COLORS.TERTIARY} />
         <TextInput style={styles.input} value={address} editable={!disabled} />
     </View>
 )
@@ -19,7 +21,7 @@ const styles = ScaledSheet.create({
         height: '56@s',
         left: 0,
         right: 0,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         zIndex: '2@s',
         display: 'flex',
         flexDirection: 'row',
@@ -35,7 +37,7 @@ const styles = ScaledSheet.create({
         fontSize: '19@s',
         padding: '8@s',
         paddingHorizontal: '8@s',
-        color: '#757B8B'
+        color: COLORS.GRAY
     }
 })
 

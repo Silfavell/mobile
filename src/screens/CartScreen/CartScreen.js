@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 import CartProduct from '../../components/CartProduct'
 import CompletePayment from '../../components/CompletePayment'
+import { COLORS } from '../../scripts/colors'
 import CartProductWithHoc from './CartProductWithHoc'
 
 class CartScreen extends React.Component {
@@ -57,7 +58,7 @@ class CartScreen extends React.Component {
 
         return (
             <View style={styles.emptyContainer}>
-                <Ionicons name='md-basket' size={96} color='#BDBDBD' />
+                <Ionicons name='md-basket' size={96} color={COLORS.GRAY} />
                 <Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
             </View>
         )
@@ -74,13 +75,13 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     emptyText: {
         marginTop: 32,
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545'
+        color: COLORS.DARK
     },
     child: {
         flex: 1,
@@ -91,7 +92,7 @@ const styles = ScaledSheet.create({
         display: 'flex'
     },
     listProducts: {
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: COLORS.TERTIARY,
         borderRadius: 32,
         alignItems: 'center',
         justifyContent: 'center',
@@ -100,7 +101,7 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '48@s'
     },
     listProductsText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '19@s',
         alignItems: 'center',
         justifyContent: 'center'
@@ -110,7 +111,7 @@ const styles = ScaledSheet.create({
         backgroundColor: 'transparent'
     },
     flatListStyle: {
-        backgroundColor: '#DFDFDF'
+        backgroundColor: COLORS.GRAY
     }
 })
 

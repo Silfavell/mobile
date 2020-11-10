@@ -5,6 +5,8 @@ import ModalSelector from 'react-native-modal-selector'
 import { ScaledSheet } from 'react-native-size-matters'
 import TextInputMask from 'react-native-text-input-mask'
 
+import { COLORS } from '../scripts/colors'
+
 class InputComponent extends React.Component {
     state = {
         selectorRef: null
@@ -57,7 +59,7 @@ class InputComponent extends React.Component {
                         {...options}
                         value={value}
                         onChangeText={onChange}
-                        placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
+                        placeholderTextColor={invalid ? COLORS.SECONDARY : COLORS.GRAY}
                         editable={!(disabled || selector)}
                         selectTextOnFocus={!disabled}
                         style={[
@@ -71,7 +73,7 @@ class InputComponent extends React.Component {
                         {...options}
                         value={value}
                         onChangeText={onChange}
-                        placeholderTextColor={invalid ? '#EE4266' : '#C7C7CD'}
+                        placeholderTextColor={invalid ? COLORS.SECONDARY : COLORS.GRAY}
                         editable={!(disabled || selector)}
                         selectTextOnFocus={!disabled}
                         multiline={multiline}
@@ -111,8 +113,8 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '12@s',
         fontSize: '18@s',
         borderWidth: 1,
-        color: 'black',
-        borderColor: '#CCC8E0'
+        color: COLORS.DARK,
+        borderColor: COLORS.GRAY
     },
     multiline: {
         height: '180@s'
@@ -124,11 +126,11 @@ const styles = ScaledSheet.create({
         paddingLeft: '48@s'
     },
     invalid: {
-        borderColor: '#EE4266',
+        borderColor: COLORS.SECONDARY,
         borderWidth: 1.2
     },
     disabled: {
-        color: '#909090'
+        color: COLORS.GRAY
     }
 })
 

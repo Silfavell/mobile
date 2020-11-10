@@ -118,21 +118,21 @@ class SearchAddressScreen extends React.Component {
 
 const styles = ScaledSheet.create({
     container: {
-        backgroundColor: '#E5E5E5',
+        backgroundColor: COLORS.GRAY,
         flex: 1
     },
     list: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     header: {
         height: 110,
         display: 'flex',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     divider: {
         height: 1,
-        backgroundColor: '#DFDFDF',
+        backgroundColor: COLORS.GRAY,
         marginHorizontal: 12
     },
     searchAddressContainerContainer: {
@@ -190,13 +190,13 @@ const styles = ScaledSheet.create({
         flex: 1,
         paddingHorizontal: '16@s',
         fontSize: '15@s',
-        color: '#6B788B',
+        color: COLORS.GRAY,
         fontWeight: '500'
     },
     meterText: {
         paddingHorizontal: '4@s',
         fontSize: '13@s',
-        color: '#6B788B',
+        color: COLORS.GRAY,
         fontWeight: '500'
     }
 })

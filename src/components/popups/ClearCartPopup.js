@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 import { clearCart } from '../../actions/cart-actions'
 import { setClearCartPopupState } from '../../actions/global-actions'
+import { COLORS } from '../../scripts/colors'
 
 class ClearCartPopup extends React.Component {
     close = () => {
@@ -61,13 +62,13 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488'
+        backgroundColor: COLORS.BLUE
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.TERTIARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     title: {
         marginVertical: '6@s'
