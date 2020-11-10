@@ -2,8 +2,7 @@ import React from 'react'
 
 import {
     View,
-    Text,
-    Platform
+    Text
 } from 'react-native'
 import { ScaledSheet, s } from 'react-native-size-matters'
 import { connect } from 'react-redux'

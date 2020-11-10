@@ -13,7 +13,6 @@ import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
 import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'
 import CartScreen from '../screens/CartScreen/CartScreen'
 import CompletePaymentScreen from '../screens/CompletePaymentScreen/CompletePaymentScreen'
-import OnlinePaymentScreen from '../screens/OnlinePaymentScreen/OnlinePaymentScreen'
 import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
 import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
 import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
@@ -41,16 +40,6 @@ const CartStack = ({ navigation }) => (
             component={CompletePaymentScreen}
             options={{
                 title: 'Ödemeyi Tamamla',
-                headerTitleAlign: 'center',
-                headerTintColor: COLORS.LIGHT,
-                headerStyle: styles.headerStyle
-            }} />
-
-        <Stack.Screen
-            name='onlinePaymentScreen'
-            component={OnlinePaymentScreen}
-            options={{
-                title: 'Online Kredi/Banka Kartı',
                 headerTitleAlign: 'center',
                 headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
