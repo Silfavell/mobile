@@ -7,9 +7,10 @@ import {
     deleteAddress,
     setSelectedAddress
 } from '../../actions/payment-actions'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import InteractiveSettingItem from './InteractiveSettingItem'
 
-class AddressList extends React.PureComponent {
+class AddressItem extends React.PureComponent {
     onLeftClick = () => {
         this.props.setSelectedAddress(this.props.address._id, this.props.navigation.goBack)
     }
@@ -36,4 +37,6 @@ const mapDispatchToProps = {
     deleteAddress
 }
 
-export default connect(null, mapDispatchToProps)(AddressList)
+export const AddressItemWithHoc = ShadowContainerHoc(connect(null, mapDispatchToProps)(AddressItem))
+
+export default connect(null, mapDispatchToProps)(AddressItem)

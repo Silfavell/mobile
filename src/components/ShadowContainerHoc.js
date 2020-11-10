@@ -26,6 +26,7 @@ const styles = ScaledSheet.create({
         backgroundColor: '#DFDFDF'
     },
     y: {
+        flexGrow: 1,
         flexDirection: 'row',
         overflow: 'hidden',
         paddingBottom: 4
