@@ -60,14 +60,14 @@ class AddNewCardScreen extends React.Component {
             })
     }
 
-    onCardNumberChange = (cardNumber) => {
+    onCardNumberChange = (formatted, extracted) => {
         joi
             .string()
             .min(16)
             .max(16)
             .creditCard()
-            .validate(cardNumber.split(' ').join(''), (err) => {
-                this.setState({ cardNumber, isCardNumberInitialized: true, invalidCardNumber: !!err })
+            .validate(formatted.split(' ').join(''), (err) => {
+                this.setState({ cardNumber: extracted, isCardNumberInitialized: true, invalidCardNumber: !!err })
             })
     }
 
@@ -276,20 +276,6 @@ const styles = ScaledSheet.create({
     },
     inputContainer: {
         flex: 1
-    },
-    continueButton: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(94,63,190)',
-        borderRadius: 10
-    },
-    continueText: {
-        fontSize: '20@s',
-        color: COLORS.LIGHT
-    },
-    empty: {
-        height: '22@s'
     }
 })
 

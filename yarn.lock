@@ -6554,6 +6554,11 @@ react-native-screens@^2.3.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.9.0.tgz#ead2843107ba00fee259aa377582e457c74f1f3b"
   integrity sha512-5MaiUD6HA3nzY3JbVI8l3V7pKedtxQF3d8qktTVI0WmWXTI4QzqOU8r8fPVvfKo3MhOXwhWBjr+kQ7DZaIQQeg==
 
+react-native-simple-shadow-view@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/react-native-simple-shadow-view/-/react-native-simple-shadow-view-1.6.3.tgz#bde06d9a35d9e03b57cf3772dd52409daa36661e"
+  integrity sha512-HulUAFWu4QCO/D2E4MU29bMRqevvFgcoN/cyzPRk4NRAdSJ7gnkG2MHhUQar3U4AwYBz+9aBb2qFy4LnM9KMNQ==
+
 react-native-size-matters@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.3.0.tgz#0692e324a189884819b570c4cab24d27ecd4311d"

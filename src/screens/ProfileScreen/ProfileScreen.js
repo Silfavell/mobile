@@ -11,7 +11,6 @@ import { connect } from 'react-redux'
 
 import pckg from '../../../package.json'
 import SettingItem from '../../components/SettingItem'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 import LogoutItem from './LogoutItem'
 
@@ -189,4 +188,4 @@ const mapStateToProps = ({
     user
 })
 
-export default ShadowContainerHoc(connect(mapStateToProps)(ProfileScreen))
+export default connect(mapStateToProps)(ProfileScreen)

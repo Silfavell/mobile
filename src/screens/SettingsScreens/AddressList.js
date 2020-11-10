@@ -8,7 +8,7 @@ import {
     setSelectedAddress
 } from '../../actions/payment-actions'
 import DeleteAddressPopup from '../../components/popups/DeleteAddressPopup'
-import AddressItem from './AddressItem'
+import AddressItem, { AddressItemWithHoc } from './AddressItem'
 
 class AddressList extends React.Component {
     state = {
@@ -24,13 +24,25 @@ class AddressList extends React.Component {
         }
     }
 
-    renderAddressItem = ({ item: address }) => (
-        <AddressItem
-            address={address}
-            navigation={this.props.navigation}
-            setSelectedAddress={this.props.setSelectedAddress}
-            setPopupState={this.setPopupState} />
-    )
+    renderAddressItem = ({ item: address, index }) => {
+        if (index === this.props.addresses.length - 1) {
+            return (
+                <AddressItemWithHoc
+                    address={address}
+                    navigation={this.props.navigation}
+                    setSelectedAddress={this.props.setSelectedAddress}
+                    setPopupState={this.setPopupState} />
+            )
+        }
+
+        return (
+            <AddressItem
+                address={address}
+                navigation={this.props.navigation}
+                setSelectedAddress={this.props.setSelectedAddress}
+                setPopupState={this.setPopupState} />
+        )
+    }
 
     keyExtractor = (item) => item._id
 

@@ -18,13 +18,6 @@ class CompleteAddressScreen extends React.Component {
             addressTitle: ''
         }
 
-        shouldComponentUpdate(_, nextState) {
-            return (
-                nextState.scaleAnimationModal !== this.state.scaleAnimationModal
-            || nextState.addressTitle !== this.state.addressTitle
-            )
-        }
-
         setPopupState = (scaleAnimationModal, complete, address) => {
             this.setState({ scaleAnimationModal })
             if (complete) {

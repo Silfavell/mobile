@@ -9,73 +9,65 @@ import { setNeedToLoginPopupState } from '../actions/global-actions'
 import { COLORS } from '../scripts/colors'
 
 class CompletePaymentComponent extends React.Component {
-    shouldComponentUpdate(nextProps) {
-        if (Object.values(nextProps.cart).length === 1 || Object.values(nextProps.cart).length === 0) {
-            return true
-        }
+    onCompletePaymentClick = () => {
+        const {
+            completable,
+            token,
+            navigation,
+            makeOrder,
+            selectedCard,
+            selectedAddress,
+            messagePopupRef,
+            setNeedToLoginPopupState
+        } = this.props
 
-        return false
-    }
-
-        onCompletePaymentClick = () => {
-            const {
-                completable,
-                token,
-                navigation,
-                makeOrder,
-                selectedCard,
-                selectedAddress,
-                messagePopupRef,
-                setNeedToLoginPopupState
-            } = this.props
-
-            if (token) {
-                if (completable) {
-                    if (selectedCard && selectedAddress) {
-                        makeOrder(selectedCard, selectedAddress, () => {
-                            navigation.navigate('thanksScreen')
-                        })
-                    } else if (!selectedAddress) {
-                        messagePopupRef.showMessage({ message: 'Lütfen adres seçiniz' })
-                    } else {
-                        messagePopupRef.showMessage({ message: 'Lütfen kart seçiniz' })
-                    }
+        if (token) {
+            if (completable) {
+                if (selectedCard && selectedAddress) {
+                    makeOrder(selectedCard, selectedAddress, () => {
+                        navigation.navigate('thanksScreen')
+                    })
+                } else if (!selectedAddress) {
+                    messagePopupRef.showMessage({ message: 'Lütfen adres seçiniz' })
                 } else {
-                    navigation.navigate('completePayment')
+                    messagePopupRef.showMessage({ message: 'Lütfen kart seçiniz' })
                 }
             } else {
-                setNeedToLoginPopupState(true)
+                navigation.navigate('completePayment')
             }
+        } else {
+            setNeedToLoginPopupState(true)
+        }
+    }
+
+    render() {
+        const products = Object.values(this.props.cart)
+        let totalPrice = products.reduce(
+            (previousValue, currentValue) => previousValue
+            + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
+            0
+        )
+
+        if (totalPrice < 85 && this.props.completable) {
+            totalPrice += 15
         }
 
-        render() {
-            const products = Object.values(this.props.cart)
-            let totalPrice = products.reduce(
-                (previousValue, currentValue) => previousValue
-                + parseFloat(currentValue.discountedPrice || currentValue.price) * currentValue.quantity,
-                0
-            )
-
-            if (totalPrice < 85 && this.props.completable) {
-                totalPrice += 15
-            }
-
-            return (
-                <View style={styles.completePaymentContainer}>
-                    <View style={styles.totalPriceContainer}>
-                        <Text style={styles.totalPriceText}>
-                            {`Toplam: ${totalPrice.toFixed(2).replace('.', ',')} TL`}
-                        </Text>
-                    </View>
-
-                    <TouchableOpacity
-                        onPress={this.onCompletePaymentClick}
-                        style={styles.completePaymentButton}>
-                        <Text style={styles.completePaymentText}>SİPARİŞ VER</Text>
-                    </TouchableOpacity>
+        return (
+            <View style={styles.completePaymentContainer}>
+                <View style={styles.totalPriceContainer}>
+                    <Text style={styles.totalPriceText}>
+                        {`Toplam: ${totalPrice.toFixed(2).replace('.', ',')} TL`}
+                    </Text>
                 </View>
-            )
-        }
+
+                <TouchableOpacity
+                    onPress={this.onCompletePaymentClick}
+                    style={styles.completePaymentButton}>
+                    <Text style={styles.completePaymentText}>Sipariş Ver</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
 }
 
 const styles = ScaledSheet.create({
@@ -101,7 +93,8 @@ const styles = ScaledSheet.create({
     completePaymentText: {
         color: COLORS.LIGHT,
         fontSize: '16@s',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textTransform: 'uppercase'
     },
     totalPriceContainer: {
         flex: 2,

@@ -42,6 +42,7 @@
         "react-native-reanimated": "^1.7.0",
         "react-native-safe-area-context": "^3.0.6",
         "react-native-screens": "^2.3.0",
+        "react-native-simple-shadow-view": "^1.6.3",
         "react-native-size-matters": "^0.3.0",
         "react-native-splash-screen": "^3.2.0",
         "react-native-text-input-mask": "^2.0.0",
