@@ -62,10 +62,10 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: COLORS.BLUE
+        backgroundColor: COLORS.TERTIARY
     },
     buttonYes: {
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
         color: COLORS.LIGHT
