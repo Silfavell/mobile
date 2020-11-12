@@ -57,10 +57,10 @@ const styles = ScaledSheet.create({
         textAlign: 'center'
     },
     buttonNo: {
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.SECONDARY
     },
     buttonYes: {
-        backgroundColor: COLORS.SECONDARY
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
         color: COLORS.LIGHT

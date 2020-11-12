@@ -72,7 +72,7 @@ class SearchScreen extends React.Component {
 
     fetching = () => (
         <View style={styles.Container}>
-            <ActivityIndicator color={COLORS.SECONDARY} size='large' />
+            <ActivityIndicator color={COLORS.PRIMARY} size='large' />
         </View>
     )
 
@@ -81,7 +81,7 @@ class SearchScreen extends React.Component {
             <ScrollView contentContainerStyle={styles.container} behavior='height'>
                 <View style={styles.searchHeader}>
                     <View style={styles.iconContainer}>
-                        <Ionicons name='md-search' size={32} color={COLORS.SECONDARY} />
+                        <Ionicons name='md-search' size={32} color={COLORS.PRIMARY} />
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput
@@ -93,7 +93,7 @@ class SearchScreen extends React.Component {
                     <TouchableOpacity style={styles.iconContainer} onPress={this.state.text.length > 0 ? this.clear : null}>
                         {
                             this.state.text.length > 0 && (
-                                <Ionicons name='md-close' size={32} color={COLORS.TERTIARY} />
+                                <Ionicons name='md-close' size={32} color={COLORS.PRIMARY} />
                             )
                             //  <View style={styles.iconContainer}>
                             //      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />

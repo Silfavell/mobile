@@ -65,7 +65,7 @@ class FavoriteProductsScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Ionicons name='md-heart' size={96} color={COLORS.TERTIARY} />
+                <Ionicons name='md-heart' size={96} color={COLORS.PRIMARY} />
                 <Text style={styles.emptyText}>Favori ürününüz bulunmamaktadır</Text>
             </View>
         )

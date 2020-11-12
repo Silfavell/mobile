@@ -76,7 +76,7 @@ class EditProfileForm extends React.Component {
                     value={this.state.nameSurname}
                     onChange={this.onNameSurnameChange}>
                     <InputIcon>
-                        <Ionicons size={32} name='md-person' color={COLORS.TERTIARY} />
+                        <Ionicons size={32} name='md-person' color={COLORS.PRIMARY} />
                     </InputIcon>
 
                 </InputComponent>
@@ -91,7 +91,7 @@ class EditProfileForm extends React.Component {
                     value={this.state.email}
                     onChange={this.onEmailChange}>
                     <InputIcon>
-                        <Ionicons size={32} name='md-mail-open' color={COLORS.TERTIARY} />
+                        <Ionicons size={32} name='md-mail-open' color={COLORS.PRIMARY} />
                     </InputIcon>
 
                 </InputComponent>
@@ -108,7 +108,7 @@ class EditProfileForm extends React.Component {
                     disabled
                     onChange={this.onPhoneChange}>
                     <InputIcon>
-                        <Ionicons size={32} name='md-phone-portrait' color={COLORS.TERTIARY} />
+                        <Ionicons size={32} name='md-phone-portrait' color={COLORS.PRIMARY} />
                     </InputIcon>
 
                 </InputComponent>

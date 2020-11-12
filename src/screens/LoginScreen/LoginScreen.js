@@ -101,7 +101,13 @@ class LoginScreen extends React.Component {
                         value={this.state.phoneNumber}
                         onChange={this.onPhoneChange}>
                         <InputIcon>
-                            <Ionicons size={32} name='md-phone-portrait' color={COLORS.TERTIARY} />
+                            <Ionicons
+                                size={32}
+                                name='md-phone-portrait'
+                                color={
+                                    this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized
+                                        ? COLORS.ERROR : COLORS.PRIMARY
+                                } />
                         </InputIcon>
                     </InputComponent>
 
@@ -120,8 +126,8 @@ class LoginScreen extends React.Component {
                                 name='ios-key'
                                 color={
                                     this.state.invalidPassword && this.state.isPasswordInitialized
-                                        ? COLORS.SECONDARY
-                                        : COLORS.TERTIARY
+                                        ? COLORS.ERROR
+                                        : COLORS.PRIMARY
                                 }
                                 style={styles.iosIcon} />
                         </InputIcon>
@@ -145,7 +151,6 @@ class LoginScreen extends React.Component {
                 </View>
 
                 <View>
-                    <View style={styles.buttonDivider} />
                     <ButtonComponent text='Kayıt Ol' onClick={this.goToRegister} opposite />
                 </View>
             </ScrollView>
@@ -194,16 +199,12 @@ const styles = ScaledSheet.create({
         fontSize: '18@s'
     },
     forgotPasswordText: {
-        color: COLORS.BLUE,
+        color: COLORS.DARK_GRAY,
         fontSize: '18@s',
         fontWeight: 'bold'
     },
     empty: {
         height: '28@vs'
-    },
-    buttonDivider: {
-        height: '22@vs',
-        backgroundColor: COLORS.LIGHT
     },
     view: {
         justifyContent: 'flex-end',

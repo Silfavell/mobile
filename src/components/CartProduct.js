@@ -96,7 +96,7 @@ class CartProduct extends React.PureComponent {
                 {
                     !previousOrder && (
                         <TouchableOpacity style={styles.trashIconContainer} onPress={this.onRemoveClick}>
-                            <Ionicons size={26} name='md-trash' color={COLORS.SECONDARY} style={styles.trashIcon} />
+                            <Ionicons size={26} name='md-trash' color={COLORS.PRIMARY} style={styles.trashIcon} />
                         </TouchableOpacity>
                     )
                 }

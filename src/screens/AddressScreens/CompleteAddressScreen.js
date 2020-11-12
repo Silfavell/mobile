@@ -45,7 +45,7 @@ class CompleteAddressScreen extends React.Component {
                             <Map region={this.props.route.params.region} />
 
                             <View style={styles.markerContainer} pointerEvents='none'>
-                                <Ionicons color={COLORS.TERTIARY} size={48} name='md-pin' />
+                                <Ionicons color={COLORS.PRIMARY} size={48} name='md-pin' />
                             </View>
                         </View>
                         <View style={styles.body}>

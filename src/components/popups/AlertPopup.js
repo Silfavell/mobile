@@ -58,7 +58,7 @@ const styles = ScaledSheet.create({
         marginBottom: -6
     },
     button: {
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
         color: COLORS.LIGHT

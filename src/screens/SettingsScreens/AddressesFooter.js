@@ -18,8 +18,8 @@ class AddressesFooter extends React.PureComponent {
                 <HeadingDivider title='Adres ekle' />
 
                 <ClickableSettingItem title='Yeni adres' onClick={this.moveToSearchAddress}>
-                    <Ionicons color={COLORS.TERTIARY} name='md-locate' size={32} />
-                    <Ionicons color={COLORS.TERTIARY} name='md-add' size={32} />
+                    <Ionicons color={COLORS.PRIMARY} name='md-locate' size={32} />
+                    <Ionicons color={COLORS.PRIMARY} name='md-add' size={32} />
                 </ClickableSettingItem>
 
                 {

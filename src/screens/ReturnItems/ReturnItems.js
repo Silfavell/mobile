@@ -121,7 +121,7 @@ class ReturnItems extends React.Component {
                                 }}>
                                 <CheckBox
                                     checkedImage={<MaterialIcons name='check' size={40} color={COLORS.DARK} />}
-                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color={COLORS.SECONDARY} />}
+                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color={COLORS.PRIMARY} />}
                                     disabled
                                     isChecked={this.state.items[index].selected} />
                             </TouchableOpacity>

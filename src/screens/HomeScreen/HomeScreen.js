@@ -47,7 +47,7 @@ class HomeScreen extends React.Component {
             ),
             headerLeft: () => (
                 <TouchableOpacity activeOpacity={0.9} style={styles.headerLeft} onPress={this.onCategoryListClick}>
-                    <Ionicons name='md-menu' size={26} color={COLORS.SECONDARY} />
+                    <Ionicons name='md-menu' size={26} color={COLORS.PRIMARY} />
                 </TouchableOpacity>
             )
         })
@@ -114,7 +114,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         borderBottomWidth: 3,
-        borderBottomColor: COLORS.TERTIARY,
+        borderBottomColor: COLORS.SECONDARY,
         zIndex: 1
     },
     headerImage: {

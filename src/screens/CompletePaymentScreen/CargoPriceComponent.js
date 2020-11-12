@@ -18,7 +18,7 @@ const CargoPriceComponent = ({ cart }) => {
     return (
         <View style={styles.container}>
             <View style={styles.iconContainer}>
-                <MaterialIcons size={32} name='markunread-mailbox' color={COLORS.TERTIARY} />
+                <MaterialIcons size={32} name='markunread-mailbox' color={COLORS.PRIMARY} />
             </View>
             <View style={styles.paymentInfoContainer}>
                 <View style={styles.paymentInfoTextContainer}>

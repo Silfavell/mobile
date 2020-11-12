@@ -71,7 +71,7 @@ class ActivationScreen extends React.Component {
                     onClick={this.onRegisterClick} />
 
                 <TouchableOpacity style={styles.resendContainer} onPress={this.onResendClick}>
-                    <Ionicons name='md-refresh' size={28} color={COLORS.TERTIARY} />
+                    <Ionicons name='md-refresh' size={28} color={COLORS.PRIMARY} />
                     <Text style={styles.resendCodeText}>Yeniden Gönder</Text>
                 </TouchableOpacity>
             </>

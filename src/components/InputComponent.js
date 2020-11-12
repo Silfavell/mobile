@@ -59,7 +59,7 @@ class InputComponent extends React.Component {
                         {...options}
                         value={value}
                         onChangeText={onChange}
-                        placeholderTextColor={invalid ? COLORS.SECONDARY : COLORS.GRAY}
+                        placeholderTextColor={invalid ? COLORS.ERROR : COLORS.GRAY}
                         editable={!(disabled || selector)}
                         selectTextOnFocus={!disabled}
                         style={[
@@ -73,7 +73,7 @@ class InputComponent extends React.Component {
                         {...options}
                         value={value}
                         onChangeText={onChange}
-                        placeholderTextColor={invalid ? COLORS.SECONDARY : COLORS.GRAY}
+                        placeholderTextColor={invalid ? COLORS.ERROR : COLORS.GRAY}
                         editable={!(disabled || selector)}
                         selectTextOnFocus={!disabled}
                         multiline={multiline}
@@ -126,7 +126,7 @@ const styles = ScaledSheet.create({
         paddingLeft: '48@s'
     },
     invalid: {
-        borderColor: COLORS.SECONDARY,
+        borderColor: COLORS.ERROR,
         borderWidth: 1.2
     },
     disabled: {

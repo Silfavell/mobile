@@ -63,7 +63,7 @@ class App extends React.PureComponent {
     render() {
         return (
             <Provider store={store}>
-                <StatusBar backgroundColor={COLORS.TERTIARY} barStyle='light-content' />
+                <StatusBar backgroundColor={COLORS.PRIMARY} barStyle='light-content' />
                 <GlobalScreen />
                 <NavigationContainer>
                     <Stack.Navigator initialRouteName='Loading'>

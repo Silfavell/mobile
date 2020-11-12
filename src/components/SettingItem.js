@@ -13,7 +13,7 @@ const renderRightComponent = ({ version, rightComponent, rightIcon }) => {
         return rightComponent
     }
 
-    return <MaterialIcons color={COLORS.TERTIARY} name={rightIcon ?? 'chevron-right'} size={32} />
+    return <MaterialIcons color={COLORS.PRIMARY} name={rightIcon ?? 'chevron-right'} size={32} />
 }
 
 const SettingItem = ({

@@ -56,7 +56,7 @@ class ProfileScreen extends React.Component {
                             <>
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToEditProfileScreen}>
                                     <SettingItem title={this.props.user.nameSurname}>
-                                        <Ionicons color={COLORS.TERTIARY} name='md-person' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='md-person' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
@@ -72,25 +72,25 @@ class ProfileScreen extends React.Component {
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToAddress}>
                                     <SettingItem title='Adreslerim'>
-                                        <MaterialIcons color={COLORS.TERTIARY} name='place' size={32} />
+                                        <MaterialIcons color={COLORS.PRIMARY} name='place' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToPaymentOptions}>
                                     <SettingItem title='Ödeme Seçeneklerim'>
-                                        <Ionicons color={COLORS.TERTIARY} name='ios-card' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='ios-card' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToFavoriteProducts}>
                                     <SettingItem title='Favorilerim'>
-                                        <Ionicons color={COLORS.TERTIARY} name='md-heart' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='md-heart' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToPreviousOrders}>
                                     <SettingItem title='Siparişlerim'>
-                                        <Ionicons color={COLORS.TERTIARY} name='ios-copy' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='ios-copy' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
@@ -111,7 +111,7 @@ class ProfileScreen extends React.Component {
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToChangePasssword}>
                                     <SettingItem title='Şifremi Değiştir'>
-                                        <Ionicons color={COLORS.TERTIARY} name='ios-key' size={32} style={styles.iconContainer} />
+                                        <Ionicons color={COLORS.PRIMARY} name='ios-key' size={32} style={styles.iconContainer} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
@@ -127,7 +127,7 @@ class ProfileScreen extends React.Component {
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToHelp}>
                                     <SettingItem title='Destek'>
-                                        <Ionicons color={COLORS.TERTIARY} name='md-information-circle' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='md-information-circle' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
@@ -138,13 +138,13 @@ class ProfileScreen extends React.Component {
                             <>
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToLogin}>
                                     <SettingItem title='Giriş Yap'>
-                                        <Ionicons color={COLORS.TERTIARY} name='md-person' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='md-person' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity activeOpacity={0.9} onPress={this.moveToHelp}>
                                     <SettingItem title='Destek'>
-                                        <Ionicons color={COLORS.TERTIARY} name='md-information-circle' size={32} />
+                                        <Ionicons color={COLORS.PRIMARY} name='md-information-circle' size={32} />
                                     </SettingItem>
                                 </TouchableOpacity>
                             </>

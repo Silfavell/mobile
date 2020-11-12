@@ -94,7 +94,7 @@ class AddNewCardScreen extends React.Component {
                 <View>
                     <View style={styles.header}>
                         <View style={styles.imageContainer}>
-                            <Ionicons color={COLORS.TERTIARY} name='ios-card' size={95} />
+                            <Ionicons color={COLORS.PRIMARY} name='ios-card' size={95} />
                         </View>
 
                         <View style={styles.infoContainer}>

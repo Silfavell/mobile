@@ -53,7 +53,7 @@ class PreviousOrdersScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Ionicons name='ios-copy' size={96} color={COLORS.TERTIARY} />
+                <Ionicons name='ios-copy' size={96} color={COLORS.PRIMARY} />
                 <Text style={styles.emptyText}>Siparişiniz bulunmamaktadır</Text>
             </View>
         )

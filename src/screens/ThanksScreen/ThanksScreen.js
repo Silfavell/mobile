@@ -57,7 +57,7 @@ class ThanksScreen extends React.Component {
                 <View style={styles.child} />
                 <View style={styles.child} />
                 <View style={styles.child}>
-                    <Ionicons name='md-checkmark-circle-outline' size={96} color={COLORS.SECONDARY} />
+                    <Ionicons name='md-checkmark-circle-outline' size={96} color={COLORS.PRIMARY} />
                 </View>
                 <View style={styles.child} />
                 <View style={styles.child}>

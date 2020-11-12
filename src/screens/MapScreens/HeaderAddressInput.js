@@ -9,7 +9,7 @@ import { COLORS } from '../../scripts/colors'
 
 const HeaderAddressInput = ({ address, disabled }) => (
     <View style={styles.container}>
-        <Ionicons name='md-pin' size={32} color={COLORS.TERTIARY} />
+        <Ionicons name='md-pin' size={32} color={COLORS.PRIMARY} />
         <TextInput style={styles.input} value={address} editable={!disabled} />
     </View>
 )

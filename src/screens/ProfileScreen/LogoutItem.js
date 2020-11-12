@@ -33,7 +33,7 @@ class LogoutItem extends React.Component {
 
                 <TouchableOpacity onPress={this.onClick}>
                     <SettingItem title='Çıkış Yap'>
-                        <MaterialIcons color={COLORS.TERTIARY} name='exit-to-app' size={32} />
+                        <MaterialIcons color={COLORS.PRIMARY} name='exit-to-app' size={32} />
                     </SettingItem>
                 </TouchableOpacity>
             </>

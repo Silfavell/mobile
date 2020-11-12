@@ -26,8 +26,8 @@ class AddressItem extends React.PureComponent {
                 title={this.props.address.openAddress}
                 onLeftClick={this.onLeftClick}
                 onRightIconClick={this.onRightIconClick}>
-                <Ionicons color={COLORS.TERTIARY} name='md-locate' size={32} />
-                <Ionicons color={COLORS.TERTIARY} name='md-trash' size={32} />
+                <Ionicons color={COLORS.PRIMARY} name='md-locate' size={32} />
+                <Ionicons color={COLORS.PRIMARY} name='md-trash' size={32} />
             </InteractiveSettingItem>
         )
     }

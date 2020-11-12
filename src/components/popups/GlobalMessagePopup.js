@@ -68,7 +68,7 @@ const styles = ScaledSheet.create({
         borderWidth: 1,
         borderColor: COLORS.GRAY,
         borderBottomWidth: 1,
-        borderBottomColor: COLORS.SECONDARY
+        borderBottomColor: COLORS.PRIMARY
     },
     titleContainer: {
         flex: 1,

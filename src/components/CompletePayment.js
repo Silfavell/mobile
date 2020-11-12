@@ -81,12 +81,11 @@ const styles = ScaledSheet.create({
         bottom: 0,
         width: '100%',
         height: '65@s',
-        backgroundColor: 'rgba(0,0,0,.7)',
         flexDirection: 'row'
     },
     completePaymentButton: {
         padding: '20@s',
-        backgroundColor: COLORS.SECONDARY,
+        backgroundColor: COLORS.PRIMARY,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -99,7 +98,7 @@ const styles = ScaledSheet.create({
     totalPriceContainer: {
         flex: 2,
         justifyContent: 'center',
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.SECONDARY
     },
     totalPriceText: {
         color: COLORS.LIGHT,

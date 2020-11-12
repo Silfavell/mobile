@@ -25,7 +25,7 @@ class AddressSelectComponent extends React.PureComponent {
         return (
             <TouchableOpacity style={styles.container} onPress={this.onPress}>
                 <View style={styles.iconContainer}>
-                    <Ionicons size={32} name='md-home' color={COLORS.TERTIARY} />
+                    <Ionicons size={32} name='md-home' color={COLORS.PRIMARY} />
                 </View>
                 <View style={styles.paymentInfoContainer}>
                     <View style={styles.paymentInfoTextContainer}>
@@ -36,7 +36,7 @@ class AddressSelectComponent extends React.PureComponent {
                     </View>
                 </View>
                 <View style={styles.iconContainer}>
-                    <MaterialIcons size={32} name='chevron-right' color={COLORS.TERTIARY} />
+                    <MaterialIcons size={32} name='chevron-right' color={COLORS.PRIMARY} />
                 </View>
             </TouchableOpacity>
         )

@@ -56,7 +56,7 @@ class FullProductScreen extends React.Component {
                     <TouchableOpacity onPress={() => this.onHeartClick(_id)}>
                         <Ionicons
                             size={26}
-                            color={COLORS.TERTIARY}
+                            color={COLORS.PRIMARY}
                             style={styles.iconStyle}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
 

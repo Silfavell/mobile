@@ -68,7 +68,7 @@ class Product extends React.Component {
                             style={styles.favoriteIcon}
                             size={28}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
-                            color={COLORS.SECONDARY}
+                            color={COLORS.PRIMARY}
                             onPress={this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts} />
                     )
                 }
@@ -79,7 +79,7 @@ class Product extends React.Component {
                         resizeMode={FastImage.resizeMode.contain}
                         style={styles.productImage} />
 
-                    <Ionicons style={styles.basketIcon} size={28} name='md-basket' color={COLORS.TERTIARY} onPress={this.onAddProductClick} />
+                    <Ionicons style={styles.basketIcon} size={28} name='md-basket' color={COLORS.PRIMARY} onPress={this.onAddProductClick} />
                 </TouchableOpacity>
 
                 <View style={[styles.child, styles.priceContainer]}>

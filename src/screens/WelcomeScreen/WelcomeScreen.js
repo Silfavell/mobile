@@ -94,7 +94,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     buttonText: {
-        color: COLORS.GRAY,
+        color: COLORS.DARK_GRAY,
         fontSize: '20@s'
     },
     goToLoginPageContainer: {
@@ -104,7 +104,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row'
     },
     loginText: {
-        color: COLORS.TERTIARY,
+        color: COLORS.PRIMARY,
         fontSize: '18@s',
         marginHorizontal: '10@s'
     }

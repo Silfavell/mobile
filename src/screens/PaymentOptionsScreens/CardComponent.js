@@ -65,7 +65,7 @@ class CardComponent extends React.PureComponent {
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.child} onPress={this.onDeleteClick}>
-                    <Ionicons name='md-trash' size={32} color={COLORS.TERTIARY} />
+                    <Ionicons name='md-trash' size={32} color={COLORS.PRIMARY} />
                 </TouchableOpacity>
             </View>
         )

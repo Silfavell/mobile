@@ -31,7 +31,7 @@ class AddressItem extends React.PureComponent {
             <TouchableOpacity onPress={this.onClick} style={styles.item}>
 
                 <View style={styles.itemChild}>
-                    <Ionicons size={32} name='md-pin' color={COLORS.TERTIARY} />
+                    <Ionicons size={32} name='md-pin' color={COLORS.PRIMARY} />
 
                     <Text numberOfLines={3} style={styles.description}>
                         {item.description}

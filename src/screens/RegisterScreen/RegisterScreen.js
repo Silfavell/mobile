@@ -134,7 +134,7 @@ class RegisterScreen extends React.Component {
                             <Ionicons
                                 size={32}
                                 name='md-phone-portrait'
-                                color={COLORS.TERTIARY} />
+                                color={COLORS.PRIMARY} />
                         </InputIcon>
                     </InputComponent>
 

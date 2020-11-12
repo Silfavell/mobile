@@ -36,7 +36,7 @@ class ConnectionPopup extends React.Component {
                     </ModalFooter>
                 )}>
                 <ModalContent style={styles.content}>
-                    <MaterialIcons color={COLORS.TERTIARY} size={72} name='wifi' />
+                    <MaterialIcons color={COLORS.PRIMARY} size={72} name='wifi' />
                     <Text style={styles.contentText}>Lütfen internet bağlantınızı kontrol edin</Text>
                 </ModalContent>
             </Modal>
@@ -49,7 +49,7 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonOk: {
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
         color: COLORS.LIGHT

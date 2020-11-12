@@ -45,7 +45,7 @@ class ConfirmAccuratePinPopup extends React.Component {
                         </ModalFooter>
                     )}>
                     <ModalContent style={styles.content}>
-                        <Ionicons color={COLORS.TERTIARY} size={92} name='md-map' />
+                        <Ionicons color={COLORS.PRIMARY} size={92} name='md-map' />
                         <Text style={styles.contentText}>Siparişiniz haritadaki konuma teslim edilecektir. Konumunun doğru olduğuna emin misiniz ?</Text>
                     </ModalContent>
                 </Modal>
@@ -58,10 +58,10 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.SECONDARY
     },
     buttonYes: {
-        backgroundColor: COLORS.SECONDARY
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
         color: COLORS.LIGHT

@@ -57,7 +57,7 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonOk: {
-        backgroundColor: COLORS.TERTIARY
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
         color: COLORS.LIGHT
@@ -71,7 +71,12 @@ const styles = ScaledSheet.create({
     }
 })
 
-const mapStateToProps = ({ globalReducer: { needToLoginPopupState, navigation } }) => ({
+const mapStateToProps = ({
+    globalReducer: {
+        needToLoginPopupState,
+        navigation
+    }
+}) => ({
     needToLoginPopupState,
     navigation
 })

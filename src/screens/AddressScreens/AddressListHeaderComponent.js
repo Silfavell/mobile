@@ -63,14 +63,14 @@ class AddressListHeaderComponent extends React.Component {
                             onChangeText={this.onSearchChange}
                             placeholder='Adres ara'
                             style={styles.searchAddress} />
-                        <Ionicons size={32} name='md-search' color={COLORS.TERTIARY} onPress={this.onSearchClick} />
+                        <Ionicons size={32} name='md-search' color={COLORS.PRIMARY} onPress={this.onSearchClick} />
                     </View>
                 </View>
                 <View style={styles.divider} />
 
                 <TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
                     <View style={styles.useCurrentLocationContainer}>
-                        <Ionicons size={32} name='md-locate' color={COLORS.TERTIARY} />
+                        <Ionicons size={32} name='md-locate' color={COLORS.PRIMARY} />
                         <Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
                     </View>
                 </TouchableOpacity>

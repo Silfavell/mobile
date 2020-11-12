@@ -27,7 +27,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
                 style={styles.container}
                 onPress={this.onPress}>
                 <View style={styles.iconContainer}>
-                    <Ionicons size={32} name='ios-wallet' color={COLORS.TERTIARY} />
+                    <Ionicons size={32} name='ios-wallet' color={COLORS.PRIMARY} />
                 </View>
                 <View style={styles.paymentInfoContainer}>
                     <View style={styles.paymentInfoTextContainer}>

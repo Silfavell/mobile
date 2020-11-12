@@ -58,7 +58,7 @@ class CartScreen extends React.Component {
 
         return (
             <View style={styles.emptyContainer}>
-                <Ionicons name='md-basket' size={96} color={COLORS.SECONDARY} />
+                <Ionicons name='md-basket' size={96} color={COLORS.PRIMARY} />
                 <Text style={styles.emptyText}>Sepetinizde ürün bulunmamaktadır</Text>
             </View>
         )
