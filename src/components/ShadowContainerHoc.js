@@ -37,8 +37,8 @@ const styles = ScaledSheet.create({
         flex: 1,
         justifyContent: 'center',
         backgroundColor: COLORS.LIGHT,
-        shadowColor: COLORS.DARK,
-        shadowOffset: { width: 1, height: 1 },
+        shadowColor: COLORS.PRIMARY,
+        shadowOffset: { width: 1, height: 2 },
         shadowOpacity: 0.6,
         shadowRadius: 24,
         elevation: 5
