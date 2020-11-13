@@ -23,35 +23,29 @@ const CompletePaymentContent = ({
     const selectedCardObj = cards.find((card) => card.cardToken === selectedCard)
 
     return (
-        <>
-            <View style={{ height: '100%', width: '100%', paddingBottom: '30%' }}>
-                <HeadingDivider title='Adres Seçimi' />
+        <View style={{ flex: 1 }}>
+            <HeadingDivider title='Adres Seçimi' />
 
-                <AddressSelectComponent
-                    flex={1}
-                    navigation={navigation}
-                    token={token}
-                    setNeedToLoginPopupState={setNeedToLoginPopupState}
-                    title={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'}
-                    subTitle={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'} />
+            <AddressSelectComponent
+                navigation={navigation}
+                token={token}
+                setNeedToLoginPopupState={setNeedToLoginPopupState}
+                title={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'}
+                subTitle={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'} />
 
-                <HeadingDivider title='Ödeme Şekli' />
+            <HeadingDivider title='Ödeme Şekli' />
 
-                <PaymentTypeSelectComponent
-                    flex={1}
-                    navigation={navigation}
-                    token={token}
-                    setNeedToLoginPopupState={setNeedToLoginPopupState}
-                    title={selectedCardObj?.cardAlias ?? 'Kart Seçiniz'}
-                    subTitle={selectedCardObj?.cardNumber ?? 'Kart Seçiniz'} />
+            <PaymentTypeSelectComponent
+                navigation={navigation}
+                token={token}
+                setNeedToLoginPopupState={setNeedToLoginPopupState}
+                title={selectedCardObj?.cardAlias ?? 'Kart Seçiniz'}
+                subTitle={selectedCardObj?.cardNumber ?? 'Kart Seçiniz'} />
 
-                <HeadingDivider
-                    title='Kargo Ücreti'
-                    flex={1} />
+            <HeadingDivider title='Kargo Ücreti' />
 
-                <CargoPriceComponent />
-            </View>
-        </>
+            <CargoPriceComponent />
+        </View>
     )
 }
 

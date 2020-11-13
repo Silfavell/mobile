@@ -39,8 +39,7 @@ const CargoPriceComponent = ({ cart }) => {
 
 const styles = ScaledSheet.create({
     container: {
-        flexDirection: 'row',
-        height: '20%'
+        flexDirection: 'row'
     },
     iconContainer: {
         alignItems: 'center',
@@ -53,6 +52,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'column',
         marginHorizontal: '8@s',
         padding: '4@s',
+        height: '72@s',
         flex: 5
     },
     paymentInfoTextContainer: {
