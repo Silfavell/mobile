@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
@@ -23,7 +22,7 @@ const CompletePaymentContent = ({
     const selectedCardObj = cards.find((card) => card.cardToken === selectedCard)
 
     return (
-        <View style={{ flex: 1 }}>
+        <>
             <HeadingDivider title='Adres Seçimi' />
 
             <AddressSelectComponent
@@ -45,7 +44,7 @@ const CompletePaymentContent = ({
             <HeadingDivider title='Kargo Ücreti' />
 
             <CargoPriceComponent />
-        </View>
+        </>
     )
 }
 
