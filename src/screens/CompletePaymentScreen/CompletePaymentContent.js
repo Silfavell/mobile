@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
@@ -23,27 +24,33 @@ const CompletePaymentContent = ({
 
     return (
         <>
-            <HeadingDivider title='Adres Seçimi' />
+            <View style={{ height: '100%', width: '100%', paddingBottom: '30%' }}>
+                <HeadingDivider title='Adres Seçimi' />
 
-            <AddressSelectComponent
-                navigation={navigation}
-                token={token}
-                setNeedToLoginPopupState={setNeedToLoginPopupState}
-                title={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'}
-                subTitle={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'} />
+                <AddressSelectComponent
+                    flex={1}
+                    navigation={navigation}
+                    token={token}
+                    setNeedToLoginPopupState={setNeedToLoginPopupState}
+                    title={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'}
+                    subTitle={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'} />
 
-            <HeadingDivider title='Ödeme Şekli' />
+                <HeadingDivider title='Ödeme Şekli' />
 
-            <PaymentTypeSelectComponent
-                navigation={navigation}
-                token={token}
-                setNeedToLoginPopupState={setNeedToLoginPopupState}
-                title={selectedCardObj?.cardAlias ?? 'Kart Seçiniz'}
-                subTitle={selectedCardObj?.cardNumber ?? 'Kart Seçiniz'} />
+                <PaymentTypeSelectComponent
+                    flex={1}
+                    navigation={navigation}
+                    token={token}
+                    setNeedToLoginPopupState={setNeedToLoginPopupState}
+                    title={selectedCardObj?.cardAlias ?? 'Kart Seçiniz'}
+                    subTitle={selectedCardObj?.cardNumber ?? 'Kart Seçiniz'} />
 
-            <HeadingDivider title='Kargo Ücreti' />
+                <HeadingDivider
+                    title='Kargo Ücreti'
+                    flex={1} />
 
-            <CargoPriceComponent />
+                <CargoPriceComponent />
+            </View>
         </>
     )
 }
