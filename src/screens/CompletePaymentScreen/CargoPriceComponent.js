@@ -5,6 +5,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux'
 
+import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 
 const CargoPriceComponent = ({ cart }) => {
@@ -73,4 +74,4 @@ const mapStateToProps = ({ cartReducer: { cart } }) => ({
     cart
 })
 
-export default connect(mapStateToProps)(CargoPriceComponent)
+export default ShadowContainerHoc(connect(mapStateToProps)(CargoPriceComponent))
