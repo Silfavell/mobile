@@ -39,7 +39,7 @@ export const saveCard = (card, cb) => async (dispatch) => {
 }
 
 export const deleteCard = (cardToken) => async (dispatch) => {
-    const { status } = await removeCard({ cardToken })
+    const { status } = await removeCard(cardToken)
 
     if (status === 200) {
         dispatch({
