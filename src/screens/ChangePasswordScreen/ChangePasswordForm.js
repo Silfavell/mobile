@@ -26,7 +26,7 @@ class ChangePasswordForm extends React.Component {
     setPopupState = ({ scaleAnimationModal }) => {
         this.setState({ scaleAnimationModal })
         if (!scaleAnimationModal) {
-            //  this.props.navigation.pop()
+            this.props.navigation.pop()
         }
     }
 
