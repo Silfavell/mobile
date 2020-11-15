@@ -4,9 +4,9 @@ import { ScrollView } from 'react-native'
 
 import ChangePasswordForm from './ChangePasswordForm'
 
-const ChangePasswordScreen = () => (
+const ChangePasswordScreen = ({ navigation }) => (
     <ScrollView>
-        <ChangePasswordForm />
+        <ChangePasswordForm navigation={navigation} />
     </ScrollView>
 
 )
