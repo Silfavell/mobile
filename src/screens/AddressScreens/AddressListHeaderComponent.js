@@ -24,19 +24,7 @@ class AddressListHeaderComponent extends React.Component {
     onSearchClick = async () => {
         const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${this.state.searchVal}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA&components=country:tr`
         const { data } = await axios.get(url)
-
         this.props.setLocations(data.predictions)
-    }
-
-    getSearchVal = () => this.stata.searchVal
-
-    onAddress = (data) => {
-        this.props.navigation.navigate('pinAddressScreen', {
-            region: {
-                latitude: data.result.geometry.location.lat,
-                longitude: data.result.geometry.location.lng
-            }
-        })
     }
 
     onCurrentRegion = (region, err) => {

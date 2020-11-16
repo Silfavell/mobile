@@ -14,14 +14,6 @@ class SearchAddressScreen extends React.Component {
         locations: []
     }
 
-    shouldComponentUpdate(_, nextState) {
-        if (this.state.locations.length !== nextState.locations.length) {
-            return true
-        }
-
-        return false
-    }
-
     setLocations = (locations) => {
         this.setState({ locations })
     }
@@ -41,7 +33,8 @@ class SearchAddressScreen extends React.Component {
                 renderItem={this.renderSearchedItem}
                 ListHeaderComponent={(
                     <AddressListHeaderComponent
-                        setLocations={this.setLocations} />
+                        setLocations={this.setLocations}
+                        navigation={this.props.navigation} />
                 )}
                 stickyHeaderIndices={[0]} />
         )
