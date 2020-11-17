@@ -13,6 +13,7 @@ import { login } from '../../actions/source-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import InputIcon from '../../components/InputIcon'
+import { COLORS } from '../../scripts/colors'
 import { bulkCart } from '../../scripts/requests'
 
 class LoginScreen extends React.Component {
@@ -100,7 +101,13 @@ class LoginScreen extends React.Component {
                         value={this.state.phoneNumber}
                         onChange={this.onPhoneChange}>
                         <InputIcon>
-                            <Ionicons size={32} name='md-phone-portrait' color='rgba(0,0,0,.8)' />
+                            <Ionicons
+                                size={32}
+                                name='md-phone-portrait'
+                                color={
+                                    this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized
+                                        ? COLORS.ERROR : COLORS.PRIMARY
+                                } />
                         </InputIcon>
                     </InputComponent>
 
@@ -119,8 +126,8 @@ class LoginScreen extends React.Component {
                                 name='ios-key'
                                 color={
                                     this.state.invalidPassword && this.state.isPasswordInitialized
-                                        ? '#EE4266'
-                                        : 'rgba(0,0,0,.8)'
+                                        ? COLORS.ERROR
+                                        : COLORS.PRIMARY
                                 }
                                 style={styles.iosIcon} />
                         </InputIcon>
@@ -144,7 +151,6 @@ class LoginScreen extends React.Component {
                 </View>
 
                 <View>
-                    <View style={styles.buttonDivider} />
                     <ButtonComponent text='Kayıt Ol' onClick={this.goToRegister} opposite />
                 </View>
             </ScrollView>
@@ -163,7 +169,7 @@ const styles = ScaledSheet.create({
         margin: 3
     },
     facebookButton: {
-        backgroundColor: '#3B589E',
+        backgroundColor: COLORS.BLUE,
         flex: 1,
         margin: '4@s',
         borderRadius: 10,
@@ -186,23 +192,19 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '12@s',
         fontSize: '18@s',
         borderWidth: 0.8,
-        borderColor: '#ABABAB'
+        borderColor: COLORS.GRAY
     },
     facebookText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '18@s'
     },
     forgotPasswordText: {
-        color: '#6E7586',
+        color: COLORS.DARK_GRAY,
         fontSize: '18@s',
         fontWeight: 'bold'
     },
     empty: {
         height: '28@vs'
-    },
-    buttonDivider: {
-        height: '22@vs',
-        backgroundColor: '#EDEEF0'
     },
     view: {
         justifyContent: 'flex-end',

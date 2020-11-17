@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 
 import { setCurrentRegion } from '../../actions/map-actions'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 
 class AddressListHeaderComponent extends React.Component {
     state = {
@@ -23,19 +24,7 @@ class AddressListHeaderComponent extends React.Component {
     onSearchClick = async () => {
         const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${this.state.searchVal}&key=AIzaSyDOKcW0tFvi_T9vFyERfUDh20IxfTfBsmA&components=country:tr`
         const { data } = await axios.get(url)
-
         this.props.setLocations(data.predictions)
-    }
-
-    getSearchVal = () => this.stata.searchVal
-
-    onAddress = (data) => {
-        this.props.navigation.navigate('pinAddressScreen', {
-            region: {
-                latitude: data.result.geometry.location.lat,
-                longitude: data.result.geometry.location.lng
-            }
-        })
     }
 
     onCurrentRegion = (region, err) => {
@@ -62,14 +51,14 @@ class AddressListHeaderComponent extends React.Component {
                             onChangeText={this.onSearchChange}
                             placeholder='Adres ara'
                             style={styles.searchAddress} />
-                        <Ionicons size={32} name='md-search' color='rgba(0,0,0,.8)' onPress={this.onSearchClick} />
+                        <Ionicons size={32} name='md-search' color={COLORS.PRIMARY} onPress={this.onSearchClick} />
                     </View>
                 </View>
                 <View style={styles.divider} />
 
                 <TouchableOpacity onPress={this.useCurrentLocation} style={styles.useCurrentLocationButton}>
                     <View style={styles.useCurrentLocationContainer}>
-                        <Ionicons size={32} name='md-locate' color='rgba(0,0,0,.8)' />
+                        <Ionicons size={32} name='md-locate' color={COLORS.PRIMARY} />
                         <Text style={styles.useCurrentLocation}>Bulunduğum konumu kullan</Text>
                     </View>
                 </TouchableOpacity>
@@ -82,11 +71,11 @@ const styles = ScaledSheet.create({
     header: {
         height: 110,
         display: 'flex',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     divider: {
         height: 1,
-        backgroundColor: '#DFDFDF',
+        backgroundColor: COLORS.GRAY,
         marginHorizontal: 12
     },
     searchAddressContainerContainer: {

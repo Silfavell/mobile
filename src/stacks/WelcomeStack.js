@@ -12,6 +12,7 @@ import LoginScreen from '../screens/LoginScreen/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen/RegisterScreen'
 import ResetPasswordScreen from '../screens/ResetPasswordScreen/ResetPasswordScreen'
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -32,7 +33,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Giriş Yap',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -42,7 +43,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Kayıt Ol',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -52,7 +53,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Şifremi Unuttum',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -62,7 +63,7 @@ const WelcomeStack = () => (
             options={{
                 title: 'Şifremi Değiştir',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -72,14 +73,16 @@ const WelcomeStack = () => (
             options={{
                 title: 'Aktivasyon',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
     </Stack.Navigator>
 )
 
 const styles = ScaledSheet.create({
-    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' },
+    headerStyle: {
+        backgroundColor: COLORS.PRIMARY
+    },
     headerImage: {
         height: '200%'
     }

@@ -12,6 +12,7 @@ import ButtonComponent from '../../components/ButtonComponent'
 import ClearFilterPopup from '../../components/popups/ClearFilterPopup'
 import SettingItem from '../../components/SettingItem'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 import BrandComponent from './BrandComponent'
 import Slider from './Slider'
 
@@ -91,7 +92,7 @@ class FilterProductsScreen extends React.Component {
             this.props.navigation.setOptions({
                 headerLeft: () => (
                     <TouchableOpacity onPress={this.props.navigation.goBack}>
-                        <Ionicons name='md-close' size={26} color='white' style={styles.leftIcon} />
+                        <Ionicons name='md-close' size={26} color={COLORS.LIGHT} style={styles.leftIcon} />
                     </TouchableOpacity>
                 ),
                 headerRight: () => (this.state.brands.length > 0
@@ -99,7 +100,7 @@ class FilterProductsScreen extends React.Component {
                 || this.state.minPrice
                 || this.state.maxPrice) && (
                     <TouchableOpacity onPress={this.onClearFilterClick}>
-                        <Ionicons name='md-trash' size={26} color='white' style={styles.rightIcon} />
+                        <Ionicons name='md-trash' size={26} color={COLORS.LIGHT} style={styles.rightIcon} />
                     </TouchableOpacity>
                 )
             })
@@ -238,7 +239,7 @@ const styles = ScaledSheet.create({
     },
     divider: {
         height: '12@s',
-        backgroundColor: '#DFDFDF'
+        backgroundColor: COLORS.GRAY
     },
     sliderContainer: {
         display: 'flex',

@@ -13,6 +13,7 @@ import FilterProductsScreen from '../screens/FilterProductsScreen/FilterProducts
 import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
 import HomeScreen from '../screens/HomeScreen/HomeScreen'
 import ProductScreen from '../screens/ProductsScreen/ProductsScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -30,7 +31,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                 options={{
                     title: 'Ürünler',
                     headerTitleAlign: 'center',
-                    headerTintColor: 'white',
+                    headerTintColor: COLORS.LIGHT,
                     headerStyle: styles.headerStyle
                 }}
                 component={ProductScreen} />
@@ -40,7 +41,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                 options={{
                     title: 'Kategoriler',
                     headerTitleAlign: 'center',
-                    headerTintColor: 'white',
+                    headerTintColor: COLORS.LIGHT,
                     headerStyle: styles.headerStyle,
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}
@@ -52,7 +53,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     title: 'Ürün detayı',
                     headerTitle: null,
                     headerTitleAlign: 'center',
-                    headerTintColor: 'rgba(0,0,0,.8)',
+                    headerTintColor: COLORS.TERTIARY,
                     // headerTransparent: true,
                     headerStyle: {
                         elevation: 0, // remove shadow on Android
@@ -67,7 +68,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                 options={{
                     title: 'Filtrele',
                     headerTitleAlign: 'center',
-                    headerTintColor: 'white',
+                    headerTintColor: COLORS.LIGHT,
                     headerStyle: styles.headerStyle,
                     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
                 }}
@@ -78,7 +79,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     }
 })
 

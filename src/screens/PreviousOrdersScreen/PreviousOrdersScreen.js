@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import LoadingComponent from '../../components/LoadingComponent'
 import OrderComponent from '../../components/OrderComponent'
+import { COLORS } from '../../scripts/colors'
 import { getOrders } from '../../scripts/requests'
 
 class PreviousOrdersScreen extends React.Component {
@@ -52,7 +53,7 @@ class PreviousOrdersScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Ionicons name='ios-copy' size={96} color='#BDBDBD' />
+                <Ionicons name='ios-copy' size={96} color={COLORS.PRIMARY} />
                 <Text style={styles.emptyText}>Siparişiniz bulunmamaktadır</Text>
             </View>
         )
@@ -64,13 +65,13 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     emptyText: {
         marginTop: 32,
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545'
+        color: COLORS.DARK
     },
     conteiner2: {
         flex: 1

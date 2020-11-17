@@ -11,6 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setSelectedCard } from '../../actions/payment-actions'
+import { COLORS } from '../../scripts/colors'
 
 import mastercard from '../../../assets/mastercard.png'
 import visa from '../../../assets/visa.png'
@@ -64,7 +65,7 @@ class CardComponent extends React.PureComponent {
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.child} onPress={this.onDeleteClick}>
-                    <Ionicons name='md-trash' size={32} color='rgba(0,0,0,.8)' />
+                    <Ionicons name='md-trash' size={32} color={COLORS.PRIMARY} />
                 </TouchableOpacity>
             </View>
         )
@@ -78,7 +79,7 @@ const styles = ScaledSheet.create({
         padding: 8,
         marginHorizontal: 6,
         borderBottomWidth: 0.4,
-        borderBottomColor: '#CDCDCD'
+        borderBottomColor: COLORS.TERTIARY
     },
     child: {
         alignItems: 'center',
@@ -90,11 +91,11 @@ const styles = ScaledSheet.create({
     },
     cardNumber: {
         fontSize: '15@s',
-        color: '#6C7486'
+        color: COLORS.GRAY
     },
     highlightedText: {
         fontSize: '16@s',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.TERTIARY
     },
     cardImage: {
         height: 24,

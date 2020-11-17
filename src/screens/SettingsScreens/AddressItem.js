@@ -8,6 +8,7 @@ import {
     setSelectedAddress
 } from '../../actions/payment-actions'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 import InteractiveSettingItem from './InteractiveSettingItem'
 
 class AddressItem extends React.PureComponent {
@@ -25,8 +26,8 @@ class AddressItem extends React.PureComponent {
                 title={this.props.address.openAddress}
                 onLeftClick={this.onLeftClick}
                 onRightIconClick={this.onRightIconClick}>
-                <Ionicons color='rgba(0,0,0,.8)' name='md-locate' size={32} />
-                <Ionicons color='rgba(0,0,0,.8)' name='md-trash' size={32} />
+                <Ionicons color={COLORS.PRIMARY} name='md-locate' size={32} />
+                <Ionicons color={COLORS.PRIMARY} name='md-trash' size={32} />
             </InteractiveSettingItem>
         )
     }

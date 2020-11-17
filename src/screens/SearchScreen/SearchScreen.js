@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import RecyclerList from '../../components/RecyclerList'
+import { COLORS } from '../../scripts/colors'
 import { search as searchRequest } from '../../scripts/requests'
 import MostSearchedWithHoc from './MostSearchedWithHoc'
 
@@ -71,7 +72,7 @@ class SearchScreen extends React.Component {
 
     fetching = () => (
         <View style={styles.Container}>
-            <ActivityIndicator color='#EE4266' size='large' />
+            <ActivityIndicator color={COLORS.PRIMARY} size='large' />
         </View>
     )
 
@@ -80,7 +81,7 @@ class SearchScreen extends React.Component {
             <ScrollView contentContainerStyle={styles.container} behavior='height'>
                 <View style={styles.searchHeader}>
                     <View style={styles.iconContainer}>
-                        <Ionicons name='md-search' size={32} color='rgba(0,0,0,.8)' />
+                        <Ionicons name='md-search' size={32} color={COLORS.PRIMARY} />
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput
@@ -92,7 +93,7 @@ class SearchScreen extends React.Component {
                     <TouchableOpacity style={styles.iconContainer} onPress={this.state.text.length > 0 ? this.clear : null}>
                         {
                             this.state.text.length > 0 && (
-                                <Ionicons name='md-close' size={32} color='#6D7891' />
+                                <Ionicons name='md-close' size={32} color={COLORS.PRIMARY} />
                             )
                             //  <View style={styles.iconContainer}>
                             //      <Ionicons name={'md-microphone'} size={32} color={'#6D7891'} />
@@ -115,19 +116,19 @@ class SearchScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     searchHeader: {
         height: 50,
         flexDirection: 'row',
-        backgroundColor: 'white',
-        shadowColor: '#000',
+        backgroundColor: COLORS.LIGHT,
+        shadowColor: COLORS.DARK,
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 24,
         elevation: 3,
         borderBottomWidth: 1,
-        borderBottomColor: '#BCBCBC'
+        borderBottomColor: COLORS.GRAY
     },
     mostSearchContainer: {
         flex: 0.7,
@@ -135,7 +136,7 @@ const styles = ScaledSheet.create({
         margin: 2,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     iconContainer: {
         alignItems: 'center',

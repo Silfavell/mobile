@@ -4,7 +4,6 @@ import { ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 import SettingItem from '../../components/SettingItem'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import FOR_WHICH from '../../models/ForWhich'
 
 class CategoryItem extends React.PureComponent {
@@ -69,4 +68,4 @@ const mapStateToProps = ({ sourceReducer: { categories } }) => ({
     categories
 })
 
-export default ShadowContainerHoc(connect(mapStateToProps)(CategoryList))
+export default connect(mapStateToProps)(CategoryList)

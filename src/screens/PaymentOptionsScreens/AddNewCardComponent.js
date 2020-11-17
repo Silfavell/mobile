@@ -4,6 +4,8 @@ import { View, TouchableOpacity, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import { COLORS } from '../../scripts/colors'
+
 class AddNewCardComponent extends React.PureComponent {
     onClick = () => {
         this.props.navigation.navigate('addNewCardScreen')
@@ -15,7 +17,7 @@ class AddNewCardComponent extends React.PureComponent {
                 <TouchableOpacity style={styles.container} onPress={this.onClick}>
                     <View style={styles.child}>
                         <View style={styles.iconContainer}>
-                            <Ionicons name='md-add' size={32} color='rgba(0,0,0,.8)' />
+                            <Ionicons name='md-add' size={32} color={COLORS.PRIMARY} />
                         </View>
                     </View>
                     <View style={[styles.child, styles.textContainer]}>
@@ -65,11 +67,11 @@ const styles = ScaledSheet.create({
     },
     cardNumber: {
         fontSize: '15@s',
-        color: '#6C7486'
+        color: COLORS.GRAY
     },
     highlightedText: {
         fontSize: '16@s',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.TERTIARY
     },
     iconContainer: {
         height: 24,

@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { saveCard } from '../../actions/payment-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
+import { COLORS } from '../../scripts/colors'
 
 class AddNewCardScreen extends React.Component {
     state = {
@@ -93,7 +94,7 @@ class AddNewCardScreen extends React.Component {
                 <View>
                     <View style={styles.header}>
                         <View style={styles.imageContainer}>
-                            <Ionicons color='rgba(0,0,0,.8)' name='ios-card' size={95} />
+                            <Ionicons color={COLORS.PRIMARY} name='ios-card' size={95} />
                         </View>
 
                         <View style={styles.infoContainer}>
@@ -255,7 +256,7 @@ const styles = ScaledSheet.create({
         borderRadius: 8
     },
     securityText: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontSize: '19@s',
         fontWeight: 'bold'
     },
@@ -266,7 +267,7 @@ const styles = ScaledSheet.create({
         marginRight: '12@s'
     },
     securityInformation: {
-        color: '#757889',
+        color: COLORS.GRAY,
         fontSize: '15@s',
         fontWeight: 'bold'
     },
@@ -275,20 +276,6 @@ const styles = ScaledSheet.create({
     },
     inputContainer: {
         flex: 1
-    },
-    continueButton: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(94,63,190)',
-        borderRadius: 10
-    },
-    continueText: {
-        fontSize: '20@s',
-        color: 'white'
-    },
-    empty: {
-        height: '22@s'
     }
 })
 

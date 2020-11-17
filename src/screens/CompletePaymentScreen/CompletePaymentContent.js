@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ScrollView, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
@@ -22,7 +23,9 @@ const CompletePaymentContent = ({
     const selectedCardObj = cards.find((card) => card.cardToken === selectedCard)
 
     return (
-        <>
+
+        <ScrollView style={styles.container}>
+
             <HeadingDivider title='Adres Seçimi' />
 
             <AddressSelectComponent
@@ -44,9 +47,15 @@ const CompletePaymentContent = ({
             <HeadingDivider title='Kargo Ücreti' />
 
             <CargoPriceComponent />
-        </>
+        </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+})
 
 const mapStateToProps = ({
     paymentReducer: {

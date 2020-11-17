@@ -12,6 +12,7 @@ import { increaseProductQuantity } from '../../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
 import Accordion from '../../components/Accordion'
 import ButtonComponent from '../../components/ButtonComponent'
+import { COLORS } from '../../scripts/colors'
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 import Loading from '../LoadingScreen/LoadingScreen'
 import Color from './Color'
@@ -55,7 +56,7 @@ class FullProductScreen extends React.Component {
                     <TouchableOpacity onPress={() => this.onHeartClick(_id)}>
                         <Ionicons
                             size={26}
-                            color='rgba(0,0,0,.8)'
+                            color={COLORS.PRIMARY}
                             style={styles.iconStyle}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
 
@@ -247,7 +248,7 @@ const styles = ScaledSheet.create({
     container: {
         justifyContent: 'space-between',
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     scrollContainer: {
         justifyContent: 'space-between'
@@ -268,7 +269,7 @@ const styles = ScaledSheet.create({
         paddingVertical: '20@s',
         marginHorizontal: '10@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#EFEFEF'
+        borderBottomColor: COLORS.GRAY
     },
     details: {
         flex: 1,
@@ -277,7 +278,7 @@ const styles = ScaledSheet.create({
         paddingVertical: '20@s',
         marginHorizontal: '10@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#EFEFEF'
+        borderBottomColor: COLORS.GRAY
     },
     details2: {
         flex: 1,
@@ -291,7 +292,7 @@ const styles = ScaledSheet.create({
         marginTop: '20@s',
         marginHorizontal: '10@s',
         borderWidth: 1,
-        borderColor: '#EFEFEF'
+        borderColor: COLORS.GRAY
     },
     detailRow: {
         display: 'flex',
@@ -299,13 +300,13 @@ const styles = ScaledSheet.create({
     },
     nonFirstDetailsRow: {
         borderTopWidth: 1,
-        borderTopColor: '#EFEFEF'
+        borderTopColor: COLORS.GRAY
     },
     detailRowTitleContainer: {
         flex: 4,
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: '#F7F7F7'
+        backgroundColor: COLORS.LIGHT
     },
     detailRowTitle: {
         padding: '12@s',
@@ -316,7 +317,7 @@ const styles = ScaledSheet.create({
         display: 'flex',
         justifyContent: 'center',
         borderLeftWidth: 1,
-        borderLeftColor: '#EFEFEF'
+        borderLeftColor: COLORS.GRAY
     },
     detailRowValue: {
         padding: '12@s',
@@ -335,7 +336,7 @@ const styles = ScaledSheet.create({
         fontSize: '17@s',
         marginRight: '8@s',
         fontWeight: '700',
-        color: 'rgba(0,0,0,.8)'
+        color: COLORS.DARK
     },
     discountedPrice: {
         fontWeight: 'normal',
@@ -357,7 +358,7 @@ const styles = ScaledSheet.create({
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     textContainer: {
         flex: 1,
@@ -381,7 +382,7 @@ const styles = ScaledSheet.create({
         marginRight: 18
     },
     shadowContainer: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     imageContainerStyle: {
         paddingBottom: 20

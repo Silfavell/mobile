@@ -4,6 +4,8 @@ import { View } from 'react-native'
 import ShadowView from 'react-native-simple-shadow-view'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) => (
     class extends React.PureComponent {
         render() {
@@ -23,7 +25,7 @@ const ShadowContainerHoc = (WrappedComponent, { containerStyle, style } = {}) =>
 const styles = ScaledSheet.create({
     x: {
         flexGrow: 1,
-        backgroundColor: '#DFDFDF'
+        backgroundColor: COLORS.GRAY
     },
     y: {
         flexGrow: 1,
@@ -34,9 +36,9 @@ const styles = ScaledSheet.create({
     z: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#EDEDED',
-        shadowColor: '#000',
-        shadowOffset: { width: 1, height: 1 },
+        backgroundColor: COLORS.LIGHT,
+        shadowColor: COLORS.PRIMARY,
+        shadowOffset: { width: 1, height: 2 },
         shadowOpacity: 0.6,
         shadowRadius: 24,
         elevation: 5

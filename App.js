@@ -17,6 +17,7 @@ import rootReducer from './src/reducers/root-reducer'
 import GlobalScreen from './src/screens/GlobalScreen/GlobalScreen'
 import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen'
 import axiosMiddleware from './src/scripts/axios'
+import { COLORS } from './src/scripts/colors'
 import WelcomeStack from './src/stacks/WelcomeStack'
 
 import './src/scripts/wydr'
@@ -62,7 +63,7 @@ class App extends React.PureComponent {
     render() {
         return (
             <Provider store={store}>
-                <StatusBar backgroundColor='rgba(0,0,0,.8)' barStyle='light-content' />
+                <StatusBar backgroundColor={COLORS.PRIMARY} barStyle='light-content' />
                 <GlobalScreen />
                 <NavigationContainer>
                     <Stack.Navigator initialRouteName='Loading'>

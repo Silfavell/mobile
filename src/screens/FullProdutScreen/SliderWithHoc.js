@@ -7,6 +7,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
 import Slider from '../../components/Slider'
+import { COLORS } from '../../scripts/colors'
 
 const SliderWithHoc = ({ _id, images }) => (
     <View style={styles.imageContainer}>
@@ -25,7 +26,7 @@ const styles = ScaledSheet.create({
         height: '260@s'
     },
     shadowContainer: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     imageContainerStyle: {
         paddingBottom: 20

@@ -13,11 +13,11 @@ import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
 import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'
 import CartScreen from '../screens/CartScreen/CartScreen'
 import CompletePaymentScreen from '../screens/CompletePaymentScreen/CompletePaymentScreen'
-import OnlinePaymentScreen from '../screens/OnlinePaymentScreen/OnlinePaymentScreen'
 import AddNewCardScreen from '../screens/PaymentOptionsScreens/AddNewCardScreen'
 import PaymentOptionsScreen from '../screens/PaymentOptionsScreens/PaymentOptionsScreen'
 import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
 import ThanksScreen from '../screens/ThanksScreen/ThanksScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -29,7 +29,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Sepetim',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle,
                 headerLeft: () => <HeaderLeft navigation={navigation} />,
                 headerRight: () => <HeaderRight />
@@ -41,17 +41,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Ödemeyi Tamamla',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
-                headerStyle: styles.headerStyle
-            }} />
-
-        <Stack.Screen
-            name='onlinePaymentScreen'
-            component={OnlinePaymentScreen}
-            options={{
-                title: 'Online Kredi/Banka Kartı',
-                headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -61,7 +51,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Ödeme Yöntemlerim',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -71,7 +61,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Kart Ekle',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -81,7 +71,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adreslerim',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -91,7 +81,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adres Ara',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -101,7 +91,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adres Ekle',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -111,7 +101,7 @@ const CartStack = ({ navigation }) => (
             options={{
                 title: 'Adres Ekle',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerStyle: styles.headerStyle
             }} />
 
@@ -125,7 +115,7 @@ const CartStack = ({ navigation }) => (
 )
 
 const styles = ScaledSheet.create({
-    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
+    headerStyle: { backgroundColor: COLORS.PRIMARY }
 })
 
 export default CartStack

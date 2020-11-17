@@ -7,6 +7,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../../scripts/colors'
+
 class ConnectionPopup extends React.Component {
     close = () => {
         RNExitApp.exitApp()
@@ -34,7 +36,7 @@ class ConnectionPopup extends React.Component {
                     </ModalFooter>
                 )}>
                 <ModalContent style={styles.content}>
-                    <MaterialIcons color='rgba(0,0,0,.8)' size={72} name='wifi' />
+                    <MaterialIcons color={COLORS.PRIMARY} size={72} name='wifi' />
                     <Text style={styles.contentText}>Lütfen internet bağlantınızı kontrol edin</Text>
                 </ModalContent>
             </Modal>
@@ -47,13 +49,13 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonOk: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     content: {
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.LIGHT,
         alignItems: 'center',
         justifyContent: 'center'
     },

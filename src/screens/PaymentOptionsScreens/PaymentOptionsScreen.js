@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { deleteCard } from '../../actions/payment-actions'
 import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 import AddNewCardComponent from './AddNewCardComponent'
 import CardComponent from './CardComponent'
 
@@ -53,7 +54,7 @@ class PaymentOptionsScreen extends React.Component {
 }
 
 const styles = ScaledSheet.create({
-    list: { backgroundColor: 'white' }
+    list: { backgroundColor: COLORS.LIGHT }
 })
 
 const mapStateToProps = ({

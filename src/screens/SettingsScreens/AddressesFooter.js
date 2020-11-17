@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import ClickableSettingItem from '../../components/ClickableSettingItem'
 import HeadingDivider from '../../components/HeadingDivider'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 
 class AddressesFooter extends React.PureComponent {
     moveToSearchAddress = () => {
@@ -17,8 +18,8 @@ class AddressesFooter extends React.PureComponent {
                 <HeadingDivider title='Adres ekle' />
 
                 <ClickableSettingItem title='Yeni adres' onClick={this.moveToSearchAddress}>
-                    <Ionicons color='rgba(0,0,0,.8)' name='md-locate' size={32} />
-                    <Ionicons color='rgba(0,0,0,.8)' name='md-add' size={32} />
+                    <Ionicons color={COLORS.PRIMARY} name='md-locate' size={32} />
+                    <Ionicons color={COLORS.PRIMARY} name='md-add' size={32} />
                 </ClickableSettingItem>
 
                 {

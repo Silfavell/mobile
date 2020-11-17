@@ -3,6 +3,8 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 const HeadingDivider = ({ title }) => (
     <View style={styles.container}>
         <View style={styles.titleContainer}>
@@ -21,15 +23,15 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         height: '40@s',
         paddingHorizontal: '16@s',
-        backgroundColor: '#DFDFDF',
-        shadowColor: '#000',
+        backgroundColor: COLORS.GRAY,
+        shadowColor: COLORS.DARK,
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 24,
         elevation: 3
     },
     title: {
-        color: '#A8A8A8',
+        color: COLORS.DARK,
         fontSize: '17@s',
         fontWeight: 'bold'
     }

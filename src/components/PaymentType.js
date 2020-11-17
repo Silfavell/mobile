@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setPaymentType } from '../actions/payment-actions'
+import { COLORS } from '../scripts/colors'
 
 const PaymentType = ({
     Id, title, detail, icon, navigation, setPaymentType
@@ -50,7 +51,7 @@ const styles = ScaledSheet.create({
         height: '72@s',
         flex: 5,
         borderBottomWidth: '2@s',
-        borderBottomColor: '#C3C3C3'
+        borderBottomColor: COLORS.GRAY
     },
     paymentInfoTextContainer: {
         flex: 1,

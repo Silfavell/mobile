@@ -5,6 +5,7 @@ import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-moda
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../../scripts/colors'
 //  import { expo } from '../../app.json'
 //  expo.version // current version
 
@@ -45,7 +46,7 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     content: {
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.LIGHT,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -56,13 +57,13 @@ const styles = ScaledSheet.create({
         textAlign: 'center'
     },
     buttonNo: {
-        backgroundColor: '#697488'
+        backgroundColor: COLORS.SECONDARY
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     }
 })
 

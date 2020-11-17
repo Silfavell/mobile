@@ -5,6 +5,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
 import { setAddress } from '../../actions/map-actions'
+import { COLORS } from '../../scripts/colors'
 
 const CompleteAddressInput = ({ address, setAddress }) => (
     <TextInput
@@ -25,7 +26,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         margin: '3@s',
         borderRadius: 8,
-        borderColor: '#C3C3C3',
+        borderColor: COLORS.GRAY,
         paddingHorizontal: '13@s',
         fontSize: '17@s'
     }

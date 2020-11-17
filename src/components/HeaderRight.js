@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setClearCartPopupState } from '../actions/global-actions'
+import { COLORS } from '../scripts/colors'
 
 class HeaderRight extends React.Component {
     shouldComponentUpdate(nextProps) {
@@ -24,7 +25,7 @@ class HeaderRight extends React.Component {
         if (Object.values(this.props.cart).length > 0) {
             return (
                 <TouchableOpacity style={styles.iconContainer} onPress={this.onClearClick}>
-                    <Ionicons name='md-trash' size={26} color='white' />
+                    <Ionicons name='md-trash' size={26} color={COLORS.LIGHT} />
                 </TouchableOpacity>
             )
         }

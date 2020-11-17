@@ -7,6 +7,8 @@ import Modal, {
 import { ScaledSheet } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
+import { COLORS } from '../../scripts/colors'
+
 class ConfirmAddressPopup extends React.Component {
         close = () => {
             this.props.setPopupState(false)
@@ -63,20 +65,20 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488'
+        backgroundColor: COLORS.SECONDARY
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     title: {
         marginVertical: '8@s'
     },
     titleText: {
         textAlign: 'center',
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.TERTIARY,
         fontWeight: '600',
         fontSize: '19@s'
     },
@@ -86,7 +88,7 @@ const styles = ScaledSheet.create({
     },
     contentText: {
         fontSize: '16@s',
-        color: '#454545',
+        color: COLORS.DARK,
         fontWeight: 'bold',
         textAlign: 'center'
     }

@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 
 import { increaseProductQuantity } from '../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../actions/source-actions'
+import { COLORS } from '../scripts/colors'
 
 class Product extends React.Component {
     shouldComponentUpdate(nextProps) {
@@ -67,7 +68,7 @@ class Product extends React.Component {
                             style={styles.favoriteIcon}
                             size={28}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'}
-                            color='rgba(0,0,0,.8)'
+                            color={COLORS.PRIMARY}
                             onPress={this.props.user?.favoriteProducts?.includes(_id) ? this.removeFromFavoriteProdutcs : this.addToFavoriteProducts} />
                     )
                 }
@@ -78,7 +79,7 @@ class Product extends React.Component {
                         resizeMode={FastImage.resizeMode.contain}
                         style={styles.productImage} />
 
-                    <Ionicons style={styles.basketIcon} size={28} name='md-basket' color='rgba(0,0,0,.8)' onPress={this.onAddProductClick} />
+                    <Ionicons style={styles.basketIcon} size={28} name='md-basket' color={COLORS.PRIMARY} onPress={this.onAddProductClick} />
                 </TouchableOpacity>
 
                 <View style={[styles.child, styles.priceContainer]}>
@@ -108,8 +109,8 @@ const styles = ScaledSheet.create({
         zIndex: -1,
         backgroundColor: 'transparent',
         borderWidth: 1,
-        borderColor: '#EFEFEF',
-        borderBottomColor: '#EE4266',
+        borderColor: COLORS.GRAY,
+        borderBottomColor: COLORS.SECONDARY,
         marginHorizontal: '6@s',
         height: '95%'
     },
@@ -143,7 +144,7 @@ const styles = ScaledSheet.create({
         marginVertical: 1
     },
     productImageContainer: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     productImage: {
         width: '100%',
@@ -154,14 +155,14 @@ const styles = ScaledSheet.create({
     productName: {
         fontSize: '14@s',
         fontWeight: '600',
-        color: '#454545',
+        color: COLORS.DARK,
         textAlign: 'left',
         justifyContent: 'center'
     },
     productPrice: {
         fontSize: '16@s',
         fontWeight: 'bold',
-        color: '#454545',
+        color: COLORS.DARK,
         textAlign: 'left',
         justifyContent: 'center',
         alignItems: 'flex-start'

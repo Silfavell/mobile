@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 
 class PaymentTypeSelectComponent extends React.PureComponent {
     onPress = () => {
@@ -26,7 +27,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
                 style={styles.container}
                 onPress={this.onPress}>
                 <View style={styles.iconContainer}>
-                    <Ionicons size={32} name='ios-wallet' />
+                    <Ionicons size={32} name='ios-wallet' color={COLORS.PRIMARY} />
                 </View>
                 <View style={styles.paymentInfoContainer}>
                     <View style={styles.paymentInfoTextContainer}>
@@ -34,7 +35,7 @@ class PaymentTypeSelectComponent extends React.PureComponent {
                     </View>
                 </View>
                 <View style={styles.iconContainer}>
-                    <MaterialIcons color='#ACACAC' size={32} name='chevron-right' />
+                    <MaterialIcons color={COLORS.GRAY} size={32} name='chevron-right' />
                 </View>
             </TouchableOpacity>
         )

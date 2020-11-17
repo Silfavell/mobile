@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setRegionByPlace, setCurrentRegion } from '../../actions/map-actions'
+import { COLORS } from '../../scripts/colors'
 
 class AddressItem extends React.PureComponent {
     onAddress = (data) => {
@@ -30,7 +31,7 @@ class AddressItem extends React.PureComponent {
             <TouchableOpacity onPress={this.onClick} style={styles.item}>
 
                 <View style={styles.itemChild}>
-                    <Ionicons size={32} name='md-pin' color='#6B788B' />
+                    <Ionicons size={32} name='md-pin' color={COLORS.PRIMARY} />
 
                     <Text numberOfLines={3} style={styles.description}>
                         {item.description}
@@ -69,13 +70,13 @@ const styles = ScaledSheet.create({
         flex: 1,
         paddingHorizontal: '16@s',
         fontSize: '15@s',
-        color: '#6B788B',
+        color: COLORS.GRAY,
         fontWeight: '500'
     },
     meterText: {
         paddingHorizontal: '4@s',
         fontSize: '13@s',
-        color: '#6B788B',
+        color: COLORS.GRAY,
         fontWeight: '500'
     }
 })

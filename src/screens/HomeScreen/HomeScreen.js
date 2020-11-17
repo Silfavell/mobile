@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 
 import Category from '../../components/Category'
 import FOR_WHICH from '../../models/ForWhich'
+import { COLORS } from '../../scripts/colors'
 import BestSeller from './BestSeller'
 import MostSellerWithHoc from './ComponentsWithHoc/MostSellerWithHoc'
 import ScrollableCategoryListWithHoc from './ComponentsWithHoc/ScrollableCategoryListWithHoc'
@@ -46,7 +47,7 @@ class HomeScreen extends React.Component {
             ),
             headerLeft: () => (
                 <TouchableOpacity activeOpacity={0.9} style={styles.headerLeft} onPress={this.onCategoryListClick}>
-                    <Ionicons name='md-menu' size={26} color='black' />
+                    <Ionicons name='md-menu' size={26} color={COLORS.PRIMARY} />
                 </TouchableOpacity>
             )
         })
@@ -103,17 +104,17 @@ class HomeScreen extends React.Component {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.TERTIARY
     },
     headerTitle: {
         height: '100%',
         padding: '8@s',
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
         borderBottomWidth: 3,
-        borderBottomColor: 'rgba(0,0,0,.8)',
+        borderBottomColor: COLORS.SECONDARY,
         zIndex: 1
     },
     headerImage: {
@@ -135,7 +136,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row'
     },
     dividerTitle: {
-        color: 'black',
+        color: COLORS.GRAY,
         fontSize: '17@s',
         fontWeight: '600',
         paddingHorizontal: '16@s'
@@ -151,11 +152,11 @@ const styles = ScaledSheet.create({
         height: s(120)
     },
     shadowContainer: {
-        backgroundColor: 'white'
+        backgroundColor: COLORS.TERTIARY
     },
     bestSellerContainer: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     }
 })
 

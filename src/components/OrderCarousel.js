@@ -3,6 +3,7 @@ import React from 'react'
 import ViewPager from '@react-native-community/viewpager'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
 import CartProduct from './CartProduct'
 
 class OrderCarousel extends React.PureComponent {
@@ -42,11 +43,11 @@ const styles = ScaledSheet.create({
     dot: {
         width: 20,
         height: 4,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         marginHorizontal: 3,
         marginVertical: 6,
         borderWidth: 1,
-        borderColor: '#CDCDCD'
+        borderColor: COLORS.GRAY
     }
 })
 

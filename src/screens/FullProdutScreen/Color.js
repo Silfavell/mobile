@@ -3,6 +3,8 @@ import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../../scripts/colors'
+
 class Color extends React.PureComponent {
     onPress = () => {
         this.props.onPress(this.props.index)
@@ -29,7 +31,7 @@ const styles = ScaledSheet.create({
     },
     border: {
         borderWidth: 1,
-        borderColor: '#CDCDCD'
+        borderColor: COLORS.GRAY
     },
     color: {
         flex: 1,

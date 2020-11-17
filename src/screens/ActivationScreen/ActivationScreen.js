@@ -10,6 +10,7 @@ import { register } from '../../actions/source-actions'
 import ButtonComponent from '../../components/ButtonComponent'
 import InputComponent from '../../components/InputComponent'
 import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import { COLORS } from '../../scripts/colors'
 import { sendActivationCode } from '../../scripts/requests'
 
 class ActivationScreen extends React.Component {
@@ -70,7 +71,7 @@ class ActivationScreen extends React.Component {
                     onClick={this.onRegisterClick} />
 
                 <TouchableOpacity style={styles.resendContainer} onPress={this.onResendClick}>
-                    <Ionicons name='md-refresh' size={28} color='#6E7586' />
+                    <Ionicons name='md-refresh' size={28} color={COLORS.PRIMARY} />
                     <Text style={styles.resendCodeText}>Yeniden Gönder</Text>
                 </TouchableOpacity>
             </>
@@ -88,7 +89,7 @@ const styles = ScaledSheet.create({
     resendCodeText: {
         fontSize: '19@s',
         paddingHorizontal: '12@s',
-        color: '#6E7586'
+        color: COLORS.GRAY
     }
 })
 

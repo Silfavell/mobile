@@ -5,20 +5,13 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../../scripts/colors'
 import AddressItem from './AddressItem'
 import AddressListHeaderComponent from './AddressListHeaderComponent'
 
 class SearchAddressScreen extends React.Component {
     state = {
         locations: []
-    }
-
-    shouldComponentUpdate(_, nextState) {
-        if (this.state.locations.length !== nextState.locations.length) {
-            return true
-        }
-
-        return false
     }
 
     setLocations = (locations) => {
@@ -40,7 +33,8 @@ class SearchAddressScreen extends React.Component {
                 renderItem={this.renderSearchedItem}
                 ListHeaderComponent={(
                     <AddressListHeaderComponent
-                        setLocations={this.setLocations} />
+                        setLocations={this.setLocations}
+                        navigation={this.props.navigation} />
                 )}
                 stickyHeaderIndices={[0]} />
         )
@@ -48,9 +42,13 @@ class SearchAddressScreen extends React.Component {
 }
 
 const styles = ScaledSheet.create({
+    container: {
+        backgroundColor: COLORS.GRAY,
+        flex: 1
+    },
     list: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     }
 })
 

@@ -12,80 +12,80 @@ export const makeCustomRequest = ({
 
 export const getCategories = () => instance.get('/categories')
 
-export const fetchShop = (productIds) => instance.get(`/filter-shop?${productIds}&quantity=32`)
+export const fetchShop = (productIds) => instance.get(`/products/filter-shop?${productIds}&quantity=32`)
 
-export const getCartProducts = () => instance.get('/user/cart')
+export const getCartProducts = () => instance.get('/cart')
 
 export const fetchOfflineCartProducts = () => {
-    const url = `/filter-shop?${JSON.parse(window.localStorage.getItem('cart')).map((cartProduct) => `productIds=${cartProduct._id}`).join('&')}`
+    const url = `/products/filter-shop?${JSON.parse(window.localStorage.getItem('cart')).map((cartProduct) => `productIds=${cartProduct._id}`).join('&')}`
 
     return instance.get(url)
 }
 
-export const increaseProductQuantity = (productId, quantity) => instance.put(`/add-product/${productId}`, { quantity })
+export const increaseProductQuantity = (productId, quantity) => instance.put(`/products/add-quantity/${productId}`, { quantity })
 
-export const decreaseProductQuantity = (productId, quantity) => instance.put(`/deduct-product/${productId}`, { quantity })
+export const decreaseProductQuantity = (productId, quantity) => instance.put(`/products/deduct-quantity/${productId}`, { quantity })
 
-export const setProductQuantity = (productId, quantity) => instance.put(`/set-product/${productId}`, { quantity })
+export const setProductQuantity = (productId, quantity) => instance.put(`/products/set-quantity/${productId}`, { quantity })
 
-export const search = (search) => instance.get(`/search-product?name=${search}`)
+export const search = (search) => instance.get(`/product/search?name=${search}`)
 
-export const listFavorites = (_id) => instance.get('/user/favorite-products', { _id })
+export const listFavorites = () => instance.get('/products/favorites')
 
-export const addFavorite = (_id) => instance.post('/user/favorite-product', { _id })
+export const addFavorite = (productId) => instance.post('/products/favorites', { _id:productId })
 
-export const removeFavorite = (_id) => instance.delete(`/user/favorite-product/${_id}`)
+export const removeFavorite = (productId) => instance.delete(`/products/favorites/${productId}`)
 
-export const postTicket = (data) => instance.post('/ticket', data)
+export const postTicket = (data) => instance.post('/tickets', data)
 
 export const getProfile = () => instance.get('/user/profile')
 
 export const updateProfile = (data) => instance.put('/user/profile', data)
 
-export const signUp = (data) => instance.post('/register', data)
+export const signUp = (data) => instance.post('/auth/register', data)
 
-export const sendActivationCode = (data) => instance.post('/send-activation-code', data)
+export const sendActivationCode = (data) => instance.post('/auth/send-activation-code', data)
 
-export const bulkCart = (data) => instance.post('/user/cart', data)
+export const bulkCart = (data) => instance.post('/cart', data)
 
-export const clearCart = () => instance.delete('/user/cart')
+export const clearCart = () => instance.delete('/cart')
 
-export const getBestSellerProducts = () => instance.get('/best-seller')
+export const getBestSellerProducts = () => instance.get('/products/best-seller')
 
-export const changePassword = (data) => instance.put('/user/change-password', data)
+export const changePassword = (data) => instance.put('/auth/change-password', data)
 
-export const login = (data) => instance.post('/login', data)
+export const login = (data) => instance.post('/auth/login', data)
 
-export const saveComment = (data) => instance.post('/user/save-comment', data)
+export const saveComment = (data) => instance.post('/comments', data)
 
-export const resetPassword = (data) => instance.put('/reset-password', data)
+export const resetPassword = (data) => instance.put('/auth/reset-password', data)
 
-export const likeComment = (_id) => instance.put(`/user/like-comment/${_id}`)
+export const likeComment = (likeId) => instance.put(`/comments/like/${likeId}`)
 
-export const unlikeComment = (_id) => instance.put(`/user/remove-like-comment/${_id}`)
+export const unlikeComment = (likeId) => instance.put(`/comment/remove-like/${likeId}`)
 
-export const getProductBySlug = (slug, fromSearch) => instance.get(`/product/${slug}?fromSearch=${fromSearch}`)
+export const getProductBySlug = (productSlug, fromSearch) => instance.get(`/products/${productSlug}?fromSearch=${fromSearch}`)
 
-export const getRelatedProductsBySlug = (slug) => instance.get(`/related-products/${slug}`)
+export const getRelatedProductsBySlug = (productSlug) => instance.get(`/products/${productSlug}/related-products`)
 
-export const deleteAddress = (_id) => instance.delete(`/user/address/${_id}`)
+export const deleteAddress = (addressId) => instance.delete(`/user/address/${addressId}`)
 
 export const saveAddress = (data) => instance.post('/user/address', data)
 
-export const getOrderById = (_id) => instance.get(`/user/order/${_id}`)
+export const getOrderById = (orderId) => instance.get(`/orders/${orderId}`)
 
-export const listCards = () => instance.get('/user/list-cards')
+export const listCards = () => instance.get('/cards')
 
-export const addCard = (data) => instance.post('/user/payment-card', data)
+export const addCard = (data) => instance.post('/cards', data)
 
-export const removeCard = (data) => instance.put('/user/payment-card', data)
+export const removeCard = (cardToken) => instance.delete(`/cards/${cardToken}`)
 
-export const makeOrder = (data) => instance.post('/user/order', data)
+export const makeOrder = (data) => instance.post('/orders', data)
 
-export const getOrders = () => instance.get('/user/orders')
+export const getOrders = () => instance.get('/orders')
 
-export const returnItems = (orderId, items) => instance.post(`/user/return-items/${orderId}`, items)
+export const returnItems = (orderId, items) => instance.post(`/orders/return-items/${orderId}`, items)
 
-export const mobileInitializer = () => instance.get('/mobile-initializer')
+export const mobileInitializer = () => instance.get('/mobile/initialize')
 
-export const getVersion = () => instance.get('/version')
+export const getVersion = () => instance.get('/mobile/version')

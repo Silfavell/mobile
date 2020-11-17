@@ -4,6 +4,8 @@ import ViewPager from '@react-native-community/viewpager'
 import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../scripts/colors'
+
 class CarouselViewer extends React.Component {
     state = {
         current: 0
@@ -59,7 +61,7 @@ class CarouselViewer extends React.Component {
                                     style={[
                                         styles.dot,
                                         // eslint-disable-next-line react-native/no-color-literals, react-native/no-inline-styles
-                                        { backgroundColor: this.state.current === i ? 'black' : 'white' }
+                                        { backgroundColor: this.state.current === i ? COLORS.DARK : COLORS.LIGHT }
                                     ]} />
                             ))}
                         </View>
@@ -95,11 +97,11 @@ const styles = ScaledSheet.create({
     dot: {
         width: 20,
         height: 4,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.LIGHT,
         marginHorizontal: 3,
         marginVertical: 6,
         borderWidth: 1,
-        borderColor: '#CDCDCD'
+        borderColor: COLORS.GRAY
     }
 })
 

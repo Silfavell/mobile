@@ -8,6 +8,8 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import { COLORS } from '../../scripts/colors'
+
 class ReturnItemsCompleted extends React.PureComponent {
     onGoHomeClick = () => {
         this.props.navigation.popToTop()
@@ -22,7 +24,7 @@ class ReturnItemsCompleted extends React.PureComponent {
                 <View style={styles.child} />
                 <View style={styles.child} />
                 <View style={styles.child}>
-                    <Ionicons name='md-checkmark-circle-outline' size={96} color='#4CAB51' />
+                    <Ionicons name='md-checkmark-circle-outline' size={96} color={COLORS.PRIMARY} />
                 </View>
                 <View style={styles.child} />
                 <View style={styles.child}>
@@ -50,7 +52,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     child: {
         flex: 1,
@@ -65,7 +67,7 @@ const styles = ScaledSheet.create({
         display: 'flex'
     },
     goToHomeButton: {
-        backgroundColor: '#4CAB51',
+        backgroundColor: COLORS.SECONDARY,
         borderRadius: 32,
         alignItems: 'center',
         justifyContent: 'center',
@@ -74,7 +76,7 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '48@s'
     },
     goToHomeButtonText: {
-        color: 'white',
+        color: COLORS.LIGHT,
         fontSize: '20@s',
         alignItems: 'center',
         justifyContent: 'center'

@@ -12,6 +12,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import ButtonComponent from '../../components/ButtonComponent'
 import CartProduct from '../../components/CartProduct'
+import { COLORS } from '../../scripts/colors'
 import { returnItems } from '../../scripts/requests'
 
 class ReturnItems extends React.Component {
@@ -119,8 +120,8 @@ class ReturnItems extends React.Component {
                                     this.onSelect(item._id)
                                 }}>
                                 <CheckBox
-                                    checkedImage={<MaterialIcons name='check' size={40} color='black' />}
-                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color='black' />}
+                                    checkedImage={<MaterialIcons name='check' size={40} color={COLORS.DARK} />}
+                                    unCheckedImage={<MaterialIcons name='check-box-outline-blank' size={40} color={COLORS.PRIMARY} />}
                                     disabled
                                     isChecked={this.state.items[index].selected} />
                             </TouchableOpacity>
@@ -143,19 +144,19 @@ const styles = ScaledSheet.create({
         padding: 6,
         display: 'flex',
         borderWidth: 1,
-        borderColor: '#DFDFDF',
-        backgroundColor: 'white'
+        borderColor: COLORS.GRAY,
+        backgroundColor: COLORS.LIGHT
     },
     detailsContainer: {
         paddingBottom: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#DFDFDF'
+        borderBottomColor: COLORS.GRAY
     },
     detailsContainer2: {
         paddingTop: 24,
         paddingBottom: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#DFDFDF'
+        borderBottomColor: COLORS.GRAY
     },
     detailContainer: {
         display: 'flex',
@@ -168,7 +169,7 @@ const styles = ScaledSheet.create({
         top: 5,
         left: 5,
         zIndex: 5,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     }
 })
 

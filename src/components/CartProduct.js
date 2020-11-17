@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setProductQuantity } from '../actions/cart-actions'
+import { COLORS } from '../scripts/colors'
 import CartProductQuantityComponent from './CartProductQuantityComponent'
 
 class CartProduct extends React.PureComponent {
@@ -95,7 +96,7 @@ class CartProduct extends React.PureComponent {
                 {
                     !previousOrder && (
                         <TouchableOpacity style={styles.trashIconContainer} onPress={this.onRemoveClick}>
-                            <Ionicons size={26} name='md-trash' style={styles.trashIcon} />
+                            <Ionicons size={26} name='md-trash' color={COLORS.PRIMARY} style={styles.trashIcon} />
                         </TouchableOpacity>
                     )
                 }
@@ -111,8 +112,8 @@ const styles = ScaledSheet.create({
         padding: '4@s',
         paddingVertical: '12@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#EFEFEF',
-        backgroundColor: 'white'
+        borderBottomColor: COLORS.GRAY,
+        backgroundColor: COLORS.LIGHT
     },
     child: {
         flex: 1,
@@ -148,14 +149,14 @@ const styles = ScaledSheet.create({
     productName: {
         fontSize: '15@s',
         fontWeight: '700',
-        color: '#454545',
+        color: COLORS.DARK,
         textAlign: 'center',
         justifyContent: 'center'
     },
     productPrice: {
         fontSize: '18@s',
         fontWeight: '700',
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.DARK,
         textAlign: 'center',
         justifyContent: 'center',
         marginRight: 8
@@ -168,14 +169,14 @@ const styles = ScaledSheet.create({
     },
     imageContainer: {
         padding: '4@s',
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     productImage: {
         width: '100%',
         height: null,
         aspectRatio: 0.6,
         borderWidth: 1,
-        borderColor: '#EFEFEF'
+        borderColor: COLORS.GRAY
     },
     trashIconContainer: {
         position: 'absolute',

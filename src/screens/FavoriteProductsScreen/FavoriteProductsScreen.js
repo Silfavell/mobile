@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 import LoadingComponent from '../../components/LoadingComponent'
 import RecyclerList from '../../components/RecyclerList'
+import { COLORS } from '../../scripts/colors'
 import { listFavorites } from '../../scripts/requests'
 
 class FavoriteProductsScreen extends React.Component {
@@ -64,7 +65,7 @@ class FavoriteProductsScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Ionicons name='md-heart' size={96} color='#BDBDBD' />
+                <Ionicons name='md-heart' size={96} color={COLORS.PRIMARY} />
                 <Text style={styles.emptyText}>Favori ürününüz bulunmamaktadır</Text>
             </View>
         )
@@ -74,19 +75,19 @@ class FavoriteProductsScreen extends React.Component {
 const styles = ScaledSheet.create({
     listContainer: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: COLORS.LIGHT
     },
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#EDEDED'
+        backgroundColor: COLORS.GRAY
     },
     emptyText: {
         marginTop: 32,
         fontSize: '18@s',
         textAlign: 'center',
-        color: '#454545'
+        color: COLORS.DARK
     }
 })
 

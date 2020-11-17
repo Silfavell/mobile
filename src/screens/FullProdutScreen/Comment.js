@@ -4,6 +4,8 @@ import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import { COLORS } from '../../scripts/colors'
+
 class Comment extends React.PureComponent {
     render() {
         const {
@@ -37,7 +39,7 @@ const styles = ScaledSheet.create({
         marginHorizontal: '10@s',
         padding: '10@s',
         borderWidth: 1,
-        borderColor: '#EFEFEF',
+        borderColor: COLORS.GRAY,
         borderRadius: '5@s'
     },
     rateContainer: {

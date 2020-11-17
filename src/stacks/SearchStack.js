@@ -8,6 +8,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 import FullProductScreen from '../screens/FullProdutScreen/FullProductScreen'
 import SearchScreen from '../screens/SearchScreen/SearchScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -18,7 +19,7 @@ const SearchStack = () => (
             options={{
                 title: 'Ara',
                 headerTitleAlign: 'center',
-                headerTintColor: 'white',
+                headerTintColor: COLORS.LIGHT,
                 headerLeft: null,
                 headerStyle: styles.headerStyle
             }}
@@ -30,7 +31,7 @@ const SearchStack = () => (
                 title: 'Ürün Detayı',
                 headerTitle: null,
                 headerTitleAlign: 'center',
-                headerTintColor: 'rgba(0,0,0,.8)',
+                headerTintColor: COLORS.TERTIARY,
                 // headerTransparent: true,
                 headerStyle: {
                     elevation: 0, // remove shadow on Android
@@ -43,7 +44,7 @@ const SearchStack = () => (
 )
 
 const styles = ScaledSheet.create({
-    headerStyle: { backgroundColor: 'rgba(0,0,0,.8)' }
+    headerStyle: { backgroundColor: COLORS.PRIMARY }
 })
 
 export default SearchStack

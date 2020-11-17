@@ -2,6 +2,7 @@ import React from 'react'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+import { COLORS } from '../scripts/colors'
 import CartStack from '../stacks/CartStack'
 import HomeStack from '../stacks/HomeStack'
 import ProfileStack from '../stacks/ProfileStack'
@@ -18,7 +19,7 @@ export default function BottomTabNavigator({ navigation }) {
     return (
         <BottomTab.Navigator
             initialRouteName={INITIAL_ROUTE_NAME}
-            tabBarOptions={{ activeTintColor: 'rgba(0,0,0,.8)' }}
+            tabBarOptions={{ activeTintColor: COLORS.SECONDARY }}
             lazy={false}>
             <BottomTab.Screen
                 name='Home'
@@ -33,7 +34,8 @@ export default function BottomTabNavigator({ navigation }) {
                 component={SearchStack}
                 options={{
                     title: 'Ara',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-search' />
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='md-search' />,
+                    color: 'red'
                 }} />
 
             <BottomTab.Screen

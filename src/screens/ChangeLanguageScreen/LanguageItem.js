@@ -4,6 +4,8 @@ import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+import { COLORS } from '../../scripts/colors'
+
 const LanguageItem = ({ title, selected }) => (
     <View style={styles.container}>
         <View style={styles.titleContainer}>
@@ -11,7 +13,7 @@ const LanguageItem = ({ title, selected }) => (
         </View>
         <View style={styles.rightIconContainer}>
             {selected ? (
-                <Ionicons color='rgba(0,0,0,.8)' name='md-checkmark' size={32} />
+                <Ionicons color={COLORS.PRIMARY} name='md-checkmark' size={32} />
             ) : (
                 <View style={styles.empty} />
             )}
@@ -24,7 +26,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         padding: '10@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#D2D2D2',
+        borderBottomColor: COLORS.GRAY,
         marginHorizontal: '6@s'
     },
     iconContainer: {
@@ -40,7 +42,7 @@ const styles = ScaledSheet.create({
     title: {
         marginHorizontal: '8@s',
         fontSize: '16@s',
-        color: '#505050',
+        color: COLORS.DARK,
         fontWeight: 'bold'
     },
     rightIconContainer: {

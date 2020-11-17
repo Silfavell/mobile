@@ -9,6 +9,7 @@ import {
 import { ScaledSheet } from 'react-native-size-matters'
 
 import ButtonComponent from '../../components/ButtonComponent'
+import { COLORS } from '../../scripts/colors'
 
 import icon from '../../../assets/logo.png'
 
@@ -93,7 +94,7 @@ const styles = ScaledSheet.create({
         justifyContent: 'center'
     },
     buttonText: {
-        color: '#6E7586',
+        color: COLORS.DARK_GRAY,
         fontSize: '20@s'
     },
     goToLoginPageContainer: {
@@ -103,7 +104,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row'
     },
     loginText: {
-        color: 'rgba(0,0,0,.8)',
+        color: COLORS.PRIMARY,
         fontSize: '18@s',
         marginHorizontal: '10@s'
     }

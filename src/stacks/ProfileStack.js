@@ -19,6 +19,7 @@ import ProfileScreen from '../screens/ProfileScreen/ProfileScreen'
 import ReturnItems from '../screens/ReturnItems/ReturnItems'
 import ReturnItemsCompleted from '../screens/ReturnItemsCompleted/ReturnItemsCompleted'
 import AddressesScreen from '../screens/SettingsScreens/AddressesScreen'
+import { COLORS } from '../scripts/colors'
 
 const Stack = createStackNavigator()
 
@@ -32,7 +33,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Diğer',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerLeft: null,
                         headerStyle: styles.headerStyle
                     }} />
@@ -43,7 +44,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Şifremi Değiştir',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -53,7 +54,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'İletişime Geç',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -63,7 +64,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Adreslerim',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -73,7 +74,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Adres Ara',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -83,7 +84,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Adres Ekle',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -93,7 +94,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Adres Ekle',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -103,7 +104,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Ödeme Yöntemlerim',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -113,7 +114,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Favorilerim',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -123,7 +124,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Siparişlerim',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -133,7 +134,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Iade Talebinde Bulun',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -143,7 +144,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Iade Talebiniz Alınmıştır',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -153,7 +154,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Kart Ekle',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -163,7 +164,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Dili Değiştir',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -173,7 +174,7 @@ class ProfileStack extends React.PureComponent {
                     options={{
                         title: 'Profilim',
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white',
+                        headerTintColor: COLORS.LIGHT,
                         headerStyle: styles.headerStyle
                     }} />
 
@@ -183,7 +184,7 @@ class ProfileStack extends React.PureComponent {
                         title: 'Ürün Detayı',
                         headerTitle: null,
                         headerTitleAlign: 'center',
-                        headerTintColor: 'rgba(0,0,0,.8)',
+                        headerTintColor: COLORS.TERTIARY,
                         headerStyle: {
                             elevation: 0, // remove shadow on Android
                             shadowOpacity: 0 // remove shadow on iOS
@@ -199,7 +200,7 @@ class ProfileStack extends React.PureComponent {
 
 const styles = ScaledSheet.create({
     headerStyle: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     }
 })
 

@@ -5,6 +5,8 @@ import Modal, {
 } from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../../scripts/colors'
+
 class ClearFilterPopup extends React.Component {
         close = () => {
             this.props.setPopupState({ scaleAnimationModal: false })
@@ -60,13 +62,13 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     buttonNo: {
-        backgroundColor: '#697488'
+        backgroundColor: COLORS.SECONDARY
     },
     buttonYes: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     },
     title: {
         marginVertical: '6@s'

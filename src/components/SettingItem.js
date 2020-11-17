@@ -4,6 +4,8 @@ import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
+import { COLORS } from '../scripts/colors'
+
 const renderRightComponent = ({ version, rightComponent, rightIcon }) => {
     if (version) {
         return <View style={styles.empty} />
@@ -11,7 +13,7 @@ const renderRightComponent = ({ version, rightComponent, rightIcon }) => {
         return rightComponent
     }
 
-    return <MaterialIcons color='rgba(0,0,0,.8)' name={rightIcon ?? 'chevron-right'} size={32} />
+    return <MaterialIcons color={COLORS.PRIMARY} name={rightIcon ?? 'chevron-right'} size={32} />
 }
 
 const SettingItem = ({
@@ -48,7 +50,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         padding: '10@s',
         borderBottomWidth: 1,
-        borderBottomColor: '#D2D2D2',
+        borderBottomColor: COLORS.GRAY,
         marginHorizontal: '6@s'
     },
     order: {
@@ -57,14 +59,14 @@ const styles = ScaledSheet.create({
     },
     orderTitle: {
         marginHorizontal: 0,
-        color: '#EE4266'
+        color: COLORS.SECONDARY
     },
     iconContainer: { alignItems: 'center', justifyContent: 'center', flex: 1 },
     titleContainer: { alignItems: 'flex-start', flex: 6, justifyContent: 'center' },
     title: {
         marginHorizontal: '8@s',
         fontSize: '16@s',
-        color: '#505050',
+        color: COLORS.DARK,
         fontWeight: 'bold'
     },
     value: {

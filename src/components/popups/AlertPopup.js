@@ -4,6 +4,8 @@ import { Text } from 'react-native'
 import Modal, { ModalButton, ModalFooter, ModalContent } from 'react-native-modals'
 import { ScaledSheet } from 'react-native-size-matters'
 
+import { COLORS } from '../../scripts/colors'
+
 class PasswordChangedPopup extends React.Component {
     close = () => {
         this.props.setPopupState({ scaleAnimationModal: false })
@@ -43,7 +45,7 @@ const styles = ScaledSheet.create({
         height: '42@s'
     },
     content: {
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.LIGHT,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -56,10 +58,10 @@ const styles = ScaledSheet.create({
         marginBottom: -6
     },
     button: {
-        backgroundColor: 'rgba(0,0,0,.8)'
+        backgroundColor: COLORS.PRIMARY
     },
     buttonText: {
-        color: 'white'
+        color: COLORS.LIGHT
     }
 })
 
