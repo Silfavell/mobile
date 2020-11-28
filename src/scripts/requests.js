@@ -32,7 +32,7 @@ export const search = (search) => instance.get(`/product/search?name=${search}`)
 
 export const listFavorites = () => instance.get('/products/favorites')
 
-export const addFavorite = (productId) => instance.post('/products/favorites', { _id:productId })
+export const addFavorite = (productId) => instance.post('/products/favorites', { _id: productId })
 
 export const removeFavorite = (productId) => instance.delete(`/products/favorites/${productId}`)
 
