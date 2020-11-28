@@ -81,7 +81,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: COLORS.GRAY
+        backgroundColor: COLORS.LIGHT
     },
     emptyText: {
         marginTop: 32,

@@ -68,12 +68,12 @@ const styles = ScaledSheet.create({
         width: 64,
         height: 64,
         borderRadius: 32,
-        backgroundColor: COLORS.GRAY,
+        backgroundColor: COLORS.LIGHT_GRAY,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: COLORS.SECONDARY,
+        borderColor: COLORS.PRIMARY,
         marginBottom: 8
     },
     imageContainer: {

@@ -31,7 +31,7 @@ const styles = ScaledSheet.create({
         elevation: 3
     },
     title: {
-        color: COLORS.DARK,
+        color: COLORS.DARK_GRAY,
         fontSize: '17@s'
     }
 })

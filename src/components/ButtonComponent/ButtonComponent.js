@@ -30,7 +30,7 @@ const styles = ScaledSheet.create({
     button: {
         backgroundColor: COLORS.PRIMARY,
         borderWidth: 1,
-        borderColor: COLORS.TERTIARY,
+        borderColor: COLORS.PRIMARY,
         flex: 1,
         margin: '4@s',
         borderRadius: 6,
@@ -39,7 +39,7 @@ const styles = ScaledSheet.create({
     },
     opposite: {
         backgroundColor: COLORS.LIGHT,
-        color: COLORS.TERTIARY
+        color: COLORS.PRIMARY
     },
     text: {
         color: COLORS.LIGHT,

@@ -162,7 +162,7 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '4@s'
     },
     quantityButton: {
-        color: COLORS.TERTIARY,
+        color: COLORS.PRIMARY,
         fontSize: '17@s'
     },
     quantityText: {

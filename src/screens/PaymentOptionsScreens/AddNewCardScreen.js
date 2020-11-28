@@ -237,7 +237,8 @@ class AddNewCardScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         flexGrow: 1,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: COLORS.LIGHT
     },
     header: {
         flexDirection: 'row'
@@ -256,7 +257,7 @@ const styles = ScaledSheet.create({
         borderRadius: 8
     },
     securityText: {
-        color: COLORS.TERTIARY,
+        color: COLORS.SECONDARY,
         fontSize: '19@s',
         fontWeight: 'bold'
     },
@@ -267,9 +268,8 @@ const styles = ScaledSheet.create({
         marginRight: '12@s'
     },
     securityInformation: {
-        color: COLORS.GRAY,
-        fontSize: '15@s',
-        fontWeight: 'bold'
+        color: COLORS.DARK_GRAY,
+        fontSize: '15@s'
     },
     row: {
         flexDirection: 'row'
