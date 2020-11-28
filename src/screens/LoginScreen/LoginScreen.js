@@ -10,9 +10,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { login } from '../../actions/source-actions'
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
-import InputIcon from '../../components/InputIcon'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
+import InputIcon from '../../components/InputIcon/InputIcon'
 import { COLORS } from '../../scripts/colors'
 import { bulkCart } from '../../scripts/requests'
 

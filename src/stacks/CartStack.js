@@ -6,8 +6,8 @@ import {
 } from '@react-navigation/stack'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import HeaderLeft from '../components/HeaderLeft'
-import HeaderRight from '../components/HeaderRight'
+import HeaderLeft from '../components/HeaderLeft/HeaderLeft'
+import HeaderRight from '../components/HeaderRight/HeaderRight'
 import CompleteAddressScreen from '../screens/AddressScreens/CompleteAddressScreen'
 import PinAddressScreen from '../screens/AddressScreens/PinAddressScreen'
 import SearchAddressScreen from '../screens/AddressScreens/SearchAddressScreen'

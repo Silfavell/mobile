@@ -12,7 +12,7 @@ import { ScaledSheet, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import Category from '../../components/Category'
+import Category from '../../components/Category/Category'
 import FOR_WHICH from '../../models/ForWhich'
 import { COLORS } from '../../scripts/colors'
 import BestSeller from './BestSeller'

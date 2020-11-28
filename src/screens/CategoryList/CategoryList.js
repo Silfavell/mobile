@@ -3,7 +3,7 @@ import React from 'react'
 import { ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
-import SettingItem from '../../components/SettingItem'
+import SettingItem from '../../components/SettingItem/SettingItem'
 import FOR_WHICH from '../../models/ForWhich'
 
 class CategoryItem extends React.PureComponent {

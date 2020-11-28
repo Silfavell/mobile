@@ -4,7 +4,7 @@ import { TouchableOpacity, StyleSheet } from 'react-native'
 import CheckBox from 'react-native-check-box'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-import SettingItem from '../../components/SettingItem'
+import SettingItem from '../../components/SettingItem/SettingItem'
 import { COLORS } from '../../scripts/colors'
 
 class BrandComponent extends React.Component {

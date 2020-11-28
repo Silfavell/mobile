@@ -53,7 +53,7 @@ const HomeStack = ({ navigation, setRootNavigation }) => {
                     title: 'Ürün detayı',
                     headerTitle: null,
                     headerTitleAlign: 'center',
-                    headerTintColor: COLORS.TERTIARY,
+                    headerTintColor: COLORS.PRIMARY,
                     // headerTransparent: true,
                     headerStyle: {
                         elevation: 0, // remove shadow on Android

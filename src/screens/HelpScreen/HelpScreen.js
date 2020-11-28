@@ -3,8 +3,8 @@ import React from 'react'
 import { ScrollView, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
 import { postTicket } from '../../scripts/requests'
 

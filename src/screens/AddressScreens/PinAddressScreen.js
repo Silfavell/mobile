@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import ButtonComponent from '../../components/ButtonComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import ConfirmAccuratePinPopup from '../../components/popups/ConfirmAccuratePinPopup'
 import { COLORS } from '../../scripts/colors'
 import HeaderAddressInput from '../MapScreens/HeaderAddressInput'

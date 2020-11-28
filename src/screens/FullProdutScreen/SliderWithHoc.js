@@ -5,8 +5,8 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
-import Slider from '../../components/Slider'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
+import Slider from '../../components/Slider/Slider'
 import { COLORS } from '../../scripts/colors'
 
 const SliderWithHoc = ({ _id, images }) => (

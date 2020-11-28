@@ -4,8 +4,8 @@ import { View, Text, FlatList } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import LoadingComponent from '../../components/LoadingComponent'
-import OrderComponent from '../../components/OrderComponent'
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
+import OrderComponent from '../../components/OrderComponent/OrderComponent'
 import { COLORS } from '../../scripts/colors'
 import { getOrders } from '../../scripts/requests'
 

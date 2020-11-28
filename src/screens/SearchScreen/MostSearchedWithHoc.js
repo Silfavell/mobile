@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 
 const MostSellerWithHoc = () => (

@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import ButtonComponent from '../../components/ButtonComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { COLORS } from '../../scripts/colors'
 
 import icon from '../../../assets/logo.png'

@@ -7,9 +7,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { register } from '../../actions/source-actions'
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 import { sendActivationCode } from '../../scripts/requests'
 

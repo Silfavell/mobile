@@ -5,7 +5,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux'
 
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 
 const CargoPriceComponent = ({ cart }) => {

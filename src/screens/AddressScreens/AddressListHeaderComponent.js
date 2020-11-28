@@ -9,7 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { setCurrentRegion } from '../../actions/map-actions'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 
 class AddressListHeaderComponent extends React.Component {

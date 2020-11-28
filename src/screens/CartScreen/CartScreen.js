@@ -5,8 +5,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import CartProduct from '../../components/CartProduct'
-import CompletePayment from '../../components/CompletePayment'
+import CartProduct from '../../components/CartProduct/CartProduct'
+import CompletePayment from '../../components/CompletePayment/CompletePayment'
 import { COLORS } from '../../scripts/colors'
 import CartProductWithHoc from './CartProductWithHoc'
 

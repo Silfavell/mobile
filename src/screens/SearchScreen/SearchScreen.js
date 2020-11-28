@@ -11,7 +11,7 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import RecyclerList from '../../components/RecyclerList'
+import RecyclerList from '../../components/RecyclerList/RecyclerList'
 import { COLORS } from '../../scripts/colors'
 import { search as searchRequest } from '../../scripts/requests'
 import MostSearchedWithHoc from './MostSearchedWithHoc'

@@ -10,7 +10,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux'
 
 import pckg from '../../../package.json'
-import SettingItem from '../../components/SettingItem'
+import SettingItem from '../../components/SettingItem/SettingItem'
 import { COLORS } from '../../scripts/colors'
 import LogoutItem from './LogoutItem'
 
@@ -49,7 +49,7 @@ class ProfileScreen extends React.Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.container}>
                 {
                     this.props.token
                         ? (
@@ -165,6 +165,9 @@ class ProfileScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: COLORS.LIGHT
+    },
     iconContainer: {
         transform:
             [

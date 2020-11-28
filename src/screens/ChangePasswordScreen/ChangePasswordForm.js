@@ -3,10 +3,10 @@ import React from 'react'
 import joi from 'react-native-joi'
 import { connect } from 'react-redux'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { changePassword } from '../../scripts/requests'
 
 class ChangePasswordForm extends React.Component {

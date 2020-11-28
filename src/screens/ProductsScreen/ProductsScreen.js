@@ -7,7 +7,7 @@ import {
 import { ScaledSheet, s } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
-import RecyclerList from '../../components/RecyclerList'
+import RecyclerList from '../../components/RecyclerList/RecyclerList'
 import { COLORS } from '../../scripts/colors'
 
 class ProductsScreen extends React.Component {

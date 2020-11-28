@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 import { deleteCard } from '../../actions/payment-actions'
 import DeleteCardPopup from '../../components/popups/DeleteCardPopup'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 import AddNewCardComponent from './AddNewCardComponent'
 import CardComponent from './CardComponent'

@@ -9,10 +9,10 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 import { resetPassword, sendActivationCode } from '../../scripts/requests'
 

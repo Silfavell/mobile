@@ -9,8 +9,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { saveCard } from '../../actions/payment-actions'
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
 import { COLORS } from '../../scripts/colors'
 
 class AddNewCardScreen extends React.Component {
