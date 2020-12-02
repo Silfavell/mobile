@@ -17,12 +17,14 @@ class ProductsScreen extends React.Component {
         this.selectedSubCategory = this.props.route.params.selectedSubCategory
         this.selectedType = this.props.route.params.selectedType
 
+        console.log(this.props.route.params)
+
         this.props.navigation.setOptions({
             title: this.props.products[this.selectedCategory].subCategories[this.selectedSubCategory].types[this.selectedType].name
             /* headerRight: () => ( // filter button
                 <TouchableOpacity onPress={this.onFilterClick}>
                 <MaterialIcons
-                color={'white'}
+                color={COLORS.LIGHT}
                 name='sort'
                 size={28}
                 style={styles.iconContainer} />

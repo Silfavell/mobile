@@ -162,7 +162,8 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        marginBottom: 12
+        paddingBottom: 12,
+        backgroundColor: COLORS.LIGHT
     },
     child: {
         height: '60@vs',

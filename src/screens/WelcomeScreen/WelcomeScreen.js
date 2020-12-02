@@ -68,7 +68,8 @@ class WelcomeScreen extends React.PureComponent {
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: COLORS.LIGHT
     },
     empty: {
         flex: 0.9

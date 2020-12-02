@@ -247,7 +247,8 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        marginBottom: 12
+        paddingBottom: 12,
+        backgroundColor: COLORS.LIGHT
     },
     facebookButton: {
         backgroundColor: COLORS.BLUE,
@@ -296,8 +297,7 @@ const styles = ScaledSheet.create({
         marginLeft: '8@s'
     },
     buttonDivider: {
-        height: '22@s',
-        backgroundColor: COLORS.GRAY
+        height: '22@s'
     },
     invalid: {
         borderColor: COLORS.SECONDARY

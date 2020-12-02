@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { ScrollView, TouchableOpacity } from 'react-native'
+import { ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import SettingItem from '../../components/SettingItem/SettingItem'
 import FOR_WHICH from '../../models/ForWhich'
+import { COLORS } from '../../scripts/colors'
 
 class CategoryItem extends React.PureComponent {
     onPress = () => {
@@ -48,7 +49,7 @@ class CategoryList extends React.PureComponent {
         }
 
         return (
-            <ScrollView>
+            <ScrollView style={styles.container}>
                 {
                     datas.map((category, index) => (
                         <CategoryItem
@@ -64,7 +65,17 @@ class CategoryList extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ({ sourceReducer: { categories } }) => ({
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: COLORS.LIGHT
+    }
+})
+
+const mapStateToProps = ({
+    sourceReducer: {
+        categories
+    }
+}) => ({
     categories
 })
 

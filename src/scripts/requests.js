@@ -28,7 +28,7 @@ export const decreaseProductQuantity = (productId, quantity) => instance.put(`/p
 
 export const setProductQuantity = (productId, quantity) => instance.put(`/products/set-quantity/${productId}`, { quantity })
 
-export const search = (search) => instance.get(`/product/search?name=${search}`)
+export const search = (search) => instance.get(`/products/search?name=${search}`)
 
 export const listFavorites = () => instance.get('/products/favorites')
 
