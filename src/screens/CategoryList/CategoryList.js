@@ -32,19 +32,20 @@ class CategoryItem extends React.PureComponent {
 class CategoryList extends React.PureComponent {
     render() {
         const { forWhich, selectedCategory, selectedSubCategory } = this.props.route.params
+        const { products, navigation } = this.props
         let datas = []
 
         if (forWhich === FOR_WHICH.CATEGORIES) {
-            datas = this.props.categories
+            datas = products
         } else if (forWhich === FOR_WHICH.SUB_CATEGORIES) {
-            datas = this.props.categories[selectedCategory].subCategories
-            this.props.navigation.setOptions({
-                title: this.props.categories[selectedCategory].name
+            datas = products[selectedCategory].subCategories
+            navigation.setOptions({
+                title: products[selectedCategory].name
             })
         } else {
-            datas = this.props.categories[selectedCategory].subCategories[selectedSubCategory].types
-            this.props.navigation.setOptions({
-                title: this.props.categories[selectedCategory].subCategories[selectedSubCategory].name
+            datas = products[selectedCategory].subCategories[selectedSubCategory].types
+            navigation.setOptions({
+                title: products[selectedCategory].subCategories[selectedSubCategory].name
             })
         }
 
@@ -55,7 +56,7 @@ class CategoryList extends React.PureComponent {
                         <CategoryItem
                             category={category}
                             index={index}
-                            navigation={this.props.navigation}
+                            navigation={navigation}
                             forWhich={forWhich}
                             params={this.props.route.params} />
                     ))
@@ -73,10 +74,10 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({
     sourceReducer: {
-        categories
+        products
     }
 }) => ({
-    categories
+    products
 })
 
 export default connect(mapStateToProps)(CategoryList)

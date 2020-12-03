@@ -35,14 +35,16 @@ class ScrollableCategoryList extends React.PureComponent {
     render() {
         return (
             <ScrollView style={styles.container} horizontal showsHorizontalScrollIndicator={false}>
-                {this.props.categories.map((category, index) => (
-                    <CategoryElement
-                        key={`scrollableCategory:${category._id}`}
-                        navigation={this.props.navigation}
-                        title={category.name}
-                        index={index}
-                        imagePath={category.imagePath} />
-                ))}
+                {
+                    this.props.products.map((category, index) => (
+                        <CategoryElement
+                            key={`scrollableCategory:${category._id}`}
+                            navigation={this.props.navigation}
+                            title={category.name}
+                            index={index}
+                            imagePath={category.imagePath} />
+                    ))
+                }
             </ScrollView>
         )
     }
@@ -82,8 +84,12 @@ const styles = ScaledSheet.create({
     }
 })
 
-const mapStateToProps = ({ sourceReducer: { categories } }) => ({
-    categories
+const mapStateToProps = ({
+    sourceReducer: {
+        products
+    }
+}) => ({
+    products
 })
 
 export default connect(mapStateToProps)(ScrollableCategoryList)
