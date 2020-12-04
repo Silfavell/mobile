@@ -32,7 +32,7 @@ const CompletePaymentContent = ({
                 navigation={navigation}
                 token={token}
                 setNeedToLoginPopupState={setNeedToLoginPopupState}
-                title={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'}
+                title={selectedAddressObj?.addressTitle ?? 'Adres Seçiniz'}
                 subTitle={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'} />
 
             <HeadingDivider title='Ödeme Şekli' />
