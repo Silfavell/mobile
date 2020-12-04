@@ -14,12 +14,20 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SET_INITIAL_DATAS:
-            return { cart: { ...action.payload.cart } }
+        case SET_INITIAL_DATAS: {
+            return {
+                cart: {
+                    ...action.payload.cart
+                }
+            }
+        }
 
         case MAKE_ORDER:
-        case CLEAR_CART:
-            return { cart: {} }
+        case CLEAR_CART: {
+            return {
+                cart: {}
+            }
+        }
 
         case DECREASE_PRODUCT_QUANTITY: {
             state.cart[action.payload._id].quantity = action.payload.quantity ?? state.cart[action.payload._id].quantity - 1

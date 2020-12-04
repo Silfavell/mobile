@@ -36,7 +36,12 @@ class LoadingScreen extends React.Component {
     }
 }
 
-const mapStateToProps = ({ sourceReducer: { token, categories } }) => ({
+const mapStateToProps = ({
+    sourceReducer: {
+        token,
+        categories
+    }
+}) => ({
     token,
     categories
 })

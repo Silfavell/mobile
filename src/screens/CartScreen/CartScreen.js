@@ -115,7 +115,11 @@ const styles = ScaledSheet.create({
     }
 })
 
-const mapStateToProps = ({ cartReducer: { cart } }) => ({
+const mapStateToProps = ({
+    cartReducer: {
+        cart
+    }
+}) => ({
     cart
 })
 

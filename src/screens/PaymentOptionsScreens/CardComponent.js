@@ -32,9 +32,7 @@ class CardComponent extends React.PureComponent {
             setSelectedCard
         } = this.props
 
-        setSelectedCard(item.cardToken, () => {
-            navigation.goBack()
-        })
+        setSelectedCard(item.cardToken, navigation.goBack)
     }
 
     onDeleteClick = () => {
@@ -87,11 +85,12 @@ const styles = ScaledSheet.create({
         marginHorizontal: 8
     },
     cardName: {
-        fontSize: '16@s'
+        fontSize: '16@s',
+        color: COLORS.DARK
     },
     cardNumber: {
         fontSize: '15@s',
-        color: COLORS.GRAY
+        color: COLORS.DARK
     },
     highlightedText: {
         fontSize: '16@s',
