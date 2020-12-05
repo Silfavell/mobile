@@ -4,9 +4,9 @@ import { ScrollView } from 'react-native'
 
 import CardList from './CardList'
 
-const PaymentOptionsScreen = () => (
+const PaymentOptionsScreen = (props) => (
     <ScrollView>
-        <CardList />
+        <CardList {...props} />
     </ScrollView>
 )
 

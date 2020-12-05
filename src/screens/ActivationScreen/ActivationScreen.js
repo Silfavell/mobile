@@ -4,9 +4,9 @@ import { ScrollView } from 'react-native'
 
 import ActivationForm from './ActivationForm'
 
-const ActivationScreen = () => (
+const ActivationScreen = (props) => (
     <ScrollView>
-        <ActivationForm />
+        <ActivationForm {...props} />
     </ScrollView>
 )
 

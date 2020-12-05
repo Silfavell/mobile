@@ -10,7 +10,7 @@ export const makeCustomRequest = ({
     data
 })
 
-export const getCategories = () => instance.get('/categories')
+export const getCategories = () => instance.get('/categories/as-map?filter=true')
 
 export const fetchShop = (productIds) => instance.get(`/products/filter-shop?${productIds}&quantity=32`)
 
