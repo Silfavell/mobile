@@ -89,7 +89,7 @@ const styles = ScaledSheet.create({
     resendCodeText: {
         fontSize: '19@s',
         paddingHorizontal: '12@s',
-        color: COLORS.GRAY
+        color: COLORS.PRIMARY
     }
 })
 
