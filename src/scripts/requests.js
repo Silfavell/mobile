@@ -52,7 +52,7 @@ export const clearCart = () => instance.delete('/cart')
 
 export const getBestSellerProducts = () => instance.get('/products/best-seller')
 
-export const changePassword = (data) => instance.put('/auth/change-password', data)
+export const changePassword = (data) => instance.put('/user/change-password', data)
 
 export const login = (data) => instance.post('/auth/login', data)
 
