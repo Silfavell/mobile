@@ -3,9 +3,10 @@ import React from 'react'
 import { ScrollView, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
 import AlertPopup from '../../components/popups/AlertPopup'
+import { COLORS } from '../../scripts/colors'
 import { postTicket } from '../../scripts/requests'
 
 class HelpScreen extends React.Component {
@@ -133,7 +134,8 @@ class HelpScreen extends React.Component {
 const styles = ScaledSheet.create({
     container: {
         flexGrow: 1,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: COLORS.LIGHT
     }
 })
 

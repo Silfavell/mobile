@@ -10,14 +10,15 @@ import { connect } from 'react-redux'
 
 import { increaseProductQuantity } from '../../actions/cart-actions'
 import { addToFavoriteProducts, removeFromFavoriteProdutcs } from '../../actions/source-actions'
-import Accordion from '../../components/Accordion'
-import ButtonComponent from '../../components/ButtonComponent'
+import Accordion from '../../components/Accordion/Accordion'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { COLORS } from '../../scripts/colors'
 import { getProductBySlug as getProductBySlugRequest } from '../../scripts/requests'
 import Loading from '../LoadingScreen/LoadingScreen'
 import Color from './Color'
 import Comment from './Comment'
 import SliderWithHoc from './SliderWithHoc'
+import Specification from './Specification'
 
 class FullProductScreen extends React.Component {
     scrollRef = React.createRef()
@@ -59,7 +60,6 @@ class FullProductScreen extends React.Component {
                             color={COLORS.PRIMARY}
                             style={styles.iconStyle}
                             name={this.props.user?.favoriteProducts?.includes(_id) ? 'md-heart' : 'md-heart-empty'} />
-
                     </TouchableOpacity>
                 )
             })
@@ -109,7 +109,7 @@ class FullProductScreen extends React.Component {
             imageCount
         } = this.state.pickedColor === -1 ? this.state.product : this.state.product.group[this.state.pickedColor]
 
-        return Array.from(new Array(imageCount)).map((el, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
+        return Array.from(new Array(imageCount)).map((_, index) => `${Config.SERVER_URL}/assets/products/${slug}_${index}_940x940.webp`)
     }
 
     isColorSelected = (index) => {
@@ -121,20 +121,6 @@ class FullProductScreen extends React.Component {
 
         return index === this.state.pickedColor
     }
-
-    renderExtraDetailsRow = ({ title, value, first }) => (
-        <View style={[
-            styles.detailRow,
-            !first ? styles.nonFirstDetailsRow : {}
-        ]}>
-            <View style={styles.detailRowTitleContainer}>
-                <Text style={styles.detailRowTitle}>{title}</Text>
-            </View>
-            <View style={styles.detailRowValueContainer}>
-                <Text style={styles.detailRowValue}>{value}</Text>
-            </View>
-        </View>
-    )
 
     render() {
         if (this.state.product) {
@@ -213,7 +199,7 @@ class FullProductScreen extends React.Component {
                                 <View style={styles.extraDetailsContainer}>
                                     {
                                         specifications.map((specification, index) => (
-                                            this.renderExtraDetailsRow({ title: specification.name, value: specification.value, first: index === 0 })
+                                            <Specification title={specification.name} value={specification.value} first={index === 0} />
                                         ))
                                     }
                                 </View>
@@ -294,35 +280,6 @@ const styles = ScaledSheet.create({
         borderWidth: 1,
         borderColor: COLORS.GRAY
     },
-    detailRow: {
-        display: 'flex',
-        flexDirection: 'row'
-    },
-    nonFirstDetailsRow: {
-        borderTopWidth: 1,
-        borderTopColor: COLORS.GRAY
-    },
-    detailRowTitleContainer: {
-        flex: 4,
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: COLORS.LIGHT
-    },
-    detailRowTitle: {
-        padding: '12@s',
-        fontSize: '15@s'
-    },
-    detailRowValueContainer: {
-        flex: 8,
-        display: 'flex',
-        justifyContent: 'center',
-        borderLeftWidth: 1,
-        borderLeftColor: COLORS.GRAY
-    },
-    detailRowValue: {
-        padding: '12@s',
-        fontSize: '15@s'
-    },
     productDetailText: {
         margin: '4@s',
         fontSize: '18@s',
@@ -333,19 +290,20 @@ const styles = ScaledSheet.create({
         fontSize: '15@s'
     },
     price: {
-        fontSize: '17@s',
+        fontSize: '16@s',
         marginRight: '8@s',
         fontWeight: '700',
         color: COLORS.DARK
     },
     discountedPrice: {
         fontWeight: 'normal',
+        fontSize: '16@s',
         // fontWeight: '100',
         textDecorationLine: 'line-through'
     },
     productName: {
         fontSize: '16@s',
-        fontWeight: 'bold'
+        color: COLORS.DARK
     },
     colorText: {
         fontSize: '16@s',

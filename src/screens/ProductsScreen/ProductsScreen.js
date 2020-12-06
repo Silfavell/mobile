@@ -7,7 +7,7 @@ import {
 import { ScaledSheet, s } from 'react-native-size-matters'
 import { connect } from 'react-redux'
 
-import RecyclerList from '../../components/RecyclerList'
+import RecyclerList from '../../components/RecyclerList/RecyclerList'
 import { COLORS } from '../../scripts/colors'
 
 class ProductsScreen extends React.Component {
@@ -22,7 +22,7 @@ class ProductsScreen extends React.Component {
             /* headerRight: () => ( // filter button
                 <TouchableOpacity onPress={this.onFilterClick}>
                 <MaterialIcons
-                color={'white'}
+                color={COLORS.LIGHT}
                 name='sort'
                 size={28}
                 style={styles.iconContainer} />

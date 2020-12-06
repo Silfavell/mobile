@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 import { logout } from '../../actions/source-actions'
 import AskPopup from '../../components/popups/AskPopup'
-import SettingItem from '../../components/SettingItem'
+import SettingItem from '../../components/SettingItem/SettingItem'
 import { COLORS } from '../../scripts/colors'
 
 class LogoutItem extends React.Component {

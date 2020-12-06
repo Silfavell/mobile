@@ -4,9 +4,9 @@ import { ScrollView } from 'react-native'
 
 import ForgotPasswordForm from './ForgotPasswordForm'
 
-const ForgotPasswordScreen = () => (
+const ForgotPasswordScreen = (props) => (
     <ScrollView>
-        <ForgotPasswordForm />
+        <ForgotPasswordForm {...props} />
     </ScrollView>
 )
 export default ForgotPasswordScreen

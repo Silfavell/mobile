@@ -7,7 +7,7 @@ import {
     deleteAddress,
     setSelectedAddress
 } from '../../actions/payment-actions'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 import InteractiveSettingItem from './InteractiveSettingItem'
 

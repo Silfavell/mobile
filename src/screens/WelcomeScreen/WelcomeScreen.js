@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 
-import ButtonComponent from '../../components/ButtonComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { COLORS } from '../../scripts/colors'
 
 import icon from '../../../assets/logo.png'
@@ -68,7 +68,8 @@ class WelcomeScreen extends React.PureComponent {
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: COLORS.LIGHT
     },
     empty: {
         flex: 0.9

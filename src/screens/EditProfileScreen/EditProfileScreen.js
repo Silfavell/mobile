@@ -4,9 +4,9 @@ import { ScrollView } from 'react-native'
 
 import EditProfileForm from './EditProfileForm'
 
-const EditProfileScreen = () => (
+const EditProfileScreen = (props) => (
     <ScrollView>
-        <EditProfileForm />
+        <EditProfileForm {...props} />
     </ScrollView>
 )
 

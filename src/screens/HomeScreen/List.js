@@ -5,7 +5,7 @@ import { s } from 'react-native-size-matters'
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview'
 import StickyContainer from 'recyclerlistview/sticky'
 
-import Product from '../../components/Product'
+import Product from '../../components/Product/Product'
 
 const { width } = Dimensions.get('window')
 

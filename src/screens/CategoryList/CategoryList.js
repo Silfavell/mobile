@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { ScrollView, TouchableOpacity } from 'react-native'
+import { ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
-import SettingItem from '../../components/SettingItem'
+import SettingItem from '../../components/SettingItem/SettingItem'
 import FOR_WHICH from '../../models/ForWhich'
+import { COLORS } from '../../scripts/colors'
 
 class CategoryItem extends React.PureComponent {
     onPress = () => {
@@ -31,30 +32,31 @@ class CategoryItem extends React.PureComponent {
 class CategoryList extends React.PureComponent {
     render() {
         const { forWhich, selectedCategory, selectedSubCategory } = this.props.route.params
+        const { products, navigation } = this.props
         let datas = []
 
         if (forWhich === FOR_WHICH.CATEGORIES) {
-            datas = this.props.categories
+            datas = products
         } else if (forWhich === FOR_WHICH.SUB_CATEGORIES) {
-            datas = this.props.categories[selectedCategory].subCategories
-            this.props.navigation.setOptions({
-                title: this.props.categories[selectedCategory].name
+            datas = products[selectedCategory].subCategories
+            navigation.setOptions({
+                title: products[selectedCategory].name
             })
         } else {
-            datas = this.props.categories[selectedCategory].subCategories[selectedSubCategory].types
-            this.props.navigation.setOptions({
-                title: this.props.categories[selectedCategory].subCategories[selectedSubCategory].name
+            datas = products[selectedCategory].subCategories[selectedSubCategory].types
+            navigation.setOptions({
+                title: products[selectedCategory].subCategories[selectedSubCategory].name
             })
         }
 
         return (
-            <ScrollView>
+            <ScrollView style={styles.container}>
                 {
                     datas.map((category, index) => (
                         <CategoryItem
                             category={category}
                             index={index}
-                            navigation={this.props.navigation}
+                            navigation={navigation}
                             forWhich={forWhich}
                             params={this.props.route.params} />
                     ))
@@ -64,8 +66,18 @@ class CategoryList extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ({ sourceReducer: { categories } }) => ({
-    categories
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: COLORS.LIGHT
+    }
+})
+
+const mapStateToProps = ({
+    sourceReducer: {
+        products
+    }
+}) => ({
+    products
 })
 
 export default connect(mapStateToProps)(CategoryList)

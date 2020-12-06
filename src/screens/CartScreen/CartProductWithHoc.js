@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CartProduct from '../../components/CartProduct'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import CartProduct from '../../components/CartProduct/CartProduct'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 
 const CartProductWithHoc = (props) => (
     <CartProduct {...props} />

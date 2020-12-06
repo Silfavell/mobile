@@ -10,7 +10,7 @@ export const makeCustomRequest = ({
     data
 })
 
-export const getCategories = () => instance.get('/categories')
+export const getCategories = () => instance.get('/categories/as-map?filter=true')
 
 export const fetchShop = (productIds) => instance.get(`/products/filter-shop?${productIds}&quantity=32`)
 
@@ -28,11 +28,11 @@ export const decreaseProductQuantity = (productId, quantity) => instance.put(`/p
 
 export const setProductQuantity = (productId, quantity) => instance.put(`/products/set-quantity/${productId}`, { quantity })
 
-export const search = (search) => instance.get(`/product/search?name=${search}`)
+export const search = (search) => instance.get(`/products/search?name=${search}`)
 
 export const listFavorites = () => instance.get('/products/favorites')
 
-export const addFavorite = (productId) => instance.post('/products/favorites', { _id:productId })
+export const addFavorite = (productId) => instance.post('/products/favorites', { _id: productId })
 
 export const removeFavorite = (productId) => instance.delete(`/products/favorites/${productId}`)
 
@@ -52,7 +52,7 @@ export const clearCart = () => instance.delete('/cart')
 
 export const getBestSellerProducts = () => instance.get('/products/best-seller')
 
-export const changePassword = (data) => instance.put('/auth/change-password', data)
+export const changePassword = (data) => instance.put('/user/change-password', data)
 
 export const login = (data) => instance.post('/auth/login', data)
 

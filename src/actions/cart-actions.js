@@ -31,7 +31,12 @@ export const clearCart = (token) => async (dispatch) => {
 export const makeOrder = (selectedCard, selectedAddress, cb) => async (dispatch) => {
     try {
         const body = { card: selectedCard, address: selectedAddress }
+        /* TODO uncomment on production :)
         const { status } = await makeOrderRequest(body)
+        */
+
+        // TODO remove on production :)
+        const status = 200
 
         if (status === 200) {
             dispatch({ type: MAKE_ORDER })

@@ -2,9 +2,9 @@ import React from 'react'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import ClickableSettingItem from '../../components/ClickableSettingItem'
-import HeadingDivider from '../../components/HeadingDivider'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ClickableSettingItem from '../../components/ClickableSettingItem/ClickableSettingItem'
+import HeadingDivider from '../../components/HeadingDivider/HeadingDivider'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 
 class AddressesFooter extends React.PureComponent {

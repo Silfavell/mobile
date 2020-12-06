@@ -8,9 +8,9 @@ import joi from 'react-native-joi'
 import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
-import InputIcon from '../../components/InputIcon'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
+import InputIcon from '../../components/InputIcon/InputIcon'
 import { COLORS } from '../../scripts/colors'
 import { sendActivationCode } from '../../scripts/requests'
 import TermsComponent from './TermsComponent'
@@ -134,7 +134,9 @@ class RegisterScreen extends React.Component {
                             <Ionicons
                                 size={32}
                                 name='md-phone-portrait'
-                                color={COLORS.PRIMARY} />
+                                color={
+                                    this.state.invalidPhoneNumber && this.state.isPhoneNumberInitialized ? COLORS.PRIMARY : COLORS.SECONDARY
+                                } />
                         </InputIcon>
                     </InputComponent>
 
@@ -153,7 +155,7 @@ class RegisterScreen extends React.Component {
                                 size={32}
                                 name='ios-key'
                                 color={
-                                    this.state.invalidPassword && this.state.isPasswordInitialized ? COLORS.SECONDARY : COLORS.TERTIARY
+                                    this.state.invalidPassword && this.state.isPasswordInitialized ? COLORS.PRIMARY : COLORS.SECONDARY
                                 }
                                 style={styles.iconContainer} />
                         </InputIcon>
@@ -174,7 +176,7 @@ class RegisterScreen extends React.Component {
                                 size={32}
                                 name='md-person'
                                 color={
-                                    this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? COLORS.SECONDARY : COLORS.TERTIARY
+                                    this.state.invalidNameSurname && this.state.isNameSurnameInitialized ? COLORS.PRIMARY : COLORS.SECONDARY
                                 } />
                         </InputIcon>
 
@@ -195,7 +197,7 @@ class RegisterScreen extends React.Component {
                                 size={32}
                                 name='md-mail-open'
                                 color={
-                                    this.state.invalidEmail && this.state.isEmailInitialized ? COLORS.SECONDARY : COLORS.TERTIARY
+                                    this.state.invalidEmail && this.state.isEmailInitialized ? COLORS.PRIMARY : COLORS.SECONDARY
                                 } />
                         </InputIcon>
 
@@ -245,7 +247,8 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        marginBottom: 12
+        paddingBottom: 12,
+        backgroundColor: COLORS.LIGHT
     },
     facebookButton: {
         backgroundColor: COLORS.BLUE,
@@ -294,8 +297,7 @@ const styles = ScaledSheet.create({
         marginLeft: '8@s'
     },
     buttonDivider: {
-        height: '22@s',
-        backgroundColor: COLORS.GRAY
+        height: '22@s'
     },
     invalid: {
         borderColor: COLORS.SECONDARY

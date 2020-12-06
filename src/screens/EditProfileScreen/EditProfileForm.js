@@ -5,10 +5,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { updateProfile } from '../../actions/source-actions'
-import ButtonComponent from '../../components/ButtonComponent'
-import InputComponent from '../../components/InputComponent'
-import InputIcon from '../../components/InputIcon'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import InputComponent from '../../components/InputComponent/InputComponent'
+import InputIcon from '../../components/InputIcon/InputIcon'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import { COLORS } from '../../scripts/colors'
 
 class EditProfileForm extends React.Component {

@@ -5,8 +5,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import LoadingComponent from '../../components/LoadingComponent'
-import RecyclerList from '../../components/RecyclerList'
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
+import RecyclerList from '../../components/RecyclerList/RecyclerList'
 import { COLORS } from '../../scripts/colors'
 import { listFavorites } from '../../scripts/requests'
 
@@ -81,7 +81,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: COLORS.GRAY
+        backgroundColor: COLORS.LIGHT
     },
     emptyText: {
         marginTop: 32,

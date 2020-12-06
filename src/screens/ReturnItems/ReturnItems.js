@@ -10,8 +10,8 @@ import CheckBox from 'react-native-check-box'
 import { ScaledSheet } from 'react-native-size-matters'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-import ButtonComponent from '../../components/ButtonComponent'
-import CartProduct from '../../components/CartProduct'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import CartProduct from '../../components/CartProduct/CartProduct'
 import { COLORS } from '../../scripts/colors'
 import { returnItems } from '../../scripts/requests'
 

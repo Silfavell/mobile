@@ -4,8 +4,8 @@ import { ScrollView, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import { setNeedToLoginPopupState } from '../../actions/global-actions'
-import HeadingDivider from '../../components/HeadingDivider'
-import ShadowContainerHoc from '../../components/ShadowContainerHoc'
+import HeadingDivider from '../../components/HeadingDivider/HeadingDivider'
+import ShadowContainerHoc from '../../components/ShadowContainerHoc/ShadowContainerHoc'
 import AddressSelectComponent from './AddressSelectComponent'
 import CargoPriceComponent from './CargoPriceComponent'
 import PaymentTypeSelectComponent from './PaymentTypeSelectComponent'
@@ -32,7 +32,7 @@ const CompletePaymentContent = ({
                 navigation={navigation}
                 token={token}
                 setNeedToLoginPopupState={setNeedToLoginPopupState}
-                title={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'}
+                title={selectedAddressObj?.addressTitle ?? 'Adres Seçiniz'}
                 subTitle={selectedAddressObj?.openAddress ?? 'Adres Seçiniz'} />
 
             <HeadingDivider title='Ödeme Şekli' />

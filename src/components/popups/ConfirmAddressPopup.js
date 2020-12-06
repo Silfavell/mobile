@@ -78,7 +78,7 @@ const styles = ScaledSheet.create({
     },
     titleText: {
         textAlign: 'center',
-        color: COLORS.TERTIARY,
+        color: COLORS.PRIMARY,
         fontWeight: '600',
         fontSize: '19@s'
     },

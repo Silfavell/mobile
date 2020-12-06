@@ -5,8 +5,8 @@ import { ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
-import CartProduct from '../../components/CartProduct'
-import CompletePayment from '../../components/CompletePayment'
+import CartProduct from '../../components/CartProduct/CartProduct'
+import CompletePayment from '../../components/CompletePayment/CompletePayment'
 import { COLORS } from '../../scripts/colors'
 import CartProductWithHoc from './CartProductWithHoc'
 
@@ -75,7 +75,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: COLORS.GRAY
+        backgroundColor: COLORS.LIGHT
     },
     emptyText: {
         marginTop: 32,
@@ -115,7 +115,11 @@ const styles = ScaledSheet.create({
     }
 })
 
-const mapStateToProps = ({ cartReducer: { cart } }) => ({
+const mapStateToProps = ({
+    cartReducer: {
+        cart
+    }
+}) => ({
     cart
 })
 

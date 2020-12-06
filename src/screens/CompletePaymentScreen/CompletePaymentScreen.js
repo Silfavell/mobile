@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CompletePayment from '../../components/CompletePayment'
+import CompletePayment from '../../components/CompletePayment/CompletePayment'
 import CompletePaymentContent from './CompletePaymentContent'
 
 class CompletePaymentScreen extends React.PureComponent {

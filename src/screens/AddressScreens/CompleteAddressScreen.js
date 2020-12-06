@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { saveAddress } from '../../actions/payment-actions'
-import ButtonComponent from '../../components/ButtonComponent'
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import ConfirmAddressPopup from '../../components/popups/ConfirmAddressPopup'
 import { COLORS } from '../../scripts/colors'
 import CompleteAddressInput from '../MapScreens/CompleteAddressInput'
