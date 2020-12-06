@@ -37,6 +37,8 @@ class CardList extends React.Component {
 
     renderListFooter = () => <AddNewCardComponent navigation={this.props.navigation} />
 
+    keyExtractor = (item) => item.cardToken
+
     render() {
         return (
             <>
@@ -45,7 +47,7 @@ class CardList extends React.Component {
                 <FlatList
                     contentContainerStyle={styles.list}
                     data={this.props.cards}
-                    keyExtractor={(item) => item.cardToken}
+                    keyExtractor={this.keyExtractor}
                     renderItem={this.renderCardComponent}
                     ListFooterComponent={this.renderListFooter} />
             </>
