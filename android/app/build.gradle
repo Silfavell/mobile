@@ -142,8 +142,8 @@ android {
         applicationId "com.silfavell.android"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.1.0"
         multiDexEnabled true
         resValue "string", "build_config_package", "com.silfavell.android"
     }
